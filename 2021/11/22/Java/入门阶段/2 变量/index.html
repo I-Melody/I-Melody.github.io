@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2 变量 变量：变量是程序的基本组成单位 变量的三个基本要素：类型 + 名称 + 值 示例：int a &#x3D; 1 类型 int 名称 a 值 1  如何声明变量： int a; a &#x3D; 100;  int b &#x3D; 100;  int c &#x3D; 5, d;    2.1 变量使用注意事项 变量表示内存中的一个存储区域。不同变量，不同类型，占用的空间大小不同。如 int 有 4 byte，而  doubl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;2 变量">
+<meta property="og:url" content="https://i-melody.github.io/2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="2 变量 变量：变量是程序的基本组成单位 变量的三个基本要素：类型 + 名称 + 值 示例：int a &#x3D; 1 类型 int 名称 a 值 1  如何声明变量： int a; a &#x3D; 100;  int b &#x3D; 100;  int c &#x3D; 5, d;    2.1 变量使用注意事项 变量表示内存中的一个存储区域。不同变量，不同类型，占用的空间大小不同。如 int 有 4 byte，而  doubl">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:50:50.859Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;2 变量 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;2 变量"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-22 00:00" pubdate>
+          2021年11月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;2 变量</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 变量</h1><blockquote>
+<p>变量：变量是程序的基本组成单位</p>
+<p>变量的三个基本要素：类型 + 名称 + 值</p>
+<p>示例：<code>int a = 1</code> 类型 int 名称 a 值 1</p>
+</blockquote>
+<p><strong>如何声明变量：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> a;
+a = <span class="hljs-number">100</span>;
+
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
+
+<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>, d;</code></pre></div>
+
+
+
+<h2 id="2-1-变量使用注意事项"><a href="#2-1-变量使用注意事项" class="headerlink" title="2.1 变量使用注意事项"></a>2.1 变量使用注意事项</h2><ol>
+<li>变量表示内存中的一个存储区域。不同变量，不同类型，占用的空间大小不同。如 <code>int</code> 有 4 byte，而  <code>double</code> 有 8 byte。</li>
+<li>该区域有自己的名称 <code>变量名</code> 和类型 <code>数据类型</code> </li>
+<li>变量必须先声明，后使用。</li>
+<li>变量在同一作用域内不能重名。</li>
+<li>该区域的数据 · 值可以在同一类型范围内变化。</li>
+<li>变量的三个基本要素：类型 + 名称 + 值</li>
+</ol>
+<h2 id="2-2-程序中-的使用"><a href="#2-2-程序中-的使用" class="headerlink" title="2.2 程序中 + 的使用"></a>2.2 程序中 <code>+</code> 的使用</h2><ol>
+<li><p>当左右两边都是数值型，做加法运算</p>
+</li>
+<li><p>当左右两边任意一方为字符串，做拼接运算</p>
+</li>
+<li><p>运算顺序是从左到右的</p>
+<div class="code-wrapper"><pre><code class="hljs java">System.out.println(<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-string">&quot;a&quot;</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span>);		<span class="hljs-comment">// 输出 2a11</span></code></pre></div></li>
+</ol>
+<h2 id="2-3-Java-数据类型"><a href="#2-3-Java-数据类型" class="headerlink" title="2.3 Java 数据类型"></a>2.3 Java 数据类型</h2><h4 id="基本数据类型（本章）"><a href="#基本数据类型（本章）" class="headerlink" title="- 基本数据类型（本章）"></a>- 基本数据类型（本章）</h4><ul>
+<li><p><strong>数值型</strong></p>
+<ul>
+<li><p>整数类型：</p>
+<ul>
+<li>byte：占用 1 字节</li>
+<li>short：占用 2 字节</li>
+<li>int：占用 4 字节</li>
+<li>long：占用 8 字节</li>
+</ul>
+</li>
+<li><p>浮点（小数）类型：</p>
+<ul>
+<li>float：占用 4 字节</li>
+<li>double：占用 8 字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>字符型</strong></p>
+<ul>
+<li>char：存放单个字符，占用 2 字节</li>
+</ul>
+</li>
+<li><p><strong>布尔型</strong></p>
+<ul>
+<li>boolean：存放 true（真），false（假）。占用 1 字节</li>
+</ul>
+</li>
+</ul>
+<h4 id="引用数据类型（复合数据类型）"><a href="#引用数据类型（复合数据类型）" class="headerlink" title="- 引用数据类型（复合数据类型）"></a>- 引用数据类型（复合数据类型）</h4><ul>
+<li><p><strong>类</strong>：class</p>
+<p><em><strong>——详见 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%EF%BC%88OOP%EF%BC%89">[ 6 类与对象 ]</a></strong></em></p>
+</li>
+<li><p><strong>接口</strong>：interface</p>
+<p><em><strong>——详见 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-7-%E6%8E%A5%E5%8F%A3">[ 9.7 接口 ]</a></strong></em></p>
+</li>
+<li><p><strong>数组</strong>：<code>[]</code>  </p>
+<p><em><strong>——详见 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE">[ 5 数组、排序和查找 ]</a></strong></em></p>
+</li>
+</ul>
+<h2 id="2-4-整数类型"><a href="#2-4-整数类型" class="headerlink" title="2.4 整数类型"></a>2.4 整数类型</h2><blockquote>
+<p>用于存放整数值</p>
+</blockquote>
+<ul>
+<li><code>byte</code> 占用 1 字节，范围 -128 ~ 127</li>
+<li><code>short</code> 占用 2 字节，范围 -2<sup>15</sup> ~ 2<sup>15</sup> - 1</li>
+<li><code>int</code> 占用 4 字节，范围 -2<sup>31</sup> ~ 2<sup>31</sup> - 1</li>
+<li><code>long</code> 占用 8 字节，范围 -2<sup>63</sup> ~ 2<sup>63</sup> - 1</li>
+</ul>
+<p><strong>使用细节：</strong></p>
+<ol>
+<li><p>Java 各整数类型有固定的范围和字符长度，不受具体 OS（操作系统）影响，以保证 Java 程序的可移植性。</p>
+</li>
+<li><p>Java 默认整型常量为 <code>int</code> ，要声明 <code>long</code> 型常量必须后加 <code>l</code> 或 <code>L</code>。</p>
+</li>
+<li><p>从 Java 7 开始，加上前缀 <code>0b</code> 或 <code>0B</code> 就可以写二进制数。</p>
+</li>
+<li><p>从 Java 7 开始，可以为数字字面添加下划线。这不会影响数字的值，只是为了方便阅读。</p>
+</li>
+</ol>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0b0010</span>;
+n = <span class="hljs-number">0b001</span>;
+n = <span class="hljs-number">100_0_000000</span>;
+n = <span class="hljs-number">0B0000_0010_1100</span>;
+<span class="hljs-type">float</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0F</span>;</code></pre></div>
+
+<p>如果基本的整数、浮点类型不能满足范围、精度的需求，可以使用 “大数”</p>
+<p><em><strong>—— 大数，见 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-8-BigInteger-%E5%92%8C-BigDecimal-%E7%B1%BB">[12.8 BigInteger 和 BigDecimal 类]</a></strong></em></p>
+<h2 id="2-5-浮点类型"><a href="#2-5-浮点类型" class="headerlink" title="2.5 浮点类型"></a>2.5 浮点类型</h2><blockquote>
+<p>可以表示一个小数</p>
+</blockquote>
+<ul>
+<li><code>float</code> 单精度（6 ~ 7 位有效数字），占用 4 字节，范围约 -3.403E38 ~ 3.403E38</li>
+<li><code>double</code> 双精度（15 位有效数字），占用 8 字节，范围约 -1.798E308 ~ 1.798E308</li>
+</ul>
+<p><em>浮点数在机器中存放形式为：浮点数 &#x3D; 符号位 + 指数位 + 尾数位</em></p>
+<p><em><strong>因此，尾数部分可能丢失，造成精度损失。换言之，小数都是近似值</strong></em></p>
+<h3 id="2-5-1-使用细节"><a href="#2-5-1-使用细节" class="headerlink" title="2.5.1 使用细节"></a>2.5.1 使用细节</h3><ol>
+<li><p>与整数类型相似，有固定的范围和字符长度，不受具体 OS（操作系统）影响。</p>
+</li>
+<li><p>Java 默认浮点常量为 <code>double</code> ，要声明 <code>float</code> 型常量必须后加 ”f“ 或 ”F“</p>
+</li>
+<li><p>浮点型常量有两种表示形式</p>
+<blockquote>
+<p>十进制数形式：<code>5.13</code>、<code>315.4F</code>、<code>.414</code></p>
+<p>科学计数法：<code>5.12e2</code> 即[5.12 × 10<sup>2</sup>]、<code>5.12E-2</code> 即[5.12 &#x2F; 10<sup>2</sup>]</p>
+</blockquote>
+</li>
+<li><p>通常情况下，应该使用 <code>double</code> 类型，以其更为精确。</p>
+</li>
+<li><p>浮点数使用陷阱：当我们对运算结果是小数的进行相对判断时，要小心。（因为<em><strong>小数都是近似值</strong></em>）</p>
+<p>正确方法是：<strong>以两个数差值的绝对值，在某个精度范围内判断</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (Math.abs(num1 - num2) &lt; <span class="hljs-number">0.00001</span>) &#123;
+	System.out.println(<span class="hljs-string">&quot;插值范围内认为相等&quot;</span>);
+&#125;</code></pre></div>
+</li>
+<li><p>特殊的浮点类型常量</p>
+<ul>
+<li><p>正无穷大：<code>Float.POSITIVE_INFINITY</code>、<code>Double.POSITIVE_INFINITY</code></p>
+<p>（浮点数运算中）一个正数除以 0，会得到该值</p>
+</li>
+<li><p>负无穷大：<code>Float.NEGATIVE_INFINITY</code>、<code>Double.NEGATIVE_INFINITY</code></p>
+<p>（浮点数运算中）一个负数除以 0，会得到该值</p>
+</li>
+<li><p>0 &#x2F; 0：<code>Float.NaN</code>、<code>Double.NaN</code></p>
+<p>（浮点数运算中）0 除以 0，会得到该值</p>
+</li>
+<li><p>最大、最小值：<code>Float.MAX_VALUE</code>、<code>Double.MIN_VALUE</code></p>
+</li>
+</ul>
+</li>
+<li><p>不能用运算符来比较特殊值，而要用特别的方法</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.0</span> / <span class="hljs-number">0</span>;
+System.out.println(num == Double.NaN);			<span class="hljs-comment">// &lt;——— 始终为 false。不能如此比较</span>
+System.out.println(Double.isNaN(num));			<span class="hljs-comment">// &lt;——— 判断是否是 NaN</span>
+num = <span class="hljs-number">1.0</span> / <span class="hljs-number">0</span>;
+System.out.println(Double.isInfinite(num));		<span class="hljs-comment">// &lt;——— 是否是无穷大</span></code></pre></div>
+</li>
+<li><p>由于不同处理器寄存浮点数的策略可能不同，浮点数运算的结果也可能不同。</p>
+<p><em><strong>—— 见 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-1-4-strictfp-%E5%85%B3%E9%94%AE%E5%AD%97">[12.1.4 strictfp 关键字]</a></strong></em></p>
+</li>
+</ol>
+<h2 id="2-6-字符类型"><a href="#2-6-字符类型" class="headerlink" title="2.6 字符类型"></a>2.6 字符类型</h2><blockquote>
+<p>可以表示单个字符。（可以存放一个数字，因为其字符是数字编号的。输出时会输出数字对应的字符。”编码的概念“）</p>
+<p><code>char c1 = &#39;a&#39;;</code>  <code>char c2 = &#39;\t&#39;;</code>  <code>char c3 = &#39;字&#39;;</code> <code>char c4 = 99;</code></p>
+</blockquote>
+<h3 id="2-6-1-使用细节"><a href="#2-6-1-使用细节" class="headerlink" title="2.6.1 使用细节"></a>2.6.1 使用细节</h3><ol>
+<li><p>字符常量用单引号括起  &#96;’字’</p>
+</li>
+<li><p><code>char</code> 的本质是一个整数，输出时，输出的是 unicode 码对应的字符。<a href="tool.chinaz.com/Tools/Unicode.aspx">unicode 码查询</a> 。</p>
+<p>要输出那个整数，用 <code>int</code></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>;
+System.out.println((<span class="hljs-type">int</span>)c1);</code></pre></div>
+</li>
+<li><p><code>char</code> 是可以进行运算的，其相当于一个整数。<em><strong>注意与 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-2-%E7%A8%8B%E5%BA%8F%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8">[2.2 示例]</a> 的区别</strong></em></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 注：(int)&#x27;a&#x27; = 97</span>
+<span class="hljs-type">char</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span> + <span class="hljs-number">1</span>;				<span class="hljs-comment">// 相当于 char c1 = &#x27;b&#x27;</span>
+System.out.println(<span class="hljs-string">&#x27;a&#x27;</span> + <span class="hljs-number">1</span>);	<span class="hljs-comment">// 这个代码输出 98</span>
+System.out.println(<span class="hljs-string">&quot;a&quot;</span> + <span class="hljs-number">1</span>);	<span class="hljs-comment">// 这个代码输出 a1</span></code></pre></div>
+</li>
+<li><p>字符允许使用转义符（*见 [1.8 Java 转义字符]*）</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u0041&#x27;</span>;</code></pre></div>
+
+<p><strong>转义序列 \u 能出现在引号外。所有这些转义序列会在解析代码前得到处理</strong></p>
+<ul>
+<li><p>以下字符串是空串：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;\u0022+\u0022&quot;</span>;</code></pre></div>
+
+<p>因为 \u0022 表示引号。该代码等同于以下代码</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span> + <span class="hljs-string">&quot;&quot;</span>;</code></pre></div>
+</li>
+<li><p>以下注释会报错：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// \u000A is a newline</span></code></pre></div>
+
+<p>因为 \u000A 是换行符。在解析前会得到处理。在程序看来，上述注释等于以下写法</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// </span>
+is a newline</code></pre></div>
+</li>
+<li><p>以下注释也会报错：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// look inside c:\users</span></code></pre></div>
+
+<p>因为程序认为，\users 不是一个合法的转义字符</p>
+</li>
+<li><p>在某些场合下这种写法似乎也能实现：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>\u005B\u005D a;			<span class="hljs-comment">// int[] a; 一个数组</span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-6-2-字符本质与编码表"><a href="#2-6-2-字符本质与编码表" class="headerlink" title="2.6.2 字符本质与编码表"></a>2.6.2 字符本质与编码表</h3><ul>
+<li><p>字符类型的本质，是把字符对应的码值编程二进制，存储。显示时将二进制代码转化为码值，找到对应的字符。</p>
+</li>
+<li><p>字符与码值的对应关系是字符编码表规定的。</p>
+<blockquote>
+<p>ASCII 编码表，占用 1 byte，共有 128 个字符。</p>
+<p>Unicode 编码表，占用 2 byte，字母汉字都占用 2 byte，这样可能浪费空间。0 - 127 的字符与 ASCII 相同，所以兼容 ASCII。</p>
+<p>UTF-8 编码表，根据不同符号大小可变（1 - 6 byte），字母占用 1 byte，汉字占用 3 byte。是 Unicode 的改进，是互联网上使用最广的 Unicode 实现方式。</p>
+<p>GBK 编码表，可以表示汉字，字母占用 1 byte，汉字占用 2 byte。</p>
+<p>GB2312 编码表，可以表示汉字（GB2312 &lt; GBK）</p>
+<p>BIG5 编码表，可以存放繁体中文（香港，台湾）</p>
+</blockquote>
+</li>
+<li><p>UTF-16 编码采用不同长度的编码表示所有 Unicode 码点。包含从 U+0000 到 U+FFFF 的经典 Unicode 代码（16位，1 个代码单元），以及 U+10000 到 U+10FFFF 的辅助字符（32位，2 个代码单元）</p>
+</li>
+<li><p>在 Java 中，char 类型描述的是 UTF-16 编码中的 1 个代码单元。</p>
+<p>字符串中的一个辅助字符（如 🎶）可能占用 2 个代码单元。这个场合，使用 char 可能会导致错误</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;🎶Melody🎶&quot;</span>;
+<span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> str.charAt(<span class="hljs-number">1</span>);			<span class="hljs-comment">// &lt;———— 这个场合，c 是 🎶 符号的第二个代码单元而非 &#x27;M&#x27;</span></code></pre></div>
+
+<p><strong>因此，一般不建议在程序中使用 char 类型</strong></p>
+</li>
+</ul>
+<h2 id="2-7-布尔类型"><a href="#2-7-布尔类型" class="headerlink" title="2.7 布尔类型"></a>2.7 布尔类型</h2><blockquote>
+<p><code>boolean</code> 只允许取值 <code>ture</code> 或 <code>false</code> ，没有 <code>null</code>。适用于逻辑运算，通常用于程序流程控制</p>
+<p><code>if</code>  <code>while</code>  <code>do-while</code>  <code>for</code></p>
+</blockquote>
+<p><strong>使用细节：</strong></p>
+<ol>
+<li><p>不可以用 0 或 非0 的整数替代 <code>false</code> 或 <code>ture</code> 。这点和 C语言 不同。</p>
+</li>
+<li><p>不能让布尔类型转换为其他类型。如需转换，请使用如下方法：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">boolean</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> b ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;</code></pre></div>
+
+<p><em><strong>——见 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-5-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6">[3.5 三元运算符]</a></strong></em></p>
+</li>
+</ol>
+<h2 id="2-8-基本数据类型转换"><a href="#2-8-基本数据类型转换" class="headerlink" title="2.8 基本数据类型转换"></a>2.8 基本数据类型转换</h2><h3 id="2-8-1-自动类型转换"><a href="#2-8-1-自动类型转换" class="headerlink" title="2.8.1 自动类型转换"></a>2.8.1 自动类型转换</h3><blockquote>
+<p>自动类型转换：Java 在进行赋值或运算时，精度（容量）小的类型自动转换为精度（容量）大的类型。</p>
+<p><code>char</code>  &gt;  <code>int </code>  &gt;  <code>long</code>  &gt;  <code>float</code>  &gt;  <code>double</code></p>
+<p><code>byte</code>  &gt;  <code>short</code>  &gt;  <code>int </code>  &gt;  <code>long</code>  &gt;  <code>float</code>  &gt;  <code>double</code></p>
+<p>例子：<code>int a = &#39;c&#39;</code>  或者 <code>double b = 80</code></p>
+</blockquote>
+<h4 id="2-8-1-1-使用细节"><a href="#2-8-1-1-使用细节" class="headerlink" title="2.8.1.1 使用细节"></a>2.8.1.1 使用细节</h4><ol>
+<li><p>有多种类型数据混合运算时，系统会将所有数据转换成容量最大的那种，再进行运算。</p>
+</li>
+<li><p>如若把大精度（容量）数据赋值给小精度（容量）类型，就会报错（小数由于精度原因，大赋小会丢失精度，必不可用。但整数大赋小时：1.赋予具体数值时，判断范围。2.变量赋值时，判断类型。反之进行自动类型转换。</p>
+</li>
+<li><p><code>byte</code>  <code>short</code>  <code>char</code>  三者不会相互自动转换，但可以计算。计算时首先转化为 <code>int</code>。</p>
+<blockquote>
+<p><code>byte a = 1;</code></p>
+<p><code>byte b = 1;</code></p>
+<p><code>a + b</code> 结果是 <code>int</code> 类型</p>
+</blockquote>
+</li>
+<li><p><code>boolean</code> 类型不参与自动转换</p>
+</li>
+<li><p>自动提升原则：表达式结果的类型自动提升为操作数中最大的类型。</p>
+</li>
+</ol>
+<h3 id="2-8-2-强制类型转换"><a href="#2-8-2-强制类型转换" class="headerlink" title="2.8.2 强制类型转换"></a>2.8.2 强制类型转换</h3><blockquote>
+<p>强制类型转换：自动类型转换的逆过程，将容量大的数据类型转换为容量小的数据类型。使用时加上强制转换符 <code>( )</code> ，但<strong>可能造成精度降低或溢出</strong>，要格外注意。</p>
+</blockquote>
+<h4 id="2-8-2-1-使用细节"><a href="#2-8-2-1-使用细节" class="headerlink" title="2.8.2.1 使用细节"></a>2.8.2.1 使用细节</h4><ol>
+<li><p>当进行数据从大到小转换时，用强制转换。</p>
+</li>
+<li><p>强制转换只能对最近的操作数有效，往往会使用 <code>( )</code> 提升优先级。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>)(<span class="hljs-number">3</span> * <span class="hljs-number">2.5</span> + <span class="hljs-number">1.1</span> * <span class="hljs-number">6</span>);</code></pre></div>
+</li>
+<li><p><code>char</code> 可以保留 <code>int</code> 的常量值，但不能保存其变量值。此时需要强制类型转换。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+<span class="hljs-type">char</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+<span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> (<span class="hljs-type">char</span>)a;</code></pre></div>
+</li>
+<li><p><code>byte</code> <code>short</code> <code>char</code> 在进行运算时，当作 <code>int</code> 处理。</p>
+</li>
+</ol>
+<h3 id="2-8-3-基本数据类型和-String-的转换"><a href="#2-8-3-基本数据类型和-String-的转换" class="headerlink" title="2.8.3 基本数据类型和 String 的转换"></a>2.8.3 基本数据类型和 <code>String</code> 的转换</h3><ul>
+<li><p>基本类型转 <code>String</code>：基本数据类型加上 <code>&quot; &quot;</code>。即利用了 <em><strong><a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-2-%E7%A8%8B%E5%BA%8F%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8">[2.2.2]</a></strong></em> 中的方法。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
+<span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> n1 + <span class="hljs-string">&quot;&quot;</span>;
+System.out.println(n1 + <span class="hljs-string">&quot;&quot;</span> + n1 + <span class="hljs-string">&quot;&quot;</span> + n1 + <span class="hljs-string">&quot;&quot;</span>);</code></pre></div>
+</li>
+<li><p><code>String</code> 转基本数据类型：通过基本数据类型的包装类调用 <code>parseXX</code> 方法。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;100&quot;</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> Interger <span class="hljs-title function_">parseInt</span><span class="hljs-params">(s)</span>;</code></pre></div>
+
+<p>特别的，把 <code>String</code> 转换为 <code>char</code></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(<span class="hljs-number">0</span>);		<span class="hljs-comment">// 得到 s 字符串中的第一个字符。</span></code></pre></div></li>
+</ul>
+<h4 id="2-8-3-1-使用细节"><a href="#2-8-3-1-使用细节" class="headerlink" title="2.8.3.1 使用细节"></a>2.8.3.1 使用细节</h4><ol>
+<li>将 <code>String</code> 转成基本数据类型时，要保证其能转换为有效数据。即不能把 <code>&quot;Hello&quot;</code> 转换成 <code>int</code>。</li>
+<li>如果格式不正确，会抛出<a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/">异常</a>，程序会中止。</li>
+</ol>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;2 变量</div>
+      <div>https://i-melody.github.io/2021/11/22/Java/入门阶段/2 变量/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,2917 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="24 项目：满汉楼 登录界面 登录（账号、密码） 退出   菜单界面 餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号） 全部、分类   点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统   数据库 登录用户：login（id、name、passw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;24 项目（满汉楼）">
+<meta property="og:url" content="https://i-melody.github.io/2022/02/26/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/24%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%BB%A1%E6%B1%89%E6%A5%BC/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="24 项目：满汉楼 登录界面 登录（账号、密码） 退出   菜单界面 餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号） 全部、分类   点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统   数据库 登录用户：login（id、name、passw">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:52:11.499Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;24 项目（满汉楼） ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;24 项目（满汉楼）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-02-26 00:00" pubdate>
+          2022年2月26日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          52k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          289 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;24 项目（满汉楼）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="24-项目：满汉楼"><a href="#24-项目：满汉楼" class="headerlink" title="24 项目：满汉楼"></a>24 项目：满汉楼</h1><ul>
+<li>登录界面<ul>
+<li>登录（账号、密码）</li>
+<li>退出</li>
+</ul>
+</li>
+<li>菜单界面<ul>
+<li>餐桌状态（显示编号、状态）</li>
+<li>预定餐桌（编号[核对、二次确认]、预定人名字、电话）</li>
+<li>菜单（名称、价格、类别、编号）<ul>
+<li>全部、分类</li>
+</ul>
+</li>
+<li>点餐（桌号[核对]、菜品[核对]、数量）</li>
+<li>账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态）</li>
+<li>结账（桌号、方式、二次确认）</li>
+<li>退出系统</li>
+</ul>
+</li>
+<li>数据库<ul>
+<li>登录用户：login（id、name、password[md5]）</li>
+<li>餐桌状态：table（id、order、seat、customer）</li>
+<li>顾客：customer（id、name、card_id、call）</li>
+<li>菜单：dishes（id、name、price、species、available）</li>
+<li>账单：bill（id、date、customer、num、table、clear、dishes）</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码：万民堂"><a href="#代码：万民堂" class="headerlink" title="代码：万民堂"></a>代码：万民堂</h2><p><del>说是满汉楼，其实是万民堂</del></p>
+<p><strong>没有优化过，所以健壮性不强。懒得做优化了，反正之前的项目做过了</strong></p>
+<h3 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1. 数据库"></a>1. 数据库</h3><blockquote>
+<div class="code-wrapper"><pre><code class="hljs awk">mysql:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">3306</span>/wan_min</code></pre></div>
+</blockquote>
+<h4 id="表"><a href="#表" class="headerlink" title="表"></a>表</h4><blockquote>
+<p>以下大部分是润色后的 <code>show create table xxx</code> 的返回语句</p>
+</blockquote>
+<h5 id="table（餐桌）"><a href="#table（餐桌）" class="headerlink" title="table（餐桌）"></a>table（餐桌）</h5><blockquote>
+<p>餐桌号 id（主键）、餐桌状态 order、座数 seat、订餐人 customer</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `table` (
+      `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT ,
+      `order` enum(&#x27;已预定&#x27;,&#x27;用餐&#x27;,&#x27;空&#x27;,&#x27;不可用&#x27;) COLLATE utf8_bin NOT NULL DEFAULT &#x27;空&#x27;,
+      `seat` smallint(5) unsigned NOT NULL DEFAULT &#x27;2&#x27;,
+      `customer` smallint(5) unsigned DEFAULT NULL,
+      PRIMARY KEY (`id`),
+      KEY `customer` (`customer`),
+      CONSTRAINT `table_ibfk_1` FOREIGN KEY (`customer`) REFERENCES `customer` (`id`)
+    )</code></pre></div>
+
+<h5 id="dishes（菜单）"><a href="#dishes（菜单）" class="headerlink" title="dishes（菜单）"></a>dishes（菜单）</h5><blockquote>
+<p>餐品号 id（主键）、餐品名 name（唯一）、价格 price、分类 species、是否可用 available</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `dishes` (
+      `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+      `name` char(8) COLLATE utf8_bin NOT NULL,
+      `price` smallint(5) unsigned NOT NULL DEFAULT &#x27;0&#x27;,
+      `species` enum(&#x27;主食&#x27;,&#x27;主菜&#x27;,&#x27;汤品&#x27;,&#x27;凉菜&#x27;,&#x27;甜点&#x27;,&#x27;饮料&#x27;,&#x27;&#x27;) COLLATE utf8_bin NOT NULL DEFAULT &#x27;&#x27;,
+      `available` enum(&#x27;y&#x27;,&#x27;n&#x27;) COLLATE utf8_bin NOT NULL DEFAULT &#x27;y&#x27;,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `name` (`name`)
+)</code></pre></div>
+
+<h5 id="customer（客人信息）"><a href="#customer（客人信息）" class="headerlink" title="customer（客人信息）"></a>customer（客人信息）</h5><blockquote>
+<p>顾客ID id（主键）、顾客名字 name、顾客证件号 card_id（可为空）、顾客电话 call</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `customer` (
+      `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+      `name` varchar(12) COLLATE utf8_bin NOT NULL,
+      `card_id` char(18) COLLATE utf8_bin DEFAULT NULL,
+      `call` char(11) COLLATE utf8_bin NOT NULL,
+      PRIMARY KEY (`id`)
+)</code></pre></div>
+
+<h5 id="login（登录验证）"><a href="#login（登录验证）" class="headerlink" title="login（登录验证）"></a>login（登录验证）</h5><blockquote>
+<p>系统登录ID id（主键）、系统登录名 name（唯一）、密码 password（md5 加密）</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `login` (
+      `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+      `name` varchar(10) COLLATE utf8_bin NOT NULL,
+      `password` char(32) COLLATE utf8_bin NOT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `name` (`name`)
+)</code></pre></div>
+
+<h5 id="bill（订单）"><a href="#bill（订单）" class="headerlink" title="bill（订单）"></a>bill（订单）</h5><blockquote>
+<p>订单ID id（主键）、日期 date、顾客 customer（外键）、菜品ID id（外键）、菜品数量 num、桌号 table（外键）、结算状态 clear（枚举，y现金、alipay支付宝、wcpay微信、n未付）</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `bill` (
+      `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+      `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      `customer` smallint(5) unsigned NOT NULL,
+      `num` smallint(5) unsigned NOT NULL DEFAULT &#x27;1&#x27;,
+      `table` smallint(5) unsigned NOT NULL,
+      `clear` enum(&#x27;y&#x27;,&#x27;n&#x27;,&#x27;alipay&#x27;,&#x27;wc_pay&#x27;) COLLATE utf8_bin NOT NULL DEFAULT &#x27;n&#x27;,
+      `dishes` smallint(5) unsigned NOT NULL,
+      PRIMARY KEY (`id`),
+      KEY `customer` (`customer`),
+      KEY `table` (`table`),
+      KEY `dishes` (`dishes`),
+      CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`customer`) REFERENCES `customer` (`id`),
+      CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`table`) REFERENCES `table` (`id`),
+      CONSTRAINT `bill_ibfk_3` FOREIGN KEY (`dishes`) REFERENCES `dishes` (`id`)
+)</code></pre></div>
+
+<h5 id="detail-bill（view，查询订单信息）"><a href="#detail-bill（view，查询订单信息）" class="headerlink" title="detail_bill（view，查询订单信息）"></a>detail_bill（view，查询订单信息）</h5><div class="code-wrapper"><pre><code class="hljs mysql">CREATE VIEW `detail_bill` AS 
+	select `customer`.`name` AS `name`,
+       `customer`.`call` AS `call`,
+       `bill`.`table` AS `table`,
+       `dishes`.`name` AS `dishes`,
+       `bill`.`num` AS `num`,
+       `bill`.`date` AS `date`,
+       `bill`.`clear` AS `clear` 
+	from `bill` , `customer`, `dishes` 
+	where (`bill`.`customer` = `customer`.`id`) 
+		and (`bill`.`dishes` = `dishes`.`id`)</code></pre></div>
+
+
+
+<h3 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h3><h4 id="通用部分"><a href="#通用部分" class="headerlink" title="通用部分"></a>通用部分</h4><blockquote>
+<p>以下各包，客户端和服务端各自持有一份，存放在相同目录下。</p>
+</blockquote>
+<h5 id="com-melody-wmt-common"><a href="#com-melody-wmt-common" class="headerlink" title="com.melody.wmt.common"></a>com.melody.wmt.common</h5><h6 id="Message-java"><a href="#Message-java" class="headerlink" title="Message.java"></a>Message.java</h6><blockquote>
+<p><em>com.melody.wmt.common.Message.java</em></p>
+<p>信息包。客户端、服务端的通讯依靠发送该包进行</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.common;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+<span class="hljs-keyword">import</span> java.time.Instant;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Message</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> String sender;		<span class="hljs-comment">//发送者IP</span>
+    <span class="hljs-keyword">private</span> String receiver;	<span class="hljs-comment">//接收者IP</span>
+    <span class="hljs-keyword">private</span> String word;		<span class="hljs-comment">//信息标识</span>
+    <span class="hljs-keyword">private</span> Object object;		<span class="hljs-comment">//信息数据</span>
+    <span class="hljs-keyword">private</span> Instant timeStamp;	<span class="hljs-comment">//信息时间戳</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Message</span><span class="hljs-params">(String sender, String receiver, String word, Object object)</span> &#123;
+        <span class="hljs-built_in">this</span>.sender = sender;
+        <span class="hljs-built_in">this</span>.receiver = receiver;
+        <span class="hljs-built_in">this</span>.word = word;
+        <span class="hljs-built_in">this</span>.object = object;
+        timeStamp = Instant.now();
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getSender</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> sender;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSender</span><span class="hljs-params">(String sender)</span> &#123;
+        <span class="hljs-built_in">this</span>.sender = sender;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getReceiver</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> receiver;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setReceiver</span><span class="hljs-params">(String receiver)</span> &#123;
+        <span class="hljs-built_in">this</span>.receiver = receiver;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getWord</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> word;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setWord</span><span class="hljs-params">(String word)</span> &#123;
+        <span class="hljs-built_in">this</span>.word = word;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getObject</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> object;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setObject</span><span class="hljs-params">(Object object)</span> &#123;
+        <span class="hljs-built_in">this</span>.object = object;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Instant <span class="hljs-title function_">getTimeStamp</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> timeStamp;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setTimeStamp</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-built_in">this</span>.timeStamp = Instant.now();
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="MessageType-java"><a href="#MessageType-java" class="headerlink" title="MessageType.java"></a>MessageType.java</h6><blockquote>
+<p><em>com.melody.wmt.common.MessageType.java</em></p>
+<p>信息标识包。通过该包来分析信息包的种类。该包没有方法。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.common;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MessageType</span> &#123;
+    <span class="hljs-comment">/*以下是服务端发送*/</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">REJECT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;0&quot;</span>;					<span class="hljs-comment">//拒绝请求</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">ACCEPT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;A&quot;</span>;					<span class="hljs-comment">//通过请求</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_USER_NOT_EXIST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;LUNE&quot;</span>;	<span class="hljs-comment">//登录失败：用户不存在</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_WRONG_PW</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;LWP&quot;</span>;			<span class="hljs-comment">//登陆失败：密码错误</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">WRONG_REQUEST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;WR&quot;</span>;			<span class="hljs-comment">//请求无效</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_NOT_EXIST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TNE&quot;</span>;			<span class="hljs-comment">//餐桌不存在</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_OCCUPIED</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TOP&quot;</span>;			<span class="hljs-comment">//餐桌被占用（未点餐）</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_DINNING</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TOD&quot;</span>;			<span class="hljs-comment">//餐桌被占用（已点餐）</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_NOT_AVAILABLE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TNA&quot;</span>;		<span class="hljs-comment">//餐桌不可用</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_AVAILABLE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;TIA&quot;</span>;			<span class="hljs-comment">//餐桌为空</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">NOT_FOUND</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;NF&quot;</span>;				<span class="hljs-comment">//没有找到目标</span>
+
+    <span class="hljs-comment">/*以下是客户端发送*/</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;LGI&quot;</span>;					<span class="hljs-comment">//请求登录</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">SHOW_TABLES</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RST&quot;</span>;				<span class="hljs-comment">//请求返回餐桌列表</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">CHECK_TABLE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RCT&quot;</span>;				<span class="hljs-comment">//请求查询餐桌状态</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">ORDER_TABLE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ROT&quot;</span>;				<span class="hljs-comment">//请求预定餐桌</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">SHOW_DISHES</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RSD&quot;</span>;				<span class="hljs-comment">//请求返回菜单列表</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">CHECK_DISHES</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RCD&quot;</span>;			<span class="hljs-comment">//请求查询菜单状态</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">ORDER_DISHES</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ROD&quot;</span>;			<span class="hljs-comment">//请求订餐</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">SHOW_ALL_BILLS</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RAB&quot;</span>;			<span class="hljs-comment">//请求返回账单列表</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">CHECK_BILLS</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RCB&quot;</span>;				<span class="hljs-comment">//请求查询账单状态</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">FINISH_BILLS</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RFB&quot;</span>;			<span class="hljs-comment">//请求完成账单</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGOUT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;LGO&quot;</span>;					<span class="hljs-comment">//请求登出</span>
+&#125;</code></pre></div>
+
+<h5 id="com-melody-wmt-sql"><a href="#com-melody-wmt-sql" class="headerlink" title="com.melody.wmt.sql"></a>com.melody.wmt.sql</h5><h6 id="LoginData-java"><a href="#LoginData-java" class="headerlink" title="LoginData.java"></a>LoginData.java</h6><blockquote>
+<p><em>com.melody.wmt.sql.LoginData.java</em></p>
+<p>登录信息包。该包对应表 <code>login</code> 的记录。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String password;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginData</span><span class="hljs-params">()</span>&#123;&#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String name, String password)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.password = password;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;
+        <span class="hljs-built_in">this</span>.name = name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPassword</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> password;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPassword</span><span class="hljs-params">(String password)</span> &#123;
+        <span class="hljs-built_in">this</span>.password = password;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="TableData-java"><a href="#TableData-java" class="headerlink" title="TableData.java"></a>TableData.java</h6><blockquote>
+<p><em>com.melody.wmt.sql.TableData.java</em></p>
+<p>餐桌信息包。该包对应表 <code>table</code> 的记录。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TableData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String order;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> customer;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> seat;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TableData</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TableData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String order, <span class="hljs-type">int</span> customer, <span class="hljs-type">int</span> seat)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.order = order;
+        <span class="hljs-built_in">this</span>.customer = customer;
+        <span class="hljs-built_in">this</span>.seat = seat;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getOrder</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> order;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setOrder</span><span class="hljs-params">(String order)</span> &#123;
+        <span class="hljs-built_in">this</span>.order = order;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCustomer</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> customer;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCustomer</span><span class="hljs-params">(<span class="hljs-type">int</span> customer)</span> &#123;
+        <span class="hljs-built_in">this</span>.customer = customer;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getSeat</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> seat;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSeat</span><span class="hljs-params">(<span class="hljs-type">int</span> seat)</span> &#123;
+        <span class="hljs-built_in">this</span>.seat = seat;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + seat + <span class="hljs-string">&quot;\t&quot;</span> + order + <span class="hljs-string">&quot;\t&quot;</span> + (customer == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;-&quot;</span> : customer);
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h4 id="服务端部分"><a href="#服务端部分" class="headerlink" title="服务端部分"></a>服务端部分</h4><h5 id="com-melody-wmt-library"><a href="#com-melody-wmt-library" class="headerlink" title="com.melody.wmt.library"></a>com.melody.wmt.library</h5><blockquote>
+<p>在目录 <em>com.melody.wmt.library</em> 下，配置以下 jar 包：</p>
+<ul>
+<li><p><code>druid-1.2.8.jar</code>：德鲁伊连接池</p>
+</li>
+<li><p><code>mysql-connector-java-8.0.27.jar</code>：MySQL 数据库</p>
+</li>
+<li><p><code>commons-dbutils-1.7.jar</code>：Apache-DBUtils</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="com-melody-wmt-server"><a href="#com-melody-wmt-server" class="headerlink" title="com.melody.wmt.server"></a>com.melody.wmt.server</h5><h6 id="Server-java"><a href="#Server-java" class="headerlink" title="Server.java"></a>Server.java</h6><blockquote>
+<p>服务端入口</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.server;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.net.InetAddress;
+<span class="hljs-keyword">import</span> java.net.ServerSocket;
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.net.UnknownHostException;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Server</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String serverIP;
+	
+    <span class="hljs-comment">/* 多此一举地初始化服务端 IP 地址。其实直接写正确地址也行的 */</span>
+    <span class="hljs-keyword">static</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">tempIP</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            tempIP = InetAddress.getLocalHost().getHostAddress();
+        &#125; <span class="hljs-keyword">catch</span> (UnknownHostException e) &#123;
+            System.out.println(e);
+            tempIP = <span class="hljs-string">&quot;192.168.3.16&quot;</span>;
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            serverIP = tempIP;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 主方法</span>
+<span class="hljs-comment">    持续监听端口，每当有接入时就丢给新的 RunningServer 线程 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">ServerSocket</span> <span class="hljs-variable">serverSocket</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServerSocket</span>(<span class="hljs-number">9000</span>);
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            <span class="hljs-type">Socket</span> <span class="hljs-variable">accept</span> <span class="hljs-operator">=</span> serverSocket.accept();
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">RunningServer</span>(accept)).start();
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="RunningServer-java"><a href="#RunningServer-java" class="headerlink" title="RunningServer.java"></a>RunningServer.java</h6><blockquote>
+<p>服务端进程主体。由 <em>Server.java</em> 创建。</p>
+<p>该进程能实现：用户登录验证、识别客户端请求</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.server;
+
+<span class="hljs-keyword">import</span> com.melody.wmt.common.Message;
+<span class="hljs-keyword">import</span> com.melody.wmt.common.MessageType;
+<span class="hljs-keyword">import</span> com.melody.wmt.sql.LoginData;
+
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.time.LocalDateTime;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RunningServer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+    <span class="hljs-keyword">private</span> Socket socket;
+    <span class="hljs-keyword">private</span> ObjectInputStream ois;		<span class="hljs-comment">//通信的输入流</span>
+    <span class="hljs-keyword">private</span> ObjectOutputStream oos;		<span class="hljs-comment">//通信的输出流</span>
+    <span class="hljs-keyword">private</span> String targetIP;			<span class="hljs-comment">//通信对象的 IP</span>
+    <span class="hljs-keyword">private</span> LoginData loginData;		<span class="hljs-comment">//通信对象声明的登录对象的信息。</span>
+    							<span class="hljs-comment">//这个信息来自数据库，不一定和通信对象声明的信息匹配</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">running</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;		<span class="hljs-comment">//线程运行中。false 的场合线程停止</span>
+	
+    <span class="hljs-comment">/* 完成一些初始化 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RunningServer</span><span class="hljs-params">(Socket socket)</span> &#123;
+        <span class="hljs-built_in">this</span>.socket = socket;
+        <span class="hljs-keyword">try</span> &#123;
+            ois = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(socket.getInputStream());
+            oos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(socket.getOutputStream());
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+            closeAll();
+        &#125;
+        targetIP = socket.getLocalAddress().getHostAddress();
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 接收通信对象的登录请求 */</span>
+            <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> ServerUtils.receiveMessage(ois);
+            <span class="hljs-comment">/* 获得通信对象声明的登录对象信息。</span>
+<span class="hljs-comment">            这里返回 null 的场合，登录失败 */</span>
+            loginData = ServerUtils.checkLogin(message);
+            System.out.println(targetIP + <span class="hljs-string">&quot; 请求登录 &lt;&quot;</span> + message.getObject()+<span class="hljs-string">&quot;&gt;&quot;</span>);
+            <span class="hljs-comment">/* 登录失败的场合，发送拒绝信息，并关闭所有流 */</span>
+            <span class="hljs-keyword">if</span> (loginData == <span class="hljs-literal">null</span>) &#123;
+                ServerUtils.sendRejection(targetIP, oos);
+                closeAll();
+                <span class="hljs-keyword">return</span>;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">/* 登录成功，发送登录对象信息 */</span>
+                ServerUtils.sendMessage(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Server.serverIP, targetIP, MessageType.ACCEPT, loginData), oos);
+            &#125;
+            System.out.println(targetIP + <span class="hljs-string">&quot; 登录成功 &quot;</span> + loginData.getName() + LocalDateTime.now());
+            
+            <span class="hljs-comment">/* 直到这里，登录成功，正式开始监听客户端请求 */</span>
+            <span class="hljs-keyword">while</span> (running) &#123;
+                listeningRequest();
+            &#125;
+        <span class="hljs-comment">/* 如果发生任何连接异常，我们中断连接，并关闭所有流 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(targetIP + <span class="hljs-string">&quot; 连接中断 &quot;</span> + loginData.getName() + LocalDateTime.now());
+            closeAll();
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 这个方法是关闭所有流的方法。在关闭连接时会被调用 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">closeAll</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">if</span> (ois != <span class="hljs-literal">null</span>) &#123;
+                ois.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (oos != <span class="hljs-literal">null</span>) &#123;
+                oos.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (socket != <span class="hljs-literal">null</span>) &#123;
+                socket.close();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 这个方法是监听客户端请求的方法。根据不同请求，做出不同反应 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">listeningRequest</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 监听请求 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> ServerUtils.receiveMessage(ois);
+        <span class="hljs-comment">/* 检查收到的数据包的信息标识 */</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> message.getWord();
+        <span class="hljs-comment">/* 创建将要发送的数据包。此时，该包还是空的 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">toSend</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Server.serverIP, targetIP, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        <span class="hljs-comment">/* 检查一下接收的数据包的用户信息。有任何问题的话我们就发送请求错误包 */</span>
+        <span class="hljs-comment">/* ……在这里解释一下：客户发送的数据包里，主要包含以下信息：</span>
+<span class="hljs-comment">        1. getWord() 返回数据包标识。客户端的任何请求会对应不同的标识</span>
+<span class="hljs-comment">        2. getObject() 一定包含一条 String 语句。该语句被转义字符 \t 分为几个部分。</span>
+<span class="hljs-comment">        	第一部分一定是用户名、第二部分一定是用户密码。</span>
+<span class="hljs-comment">        	根据请求需要，也会有更多其他部分 */</span>
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">if</span> (!ServerUtils.checkUser((String) message.getObject(), loginData)) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(e);
+            toSend.setWord(MessageType.WRONG_REQUEST);
+            ServerUtils.sendMessage(toSend, oos);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 下面，根据不同信息包标识，我们做出不同反应 */</span>
+        <span class="hljs-comment">/* 接收到返回餐桌列表的请求 */</span>
+        <span class="hljs-keyword">if</span> (request.equals(MessageType.SHOW_TABLES)) &#123;
+            ServerUtils.showTables(toSend, oos);
+        <span class="hljs-comment">/* 接收到检查餐桌的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.CHECK_TABLE)) &#123;
+            ServerUtils.checkTable(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到预定餐桌的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.ORDER_TABLE)) &#123;
+            ServerUtils.orderTable(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到返回菜单列表的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.SHOW_DISHES)) &#123;
+            ServerUtils.showDishes(toSend, oos);
+        <span class="hljs-comment">/* 接收到检查菜单的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.CHECK_DISHES)) &#123;
+            ServerUtils.checkDishes(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到点餐的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.ORDER_DISHES)) &#123;
+            ServerUtils.orderDishes(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到返回账单列表的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.SHOW_ALL_BILLS)) &#123;
+            ServerUtils.showBills(toSend, oos);
+        <span class="hljs-comment">/* 接收到检查账单的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.CHECK_BILLS)) &#123;
+            ServerUtils.checkBills(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到结账的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.FINISH_BILLS)) &#123;
+            ServerUtils.finishBills(message, toSend, oos);
+        <span class="hljs-comment">/* 接收到登出的请求 */</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (request.equals(MessageType.LOGOUT)) &#123;
+            System.out.println(targetIP + <span class="hljs-string">&quot; 登出 &quot;</span> + loginData.getName() + LocalDateTime.now());
+            running = <span class="hljs-literal">false</span>;
+            closeAll();
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="ServerUtils-java"><a href="#ServerUtils-java" class="headerlink" title="ServerUtils.java"></a>ServerUtils.java</h6><blockquote>
+<p>服务端进程方法包。由 <em>RunningServer.java</em> 调用</p>
+<p>该包实现：监听客户端数据包、发送数据包、处理（各种）客户端请求</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.server;
+
+<span class="hljs-keyword">import</span> com.melody.wmt.common.Message;
+<span class="hljs-keyword">import</span> com.melody.wmt.common.MessageType;
+<span class="hljs-keyword">import</span> com.melody.wmt.sql.*;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServerUtils</span> &#123;
+    <span class="hljs-comment">/* 监听客户端发送的数据包 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Message <span class="hljs-title function_">receiveMessage</span><span class="hljs-params">(ObjectInputStream ois)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> (Message) ois.readObject();
+            <span class="hljs-keyword">return</span> message;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(e);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 发送登录失败回执。这个方法其实可以优化掉 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">sendRejection</span><span class="hljs-params">(String target, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Server.serverIP, target, MessageType.REJECT, <span class="hljs-literal">null</span>);
+        <span class="hljs-keyword">try</span> &#123;
+            oos.writeObject(message);
+            oos.flush();
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查用户信息。实际上就是检查用户名 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkUser</span><span class="hljs-params">(String user, LoginData loginData)</span> &#123;
+        <span class="hljs-keyword">if</span> (user == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        String[] toCheck = user.split(<span class="hljs-string">&quot;\t&quot;</span>);
+        <span class="hljs-keyword">if</span> (toCheck[<span class="hljs-number">0</span>].equals(loginData.getName())) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LoginDAO</span>().checkLogin(toCheck[<span class="hljs-number">0</span>], toCheck[<span class="hljs-number">1</span>]) != <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查登录信息。登录成功则返回从数据库得到的登录信息包，否则返回 null */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LoginData <span class="hljs-title function_">checkLogin</span><span class="hljs-params">(Message message)</span> &#123;
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">word</span> <span class="hljs-operator">=</span> message.getWord();
+        <span class="hljs-keyword">if</span> (word == <span class="hljs-literal">null</span> || !word.equals(MessageType.LOGIN)) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-keyword">try</span> &#123;
+            word = (String) message.getObject();
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(e);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        String[] data = word.split(<span class="hljs-string">&quot;\t&quot;</span>);
+        <span class="hljs-keyword">if</span> (data.length != <span class="hljs-number">2</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LoginDAO</span>().checkLogin(data[<span class="hljs-number">0</span>], data[<span class="hljs-number">1</span>]);
+    &#125;
+	
+    <span class="hljs-comment">/* 发送数据包给客户端。很多方法会调用这个方法。这个方法也会刷新数据包时间戳 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendMessage</span><span class="hljs-params">(Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            Thread.currentThread().sleep(<span class="hljs-number">300</span>);	<span class="hljs-comment">//人为加入 0.3 秒发送延迟</span>
+            toSend.setTimeStamp();				<span class="hljs-comment">//刷新数据包时间戳</span>
+            oos.writeObject(toSend);
+            oos.flush();
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(e);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回餐桌列表 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showTables</span><span class="hljs-params">(Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-comment">/* 调用方法得到餐桌列表 */</span>
+        List&lt;TableData&gt; tableData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TableDAO</span>().queryAll();
+        <span class="hljs-comment">/* 将餐桌列表转化成字符串。发送时只发送这个字符串 */</span>
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (TableData data : tableData) &#123;
+            sb.append(data);
+            sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+        &#125;
+        toSend.setObject(sb.toString());
+        <span class="hljs-comment">/* 设置数据包标识为请求通过 */</span>
+        toSend.setWord(MessageType.ACCEPT);
+        <span class="hljs-comment">/* 发送数据包 */</span>
+        sendMessage(toSend, oos);
+    &#125;
+	
+    <span class="hljs-comment">/* 检查餐桌</span>
+<span class="hljs-comment">    ……这是因为：用户点餐、预定餐桌等场合，需要验证输入的餐桌信息 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkTable</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+        	<span class="hljs-comment">/* 检查用户请求的餐桌号 */</span>
+            <span class="hljs-type">int</span> <span class="hljs-variable">table</span> <span class="hljs-operator">=</span> Integer.parseInt(((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>)[<span class="hljs-number">2</span>]);
+            <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TableDAO</span>().queryTable(table);
+            <span class="hljs-comment">/* 下面是根据返回结果，为数据包添加标识语句，并装入查到的餐桌数据 */</span>
+            <span class="hljs-keyword">if</span> (tableData == <span class="hljs-literal">null</span>) &#123;
+                toSend.setWord(MessageType.TABLE_NOT_EXIST);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tableData.getOrder().equals(<span class="hljs-string">&quot;不可用&quot;</span>)) &#123;
+                toSend.setObject(tableData);
+                toSend.setWord(MessageType.TABLE_NOT_AVAILABLE);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tableData.getOrder().equals(<span class="hljs-string">&quot;已预定&quot;</span>)) &#123;
+                toSend.setObject(tableData);
+                toSend.setWord(MessageType.TABLE_OCCUPIED);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tableData.getOrder().equals(<span class="hljs-string">&quot;用餐&quot;</span>)) &#123;
+                toSend.setObject(tableData);
+                toSend.setWord(MessageType.TABLE_DINNING);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tableData.getOrder().equals(<span class="hljs-string">&quot;空&quot;</span>)) &#123;
+                toSend.setObject(tableData);
+                toSend.setWord(MessageType.TABLE_AVAILABLE);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                toSend.setWord(MessageType.REJECT);
+            &#125;
+        <span class="hljs-comment">/* 发生任何异常的场合，设置拒绝请求的标识语句 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 预定餐桌 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">orderTable</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 前面说过。接收数据包含有一条被 \t 分隔为不同部分的语句。</span>
+<span class="hljs-comment">            这里：第三部分代表餐桌号，第四部分代表顾客名，第五部分代表顾客电话*/</span>
+            String[] mess = ((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>);
+            <span class="hljs-type">int</span> <span class="hljs-variable">table</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">2</span>]);
+            <span class="hljs-type">String</span> <span class="hljs-variable">customerName</span> <span class="hljs-operator">=</span> mess[<span class="hljs-number">3</span>];
+            <span class="hljs-type">String</span> <span class="hljs-variable">call</span> <span class="hljs-operator">=</span> mess[<span class="hljs-number">4</span>];
+            <span class="hljs-type">CustomerDAO</span> <span class="hljs-variable">customerDAO</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CustomerDAO</span>();
+            <span class="hljs-comment">/* 根据接收的顾客信息（姓名、电话）对数据库进行查询，看看有没有这个人</span>
+<span class="hljs-comment">            这里，customer &gt; 0 的场合代表有这个人 */</span>
+            <span class="hljs-type">int</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerDAO.searchCustomer(customerName, call);
+            <span class="hljs-comment">/* 没有这个信息的场合，创建这个顾客信息 */</span>
+            <span class="hljs-keyword">if</span> (customer &lt; <span class="hljs-number">0</span>) &#123;
+                customerDAO.createCustomer(customerName, call);
+                customer = customerDAO.searchCustomer(customerName, call);
+            &#125;
+            <span class="hljs-comment">/* 通常到这里不会出现查无此人的情况。如果出现，说明创建信息失败 */</span>
+            <span class="hljs-keyword">if</span> (customer &lt; <span class="hljs-number">0</span>) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+            <span class="hljs-comment">/* 到这里，我们进行预定餐桌操作。返回 true 表示成功 */</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> <span class="hljs-title class_">TableDAO</span>().orderTable(table, customer)) &#123;
+                toSend.setWord(MessageType.ACCEPT);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                toSend.setWord(MessageType.REJECT);
+            &#125;
+        <span class="hljs-comment">/* 出现任何问题，我们设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回菜单列表 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showDishes</span><span class="hljs-params">(Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 首先获取菜单列表 */</span>
+            List&lt;DishesData&gt; dishes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DishesDAO</span>().getDishes();
+            <span class="hljs-comment">/* 接下来，把菜单列表转化为字符串 */</span>
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">staple</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">mainDishes</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">coldDishes</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">beverage</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">soup</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sweetmeats</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-keyword">for</span> (DishesData d : dishes) &#123;
+                <span class="hljs-keyword">if</span> (d.getAvailable().equals(<span class="hljs-string">&quot;n&quot;</span>)) &#123;
+                    <span class="hljs-keyword">continue</span>;
+                &#125;
+                <span class="hljs-type">String</span> <span class="hljs-variable">spec</span> <span class="hljs-operator">=</span> d.getSpecies();
+                <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;主食&quot;</span>)) &#123;
+                    staple.append(d);
+                    staple.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;甜点&quot;</span>)) &#123;
+                    sweetmeats.append(d);
+                    sweetmeats.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;汤品&quot;</span>)) &#123;
+                    soup.append(d);
+                    soup.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;凉菜&quot;</span>)) &#123;
+                    coldDishes.append(d);
+                    coldDishes.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;饮料&quot;</span>)) &#123;
+                    beverage.append(d);
+                    beverage.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (spec.equals(<span class="hljs-string">&quot;主菜&quot;</span>)) &#123;
+                    mainDishes.append(d);
+                    mainDishes.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125;
+            &#125;
+            <span class="hljs-comment">/* 合并字符串，以 ### 间隔不同种类 */</span>
+            <span class="hljs-type">String</span> <span class="hljs-variable">allDishes</span> <span class="hljs-operator">=</span> String.join(<span class="hljs-string">&quot;###&quot;</span>, staple, mainDishes, coldDishes, soup, sweetmeats, beverage);
+            <span class="hljs-comment">/* 装填数据包 */</span>
+            toSend.setWord(MessageType.ACCEPT);
+            toSend.setObject(allDishes);
+        <span class="hljs-comment">/* 出了问题就设置拒绝请求标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查菜单。和检查餐桌是一个道理 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkDishes</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 前面说过。接收数据包含有一条被 \t 分隔为不同部分的语句。</span>
+<span class="hljs-comment">            这里：第三部分代表查询菜品的 ID */</span>
+            String[] mess = ((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>);
+            <span class="hljs-type">int</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">2</span>]);
+            <span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DishesDAO</span>().checkDishes(id);
+            <span class="hljs-keyword">if</span> (o == <span class="hljs-literal">null</span>) &#123;
+                toSend.setWord(MessageType.NOT_FOUND);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!(o <span class="hljs-keyword">instanceof</span> DishesData)) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                toSend.setWord(MessageType.ACCEPT);
+                toSend.setObject(o.toString());
+            &#125;
+        <span class="hljs-comment">/* 出现任何问题就设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (RuntimeException e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 点餐 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">orderDishes</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 前面说过……反正前面说过这个 String 的事！</span>
+<span class="hljs-comment">            这里：第三部分是菜品 ID，第四部分是数量，</span>
+<span class="hljs-comment">            	第五部分是桌号，第六部分是顾客号 */</span>
+            String[] mess = ((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>);
+            <span class="hljs-type">int</span> <span class="hljs-variable">dishes</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">2</span>]);
+            <span class="hljs-comment">/* 检查一下菜品是不是正确 */</span>
+            <span class="hljs-comment">/* 这里有一处疏忽。应该一并检查是否菜品可用（available） */</span>
+            <span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DishesDAO</span>().checkDishes(dishes);
+            <span class="hljs-keyword">if</span> (!(o <span class="hljs-keyword">instanceof</span> DishesData)) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+            <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">3</span>]);
+            <span class="hljs-type">int</span> <span class="hljs-variable">table</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">4</span>]);
+            <span class="hljs-type">int</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">5</span>]);
+            <span class="hljs-comment">/* 尝试点餐 */</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> <span class="hljs-title class_">BillDAO</span>().order(dishes, num, table, customer)) &#123;
+                <span class="hljs-keyword">new</span> <span class="hljs-title class_">TableDAO</span>().updateTable(table, <span class="hljs-number">2</span>);
+                toSend.setWord(MessageType.ACCEPT);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                toSend.setWord(MessageType.REJECT);
+            &#125;
+        <span class="hljs-comment">/* 出现任何问题就设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (RuntimeException e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回账单列表 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showBills</span><span class="hljs-params">(Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 和之前的方法一样。这里我们发送的是拼接起来的字符串 */</span>
+            List&lt;DetailBillData&gt; billData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BillDAO</span>().queryBills();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">finished</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">unfinished</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-keyword">for</span> (DetailBillData d : billData) &#123;
+                <span class="hljs-keyword">if</span> (d.getClear().equals(<span class="hljs-string">&quot;n&quot;</span>)) &#123;
+                    unfinished.append(d);
+                    unfinished.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    finished.append(d);
+                    finished.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                &#125;
+            &#125;
+            toSend.setWord(MessageType.ACCEPT);
+            toSend.setObject(String.join(<span class="hljs-string">&quot;###&quot;</span>, finished, unfinished));
+        <span class="hljs-comment">/* 出现任何问题就设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查订单 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkBills</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* ……这里：第三部分是一个标识符。T 表示按桌号查找</span>
+<span class="hljs-comment">            		第四部分是序号。按桌号查找的话，就代表桌号</span>
+<span class="hljs-comment">            		第五部分是一个布尔值句子。true 表示查询已付订单，</span>
+<span class="hljs-comment">            			false 是未付订单。为空表示查询所有订单 */</span>
+            String[] mess = ((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>);
+            List&lt;DetailBillData&gt; billData = <span class="hljs-literal">null</span>;
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            <span class="hljs-keyword">if</span> (mess[<span class="hljs-number">2</span>].equals(<span class="hljs-string">&quot;t&quot;</span>) || mess[<span class="hljs-number">2</span>].equals(<span class="hljs-string">&quot;T&quot;</span>)) &#123;
+                Boolean clear;
+                <span class="hljs-keyword">if</span> (mess.length &lt; <span class="hljs-number">5</span>) &#123;
+                    clear = <span class="hljs-literal">null</span>;
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mess[<span class="hljs-number">4</span>].equals(<span class="hljs-string">&quot;true&quot;</span>)) &#123;
+                    clear = <span class="hljs-literal">true</span>;
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mess[<span class="hljs-number">4</span>].equals(<span class="hljs-string">&quot;false&quot;</span>)) &#123;
+                    clear = <span class="hljs-literal">false</span>;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    clear = <span class="hljs-literal">null</span>;
+                &#125;
+                billData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BillDAO</span>().queryBillsByTable(Integer.parseInt(mess[<span class="hljs-number">3</span>]), clear);
+            &#125;
+            <span class="hljs-comment">/* 同样的，还是返回字符串 */</span>
+            <span class="hljs-keyword">for</span> (DetailBillData data : billData) &#123;
+                sb.append(billData);
+                sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+            &#125;
+            toSend.setObject(sb.toString());
+            toSend.setWord(MessageType.ACCEPT);
+        <span class="hljs-comment">/* 出现任何问题就设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 结算订单 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">finishBills</span><span class="hljs-params">(Message receive, Message toSend, ObjectOutputStream oos)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 第三位是桌号，第四位是结算方法 */</span> 
+            String[] mess = ((String) receive.getObject()).split(<span class="hljs-string">&quot;\t&quot;</span>);
+            <span class="hljs-type">int</span> <span class="hljs-variable">table</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">2</span>]);
+            <span class="hljs-type">int</span> <span class="hljs-variable">way</span> <span class="hljs-operator">=</span> Integer.parseInt(mess[<span class="hljs-number">3</span>]);
+            <span class="hljs-comment">/* 不光更新订单信息，也要把指定餐桌重置为空 */</span>
+            <span class="hljs-type">boolean</span> <span class="hljs-variable">finish</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BillDAO</span>().finishBill(table, way) &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">new</span> <span class="hljs-title class_">TableDAO</span>().clearTable(table);
+            toSend.setWord(finish ? MessageType.ACCEPT : MessageType.REJECT);
+        <span class="hljs-comment">/* 出现任何问题就设置请求拒绝标识符 */</span>
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            toSend.setWord(MessageType.REJECT);
+        <span class="hljs-comment">/* 最终一定发送数据包 */</span>
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            sendMessage(toSend, oos);
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<h5 id="com-melody-wmt-sql-1"><a href="#com-melody-wmt-sql-1" class="headerlink" title="com.melody.wmt.sql"></a>com.melody.wmt.sql</h5><h6 id="WanMinSQL-properties"><a href="#WanMinSQL-properties" class="headerlink" title="WanMinSQL.properties"></a>WanMinSQL.properties</h6><blockquote>
+<p>数据库配置文件</p>
+<p>里面的密码填自己的。另外，其实上一篇笔记里故意漏的密码是假的。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java">driverClassName=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql:<span class="hljs-comment">//localhost:3306/wan_min</span>
+username=root
+password=******
+initialSize=<span class="hljs-number">10</span>
+minIdle=<span class="hljs-number">5</span>
+maxActive=<span class="hljs-number">50</span>
+maxWait=<span class="hljs-number">5000</span></code></pre></div>
+
+<h6 id="BasicDAO-java"><a href="#BasicDAO-java" class="headerlink" title="BasicDAO.java"></a>BasicDAO.java</h6><blockquote>
+<p><em><strong>——详见 [<a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-9-BasicDAO">23.9 BasicDAO</a>]</strong></em></p>
+<p>代码和上面说的是一样的……大概？</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> org.apache.commons.dbutils.QueryRunner;
+<span class="hljs-keyword">import</span> org.apache.commons.dbutils.handlers.BeanHandler;
+<span class="hljs-keyword">import</span> org.apache.commons.dbutils.handlers.BeanListHandler;
+<span class="hljs-keyword">import</span> org.apache.commons.dbutils.handlers.ScalarHandler;
+
+<span class="hljs-keyword">import</span> java.sql.Connection;
+<span class="hljs-keyword">import</span> java.sql.SQLException;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BasicDAO</span>&lt;T&gt; &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">update</span><span class="hljs-params">(String sql, Object... parameters)</span>&#123;
+        <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            connection = JDBCUtil.connect();
+            <span class="hljs-keyword">return</span> queryRunner.update(connection, sql, parameters);
+        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            JDBCUtil.close(connection, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> List&lt;T&gt; <span class="hljs-title function_">queryMulti</span><span class="hljs-params">(Class&lt;T&gt; tClass, String sql, Object... parameters)</span> &#123;
+        <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            connection = JDBCUtil.connect();
+            <span class="hljs-keyword">return</span> queryRunner.query(connection, sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanListHandler</span>&lt;&gt;(tClass), parameters);
+        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            JDBCUtil.close(connection, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> T <span class="hljs-title function_">querySingle</span><span class="hljs-params">(Class&lt;T&gt; tClass, String sql, Object... parameters)</span> &#123;
+        <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            connection = JDBCUtil.connect();
+            <span class="hljs-keyword">return</span> queryRunner.query(connection, sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanHandler</span>&lt;&gt;(tClass), parameters);
+        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            JDBCUtil.close(connection, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">queryScalar</span><span class="hljs-params">(String sql, Object... parameters)</span> &#123;
+        <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            connection = JDBCUtil.connect();
+            <span class="hljs-keyword">return</span> queryRunner.query(connection, sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ScalarHandler</span>&lt;&gt;(), parameters);
+        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            JDBCUtil.close(connection, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="JDBCUtil-java"><a href="#JDBCUtil-java" class="headerlink" title="JDBCUtil.java"></a>JDBCUtil.java</h6><blockquote>
+<p><em><strong>——见 [<a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-7-2-Druid%EF%BC%88%E5%BE%B7%E9%B2%81%E4%BC%8A%EF%BC%89%E8%BF%9E%E6%8E%A5%E6%B1%A0">23.7.2 Druid（德鲁伊）连接池</a> ]</strong></em></p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSourceFactory;
+
+<span class="hljs-keyword">import</span> javax.sql.DataSource;
+<span class="hljs-keyword">import</span> java.io.FileReader;
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.sql.Connection;
+<span class="hljs-keyword">import</span> java.sql.ResultSet;
+<span class="hljs-keyword">import</span> java.sql.SQLException;
+<span class="hljs-keyword">import</span> java.sql.Statement;
+<span class="hljs-keyword">import</span> java.util.Properties;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JDBCUtil</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">static</span> &#123;
+        <span class="hljs-type">Properties</span> <span class="hljs-variable">properties</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();
+        <span class="hljs-keyword">try</span> &#123;
+            properties.load(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">&quot;src\\com\\melody\\wmt\\sql\\WanMinSQL.properties&quot;</span>));
+            dataSource = DruidDataSourceFactory.createDataSource(properties);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Connection <span class="hljs-title function_">connect</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException &#123;
+        <span class="hljs-keyword">return</span> dataSource.getConnection();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">close</span><span class="hljs-params">(Connection c, Statement s, ResultSet r)</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">if</span> (c != <span class="hljs-literal">null</span>) &#123;
+                c.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (r != <span class="hljs-literal">null</span>) &#123;
+                r.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (s != <span class="hljs-literal">null</span>) &#123;
+                s.close();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="TableDAO-java、TableData-java"><a href="#TableDAO-java、TableData-java" class="headerlink" title="TableDAO.java、TableData.java"></a>TableDAO.java、TableData.java</h6><blockquote>
+<p>对应数据库的 <em>table</em> 表</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TableDAO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BasicDAO</span>&#123;
+    <span class="hljs-comment">/* 返回全部的餐桌对象 */</span>
+    <span class="hljs-keyword">public</span> List&lt;TableData&gt; <span class="hljs-title function_">queryAll</span><span class="hljs-params">()</span>&#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from `table`&quot;</span>;
+        List&lt;TableData&gt; list = queryMulti(TableData.class, sql);
+        <span class="hljs-keyword">return</span> list;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回 ID 指定的餐桌对象。没找到的场合返回 null */</span>
+    <span class="hljs-keyword">public</span> TableData <span class="hljs-title function_">queryTable</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from `table` where `id` = ?&quot;</span>;
+        <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            tableData = (TableData) querySingle(TableData.class, sql, id);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> tableData;
+    &#125;
+	
+    <span class="hljs-comment">/* 设置指定 ID 的餐桌对象的 order 和 customer */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">orderTable</span><span class="hljs-params">(<span class="hljs-type">int</span> id, <span class="hljs-type">int</span> customer)</span> &#123;
+        <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> queryTable(id);
+        <span class="hljs-keyword">if</span> (!tableData.getOrder().equals(<span class="hljs-string">&quot;空&quot;</span>))&#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;update `table` set `order` = &#x27;已预定&#x27;, `customer` = ? where `id` = ?&quot;</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">update</span> <span class="hljs-operator">=</span> update(sql, customer, id);
+        <span class="hljs-keyword">return</span> update &gt; <span class="hljs-number">0</span>;
+    &#125;
+	
+    <span class="hljs-comment">/* 更新指定 ID 餐桌对象的 order 状态。一般是把 已预定 状态改为 用餐 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">updateTable</span><span class="hljs-params">(<span class="hljs-type">int</span> id, <span class="hljs-type">int</span> n)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;update `table` set `order` = ? where `id` = ?&quot;</span>;
+        <span class="hljs-type">String</span> <span class="hljs-variable">order</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">switch</span> (n)&#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                order = <span class="hljs-string">&quot;已预定&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                order = <span class="hljs-string">&quot;用餐&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+                order = <span class="hljs-string">&quot;空&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+                order = <span class="hljs-string">&quot;不可用&quot;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> update(sql, order, id) &gt; <span class="hljs-number">0</span>;
+    &#125;
+	
+    <span class="hljs-comment">/* 清理指定 ID 的餐桌。通常是结账后调用这个方法 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">clearTable</span><span class="hljs-params">(<span class="hljs-type">int</span> table)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;update `table` set `order` = &#x27;空&#x27;, `customer` = null where `id` = ?&quot;</span>;
+        <span class="hljs-keyword">return</span> update(sql, table) &gt; <span class="hljs-number">0</span>;
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TableData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String order;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> customer;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> seat;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TableData</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TableData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String order, <span class="hljs-type">int</span> customer, <span class="hljs-type">int</span> seat)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.order = order;
+        <span class="hljs-built_in">this</span>.customer = customer;
+        <span class="hljs-built_in">this</span>.seat = seat;
+    &#125;
+	
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + seat + <span class="hljs-string">&quot;\t&quot;</span> + order + <span class="hljs-string">&quot;\t&quot;</span> + (customer == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;-&quot;</span> : customer);
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="LoginDAO-java、LoginData-java"><a href="#LoginDAO-java、LoginData-java" class="headerlink" title="LoginDAO.java、LoginData.java"></a>LoginDAO.java、LoginData.java</h6><blockquote>
+<p>对应数据库的 <em>Login</em> 表</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginDAO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BasicDAO</span>&#123;
+    <span class="hljs-comment">/* 返回指定 name 和 password 的对象。没有匹配项则返回 null */</span>
+    <span class="hljs-keyword">public</span> LoginData <span class="hljs-title function_">checkLogin</span><span class="hljs-params">(String name, String password)</span>&#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 这里体现出，密码是由 md5 方法加密的 */</span>
+            <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from login where name = ? and password = md5(?)&quot;</span>;
+            <span class="hljs-type">LoginData</span> <span class="hljs-variable">loginData</span> <span class="hljs-operator">=</span> (LoginData) querySingle(LoginData.class, sql, name, password);
+            <span class="hljs-keyword">return</span> loginData;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String password;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginData</span><span class="hljs-params">()</span>&#123;&#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String name, String password)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.password = password;
+    &#125;
+	
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+&#125;</code></pre></div>
+
+<h6 id="DishesDAO-java、DishesData-java"><a href="#DishesDAO-java、DishesData-java" class="headerlink" title="DishesDAO.java、DishesData.java"></a>DishesDAO.java、DishesData.java</h6><blockquote>
+<p>对应数据库的 <em>Dishes</em> 表</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DishesDAO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BasicDAO</span>&#123;
+    <span class="hljs-comment">/* 返回所有菜单 */</span>
+    <span class="hljs-keyword">public</span> List&lt;DishesData&gt; <span class="hljs-title function_">getDishes</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from `dishes`&quot;</span>;
+        <span class="hljs-keyword">return</span> queryMulti(DishesData.class, sql);
+    &#125;	
+	
+    <span class="hljs-comment">/* 返回 ID 指定的菜单。没有则返回 null */</span>
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">checkDishes</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from `dishes` where `id` = ?&quot;</span>;
+        <span class="hljs-keyword">return</span> querySingle(DishesData.class, sql, id);
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DishesData</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> price;
+    <span class="hljs-keyword">private</span> String species;
+    <span class="hljs-keyword">private</span> String available;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">DishesData</span><span class="hljs-params">()</span>&#123;&#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">DishesData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String name, <span class="hljs-type">int</span> price, String species, String available)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.price = price;
+        <span class="hljs-built_in">this</span>.species = species;
+        <span class="hljs-built_in">this</span>.available = available;
+    &#125;
+	
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + name + <span class="hljs-string">&quot;\t&quot;</span> + price;
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="CustomerDAO-java、CustomerData-java"><a href="#CustomerDAO-java、CustomerData-java" class="headerlink" title="CustomerDAO.java、CustomerData.java"></a>CustomerDAO.java、CustomerData.java</h6><blockquote>
+<p>对应数据库的 <em>Customer</em> 表</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerDAO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BasicDAO</span> &#123;
+    <span class="hljs-comment">/* 返回 name 和 call 指定的顾客信息。没有则返回 null */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">searchCustomer</span><span class="hljs-params">(String name, String call)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from customer where `name` = ? and `call` = ?&quot;</span>;
+        <span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> querySingle(CustomerData.class, sql, name, call);
+        <span class="hljs-type">return</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span>= <span class="hljs-literal">null</span> ? -<span class="hljs-number">1</span> : ((CustomerData) o).getId();
+    &#125;
+	
+    <span class="hljs-comment">/* 创建顾客信息，信息包含 name 和 call */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">createCustomer</span><span class="hljs-params">(String name, String call)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;insert into customer (`name`, `call`) values(?, ?)&quot;</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">update</span> <span class="hljs-operator">=</span> update(sql, name, call);
+        <span class="hljs-keyword">return</span> update &gt; <span class="hljs-number">0</span>;
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerData</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String card_id;
+    <span class="hljs-keyword">private</span> String call;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">CustomerData</span><span class="hljs-params">()</span>&#123;&#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">CustomerData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String name, String card_id, String call)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.card_id = card_id;
+        <span class="hljs-built_in">this</span>.call = call;
+    &#125;
+	
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+&#125;</code></pre></div>
+
+<h6 id="BillDAO-java、BillData-java、DetailBillData-java"><a href="#BillDAO-java、BillData-java、DetailBillData-java" class="headerlink" title="BillDAO.java、BillData.java、DetailBillData.java"></a>BillDAO.java、BillData.java、DetailBillData.java</h6><blockquote>
+<p>对应数据库的 <em>Bill</em> 表，<em>Detail_Bill</em> 视图</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
+
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BillDAO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BasicDAO</span> &#123;
+    <span class="hljs-comment">/* 订餐。形参是 餐品号、数量、桌号、顾客号。成功的场合返回 true */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">order</span><span class="hljs-params">(<span class="hljs-type">int</span> dishes, <span class="hljs-type">int</span> num, <span class="hljs-type">int</span> table, <span class="hljs-type">int</span> customer)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;insert into `bill` (`dishes`, `num`, `table`, `customer`) values(?, ?, ?, ?)&quot;</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">update</span> <span class="hljs-operator">=</span> update(sql, dishes, num, table, customer);
+        <span class="hljs-keyword">return</span> update &gt; <span class="hljs-number">0</span>;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回账单列表 */</span>
+    <span class="hljs-keyword">public</span> List&lt;DetailBillData&gt; <span class="hljs-title function_">queryBills</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from detail_bill&quot;</span>;
+        <span class="hljs-keyword">return</span> (List&lt;DetailBillData&gt;) queryMulti(DetailBillData.class, sql);
+    &#125;
+	
+    <span class="hljs-comment">/* 返回特定桌号的帐单列表</span>
+<span class="hljs-comment">    Boolean 为 true 则返回未付账单；false 返回已结账单；null 返回全部 */</span>
+    <span class="hljs-keyword">public</span> List&lt;DetailBillData&gt; <span class="hljs-title function_">queryBillsByTable</span><span class="hljs-params">(<span class="hljs-type">int</span> table, Boolean clear)</span> &#123;
+        String sql;
+        <span class="hljs-keyword">if</span> (clear == <span class="hljs-literal">null</span>) &#123;
+            sql = <span class="hljs-string">&quot;select * from detail_bill where `table` = ?&quot;</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            sql = <span class="hljs-string">&quot;select * from detail_bill where `table` = ? and &quot;</span> + (clear ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;not&quot;</span>) + <span class="hljs-string">&quot; `clear` = &#x27;n&#x27;&quot;</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> (List&lt;DetailBillData&gt;) queryMulti(DetailBillData.class, sql, table);
+    &#125;
+	
+    <span class="hljs-comment">/* 将指定桌号的所有未付账单结算，其结算方式为 way 指定的方式 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">finishBill</span><span class="hljs-params">(<span class="hljs-type">int</span> table, <span class="hljs-type">int</span> way)</span> &#123;
+        String clear;
+        <span class="hljs-keyword">if</span> (way == <span class="hljs-number">1</span>) &#123;
+            clear = <span class="hljs-string">&quot;y&quot;</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (way == <span class="hljs-number">2</span>) &#123;
+            clear = <span class="hljs-string">&quot;alipay&quot;</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (way == <span class="hljs-number">3</span>) &#123;
+            clear = <span class="hljs-string">&quot;wc_pay&quot;</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;update bill set `clear` = ? where `table` = ? and `clear` = &#x27;n&#x27;&quot;</span>;
+        <span class="hljs-keyword">return</span> update(sql, clear, table);
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BillData</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> Date date;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> customer;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> table;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> num;
+    <span class="hljs-keyword">private</span> String clear;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> dishes;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">BillData</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">BillData</span><span class="hljs-params">(<span class="hljs-type">int</span> id, Date date, <span class="hljs-type">int</span> customer, <span class="hljs-type">int</span> table, <span class="hljs-type">int</span> num, String clear, <span class="hljs-type">int</span> dishes)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.date = date;
+        <span class="hljs-built_in">this</span>.customer = customer;
+        <span class="hljs-built_in">this</span>.table = table;
+        <span class="hljs-built_in">this</span>.num = num;
+        <span class="hljs-built_in">this</span>.clear = clear;
+        <span class="hljs-built_in">this</span>.dishes = dishes;
+    &#125;
+
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + customer + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + clear + <span class="hljs-string">&quot;\t&quot;</span> + dishes + <span class="hljs-string">&quot;\t&quot;</span> + date;
+    &#125;
+&#125;</code></pre></div>
+
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DetailBillData</span> &#123;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String call;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> table;
+    <span class="hljs-keyword">private</span> String dishes;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> num;
+    <span class="hljs-keyword">private</span> Date date;
+    <span class="hljs-keyword">private</span> String clear;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">DetailBillData</span><span class="hljs-params">()</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">DetailBillData</span><span class="hljs-params">(String name, String call, <span class="hljs-type">int</span> table, String dishes, <span class="hljs-type">int</span> num, Date date, String clear)</span> &#123;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.call = call;
+        <span class="hljs-built_in">this</span>.table = table;
+        <span class="hljs-built_in">this</span>.dishes = dishes;
+        <span class="hljs-built_in">this</span>.num = num;
+        <span class="hljs-built_in">this</span>.date = date;
+        <span class="hljs-built_in">this</span>.clear = clear;
+    &#125;
+
+    <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> name + <span class="hljs-string">&quot;\t&quot;</span> + call + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + dishes + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + date + <span class="hljs-string">&quot;\t&quot;</span> + clear;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h4 id="客户端（管理）部分"><a href="#客户端（管理）部分" class="headerlink" title="客户端（管理）部分"></a>客户端（管理）部分</h4><h5 id="com-melody-wmt-client"><a href="#com-melody-wmt-client" class="headerlink" title="com.melody.wmt.client;"></a>com.melody.wmt.client;</h5><h6 id="Clinet-java"><a href="#Clinet-java" class="headerlink" title="Clinet.java"></a>Clinet.java</h6><blockquote>
+<p>客户端程序主体</p>
+<p>该包实现：登录界面、菜单界面、选择菜单</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.client;
+
+<span class="hljs-keyword">import</span> com.melody.wmt.sql.LoginData;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.net.InetAddress;
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.net.UnknownHostException;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Client</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String IP;						<span class="hljs-comment">//自己的 IP</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">ServerIP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;192.168.3.16&quot;</span>;	<span class="hljs-comment">//服务端 IP</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+    <span class="hljs-keyword">private</span> Socket socket;
+    <span class="hljs-keyword">private</span> ObjectInputStream ois;					<span class="hljs-comment">//输入流</span>
+    <span class="hljs-keyword">private</span> ObjectOutputStream oos;					<span class="hljs-comment">//输出流</span>
+    							<span class="hljs-comment">//以上三个属性会在 connect() 方法中被赋值</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">MenuUtility</span> <span class="hljs-variable">menuUtility</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MenuUtility</span>(<span class="hljs-built_in">this</span>);
+    							<span class="hljs-comment">//方法类对象，传入形参 this，形成了互相持有的结构</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Listening</span> <span class="hljs-variable">listening</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Listening</span>(<span class="hljs-built_in">this</span>);
+    							<span class="hljs-comment">//监听类对象，传入形参 this，形成了互相持有的结构</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">LoginData</span> <span class="hljs-variable">loginData</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;				
+    							<span class="hljs-comment">//用户数据。登陆后服务端会发送一个该类对象过来</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">skipMenu</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    							<span class="hljs-comment">//跳过菜单显示。该属性没有投入使用</span>
+    
+    <span class="hljs-comment">/* 多此一举地初始化自己的 IP 地址。其实可以直接写。 */</span>
+    <span class="hljs-keyword">static</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            IP = InetAddress.getLocalHost().getHostAddress();
+        &#125; <span class="hljs-keyword">catch</span> (UnknownHostException e) &#123;
+            System.out.println(e);
+            IP = <span class="hljs-string">&quot;192.168.3.16&quot;</span>;
+        &#125;
+    &#125;
+
+	<span class="hljs-comment">/* 展示主菜单 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mainMenu</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">char</span> read;
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;====================================&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t1. 登 录 系 统&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t9. 退 出 系 统&quot;</span>);
+            System.out.print(<span class="hljs-string">&quot;请选择：&quot;</span>);
+            read = scanner.next().charAt(<span class="hljs-number">0</span>);
+            System.out.println();
+            System.out.println(<span class="hljs-string">&quot;------------------------------------&quot;</span>);
+            <span class="hljs-keyword">switch</span> (read) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    <span class="hljs-comment">/* 这里会先建立连接 connect()，然后调用登录方法 login() */</span>
+                    <span class="hljs-keyword">if</span> (connect() &amp;&amp; menuUtility.login()) &#123;
+                        <span class="hljs-keyword">try</span> &#123;
+                            menu_1();
+                        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+                            System.out.println(e);
+                            <span class="hljs-comment">/* 有任何问题会执行 closeAll()，即关闭一切流 */</span>
+                            closeAll();
+                        &#125;
+                    &#125;
+                    closeAll();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    <span class="hljs-keyword">if</span> (menuUtility.out()) &#123;
+                        <span class="hljs-keyword">return</span>;
+                    &#125;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;输入错误。&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 建立连接 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">connect</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            socket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Socket</span>(ServerIP, <span class="hljs-number">9000</span>);
+            oos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(socket.getOutputStream());
+            ois = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(socket.getInputStream());
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(listening).start();
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+            closeAll();
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 关闭所有流。通常是登出、断线或报错后执行这个方法 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">closeAll</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">if</span> (ois != <span class="hljs-literal">null</span>) &#123;
+                ois.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (oos != <span class="hljs-literal">null</span>) &#123;
+                oos.close();
+            &#125;
+            <span class="hljs-keyword">if</span> (socket != <span class="hljs-literal">null</span>) &#123;
+                socket.close();
+            &#125;
+            listening.listening = <span class="hljs-literal">false</span>;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 显示（登录）菜单。这个类只是在屏幕上输出字符 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showMenu_1</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 设置了跳过菜单显示的场合，仅一次菜单不显示 */</span>
+        <span class="hljs-keyword">if</span> (skipMenu)&#123;
+            skipMenu = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;================&quot;</span> + loginData.getName() + <span class="hljs-string">&quot;================&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t1. 餐 桌 状 态&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t2. 预 定 餐 桌&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t3. 菜 单&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t4. 点 餐&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t5. 账 单&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t6. 结 账&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t9. 登 出 系 统&quot;</span>);
+    &#125;
+	
+    <span class="hljs-comment">/* 根据菜单选择执行的功能 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">menu_1</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">char</span> read;
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            <span class="hljs-comment">/* 显示菜单。设置跳过的场合仅一次菜单不显示 */</span>
+            showMenu_1();
+            System.out.print(<span class="hljs-string">&quot;请选择：&quot;</span>);
+            read = scanner.next().charAt(<span class="hljs-number">0</span>);
+            System.out.println(<span class="hljs-string">&quot;------------------------------------&quot;</span>);
+            <span class="hljs-keyword">switch</span> (read) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    menuUtility.showTables();	<span class="hljs-comment">//展示餐桌列表</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    menuUtility.orderTable();	<span class="hljs-comment">//预定餐桌</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:
+                    menuUtility.showList();		<span class="hljs-comment">//展示菜单列表</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:
+                    menuUtility.orderDishes();	<span class="hljs-comment">//订餐</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;5&#x27;</span>:
+                    menuUtility.showBill();		<span class="hljs-comment">//展示账单列表</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;6&#x27;</span>:
+                    menuUtility.payBill();		<span class="hljs-comment">//结账</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    <span class="hljs-keyword">if</span> (menuUtility.logout()) &#123;	<span class="hljs-comment">//登出</span>
+                        <span class="hljs-keyword">return</span>;
+                    &#125;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;输入错误。&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Socket <span class="hljs-title function_">getSocket</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> socket;
+    &#125;
+
+    <span class="hljs-keyword">public</span> ObjectInputStream <span class="hljs-title function_">getOis</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> ois;
+    &#125;
+
+    <span class="hljs-keyword">public</span> ObjectOutputStream <span class="hljs-title function_">getOos</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> oos;
+    &#125;
+	
+    <span class="hljs-comment">/* 抛出一个异常。这个方法用于抛出异常（听君一席话……） */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">throwException</span><span class="hljs-params">(String s)</span> &#123;
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(s);
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="Listening-java"><a href="#Listening-java" class="headerlink" title="Listening.java"></a>Listening.java</h6><blockquote>
+<p>监听服务端发送数据包的线程</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.client;
+
+<span class="hljs-keyword">import</span> com.melody.wmt.common.Message;
+
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Listening</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span>&#123;
+    <span class="hljs-keyword">private</span> Client client;				<span class="hljs-comment">//和主程序相互持有，便于调用</span>
+    <span class="hljs-keyword">public</span> Message message;				<span class="hljs-comment">//接收的数据包</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">listening</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;	<span class="hljs-comment">//监听中。false 会停止线程</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">received</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;	<span class="hljs-comment">//收到文件。</span>
+    						<span class="hljs-comment">//这是实现某个方法的过渡办法，似乎已经可以弃用</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Listening</span><span class="hljs-params">(Client client)</span> &#123;
+        <span class="hljs-built_in">this</span>.client = client;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        listening = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">while</span> (listening)&#123;
+            <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> client.getOis().readObject();
+                <span class="hljs-keyword">if</span> (o == <span class="hljs-literal">null</span>)&#123;
+                    <span class="hljs-keyword">continue</span>;
+                &#125;
+                message = (Message) o;
+                received = <span class="hljs-literal">true</span>;
+            &#125;<span class="hljs-keyword">catch</span> (Exception e) &#123;
+                client.throwException(<span class="hljs-string">&quot;监听异常&quot;</span> + e);
+            &#125;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;监听停止&quot;</span>);
+    &#125;
+&#125;</code></pre></div>
+
+<h6 id="MenuUtility-java"><a href="#MenuUtility-java" class="headerlink" title="MenuUtility.java"></a>MenuUtility.java</h6><blockquote>
+<p>客户端程序的方法包</p>
+<p>该包实现：……大部分功能</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.client;
+
+<span class="hljs-keyword">import</span> com.melody.wmt.common.Message;
+<span class="hljs-keyword">import</span> com.melody.wmt.common.MessageType;
+<span class="hljs-keyword">import</span> com.melody.wmt.sql.LoginData;
+<span class="hljs-keyword">import</span> com.melody.wmt.sql.TableData;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MenuUtility</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+    <span class="hljs-keyword">private</span> Client client;				<span class="hljs-comment">//和主程序互相持有，方便调用</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">userData</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;		<span class="hljs-comment">//内容是：&quot;用户名\t密码&quot;。</span>
+    						<span class="hljs-comment">//每个发送的数据包的 Object 开头都是这个</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MenuUtility</span><span class="hljs-params">(Client client)</span> &#123;
+        <span class="hljs-built_in">this</span>.client = client;
+    &#125;
+	
+    <span class="hljs-comment">/* 发送数据包，并返回接收的数据包 */</span>
+    <span class="hljs-comment">/* 通常会返回接收到的数据包。也可能返回 null 代表失败 */</span>
+    <span class="hljs-keyword">public</span> Message <span class="hljs-title function_">sendAndReceive</span><span class="hljs-params">(Message message)</span> &#123;
+        <span class="hljs-comment">/* 发送包不能为 null。基本上不会出现这种情况 */</span>
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：传递空包&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-comment">/* 刷新数据包时间戳 */</span>
+        message.setTimeStamp();
+        <span class="hljs-comment">/* 清空监听进程里已有的数据 */</span>
+        client.listening.received = <span class="hljs-literal">false</span>;
+        client.listening.message = <span class="hljs-literal">null</span>;
+        <span class="hljs-comment">/* 接收数据包对象 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 发送数据包 */</span>
+            client.getOos().writeObject(message);
+            <span class="hljs-comment">/* 标记此时的时间 */</span>
+            <span class="hljs-type">long</span> <span class="hljs-variable">time</span> <span class="hljs-operator">=</span> System.currentTimeMillis();
+            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+            <span class="hljs-comment">/* 在指定时间内持续试图接收服务端数据包 */</span>
+            <span class="hljs-comment">/* 经测试，在 while(true) 中如果只有单一的 if 语句，</span>
+<span class="hljs-comment">            	那么该 if 语句条件（或主体）只会执行一次。</span>
+<span class="hljs-comment">            	这会造成客户端接收不到服务端数据包。</span>
+<span class="hljs-comment">            	因此，加入了无关紧要的小动画，确保 if 语句总会重复执行。*/</span>
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+                n++;
+                System.out.print(<span class="hljs-string">&quot;\r&quot;</span>);
+                <span class="hljs-comment">/* if 语句中的才是主体</span>
+<span class="hljs-comment">                	接收到数据包或者等待 5 秒以上后，拿取数据包并跳出该循环 */</span>
+                <span class="hljs-keyword">if</span> (System.currentTimeMillis() - time &gt;= <span class="hljs-number">5000</span> | client.listening.received) &#123;
+                    receive = client.listening.message;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+                <span class="hljs-comment">/* 下面是一个旋转线条的小动画。</span>
+<span class="hljs-comment">                	由于上面的 \r 存在，该动画在程序继续后会被其他字符覆盖 */</span>
+                <span class="hljs-keyword">switch</span> (n % <span class="hljs-number">4</span>) &#123;
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                        System.out.print(<span class="hljs-string">&quot;|&quot;</span>);
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                        System.out.print(<span class="hljs-string">&quot;/&quot;</span>);
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+                        System.out.print(<span class="hljs-string">&quot;-&quot;</span>);
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">default</span>:
+                        System.out.print(<span class="hljs-string">&quot;\\&quot;</span>);
+                        <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+            <span class="hljs-keyword">return</span> receive;
+        <span class="hljs-comment">/* 有任何异常则返回 null */</span>
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(e);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">/* 实现登录验证 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">login</span><span class="hljs-params">()</span> &#123;
+        System.out.print(<span class="hljs-string">&quot;请输入用户名：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> scanner.next();
+        System.out.print(<span class="hljs-string">&quot;请输入密码：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">pw</span> <span class="hljs-operator">=</span> scanner.next();
+        System.out.println();
+        <span class="hljs-comment">/* 这句字符串会被重复使用 */</span>
+        userData = (user + <span class="hljs-string">&quot;\t&quot;</span> + pw);
+        <span class="hljs-comment">/* 发送数据包。这里写得比较挤，后面我都分开写了 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.LOGIN, userData));
+        <span class="hljs-comment">/* 根据返回包做出相应提示 */</span>
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">reply</span> <span class="hljs-operator">=</span> receive.getWord();
+        <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_USER_NOT_EXIST)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：用户名不存在&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_WRONG_PW)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：密码错误&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reply.equals(MessageType.ACCEPT)) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                client.loginData = (LoginData) receive.getObject();
+            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+                System.out.println(<span class="hljs-string">&quot;未知错误&quot;</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            &#125;
+            System.out.println(<span class="hljs-string">&quot;登录成功&quot;</span>);
+        &#125;
+        <span class="hljs-comment">/* 返回值。true 表示登陆成功 */</span>
+        <span class="hljs-keyword">return</span> receive.getWord().equals(MessageType.ACCEPT);
+    &#125;
+	
+    <span class="hljs-comment">/* 退出确认。这是未登录时（即，登陆界面）的退出方法 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">out</span><span class="hljs-params">()</span> &#123;
+        System.out.print(<span class="hljs-string">&quot;确定退出吗？（Y/N）&quot;</span>);
+        <span class="hljs-type">char</span> <span class="hljs-variable">answer</span> <span class="hljs-operator">=</span> scanner.next().charAt(<span class="hljs-number">0</span>);
+        <span class="hljs-type">return</span> <span class="hljs-variable">answer</span> <span class="hljs-operator">=</span>= <span class="hljs-string">&#x27;Y&#x27;</span> || answer == <span class="hljs-string">&#x27;y&#x27;</span>;
+    &#125;
+	
+    <span class="hljs-comment">/* 展示餐桌列表 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">showTables</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 发送请求，接收服务端返回的数据包 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.SHOW_TABLES, userData);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-comment">/* 根据返回包的不同作出反应 */</span>
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> receive.getWord();
+        <span class="hljs-keyword">if</span> (r.equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器拒绝了请求&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (r.equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;ID\t座数\t状态\t顾客&quot;</span>);
+            System.out.println(receive.getObject());
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：未知的回执&quot;</span> + r);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查餐桌状态 */</span>
+    <span class="hljs-comment">/* need：1不可用；2不存在；3占用未点餐；4占用已点餐；5未占用；6占用</span>
+<span class="hljs-comment">    	根据需要的餐桌状态 need 的不同，有不同的返回方法*/</span>
+    <span class="hljs-keyword">public</span> TableData <span class="hljs-title function_">checkTable</span><span class="hljs-params">(<span class="hljs-type">int</span> tableID, <span class="hljs-type">int</span> need)</span> &#123;
+        <span class="hljs-comment">/* 发送验证餐桌请求，接收返回包 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(client.IP, client.ServerIP, MessageType.CHECK_TABLE, userData + <span class="hljs-string">&quot;\t&quot;</span> + tableID);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-comment">/* 根据返回包做出不同反应 */</span>
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        <span class="hljs-comment">/* 如果 need 和返回结果匹配，give 值会为 true */</span>
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">give</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.TABLE_NOT_AVAILABLE)) &#123;
+            give = need == <span class="hljs-number">1</span>;
+            System.out.print(give ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;餐桌不可用\n&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.TABLE_NOT_EXIST)) &#123;
+            give = need == <span class="hljs-number">2</span>;
+            System.out.print(give ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;餐桌不存在\n&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.TABLE_OCCUPIED)) &#123;
+            give = need == <span class="hljs-number">3</span> || need == <span class="hljs-number">6</span>;
+            System.out.print(give ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;餐桌被占用（未点餐）\n&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.TABLE_DINNING)) &#123;
+            give = need == <span class="hljs-number">4</span> || need == <span class="hljs-number">6</span>;
+            System.out.print(give ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;餐桌被占用（已点餐）\n&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.TABLE_AVAILABLE)) &#123;
+            give = need == <span class="hljs-number">5</span>;
+            System.out.print(give ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&quot;餐桌为空\n&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：未知错误&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-comment">/* 只有匹配的结果才会返回餐桌数据 */</span>
+            <span class="hljs-keyword">return</span> give ? (TableData) receive.getObject() : <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 预定餐桌 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">orderTable</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 首先会调用一次展示餐桌的方法 */</span>
+        showTables();
+        <span class="hljs-comment">/* 输入餐桌号 */</span>
+        System.out.println(<span class="hljs-string">&quot;------------------------------------&quot;</span>);
+        System.out.print(<span class="hljs-string">&quot;请输入预定的餐桌号码（-1取消）：&quot;</span>);
+        <span class="hljs-type">int</span> <span class="hljs-variable">tableID</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            tableID = Integer.parseInt(scanner.next());
+            <span class="hljs-keyword">if</span> (tableID == -<span class="hljs-number">1</span>) &#123;
+                <span class="hljs-keyword">return</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tableID &lt;= <span class="hljs-number">0</span>) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误。&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 检查一下上面输入的餐桌是否正确。这时的正确指的是餐桌为空 */</span>
+        <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> checkTable(tableID, <span class="hljs-number">5</span>);
+        <span class="hljs-keyword">if</span> (tableData == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;请输入预定人名字：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> scanner.next();
+        System.out.println(<span class="hljs-string">&quot;请输入预定人电话：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">call</span> <span class="hljs-operator">=</span> scanner.next();
+        System.out.println(<span class="hljs-string">&quot;请确认预定信息：&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;桌号：&quot;</span> + tableData.getId() + <span class="hljs-string">&quot;\t座数：&quot;</span> + tableData.getSeat() + <span class="hljs-string">&quot;\t预定人：&quot;</span> + name + <span class="hljs-string">&quot;\t电话：&quot;</span> + call);
+        System.out.print(<span class="hljs-string">&quot;确定吗？（Y/N）：&quot;</span>);
+        <span class="hljs-type">char</span> <span class="hljs-variable">confirm</span> <span class="hljs-operator">=</span> scanner.next().charAt(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (confirm != <span class="hljs-string">&#x27;Y&#x27;</span> &amp;&amp; confirm != <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 发送请求预定餐桌。前面的顾客对象不存在的话，服务端会自动创建新的对象 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(client.IP, client.ServerIP, MessageType.ORDER_TABLE, userData + <span class="hljs-string">&quot;\t&quot;</span> + tableID + <span class="hljs-string">&quot;\t&quot;</span> + name + <span class="hljs-string">&quot;\t&quot;</span> + call);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;预定成功！&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;预定失败&quot;</span>);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 展示菜单 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showList</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 发送展示菜单的请求 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.SHOW_DISHES, userData);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!receive.getWord().equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 此时拿到了菜单。该菜单的不同类别是由 ### 分割的。我们再将其分开 */</span>
+        String[] dishes;
+        <span class="hljs-keyword">try</span> &#123;
+            dishes = ((String) receive.getObject()).split(<span class="hljs-string">&quot;###&quot;</span>);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;未知错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-type">char</span> in;
+        <span class="hljs-comment">/* 这其实又是一级菜单了。直到选择 9 前，该菜单会一直循环 */</span>
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;---------------------------------------&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t请选择要查看的类别&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t1. 主  食&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t2. 主  菜&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t3. 凉  菜&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t4. 汤  品&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t5. 甜  点&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t6. 饮  料&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t7. 点  餐&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t9. 返  回&quot;</span>);
+            System.out.print(<span class="hljs-string">&quot;请输入：&quot;</span>);
+            in = scanner.next().charAt(<span class="hljs-number">0</span>);
+            System.out.println(<span class="hljs-string">&quot;---------------------------------------&quot;</span>);
+            <span class="hljs-keyword">switch</span> (in) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------主  食------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">0</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------主  菜------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">1</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------凉  菜------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">2</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------汤  品------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">3</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;5&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------甜  点------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">4</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;6&#x27;</span>:
+                    System.out.println(<span class="hljs-string">&quot;------------饮  料------------&quot;</span>);
+                    System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+                    System.out.println(dishes[<span class="hljs-number">5</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;7&#x27;</span>:
+                    <span class="hljs-comment">/* 这时调用订餐的方法 */</span>
+                    orderDishes();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    <span class="hljs-keyword">return</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 订餐 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">orderDishes</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;请输入菜品编号（数字，-1返回）：&quot;</span>);
+        <span class="hljs-type">int</span> dish;
+        <span class="hljs-keyword">try</span> &#123;
+            dish = Integer.parseInt(scanner.next());
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (dish &lt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 检查输入的餐品信息。这里把一部分代码封装成了一个新方法</span>
+<span class="hljs-comment">        	……这是因为测试发现，不这样做会导致内存数据不更新，接收到的返回包总是不变 */</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">dishDetail</span> <span class="hljs-operator">=</span> orderDishesPart1(dish);
+        <span class="hljs-keyword">if</span> (dishDetail == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;请输入数量（数字，-1返回）：&quot;</span>);
+        <span class="hljs-type">int</span> num;
+        <span class="hljs-keyword">try</span> &#123;
+            num = Integer.parseInt(scanner.next());
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (num &lt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;请输入订餐桌号（数字，-1返回）：&quot;</span>);
+        <span class="hljs-type">int</span> table;
+        <span class="hljs-keyword">try</span> &#123;
+            table = Integer.parseInt(scanner.next());
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (table &lt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 检查一下餐桌信息。这里，正确的状态是&#x27;已占用&#x27; */</span>
+        <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> checkTable(table, <span class="hljs-number">6</span>);
+        <span class="hljs-keyword">if</span> (tableData == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 展示一下信息 */</span>
+        System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格 \t数量\t桌号&quot;</span>);
+        System.out.println(dishDetail + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + tableData.getId());
+        System.out.print(<span class="hljs-string">&quot;确定吗？（Y/N）：&quot;</span>);
+        <span class="hljs-type">char</span> <span class="hljs-variable">confirm</span> <span class="hljs-operator">=</span> scanner.next().charAt(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (confirm != <span class="hljs-string">&#x27;Y&#x27;</span> &amp;&amp; confirm != <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 发送订餐请求 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.ORDER_DISHES, <span class="hljs-literal">null</span>);
+        message.setObject(userData + <span class="hljs-string">&quot;\t&quot;</span> + dish + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + tableData.getCustomer());
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;预定成功&quot;</span>);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 订餐方法中，小部分代码封装成了这个方法 */</span>
+    <span class="hljs-comment">/* 如此做是因为测试发现，不这样做会导致内存数据不更新，</span>
+<span class="hljs-comment">    	接收到的服务端返回包内容总是和方法中第一次接收的返回包内容一样。</span>
+<span class="hljs-comment">    	测试过很多次，问题就是出在这里。解决方法就是这样。</span>
+<span class="hljs-comment">        这样，这个方法执行完毕后，似乎会刷新内存。可能这就是垃圾处理机制吧 */</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">orderDishesPart1</span><span class="hljs-params">(<span class="hljs-type">int</span> dish)</span> &#123;
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.CHECK_DISHES, userData + <span class="hljs-string">&quot;\t&quot;</span> + dish);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive1</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive1 == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!receive1.getWord().equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;ID\t名称  \t价格&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">dishDetail</span> <span class="hljs-operator">=</span> receive1.getObject().toString();
+        System.out.println(dishDetail);
+        <span class="hljs-keyword">return</span> dishDetail;
+    &#125;
+
+	<span class="hljs-comment">/* 展示账单列表 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showBill</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-comment">/* 发送请求 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.SHOW_ALL_BILLS, userData);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 同样的，账单列表也是以 ### 分隔的 */</span>
+        String[] bills;
+        <span class="hljs-keyword">try</span> &#123;
+            bills = ((String) receive.getObject()).split(<span class="hljs-string">&quot;###&quot;</span>);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：未知错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 另一个小菜单。选择 9 前会一直循环 */</span>
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;---------------------------------------&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t请选择要查看的类别&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t1. 已完成账单&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t2. 未完成账单&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t9. 返  回&quot;</span>);
+            System.out.print(<span class="hljs-string">&quot;请输入：&quot;</span>);
+            <span class="hljs-type">char</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> scanner.next().charAt(<span class="hljs-number">0</span>);
+            System.out.println(<span class="hljs-string">&quot;---------------------------------------&quot;</span>);
+<span class="hljs-comment">//            System.out.println(&quot;姓名 \t电话  \t桌号\t菜名   \t数量\t日期          \t结算状态&quot;);</span>
+            <span class="hljs-keyword">switch</span> (in) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    System.out.println(bills[<span class="hljs-number">0</span>].length() == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;---无---&quot;</span> : bills[<span class="hljs-number">0</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    System.out.println((bills.length &lt; <span class="hljs-number">2</span> || bills[<span class="hljs-number">1</span>].length() == <span class="hljs-number">0</span>) ? <span class="hljs-string">&quot;---无---&quot;</span> : bills[<span class="hljs-number">1</span>]);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    <span class="hljs-keyword">return</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 按桌号检查账单 */</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">checkBillByTable</span><span class="hljs-params">(<span class="hljs-type">int</span> table)</span> &#123;
+        <span class="hljs-comment">/* 发送请求</span>
+<span class="hljs-comment">        	特别一提：后面的 &quot;\t&quot; + &#x27;t&#x27; + &quot;\t&quot; + table + &quot;\t&quot; + &quot;true&quot; </span>
+<span class="hljs-comment">        	代表 按桌号查询(t)，号码是 table，展示未结账账单(true) */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.CHECK_BILLS, userData + <span class="hljs-string">&quot;\t&quot;</span> + <span class="hljs-string">&#x27;t&#x27;</span> + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + <span class="hljs-string">&quot;true&quot;</span>);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.ACCEPT)) &#123;
+            <span class="hljs-keyword">return</span> receive.getObject().toString();
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：未知错误&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 结账 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">payBill</span><span class="hljs-params">()</span> &#123;
+        showTables();
+        System.out.print(<span class="hljs-string">&quot;请输入结账的桌号（-1返回）：&quot;</span>);
+        <span class="hljs-type">int</span> <span class="hljs-variable">table</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            table = Integer.parseInt(scanner.next());
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">if</span> (table &lt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 检查一下桌号 */</span>
+        <span class="hljs-type">TableData</span> <span class="hljs-variable">tableData</span> <span class="hljs-operator">=</span> checkTable(table, <span class="hljs-number">4</span>);
+        <span class="hljs-keyword">if</span> (tableData == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 检查并展示那个桌号的未结账单 */</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> checkBillByTable(table);
+        <span class="hljs-keyword">if</span> (s == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(s);
+        System.out.println(<span class="hljs-string">&quot;请确认以上信息（Y/N）：&quot;</span>);
+        <span class="hljs-type">char</span> <span class="hljs-variable">confirm</span> <span class="hljs-operator">=</span> scanner.next().charAt(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (confirm != <span class="hljs-string">&#x27;Y&#x27;</span> &amp;&amp; confirm != <span class="hljs-string">&#x27;y&#x27;</span>)&#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;请输入结算方式（1现金；2支付宝；3微信；-1返回）：&quot;</span>);
+        <span class="hljs-type">int</span> <span class="hljs-variable">way</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            way = Integer.parseInt(scanner.next());
+            <span class="hljs-keyword">if</span> (way &lt; -<span class="hljs-number">1</span> || way &gt; <span class="hljs-number">3</span>)&#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;输入错误&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">if</span> (way == -<span class="hljs-number">1</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">/* 发送结账请求 */</span>
+        <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.FINISH_BILLS, userData + <span class="hljs-string">&quot;\t&quot;</span> +  table + <span class="hljs-string">&quot;\t&quot;</span> + way);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">receive</span> <span class="hljs-operator">=</span> sendAndReceive(message);
+        <span class="hljs-keyword">if</span> (receive == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：服务器无响应&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.REJECT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (receive.getWord().equals(MessageType.ACCEPT)) &#123;
+            System.out.println(<span class="hljs-string">&quot;结算成功&quot;</span>);
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 登出 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">logout</span><span class="hljs-params">()</span> &#123;
+        System.out.print(<span class="hljs-string">&quot;确定登出吗？（Y/N）：&quot;</span>);
+        <span class="hljs-type">char</span> confirm;
+        <span class="hljs-keyword">try</span> &#123;
+            confirm = scanner.next().charAt(<span class="hljs-number">0</span>);
+            <span class="hljs-keyword">if</span> (confirm != <span class="hljs-string">&#x27;y&#x27;</span> &amp;&amp; confirm != <span class="hljs-string">&#x27;Y&#x27;</span>)&#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            &#125;
+            <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(Client.IP, Client.ServerIP, MessageType.LOGOUT, userData);
+            client.getOos().writeObject(message);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(<span class="hljs-string">&quot;传输异常&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;24 项目（满汉楼）</div>
+      <div>https://i-melody.github.io/2022/02/26/Java/入门阶段/24 项目：满汉楼/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年2月26日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

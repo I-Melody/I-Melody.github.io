@@ -1,0 +1,1958 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="15 图形界面设计 图形用户界面（Graphical User Interface，简称 GUI）是大多数程序不可缺少的部分。 Java 的图形界面由各种组件组成。在 java.awt 和 java.swing 包中定义了多种用于创建图形用户界面的组件类。 Swing 组件和 AWT 组件最大的不同是 Swing 组件实现时不包含任何本地代码，因此不受硬件平台的限制，而具有更多的功能，并且在任何平">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;15 图形界面设计">
+<meta property="og:url" content="https://i-melody.github.io/2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="15 图形界面设计 图形用户界面（Graphical User Interface，简称 GUI）是大多数程序不可缺少的部分。 Java 的图形界面由各种组件组成。在 java.awt 和 java.swing 包中定义了多种用于创建图形用户界面的组件类。 Swing 组件和 AWT 组件最大的不同是 Swing 组件实现时不包含任何本地代码，因此不受硬件平台的限制，而具有更多的功能，并且在任何平">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-05T15:37:32.286Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;15 图形界面设计 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;15 图形界面设计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-22 00:00" pubdate>
+          2022年4月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          24k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          133 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;15 图形界面设计</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月5日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="15-图形界面设计"><a href="#15-图形界面设计" class="headerlink" title="15 图形界面设计"></a>15 图形界面设计</h1><blockquote>
+<p>图形用户界面（Graphical User Interface，简称 GUI）是大多数程序不可缺少的部分。</p>
+<p>Java 的图形界面由各种组件组成。在 java.awt 和 java.swing 包中定义了多种用于创建图形用户界面的组件类。</p>
+<p>Swing 组件和 AWT 组件最大的不同是 Swing 组件实现时不包含任何本地代码，因此不受硬件平台的限制，而具有更多的功能，并且在任何平台上运行效果都是相同的。不包含本地代码的 Swing 组件被称为 “轻量级” 组件，而 AWT 被称为 “重量级” 组件。两种组件一同使用的场合，AWT 总是显示在上面。</p>
+</blockquote>
+<p>设计用户界面是一般有 3 个步骤：</p>
+<ol>
+<li>选取组件</li>
+<li>设计布局</li>
+<li>响应事件</li>
+</ol>
+<h2 id="15-1-容器"><a href="#15-1-容器" class="headerlink" title="15.1 容器"></a>15.1 容器</h2><blockquote>
+<p>组件分为容器组件和非容器组件。容器组件即可以包含其他组件的组件。非容器组件必须包含在容器组件中。</p>
+<p>容器组件分为：顶层容器、一般用途容器</p>
+</blockquote>
+<h3 id="15-1-1-顶层容器"><a href="#15-1-1-顶层容器" class="headerlink" title="15.1.1 顶层容器"></a>15.1.1 顶层容器</h3><p>Swing 中提供了 4 种顶层容器：</p>
+<ul>
+<li>JFrame：带有标题行和控制按钮（最小化、恢复&#x2F;最大化、关闭）的独立窗口。有时称为框架。创建程序时要使用 JFream</li>
+<li>JApplet：创建小应用程序时要使用 JApplet。其被包含在浏览器窗口中</li>
+<li>JDialog：创建对话框时使用 JDialog</li>
+<li>JWindow：一个不带有标题行和控制按钮的窗口。一般很少使用</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li><code>new JFrame()</code>：构造一个初始不可见，无标题的新框架窗体</li>
+<li><code>new JFrame(&quot;Title&quot;)</code>：构造一个初始不可见，具有指定标题的新框架窗体</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li><p><code>void setBounds(int x, int y, int width, int height)</code>：移动并调整框架大小。框架左上角位置为（x, y），框架大小为 width × height</p>
+</li>
+<li><p><code>void setSize(int width, int height)</code>：设置窗口大小</p>
+</li>
+<li><p><code>void setBackground(Color bg)</code>：设置框架背景色</p>
+<p><code>void setForeground(Color fg)</code>：设置框架前景色</p>
+</li>
+<li><p><code>void setVisible(boolean aFlag)</code>：设置可见性</p>
+</li>
+<li><p><code>void pack()</code>：自适应框架大小，以符合子组件的首选大小和布局</p>
+</li>
+<li><p><code>void setTitle(String title)</code>：设置标题</p>
+</li>
+<li><p><code>Container getContentPane()</code>：返回此框架窗体的内容窗格对象</p>
+<p><em>Container 类是所有容器类的父类，包含容器的共有操作</em></p>
+<p><code>void setContentPane(Container contentPane)</code>：把指定内容窗格设置为此框架的内容窗格对象</p>
+</li>
+<li><p><code>void setLayout(LayoutManager manager)</code>：设置布局管理器</p>
+</li>
+</ul>
+<p>​        <em><strong>—— 哦我的上帝啊，如果有什么名词是你不懂的，为什么不试着继续看下去呢？</strong></em></p>
+<h3 id="15-1-2-内容窗格"><a href="#15-1-2-内容窗格" class="headerlink" title="15.1.2 内容窗格"></a>15.1.2 内容窗格</h3><blockquote>
+<p>4 个顶层容器每个都有 1 个内容窗格。除菜单外，顶层容器的所有组件都放在这个内容窗格内。</p>
+</blockquote>
+<ul>
+<li><p>直接添加组件至内容窗格</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Container</span> <span class="hljs-variable">contentPane</span> <span class="hljs-operator">=</span> jframe.getContentPane();		<span class="hljs-comment">//[1] 获取内容窗格对象</span>
+contentPane.add(button, BorderLayout.CENTER);			<span class="hljs-comment">//[2] 将组件添加到内容窗格</span></code></pre></div>
+
+<blockquote>
+<ol>
+<li><p>使用顶层容器的 <code>getContentPane()</code> 方法获得其内容窗格对象。</p>
+</li>
+<li><p>将组件添加到内容窗格。</p>
+<p>其中 button 是一个按钮控件，BorderLayout.CENTER 代表位置在中间</p>
+<p>向顶层容器内容窗格添加组件时，也可以直接调用顶层容器的 add() 方法</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>以新的内容窗格代替原有内容窗格</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">JPanel</span> <span class="hljs-variable">contentPane</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JPanel</span>();					<span class="hljs-comment">//[1] 创建 JPanel 实例</span>
+contentPane.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BorderLayout</span>());			<span class="hljs-comment">//[2] 创建布局管理器</span>
+contentPane.add(button, BorderLayout.CENTER);		<span class="hljs-comment">//[3] 添加组件</span>
+jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加内容窗格</span></code></pre></div>
+
+<blockquote>
+<ol>
+<li><p>创建 JPanel（面板）实例。JPanel 是 Container 的子类。</p>
+</li>
+<li><p>顶层容器默认的布局管理器是 BorderLayout，而 JPanel 的默认布局管理器是 FlowLayout</p>
+</li>
+<li><p>通过 <code>setContentPane(contentPane)</code> 方法为 jfream 设置新的内容窗格</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="15-1-3-面板"><a href="#15-1-3-面板" class="headerlink" title="15.1.3 面板"></a>15.1.3 面板</h3><blockquote>
+<p>普通面板（JPanel）和滚动面板（JScrollPanel）都是用途广泛的容器。面板与顶层容器不同，不能独立存在，而必须添加到其他容器内部。面板可以嵌套，由此可以设计出复杂的图形用户界面。</p>
+</blockquote>
+<h4 id="15-1-3-1-JPanel"><a href="#15-1-3-1-JPanel" class="headerlink" title="15.1.3.1 JPanel"></a>15.1.3.1 JPanel</h4><p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new JPanel()</code>：创建具有 FlowLayout 布局的新面板</li>
+<li><code>new JPanel(LayoutManager layout)</code>：创建指定布局的新面板</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><code>Component add(Compinent comp)</code>：将指定组件添加至面板</li>
+</ul>
+<h4 id="15-1-3-2-JScrollPanel"><a href="#15-1-3-2-JScrollPanel" class="headerlink" title="15.1.3.2 JScrollPanel"></a>15.1.3.2 JScrollPanel</h4><p>JScrollPanel 是一个带有滚动条的面板，但只能添加一个组件。添加多个组件的场合，先将那些组件添加入 JPanel 对象，再将该 JPanel 对象添加进 JScrollPanel 对象中</p>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new JScrollPanel()</code>：创建一个空的 JScrollPanel。水平、垂直滚动条都能显示</li>
+<li><code>new JScrollPanel(Component view)</code>：创建指定组件内容的 JScrollPanel</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void setHorizontalScrollBarPolicy(int policy)</code>：确定水平滚动条何时显示</p>
+<p>其中 policy 的可选值是以下三种：</p>
+<ul>
+<li>ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED：需要时可见</li>
+<li>ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER：永远不可见</li>
+<li>ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS：永远可见</li>
+</ul>
+</li>
+<li><p><code>void setVerticalScrollBarPolicy(int policy)</code>：确定垂直滚动条何时显示</p>
+<p>其中 policy 的可选值是以下三种：</p>
+<ul>
+<li>ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED：需要时可见</li>
+<li>ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER：永远不可见</li>
+<li>ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS：永远可见</li>
+</ul>
+</li>
+</ul>
+<h4 id="15-1-3-3-Scrollbar"><a href="#15-1-3-3-Scrollbar" class="headerlink" title="15.1.3.3 Scrollbar"></a>15.1.3.3 Scrollbar</h4><p>AWT 中还有一个滚动条组件，提供了允许用户在一定范围的值中进行选择的便捷方式</p>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new Scrollbar()</code>：构造一个新的滚动条</p>
+</li>
+<li><p><code>new Scrollbar(int orientation)</code>：构造一个有指定方向的滚动条</p>
+<p>其中 orientation 的可选值是：</p>
+<ul>
+<li>Scrollbar.HORIZONTAL：水平滚动条</li>
+<li>Scrollbar.VERTICAL：垂直滚动条</li>
+</ul>
+</li>
+<li><p><code>new Scrollbar(int orientation, int value, int visible, int minimum, int maximun)</code>：构造一个有初始方向、初始值、可视量、最小&#x2F;最大值的滚动条</p>
+</li>
+</ul>
+<h2 id="15-2-标签和按钮"><a href="#15-2-标签和按钮" class="headerlink" title="15.2 标签和按钮"></a>15.2 标签和按钮</h2><h3 id="15-2-1-标签"><a href="#15-2-1-标签" class="headerlink" title="15.2.1 标签"></a>15.2.1 标签</h3><blockquote>
+<p>标签（JLable）是最简单的 Swing 组件，通常用于显示提示性的文本信息或图标。其不可被编辑</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new JLable()</code>：构造一个不显示文本或图标的空标签</p>
+</li>
+<li><p><code>new JLable(Icon image)</code>：构造一个显示图标的标签</p>
+</li>
+<li><p><code>new JLable(String text)</code>：构造一个显示文本的标签</p>
+</li>
+<li><p><code>new JLable(Icon image, int horizontalAlignment)</code>：构造一个显示图标的标签，并指定水平对齐方式</p>
+<p>其中 horizontalAlignment 的取值可以是：</p>
+<ul>
+<li>JLable.LEFT：左对齐</li>
+<li>JLable.RIGHT：右对齐</li>
+<li>JLable.CENTER：居中对齐</li>
+</ul>
+</li>
+<li><p><code>new JLable(String text, int horizontalAlignment)</code>：构造一个显示文本的标签，并指定水平对齐方式</p>
+</li>
+<li><p><code>new JLable(String text, Icon image, int horizontalAlignment)</code>：构造一个同时显示文本和图标的标签，并指定水平对齐方式</p>
+</li>
+</ul>
+<h3 id="15-2-2-按钮"><a href="#15-2-2-按钮" class="headerlink" title="15.2.2 按钮"></a>15.2.2 按钮</h3><blockquote>
+<p>按钮（JButton）是 Java 图形用户界面的基本组件之一。</p>
+<p>经常用到的按钮有 4 种形式：按钮（JButton）、切换按钮（JToggleButton）、复选按钮（JCheckButton）、单选按钮（JRadioButton）</p>
+<p>这些按钮类均是 AbstractButton 的子类或间接子类</p>
+</blockquote>
+<h4 id="15-2-2-1-JButton"><a href="#15-2-2-1-JButton" class="headerlink" title="15.2.2.1 JButton"></a>15.2.2.1 JButton</h4><p><strong>构造器：</strong></p>
+<ul>
+<li><code>new JButton()</code>：构造一个既没有文本也没有图标的按钮</li>
+<li><code>new JButton(Icon icon)</code>：构造一个有图标的按钮</li>
+<li><code>new JButton(String text)</code>：构造一个有文本的按钮</li>
+<li><code>new JButton(String text, Icon icon)</code>：构造一个有文本也有图标的按钮</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void setMnemonic(int mnemonic)</code>：设置当前按钮的键盘助记符</p>
+</li>
+<li><p><code>void setText(String text)</code>：设置按钮的文本</p>
+<p><code>void setIcon(Icon icon)</code>：设置按钮图标</p>
+</li>
+<li><p><code>void setEnabled(boolean mod)</code>：是否启用按钮</p>
+</li>
+<li><p><code>String getText()</code>：返回按钮的文本</p>
+</li>
+<li><p><code>void setToolTipText()</code>：设置提示文本</p>
+</li>
+<li><p><code>void addActionListener(ActionListener l)</code>：为按钮添加事件监听程序</p>
+<p><code>void removeActionListener(ActionListener l)</code>：移除事件监听程序</p>
+</li>
+</ul>
+<h4 id="15-2-2-2-JToggleButton、JCheckButton、JRadioButton"><a href="#15-2-2-2-JToggleButton、JCheckButton、JRadioButton" class="headerlink" title="15.2.2.2 JToggleButton、JCheckButton、JRadioButton"></a>15.2.2.2 JToggleButton、JCheckButton、JRadioButton</h4><blockquote>
+<p>JToggleButton 是有两种状态（选中状态、未选中状态）的按钮。通过点击切换这两种状态</p>
+<p>JCheckButton、JRadioButton 是 JToggleButton 的子类，构造方法与 JToggleButton 相同。</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new JToggleButton()</code>：构造一个没有文本也没有图标的切换按钮</p>
+</li>
+<li><p><code>new JToggleButton(Icon icon)</code>：构造一个有图标的切换按钮</p>
+<p><code>new JToggleButton(Icon icon, boolean selected)</code>：构造一个有图标的切换按钮，设置其初始状态</p>
+</li>
+<li><p><code>new JToggleButton(String text)</code>：构造一个有文本的切换按钮</p>
+<p><code>new JToggleButton(String text, boolean selected)</code></p>
+</li>
+<li><p><code>new JToggleButton(String text, Icon icon)</code>：构造一个有文本也有图标的切换按钮</p>
+<p><code>new JToggleButton(String text, Icon icon, boolean selected)</code></p>
+</li>
+</ul>
+<p><strong>常用方法（除 JButton 方法外）：</strong></p>
+<ul>
+<li><p><code>boolean isSeleced()</code>：获取按钮的当前状态</p>
+</li>
+<li><p><code>void addItemListener(ItemListener l)</code>：为按钮添加事件侦听程序</p>
+<p><code>void removeItemListener(ItemListener l)</code>：移除事件侦听程序</p>
+</li>
+</ul>
+<h2 id="15-3-布局管理器"><a href="#15-3-布局管理器" class="headerlink" title="15.3 布局管理器"></a>15.3 布局管理器</h2><blockquote>
+<p>容器中包含了组件。组件的布局，包括其位置和大小，通常由布局管理器负责安排。每个容器都有一个默认的布局管理器。</p>
+</blockquote>
+<h3 id="15-3-1-FlowLayout-流布局管理器"><a href="#15-3-1-FlowLayout-流布局管理器" class="headerlink" title="15.3.1 FlowLayout 流布局管理器"></a>15.3.1 FlowLayout 流布局管理器</h3><blockquote>
+<p>FlowLayout 定义在 java.awt 包中。</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new FlowLayout()</code>：创建默认的 FlowLayout 布局管理器。</p>
+<p>居中对齐。默认水平、垂直间距是 5 像素</p>
+</li>
+<li><p><code>new FlowLayout(int align)</code>：创建一个 FlowLayout 布局管理器。</p>
+<p>指定对齐方式。默认水平、垂直间距是 5 像素</p>
+<p>align 的可选值有这些：</p>
+<ul>
+<li>FlowLayout.LEFT：左对齐</li>
+<li>FlowLayout.RIGHT：右对齐</li>
+<li>FlowLayout.CENTER：居中对齐</li>
+</ul>
+</li>
+<li><p><code>new FlowLayout(int align, int hgap, int vgap)</code>：创建一个 FlowLayout 布局管理器。</p>
+<p>指定对齐方式。指定水平、垂直间距</p>
+</li>
+</ul>
+<p><strong>使用说明：</strong></p>
+<ol>
+<li>FlowLayout 对容器中组件进行布局的方式是将组件逐个放置在容器中的一行上。一行满后，另起一行。</li>
+<li>与其他布局管理器不同。FlowLayout 不会强行设定组件的大小，而是通过每个组件的 getPreferredSize() 方法获取其各自的期望大小</li>
+</ol>
+<h3 id="15-3-2-BorderLayout-边界布局管理器"><a href="#15-3-2-BorderLayout-边界布局管理器" class="headerlink" title="15.3.2 BorderLayout 边界布局管理器"></a>15.3.2 BorderLayout 边界布局管理器</h3><blockquote>
+<p>BorderLayout 定义在 java.awt 包中，是顶层容器的默认布局管理器。它提供了一种较为复杂的组件布局管理方案。</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new BorderLayout()</code>：一个组件间没有间距的布局管理器</li>
+<li><code>new BorderLayout(int hgap, int vgap)</code>：定义水平、垂直间距的布局管理器</li>
+</ul>
+<p><strong>使用说明：</strong></p>
+<ol>
+<li>每个由 BorderLayout 管理的容器被划分成 5 个区域，分别是容器的 上部（BorderLayout.NORTH）、下部（BorderLayout.SOUTH）、左部（BorderLayout.WEST）、右部（BorderLayout.EAST）、中部（BorderLayout.CENTER）</li>
+<li>在 BorderLayout 布局管理器的管理下，组件必须通过 add() 方法加入容器的指定区域。不指定的场合，默认加入中部区域</li>
+<li>容器的每个区域仅能加入一个组件。加入了多个组件的场合，只有最后一个生效</li>
+<li>对于中部以外的 4 个边界区域，没有使用的区域的大小将变为零。此时，中部区域会扩展并占据该未用区域的位置。如果 4 个边界区域都没有使用，中部区域会占据整个窗口。</li>
+<li>窗口大小改变时，按钮的相对位置不会变化。但按钮的大小会改变</li>
+</ol>
+<h3 id="15-3-3-GridLayout-网格布局管理器"><a href="#15-3-3-GridLayout-网格布局管理器" class="headerlink" title="15.3.3 GridLayout 网格布局管理器"></a>15.3.3 GridLayout 网格布局管理器</h3><blockquote>
+<p>GridLayout 定义在 java.awt 包中，是一种网格式的布局管理器。</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new GridLayout()</code>：创建一个一行的网格。列数根据实际需要决定</p>
+</li>
+<li><p><code>new GridLayout(int rows, int cols)</code>：指定行数、列数的网格布局</p>
+<p>rows 和 cols 中，最多有一个可以是 0，但不能都为 0。那个为 0 的场合，根据实际需要决定数量</p>
+</li>
+<li><p><code>new GridLayout(int rows, int cols, int hgap, int vgap)</code>：指定行数、列数，也指定水平、垂直间距的网格</p>
+</li>
+</ul>
+<p><strong>使用说明：</strong></p>
+<ol>
+<li><p>GridLayout 将容器空间划分成若干行乘若干列的网格。组件依次放入其中，每个组件占据一格</p>
+</li>
+<li><p>网格每列宽度相同，每行高度相同。组件放入的次序决定了其位置</p>
+</li>
+<li><p>想要组件间留有空白的场合，可以添加一个空白标签</p>
+</li>
+<li><p>网格数多于组件数的场合，那些多余的格子为空白。</p>
+<p>网格数少于组件数的场合，系统根据需要适当添加。</p>
+</li>
+<li><p>窗口大小改变时，按钮的相对位置不会变化。但按钮的大小会改变</p>
+</li>
+</ol>
+<h3 id="15-3-4-CardLayout-卡片式布局管理器"><a href="#15-3-4-CardLayout-卡片式布局管理器" class="headerlink" title="15.3.4 CardLayout 卡片式布局管理器"></a>15.3.4 CardLayout 卡片式布局管理器</h3><blockquote>
+<p>CardLayout 定义在 java.awt 包中，是一种卡片式的布局管理器。</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><code>new CardLayout()</code>：一个默认无间距的 CardLayout 布局管理器</li>
+<li><code>new CardLayout(int hgap, int vgap)</code>：指定水平、垂直间距的 CardLayout 布局管理器</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void first(Container parent)</code>：翻转到容器的第一张卡片</p>
+<p><code>void next(Container parent)</code>：翻转到下一张卡片。当前是最后一张的场合，翻到第一张卡片</p>
+<p><code>void previous(Container parent)</code>：翻转到前一张卡片。当前是第一张的场合，翻到最后一张卡片</p>
+<p><code>void last(Container parent)</code>：翻转到容器的最后一张卡片</p>
+</li>
+<li><p><code>void show(Container parent, String name)</code>：翻转到卡片集中具有指定 name 的卡片。没有该卡片的场合不执行任何操作</p>
+</li>
+</ul>
+<p><strong>使用说明：</strong></p>
+<ol>
+<li>CardLayout 将容器中的组件处理为一系列卡片，每一刻只显示其中一张。</li>
+<li>容器第一次显示时，显示第一个添加的组件。</li>
+</ol>
+<h3 id="15-3-5-BoxLayout-方框布局管理器"><a href="#15-3-5-BoxLayout-方框布局管理器" class="headerlink" title="15.3.5 BoxLayout 方框布局管理器"></a>15.3.5 BoxLayout 方框布局管理器</h3><blockquote>
+<p>BoxLayout 定义在 javax.swing 包中，其组件横排一行或竖排一列，但宽度（高度）可以不同。</p>
+</blockquote>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><p><code>new BoxLayout(Container target, int axis)</code>：创建一个沿给定轴放置组件的布局管理器</p>
+<p>其中 target 表明为哪个容器设置此布局管理器，axis 指明组件排列方向</p>
+<p>axis 的值是：</p>
+<ul>
+<li>BoxLayout.X_AXIS：水平方向排列</li>
+<li>BoxLayout.Y_AXIS：竖直方向排列</li>
+</ul>
+<p>举个例子：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">JPanel</span> <span class="hljs-variable">jp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JPanel</span>();
+jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BoxLayout</span>(jp, BoxLayout.X_AXXIS));</code></pre></div></blockquote>
+</li>
+</ul>
+<p><strong>使用说明：</strong></p>
+<ol>
+<li>BoxLayout 将容器中的组件横排一行或竖排一列。那些组件横排一行时，可以有不同宽度；竖排一列时，可以有不同的高度。</li>
+<li>窗口大小改变时，按钮的相对位置不会变化。</li>
+</ol>
+<p><strong>Box 类</strong></p>
+<blockquote>
+<p>javax.swing 中定义了一个专门使用 BoxLayout 的容器 Box 类。</p>
+</blockquote>
+<ul>
+<li><p><code>static Box createHorizontalBox()</code>：返回一个使用水平方向的 BoxLayout 的 Box</p>
+<p><code>static Box createVerticalBox()</code>：返回一个使用竖直方向的 BoxLayout 的 Box</p>
+</li>
+<li><p><code>static Component createHorizontalGlue()</code>：创建一个水平方向的不可视的组件（填满剩余空间）</p>
+<p><code>static Component createVerticalGlue()</code></p>
+</li>
+<li><p><code>static Component createHorizontalStrut()</code>：创建一个水平方向的不可视的组件（指定宽高）</p>
+<p><code>static Component createVerticalStrut()</code></p>
+</li>
+<li><p><code>static Component createRigidArea()</code>：创建一个不可视的组件，不大不小，尺寸真是好极了</p>
+</li>
+</ul>
+<h3 id="15-3-6-空布局"><a href="#15-3-6-空布局" class="headerlink" title="15.3.6 空布局"></a>15.3.6 空布局</h3><blockquote>
+<p>其实也能不用布局管理器的，真的</p>
+</blockquote>
+<ol>
+<li>调用容器的 <code>setLayout(null)</code> 将容器的布局管理器置空</li>
+<li>&#x3D;调用组件的 <code>setBounds(x, y, w, h)</code> 方法设置其位&#x3D;置和大小。<del>老东西，你的布局管理器最没用啦！</del></li>
+</ol>
+<h2 id="15-4-事件处理"><a href="#15-4-事件处理" class="headerlink" title="15.4 事件处理"></a>15.4 事件处理</h2><blockquote>
+<p>Java 运行时，如果用户进行某个操作，程序应当做出相应。</p>
+<p>程 · 序 · 无 · 响 · 应（噔 噔 咚）</p>
+<p>……总之，用户在程序界面进行的操作称为用户事件，对事件的相应称为事件处理。</p>
+</blockquote>
+<h3 id="15-4-1-事件处理模型"><a href="#15-4-1-事件处理模型" class="headerlink" title="15.4.1 事件处理模型"></a>15.4.1 事件处理模型</h3><blockquote>
+<p>Java 事件处理是采取 “委派事件模型”。当事件发生时，产生事件类对象。这里说的事件类对象实际上就是 <code>java.awt.event</code> 事件类库里某个类创建的对象。操作不同的场合，事件类对象不同。</p>
+<p>会把此事件类对象传递给事件侦听程序处理。它是实现了对应侦听程序接口的一个类。</p>
+<p>事件只是一个对象，其只向注册的侦听程序报告</p>
+</blockquote>
+<p>示范一个简单的事件处理：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.seing.*;
+<span class="hljs-keyword">import</span> java.awt.*;													<span class="hljs-comment">//[0]</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Code_15_4_1</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;
+        <span class="hljs-type">Button</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Button</span>(<span class="hljs-string">&quot;Button&quot;</span>);
+        b.addActionListener((e) -&gt; System.out.println(<span class="hljs-string">&quot;Pressed&quot;</span>));	<span class="hljs-comment">//[1]</span>
+        <span class="hljs-type">JFrame</span> <span class="hljs-variable">jFrame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>(<span class="hljs-string">&quot;Test&quot;</span>);
+        jFrame.setBounds(<span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+        jFrame.add(b);
+        jFrame.setVisible(<span class="hljs-literal">true</span>);
+    &#125;
+&#125;</code></pre></div>
+
+<blockquote>
+<ol start="0">
+<li><p>引入 java.awt.event 包</p>
+</li>
+<li><p>注册事件侦听程序，并实现其方法</p>
+<p>示例中的简写其实相当于以下代码（匿名内部类）：</p>
+<div class="code-wrapper"><pre><code class="hljs java">b.addActionListener(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ActionListener</span>() &#123;
+    <span class="hljs-meta">@OverRide</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span> <span class="hljs-params">(ActionEvent e)</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;Pressed&quot;</span>);
+    &#125;
+&#125;);</code></pre></div>
+
+<p><em><strong>—— 示例写法见 [27 Java8 新特性]</strong></em></p>
+<p>事件侦听程序可以定义在单独的类中，也可以定义在组件类中：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyButton</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JButton</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ActionListener</span>&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyButton</span><span class="hljs-params">()</span> &#123;
+        addActionListener(<span class="hljs-built_in">this</span>);
+    &#125;
+	                           
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;Pressed&quot;</span>);
+    &#125;
+&#125;</code></pre></div></li>
+</ol>
+</blockquote>
+<h3 id="15-4-2-事件的种类"><a href="#15-4-2-事件的种类" class="headerlink" title="15.4.2 事件的种类"></a>15.4.2 事件的种类</h3><blockquote>
+<p>在 java.awt.event 包和 javax.swing.event 包中定义了很多其他的事件类。每种事件类有一个对应的接口，接口中声明了一个或多个抽象的事件处理方法。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件类</th>
+<th>组件</th>
+<th>方法及说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ActionEvent</td>
+<td>JButton、JCheckBox、JComboBox、JMenuItem、JRaidoButton</td>
+<td>actionPerformed(e) 单击按钮、选择菜单项或在文本框中按回车时</td>
+</tr>
+<tr>
+<td>AdjustmentEvent</td>
+<td>JScrollBar</td>
+<td>adjustmentValueChanged(e) 当改变滚动条滑块位置时</td>
+</tr>
+<tr>
+<td>ComponentEvent</td>
+<td>JComponent 及其子类</td>
+<td>componentMoved(e) 组件移动时；componentHidden(e) 组件隐藏时；componenetResized(e) 组件缩时；componentShown(e) 组件显示时</td>
+</tr>
+<tr>
+<td>ContainerEvent</td>
+<td>JContainer 及其子类</td>
+<td>containerAdded(e) 添加组件时；containerMoved(e)移除组件时</td>
+</tr>
+<tr>
+<td>FocusEvent</td>
+<td>同 ComponentEvent</td>
+<td>focusGained(e) 组件获得焦点时；focusLost(e) 组件失去焦点时</td>
+</tr>
+<tr>
+<td>ItemEvent</td>
+<td>JCheckBox、JCheckboxMenuItem、JComboBox</td>
+<td>itemStateChanged(e) 选择复选框、选项框、单击列表框、选中带复选框菜单时</td>
+</tr>
+<tr>
+<td>KeyEvent</td>
+<td>同 ComponentEvent</td>
+<td>keyPressed(e) 键按下时；keyReleased(e) 键释放时；keyTaped(e) 击键时</td>
+</tr>
+<tr>
+<td>MouseEvent</td>
+<td>同 ComponentEvent</td>
+<td>mousePressed(e) 鼠标按下时；mouseEntered(e) 鼠标进入时；mouseExited(e) 鼠标离开时；mouseClicked(e) 鼠标点击时；mouseReleased(e) 鼠标释放时</td>
+</tr>
+<tr>
+<td>MouseMotionEvent</td>
+<td>同 ComponentEvent</td>
+<td>mouseDragged(e) 鼠标拖放时；mouseMoved(e) 鼠标移动时</td>
+</tr>
+<tr>
+<td>TextEvent</td>
+<td>JTextField、JTextArea</td>
+<td>textValueChanged(e) 文本框、多行文本框内容修改时</td>
+</tr>
+<tr>
+<td>WindowEvent</td>
+<td>JFrame、JWindow、JDialog</td>
+<td>windowOpened(e) 窗口打开时；windowClosing(e) 窗口关闭时；windowClosed(e) 窗口关闭后；windowActived(e) 窗口激活时；windowDeactivated(e) 窗口失去焦点时；windowIconified(e) 窗口最小化时；WindowDeiconified(e) 窗口最小化还原时</td>
+</tr>
+</tbody></table>
+<p>使用说明：</p>
+<ol>
+<li><p>XXXEvent 事件类的接口名就是 XXXListener。占地方太大，上面就没写</p>
+</li>
+<li><p>事件侦听模式允许为一个组件多次调用 addListener 方法，注册多个侦听程序。</p>
+<p>事件发生时，单个事件的多个侦听程序的调用顺序不确定。</p>
+</li>
+<li><p>调用事件处理方法时会传入一个参数。该参数就是那些事件类实例，其中包含事件有关的重要信息。</p>
+<p>调用这些事件类实例各自特有的方法获取这些信息。</p>
+</li>
+</ol>
+<h3 id="15-4-3-事件适配器"><a href="#15-4-3-事件适配器" class="headerlink" title="15.4.3 事件适配器"></a>15.4.3 事件适配器</h3><blockquote>
+<p>侦听程序必须实现接口的全部抽象方法，但有时我们只关心其中的某一种方法。为了编程方便，Java 为一些声明了多个抽象方法的 Listener 接口提供了相应的适配器类。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>接口名称</th>
+<th>适配器名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ComponentListener</td>
+<td>ComponentAdapter</td>
+</tr>
+<tr>
+<td>ContainerListener</td>
+<td>ContainerAdapter</td>
+</tr>
+<tr>
+<td>FocusListener</td>
+<td>FocusAdapter</td>
+</tr>
+<tr>
+<td>KeyListener</td>
+<td>KeyAdapter</td>
+</tr>
+<tr>
+<td>MouseListener</td>
+<td>MouseAdapter</td>
+</tr>
+<tr>
+<td>MouseMotionListener</td>
+<td>MouseMotionAdapter</td>
+</tr>
+<tr>
+<td>MouseInputListener</td>
+<td>MouseInputAdapter</td>
+</tr>
+<tr>
+<td>WindowListener</td>
+<td>WindowAdapter</td>
+</tr>
+</tbody></table>
+<p>这些适配器实现了接口的全部抽象方法，只是方法内容为空</p>
+<p>这样，创建新类时可以不必实现接口，而是继承适配器类，并重写需要的方法</p>
+<h2 id="15-5-Java-绘图技术"><a href="#15-5-Java-绘图技术" class="headerlink" title="15.5 Java 绘图技术"></a>15.5 Java 绘图技术</h2><blockquote>
+<p>Java 语言约定，显示屏上一个长方形区域为程序绘图区域，坐标原点（0, 0）位于整个区域左上角。</p>
+<p>一个坐标点（x, y）对应一个像素，其中坐标点的 x、y 必须是非负整数。x 沿水平方向从左向右递增、y 沿竖直方向从上往下递增</p>
+</blockquote>
+<h3 id="15-5-1-颜色"><a href="#15-5-1-颜色" class="headerlink" title="15.5.1 颜色"></a><font color=#FF0000>1</font><font color=#FFC800>5.</font><font color=#F9F000>5</font><font color=#00FF00>.</font><font color=#00FFFF>1</font> <font color=#0000FF>颜</font><font color=#FF00FF>色</font></h3><blockquote>
+<p>可以使用 java.awt 包中的 Color 类来定义和管理颜色。Color 类的每个对象代表一种颜色。</p>
+</blockquote>
+<p>Color 类有 26 个常量，代表 13 种预定义颜色：</p>
+<table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>对象</th>
+<th>ᓚᘏᗢ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黑色<font color=#000000>（#000000）</font></td>
+<td>Color.black</td>
+<td>Color.BLACK</td>
+</tr>
+<tr>
+<td>蓝色<font color=#0000FF>（#0000FF）</font></td>
+<td>Color.blue</td>
+<td>Color.BLUE</td>
+</tr>
+<tr>
+<td>青色<font color=#00FFFF>（#00FFFF）</font></td>
+<td>Color.cyan</td>
+<td>Color.CYAN</td>
+</tr>
+<tr>
+<td>灰色<font color=#808080>（#808080）</font></td>
+<td>Color.gray</td>
+<td>Color.GRAY</td>
+</tr>
+<tr>
+<td>深灰色<font color=#404040>（#404040）</font></td>
+<td>Color.darkGary</td>
+<td>Color.DARKGARY</td>
+</tr>
+<tr>
+<td>浅灰色<font color=#C0C0C0>（#C0C0C0）</font></td>
+<td>Color.lightGary</td>
+<td>Color.LIGHTGARY</td>
+</tr>
+<tr>
+<td>绿色<font color=#00FF00>（#00FF00）</font></td>
+<td>Color.green</td>
+<td>Color.GREEN</td>
+</tr>
+<tr>
+<td>洋红色<font color=#FF00FF>（#FF00FF）</font></td>
+<td>Color.magenta</td>
+<td>Color.MAGENTA</td>
+</tr>
+<tr>
+<td>橙色<font color=#FFC800>（#FFC800）</font></td>
+<td>Color.orange</td>
+<td>Color.ORANGE</td>
+</tr>
+<tr>
+<td>粉红色<font color=#FFAFAF>（#FFAFAF）</font></td>
+<td>Color.pink</td>
+<td>Color.PINK</td>
+</tr>
+<tr>
+<td>红色<font color=#FF0000>（#FF0000）</font></td>
+<td>Color.red</td>
+<td>Color.RED</td>
+</tr>
+<tr>
+<td>白色<font color=#FFFFFF>（#FFFFFF）</font></td>
+<td>Color.write</td>
+<td>Color.WRITE</td>
+</tr>
+<tr>
+<td>黄色<font color=#FFFF00>（#FFFF00）</font></td>
+<td>Color.yellow</td>
+<td>Color.YELLOW</td>
+</tr>
+</tbody></table>
+<p>也可以通过<font color=#FF0000>红</font>、<FONT COLOR=#00FF00>绿</FONT>、<FoNt CoLoR=#0000fF>蓝</fOnT>三原色值来组合。每种颜色由三个值组成（<font color=#FF0000>R</font><font color=#00FF00>G</font><font color=#0000FF>B</font>），值的范围是 [0, 256)：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Color</span> <span class="hljs-variable">color</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">102</span>, <span class="hljs-number">204</span>, <span class="hljs-number">255</span>);</code></pre></div>
+
+<blockquote>
+<p>这个颜色是：<font color=#66CCFF>天依蓝（#66CCFF）</font></p>
+<p>这部分笔记恐怕是所有 Java 笔记里唯一有五颜六色的地方了，真难得</p>
+</blockquote>
+<h3 id="15-5-2-字体"><a href="#15-5-2-字体" class="headerlink" title="15.5.2 字体"></a><font face="幼圆" size="7"><i>15.5.2 字体</i></font></h3><blockquote>
+<p>文字有 字体、样式、字号 三个要素</p>
+</blockquote>
+<p>基本的样式有：</p>
+<ul>
+<li><p>Font.PLAIN：正常（0）</p>
+</li>
+<li><p>Font.BOLD：<strong>粗体</strong>（1）</p>
+</li>
+<li><p>Font.ITALIC：<em>斜体</em>（2）</p>
+<p>样式可以组合使用，如 (Font.BOLD + Font.ITALIC) 即 <em><strong>粗斜体</strong></em></p>
+</li>
+</ul>
+<p>常用的字体：Times New roman<font face=Times New roman>（Times New roman）</font>、Symbol<font face=Symbol>（Symbol）</font>、宋体<font face=(宋体)>（宋体）</font>、楷体<font face=楷体>（楷体）</font>等</p>
+<p><strong>构造器：</strong></p>
+<ul>
+<li><code>new Font(String name, int style, int size)</code>：新建字体，指定字体、样式、字号</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>String getName()</code>：返回其字体名称</p>
+<p><code>int getSize()</code>：返回其字号大小</p>
+<p><code>int getStyle()</code>：返回其样式</p>
+</li>
+<li><p><code>boolean isBold()</code>：是否是粗体</p>
+<p><code>boolean isItalic()</code>、<code>boolean isPlain()</code></p>
+</li>
+</ul>
+<h3 id="15-5-3-Graphics-类"><a href="#15-5-3-Graphics-类" class="headerlink" title="15.5.3 Graphics 类"></a>15.5.3 Graphics 类</h3><blockquote>
+<p>java.awt 包下的 Graohics 类是所有图形处理的基础，是所有图形上下文的抽象父类。其允许应用程序在组件及屏幕图像上进行绘制。</p>
+</blockquote>
+<p>当先后绘制的图形不同时，确定重叠部分颜色的方法称为绘图模式。</p>
+<p>绘图模式分为两种：</p>
+<ul>
+<li><p>正常模式：<code>setPaintMode()</code></p>
+<p>后绘制的图形覆盖先绘制的图形。</p>
+</li>
+<li><p>异或模式：<code>setXORMode(Color c)</code></p>
+<p>当前绘制的颜色、先前绘制的颜色 及 选定的颜色 c 之间进行某种处理后，用新的颜色绘制。</p>
+<p>这个模式下，如果使用同一颜色绘制 2 次，则相当于擦除之前绘制的图形，即恢复原本状态。</p>
+</li>
+</ul>
+<p>若要在某个组件中绘图，应重写该组件的 paint(Graphics g) 方法，并在重写的方法内进行绘图。</p>
+<ul>
+<li><p><code>paint(Graphics g)</code>：组件被显示出来时，调用该方法</p>
+<p>以下情况该方法会被调用</p>
+<ul>
+<li>组件第一次在屏幕显示时</li>
+<li>窗口最小化&#x2F;最大化</li>
+<li>窗口大小发生变化</li>
+<li><code>repaint</code> 函数被调用</li>
+</ul>
+</li>
+<li><p><code>repaint()</code>：重绘组件</p>
+<p>该方法默认情况下会调用以下方法</p>
+<ul>
+<li><p><code>paintCompnent(Graphics g)</code>：绘制组件</p>
+<p>一般情况下，要在 JComponent 子类的组件中绘图，重写该方法即可</p>
+</li>
+<li><p><code>paintBorder(Graphics g)</code>：绘制组件边框</p>
+</li>
+<li><p><code>paintChildren(Graphics g)</code>：绘制组件的子组件</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>设置画笔：</strong></p>
+<ul>
+<li><p><code>setColor(Color c)</code>：设置画笔前景色</p>
+<p><code>setBackgroud(Color c)</code>：设置背景色</p>
+<p>每个图形环境都有一种画图时正在使用的前景色。画图所在的每个表面都有背景色</p>
+</li>
+<li><p><code>setFont(Font f)</code>：设置画笔字体</p>
+</li>
+</ul>
+<p><strong>绘制几何图案：</strong></p>
+<ul>
+<li><p><code>drawArc(int x, int y, int width, int height, int startAngle, int arcAngle)</code>：绘制弧线</p>
+<p>该弧线是 沿着起始点为 (x, y)、宽 width、高 height 的矩形所限定的椭圆 绘制一条弧线。</p>
+<p>该弧线起始角度为 startAngle，弧度角度为 arcAngle</p>
+<p><code>fillArc(int x, int y, int width, int height, int startAngle, int arcAngle)</code>：填充扇形</p>
+</li>
+<li><p><code>drawLine(int x1, int y1, int x2, int y2)</code>：绘制线段</p>
+<p>该线段的两个端点是 (x1, y1) 和 (x2, y2)</p>
+</li>
+<li><p><code>drawOval(int x, int y, int width, int height)</code>：绘制椭圆</p>
+<p>一个起始点为 (x, y)、宽 width、高 height 的矩形所限定的椭圆</p>
+<p><code>fillOval(int x, int y, int width, int height)</code>：填充椭圆</p>
+</li>
+<li><p><code>drawPolygon(int[] xPoints, int[] tPoints, int nPoints)</code>：绘制多边形</p>
+<p><code>drawPolygon(Polygon p)</code>：也能通过传入一个 Polygon 对象来绘制多边形</p>
+<p>该图形的端点由传入参数确定。如果最后一个端点和第一个端点不相等，那么图形可能不闭合</p>
+<p><code>fillPolygon(int[] xPoints, int[] tPoints, int nPoints)</code>：填充多边形</p>
+<p><code>fillPolygon(Polygon p)</code>：通过传入一个 Polygon 对象来填充多边形</p>
+<p>低情商：这咋填充？高情商：留给读者们思考吧</p>
+</li>
+<li><p><code>drawRect(int x, int y, int width, int height)</code>：绘制矩形</p>
+<p>一个起始点为 (x, y)、宽 width、高 height 的矩形</p>
+<p><code>fillRect(int x, int y, int width, int height)</code>：填充矩形</p>
+</li>
+<li><p><code>drawRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight)</code>：圆角矩形</p>
+<p>一个起始点为 (x, y)、宽 width、高 height 的矩形，其圆角形状由 arcWidth、arcHeight 确定</p>
+<p>其实就是矩形（线段）和椭圆（圆弧）的某种拼接</p>
+<p><code>fillRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight)</code>：填充圆角矩形</p>
+</li>
+<li><p><code>drawString(String str, int x, int y)</code>：输出字符串</p>
+<p>在 (x, y) 处输出字符串 str，向右扩展</p>
+<p><code>drawChars(char[] chars, int offSet, int length, int x, int y)</code>：输出字符串</p>
+<p>从字符数组的 offSet 下标处起，在 (x, y) 处输出 length 个字符，向右扩展</p>
+<p><code>drawBytes(byte[] data, int offSet, int length, int x, int y)</code>：还不是一样？</p>
+</li>
+<li><p><code>draw3DRect(int x, int y, int width, int height, boolean raised)</code>：绘制 3D 矩形</p>
+<p><code>fill3DRect(int x, int y, int width, int height, boolean raised)</code>：填充 3D 矩形</p>
+<p>我感觉是和 PS 里的浮雕效果类似，生成了亮部和暗部。rasied 决定是凸起还是凹陷。</p>
+</li>
+</ul>
+<h4 id="15-5-3-1-Polygon-类"><a href="#15-5-3-1-Polygon-类" class="headerlink" title="15.5.3.1 Polygon 类"></a>15.5.3.1 Polygon 类</h4><blockquote>
+<p>Polygon 对象封装了多边形的坐标。</p>
+</blockquote>
+<p>构造方法：</p>
+<ul>
+<li><p><code>new Polygon()</code>：构造一个空的多边形。</p>
+<p>无为太虚，无生一，一生二，二生三，三生万物。所以，空的多边形也是多边形。</p>
+</li>
+<li><p><code>new Polygon(int[] xs, int[] ys, int n)</code>：构造一个 n 点连接成的多边形</p>
+</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li><p><code>addPoint(int x, int y)</code>：将该点加入多边形中</p>
+</li>
+<li><p><code>boolean contains(int x, int y)</code>：如果多边形包含该点，则返回真</p>
+<p><code>boolean contains(Point p)</code></p>
+</li>
+<li><p><code>get Bounds()</code>：得到多边形的外接矩形</p>
+</li>
+<li><p><code>translate(int dx, int dy)</code>：偏移</p>
+<p>将多边形各点沿 x 轴偏移 dx，再沿 y 轴偏移 dy</p>
+</li>
+</ul>
+<h3 id="15-5-4-Graphics2D-类"><a href="#15-5-4-Graphics2D-类" class="headerlink" title="15.5.4 Graphics2D 类"></a>15.5.4 Graphics2D 类</h3><blockquote>
+<p>为了解决图形对象的局限性，Java 1.1 后 引入了 Java 2D，其包含一个继承自 Graphics 的 Graphics2D 类，增加了很多状态属性，扩展了 Java 的绘图功能</p>
+<p>Graphics2D 拥有强大的二维图形处理能力，提供对几何形状、坐标转换、颜色管理、文字布局等更复杂的控制</p>
+</blockquote>
+<h4 id="15-5-4-1-图形状态属性"><a href="#15-5-4-1-图形状态属性" class="headerlink" title="15.5.4.1 图形状态属性"></a>15.5.4.1 图形状态属性</h4><blockquote>
+<p>通过设定和修改属性，可以指定画笔宽度和画笔连接方式、设定平移、旋转、缩放或裁剪变换图形，还能设置填充图形的颜色和图案等。</p>
+</blockquote>
+<p><strong>状态属性：</strong></p>
+<ul>
+<li><p><strong>stroke 属性：</strong></p>
+<p>该属性控制线宽、笔形样式、线段连接方式、短划线图案。</p>
+<p>使用 <code>setStroke(Stroke s)</code> 方法设置 stroke 属性。</p>
+<p>构造方法：</p>
+<ul>
+<li><p><code>new BasicStroke(float w)</code>：指定线宽的 stroke</p>
+</li>
+<li><p><code>new BasicStroke(float w, int cap, int join)</code>：指定线宽、端点样式 cap、线段交汇方式 join 的 stroke</p>
+<p>其中，端点样式 cap 的值可以是：</p>
+<ul>
+<li>BasicStroke.CAP_BUTT：无修饰（0）</li>
+<li>BasicStroke.CAP_ROUND：半圆形末端（1）</li>
+<li>BasicStroke.CAP_SQUARE：方形末端（2，默认值）</li>
+</ul>
+<p>线段交汇方式 join 的值可以是：</p>
+<ul>
+<li>BasicStroke.JOIN_BEVEL：无修饰（2）</li>
+<li>BasicStroke.JOIN_MITER：尖型末端（0，默认值）</li>
+<li>BasicStroke.JOIN_ROUND：圆形末端（1）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>paint 属性：</strong></p>
+<p>该属性控制填充效果。</p>
+<p>使用 <code>setPaint(Paint p)</code> 方法设置 paint 属性</p>
+<p>构造方法：</p>
+<ul>
+<li><p><code>new GradientPaint(float x1, float y1, Color c1, float x2, float y2, Color c2)</code>：构造一个简单的非周期性的 paint 对象。</p>
+<p>从点 (x1, y1) 至点 (x2, y2) 处，颜色由 c1 渐变至 c2</p>
+</li>
+<li><p><code>new GradientPaint(float x1, float y1, Color c1, float x2, float y2, Color c2, boolean cyclic)</code>：构造一个周期或非周期性的 paint 对象。</p>
+<p>如果希望渐变至终点又是起点的颜色，将 cyclic 设定为 true</p>
+</li>
+</ul>
+</li>
+<li><p><strong>transform 属性：</strong></p>
+<p>该属性用来实现常用的图形平移、缩放、斜切等</p>
+<p>使用 <code>setTransform(Transform t)</code> 方法设置 transform 属性</p>
+<p>构造方法：</p>
+<ul>
+<li><p><code>new AffineTransform()</code>：构造一个表示仿射变换的新的 tansform</p>
+<p><em>仿射变换：用我的话来讲，就是保持坐标点不变的情况下变换坐标系，能形成的变换</em></p>
+</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li><p><code>setToRotation(double theta)</code>：旋转 theta 角度</p>
+<p><code>setToRotation(double theta, double x, double y)</code>：以 (x, y) 为旋转中心旋转</p>
+<p><code>rotate(double theta, double x, double y)</code></p>
+</li>
+<li><p><code>setToScale(double sx, double sy)</code>：拉伸变换</p>
+<p>x、y 方向按照 sx、yx 比例变换</p>
+<p><code>scale(double sx, double sy)</code></p>
+</li>
+<li><p><code>setToTranslation(double tx, double ty)</code>：平移变换</p>
+<p><code>translate(double tx, double ty)</code></p>
+</li>
+<li><p><code>setToShear(double shx, double shy)</code>：斜切变换</p>
+<p>shx、shy 分别指定 x、y 方向的斜拉度</p>
+</li>
+</ul>
+<p>看得出来，出版社的人写到这里应该是到了下班的点了。内容不明不白的不说，还写错了好几处。</p>
+<p>我笔记上是改过来的。放心。</p>
+<p>就这还 ”指定教材“ 呢。垃圾，还没我笔记写得好。</p>
+</li>
+<li><p><strong>clip 属性：</strong></p>
+<p>该属性用于实现剪裁效果。</p>
+<p>使用 <code>setClip(Shape clip)</code>  方法，确定裁剪区域的 Shape。可以连续使用该方法以得到其交集区域</p>
+</li>
+<li><p><strong>composit 属性：</strong></p>
+<p>该属性设置图形重叠区域的效果</p>
+<p>通过 <code>Alpha.Composite.getInstance(int rule, float alpha)</code> 得到一个实例。其中 alpha（透明度）的范围是 [0.0f, 1.0f]</p>
+<p>至于 rule 是什么……我也不知道。或许不重要吧</p>
+<p>通过 <code>setComposite(Composite comp)</code> 设置混合效果</p>
+</li>
+</ul>
+<h4 id="15-5-4-2-Graphics2D-的绘图方法"><a href="#15-5-4-2-Graphics2D-的绘图方法" class="headerlink" title="15.5.4.2 Graphics2D 的绘图方法"></a>15.5.4.2 Graphics2D 的绘图方法</h4><blockquote>
+<p>Graphics2D 保留了 Graphics 的绘图方法，又增加了很多新方法</p>
+<p>另外，在 java.awt.geom 中声明了一系列类，能用于创建各种几何图形对象，包括：Line2D 线段类、Rectangle2D 矩形类、RoundRectangle2D 圆角矩形类、Ellipse2D 椭圆类、Arc2D 圆弧类、QuadCurve2D 二次曲线类、CubicCurve2D 三次曲线类</p>
+<p>这些类都是抽象类，但这些类包中有实现了其方法的 Double 类。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs java">...
+<span class="hljs-meta">@OverRide</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">paintComponents</span><span class="hljs-params">(Graphics g)</span> &#123;
+    <span class="hljs-type">Graphics2D</span> <span class="hljs-variable">g2d</span> <span class="hljs-operator">=</span> (Graphics2D)g;						<span class="hljs-comment">//[1]</span>
+    <span class="hljs-type">Line2D</span> <span class="hljs-variable">line</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Line2D</span>.Double(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>);		<span class="hljs-comment">//[2]</span>
+    g2d.draw(line);										<span class="hljs-comment">//[3]</span>
+&#125;</code></pre></div>
+
+<blockquote>
+<ol>
+<li><p>将 Graphics 对象强制转型为 Graphics2D 对象</p>
+</li>
+<li><p>创建几何图形对象</p>
+<p>这里的 Line2D.Double 表示 Line2D 包下的 Double 类。此处调用了 Double 类的构造器</p>
+</li>
+<li><p>绘制线段</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="15-5-4-3-Graphics2D-中的几何图形类"><a href="#15-5-4-3-Graphics2D-中的几何图形类" class="headerlink" title="15.5.4.3 Graphics2D 中的几何图形类"></a>15.5.4.3 Graphics2D 中的几何图形类</h4><ul>
+<li><p><code>new Line2D.Double(int x1, int y1, int x2, int y2)</code>：线段</p>
+<p>从 (x1, y1) 到 (x2, y2) 的线段</p>
+</li>
+<li><p>……（略了略了。相信椭圆、矩形之类的也不用再详细说明了吧）</p>
+</li>
+<li><p><code>new Arc2D.Double(double x, double y, double w, double h, double start, double extent, int type)</code>：弧</p>
+<p>但是特别地，type 的值是以下几种：</p>
+<ul>
+<li>Arc2D.OPEN：开弧</li>
+<li>Arc2D.CHORD：弓弧</li>
+<li>Arc2D.PIE：饼弧</li>
+</ul>
+</li>
+<li><p><code>new QuadCurver2D.Double(double x1, double y1, double ctrlx, double ctrly, double x2, double y2)</code>：绘制二次曲线</p>
+<p>绘制二次曲线需要 3 个点，分别是起始点 (x1, y1)、终点 (x2, y2)、控制点 (ctrlx, ctrly)</p>
+</li>
+<li><p><code>new CubicCurve2D.Double(double x1, double y1, double ctrlx1, double ctrly1, double ctrlx2, double ctrly2, double x2, double y2)</code>：绘制三次曲线</p>
+<p>绘制三次曲线需要 4 个点，分别是起始点、终点、两个控制点</p>
+</li>
+</ul>
+<h2 id="15-6-组合框与列表"><a href="#15-6-组合框与列表" class="headerlink" title="15.6 组合框与列表"></a>15.6 组合框与列表</h2><h3 id="15-6-1-JComboBox-组合框"><a href="#15-6-1-JComboBox-组合框" class="headerlink" title="15.6.1 JComboBox 组合框"></a>15.6.1 JComboBox 组合框</h3><blockquote>
+<p>JComboBox 是一个下拉式菜单。它有两种模式：可编辑的、不可编辑的。</p>
+<p>对于不可编辑的 JComboBox，用户只能在现有列表中进行选择</p>
+<p>对于可编辑的 JComboBox，用户既能在现有选项中选择，也能输入新的内容</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><p><code>new JComboBox&lt;E&gt;()</code>：创建一个 E 类型（泛型）的没有任何可选项的默认组合框</p>
+</li>
+<li><p><code>new JComboBox&lt;E&gt;(E[] items)</code>：根据 items 数组创建组合框</p>
+<p>items 数组元素即为组合框的可选项</p>
+</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void setEditable(boolean aFlag)</code>：设置可编辑性</p>
+<p>不设置的场合，默认处于不可编辑状态</p>
+</li>
+<li><p><code>void addItem(E item)</code>：在末尾添加可选项</p>
+<p><code>void insertItemAt(E item, int index)</code>：在指定下标处添加可选项</p>
+</li>
+<li><p><code>void removeAllItems()</code>：删除所有可选项</p>
+<p><code>void removeItem(E iten)</code>：删除 item 指定的可选项</p>
+<p><code>void removeItemAt(int index)</code>：删除指定下标处的可选项</p>
+</li>
+<li><p><code>E getItemAt(int index)</code>：获取指定下标的可选项</p>
+</li>
+<li><p><code>int getItemCount()</code>：获取列表项数</p>
+</li>
+<li><p><code>int getSelectedIndex()</code>：获取选中项匹配的第一个选项的索引下标</p>
+<p><code>E getSelectedItem()</code>：获取选中项</p>
+</li>
+</ul>
+<h3 id="15-6-2-JList-列表"><a href="#15-6-2-JList-列表" class="headerlink" title="15.6.2 JList 列表"></a>15.6.2 JList 列表</h3><blockquote>
+<p>JList 是可供用户选择的一系列可选项</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new JList&lt;E&gt;()</code>：构造一个空列表</li>
+<li><code>new JList&lt;E&gt;(E[] listData)</code>：构造一个列表，可选元素由 listData 指定</li>
+<li><code>new JList&lt;E&gt;(Vector&lt;E&gt; listData)</code>：构造一个列表，使其显示指定 Vector 中的元素</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>addListSelectionListener(ListSelectionListener l)</code>：添加监视器</p>
+<p>当用户在列表上选择时，会触发 ListSelectionEvent 事件。</p>
+<p>在 ListSelectionListener 接口中，仅有一个方法：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">valueChanged</span><span class="hljs-params">(ListSelectionEvent e)</span>;</code></pre></div>
+
+<p>当列表的当前选项改变时，会调用该方法。</p>
+</li>
+<li><p><code>int getSelectedIndex()</code>：返回选中项第一次出现的下标索引</p>
+<p>没有选中项的场合，返回 -1</p>
+<p><code>E getSelectedValue()</code>：返回所选的第一个值</p>
+<p>没有选中项的场合，返回 null</p>
+</li>
+<li><p><code>void setVisableRowCount(int count)</code>：设置不使用滚动条可以在列表中显示的选项行数</p>
+</li>
+<li><p><code>void setSelectionMode(int mode)</code>：设置列表的选择模式</p>
+<p>其中，mode 的值可以是以下几种：</p>
+<ul>
+<li>ListSelectionModel.SINGLE_SELECTION：仅支持单项选择（0）</li>
+<li>ListSelectionModel.SINGLE_INTERVAL_SELECTION：可多选，但多个选项必须是连续的（1）</li>
+<li>ListSelectionModel.MULTIPLE_INTERVAL_SELECTION：可多选（2，默认值）</li>
+</ul>
+</li>
+</ul>
+<h2 id="15-7-文本组件"><a href="#15-7-文本组件" class="headerlink" title="15.7 文本组件"></a>15.7 文本组件</h2><blockquote>
+<p>文本组件可以提示信息和提供用户输入功能。Swing 中提供了 JTextField（文本域）、JPasswordField（口令输入域）、JTextArea（文本区）等多个文本组件。</p>
+</blockquote>
+<p>文本组件的共同的父类是 JTextComponent，其中定义了文本组件的共有方法：</p>
+<ul>
+<li><p><code>String getSelectedText()</code>：从文本组件中提取被选中的文本内容</p>
+</li>
+<li><p><code>String getText()</code>：从文本组件中提取全部文本内容</p>
+<p><code>String getText(int offs, int len)</code>：从文本组件中提取指定范围的文本内容</p>
+</li>
+<li><p><code>void select(inr start, int end)</code>：在文本组件中选中指定范围内容</p>
+<p><code>void selectAll()</code>：在文本组件中选中全部内容</p>
+</li>
+<li><p><code>void setEditable(boolean b)</code>：设置可编辑状态</p>
+</li>
+<li><p><code>void setText(String t)</code>：设置文本组件的文本内容</p>
+</li>
+<li><p><code>void setDocument(Document doc)</code>：设置文本组件的文档</p>
+</li>
+<li><p><code>void copy()</code>：复制选中文本至剪贴板</p>
+<p><code>void cut()</code>：剪切选中文本至剪贴板</p>
+<p><code>void paste()</code>：粘贴剪贴板内容至当前位置</p>
+</li>
+</ul>
+<p>另外，JComponrnt 类中有如下方法：</p>
+<ul>
+<li><code>boolean requestFocusInWindow()</code>：请求当前组件获得输入焦点</li>
+</ul>
+<h3 id="15-7-1-JTextField-文本域"><a href="#15-7-1-JTextField-文本域" class="headerlink" title="15.7.1 JTextField 文本域"></a>15.7.1 JTextField 文本域</h3><blockquote>
+<p>文本域是一个单行的文本输入框，可以用于输入少量文本</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><p><code>new JTextField()</code>：构造一个空文本域</p>
+</li>
+<li><p><code>new JTextField(int columns)</code>：构造一个指定列数的空文本域</p>
+<p>由于组件大小通常由布局管理器确定，因此指定的列数可能被忽略</p>
+</li>
+<li><p><code>new JTextField(String text)</code>：构造一个显示指定初始字符的文本域</p>
+</li>
+<li><p><code>new JTextField(String text, int columns)</code>：构造一个指定列数及初始字符的文本域</p>
+</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void addActionListener(ActionListener l)</code>：添加指定侦听器</p>
+<p><code>void removeActionListener(ActionListener l)</code>：移除指定侦听器</p>
+</li>
+<li><p><code>void setFont()</code>：设置当前字体</p>
+</li>
+<li><p><code>void setHorizontalAlignment(int alignment)</code>：设置水平对齐方式</p>
+<p>有效值包括：</p>
+<ul>
+<li><p>JTextField.LEFT：左对齐（2）</p>
+</li>
+<li><p>JTextField.RIGHT：右对齐（4）</p>
+</li>
+<li><p>JTextField.CENTER：居中对齐（0）</p>
+</li>
+<li><p>JTextField.LEADING：领先对齐（10）</p>
+<p>（似乎是）识别文字前端的对齐方式……好吧，我也不太明白</p>
+</li>
+<li><p>JTextField.TRAILING：落后对齐（11）</p>
+</li>
+</ul>
+</li>
+<li><p><code>int getColumns()</code>：返回文本域列数</p>
+</li>
+</ul>
+<h3 id="15-7-2-JTextArea-文本区"><a href="#15-7-2-JTextArea-文本区" class="headerlink" title="15.7.2 JTextArea 文本区"></a>15.7.2 JTextArea 文本区</h3><blockquote>
+<p>JTextArea 是一个多行多列的文本输入框</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new JTextArea()</code>：构造一个空文本区</li>
+<li><code>new JTextArea(int rows, int columns)</code>：构造一个指定行数、列数数的空文本区</li>
+<li><code>new JTextArea(String text)</code>：构造一个显示指定初始字符的文本区</li>
+<li><code>new JTextArea(String text, int rows, int columns)</code>：构造一个指定行列数及初始字符的文本区</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>void append(String str)</code>：追加文本到文本区</p>
+</li>
+<li><p><code>void insert(String str, int pos)</code>：将指定文本插入到特定位置 pos 处</p>
+</li>
+<li><p><code>void replaceRange(String str, int start, int end)</code>：用指定文本 str 替换指定范围的文本</p>
+</li>
+<li><p><code>void addAncestorListener(AncestorListener listener)</code>：添加指定侦听器</p>
+<p>特别地，用户输入文本时，按下 Enter 键的场合只是向缓冲区输入一个字符，而不能表示输入的结束。因此，需要识别用户输入完成时，通常要在文本区旁放置一个确定按钮</p>
+</li>
+</ul>
+<h2 id="15-8-菜单组件"><a href="#15-8-菜单组件" class="headerlink" title="15.8 菜单组件"></a>15.8 菜单组件</h2><blockquote>
+<p>菜单是最常用的 GUI 组件之一。Swing 包中提供了多种菜单组件。</p>
+<p>菜单有下拉式菜单和弹出式菜单两种</p>
+</blockquote>
+<h3 id="15-8-1-菜单栏及菜单"><a href="#15-8-1-菜单栏及菜单" class="headerlink" title="15.8.1 菜单栏及菜单"></a>15.8.1 菜单栏及菜单</h3><blockquote>
+<p>JMenuBar 菜单栏是窗口主菜单，用来包容一组菜单</p>
+<p>通过容器的 <code>setJMenuBar(JMenuBar m)</code> 方法将菜单栏放到窗口上</p>
+</blockquote>
+<p><strong>菜单栏 JMenuBar 构造方法：</strong></p>
+<ul>
+<li><code>new JMenuBar()</code>：构建一个新的菜单栏</li>
+</ul>
+<p>菜单栏也能注册一些事件侦听程序，但通常情况下对于这些事件我们都不进行处理</p>
+<p><strong>菜单构造方法：</strong></p>
+<ul>
+<li><code>new JMenu()</code>：构造没有文本的新菜单</li>
+<li><code>new JMenu(String str)</code>：构造有指定标签的菜单</li>
+<li><code>new JMenu(String str, boolean b)</code>：构造有指定标签的菜单，并指示其是否可以被分离</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>add(JMenu m)</code>：菜单可以被加入菜单栏或另一个菜单中</p>
+</li>
+<li><p><code>addSeparator()</code>：为菜单各项间加入间隔线</p>
+<p><code>insertSeparator(int index)</code>：在指定位置插入间隔线</p>
+<p>也能通过这种方式插入间隔线：</p>
+<div class="code-wrapper"><pre><code class="hljs java">menu.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">JSeparator</span>());				<span class="hljs-comment">//JSeparator 类即分割线类</span></code></pre></div></li>
+</ul>
+<h3 id="15-8-2-JMenuItem-菜单项"><a href="#15-8-2-JMenuItem-菜单项" class="headerlink" title="15.8.2 JMenuItem 菜单项"></a>15.8.2 JMenuItem 菜单项</h3><blockquote>
+<p>JMenuItem 菜单项是菜单系统的最下一级</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><p><code>new JMenuItem()</code>：创建不带有设置文本或图标的菜单项</p>
+</li>
+<li><p><code>new JMenuItem(Icon i)</code>：创建只有图标的菜单项</p>
+</li>
+<li><p><code>new JMenuItem(String str)</code>：创建只有文本的菜单项</p>
+</li>
+<li><p><code>new JMenuItem(String str, Icon i)</code>：创建有图标和文本的菜单项</p>
+</li>
+<li><p><code>new JMenuItem(String str, int mnemonic)</code>：创建有文本和快捷键的菜单项</p>
+<p>那个快捷键的有效值是 KeyEvent 包下的各种常量</p>
+</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>setMnemonic(int m)</code>：设置快捷键</p>
+</li>
+<li><p><code>setAccelerator(KeyStroke keyStroke)</code>：设置加速键</p>
+</li>
+<li><p><code>addActionListener(ActionListener l)</code>：加入侦听器</p>
+<p>菜单项被选中时，会触发 ActionEvent 事件</p>
+</li>
+</ul>
+<h3 id="15-8-3-复选菜单项和单选菜单项"><a href="#15-8-3-复选菜单项和单选菜单项" class="headerlink" title="15.8.3 复选菜单项和单选菜单项"></a>15.8.3 复选菜单项和单选菜单项</h3><blockquote>
+<p>JCheckBoxMenuItem（复选菜单项）和 JRadioButtonMenuItem（单选菜单项）是两种特殊的菜单项。</p>
+<p>JCheckBoxMenuItem 前有个小方框，以供提示复选</p>
+<p>JRadioButtonMenuItem 前有个小圆圈，以供提示单选</p>
+</blockquote>
+<p><strong>复选菜单项构造器：</strong></p>
+<ul>
+<li><code>new JCheckBoxMenuItem()</code>：一个无文本图标，初始未选中的菜单项</li>
+<li><code>new JCheckBoxMenuItem(Icon i)</code>：就是有图标咯</li>
+<li><code>new JCheckBoxMenuItem(String str)</code>：就是有文本咯</li>
+<li><code>new JCheckBoxMenuItem(String str, boolean b)</code>：就是有文本，又指定初始状态咯</li>
+<li><code>new JCheckBoxMenuItem(String str, Icon i)</code>：就是有文本，又有图标咯</li>
+<li><code>new JCheckBoxMenuItem(String str, Icon i, boolean b)</code>：你猜呗</li>
+</ul>
+<p><strong>单选菜单项构造器：</strong></p>
+<p>单选菜单项是 JRadioButtonMenuItem，剩下的都和上面的一样</p>
+<h2 id="15-9-对话框"><a href="#15-9-对话框" class="headerlink" title="15.9 对话框"></a>15.9 对话框</h2><blockquote>
+<p>对话框是一个临时的可移动窗口，其依赖于其他窗口。当期依赖的窗口消失或最小化时，对话框消失。窗口还原时对话框恢复。</p>
+<p>对话框分为强制型和非强制型。强制型对话框在关闭前，其他窗口不能接收任何形式的输入。也就是说，该对话过程不能中断。强制型对话框也被称为模式窗口。</p>
+</blockquote>
+<h3 id="15-9-1-JDialog-自定义对话框"><a href="#15-9-1-JDialog-自定义对话框" class="headerlink" title="15.9.1 JDialog 自定义对话框"></a>15.9.1 JDialog 自定义对话框</h3><p><strong>构造方法：</strong></p>
+<ul>
+<li><p><code>new JDialog(Dialog owner)</code>：无标题无模式对话框。指定对话框为其所有者</p>
+<p><code>new JDialog(Frame owner)</code>：指定框架为其所有者</p>
+</li>
+<li><p><code>new JDialog(Dialog owner, boolean model)</code>：无标题对话框，指定所有者并指示是否为有模式</p>
+</li>
+<li><p><code>new JDialog(Dialog owner, String title)</code></p>
+<p><code>new JDialog(Frame owner, String title)</code></p>
+<p><code>new JDialog(Dialog owner, String title, boolean model)</code></p>
+<p><code>new JDialog(Frame owner, String title, boolean model)</code>：这些你都懂的吧</p>
+</li>
+</ul>
+<h3 id="15-9-2-JOptionalPane-标准对话框"><a href="#15-9-2-JOptionalPane-标准对话框" class="headerlink" title="15.9.2 JOptionalPane 标准对话框"></a>15.9.2 JOptionalPane 标准对话框</h3><blockquote>
+<p>JDialog 通常用于创建自定义对话框。此外，还有用于显示标准对话框的 JOptionalPane 类</p>
+</blockquote>
+<p>JOptionalPane 定义了多个<strong>静态方法</strong>，分为以下 4 个类型：</p>
+<ul>
+<li><p><strong>showConfirmDialog</strong>：确认对话框。显示问题，要求用户进行确认（yes &#x2F; no &#x2F; cancel）</p>
+<p>其同名方法有以下 3 种</p>
+<ul>
+<li><p>int showConfirmDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>)</p>
+</li>
+<li><p>int showConfirmDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#00AAFF>int optionType</font>)</p>
+</li>
+<li><p>int showConfirmDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#00AAFF>int optionType</font>, <font color=#E0AA00>int messageType</font>)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>showInputDialog</strong>：输入对话框。提示用户进行输入</p>
+<p>同名方法有以下 6 种：</p>
+<ul>
+<li><p>showInputDialog(<font color=#00E040>Object message</font>)</p>
+</li>
+<li><p>showInputDialog(<font color=#00E040>Object message</font>, <font color=#0000AE>Object initialValue</font>)</p>
+</li>
+<li><p>showInputDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>)</p>
+</li>
+<li><p>showInputDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#0000AE>Object initialValue</font>)</p>
+</li>
+<li><p>showInputDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#E0AA00>int messageType</font>)</p>
+</li>
+<li><p>showInputDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#E0AA00>int messageType</font>, Icon icon, <font color=#0FF0AE>Object[] options</font>, <font color=#0000AE>Object initialValue</font>)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>showMessageDialog</strong>：信息对话框。显示信息</p>
+<p>同名方法有以下 3 种：</p>
+<ul>
+<li><p>showMessageDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>)</p>
+</li>
+<li><p>showMessageDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#E0AA00>int messageType</font>)</p>
+</li>
+<li><p>showMessageDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#E0AA00>int messageType</font>, Icon icon)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>showOptionDialog</strong>：选项对话框，显示选项，要求用户进行选择</p>
+<p>其只有 1 种同名方法</p>
+<ul>
+<li>showOptionDialog(<font color=#FF4040>Component parentComponent</font>, <font color=#00E040>Object message</font>, <font color=#EAA0FF>String title</font>, <font color=#00AAFF>int optionType</font>, <font color=#E0AA00>int messageType</font>, Icon icon, <font color=#0FF0AE>Object[] options</font>, <font color=#0000AE>Object initialValue</font>)</li>
+</ul>
+</li>
+</ul>
+<p>以上各个方法的参数分别是：</p>
+<ul>
+<li><p><font color=#FF4040>Component parentComponent</font>：对话框的父窗口对象。其父窗口位置决定了对话框位置</p>
+<p>该值可以是 null，表示用默认的 Frame 作为父窗口。这个场合，对话框位置在屏幕正中</p>
+</li>
+<li><p><font color=#00E040>Object message</font>：显示在对话框的描述信息。</p>
+<p>该参数通常是 String 对象，但也能是一个图标、组件或对象数组</p>
+</li>
+<li><p><font color=#EAA0FF>String title</font>：对话框标题</p>
+</li>
+<li><p><font color=#00AAFF>int optionType</font>：对话框上的按钮类型。可以是以下常量：</p>
+<ul>
+<li>JOptionalPane.DEFAULT_OPTION：默认（-1）</li>
+<li>JOptionalPane.YES_NO_OPTION：一组 yes &#x2F; no（0）</li>
+<li>JOptionalPane.YES_NO_CANCEL_OPTION：一组 yes &#x2F; no &#x2F; cancel（1）</li>
+<li>JOptionalPane.OK_CANCEL_OPTION：一组 ok &#x2F; cancel（2）</li>
+</ul>
+<p>此外，也能通过 <font color=#0FF0AE>Object[] options</font> 参数指定其他形式</p>
+</li>
+<li><p><font color=#0FF0AE>Object[] options</font>：对话框上的选项。</p>
+<p>在输入对话框中，通常以组合框架形式显示。在选项对话框中，则是指按钮类型。</p>
+<p>该参数通常是一个 String[] 数组，但也能是图标数组或组件数组</p>
+</li>
+<li><p><font color=#E0AA00>int messageType</font>：对话框传递的信息类型。可以是以下常量：</p>
+<ul>
+<li>JOptionalPane.ERROR_MESSAGE：错误信息（0）</li>
+<li>JOptionalPane.INFORMATION_MESSAGE：普通信息（1）</li>
+<li>JOptionalPane.WARNING_MESSAGE：警告信息（2）</li>
+<li>JOptionalPane.QUESTION_MESSAGE：提问信息（3）</li>
+<li>JOptionalPane.PLAIN_MESSAGE：无格式信息（-1）</li>
+</ul>
+<p>除 PLAIN_MESSAGE 外，每种类型对应于一个默认的图标</p>
+</li>
+<li><p><font color=#0000AE>Object initialValue</font>：初始选项或输入值</p>
+</li>
+</ul>
+<h3 id="15-9-3-JFileChooser-文件对话框"><a href="#15-9-3-JFileChooser-文件对话框" class="headerlink" title="15.9.3 JFileChooser 文件对话框"></a>15.9.3 JFileChooser 文件对话框</h3><blockquote>
+<p>JFileChooser 文件对话框是专门用于对文件或目录进行浏览和选择的对话框</p>
+</blockquote>
+<p><strong>构造方法：</strong></p>
+<ul>
+<li><code>new JFileChooser()</code>：构造一个指向客户默认目录的文件对话框</li>
+<li><code>new JFileChooser(File currentDirectory)</code>：指向指定目录的文件对话框</li>
+<li><code>new JFileChooser(String path)</code>：指向指定目录的文件对话框</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p><code>showOpenDialog(Component parent)</code>：弹出一个 “打开” 文件对话框</p>
+<p>parent 是对话框的父窗口对象。其父窗口位置决定了对话框位置</p>
+<p>该值可以是 null，表示用默认的 Frame 作为父窗口。这个场合，对话框位置在屏幕正中</p>
+<p><code>showSaveDialog(Component parent)</code>：弹出一个 “保存” 文件对话框</p>
+</li>
+<li><p><code>getSelectedFile()</code>：获得用户选择的文件</p>
+</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;15 图形界面设计</div>
+      <div>https://i-melody.github.io/2022/04/22/Java/入门阶段/15 图形界面设计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

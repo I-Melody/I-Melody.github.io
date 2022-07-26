@@ -1,0 +1,961 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="6 内存和引用6.1 内存分区模型 不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.1.1 程序运行前程序编译后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;C++&gt;6 内存和引用">
+<meta property="og:url" content="https://i-melody.github.io/2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="6 内存和引用6.1 内存分区模型 不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.1.1 程序运行前程序编译后">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:53:16.354Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;C++&gt;6 内存和引用 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;C++&gt;6 内存和引用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-02 00:00" pubdate>
+          2022年4月2日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;C++&gt;6 内存和引用</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="6-内存和引用"><a href="#6-内存和引用" class="headerlink" title="6 内存和引用"></a>6 内存和引用</h1><h2 id="6-1-内存分区模型"><a href="#6-1-内存分区模型" class="headerlink" title="6.1 内存分区模型"></a>6.1 内存分区模型</h2><blockquote>
+<p>不同区域存放的数据被赋予不同的生命周期，提高编程灵活性</p>
+</blockquote>
+<p>C++ 程序执行时，将内存大致分为 4 个区域：</p>
+<ul>
+<li>代码区：存放函数体的二进制代码，由操作系统进行管理</li>
+<li>全局区：存放全局变量、静态变量以及常量</li>
+<li>栈区：由编译器自动分配释放。存放函数的参数值、局部变量等</li>
+<li>堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收</li>
+</ul>
+<h3 id="6-1-1-程序运行前"><a href="#6-1-1-程序运行前" class="headerlink" title="6.1.1 程序运行前"></a>6.1.1 程序运行前</h3><p>程序编译后，生产了 exe 可执行程序。未执行该程序前分为 2 个区域：</p>
+<ul>
+<li><p>代码区：</p>
+<p>存放 CPU 执行的机器指令</p>
+<p>代码区是 <strong>共享</strong> 的。对于频繁被执行的程序，只要在代码区有一份代码即可</p>
+<p>代码区是 <strong>只读</strong> 的，以防止程序意外修改其指令</p>
+</li>
+<li><p>全局区：</p>
+<p><strong>全局变量</strong> 和 <strong>静态变量</strong> 存放在这里</p>
+<p>全局区还包含 <strong>常量区</strong>，<strong>字符串常量</strong> 和其他 <strong>常量</strong> 也存放在这里</p>
+<p>（局部变量、局部常量 不放在这里）</p>
+<p>该区域的数据在程序结束后由系统操作释放</p>
+</li>
+</ul>
+<h3 id="6-1-2-程序运行后"><a href="#6-1-2-程序运行后" class="headerlink" title="6.1.2 程序运行后"></a>6.1.2 程序运行后</h3><ul>
+<li><p>栈区：</p>
+<p>存放函数的参数值、局部变量等。</p>
+<p>由编译器自动分配释放。<strong>因此，应该避免把局部变量地址作为返回值。</strong>若如此做，编译器仅一次会保留指针指向的值。</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>* <span class="hljs-title">met1</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;					<span class="hljs-comment">//一个局部变量</span>
+    <span class="hljs-keyword">return</span> &amp;a;					<span class="hljs-comment">//把局部变量地址作为返回值</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span>* p = <span class="hljs-built_in">met1</span>();			<span class="hljs-comment">//接收上面的局部变量地址</span>
+    cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//仅一次，编译器保留的局部变量值</span>
+    cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//此时会输出错误的值</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+</li>
+<li><p>堆区：</p>
+<p>由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收</p>
+<p>在 C++ 中主要利用 new 在栈区开辟内存空间</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>* <span class="hljs-title">met2</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span>* a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">10</span>);		<span class="hljs-comment">//开辟了一个内存空间</span>
+    <span class="hljs-keyword">return</span> a;					<span class="hljs-comment">//把内存空间地址作为返回值</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span>* p = <span class="hljs-built_in">met2</span>();			<span class="hljs-comment">//接收上面的内存空间地址</span>
+    cout &lt;&lt; *p &lt;&lt; endl;			
+    cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//正常输出</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre></div></li>
+</ul>
+<h3 id="6-1-3-new-操作符"><a href="#6-1-3-new-操作符" class="headerlink" title="6.1.3 new 操作符"></a>6.1.3 new 操作符</h3><blockquote>
+<p>在 C++ 中主要利用 new 在栈区开辟内存空间</p>
+</blockquote>
+<p>堆区由程序员手动分配和释放空间</p>
+<ul>
+<li><p>分配空间：<code>new 数据类型</code></p>
+</li>
+<li><p>释放空间：<code>delete 指针</code></p>
+</li>
+</ul>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span>* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">24</span>);			<span class="hljs-comment">//[1]</span>
+cout &lt;&lt; *p &lt;&lt; endl;				<span class="hljs-comment">//这里，输出 24</span>
+<span class="hljs-keyword">delete</span> p;						<span class="hljs-comment">//[2]</span>
+<span class="hljs-comment">/* cout &lt;&lt; *p; */</span>				<span class="hljs-comment">//这里就不能再访问该内存空间了</span>
+
+<span class="hljs-type">int</span>* p2 = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">10</span>];			<span class="hljs-comment">//[3]</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)&#123;	<span class="hljs-comment">//赋值</span>
+    p2[i] = i;
+&#125;
+<span class="hljs-keyword">delete</span>[] p2;					<span class="hljs-comment">//[4]</span></code></pre></div>
+
+<blockquote>
+<ol>
+<li>new 返回一个该数据类型的指针</li>
+<li>delete 释放该数据内存</li>
+<li>为一个长度 10 的数组开辟了空间。这个场合数组中的元素也都在堆区内</li>
+<li>delete[] 释放该数组内存。需要加 <code>[ ]</code> 中括号以表示释放多个内存</li>
+</ol>
+</blockquote>
+<h2 id="6-2-引用"><a href="#6-2-引用" class="headerlink" title="6.2 引用"></a>6.2 引用</h2><blockquote>
+<p>引用：给变量起别名</p>
+</blockquote>
+<h3 id="6-2-1-引用的基本使用"><a href="#6-2-1-引用的基本使用" class="headerlink" title="6.2.1 引用的基本使用"></a>6.2.1 引用的基本使用</h3><p>语法：<code>数据类型&amp; 别名 = 原名</code></p>
+<div class="code-wrapper"><pre><code class="hljs c++">string keQing = <span class="hljs-string">&quot;霓霆快雨&quot;</span>;
+string&amp; waifu = keQing;					<span class="hljs-comment">// 为 keQing 起了别名 waifu</span>
+waifu = <span class="hljs-string">&quot;玉衡星&quot;</span>;
+cout &lt;&lt; keQing;							<span class="hljs-comment">// 玉衡星</span></code></pre></div>
+
+<p>上面的 waifu 就是引用，其类型是 string&amp;。</p>
+<p>引用声明后，系统不会为其分配空间，而是让其指向被引用的地址。</p>
+<h3 id="6-2-2-引用注意事项"><a href="#6-2-2-引用注意事项" class="headerlink" title="6.2.2 引用注意事项"></a>6.2.2 引用注意事项</h3><ul>
+<li><p>引用必须初始化</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/* int&amp; temp; */</span>					<span class="hljs-comment">// 不可以，不可以哟</span></code></pre></div>
+
+<p>引用的对象也必须完成初始化。</p>
+</li>
+<li><p>引用初始化后即不能改变</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> S_H_Ark = <span class="hljs-number">101</span>;
+<span class="hljs-type">int</span> S_H_Dark = <span class="hljs-number">101</span>;
+<span class="hljs-type">int</span>&amp; card = S_H_Ark;
+<span class="hljs-comment">/* int&amp; card = S_H_Dark; */</span>			<span class="hljs-comment">// 快住手，这根本不是引用</span>
+card = S_H_Dark;					<span class="hljs-comment">// 这里是赋值操作</span></code></pre></div>
+</li>
+<li><p>不能声明地址的引用</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> n = <span class="hljs-number">10</span>;
+<span class="hljs-comment">/* int&amp; nn = &amp;n; */</span>					<span class="hljs-comment">// 这，这不对吧</span></code></pre></div>
+
+<p>不能声明宏常量的引用，也不能声明一个表达式的引用（除非表达式的结果是一个变量的引用）</p>
+</li>
+</ul>
+<h3 id="6-2-3-引用做函数参数"><a href="#6-2-3-引用做函数参数" class="headerlink" title="6.2.3 引用做函数参数"></a>6.2.3 引用做函数参数</h3><blockquote>
+<p>传入参数时，利用引用方法让形参修饰实参。这样，可以简化指针修改实参。</p>
+</blockquote>
+<ul>
+<li><p>值传递：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met1</span> <span class="hljs-params">(<span class="hljs-type">int</span> n1)</span> </span>&#123;
+    n1++;
+&#125;</code></pre></div>
+
+<blockquote>
+<p>值传递的场合，形参是另一个局部变量。其值改变<strong>不</strong>影响原本的变量。</p>
+</blockquote>
+</li>
+<li><p>地址传递：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met2</span> <span class="hljs-params">(<span class="hljs-type">int</span>* n2)</span> </span>&#123;
+    (*n2)++;
+&#125;</code></pre></div>
+
+<blockquote>
+<p>地址传递的场合，形参即原变量的指针。其值改变<strong>会</strong>影响原本的变量。</p>
+</blockquote>
+</li>
+<li><p>引用传递：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met3</span> <span class="hljs-params">(<span class="hljs-type">int</span>&amp; n3)</span> </span>&#123;
+    n3++;
+&#125;</code></pre></div>
+
+<blockquote>
+<p>引用传递的场合，形参即原变量的引用。其值改变<strong>会</strong>影响原本的变量。</p>
+<p>引用传递的效果和地址传递相同，但语法更简单</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="6-2-4-引用做返回值"><a href="#6-2-4-引用做返回值" class="headerlink" title="6.2.4 引用做返回值"></a>6.2.4 引用做返回值</h3><ul>
+<li><p>不要返回局部变量的引用</p>
+<p><em><strong>—— 同 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-2-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%90%8E">[6.1.2 栈区]</a></strong></em></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">met4</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span> n = <span class="hljs-number">100</span>;
+    <span class="hljs-keyword">return</span> n;						<span class="hljs-comment">//[1]</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span>&amp; ref = <span class="hljs-built_in">met4</span>();
+    cout &lt;&lt; ref &lt;&lt; endl;			<span class="hljs-comment">//[2]</span>
+    cout &lt;&lt; ref &lt;&lt; endl;			<span class="hljs-comment">//[3]</span>
+&#125;</code></pre></div>
+
+<blockquote>
+<ol>
+<li>返回了局部变量（的引用）</li>
+<li>编译器保留一次</li>
+<li>此时变量已经被释放，结果会出错</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>如果函数的返回值是引用，则该函数调用可以作为左值</strong></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">met5</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span> </span>&#123;
+    <span class="hljs-type">static</span> <span class="hljs-type">int</span> n = a;				<span class="hljs-comment">//[1]</span>
+    <span class="hljs-keyword">return</span> n;					
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span>&amp; ref = <span class="hljs-built_in">met5</span>(<span class="hljs-number">1</span>);
+    cout &lt;&lt; ref &lt;&lt; endl;			<span class="hljs-comment">//[2]</span>
+    <span class="hljs-built_in">met5</span>(<span class="hljs-number">20</span>) = <span class="hljs-number">100</span>;					<span class="hljs-comment">//[3]</span>
+    cout &lt;&lt; ref &lt;&lt; <span class="hljs-string">&#x27;,&#x27;</span> &lt;&lt; <span class="hljs-built_in">met5</span>(<span class="hljs-number">4</span>);	<span class="hljs-comment">//[4]</span>
+&#125;</code></pre></div>
+
+<blockquote>
+<ol>
+<li><p>静态变量，储存在全局区。全局区数据在系统结束后被释放</p>
+<p><em><strong>—— 全局区 见 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-1-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%89%8D">[6.1.1 全局区]</a></strong></em></p>
+</li>
+<li><p>此时输出 1</p>
+</li>
+<li><p><code>met5()</code> 返回值是引用，所以可以作为左值</p>
+<p><code>met5()</code> 相当于是 <code>ref</code> 变量的原名，<code>ref</code> 是别名</p>
+<p>所以此处，<code>ref</code> 变量变为 100</p>
+<p>经过测试，虽然 <code>met5()</code> 方法的参数改变了，但值是同一个，即 100</p>
+<p><em><strong>—— 原因 见 …… 就往下看呗 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-5-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8">[6.2.5 引用的本质]</a></strong></em></p>
+</li>
+<li><p>输出：100,100</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="6-2-5-引用的本质"><a href="#6-2-5-引用的本质" class="headerlink" title="6.2.5 引用的本质"></a>6.2.5 引用的本质</h3><blockquote>
+<p>引用的本质在 C++ 内部实现是一个指针常量</p>
+<p><em><strong>—— 指针常量 见 <a href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.2 指针常量]</a></strong></em></p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/*—&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; 去伪存真 —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt;*/</span>
+
+									<span class="hljs-comment">//</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met3</span> <span class="hljs-params">(<span class="hljs-type">int</span>&amp; n3)</span> </span>&#123;				<span class="hljs-comment">//	void met3 (int* const n3) &#123;</span>
+    n3++;							<span class="hljs-comment">//		(*n3)++;</span>
+&#125;									<span class="hljs-comment">//	&#125;</span>
+									<span class="hljs-comment">//</span>
+<span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">met5</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span> </span>&#123;					<span class="hljs-comment">//	int* met5(int a) &#123;</span>
+    <span class="hljs-type">static</span> <span class="hljs-type">int</span> n = a;				<span class="hljs-comment">//		static int n = a;	</span>
+    <span class="hljs-keyword">return</span> n;						<span class="hljs-comment">//		int* const met5 = &amp;n;</span>
+    								<span class="hljs-comment">//				/* [1] */</span>
+									<span class="hljs-comment">//		return met5;</span>
+&#125;									<span class="hljs-comment">//	&#125;</span>
+									<span class="hljs-comment">//</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;						<span class="hljs-comment">//	int main() &#123;</span>
+    <span class="hljs-type">int</span> a = <span class="hljs-number">0</span>;						<span class="hljs-comment">//		int a = 0;</span>
+    <span class="hljs-built_in">met3</span>(a);						<span class="hljs-comment">//		met3(&amp;a);</span>
+    <span class="hljs-type">int</span>&amp; ref = <span class="hljs-built_in">met5</span>(a);				<span class="hljs-comment">//		int* ref = met5(a);</span>
+    cout &lt;&lt; ref &lt;&lt; endl;			<span class="hljs-comment">//		cout &lt;&lt; *ref &lt;&lt; endl;</span>
+    <span class="hljs-built_in">met5</span>(<span class="hljs-number">20</span>) = <span class="hljs-number">100</span>;					<span class="hljs-comment">//		*met5 = 100;</span>
+    cout &lt;&lt; ref &lt;&lt; <span class="hljs-built_in">met5</span>(<span class="hljs-number">4</span>);			<span class="hljs-comment">//		cout &lt;&lt; *ref &lt;&lt; *met5;</span>
+&#125;									<span class="hljs-comment">//	&#125;</span></code></pre></div>
+
+<blockquote>
+<ol>
+<li>此处解释了 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-4-%E5%BC%95%E7%94%A8%E5%81%9A%E8%BF%94%E5%9B%9E%E5%80%BC">[6.2.4.3]</a> 出现的参数变化的问题：指针常量的指向是不变的</li>
+</ol>
+</blockquote>
+<h3 id="6-2-6-常量引用"><a href="#6-2-6-常量引用" class="headerlink" title="6.2.6 常量引用"></a>6.2.6 常量引用</h3><blockquote>
+<p>常量引用主要用来修饰形参，防止误操作</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/* int&amp; n1 = 10; */</span>			<span class="hljs-comment">//引用必须指向合法的内存空间，而常量在常量区</span>
+
+<span class="hljs-type">const</span> <span class="hljs-type">int</span>&amp; n = <span class="hljs-number">10</span>;			<span class="hljs-comment">//	int temp = 10;</span>
+							<span class="hljs-comment">//	const int&amp; n = temp;</span>
+
+<span class="hljs-comment">/* n = 20 */</span>				<span class="hljs-comment">//此时，n 不可修改</span></code></pre></div>
+
+<p>修饰形参：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">println</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">int</span>&amp; n)</span> </span>&#123;
+    <span class="hljs-comment">/* n = 100; */</span>			<span class="hljs-comment">//此时，n 不可修改</span>
+    cout &lt;&lt; n &lt;&lt; endl;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;C++&gt;6 内存和引用</div>
+      <div>https://i-melody.github.io/2022/04/02/C++/入门阶段/6 内存和引用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="4 指针和结构体4.1 指针 指针的作用：可以通过指针间接访问内存   内存编号是从 0 开始记录的。一般用十六进制数字表示 可以用指针变量保存地址  4.1.1 指针的定义和使用语法：  声明指针：数据类型 * 指针变量名 记录地址：指针变量名 &#x3D; &amp;变量名 使用指针：*指针变量名  int var &#x3D; 10;			&#x2F;&#x2F;这是某个变量 int * p;				&#x2F;&#x2F;声明了指针 p p &#x3D; &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;C++&gt;4 指针和结构体">
+<meta property="og:url" content="https://i-melody.github.io/2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="4 指针和结构体4.1 指针 指针的作用：可以通过指针间接访问内存   内存编号是从 0 开始记录的。一般用十六进制数字表示 可以用指针变量保存地址  4.1.1 指针的定义和使用语法：  声明指针：数据类型 * 指针变量名 记录地址：指针变量名 &#x3D; &amp;变量名 使用指针：*指针变量名  int var &#x3D; 10;			&#x2F;&#x2F;这是某个变量 int * p;				&#x2F;&#x2F;声明了指针 p p &#x3D; &amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:53:10.156Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;C++&gt;4 指针和结构体 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;C++&gt;4 指针和结构体"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-31 00:00" pubdate>
+          2022年3月31日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;C++&gt;4 指针和结构体</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="4-指针和结构体"><a href="#4-指针和结构体" class="headerlink" title="4 指针和结构体"></a>4 指针和结构体</h1><h2 id="4-1-指针"><a href="#4-1-指针" class="headerlink" title="4.1 指针"></a>4.1 指针</h2><blockquote>
+<p>指针的作用：可以通过指针间接访问内存</p>
+</blockquote>
+<ul>
+<li>内存编号是从 0 开始记录的。一般用十六进制数字表示</li>
+<li>可以用指针变量保存地址</li>
+</ul>
+<h3 id="4-1-1-指针的定义和使用"><a href="#4-1-1-指针的定义和使用" class="headerlink" title="4.1.1 指针的定义和使用"></a>4.1.1 指针的定义和使用</h3><p>语法：</p>
+<ul>
+<li>声明指针：<code>数据类型 * 指针变量名</code></li>
+<li>记录地址：<code>指针变量名 = &amp;变量名</code></li>
+<li>使用指针：<code>*指针变量名</code></li>
+</ul>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> var = <span class="hljs-number">10</span>;			<span class="hljs-comment">//这是某个变量</span>
+<span class="hljs-type">int</span> * p;				<span class="hljs-comment">//声明了指针 p</span>
+p = &amp;var;				<span class="hljs-comment">//让 p 记录 var 的地址。&amp; 是一个取址符</span>
+*p = <span class="hljs-number">5</span>;					<span class="hljs-comment">//*p 即通过 p 的地址找到其引用的变量</span>
+						<span class="hljs-comment">//这个场合，var 的数值改变了</span></code></pre></div>
+
+<p><strong>指针所占内存空间：</strong></p>
+<ul>
+<li><p>32 位操作系统（x86）：4 字节（任何类型）</p>
+</li>
+<li><p>64 位操作系统（x64）：8 字节（任何类型）</p>
+</li>
+</ul>
+<h3 id="4-1-2-空指针和野指针"><a href="#4-1-2-空指针和野指针" class="headerlink" title="4.1.2 空指针和野指针"></a>4.1.2 空指针和野指针</h3><blockquote>
+<p>空指针：指针变量指向内存中编号为 0 的空间。空指针指向的内存不能被访问。</p>
+<p>可以用空指针初始化指针变量。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> * p;
+<span class="hljs-type">char</span> a = <span class="hljs-string">&#x27;a&#x27;</span>;
+p = &amp;a;
+p = <span class="hljs-literal">NULL</span>;				<span class="hljs-comment">//此时 p 成为空指针</span></code></pre></div>
+
+<blockquote>
+<p>野指针：指针变量指向非法的内存空间</p>
+</blockquote>
+<h3 id="4-1-3-const-修饰指针"><a href="#4-1-3-const-修饰指针" class="headerlink" title="4.1.3 const 修饰指针"></a>4.1.3 const 修饰指针</h3><p>const 修饰指针有三种情况：</p>
+<ol>
+<li><p>const 修饰指针（常量指针）：<code>const 数据类型 * 指针名</code></p>
+<blockquote>
+<p>常量指针：指针的 <strong>指向</strong> 可以修改，但指针 <strong>指向的值</strong> 不能修改</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">double</span> d = <span class="hljs-number">1.5</span>;
+<span class="hljs-type">const</span> <span class="hljs-type">double</span> * dp = &amp;d;			<span class="hljs-comment">//常量指针</span>
+<span class="hljs-type">double</span> d2 = <span class="hljs-number">3.5</span>;
+dp = &amp;d2;						<span class="hljs-comment">//指针的指向可以修改</span>
+<span class="hljs-comment">/*dp = 2.5;	这个不行*/</span>			<span class="hljs-comment">//指针指向的值不能修改</span></code></pre></div>
+</li>
+<li><p>const 修饰常量（指针常量）：<code>数据类型 * const 指针名</code></p>
+<blockquote>
+<p>指针常量：指针 <strong>指向的值</strong> 可以修改，但指针的 <strong>指向</strong> 不能修改</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> i = <span class="hljs-number">10</span>;
+<span class="hljs-type">int</span> * <span class="hljs-type">const</span> ip = &amp;i;			<span class="hljs-comment">//指针常量</span>
+*ip = <span class="hljs-number">15</span>;						<span class="hljs-comment">//指针指向的值可以修改</span>
+<span class="hljs-type">int</span> n = <span class="hljs-number">25</span>;
+<span class="hljs-comment">/*ip = &amp;n;	这个不行*/</span>			<span class="hljs-comment">//指针的指向不能修改</span></code></pre></div>
+</li>
+<li><p>const 既修饰指针，又修饰常量：<code>const 数据类型 * const 指针名</code></p>
+<blockquote>
+<p>那就，都不能改呗</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> c = <span class="hljs-string">&#x27;\n&#x27;</span>;
+<span class="hljs-type">const</span> <span class="hljs-type">char</span> * <span class="hljs-type">const</span> cp = &amp;c;</code></pre></div></li>
+</ol>
+<h3 id="4-1-4-指针和数组"><a href="#4-1-4-指针和数组" class="headerlink" title="4.1.4 指针和数组"></a>4.1.4 指针和数组</h3><blockquote>
+<p>可以利用指针访问数组的元素</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> waifusWish[] = &#123; <span class="hljs-string">&#x27;雾&#x27;</span>, <span class="hljs-string">&#x27;切&#x27;</span>, <span class="hljs-string">&#x27;之&#x27;</span>, <span class="hljs-string">&#x27;回&#x27;</span>, <span class="hljs-string">&#x27;光&#x27;</span>&#125;;
+<span class="hljs-type">char</span> * p = waifuWish;											<span class="hljs-comment">//[1]</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">sizeof</span>(waifuWish) / <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">char</span>); i++) &#123;
+    cout &lt;&lt; *p++;											<span class="hljs-comment">//[2]</span>
+&#125;</code></pre></div>
+
+<ol>
+<li><p>指针指向数组首地址。</p>
+<p><em><strong>——见 <a href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E5%87%BD%E6%95%B0%E5%92%8C%E6%95%B0%E7%BB%84/#3-2-1-1-%E6%95%B0%E7%BB%84%E5%90%8D">[3.2.1.1 数组名]</a></strong></em></p>
+</li>
+<li><p>通过指针访问数组元素</p>
+<p>由于数组的空间是连续的，指针自增时，会来到下一个元素的位置</p>
+</li>
+</ol>
+<h3 id="4-1-5-指针和函数"><a href="#4-1-5-指针和函数" class="headerlink" title="4.1.5 指针和函数"></a>4.1.5 指针和函数</h3><blockquote>
+<p>利用指针作为函数参数，可以修改实参的值</p>
+</blockquote>
+<p>地址传递：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-type">int</span> * a; <span class="hljs-type">int</span> * b)</span></span>;		<span class="hljs-comment">//用两个指针接收两个地址</span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-type">int</span> n1 = <span class="hljs-number">10</span>;
+    <span class="hljs-type">int</span> n2 = <span class="hljs-number">100</span>;
+    <span class="hljs-built_in">swap</span>(&amp;n1; &amp;n2);					<span class="hljs-comment">//参数中写入地址</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-type">int</span> * a; <span class="hljs-type">int</span> * b)</span> </span>&#123;		<span class="hljs-comment">//这个场合，修改了实参的值</span>
+    <span class="hljs-type">int</span> temp = *a;
+    *a = *b;
+    *b = temp;
+&#125;</code></pre></div>
+
+<h3 id="4-1-6-指针、数组和函数"><a href="#4-1-6-指针、数组和函数" class="headerlink" title="4.1.6 指针、数组和函数"></a>4.1.6 指针、数组和函数</h3><p>示意一个冒泡排序：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-type">int</span>* a, <span class="hljs-type">int</span>* b)</span></span>;
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span>* arr, <span class="hljs-type">int</span> len)</span></span>;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
+    <span class="hljs-type">int</span> arr[] = &#123;<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">9</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>&#125;;
+    <span class="hljs-type">int</span> len = <span class="hljs-built_in">sizeof</span>(arr) / <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>);
+    <span class="hljs-built_in">bubbleSort</span>(arr, len);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-type">int</span>* a, <span class="hljs-type">int</span>* b)</span> </span>&#123;
+    <span class="hljs-type">int</span> temp = *a;
+    *a = *b;
+    *b = temp;
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span>* arr, <span class="hljs-type">int</span> len)</span> </span>&#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; len - <span class="hljs-number">1</span>; k++) &#123;
+            <span class="hljs-keyword">if</span> (*(arr + k) &gt; *(arr + k + <span class="hljs-number">1</span>)) &#123;
+                <span class="hljs-built_in">swap</span>(arr + k, arr + k + <span class="hljs-number">1</span>);
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h2 id="4-2-结构体"><a href="#4-2-结构体" class="headerlink" title="4.2 结构体"></a>4.2 结构体</h2><blockquote>
+<p>结构体属于用户自定义的数据类型，允许用户存储不同的数据类型</p>
+</blockquote>
+<h3 id="4-2-1-结构体的定义"><a href="#4-2-1-结构体的定义" class="headerlink" title="4.2.1 结构体的定义"></a>4.2.1 结构体的定义</h3><p>语法：<code>struct 结构体名 &#123;结构体成员列表&#125;;</code></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Character</span> &#123;
+    <span class="hljs-type">int</span> life;
+    <span class="hljs-type">int</span> atk;
+    <span class="hljs-type">int</span> prof;
+    <span class="hljs-type">double</span> crit;
+    <span class="hljs-type">double</span> crid;
+&#125;;</code></pre></div>
+
+<p><strong>结构体的成员可以是另一个结构体</strong></p>
+<h3 id="4-2-2-创建结构体变量"><a href="#4-2-2-创建结构体变量" class="headerlink" title="4.2.2 创建结构体变量"></a>4.2.2 创建结构体变量</h3><p>通过结构体创建变量的方式有三种：</p>
+<ul>
+<li><p><code>struct 结构体名 变量名;</code></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
+    Character keqing;			<span class="hljs-comment">//这个场合，struct 关键字可以省略</span>
+    keqing.life = <span class="hljs-number">18716</span>;
+    keqing.prof = <span class="hljs-number">61</span>;
+    keqing.atk = <span class="hljs-number">2328</span>;
+    keqing.crit = <span class="hljs-number">74.4</span>;
+    keqing.crid = <span class="hljs-number">168.5</span>;
+    ...
+&#125;</code></pre></div>
+</li>
+<li><p><code>struct 结构体名 变量名 = &#123;成员1值, 成员2值...&#125;;</code></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
+    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Character</span> ganyu = &#123;<span class="hljs-number">14577</span>, <span class="hljs-number">2474</span>, <span class="hljs-number">176</span>, <span class="hljs-number">72.7</span>, <span class="hljs-number">166.9</span>&#125;;
+    							<span class="hljs-comment">//这里，struct 关键字也可以省略</span>
+    ...
+&#125;</code></pre></div>
+</li>
+<li><p>定义结构体时顺便创建变量</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Character</span> &#123;
+    <span class="hljs-type">int</span> life;
+    <span class="hljs-type">int</span> atk;
+    <span class="hljs-type">int</span> prof;
+    <span class="hljs-type">double</span> crit;
+    <span class="hljs-type">double</span> crid;
+&#125;hutao;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
+    hutao.lif = <span class="hljs-number">34641</span>;
+    hutao.atk = <span class="hljs-number">1059</span>;
+    hutao.prof = <span class="hljs-number">82</span>;
+    hutao.crit = <span class="hljs-number">73.0</span>;
+    hutao.crid = <span class="hljs-number">212.1</span>;
+&#125;</code></pre></div></li>
+</ul>
+<h3 id="4-2-3-结构体指针"><a href="#4-2-3-结构体指针" class="headerlink" title="4.2.3 结构体指针"></a>4.2.3 结构体指针</h3><blockquote>
+<p>通过指针访问结构体成员</p>
+<p>操作符 <code>-&gt;</code> 可以实现通过指针访问结构中的属性</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">S1</span> &#123;
+    <span class="hljs-type">int</span> n1;
+    <span class="hljs-type">int</span> n2;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    S1 arr[] = &#123; &#123;<span class="hljs-number">0</span>, <span class="hljs-number">10</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">11</span>&#125; &#125;;	<span class="hljs-comment">//[1]</span>
+    S1* p = arr;						<span class="hljs-comment">//[2]</span>
+    p-&gt;n1 = <span class="hljs-number">-50</span>;						<span class="hljs-comment">//[3]</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+
+<ol>
+<li>一个结构体数组</li>
+<li>这里，p 相当于指向 arr[0] 的地址</li>
+<li>这个场合，arr[0].n1 改变了</li>
+</ol>
+<h3 id="4-2-4-结构体做函数参数"><a href="#4-2-4-结构体做函数参数" class="headerlink" title="4.2.4 结构体做函数参数"></a>4.2.4 结构体做函数参数</h3><p>不写了，就一点：值传递不影响原变量、地址传递影响原变量</p>
+<h3 id="4-2-5-const-修饰结构体"><a href="#4-2-5-const-修饰结构体" class="headerlink" title="4.2.5 const 修饰结构体"></a>4.2.5 const 修饰结构体</h3><blockquote>
+<p>用 const 防止误操作</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">St</span> &#123;
+    <span class="hljs-type">int</span> n;
+    <span class="hljs-type">char</span> c;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> St * p)</span></span>;				<span class="hljs-comment">//[1]</span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    St str = &#123;<span class="hljs-number">10</span>, <span class="hljs-string">&#x27;i&#x27;</span>&#125;;
+    <span class="hljs-built_in">print</span>(&amp;str);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> St * p)</span> </span>&#123;
+    cout &lt;&lt; p-&gt;n &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; p-&gt;c &lt;&lt; endl;
+    <span class="hljs-comment">/* *p-&gt;n = 100; 因为加了 const，这个会报错*/</span>
+&#125;</code></pre></div>
+
+<ol>
+<li><p>用 const 保证该指针值不会被修改</p>
+<p><em><strong>——见 <a href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.1 常量指针]</a></strong></em></p>
+</li>
+</ol>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;C++&gt;4 指针和结构体</div>
+      <div>https://i-melody.github.io/2022/03/31/C++/入门阶段/4 指针和结构体/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月31日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

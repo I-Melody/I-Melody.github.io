@@ -1,0 +1,1068 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="8 项目：房屋出租系统 crud： c[create]  r[read]  u[update]  d[delete]  一阶段毕业作业 RentSystem.java（入口） package com.house_rent;  public class RentSystem &amp;#123;     public static void main(String[] args) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;8 项目（房屋出租系统）">
+<meta property="og:url" content="https://i-melody.github.io/2021/12/13/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/8%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="8 项目：房屋出租系统 crud： c[create]  r[read]  u[update]  d[delete]  一阶段毕业作业 RentSystem.java（入口） package com.house_rent;  public class RentSystem &amp;#123;     public static void main(String[] args) &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-13T12:12:35.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:49:52.694Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;8 项目（房屋出租系统） ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;8 项目（房屋出租系统）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-13 20:12" pubdate>
+          2021年12月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;8 项目（房屋出租系统）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="8-项目：房屋出租系统"><a href="#8-项目：房屋出租系统" class="headerlink" title="8 项目：房屋出租系统"></a>8 项目：房屋出租系统</h1><blockquote>
+<p>crud： c[create]  r[read]  u[update]  d[delete]</p>
+</blockquote>
+<h3 id="一阶段毕业作业"><a href="#一阶段毕业作业" class="headerlink" title="一阶段毕业作业"></a>一阶段毕业作业</h3><ul>
+<li><p><strong>RentSystem.java（入口）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.house_rent;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RentSystem</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        <span class="hljs-type">RentSysMenu</span> <span class="hljs-variable">rentSys</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RentSysMenu</span>();
+        rentSys.menu();
+        System.out.println(<span class="hljs-string">&quot;再见~&quot;</span>);
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>RentSysMenu.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.house_rent;
+
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RentSysMenu</span> &#123;
+    <span class="hljs-type">Method</span> <span class="hljs-variable">method</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Method</span>();
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+    <span class="hljs-comment">//menu：这是出租系统的系统菜单界面。用户输入 1 - 6，并据此调用方法。该方法自身会无限循环。</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">menu</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">for</span> (; ; ) &#123;
+            <span class="hljs-comment">//这是系统菜单的显示页面</span>
+            System.out.print(<span class="hljs-string">&quot;\n---------------房屋出租系统---------------&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 1 新 增 房 屋&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 2 查 找 房 屋&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 3 删 除 房 屋&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 4 修 改 房 屋 信 息&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 5 房 屋 列 表&quot;</span>
+                    + <span class="hljs-string">&quot;\n\t\t\t 6 退       出&quot;</span>
+                    + <span class="hljs-string">&quot;\n请选择（1-6）：&quot;</span>);
+            <span class="hljs-type">char</span> <span class="hljs-variable">inpChar</span> <span class="hljs-operator">=</span> inp.next().charAt(<span class="hljs-number">0</span>);
+            System.out.println(<span class="hljs-string">&quot;----------------------------------------\n&quot;</span>);
+            <span class="hljs-keyword">switch</span> (inpChar) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    <span class="hljs-comment">//输入 1 时，调用 创建房屋 方法</span>
+                    method.newHouse();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    <span class="hljs-comment">//输入 2 时，调用 搜索房屋 方法</span>
+                    method.searchAHouseFromMenu();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:
+                    <span class="hljs-comment">//输入 3 时，调用 删除房屋 方法</span>
+                    method.deleteSpecificHouse();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:
+                    <span class="hljs-comment">//输入 4 时，调用 修改信息 方法</span>
+                    method.changeHouseInfo();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;5&#x27;</span>:
+                    <span class="hljs-comment">//输入 5 时，调用 展示全部 方法</span>
+                    method.showAllHouseFromMenu();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;6&#x27;</span>:
+                    <span class="hljs-comment">//输入 6 时，进行二次确认。通过则退出系统。</span>
+                    System.out.println(<span class="hljs-string">&quot;确认退出吗？：（Y/N）：&quot;</span>);
+                    <span class="hljs-comment">//yesOrNo 方法，是可以判断用户输入的到底是 Y 还是 N 的方法。</span>
+                    <span class="hljs-keyword">if</span> (method.yesOrNo(inp.next().charAt(<span class="hljs-number">0</span>))) &#123;
+                        System.out.println(<span class="hljs-string">&quot;程序已退出。&quot;</span>);
+                        <span class="hljs-keyword">return</span>;
+                    &#125;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    <span class="hljs-comment">//当用户输入了 1 - 6 以外的东西，提示一个错误信息</span>
+                    System.out.println(<span class="hljs-string">&quot;错误，请输入纯数字（1-6）&quot;</span>);
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Method.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.house_rent;
+
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Method</span> &#123;
+
+    <span class="hljs-comment">//创建一个 数据数组。该数组将存放所有未来的房屋数据，每个房屋占用 1 个长度。目前，其长度为0</span>
+    Data[] houses = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Data</span>[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+
+    <span class="hljs-comment">//newHouse：1 创建房屋 方法。由 menu 接入。</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">newHouse</span><span class="hljs-params">()</span> &#123;
+        System.out.print(<span class="hljs-string">&quot;=================添加房屋=================&quot;</span>
+                + <span class="hljs-string">&quot;\n请输入姓名：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">inName</span> <span class="hljs-operator">=</span> inp.next();
+        <span class="hljs-comment">//如果名字太短，补长一些，方便排版</span>
+        <span class="hljs-keyword">if</span> (inName.length() &lt;= <span class="hljs-number">2</span>) &#123;
+            inName = inName + <span class="hljs-string">&quot;   &quot;</span>;
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;请输入电话：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">inCall</span> <span class="hljs-operator">=</span> inp.next();
+        System.out.print(<span class="hljs-string">&quot;请输入地址：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">inLocation</span> <span class="hljs-operator">=</span> inp.next();
+        <span class="hljs-comment">//如果地址太短，补长一些，方便排版</span>
+        <span class="hljs-keyword">if</span> (inLocation.length() &lt;= <span class="hljs-number">2</span>) &#123;
+            inLocation = inLocation + <span class="hljs-string">&quot;   &quot;</span>;
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;请输入月租金：&quot;</span>);
+        <span class="hljs-type">double</span> <span class="hljs-variable">inPrice</span> <span class="hljs-operator">=</span> inp.nextDouble();
+        System.out.print(<span class="hljs-string">&quot;是否租出？（Y/N）：&quot;</span>);
+        <span class="hljs-comment">//yesOrNo 方法，是可以判断用户输入的到底是 Y 还是 N 的方法。</span>
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">inIsRented</span> <span class="hljs-operator">=</span> yesOrNo(inp.next().charAt(<span class="hljs-number">0</span>));
+        <span class="hljs-comment">//调用 写入创建房屋 方法，将以上参数写入 数据数组</span>
+        creatData(inName, inCall, inLocation, inPrice, inIsRented);
+        System.out.println(<span class="hljs-string">&quot;=================添加完成=================&quot;</span>);
+        <span class="hljs-comment">//调用 真-搜索房屋 方法。为用户展示刚刚创建的房屋信息。</span>
+        searchAHouse(houses[houses.length - <span class="hljs-number">1</span>].getId());
+        System.out.println(<span class="hljs-string">&quot;\n请牢记房屋 ID\n如果想要修改信息，请于主菜单选择[4 修改房屋信息]&quot;</span>);
+    &#125;
+
+    <span class="hljs-comment">//searchAHouseFromMenu：2 搜索房屋 方法。由 menu 接入。</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">searchAHouseFromMenu</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;=================查找房屋=================&quot;</span>);
+        <span class="hljs-comment">//调用 真-搜索房屋 方法</span>
+        searchAHouse();
+        System.out.println(<span class="hljs-string">&quot;=================查找完毕=================&quot;</span>);
+    &#125;
+
+    <span class="hljs-comment">//deleteSpecificHouse：3 删除房屋 方法。由 menu 接入。</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteSpecificHouse</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;=================删除房屋=================&quot;</span>);
+        <span class="hljs-comment">//首先，搜索并展示用户想要的房屋。</span>
+        <span class="hljs-comment">//调用 真-搜索房屋 方法。如果找到，会返回该房屋的 数组编号；否则，返回 -100</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> searchAHouse();
+        <span class="hljs-comment">//如果找到房屋（返回值不为 -100），则进行二次确认。</span>
+        <span class="hljs-keyword">if</span> (num != -<span class="hljs-number">100</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;确定要删除该房屋信息吗？（Y/N）：&quot;</span>);
+            <span class="hljs-comment">//yesOrNo 方法，是可以判断用户输入的到底是 Y 还是 N 的方法。</span>
+            <span class="hljs-keyword">if</span> (yesOrNo(inp.next().charAt(<span class="hljs-number">0</span>))) &#123;
+                System.out.println(<span class="hljs-string">&quot;一经删除无法恢复！请再次确认，是否删除！（Y/N）：&quot;</span>);
+                <span class="hljs-keyword">if</span> (yesOrNo(inp.next().charAt(<span class="hljs-number">0</span>))) &#123;
+                    <span class="hljs-comment">//调用 注销房屋 方法。</span>
+                    deleteHouse(num);
+                    System.out.println(<span class="hljs-string">&quot;===============房屋已删除===============&quot;</span>);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//changeHouseInfo：4 修改信息 方法。由 menu 接入</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">changeHouseInfo</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;=================修改房屋=================&quot;</span>);
+        <span class="hljs-comment">//首先，搜索并展示用户想要的房屋</span>
+        <span class="hljs-comment">//调用 真-搜索房屋 方法。如果找到，会返回该房屋的 数组编号；否则，返回 -100</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> searchAHouse();
+        <span class="hljs-comment">//找到房屋的场合，逐项提示并进行修改</span>
+        <span class="hljs-keyword">if</span> (num != -<span class="hljs-number">100</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;姓名（&quot;</span> + houses[num].getName() + <span class="hljs-string">&quot;）：&quot;</span>);
+            <span class="hljs-type">String</span> <span class="hljs-variable">inName</span> <span class="hljs-operator">=</span> inp.next();
+            <span class="hljs-keyword">if</span> (inName.length() &lt;= <span class="hljs-number">2</span>) &#123;
+                inName = inName + <span class="hljs-string">&quot;   &quot;</span>;
+            &#125;
+            houses[num].setName(inName);
+            System.out.println(<span class="hljs-string">&quot;电话号码（&quot;</span> + houses[num].getCall() + <span class="hljs-string">&quot;）：&quot;</span>);
+            houses[num].setCall(inp.next());
+            System.out.println(<span class="hljs-string">&quot;地址（&quot;</span> + houses[num].getLocation() + <span class="hljs-string">&quot;）：&quot;</span>);
+            <span class="hljs-type">String</span> <span class="hljs-variable">inLocation</span> <span class="hljs-operator">=</span> inp.next();
+            <span class="hljs-keyword">if</span> (inLocation.length() &lt;= <span class="hljs-number">2</span>) &#123;
+                inLocation = inLocation + <span class="hljs-string">&quot;   &quot;</span>;
+            &#125;
+            houses[num].setLocation(inLocation);
+            System.out.println(<span class="hljs-string">&quot;月租金（&quot;</span> + houses[num].getPrice() + <span class="hljs-string">&quot;）：&quot;</span>);
+            houses[num].setPrice(inp.nextDouble());
+            System.out.println(<span class="hljs-string">&quot;是否租出（&quot;</span> + (houses[num].isRented() ? <span class="hljs-string">&quot;已出租！&quot;</span> : <span class="hljs-string">&quot;未出租。&quot;</span>) + <span class="hljs-string">&quot;）（Y/N）：&quot;</span>);
+            houses[num].setRented(yesOrNo(inp.next().charAt(<span class="hljs-number">0</span>)));
+            <span class="hljs-comment">//到这里就改完了</span>
+            <span class="hljs-comment">//调用 真-搜索房屋 方法，展示房屋</span>
+            System.out.println(<span class="hljs-string">&quot;=================修改完成=================&quot;</span>);
+            searchAHouse(houses[num].getId());
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//showAllHouseFromMenu：5 展示全部 方法。由 menu 接入</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showAllHouseFromMenu</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;===============所有房屋信息===============&quot;</span>);
+        <span class="hljs-comment">//调用 展示全部房屋 方法</span>
+        showAllHouses();
+        System.out.println(<span class="hljs-string">&quot;============以上是所有房屋信息=============&quot;</span>);
+    &#125;
+
+    <span class="hljs-comment">//yesOrNo：这个方法用于判断用户输入的字符究竟表示 Yes 还是 No。</span>
+    <span class="hljs-comment">//判断不了的情况，提示错误语句，并默认为 No</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">yesOrNo</span><span class="hljs-params">(<span class="hljs-type">char</span> cha)</span> &#123;
+        <span class="hljs-keyword">switch</span> (cha) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;y&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Y&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;是&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;对&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;已&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;n&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;N&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;否&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;没&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;不&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;未&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">default</span>:
+                System.out.println(<span class="hljs-string">&quot;输入无效。&quot;</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//searchAHouse：真-搜索房屋 方法（无参）。</span>
+    <span class="hljs-comment">//如果调用的是这无参方法，会先提示用户输入一个 ID，然后调用有参方法</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">searchAHouse</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;请输入4位数房屋ID：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> inp.next();
+        <span class="hljs-keyword">return</span> searchAHouse(id);
+    &#125;
+
+    <span class="hljs-comment">//searchAHouse：真-搜索房屋 方法（有参）。输入房屋 ID，搜索该房屋。</span>
+    <span class="hljs-comment">//找到房屋的场合，展示房屋 并返回其 数组坐标。如果没找到对应房屋，提示错误信息，并返回 -100。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">searchAHouse</span><span class="hljs-params">(String id)</span> &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; houses.length; i++) &#123;
+            <span class="hljs-keyword">if</span> (houses[i].getId().equals(id) &amp;&amp; houses[i].isActive()) &#123;
+                System.out.println(<span class="hljs-string">&quot;房屋ID\t姓名\t\t电话\t\t\t地址\t\t月租金\t出租状态&quot;</span>);
+                houses[i].showThisData();
+                <span class="hljs-keyword">return</span> i;
+            &#125;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;没有找到房屋！&quot;</span>);
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">100</span>;
+    &#125;
+
+    <span class="hljs-comment">//creatData：写入创建房屋 方法。需要的信息齐集的场合，将其写入 数据数组，并生成一个 ID</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">creatData</span><span class="hljs-params">(String name, String call, String location, <span class="hljs-type">double</span> price, <span class="hljs-type">boolean</span> isRented)</span> &#123;
+        Data[] tempData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Data</span>[houses.length + <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; houses.length; i++) &#123;
+            tempData[i] = houses[i];
+        &#125;
+        tempData[tempData.length - <span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Data</span>(tempData.length, name, call, location, price);
+        tempData[tempData.length - <span class="hljs-number">1</span>].setRented(isRented);
+        houses = tempData;
+    &#125;
+
+    <span class="hljs-comment">//showAllHouses：展示全部房屋 方法。由 展示全部（showAllHouseFromMenu）方法接入</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showAllHouses</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;房屋ID\t姓名\t\t电话\t\t\t地址\t\t月租金\t出租状态&quot;</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; houses.length; i++) &#123;
+            <span class="hljs-keyword">if</span> (houses[i].isActive()) &#123;
+                houses[i].showThisData();
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//deleteHouse：注销房屋 方法。将该房屋注销。数据其实保留在 数据数组，但注销使其无法被查到。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteHouse</span><span class="hljs-params">(<span class="hljs-type">int</span> num)</span> &#123;
+        houses[num].setActive(<span class="hljs-literal">false</span>);
+    &#125;
+
+
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Data.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.house_rent;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Data</span> &#123;
+    <span class="hljs-comment">//房屋信息。包含：ID，名字，电话，地址，房租，是否租出。</span>
+    <span class="hljs-keyword">private</span> String id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String call;
+    <span class="hljs-keyword">private</span> String location;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> price;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isRented</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">active</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Data</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String name, String call, String location, <span class="hljs-type">double</span> price)</span> &#123;
+        <span class="hljs-comment">//将输入的数字 ID 转化成固定 4 位的 字符串 ID</span>
+        <span class="hljs-keyword">if</span> (id &lt; <span class="hljs-number">10</span>) &#123;
+            <span class="hljs-built_in">this</span>.id = <span class="hljs-string">&quot;000&quot;</span> + id;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (id &lt; <span class="hljs-number">100</span>) &#123;
+            <span class="hljs-built_in">this</span>.id = <span class="hljs-string">&quot;00&quot;</span> + id;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (id &lt; <span class="hljs-number">1000</span>) &#123;
+            <span class="hljs-built_in">this</span>.id = <span class="hljs-string">&quot;0&quot;</span> + id;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in">this</span>.id = <span class="hljs-string">&quot;&quot;</span> + id;
+        &#125;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.call = call;
+        <span class="hljs-built_in">this</span>.location = location;
+        <span class="hljs-built_in">this</span>.price = price;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isActive</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> active;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setActive</span><span class="hljs-params">(<span class="hljs-type">boolean</span> active)</span> &#123;
+        <span class="hljs-built_in">this</span>.active = active;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(String id)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;
+        <span class="hljs-built_in">this</span>.name = name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCall</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> call;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCall</span><span class="hljs-params">(String call)</span> &#123;
+        <span class="hljs-built_in">this</span>.call = call;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getLocation</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> location;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setLocation</span><span class="hljs-params">(String location)</span> &#123;
+        <span class="hljs-built_in">this</span>.location = location;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getPrice</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> price;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPrice</span><span class="hljs-params">(<span class="hljs-type">double</span> price)</span> &#123;
+        <span class="hljs-built_in">this</span>.price = price;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isRented</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> isRented;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setRented</span><span class="hljs-params">(<span class="hljs-type">boolean</span> rented)</span> &#123;
+        isRented = rented;
+    &#125;
+
+    <span class="hljs-comment">//展示信息</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showThisData</span><span class="hljs-params">()</span> &#123;
+        System.out.println(id + <span class="hljs-string">&quot;\t&quot;</span> + name + <span class="hljs-string">&quot;\t&quot;</span> + call + <span class="hljs-string">&quot;\t&quot;</span> + location + <span class="hljs-string">&quot;\t&quot;</span> + price + <span class="hljs-string">&quot;\t&quot;</span>
+                + (isRented ? <span class="hljs-string">&quot;已出租！&quot;</span> : <span class="hljs-string">&quot;未出租。&quot;</span>));
+    &#125;
+
+&#125;</code></pre></div></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;8 项目（房屋出租系统）</div>
+      <div>https://i-melody.github.io/2021/12/13/Java/入门阶段/8 项目：房屋出租系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年12月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

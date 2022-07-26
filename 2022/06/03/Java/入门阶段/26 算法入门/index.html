@@ -1,0 +1,1282 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度：算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;26 算法入门">
+<meta property="og:url" content="https://i-melody.github.io/2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度：算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:52:18.636Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;26 算法入门 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;26 算法入门"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-03 00:00" pubdate>
+          2022年6月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;26 算法入门</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="26-算法初级"><a href="#26-算法初级" class="headerlink" title="26 算法初级"></a>26 算法初级</h1><h2 id="26-1-算法的执行时间"><a href="#26-1-算法的执行时间" class="headerlink" title="26.1 算法的执行时间"></a>26.1 算法的执行时间</h2><blockquote>
+<p>度量一个算法执行时间的方法：</p>
+<ul>
+<li><p>事后统计方法</p>
+<p>该方法可行，但需要实际运行该程序，并且结果受环境因素影响。</p>
+</li>
+<li><p>事前估算方法</p>
+<p>通过分析算法的时间复杂度来判断哪个算法更优</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="时间频度："><a href="#时间频度：" class="headerlink" title="时间频度："></a>时间频度：</h4><p>算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。</p>
+<p>一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n)</p>
+<p>举例说明（计算 1 - 100 内所有整数之和）：</p>
+<ul>
+<li><p>方法一：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;
+    result += i;
+&#125;</code></pre></div>
+
+<p>该方法执行了 100 次计算，因此其时间复杂度 T(n) &#x3D; n</p>
+</li>
+<li><p>方法二：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> result;
+result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-number">2</span>);</code></pre></div>
+
+<p>该方法执行了 1 次计算，因此其时间复杂度 T(n) &#x3D; 1</p>
+</li>
+</ul>
+<h3 id="26-1-1-时间复杂度"><a href="#26-1-1-时间复杂度" class="headerlink" title="26.1.1 时间复杂度"></a>26.1.1 时间复杂度</h3><p>一般情况下，算法中的基本操作语句的重复执行次数是问题规模 n 的某个函数，用 T(n) 表示。</p>
+<p>若有某个辅助函数 f(n)，使得当 n 趋近于无穷大时，T(n) &#x2F; f(n) 的极限值为不等于零的常数，则称 f(n) 为 T(n) 的同量级函数。记作：T(n) &#x3D; O(f(n))。</p>
+<p>称 O(f(n)) 为算法的渐进时间复杂度，简称时间复杂度。</p>
+<p>如：T(3n<sup>2</sup>+2n-1) 的时间复杂度为 O(n<sup>2</sup>)</p>
+<p><strong>常见的时间复杂度（从小到大排列）：</strong></p>
+<ul>
+<li>常数阶 O(1)</li>
+<li>对数阶 O(㏒<sub>k</sub>n)</li>
+<li>线性阶 O(n) </li>
+<li>线性对数阶 O(n㏒<sub>k</sub>n) </li>
+<li>平方阶 O(n<sup>2</sup>)</li>
+<li>立方阶 O(n<sup>3</sup>)</li>
+<li>k 次方阶 O(n<sup>k</sup>)</li>
+<li>指数阶 O(2<sup>n</sup>)</li>
+</ul>
+<p><strong>计算时间复杂度的方法：</strong></p>
+<ol>
+<li>用常数 1 代替运行时间中的加法常数</li>
+<li>修改后的运行次数函数中，只保留最高阶项</li>
+<li>去除最高阶项的系数</li>
+</ol>
+<p><strong>平均时间复杂度、最坏时间复杂度：</strong></p>
+<ul>
+<li><p>平均时间复杂度：指所有可能的输入实例以等概率出现的情况下，该算法的运行时间</p>
+</li>
+<li><p>最坏时间复杂度：最坏情况下的时间复杂度。</p>
+<p>一般讨论时间复杂度都是讨论最坏时间复杂度。原因是：最坏时间复杂度是算法在任何输入实例上运行时间的界限。这就保证了算法运行时间不会比最坏情况更长。</p>
+<p>最坏时间复杂度和平均时间复杂度也许不一致。这和具体算法有关。</p>
+</li>
+</ul>
+<h4 id="算法的空间复杂度："><a href="#算法的空间复杂度：" class="headerlink" title="算法的空间复杂度："></a>算法的空间复杂度：</h4><p>类似于时间复杂度的讨论，一个算法的空间复杂度定义为该算法所耗费的存储空间。它也是问题规模 n 的函数。</p>
+<p>空间复杂度是对一个算法在运行过程中临时占用存储空间大小的量度。有的算法需要占用的临时工作单元数与问题规模 n 相关。</p>
+<p>在做算法分析时，<strong>主要讨论的是时间复杂度</strong>。从用户体验上看，更看重程序执行的速度。一些缓存产品和算法本质是用空间换时间。</p>
+<h2 id="26-2-常用的算法"><a href="#26-2-常用的算法" class="headerlink" title="26.2 常用的算法"></a>26.2 常用的算法</h2><h3 id="26-2-1-二分查找算法"><a href="#26-2-1-二分查找算法" class="headerlink" title="26.2.1 二分查找算法"></a>26.2.1 二分查找算法</h3><p>二分查找只适用于从有序数列中进行查找。其运行时间为 O(㏒<sub>2</sub>n)</p>
+<p><em><strong>——二分查找，见 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">[5.3.2 二分查找]</a></strong></em></p>
+<h4 id="一个用到二分查找算法的典型题目："><a href="#一个用到二分查找算法的典型题目：" class="headerlink" title="一个用到二分查找算法的典型题目："></a>一个用到二分查找算法的典型题目：</h4><blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/koko-eating-bananas/">爱吃香蕉的珂珂</a></strong></p>
+<p>珂珂喜欢吃香蕉。这里有 n 堆香蕉，第 i 堆中有 piles[i] 根香蕉。警卫已经离开了，将在 h 小时后回来。</p>
+<p>珂珂可以决定她吃香蕉的速度 k （单位：根&#x2F;小时）。每个小时，她将会选择一堆香蕉，从中吃掉 k 根。如果这堆香蕉少于 k 根，她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。  </p>
+<p>珂珂喜欢慢慢吃，但仍然想在警卫回来前吃掉所有的香蕉。</p>
+<p>返回她可以在 h 小时内吃掉所有香蕉的最小速度 k（k 为整数）。</p>
+</blockquote>
+<p><strong>题解：</strong></p>
+<p>注意到，随着 k 的增加，吃光香蕉的用时 t 随之减少。取食数量 k 与进食总时间 t 呈线性相关。</p>
+<p>因此，可以使用二分查找算法，找出 t &#x3D;&#x3D; h 时，k 的最小取值</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minEatingSpeed</span><span class="hljs-params">(<span class="hljs-type">int</span>[] piles, <span class="hljs-type">int</span> h)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;			<span class="hljs-comment">// k 可能取到的最大值。该值等于：香蕉堆中香蕉数量的最大值</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;			<span class="hljs-comment">// k 可能取到的最小值。该值等于：香蕉总数 / 规定时间</span>
+        <span class="hljs-type">long</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;			<span class="hljs-comment">// 香蕉总数</span>
+        <span class="hljs-comment">/* 进行一次遍历，完成对 max、min、sum 的初始化 */</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> n : piles) &#123;
+            sum += n;
+            <span class="hljs-keyword">if</span> (max &lt; n) max = n;
+        &#125;
+        <span class="hljs-comment">/* 由于每堆香蕉至少需要 1 小时，当 piles.length == h 时，k 是那个香蕉堆最大值 */</span>
+        <span class="hljs-keyword">if</span> (piles.length == h) <span class="hljs-keyword">return</span> max;
+        min = (<span class="hljs-type">int</span>)Math.ceil(sum / (<span class="hljs-type">double</span>)h);
+        
+        <span class="hljs-comment">/* 二分查找，如果在 p 情况下超时（吃不完香蕉），说明 k &gt; p</span>
+<span class="hljs-comment">        	如果在 p 情况下提前吃完，说明 k &lt; p </span>
+<span class="hljs-comment">        	如果恰好吃完，由于要求返回那个最小 k 值，我们仍要在 &lt; p 的范围内查找 */</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> min;
+        <span class="hljs-keyword">while</span> (max &gt;= min) &#123;
+            p = (max + min) / <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">if</span> (check(piles, p) &lt;= h) max = p - <span class="hljs-number">1</span>;
+            <span class="hljs-type">else</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> p + <span class="hljs-number">1</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> min;
+    &#125;
+    
+    <span class="hljs-comment">/* 计算在吃 n 根的情况下，需要用时多久吃完 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">long</span> <span class="hljs-title function_">check</span><span class="hljs-params">(<span class="hljs-type">int</span>[] piles, <span class="hljs-type">int</span> n)</span> &#123;
+        <span class="hljs-type">long</span> <span class="hljs-variable">ret</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i : piles) &#123;
+            ret += (i + n - <span class="hljs-number">1</span>) / n;
+        &#125;
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h3 id="26-2-2-分治算法"><a href="#26-2-2-分治算法" class="headerlink" title="26.2.2 分治算法"></a>26.2.2 分治算法</h3><p>分治算法是一种重要算法。其核心思想是 <strong>分而治之</strong>。</p>
+<p>将一个复杂问题分为多个子问题，再将子问题分为更小的子问题。直到那些子问题都能简单地直接得解，原问题的解即子问题解的组合。</p>
+<p>该算法也是很多高效算法的基础，如排序算法（快速排序、归并排序），傅立叶变换（快速傅立叶变换）等。</p>
+<h3 id="26-2-3-动态规划"><a href="#26-2-3-动态规划" class="headerlink" title="26.2.3 动态规划"></a>26.2.3 动态规划</h3><p>动态规划的核心思想是：将大问题划分为小问题进行解决，从而一步步获取最优解</p>
+<p>与分治法不同的是，适用于动态规划求解的问题，其分解得到的子问题往往不是互相独立的。下一子阶段的求解往往是建立在上一子阶段解的基础上的。</p>
+<h4 id="一个用到动态规划的典型题目："><a href="#一个用到动态规划的典型题目：" class="headerlink" title="一个用到动态规划的典型题目："></a>一个用到动态规划的典型题目：</h4><blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/contest/weekly-contest-298/problems/selling-pieces-of-wood/">卖木块</a></strong></p>
+<p>给你两个整数 <code>m</code> 和 <code>n</code> ，分别表示一块矩形木块的高和宽。同时给你一个二维整数数组 <code>prices</code> ，其中 <code>prices[i] = [hi, wi, pricei]</code> 表示你可以以 <code>pricei</code> 元的价格卖一块高为 <code>hi</code> 宽为 <code>wi</code> 的矩形木块。</p>
+<p>每一次操作中，你必须按下述方式之一执行切割操作，以得到两块更小的矩形木块：</p>
+<ul>
+<li>沿垂直方向按高度 <strong>完全</strong> 切割木块，或</li>
+<li>沿水平方向按宽度 <strong>完全</strong> 切割木块</li>
+</ul>
+<p>在将一块木块切成若干小木块后，你可以根据 <code>prices</code> 卖木块。你可以卖多块同样尺寸的木块。你不需要将所有小木块都卖出去。你 <strong>不能</strong> 旋转切好后木块的高和宽。</p>
+<p>请你返回切割一块大小为 <code>m x n</code> 的木块后，能得到的 <strong>最多</strong> 钱数。</p>
+<p>注意你可以切割木块任意次。</p>
+</blockquote>
+<p><strong>题解：</strong></p>
+<p>我们可以模拟切分木块的过程，从而得到答案。</p>
+<p>对于任意木块 m × n，我们可以将其切开。此时该木块的价值 V 等于两个子木块的价值和。具体来说：</p>
+<ul>
+<li>沿横向切开时，木块价值 V(m, n) &#x3D; V(i, n) + V(m - i, n)</li>
+<li>沿纵向切开时，木块价值 V(m, n) &#x3D; V(m, i) + V(m, n - i)</li>
+<li>也可以选择不切开，此时木块价值为 prices(m, n)</li>
+</ul>
+<p>一块木块的价值是上述三种情况中的最大值。</p>
+<p>我们可以维护一个数组，从最小木块开始统计那些木块的价值。直到统计到最大木块时，那个值即是答案。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">sellingWood</span><span class="hljs-params">(<span class="hljs-type">int</span> m, <span class="hljs-type">int</span> n, <span class="hljs-type">int</span>[][] prices)</span> &#123;
+        <span class="hljs-comment">/* 将那些不分割的情况记录 */</span>
+        <span class="hljs-type">long</span>[][] val = <span class="hljs-keyword">new</span> <span class="hljs-title class_">long</span>[m + <span class="hljs-number">1</span>][n + <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : prices) val[ints[<span class="hljs-number">0</span>]][ints[<span class="hljs-number">1</span>]] = ints[<span class="hljs-number">2</span>];
+        
+        <span class="hljs-comment">/* 最小的高度开始，统计木块价值 */</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;
+            <span class="hljs-comment">/* 从最小的宽度开始，统计木块的价值 */</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;
+                <span class="hljs-comment">/* 在该高度纵切 */</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; k &lt;= j - k; k++) &#123;
+                    <span class="hljs-type">long</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> val[i][k] + val[i][j - k];
+                    <span class="hljs-keyword">if</span> (temp &gt; val[i][j]) val[i][j] = temp;
+                &#125;
+                <span class="hljs-comment">/* 在该宽度横切 */</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">u</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; u &lt;= i - u; u++) &#123;
+                    <span class="hljs-type">long</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> val[i - u][j] + val[u][j];
+                    <span class="hljs-keyword">if</span> (temp &gt; val[i][j]) val[i][j] = temp;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> val[m][n];
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h3 id="26-2-4-KMP-算法"><a href="#26-2-4-KMP-算法" class="headerlink" title="26.2.4 KMP 算法"></a>26.2.4 KMP 算法</h3><p>KMP（Knuth-Morris-Pratt，字符串查找算法），该算法以提出该算法的三人姓名命名，是一个解决查找 模式字符串 在 文本中 出现位置的经典算法。</p>
+<p>KMP 算法利用前面判断过的信息，通过一个 next 数组（部分搜索池），保存模式串中，前后最长公共子序列的长度。每次回溯时，通过 next 数组找到前面匹配过的位置，省去了大量计算时间。</p>
+<h4 id="KMP-算法步骤："><a href="#KMP-算法步骤：" class="headerlink" title="KMP 算法步骤："></a>KMP 算法步骤：</h4><p>假定我们的对象串是 <code>String tar = &quot;ABCDABD&quot;</code> </p>
+<p>去匹配源串 <code>String ori = &quot;ABCDaddABCDABmessABCDABDADDtemp&quot;</code></p>
+<ol>
+<li><p>根据对象串，初始化一个部分匹配池。该池中的第 i 位代表匹配进行到此处时，已匹配过的部分与对象串进行自匹配的结果。</p>
+<table>
+    <tr>
+        <th>搜索词</th>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>A</td>
+        <td>B</td>
+        <td>D</td>
+    </tr>
+    <tr>
+        <th>部分匹配值</th>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>0</td>
+    </tr>
+</table>
+</li>
+<li><p>让源串指针和对象串指针指向各自开头。尝试匹配那些指针指向的字符。</p>
+</li>
+<li><p>第一个字符都不匹配时，移动源串指针，继续匹配。</p>
+</li>
+<li><p>出现字符匹配时，移动源串指针和对象串指针，继续匹配。</p>
+<p>出现不匹配时，把对象指针移动到部分匹配池指示的位置，并继续匹配。</p>
+</li>
+<li><p>对象串指针指向对象串末尾时，即匹配成功。源串指针指向源串末尾时，即匹配失败。</p>
+</li>
+</ol>
+<h4 id="实现-KMP-算法："><a href="#实现-KMP-算法：" class="headerlink" title="实现 KMP 算法："></a>实现 KMP 算法：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">KMP</span><span class="hljs-params">(String ori, String tar)</span> &#123;
+    <span class="hljs-keyword">if</span> (tar == <span class="hljs-literal">null</span> || ori == <span class="hljs-literal">null</span> || tar.length() &gt; ori.length()) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-type">char</span>[] ts = tar.toCharArray();		<span class="hljs-comment">// 对象字符串</span>
+    <span class="hljs-type">char</span>[] os = ori.toCharArray();		<span class="hljs-comment">// 源字符串</span>
+
+    <span class="hljs-comment">/* 初始化部分匹配池 */</span>
+    <span class="hljs-type">int</span>[] list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[ts.length];
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; list.length; i++) &#123;
+        <span class="hljs-keyword">if</span> (ts[i] == ts[list[i - <span class="hljs-number">1</span>]]) list[i] = list[i - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;
+    &#125;
+    <span class="hljs-comment">/* 将部分匹配池的数据变为指示列表 */</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> list.length - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;
+        <span class="hljs-keyword">if</span> (list[i] &gt; <span class="hljs-number">0</span>) list[i] = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">else</span> list[i] = list[i - <span class="hljs-number">1</span>];
+    &#125;
+
+    <span class="hljs-comment">/* 源串指针 op、对象串指针 tp */</span>
+    <span class="hljs-type">int</span> <span class="hljs-variable">op</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, tp = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">/* 开始匹配 */</span>
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+        <span class="hljs-comment">/* 对象串指针指向对象串末尾时，即匹配成功 */</span>
+        <span class="hljs-keyword">if</span> (tp &gt;= ts.length) <span class="hljs-keyword">return</span> op - ts.length;
+        <span class="hljs-comment">/* 源串指针指向源串末尾时，即匹配失败 */</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (op &gt;= os.length) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+
+        <span class="hljs-comment">/* 匹配时，后移源串指针和对象串指针，继续匹配。</span>
+<span class="hljs-comment">			出现不匹配时，把对象指针移动到部分匹配池指示的位置，并继续匹配。 */</span>
+        <span class="hljs-keyword">if</span> (ts[tp] != os[op]) &#123;
+            <span class="hljs-keyword">while</span> (tp &gt; <span class="hljs-number">0</span>) &#123;
+                tp = list[tp];
+                <span class="hljs-keyword">if</span> (ts[tp] == os[op]) &#123;
+                    tp++;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> tp++;
+        op++;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+
+
+<h3 id="26-2-5-贪心算法"><a href="#26-2-5-贪心算法" class="headerlink" title="26.2.5 贪心算法"></a>26.2.5 贪心算法</h3><p>贪心算法（贪婪算法）是指在对问题进行求解时，在每一步选择中都采取最好或最优的选择。从而希望结果是最好或最优的算法。</p>
+<p>贪婪算法得到的结果不一定是最优结果，但都是相对接近最优的结果。</p>
+<p><em><strong>——一个贪心算法的例子，见本章附录：<a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98">[骑士周游问题]</a></strong></em></p>
+<h3 id="26-2-6-普里姆算法"><a href="#26-2-6-普里姆算法" class="headerlink" title="26.2.6 普里姆算法"></a>26.2.6 普里姆算法</h3><p>最小生成树问题（MST，Minimum Cost Spanning Tree）：给定一个带权的无向连通图，如何选取一棵生成树，时树上所有边的权总和最小。</p>
+<p>要解决最小生成树问题，可以采取 <strong>普里姆算法（Prim）</strong></p>
+<h4 id="普里姆算法步骤："><a href="#普里姆算法步骤：" class="headerlink" title="普里姆算法步骤："></a>普里姆算法步骤：</h4><p>示范一个联通网图的格式。后面算法中的 <code>int[][] map</code> 都是该格式的联通网：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][]&#123;
+        &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;,
+        &#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,
+        &#123;<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>&#125;,
+        &#123;<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>&#125;,
+        &#123;<span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0</span>&#125;&#125;;
+<span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;</code></pre></div>
+
+<p>网点编号为 [0, n)，n 为网点数量。<code>map[a][b]</code> 是网点 a 与网点 b 间路径的权（0 为不连通）</p>
+<pre><code class=" mermaid">graph LR
+A((0))--1---B((1))
+A--2---C((2))
+B--3---C
+A--4---D((3))--6---C
+A--5---E((4))--7---D</code></pre>
+
+<ol>
+<li>从任意顶点 i（0 &lt;= i &lt; n）起构造最小生成树。将该顶点标记为已访问</li>
+<li>如果联通网图中存在剩余顶点，则记录那些与已访问顶点相连的边中，权值最小的边（避免产生回路），并将该顶点加入已访问集合。</li>
+<li>联通网图中没有未访问节点时，即所有顶点都被联通</li>
+</ol>
+<h4 id="实现普里姆算法："><a href="#实现普里姆算法：" class="headerlink" title="实现普里姆算法："></a>实现普里姆算法：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] prim(<span class="hljs-type">int</span>[][] map) &#123;
+    <span class="hljs-comment">/* 初始化 */</span>
+    Set&lt;Integer&gt; visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();		<span class="hljs-comment">// 已访问集合</span>
+    Set&lt;Integer&gt; remain = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();		<span class="hljs-comment">// 待访问集合</span>
+    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;							<span class="hljs-comment">// 网点数量</span>
+    <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n][n];				<span class="hljs-comment">// 极小联通子图</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; n; i++) remain.add(i);
+    visited.add(<span class="hljs-number">0</span>);
+    
+    <span class="hljs-comment">/* 记录待访问集合与已访问集合的节点间，权值最小的边，并将该节点加入已访问集合 */</span>
+    <span class="hljs-keyword">while</span> (!remain.isEmpty()) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">point</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (Integer i : visited) &#123;
+            <span class="hljs-keyword">for</span> (Integer j : remain) &#123;
+                <span class="hljs-type">int</span> <span class="hljs-variable">current</span> <span class="hljs-operator">=</span> map[i][j];
+                <span class="hljs-keyword">if</span> (current != <span class="hljs-number">0</span> &amp;&amp; (min == <span class="hljs-number">0</span> || current &lt; min)) &#123;
+                    min = current;
+                    point = j;
+                &#125;
+            &#125;
+        &#125;
+        visited.add(point);
+        remain.remove((Integer) point);
+        ret[y][x] = min;
+        ret[x][y] = min;
+    &#125;
+    <span class="hljs-keyword">return</span> ret;
+&#125;</code></pre></div>
+
+
+
+<h3 id="26-2-7-克鲁斯卡尔算法"><a href="#26-2-7-克鲁斯卡尔算法" class="headerlink" title="26.2.7 克鲁斯卡尔算法"></a>26.2.7 克鲁斯卡尔算法</h3><p>解决最小生成树问题的另一种方法是 <strong>克鲁斯卡尔算法（Kruskal）</strong></p>
+<h4 id="克鲁斯卡尔算法步骤："><a href="#克鲁斯卡尔算法步骤：" class="headerlink" title="克鲁斯卡尔算法步骤："></a>克鲁斯卡尔算法步骤：</h4><ol>
+<li>构建一个只含 n 个节点的森林。</li>
+<li>依照权值从小到大，从联通网中选择边加入森林（避免产生回路）。</li>
+<li>直到森林变成一棵树为止，就完成了最小生成树</li>
+</ol>
+<h4 id="实现克鲁斯卡尔算法："><a href="#实现克鲁斯卡尔算法：" class="headerlink" title="实现克鲁斯卡尔算法："></a>实现克鲁斯卡尔算法：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] kruskal(<span class="hljs-type">int</span>[][] map) &#123;
+    <span class="hljs-comment">/* 节点类（局部内部类） */</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&#123;
+        <span class="hljs-type">Node</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        Node <span class="hljs-title function_">getSuper</span><span class="hljs-params">()</span> &#123;
+            <span class="hljs-keyword">if</span> (prev == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> prev.getSuper();
+        &#125;
+    &#125;
+    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;
+    
+    <span class="hljs-comment">/* 构建一个只含 n 个节点的森林 */</span>
+    Node[] nodes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>[n];
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) nodes[i] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>();
+    <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n][n];
+    
+    <span class="hljs-comment">/* 将所有边进行初始化。将这些边加入一个优先级队列，以便从小到大取出</span>
+<span class="hljs-comment">    	对于其中每一项 i 都有：i[0] 为权值，i[1]、i[2] 为该边连接的两个节点 */</span>
+    PriorityQueue&lt;<span class="hljs-type">int</span>[]&gt; pq = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(Comparator.comparing(o -&gt; o[<span class="hljs-number">0</span>]));
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; i; j++) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> map[i][j];
+            <span class="hljs-keyword">if</span> (temp != <span class="hljs-number">0</span>) pq.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;temp, i, j&#125;);
+        &#125;
+    &#125;
+    
+    <span class="hljs-comment">/* 依照权值从小到大，从联通网中选择边加入森林</span>
+<span class="hljs-comment">    	取出边时，通过比较两个顶点的顶级父节点是否相同，可以判断两顶点是否已经联通 */</span>
+    <span class="hljs-keyword">while</span> (!pq.isEmpty()) &#123;
+        <span class="hljs-type">int</span>[] temp = pq.poll();
+        <span class="hljs-type">Node</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> nodes[temp[<span class="hljs-number">1</span>]].getSuper();
+        <span class="hljs-type">Node</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> nodes[temp[<span class="hljs-number">2</span>]].getSuper();
+        <span class="hljs-keyword">if</span> (a != b) &#123;
+            b.prev = a;
+            ret[temp[<span class="hljs-number">1</span>]][temp[<span class="hljs-number">2</span>]] = temp[<span class="hljs-number">0</span>];
+            ret[temp[<span class="hljs-number">2</span>]][temp[<span class="hljs-number">1</span>]] = temp[<span class="hljs-number">0</span>];
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ret;
+&#125;</code></pre></div>
+
+
+
+<h3 id="26-2-8-迪杰斯特拉算法"><a href="#26-2-8-迪杰斯特拉算法" class="headerlink" title="26.2.8 迪杰斯特拉算法"></a>26.2.8 迪杰斯特拉算法</h3><p>要计算一个连通图内，某一节点到图中另一节点的最短路径，可以采用 <strong>迪杰斯特拉算法（Dijkstra）</strong></p>
+<p>该算法是典型最短路径算法，采用广度优先搜索，以起始点为中心向外层层扩展，直到终点为止</p>
+<h4 id="迪杰斯特拉算法步骤："><a href="#迪杰斯特拉算法步骤：" class="headerlink" title="迪杰斯特拉算法步骤："></a>迪杰斯特拉算法步骤：</h4><ol>
+<li><p>设置出发点 v、顶点集合 V、距离集合 D。其中 v 为起始点，V 包含起始点外所有顶点，D[i] 表示 v 到 V[i] 的距离</p>
+</li>
+<li><p>找到 D[] 中的最小值 D[n] 和其对应的顶点 V[n]。此时D[n] 即为顶点 V[n] 到 v 的最小距离。</p>
+</li>
+<li><p>将 V[n] 设置为当前出发点，从 V 中移除 V[n]。</p>
+<p>对 D 进行更新。D[i] 变成 (原本数值) 和 (当前顶点 v 与 V[i] 距离 + D[n]) 的较小一方数值</p>
+<p>从 D 中移除 D[n]</p>
+</li>
+<li><p>重复 2 - 3，直到当前顶点变为终点。此时的行进距离即为最短路径</p>
+</li>
+</ol>
+<h4 id="迪杰斯特拉算法实现："><a href="#迪杰斯特拉算法实现：" class="headerlink" title="迪杰斯特拉算法实现："></a>迪杰斯特拉算法实现：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] map, <span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)</span> &#123;
+    <span class="hljs-keyword">if</span> (start == end) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">/* 将顶点和边放入优先级队列，以便后续取出最短距离</span>
+<span class="hljs-comment">    	对于其中任意元素 n 有：n[1] 为节点，n[0] 为 n[1] 与起始节点的最短距离 */</span>
+    PriorityQueue&lt;<span class="hljs-type">int</span>[]&gt; pq = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(Comparator.comparing(o-&gt;o[<span class="hljs-number">0</span>]));
+    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-keyword">if</span> (i == start) <span class="hljs-keyword">continue</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> map[start][i];
+        pq.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;temp == <span class="hljs-number">0</span> ? Integer.MAX_VALUE : temp, i&#125;);
+    &#125;
+    
+    <span class="hljs-comment">/* 取出那个最短路径和对应节点，对剩余元素进行更新 */</span>
+    <span class="hljs-keyword">while</span> (!pq.isEmpty()) &#123;
+        <span class="hljs-type">int</span>[] temp = pq.poll();
+        <span class="hljs-keyword">if</span> (temp[<span class="hljs-number">1</span>] == end) <span class="hljs-keyword">return</span> temp[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (temp[<span class="hljs-number">1</span>] == Integer.MAX_VALUE) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] flush : pq) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span> map[flush[<span class="hljs-number">1</span>]][temp[<span class="hljs-number">1</span>]];
+            <span class="hljs-keyword">if</span> (dir != <span class="hljs-number">0</span> &amp;&amp; flush[<span class="hljs-number">0</span>] &gt; dir + temp[<span class="hljs-number">0</span>]) flush[<span class="hljs-number">0</span>] = dir + temp[<span class="hljs-number">0</span>];
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+&#125;</code></pre></div>
+
+
+
+<h3 id="26-2-9-弗洛伊德算法"><a href="#26-2-9-弗洛伊德算法" class="headerlink" title="26.2.9 弗洛伊德算法"></a>26.2.9 弗洛伊德算法</h3><p>另一种最短路径算法是 <strong>弗洛伊德算法（Floyd）</strong></p>
+<p><strong><del>I count weights!</del></strong></p>
+<p>迪杰斯特拉算法用于计算图中 <strong>某一顶点</strong> 到其他顶点的最短路径。</p>
+<p>弗洛伊德算法用于计算图中 <strong>各个顶点</strong> 之间的最短路径。</p>
+<h4 id="弗洛伊德算法步骤："><a href="#弗洛伊德算法步骤：" class="headerlink" title="弗洛伊德算法步骤："></a>弗洛伊德算法步骤：</h4><ol>
+<li><p>对于任意顶点 a、b ，取任意中继节点 k，则 a、b 间最短路径 D(a,b) 是 [a、b 直接路径距离] 与 [D(a,k) + D(b,k)] 间的较小方数值</p>
+</li>
+<li><p>对于上面的 D(a,k) 和 D(b,k)，是以相同方式获得</p>
+</li>
+<li><p>要计算图中每个节点的最短路径，势必要用每个顶点（作为中继节点）对图进行更新。</p>
+<p>用每个顶点进行更新时，对其他所有边进行更新。</p>
+</li>
+</ol>
+<h4 id="实现弗洛伊德算法："><a href="#实现弗洛伊德算法：" class="headerlink" title="实现弗洛伊德算法："></a>实现弗洛伊德算法：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] floyd(<span class="hljs-type">int</span>[][] map) &#123;
+    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;
+    <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n][n];
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) ret[i] = Arrays.copyOf(map[i], n);
+
+	<span class="hljs-comment">/* 让每个节点做中继节点 */</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        
+        <span class="hljs-comment">/* 取出节点 a */</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; j &lt; n; j++) &#123;
+            <span class="hljs-comment">/* a 不能是中继节点，而且必须与中继节点相连</span>
+<span class="hljs-comment">            	此处，由于 i == j 时 map[i][j] == 0，所以省略了 i == j 的判断 */</span>
+            <span class="hljs-type">int</span> part1;
+            <span class="hljs-keyword">if</span> ((part1 = ret[i][j]) == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;
+            
+            <span class="hljs-comment">/* 取出节点 b */</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; k &lt; j; k++) &#123;
+                <span class="hljs-comment">/* 对 b 的判断与对 a 的相同，即：不是中继节点，且与中继节点相连  */</span>
+                <span class="hljs-type">int</span> part2;
+                <span class="hljs-keyword">if</span> ((part2 = ret[i][k]) == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;
+                <span class="hljs-type">int</span> <span class="hljs-variable">edge</span> <span class="hljs-operator">=</span> ret[k][j];				<span class="hljs-comment">// a、b 的直接路径距离</span>
+                part2 += part1;						<span class="hljs-comment">// 通过中继节点的路径距离</span>
+                
+                <span class="hljs-comment">/* 如有必要，进行更新 */</span>
+                <span class="hljs-keyword">if</span> (edge == <span class="hljs-number">0</span> || edge &gt; part2) &#123;
+                    ret[k][j] = part2;
+                    ret[j][k] = part2;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ret;
+&#125;</code></pre></div>
+
+
+
+
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="骑士周游问题"><a href="#骑士周游问题" class="headerlink" title="骑士周游问题"></a>骑士周游问题</h3><p>将一枚骑士棋子放在国际象棋棋盘上。使骑士按照行棋规则移动，要求每个方格只能进入一次，最终走遍棋盘上所有方格。</p>
+<p>穷举法效率较低，可以利用贪心算法进行优化。</p>
+<p>每次行棋前，计算那些目标点位上包含的行棋方法的数量。行棋时，从最低数量的点位开始尝试。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Chess</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[][] chess = <span class="hljs-literal">null</span>;		<span class="hljs-comment">// 棋盘。chess[y][x] == 0 表示该格未被走过，否则是已被走过</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[][] inner = <span class="hljs-literal">null</span>;		<span class="hljs-comment">// 数据棋盘。inner[y][x] 是 (x, y) 该格能通向几个未被走过的格子</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">goal</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;				<span class="hljs-comment">// 本局游戏中，需要走过多少格子</span>
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Comparator&lt;<span class="hljs-type">int</span>[]&gt; c = Comparator.comparing(o-&gt;inner[o[<span class="hljs-number">1</span>]][o[<span class="hljs-number">0</span>]]);
+    									<span class="hljs-comment">// 比较器，期待传入的是数组形式的点位：int[] o</span>
+    									<span class="hljs-comment">// 其中 o.length == 2，o[0] 为横坐标 x，o[1] 为纵坐标 y</span>
+    									<span class="hljs-comment">// 该比较器比较该 o 点位的 inner 值，即 inner[o[1]][o[0]]</span>
+	
+    <span class="hljs-comment">/* 进行一次马踏棋盘游戏 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">chess</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-comment">/* 对初始的参数进行检查 */</span>
+        <span class="hljs-keyword">if</span> (width &lt; <span class="hljs-number">4</span> || width &gt; <span class="hljs-number">53</span> || height &lt; <span class="hljs-number">4</span> || height &gt; <span class="hljs-number">53</span> || x &lt; <span class="hljs-number">0</span> || x &gt; width || y &lt; <span class="hljs-number">0</span> || y &gt; height)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;Illegal Chess Game&quot;</span>);
+
+        <span class="hljs-comment">/* 初始化参数 */</span>
+        goal = width * height;
+        chess = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[height][width];
+        inner = initialInner(width, height);
+        <span class="hljs-comment">/* 进行游戏。成功时输出棋盘，否则提示失败 */</span>
+        System.out.println(act(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y&#125;, <span class="hljs-number">1</span>) ? deepToString(chess) : <span class="hljs-string">&quot;失败&quot;</span>);
+    &#125;
+
+    <span class="hljs-comment">/* 把棋子移动到该格。</span>
+<span class="hljs-comment">        该格的坐标是 (p[0], p[1])，这是棋子走的第 step 步 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">act</span><span class="hljs-params">(<span class="hljs-type">int</span>[] p, <span class="hljs-type">int</span> step)</span> &#123;
+        <span class="hljs-comment">/* 把当前格子标记为已走过 */</span>
+        chess[p[<span class="hljs-number">1</span>]][p[<span class="hljs-number">0</span>]] = step;
+
+        <span class="hljs-comment">/* 如果走过了所有格子，则游戏结束 */</span>
+        <span class="hljs-keyword">if</span> (step &gt;= goal) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        step++;
+
+        <span class="hljs-comment">/* 查看有哪些能走的格子，将其放入一个优先级队列 */</span>
+        <span class="hljs-type">int</span>[][] aims = aims(p[<span class="hljs-number">0</span>], p[<span class="hljs-number">1</span>]);
+        Queue&lt;<span class="hljs-type">int</span>[]&gt; q = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(c);    <span class="hljs-comment">// 这个比较器是前面定义的，比较 inner 值的那个比较器</span>
+        Stack&lt;<span class="hljs-type">int</span>[]&gt; s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] i : aims) &#123;
+            <span class="hljs-comment">/* 点位合法时，让那个 inner 值减少（因为当前格子不能走了），并让其入列 */</span>
+            <span class="hljs-keyword">if</span> (check(i)) &#123;
+                inner[i[<span class="hljs-number">1</span>]][i[<span class="hljs-number">0</span>]]--;
+                s.push(i);
+                q.add(i);
+            &#125;
+        &#125;
+
+        <span class="hljs-comment">/* 从 inner 较小的点位开始，试着向目标格移动棋子 */</span>
+        <span class="hljs-keyword">while</span> (!q.isEmpty()) <span class="hljs-keyword">if</span> (act(q.poll(), step)) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+
+        <span class="hljs-comment">/* 进行到这里说明没有有效走法，我们将该格子重新标记为未走过，并返回上一格 */</span>
+        chess[p[<span class="hljs-number">1</span>]][p[<span class="hljs-number">0</span>]] = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] i : s) inner[i[<span class="hljs-number">1</span>]][i[<span class="hljs-number">0</span>]]++;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+	
+    <span class="hljs-comment">/* 初始化那个数据棋盘。该方法仅在进入游戏时调用一次 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] initialInner(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height) &#123;
+        <span class="hljs-type">int</span>[][] inner = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[height][width];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; height; i++) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">red</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+            <span class="hljs-type">int</span> <span class="hljs-variable">div</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">if</span> (i == <span class="hljs-number">1</span> || i == height - <span class="hljs-number">2</span>) red = <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> || i == height - <span class="hljs-number">1</span>) div = <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; width; j++) &#123;
+                <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> red;
+                <span class="hljs-type">int</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> div;
+                <span class="hljs-keyword">if</span> (j == <span class="hljs-number">1</span> || j == width - <span class="hljs-number">2</span>) r += <span class="hljs-number">2</span>;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span> || j == width - <span class="hljs-number">1</span>) d += <span class="hljs-number">1</span>;
+                inner[i][j] = (<span class="hljs-number">8</span> - r) &gt;&gt; (d);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> inner;
+    &#125;
+	
+    <span class="hljs-comment">/* 返回从 (x, y) 点位能到达的所有点位构成的数组，但不保证数组中每个点位都有效 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] aims(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) &#123;
+        <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">8</span>][<span class="hljs-number">2</span>];
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">rx</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">ry</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">8</span>; j++) &#123;
+            ret[j][<span class="hljs-number">0</span>] = x + (rx ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>) * ((j + <span class="hljs-number">4</span>) / <span class="hljs-number">4</span>);
+            ret[j][<span class="hljs-number">1</span>] = y + (ry ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>) * ((<span class="hljs-number">11</span> - j) / <span class="hljs-number">4</span>);
+            <span class="hljs-keyword">if</span> (ry = !ry) rx = !rx;
+        &#125;
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+	
+    <span class="hljs-comment">/* 检查该点位是否有效 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">check</span><span class="hljs-params">(<span class="hljs-type">int</span>[] i)</span> &#123;
+        <span class="hljs-keyword">if</span> (i[<span class="hljs-number">0</span>] &lt; <span class="hljs-number">0</span> || i[<span class="hljs-number">1</span>] &lt; <span class="hljs-number">0</span> || i[<span class="hljs-number">1</span>] &gt;= inner.length || i[<span class="hljs-number">0</span>] &gt;= inner[i[<span class="hljs-number">1</span>]].length) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> chess[i[<span class="hljs-number">1</span>]][i[<span class="hljs-number">0</span>]] == <span class="hljs-number">0</span>;
+    &#125;
+
+	<span class="hljs-comment">/* 输出一个棋盘的信息 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">deepToString</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] array)</span> &#123;
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : array) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i : ints) sb.append(i).append(<span class="hljs-string">&quot;\t&quot;</span>);
+            sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> sb.toString();
+    &#125;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;26 算法入门</div>
+      <div>https://i-melody.github.io/2022/06/03/Java/入门阶段/26 算法入门/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

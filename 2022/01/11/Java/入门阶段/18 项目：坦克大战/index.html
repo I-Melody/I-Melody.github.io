@@ -1,0 +1,2579 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="18 项目：坦克大战还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业 关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方的坦克类。Tank.j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;18 项目（坦克大战）">
+<meta property="og:url" content="https://i-melody.github.io/2022/01/11/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/18%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="18 项目：坦克大战还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业 关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方的坦克类。Tank.j">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble_r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble_red.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble_red_r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/E_bullet.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/E_bullet_r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/G_Bullet.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/G_Bullet_r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/N_bullet.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/N_bullet_r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/p.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/pl.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/plr.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Pr.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Star.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Star_n.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E1r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E2.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E2r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E3.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_E3r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv1r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv2.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv2r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv3.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Lv3r.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Sp.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Tank_Spr.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Landform/Iron.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Landform/Trees.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Landform/Wall.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Landform/Water.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Explosion/Explosion1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Explosion/Explosion2.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Explosion/Explosion3.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Explosion/Explosion4.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Explosion/Explosion5.png">
+<meta property="article:published_time" content="2022-01-10T17:17:02.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:51:02.102Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;18 项目（坦克大战） ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;18 项目（坦克大战）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-11 01:17" pubdate>
+          2022年1月11日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          43k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          242 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;18 项目（坦克大战）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="18-项目：坦克大战"><a href="#18-项目：坦克大战" class="headerlink" title="18 项目：坦克大战"></a>18 项目：坦克大战</h1><p>还有很多细节、优化方法没实现，但困难的已经没有了。</p>
+<p>先不打磨了，还是以学习 Java 为主。</p>
+<h3 id="二阶段毕业"><a href="#二阶段毕业" class="headerlink" title="二阶段毕业"></a>二阶段毕业</h3><blockquote>
+<p>关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新</p>
+<p>TankGame.java：程序的入口</p>
+<p>MyPanel.java：窗口、图像的绘制。这是该项目的主干</p>
+<p>Player.java、Enemy.java：己方、敌方的坦克类。Tank.java 是他们的父类</p>
+<p>Vehicle.java：记录了所有坦克预设的枚举类。该包下还有另一个记录了所有子弹类型的枚举类 Bullet</p>
+<p>Map.java：记录了地图数据的枚举类，包含不同关卡。但我没设计关卡</p>
+<p>InputImage.java：所有导入的图片。是我准备的素材</p>
+<p>Timing.java：一个计时器。当时能力有限，用这个作为某个计时功能的代替方案</p>
+</blockquote>
+<ul>
+<li><p><strong>TankGame.java（入口）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> javax.swing.*;
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0.ష</span>
+<span class="hljs-comment"> * &lt;p&gt;</span>
+<span class="hljs-comment"> * 小派蒙会开坦克吗？</span>
+<span class="hljs-comment"> * &lt;p&gt;</span>
+<span class="hljs-comment"> * ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠒⠛⠲⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</span>
+<span class="hljs-comment"> * ⠀⠀⠀⠀   ⠀⢻⡄⣠⠶⣆⠀⣸⣀⣀⠀⠀</span>
+<span class="hljs-comment"> * ⠀⠀⠀ ⠀⠀⢀⡠⠬⠛⢓⣏⠉⣾⣉⣀⠉⢹⡀⠀⠀⠀⠀⠀⠀⠀</span>
+<span class="hljs-comment"> * ⠀⠀ ⠀⢀⡖⠋⣠⠴⠛⠙⢹⠞⢳⢀⣨⡵⠚⠀⠀⠀</span>
+<span class="hljs-comment"> * ⠀⠀⠀⣰⠋⡠⠎⠁⣀⠤⠒⠚⠛⠙⠒⠳⠤⣄⡀⠀</span>
+<span class="hljs-comment"> * ⠀⠀⠀⠘⠐⢼⠖⠋⠀⠀⢀⠀⠀⠀⠀⠀⠀⠘⣌⡒⠲⢹⠀⠀⠀⠀</span>
+<span class="hljs-comment"> * ⠀⠀ ⠀⡸⠁⠀⠀⠀⠀⡆⠀⠀⠐⠀⠢⣄⠀⡽⡙⡲⠑⠒⠒⡒⠁</span>
+<span class="hljs-comment"> * ⢀⡠⠴⠚⠀⠀⠀⠀⠀⣕⠝⣄⡀⢀⠀⠀⡇⠵⢍⠚⢾⡀⢠⠖⠁⠀       ___________________</span>
+<span class="hljs-comment"> * ⠈⠦⣄⣀⠀⡔⠀⠀⢁⡞⠀⠉⠲⣄⡀⢲⢼⠀⢀⠳⡄⠁⠀⢣⠀⠀     /  坦克？是新游戏喔。   \</span>
+<span class="hljs-comment"> * ⠀⠀⣠⠃⢐⠄⠀⠀⠴⠅⠠⡊⡢⠀⠉⠉⠁⠀⢆⠕⠹⡀⠀⠈⡆⠀  &lt;   开玩笑，我超勇的好不好   \</span>
+<span class="hljs-comment"> * ⠀⠠⡇⠀⡸⠀⠀⠀⠨⡅⠀⠒⠈⠀⢄⠠⠠⠔⠀⠀⠀⢻⠀⠀⢣⠀     \     我超会玩的啦 ~     /</span>
+<span class="hljs-comment"> * ⠀⢸⠅⠀⡕⠀⠀⠀⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⡏⠀⠀⢸⠀       \____________________/</span>
+<span class="hljs-comment"> * ⠀⠈⡇⠀⣣⠀⠀⠈⠀⠸⡦⠴⠲⢚⢚⠙⠝⠙⠍⠝⣱⠏⢠⠀⢸⠅</span>
+<span class="hljs-comment"> * ⠀⠀⠙⣆⠘⣄⠀⠠⣄⠀⠹⣌⠌⠀⠂⠐⢈⠄⡁⢌⠳⣺⠏⢀⡞⠀</span>
+<span class="hljs-comment"> * ⠀⠀⠀⠀⠙⠺⠛⣲⠜⠟⡓⡚⣏⣔⡀⡌⣀⢂⣔⠴⠋⢏⠒⠁⠀⠀</span>
+<span class="hljs-comment"> * &lt;p&gt;</span>
+<span class="hljs-comment"> * 什么新游戏，比游戏还刺激！还可以教你 学 Ja va 哦 ~</span>
+<span class="hljs-comment"> */</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TankGame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MyPanel mp;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Thread thread;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">File</span> <span class="hljs-variable">savePath</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;d:\\Program\\Melody\\TankGame\\saveData.sav&quot;</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> abandoned;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">width</span> <span class="hljs-operator">=</span> <span class="hljs-number">1200</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">height</span> <span class="hljs-operator">=</span> <span class="hljs-number">800</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">enemyNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+        <span class="hljs-type">char</span> <span class="hljs-variable">inpChar</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27; &#x27;</span>;
+        mp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyPanel</span>(width, height, enemyNum);
+        <span class="hljs-keyword">if</span> (savePath.isFile()) &#123;
+            System.out.println(<span class="hljs-string">&quot;开始新游戏？（Y新游戏/N读档）&quot;</span>);
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+                inpChar = scanner.next().charAt(<span class="hljs-number">0</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    <span class="hljs-keyword">if</span> (inpChar == <span class="hljs-string">&#x27;Y&#x27;</span> || inpChar == <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+                        <span class="hljs-keyword">break</span>;
+                    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inpChar == <span class="hljs-string">&#x27;N&#x27;</span> || inpChar == <span class="hljs-string">&#x27;n&#x27;</span>) &#123;
+                        mp.pause = <span class="hljs-literal">true</span>;
+                        mp.toLoad = <span class="hljs-literal">true</span>;
+                    &#125; <span class="hljs-keyword">else</span> &#123;
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+                    &#125;
+                    <span class="hljs-keyword">break</span>;
+                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+                    System.out.println(<span class="hljs-string">&quot;错误！请重新输入（Y新游戏/N读档）&quot;</span>);
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-type">TankGame</span> <span class="hljs-variable">game</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TankGame</span>(Math.abs(width), Math.abs(height), Math.abs(enemyNum));
+        thread = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(game.mp);
+        thread.start();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TankGame</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> enemyNum)</span> &#123;
+        width = Math.max(width, <span class="hljs-number">800</span>);
+        height = Math.max(height, <span class="hljs-number">600</span>);
+        <span class="hljs-built_in">this</span>.add(mp);
+        <span class="hljs-built_in">this</span>.setSize(width + <span class="hljs-number">20</span>, height + <span class="hljs-number">240</span>);
+        <span class="hljs-built_in">this</span>.addKeyListener(mp);
+        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);
+        <span class="hljs-built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    &#125;
+
+&#125;</code></pre></div>
+</li>
+<li><p><strong>MyPanel.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> javax.swing.*;
+<span class="hljs-keyword">import</span> java.awt.*;
+<span class="hljs-keyword">import</span> java.awt.event.KeyEvent;
+<span class="hljs-keyword">import</span> java.awt.event.KeyListener;
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">import</span> java.util.Iterator;
+<span class="hljs-keyword">import</span> java.util.LinkedHashMap;
+<span class="hljs-keyword">import</span> java.util.Vector;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> * ！！！！！！！！！！！！！！！该类需要重新整理！！！！！！！！！！！！！！！！</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyPanel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JPanel</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">KeyListener</span>, Runnable, Serializable &#123;
+    <span class="hljs-comment">//5 个静态变量依次是：允许的同屏最大敌人数量的上限、战斗区域宽度、战斗区域高度、玩家、是否通关</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">ENEMY_MAX</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">width</span> <span class="hljs-operator">=</span> <span class="hljs-number">1200</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">height</span> <span class="hljs-operator">=</span> <span class="hljs-number">1000</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Player</span> <span class="hljs-variable">player</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Player</span>(<span class="hljs-number">640</span>, <span class="hljs-number">640</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">gameSuspend</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] mapData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[width][height][<span class="hljs-number">2</span>];                        <span class="hljs-comment">//*****此处需要修改*****</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;
+
+
+    <span class="hljs-comment">//12 个成员变量，依次是：所有敌人坦克、所有被摧毁的敌人坦克、同屏最大敌人数量（用户设定）、敌人初始位置集（含坐标、占用情况）、</span>
+    <span class="hljs-comment">//          敌人初始位置集（仅坐标）、关卡敌人总数、W键是否正被按下、A键是否正被按下、S键是否正被按下、D键是否正被按下、开火键是否正被按下、</span>
+    <span class="hljs-comment">//          导入图片媒介、地图集、关卡数</span>
+    <span class="hljs-keyword">private</span> Vector&lt;Tank&gt; enemy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vector</span>&lt;&gt;();
+    <span class="hljs-keyword">private</span> Vector&lt;Tank&gt; deadEnemy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vector</span>&lt;&gt;();
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> enemyMax;
+    <span class="hljs-keyword">private</span> LinkedHashMap&lt;<span class="hljs-type">int</span>[], Boolean&gt; enemyPositions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedHashMap</span>&lt;&gt;();
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[][] enemyPosition;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isPressingW</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isPressingA</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isPressingS</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isPressingD</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isFiring</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">Image</span> <span class="hljs-variable">image</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> Map[] maps = Map.values();
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">level</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> Tank boss;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">bossActive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-type">boolean</span> <span class="hljs-variable">pause</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">saved</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-type">boolean</span> <span class="hljs-variable">loaded</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">toLoad</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">toSave</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">transient</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">abandoned</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+
+    <span class="hljs-comment">//构造器</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyPanel</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> enemyNum)</span> &#123;
+        <span class="hljs-built_in">this</span>.width = (<span class="hljs-type">int</span>) (width / <span class="hljs-number">40</span>) * <span class="hljs-number">40</span>;
+        <span class="hljs-built_in">this</span>.height = (<span class="hljs-type">int</span>) (height / <span class="hljs-number">40</span>) * <span class="hljs-number">40</span>;               <span class="hljs-comment">//设置长宽</span>
+        enemyNum = Math.max(enemyNum, <span class="hljs-number">0</span>);
+        enemyMax = Math.min(enemyNum, ENEMY_MAX);           <span class="hljs-comment">//设置同屏最大敌人数量</span>
+        enemyPosition = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[enemyMax][<span class="hljs-number">2</span>];                <span class="hljs-comment">//已经确定了要生成的敌人位置数量，生成位置数组（空）</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; enemyMax; i++) &#123;                <span class="hljs-comment">//生成敌人初始位置。</span>
+            <span class="hljs-type">int</span>[] tempPosition = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];
+            tempPosition[<span class="hljs-number">0</span>] = i * <span class="hljs-number">150</span> + <span class="hljs-number">50</span>;
+            tempPosition[<span class="hljs-number">1</span>] = <span class="hljs-number">50</span>;
+            <span class="hljs-keyword">while</span> (tempPosition[<span class="hljs-number">0</span>] &gt; (width - <span class="hljs-number">100</span>)) &#123;
+                tempPosition[<span class="hljs-number">1</span>] += <span class="hljs-number">120</span>;
+                tempPosition[<span class="hljs-number">0</span>] -= (width - <span class="hljs-number">150</span>);
+                <span class="hljs-keyword">if</span> (tempPosition[<span class="hljs-number">1</span>] &gt; height - <span class="hljs-number">100</span>) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+                &#125;
+            &#125;
+            enemyPosition[i][<span class="hljs-number">0</span>] = tempPosition[<span class="hljs-number">0</span>];
+            enemyPosition[i][<span class="hljs-number">1</span>] = tempPosition[<span class="hljs-number">1</span>];
+        &#125;                                                    <span class="hljs-comment">//此时 敌人初始位置数组 生成完毕。</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : enemyPosition) &#123;
+            enemyPositions.put(ints, <span class="hljs-literal">false</span>);                 <span class="hljs-comment">//装满 敌人初始位置集 默认全部是未占用</span>
+        &#125;
+
+    &#125;
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        nextLevel();
+        player.start();             <span class="hljs-comment">//启动玩家线程</span>
+        <span class="hljs-keyword">while</span> (!abandoned) &#123;
+            creatEnemy();
+            gameSuspend = <span class="hljs-literal">false</span>;<span class="hljs-comment">//创建敌人坦克。这个方法同时会启动敌人坦克线程</span>
+            <span class="hljs-keyword">while</span> (!gameSuspend) &#123;
+                repaint();              <span class="hljs-comment">//刷新</span>
+                checkLevelClear();
+                <span class="hljs-keyword">if</span>(toSave)&#123;
+                    saveData();
+                    toSave  = <span class="hljs-literal">false</span>;
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(toLoad)&#123;
+                    loadData();
+                    toLoad  = <span class="hljs-literal">false</span>;
+                &#125;
+            &#125;
+            pauseBetweenLevels(<span class="hljs-number">1200</span> + (bossActive ? <span class="hljs-number">2000</span> : <span class="hljs-number">0</span>));
+            <span class="hljs-keyword">while</span> (!gameSuspend) &#123;
+                repaint();
+            &#125;
+            nextLevel();
+        &#125;
+    &#125;
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">paint</span><span class="hljs-params">(Graphics g)</span> &#123;
+        drawUI(g);                      <span class="hljs-comment">//画出 UI</span>
+        drawPlayer(g);                  <span class="hljs-comment">//画出 玩家坦克（包含子弹）</span>
+        drawEnemy(g);                   <span class="hljs-comment">//画出 所有敌人坦克（包含子弹）</span>
+        drawDeadTank(g);                <span class="hljs-comment">//画出 被破坏坦克的残留动画和残留子弹</span>
+    &#125;
+
+    <span class="hljs-comment">//画出 UI</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawUI</span><span class="hljs-params">(Graphics g)</span> &#123;
+        g.setColor(Color.BLACK);
+        g.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, width, height);
+        g.setColor(Color.GRAY);
+        g.fillRect(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, width - <span class="hljs-number">4</span>, height - <span class="hljs-number">4</span>);        <span class="hljs-comment">//以上 4 行，画出了战斗场地</span>
+        g.setColor(Color.WHITE);
+        g.fillRect(<span class="hljs-number">0</span>, height, width, <span class="hljs-number">200</span>);
+        drawHp(g);                                                      <span class="hljs-comment">//画 HP 槽</span>
+        drawFireCD(g);                                                  <span class="hljs-comment">//画 开火 槽</span>
+        drawEnemyNum(g);                                                <span class="hljs-comment">//画 雷达 槽</span>
+        drawStars(g);                                                   <span class="hljs-comment">//画 经验值 星星</span>
+        <span class="hljs-keyword">if</span> (pause) &#123;
+            drawPause(g);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//画 HP 槽</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawHp</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-comment">//下面画出 绿色 HP 槽。随着 HP 减少，槽会变空</span>
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">50</span>));
+        g.setColor(Color.BLACK);
+        g.fillRect(<span class="hljs-number">50</span>, height + <span class="hljs-number">60</span>, (<span class="hljs-type">int</span>) (<span class="hljs-number">20</span> * player.vehicle.LIFE) + <span class="hljs-number">4</span>, <span class="hljs-number">30</span>);
+        g.setColor(player.lifeRemains / player.vehicle.LIFE &gt; <span class="hljs-number">0.2</span> ? Color.GREEN : Color.RED);
+        g.fill3DRect(<span class="hljs-number">52</span>, height + <span class="hljs-number">62</span>, (<span class="hljs-type">int</span>) (<span class="hljs-number">20</span> * Math.max(player.lifeRemains, <span class="hljs-number">0</span>)), <span class="hljs-number">26</span>, <span class="hljs-literal">true</span>);
+        g.fill3DRect(<span class="hljs-number">52</span>, height + <span class="hljs-number">80</span>, (<span class="hljs-type">int</span>) (<span class="hljs-number">20</span> * Math.max(player.lifeRemains, <span class="hljs-number">0</span>) - <span class="hljs-number">1</span>), <span class="hljs-number">6</span>, <span class="hljs-literal">false</span>);
+        <span class="hljs-comment">//下面画出一段说明文</span>
+        g.setColor(Color.GRAY);
+        <span class="hljs-keyword">if</span> (player.vehicle == Vehicle.Basic) &#123;
+            g.drawString(<span class="hljs-string">&quot;防弹衣&quot;</span>, <span class="hljs-number">50</span>, height + <span class="hljs-number">140</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            g.drawString(player.vehicle == Vehicle.Tank_Special ? <span class="hljs-string">&quot;复合装甲&quot;</span> : <span class="hljs-string">&quot;装甲&quot;</span>, <span class="hljs-number">50</span>, height + <span class="hljs-number">140</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//画 开火 槽</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawFireCD</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-comment">//以下画出 橙色 开火槽。随着装弹，槽会填满</span>
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">50</span>));
+        g.setColor(Color.BLACK);
+        g.fillRect((<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) + <span class="hljs-number">60</span>), height + <span class="hljs-number">60</span>, <span class="hljs-number">205</span>, <span class="hljs-number">30</span>);
+        g.setColor(player.vehicle == Vehicle.Tank_Special ? Color.cyan : Color.ORANGE);
+        g.fill3DRect((<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) + <span class="hljs-number">62</span>), height + <span class="hljs-number">62</span>,
+                (<span class="hljs-type">int</span>) (player.getAtkSpeed() * (player.fireCD - Math.max(player.fireCount, <span class="hljs-number">0</span>)) + <span class="hljs-number">1</span>), <span class="hljs-number">26</span>, <span class="hljs-literal">true</span>);
+        g.fill3DRect((<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) + <span class="hljs-number">62</span>), height + <span class="hljs-number">80</span>,
+                (<span class="hljs-type">int</span>) (player.getAtkSpeed() * (player.fireCD - Math.max(player.fireCount, <span class="hljs-number">0</span>))), <span class="hljs-number">6</span>, <span class="hljs-literal">false</span>);
+        <span class="hljs-comment">//以下画出一段说明文字</span>
+        g.setColor(Color.GRAY);
+        <span class="hljs-keyword">if</span> (player.vehicle == Vehicle.Basic) &#123;
+            g.drawString(player.fireCount &lt;= <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;哒哒哒哒哒……&quot;</span> : player.fireCount == player.fireCD ? <span class="hljs-string">&quot;加特林停了&quot;</span> : <span class="hljs-string">&quot;加特林转啊！&quot;</span>,
+                    width / <span class="hljs-number">2</span> + <span class="hljs-number">60</span>, height + <span class="hljs-number">140</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            g.drawString(player.fireCount &lt;= <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;弹药装填完毕&quot;</span> : <span class="hljs-string">&quot;装填中…&quot;</span>, width / <span class="hljs-number">2</span> + <span class="hljs-number">60</span>, height + <span class="hljs-number">140</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//画出 敌人数量（这个方法是UI的一部分，统计数量，而不是画坦克）</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawEnemyNum</span><span class="hljs-params">(Graphics g)</span> &#123;
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">20</span>));
+        g.setColor(Color.BLACK);
+        g.drawString(<span class="hljs-string">&quot;雷达发现敌人数量：&quot;</span> + (maps[level].levelEnemyNum - deadEnemy.size()), (<span class="hljs-type">int</span>) (width * <span class="hljs-number">0.77</span>), height + <span class="hljs-number">22</span>);
+    &#125;
+
+    <span class="hljs-comment">//画出 经验值。有几点就有几颗红星被点亮。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawStars</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-keyword">switch</span> (player.vehicle.LEVEL_UP_REQUIRED) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">10</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">280</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">9</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">250</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">8</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">220</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">7</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">190</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">6</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">160</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">5</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">130</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">4</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">100</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">3</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">70</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">2</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">40</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                g.drawImage(player.enhance &gt;= <span class="hljs-number">1</span> ? InputImage.star : InputImage.nStar,
+                        <span class="hljs-number">10</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-built_in">this</span>);
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">default</span>:
+                g.setColor(Color.GRAY);             <span class="hljs-comment">//不能升级的坦克，画一个小小的圆</span>
+                g.fillOval(<span class="hljs-number">40</span>, height + <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+                <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawPause</span><span class="hljs-params">(Graphics g)</span> &#123;
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">70</span>));
+        g.setColor(Color.DARK_GRAY);
+        g.drawString(<span class="hljs-string">&quot;游戏暂停中，按 P 键继续游戏&quot;</span>, (<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) * <span class="hljs-number">0.2</span>), (height / <span class="hljs-number">2</span> - <span class="hljs-number">100</span>));
+        <span class="hljs-keyword">if</span> (saved)&#123;
+            g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">50</span>));
+            g.setColor(Color.DARK_GRAY);
+            g.drawString(<span class="hljs-string">&quot;存档成功！&quot;</span>, (<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) * <span class="hljs-number">0.8</span>), (height / <span class="hljs-number">2</span>));
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(loaded)&#123;
+            g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;等线&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">50</span>));
+            g.setColor(Color.DARK_GRAY);
+            g.drawString(<span class="hljs-string">&quot;读档成功！&quot;</span>, (<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) * <span class="hljs-number">0.8</span>), (height / <span class="hljs-number">2</span>));
+        &#125;
+        <span class="hljs-keyword">if</span> (deadEnemy.size() &gt;= maps[level].levelEnemyNum &amp;&amp; (!bossActive || !boss.alive))&#123;
+            g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;黑体&quot;</span>, Font.ITALIC + Font.BOLD, <span class="hljs-number">70</span>));
+            g.setColor(Color.ORANGE);
+            g.drawString(<span class="hljs-string">&quot;下一波敌人接近中！&quot;</span>, (<span class="hljs-type">int</span>) ((width / <span class="hljs-number">2</span>) * <span class="hljs-number">0.5</span>), (<span class="hljs-type">int</span>)(height * <span class="hljs-number">0.8</span>));
+                                                                                        <span class="hljs-comment">//*****此处需要修改*****</span>
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//画出 玩家坦克</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawPlayer</span><span class="hljs-params">(Graphics g)</span> &#123;
+        player.pause = <span class="hljs-built_in">this</span>.pause;
+        drawLivingTank(g, player);
+    &#125;
+
+    <span class="hljs-comment">//画出敌人坦克</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawEnemy</span><span class="hljs-params">(Graphics g)</span> &#123;
+        Iterator&lt;Tank&gt; iterator = enemy.iterator();
+        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="hljs-type">Tank</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> iterator.next();
+            <span class="hljs-keyword">if</span> (!temp.alive) &#123;                              <span class="hljs-comment">//这个分支，坦克已被摧毁</span>
+                temp.releaseCollisionSize();                <span class="hljs-comment">//消除其碰撞体积</span>
+                iterator.remove();
+                deadEnemy.add(temp);                        <span class="hljs-comment">//从 敌人集 把该坦克删除，加入 破坏坦克集</span>
+                player.enhanced(temp.vehicle);              <span class="hljs-comment">//给玩家结算经验</span>
+                enemyPositions.put(enemyPosition[n], <span class="hljs-literal">false</span>);<span class="hljs-comment">//该坦克占用的位置被解放</span>
+            &#125;
+            n++;
+        &#125;
+        creatEnemy();                       <span class="hljs-comment">//尝试生成新的坦克</span>
+        iterator = enemy.iterator();
+        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="hljs-type">Tank</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> iterator.next();
+            t.pause = <span class="hljs-built_in">this</span>.pause;                <span class="hljs-comment">//暂停设置</span>
+<span class="hljs-comment">//            if (t.specialCount &gt; 0) &#123;</span>
+<span class="hljs-comment">//                t.specialCount--;                                     //*****此处需要修改*****</span>
+<span class="hljs-comment">//            &#125; else &#123;</span>
+            drawLivingTank(g, t);       <span class="hljs-comment">//画出所有（敌人的）坦克</span>
+<span class="hljs-comment">//            &#125;</span>
+        &#125;
+        <span class="hljs-keyword">if</span> (bossActive) &#123;
+            boss.pause = <span class="hljs-built_in">this</span>.pause;
+            drawBoss(g);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawBoss</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-keyword">if</span> (boss.alive) &#123;
+            drawTank(g, boss);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            drawExplosion(g, boss);
+        &#125;
+        drawBullet(g, boss);
+    &#125;
+
+
+    <span class="hljs-comment">//画出被摧毁的坦克的残留特效及其所有残留子弹</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawDeadTank</span><span class="hljs-params">(Graphics g)</span> &#123;
+        Iterator&lt;Tank&gt; iterator = deadEnemy.iterator();
+        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="hljs-type">Tank</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> iterator.next();
+            temp.pause = <span class="hljs-built_in">this</span>.pause;
+            <span class="hljs-keyword">if</span> (temp.specialCount &gt; <span class="hljs-number">0</span>) &#123;          <span class="hljs-comment">//敌人的特殊计数残留时，画出其爆炸效果</span>
+                temp.specialCount--;                                        <span class="hljs-comment">//*****此处需要修改*****</span>
+                drawExplosion(g, temp);
+            &#125;
+            <span class="hljs-keyword">if</span> (temp.bullets.size() &gt; <span class="hljs-number">0</span>) &#123;          <span class="hljs-comment">//敌人的子弹有残留时，画出该子弹</span>
+                drawBullet(g, temp);
+            &#125;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//画出存活的坦克及其所有子弹</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawLivingTank</span><span class="hljs-params">(Graphics g, Tank tank)</span> &#123;
+        <span class="hljs-comment">//以下部分画出坦克</span>
+        <span class="hljs-keyword">if</span> (tank.alive) &#123;
+            drawTank(g, tank);       <span class="hljs-comment">//存活的场合，画出坦克</span>
+            drawBullet(g, tank);                <span class="hljs-comment">//画出子弹</span>
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//画坦克。这个方法能画出朝向正确的坦克。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawTank</span><span class="hljs-params">(Graphics g, Tank tank)</span> &#123;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> dirState2(tank.dir);
+        <span class="hljs-keyword">switch</span> (tank.vehicle) &#123;
+            <span class="hljs-keyword">case</span> Tank_Lv1:
+                image = dirState(tank.dir) ? InputImage.tank1 : InputImage.tank1r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_Lv2:
+                image = dirState(tank.dir) ? InputImage.tank2 : InputImage.tank2r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_Lv3:
+                image = dirState(tank.dir) ? InputImage.tank3 : InputImage.tank3r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_E1:
+                image = dirState(tank.dir) ? InputImage.tankE1 : InputImage.tankE1r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_E2:
+                image = dirState(tank.dir) ? InputImage.tankE2 : InputImage.tankE2r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_E3:
+                image = dirState(tank.dir) ? InputImage.tankE3 : InputImage.tankE3r;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_Special:
+                image = dirState(tank.dir) ? InputImage.tankSp : InputImage.tankSpr;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Basic:
+                <span class="hljs-keyword">if</span> (tank.fireCount &lt;= <span class="hljs-number">3</span>) &#123;
+                    image = dirState(tank.dir) ? InputImage.basicL : InputImage.basicLR;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    image = dirState(tank.dir) ? InputImage.basic : InputImage.basicR;
+                &#125;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        g.drawImage(image, b ? tank.x + <span class="hljs-number">80</span> : tank.x, b ? tank.y + <span class="hljs-number">80</span> : tank.y, b ? -<span class="hljs-number">80</span> : <span class="hljs-number">80</span>, b ? -<span class="hljs-number">80</span> : <span class="hljs-number">80</span>, <span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">if</span> (tank.invincible &gt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">switch</span> (tank.vehicle) &#123;             <span class="hljs-comment">//无敌持续中的场合，画出护盾</span>
+                <span class="hljs-keyword">case</span> Tank_Special:
+                <span class="hljs-keyword">case</span> Basic:
+                    image = dirState(tank.dir) ? InputImage.bubble : InputImage.bubbleR;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    image = dirState(tank.dir) ? InputImage.bubbleE : InputImage.bubbleER;
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+            g.drawImage(image, tank.x - <span class="hljs-number">5</span>, tank.y - <span class="hljs-number">5</span>, <span class="hljs-number">90</span>, <span class="hljs-number">90</span>, <span class="hljs-built_in">this</span>);
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//画出子弹。这个方法也会判断子弹的状态（是否存活）</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawBullet</span><span class="hljs-params">(Graphics g, Tank tank)</span> &#123;
+        Iterator&lt;Bullet&gt; iterator = tank.bullets.iterator();
+        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="hljs-type">Bullet</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> iterator.next();
+            temp.pause = pause;
+            <span class="hljs-keyword">if</span> (!temp.active) &#123;                 <span class="hljs-comment">//子弹消亡的场合，移除子弹</span>
+                iterator.remove();
+            &#125; <span class="hljs-keyword">else</span> &#123;                            <span class="hljs-comment">//走到这里，说明子弹存活。</span>
+                <span class="hljs-keyword">switch</span> (tank.party) &#123;           <span class="hljs-comment">//看看是哪个阵营发出的子弹，去判定别的阵营的坦克</span>
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+                        <span class="hljs-keyword">if</span> (bossActive &amp;&amp; checkHit(boss, temp, tank)) &#123;
+                            <span class="hljs-keyword">break</span>;
+                        &#125;
+                        <span class="hljs-keyword">for</span> (Tank t : enemy) &#123;
+                            <span class="hljs-keyword">if</span> (checkHit(t, temp, tank)) &#123;      <span class="hljs-comment">//遍历敌坦克，看看打中了谁。打中则停止判定</span>
+                                <span class="hljs-keyword">break</span>;
+                            &#125;
+                        &#125;
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                        checkHit(player, temp, tank);           <span class="hljs-comment">//看看有没有击中玩家</span>
+                    <span class="hljs-keyword">default</span>:
+                &#125;
+                drawBullet(g, tank.vehicle, temp.getDir(), temp.getX(), temp.getY());       <span class="hljs-comment">//画出子弹</span>
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//画出子弹。这个方法通常由上个方法调用，能画出朝向正确的子弹</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawBullet</span><span class="hljs-params">(Graphics g, Vehicle vehicle, <span class="hljs-type">char</span> dir, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> dirState2(dir);
+        <span class="hljs-keyword">switch</span> (vehicle.BULLET) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;n&#x27;</span>:
+                image = dirState(dir) ? InputImage.nBullet : InputImage.nBulletR;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;e&#x27;</span>:
+                image = dirState(dir) ? InputImage.eBullet : InputImage.eBulletR;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;g&#x27;</span>:
+                image = dirState(dir) ? InputImage.gBullet : InputImage.gBulletR;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        g.drawImage(image, b ? x + <span class="hljs-number">10</span> : x, b ? y + <span class="hljs-number">10</span> : y, b ? -<span class="hljs-number">10</span> : <span class="hljs-number">10</span>, b ? -<span class="hljs-number">10</span> : <span class="hljs-number">10</span>, <span class="hljs-built_in">this</span>);
+    &#125;
+
+
+    <span class="hljs-comment">//画出爆炸。爆炸分为几个阶段，而且不同坦克也有不同爆炸特效</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawExplosion</span><span class="hljs-params">(Graphics g, Tank tank)</span> &#123;
+        <span class="hljs-keyword">if</span> (tank.specialCount &gt; <span class="hljs-number">350</span>) &#123;
+            drawTank(g, tank);
+        &#125;
+        <span class="hljs-keyword">switch</span> (tank.vehicle) &#123;
+            <span class="hljs-keyword">case</span> Tank_E3:
+                <span class="hljs-keyword">if</span> (tank.specialCount &lt; <span class="hljs-number">600</span> &amp;&amp; tank.specialCount &gt;= <span class="hljs-number">100</span>) &#123;
+                    <span class="hljs-keyword">if</span> (tank.specialCount &gt;= <span class="hljs-number">500</span>) &#123;
+                        image = InputImage.explosion1;
+                    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tank.specialCount &gt;= <span class="hljs-number">400</span>) &#123;
+                        image = InputImage.explosion2;
+                    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tank.specialCount &gt;= <span class="hljs-number">300</span>) &#123;
+                        image = InputImage.explosion3;
+                    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tank.specialCount &gt;= <span class="hljs-number">200</span>) &#123;
+                        image = InputImage.explosion4;
+                    &#125; <span class="hljs-keyword">else</span> &#123;
+                        image = InputImage.explosion5;
+                    &#125;
+                    g.drawImage(image, tank.x, tank.y, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>, <span class="hljs-built_in">this</span>);
+                &#125;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> Tank_E1:
+            <span class="hljs-keyword">case</span> Tank_E2:
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">if</span> (tank.specialCount &lt; <span class="hljs-number">450</span> &amp;&amp; tank.specialCount &gt;= <span class="hljs-number">50</span>) &#123;
+                    <span class="hljs-keyword">if</span> (tank.specialCount &gt;= <span class="hljs-number">250</span>) &#123;
+                        image = InputImage.explosion1;
+                    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tank.specialCount &gt; <span class="hljs-number">100</span>) &#123;
+                        image = InputImage.explosion2;
+                    &#125; <span class="hljs-keyword">else</span> &#123;
+                        image = InputImage.explosion3;
+                    &#125;
+                    g.drawImage(image, tank.x, tank.y, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>, <span class="hljs-built_in">this</span>);
+                &#125;
+        &#125;
+        tank.specialCount = Math.max(tank.specialCount, <span class="hljs-number">0</span>);
+    &#125;
+
+
+    <span class="hljs-comment">//下面这两个方法可以帮助其他方法画出正确朝向的对象</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">dirState</span><span class="hljs-params">(<span class="hljs-type">char</span> dir)</span> &#123;
+        <span class="hljs-type">return</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span>= <span class="hljs-string">&#x27;u&#x27;</span> || dir == <span class="hljs-string">&#x27;d&#x27;</span>;
+    &#125;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">dirState2</span><span class="hljs-params">(<span class="hljs-type">char</span> dir)</span> &#123;
+        <span class="hljs-type">return</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span>= <span class="hljs-string">&#x27;l&#x27;</span> || dir == <span class="hljs-string">&#x27;d&#x27;</span>;
+    &#125;
+
+
+    <span class="hljs-comment">//检查子弹是否击中目标</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkHit</span><span class="hljs-params">(Tank tank, Bullet bullet, Tank from)</span> &#123;
+        <span class="hljs-keyword">if</span> (hit(tank, bullet) &amp;&amp; !bullet.hasHit(tank)) &#123;        <span class="hljs-comment">//检查是否击中目标 及 目标是否已被击中过</span>
+            bullet.setHit(tank);
+            <span class="hljs-keyword">if</span> (tank.invincible &gt; <span class="hljs-number">0</span>) &#123;
+                bullet.pierce = <span class="hljs-number">0</span>;              <span class="hljs-comment">//撞到无敌的坦克时，子弹直接报销</span>
+            &#125;
+            bullet.active = bullet.pierce &gt; <span class="hljs-number">0</span>;          <span class="hljs-comment">//子弹穿透降为 0 的场合，子弹消亡</span>
+            <span class="hljs-keyword">if</span> (!tank.takeDamage(from, bullet.getDir())) &#123;                      <span class="hljs-comment">//坦克伤害计数完后，在这里把 HP 归 0 的坦克记为已销毁</span>
+                tank.alive = <span class="hljs-literal">false</span>;
+            &#125;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-comment">//看看子弹是否击中坦克。由上个方法调用</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hit</span><span class="hljs-params">(Tank tank, Bullet bullet)</span> &#123;
+        <span class="hljs-keyword">if</span> (!tank.alive) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (tank.vehicle == Vehicle.Basic) &#123;
+            <span class="hljs-keyword">return</span> pIn(tank.x + <span class="hljs-number">30</span>, <span class="hljs-number">20</span>, bullet.getX() + <span class="hljs-number">5</span>) &amp;&amp; pIn(tank.y + <span class="hljs-number">30</span>, <span class="hljs-number">20</span>, bullet.getY() + <span class="hljs-number">5</span>);
+        &#125;
+        <span class="hljs-keyword">switch</span> (tank.getDir()) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                <span class="hljs-keyword">return</span> pIn(tank.x + <span class="hljs-number">20</span>, <span class="hljs-number">40</span>, bullet.getX() + <span class="hljs-number">5</span>) &amp;&amp; pIn(tank.y + <span class="hljs-number">3</span>, <span class="hljs-number">76</span>, bullet.getY() + <span class="hljs-number">5</span>);
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                <span class="hljs-keyword">return</span> pIn(tank.x + <span class="hljs-number">3</span>, <span class="hljs-number">76</span>, bullet.getX() + <span class="hljs-number">5</span>) &amp;&amp; pIn(tank.y + <span class="hljs-number">20</span>, <span class="hljs-number">40</span>, bullet.getY() + <span class="hljs-number">5</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-comment">//看看某个坐标（横坐标或纵坐标）是否在[p, p + w]范围内</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">pIn</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> toCheck)</span> &#123;
+        <span class="hljs-keyword">return</span> toCheck &gt;= p &amp;&amp; toCheck &lt;= (p + w);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyTyped</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+
+    &#125;
+
+
+    <span class="hljs-comment">//监视器。以下方式保证了动画的流畅度</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyPressed</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+        <span class="hljs-keyword">switch</span> (e.getKeyCode()) &#123;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_W:
+                isPressingW = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_A:
+                isPressingA = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_D:
+                isPressingD = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_S:
+                isPressingS = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_J:         <span class="hljs-comment">//J 是开火键</span>
+                isFiring = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+<span class="hljs-comment">//            //===================以下为测试用=====================</span>
+<span class="hljs-comment">//            case KeyEvent.VK_Q:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                for (Tank tank : enemy) &#123;</span>
+<span class="hljs-comment">//                    tank.alive = false;</span>
+<span class="hljs-comment">//                    tank.releaseCollisionSize();</span>
+<span class="hljs-comment">//                &#125;</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_E:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                deadEnemy.clear();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_1:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.setVehicle(Vehicle.Tank_Lv1);</span>
+<span class="hljs-comment">//                player.releaseCollisionSize();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_2:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.setVehicle(Vehicle.Tank_Lv2);</span>
+<span class="hljs-comment">//                player.releaseCollisionSize();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_3:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.setVehicle(Vehicle.Tank_Lv3);</span>
+<span class="hljs-comment">//                player.releaseCollisionSize();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_4:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.setVehicle(Vehicle.Tank_Special);</span>
+<span class="hljs-comment">//                player.releaseCollisionSize();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_5:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.setVehicle(Vehicle.Basic);</span>
+<span class="hljs-comment">//                player.releaseCollisionSize();</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_Z:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.buffedDef = 100;</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_X:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.buffedDef = 0;</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_C:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.invincible = 1000000;</span>
+<span class="hljs-comment">//                break;</span>
+<span class="hljs-comment">//            case KeyEvent.VK_V:                                     //该 case 仅测试用。  务必删除！务必删除！</span>
+<span class="hljs-comment">//                player.invincible = 0;</span>
+<span class="hljs-comment">//                break;</span>
+            <span class="hljs-comment">//===================以上为测试用=====================</span>
+        &#125;
+        isGoing();          <span class="hljs-comment">//看看玩家是否正在移动</span>
+        isFiring();         <span class="hljs-comment">//看看玩家是否正在开火</span>
+    &#125;
+
+
+    <span class="hljs-comment">//同上</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+        <span class="hljs-keyword">switch</span> (e.getKeyCode()) &#123;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_W:             <span class="hljs-comment">//向上</span>
+                isPressingW = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_A:             <span class="hljs-comment">//向左</span>
+                isPressingA = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_D:             <span class="hljs-comment">//向右</span>
+                isPressingD = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_S:             <span class="hljs-comment">//向下</span>
+                isPressingS = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_J:             <span class="hljs-comment">//开火</span>
+                isFiring = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_P:             <span class="hljs-comment">//暂停</span>
+                gamePause();
+                saved = <span class="hljs-literal">false</span>;
+                loaded = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_I:             <span class="hljs-comment">//读档（需要暂停）</span>
+                toLoad = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> KeyEvent.VK_O:             <span class="hljs-comment">//存档（需要暂停）</span>
+                toSave = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        isGoing();
+        isFiring();
+    &#125;
+
+
+    <span class="hljs-comment">//更新玩家的移动状态</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">isGoing</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (!player.pause) &#123;
+            <span class="hljs-keyword">if</span> (isPressingW) &#123;
+                player.dir = <span class="hljs-string">&#x27;u&#x27;</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isPressingS) &#123;
+                player.dir = <span class="hljs-string">&#x27;d&#x27;</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isPressingA) &#123;
+                player.dir = <span class="hljs-string">&#x27;l&#x27;</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isPressingD) &#123;
+                player.dir = <span class="hljs-string">&#x27;r&#x27;</span>;
+            &#125;
+        &#125;
+        player.isMoving = isPressingA || isPressingS || isPressingD || isPressingW;
+    &#125;
+
+    <span class="hljs-comment">//更新玩家的开火状态</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">isFiring</span><span class="hljs-params">()</span> &#123;
+        player.isFiring = isFiring;
+    &#125;
+
+    <span class="hljs-comment">//生成敌人，直到允许的最大数量</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">creatEnemy</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">while</span> (enemy.size() &lt; enemyMax &amp;&amp; enemy.size() &lt; maps[level].levelEnemyNum - deadEnemy.size()) &#123;
+            <span class="hljs-type">int</span>[] temp = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : enemyPosition) &#123;
+                <span class="hljs-keyword">if</span> (!enemyPositions.get(ints)) &#123;            <span class="hljs-comment">//为坦克分配初始位置</span>
+                    temp = ints;
+                    enemyPositions.put(ints, <span class="hljs-literal">true</span>);
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+            <span class="hljs-keyword">if</span> (temp == <span class="hljs-literal">null</span>) &#123;                 <span class="hljs-comment">//应该不会抛出异常。但，以防万一，加上这句</span>
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+            <span class="hljs-type">Tank</span> <span class="hljs-variable">tempTank</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Enemy</span>(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>], maps[level]);
+            <span class="hljs-keyword">if</span> (deadEnemy.size() == <span class="hljs-number">0</span>) &#123;
+                tempTank.specialCount = <span class="hljs-number">0</span>;          <span class="hljs-comment">//坦克有延迟显示。这里取消了第一组坦克（初始敌人坦克）的延迟显示</span>
+            &#125;
+            enemy.add(tempTank);         <span class="hljs-comment">//在 敌人集 中添加新的坦克</span>
+            tempTank.start();            <span class="hljs-comment">//启动该新坦克线程</span>
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//这个方法有两个作用：</span>
+    <span class="hljs-comment">//  1. 其他敌人全灭时，激活 BOSS</span>
+    <span class="hljs-comment">//  2. 所有敌人全灭时，进入下一关</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkLevelClear</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (deadEnemy.size() == maps[level].levelEnemyNum &amp;&amp; !bossActive &amp;&amp; boss != <span class="hljs-literal">null</span> &amp;&amp; boss.alive) &#123;
+            boss.start();
+            bossActive = <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (deadEnemy.size() &gt;= maps[level].levelEnemyNum &amp;&amp; (boss == <span class="hljs-literal">null</span> || !boss.alive)) &#123;
+            gameSuspend = <span class="hljs-literal">true</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//关卡间设置短暂停顿</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">pauseBetweenLevels</span><span class="hljs-params">(<span class="hljs-type">int</span> time)</span> &#123;
+        gameSuspend = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Timing</span>(time)).start();
+    &#125;
+
+    <span class="hljs-comment">//每次调用会切换 暂停状态。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">gamePause</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-built_in">this</span>.pause = !<span class="hljs-built_in">this</span>.pause;
+    &#125;
+
+    <span class="hljs-comment">//进入下一关时，加载下一关数据</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">nextLevel</span><span class="hljs-params">()</span> &#123;
+        player.releaseCollisionSize();
+        player.x = <span class="hljs-number">200</span>;
+        player.y = height - <span class="hljs-number">200</span>;
+        level++;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; maps[level].mapData.length; i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; maps[level].mapData[i].length; j++) &#123;
+                inputMapData(i, j);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : enemyPosition) &#123;
+            enemyPositions.put(ints, <span class="hljs-literal">false</span>);
+        &#125;
+        <span class="hljs-keyword">for</span> (Tank tank : deadEnemy) &#123;
+            tank.releaseCollisionSize();
+        &#125;
+        enemy.clear();
+        deadEnemy.clear();
+        player.lifeRemains = player.vehicle.LIFE;
+        player.invincible = <span class="hljs-number">0</span>;
+        gameSuspend = <span class="hljs-literal">false</span>;
+        boss = maps[level].boss;
+        <span class="hljs-keyword">if</span> (boss != <span class="hljs-literal">null</span>) &#123;
+            boss.x = Math.max(width / <span class="hljs-number">2</span> - <span class="hljs-number">40</span>, <span class="hljs-number">0</span>);
+            boss.y = <span class="hljs-number">70</span>;
+        &#125;
+        bossActive = <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-comment">//从 Map 类中 加载既定的地图数据</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inputMapData</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">40</span>; k++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; l &lt; <span class="hljs-number">40</span>; l++) &#123;
+                mapData[(x * <span class="hljs-number">40</span>) + k][(y * <span class="hljs-number">40</span>) + l][<span class="hljs-number">1</span>] = maps[level].mapData[x][y][<span class="hljs-number">1</span>];
+                mapData[(x * <span class="hljs-number">40</span>) + k][(y * <span class="hljs-number">40</span>) + l][<span class="hljs-number">0</span>] = maps[level].mapData[x][y][<span class="hljs-number">0</span>];
+            &#125;
+        &#125;                                                                           <span class="hljs-comment">//*****此处需要修改*****</span>
+        <span class="hljs-comment">//这里需要对 地图逻辑、坦克行进逻辑 都进行修改。</span>
+        <span class="hljs-comment">// 现行方法是：由 mapData[][] 记录每个像素的数据。每个像素点的占用情况实时更新。</span>
+        <span class="hljs-comment">// 改成：由 mapData[][] 记录所有 40 * 40 方格的数据。</span>
+        <span class="hljs-comment">//      相信这个办法应该能解决现行方法偶发的空气墙问题，扩展性也会更好。存档大小也能缩小，因而也有机会优化存档逻辑。</span>
+        <span class="hljs-comment">//      目前的代码基本兼容这个新方法。Map 类的数据本来就是 40 * 40 方格模式。地图大小、各类模型尺寸也都是 40 的整数倍</span>
+    &#125;
+
+    <span class="hljs-comment">//读档</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">loadData</span><span class="hljs-params">()</span>&#123;
+        <span class="hljs-keyword">if</span> (pause) &#123;
+            <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">ois</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-keyword">if</span> (!TankGame.savePath.exists()) &#123;
+                    TankGame.savePath.createNewFile();
+                &#125;
+                ois = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(TankGame.savePath));
+                <span class="hljs-keyword">if</span>((MyPanel)ois.readObject() != <span class="hljs-literal">null</span>)&#123;
+                    player = (Player) ois.readObject();
+<span class="hljs-comment">//                    mapData = (int[][][]) ois.readObject();</span>
+                    enemy = (Vector&lt;Tank&gt;) ois.readObject();
+                    deadEnemy = (Vector&lt;Tank&gt;) ois.readObject();
+                    enemyPositions = (LinkedHashMap&lt;<span class="hljs-type">int</span>[], Boolean&gt;) ois.readObject();
+                    enemyPosition = (<span class="hljs-type">int</span>[][]) ois.readObject();
+                    maps = (Map[]) ois.readObject();
+                    boss = (Tank) ois.readObject();
+                    level = ois.readInt();
+                    bossActive = ois.readBoolean();
+                &#125;
+            &#125; <span class="hljs-keyword">catch</span> (IOException | ClassNotFoundException ex) &#123;
+                ex.printStackTrace();
+            &#125; <span class="hljs-keyword">finally</span> &#123;
+                <span class="hljs-keyword">try</span> &#123;
+                    ois.close();
+                &#125; <span class="hljs-keyword">catch</span> (IOException ex) &#123;
+                    ex.printStackTrace();
+                &#125;
+            &#125;
+            pause = <span class="hljs-literal">true</span>;
+            loaded = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; maps[level].mapData.length; i++) &#123;
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; maps[level].mapData[i].length; j++) &#123;
+                    inputMapData(i, j);
+                &#125;
+            &#125;
+            <span class="hljs-keyword">for</span> (Tank tank : enemy) &#123;
+                tank.start();
+                <span class="hljs-keyword">for</span> (Bullet bullet : tank.bullets) &#123;
+                    bullet.start();
+                &#125;
+            &#125;
+            <span class="hljs-keyword">for</span> (Tank tank : deadEnemy) &#123;
+                <span class="hljs-keyword">for</span> (Bullet bullet : tank.bullets) &#123;
+                    bullet.start();
+                &#125;
+            &#125;
+            <span class="hljs-keyword">if</span>(bossActive &amp;&amp; boss.alive)&#123;
+                boss.start();
+            &#125;
+            player.start();
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//存档</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">saveData</span><span class="hljs-params">()</span>&#123;
+        <span class="hljs-keyword">if</span> (pause) &#123;
+            <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">oos</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-keyword">if</span> (!TankGame.savePath.exists()) &#123;
+                    TankGame.savePath.createNewFile();
+                &#125;
+                oos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(TankGame.savePath));
+                oos.writeObject(TankGame.mp);
+                oos.writeObject(player);
+<span class="hljs-comment">//                oos.writeObject(mapData);         //占用太大</span>
+                oos.writeObject(enemy);
+                oos.writeObject(deadEnemy);
+                oos.writeObject(enemyPositions);
+                oos.writeObject(enemyPosition);
+                oos.writeObject(maps);
+                oos.writeObject(boss);
+                oos.writeInt(level);
+                oos.writeBoolean(bossActive);
+                saved = <span class="hljs-literal">true</span>;
+            &#125; <span class="hljs-keyword">catch</span> (IOException ex) &#123;
+                ex.printStackTrace();
+            &#125; <span class="hljs-keyword">finally</span> &#123;
+                <span class="hljs-keyword">try</span> &#123;
+                    oos.close();
+                &#125; <span class="hljs-keyword">catch</span> (IOException ex) &#123;
+                    ex.printStackTrace();
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Tank.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+<span class="hljs-keyword">import</span> java.util.Vector;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">//坦克类。这是一个抽象类，Player 和 Enemy 类会继承此类</span>
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tank</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;             <span class="hljs-comment">//为什么是 继承Thread 而不是 实现Runnable？因为我写这些代码的时候还没学到那里……</span>
+    <span class="hljs-comment">/*从上到下依次是：横坐标、纵坐标、坦克类型、方向、当前生命值、速度增幅、攻速增幅、攻击范围增幅、攻击力增幅、防御力增幅、</span>
+<span class="hljs-comment">                    开火间隔、开火间隔计时、子弹集、是否存活、无敌状态持续时间、阵营、死亡计时</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> x;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> y;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">Vehicle</span> <span class="hljs-variable">vehicle</span> <span class="hljs-operator">=</span> Vehicle.Basic;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">char</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;u&#x27;</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">double</span> lifeRemains;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">buffedSpeed</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">buffedAtkSpeed</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">buffedAtkRange</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">buffedAtk</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">buffedDef</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">fireCD</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">fireCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Vector&lt;Bullet&gt; bullets = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vector</span>&lt;&gt;();   <span class="hljs-comment">//所有活动中的子弹会被存放在里面</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">alive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">invincible</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> party;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">pause</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">specialCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">800</span>;             <span class="hljs-comment">//坦克死亡后，该计时才开始计数。这个计数是为了播放爆炸动画。计数完毕后该对象会被消除。</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Tank</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-built_in">this</span>.x = x;
+        <span class="hljs-built_in">this</span>.y = y;
+        setVehicle(Vehicle.Basic);
+    &#125;
+
+
+    <span class="hljs-comment">//设置坦克种类</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setVehicle</span><span class="hljs-params">(Vehicle vehicle)</span> &#123;
+        <span class="hljs-built_in">this</span>.vehicle = vehicle;
+        <span class="hljs-built_in">this</span>.lifeRemains = vehicle.LIFE;
+        <span class="hljs-built_in">this</span>.fireCD = <span class="hljs-number">200</span> / getAtkSpeed();      <span class="hljs-comment">//开火间隔由这个公式算出</span>
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">char</span> <span class="hljs-title function_">getDir</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> dir;
+    &#125;
+
+    <span class="hljs-comment">//受到伤害。这个方法由子类实现</span>
+    <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">takeDamage</span><span class="hljs-params">(Tank tank, <span class="hljs-type">char</span> dir)</span>;
+
+
+    <span class="hljs-comment">//移动。</span>
+<span class="hljs-comment">//    abstract void move(char move);</span>
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">()</span>;
+
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span>[] tryMove()&#123;
+        <span class="hljs-type">int</span>[] temp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];
+        temp[<span class="hljs-number">0</span>] = x;
+        temp[<span class="hljs-number">1</span>] = y;
+        <span class="hljs-keyword">switch</span> (dir) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                temp[<span class="hljs-number">1</span>]--;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                temp[<span class="hljs-number">1</span>]++;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                temp[<span class="hljs-number">0</span>]--;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                temp[<span class="hljs-number">0</span>]++;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> temp;
+    &#125;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">outOfArea</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">0</span> || y &lt; <span class="hljs-number">0</span> || x &gt; MyPanel.width - <span class="hljs-number">80</span> || y &gt; MyPanel.height - <span class="hljs-number">80</span>;
+    &#125;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">runIntoSth</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">checking</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">switch</span> (dir) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                checking = MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">40</span>][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                checking = MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">40</span>][y + <span class="hljs-number">40</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                checking = MyPanel.mapData[x + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span>][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                checking = MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">40</span>][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> &amp;&amp;
+                        MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>)][y + <span class="hljs-number">39</span> + (vehicle.SIZE / <span class="hljs-number">2</span>)][<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> !checking;
+    &#125;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCollisionSize</span><span class="hljs-params">(<span class="hljs-type">int</span> tempX, <span class="hljs-type">int</span> tempY, <span class="hljs-type">int</span> type, <span class="hljs-type">int</span> hp)</span> &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; vehicle.SIZE; i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; vehicle.SIZE; j++) &#123;
+                MyPanel.mapData[tempX + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + i][tempY + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + j][<span class="hljs-number">1</span>] = type;
+                MyPanel.mapData[tempX + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + i][tempY + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + j][<span class="hljs-number">0</span>] = hp;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseCollisionSize</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; vehicle.SIZE; i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; vehicle.SIZE; j++) &#123;
+                MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + i][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + j][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;
+                MyPanel.mapData[x + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + i][y + <span class="hljs-number">40</span> - (vehicle.SIZE / <span class="hljs-number">2</span>) + j][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//开火</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (fireCount &gt; <span class="hljs-number">0</span>) &#123;        <span class="hljs-comment">//fireCount &gt; 0 说明开火CD 还没好，直接 return</span>
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (vehicle == Vehicle.Basic) &#123;     <span class="hljs-comment">//Basic 体积和一般坦克不同，故而发射子弹的位置也不同</span>
+            fireCount = <span class="hljs-number">10</span>;                 <span class="hljs-comment">//其武器也不同，所以 开火CD 的逻辑也不同。这里使其每发子弹的间隔很短</span>
+            <span class="hljs-keyword">switch</span> (dir) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                    fire(x + <span class="hljs-number">39</span>, y + <span class="hljs-number">17</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                    fire(x + <span class="hljs-number">31</span>, y + <span class="hljs-number">53</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                    fire(x + <span class="hljs-number">17</span>, y + <span class="hljs-number">31</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                    fire(x + <span class="hljs-number">53</span>, y + <span class="hljs-number">39</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            fireCount = fireCD;
+            <span class="hljs-keyword">switch</span> (dir) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                    fire(x + <span class="hljs-number">35</span>, y - <span class="hljs-number">10</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                    fire(x + <span class="hljs-number">35</span>, y + <span class="hljs-number">80</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                    fire(x - <span class="hljs-number">10</span>, y + <span class="hljs-number">35</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                    fire(x + <span class="hljs-number">80</span>, y + <span class="hljs-number">35</span>, dir, getAtkRange());
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">char</span> dir, <span class="hljs-type">int</span> range)</span> &#123;
+        <span class="hljs-type">Bullet</span> <span class="hljs-variable">tempBullet</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bullet</span>(vehicle.BULLET, x, y, dir, range, <span class="hljs-built_in">this</span>);
+        bullets.add(tempBullet);  <span class="hljs-comment">//创建一个新的 子弹 实例，并让其运行</span>
+        tempBullet.start();
+    &#125;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isFront</span><span class="hljs-params">(<span class="hljs-type">char</span> dir)</span> &#123;               <span class="hljs-comment">//判断是否被从正面击中。如若是，坦克的防御力生效</span>
+        <span class="hljs-keyword">switch</span> (dir) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.dir == <span class="hljs-string">&#x27;d&#x27;</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.dir == <span class="hljs-string">&#x27;u&#x27;</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.dir == <span class="hljs-string">&#x27;l&#x27;</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.dir == <span class="hljs-string">&#x27;r&#x27;</span>;
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">pause</span><span class="hljs-params">(<span class="hljs-type">boolean</span> pause)</span>&#123;
+        <span class="hljs-built_in">this</span>.pause = pause;
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAtk</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> vehicle.ATK + buffedAtk;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getDef</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> vehicle.DEF + buffedDef;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAtkSpeed</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> vehicle.ATK_SPEED + buffedAtkSpeed;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getSpeed</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> vehicle.SPEED + buffedSpeed;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAtkRange</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> vehicle.ATK_RANGE + buffedAtkRange;
+    &#125;
+
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Player.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Player</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Tank</span> &#123;
+    <span class="hljs-comment">//三个属性依次是：经验值、是否正在移动、是否正在开火</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">enhance</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">//这两个变量由 MyPanel 的 监视器决定。按下移动/开火键时，变为 true。松开时，变为 false</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isMoving</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isFiring</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Player</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-built_in">super</span>(x, y);
+        party = <span class="hljs-number">0</span>;              <span class="hljs-comment">//阵营为 0</span>
+        setVehicle(Vehicle.Basic);          <span class="hljs-comment">//设置初始坦克。               可以随意修改</span>
+    &#125;
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">while</span> (alive) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                Thread.sleep(<span class="hljs-number">100</span> / getSpeed());         <span class="hljs-comment">//速度越快、行动越快</span>
+            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+            <span class="hljs-keyword">if</span> (!pause) &#123;
+                <span class="hljs-keyword">if</span> (invincible &gt; <span class="hljs-number">0</span>) &#123;       <span class="hljs-comment">//无敌冷却减少</span>
+                    invincible--;
+                &#125;
+                <span class="hljs-keyword">if</span> (isMoving) &#123;             <span class="hljs-comment">//正在移动的场合，使其移动</span>
+                    move();
+                &#125;
+                <span class="hljs-keyword">if</span> (isFiring) &#123;             <span class="hljs-comment">//正在开火的场合，使其开火</span>
+                    fire();
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (vehicle == Vehicle.Basic) &#123;          <span class="hljs-comment">//Basic 是特别的。按住开火键的场合，开火CD才减少，不然会增加。</span>
+                    <span class="hljs-comment">// 这样做是为了模拟 加特林 的手感</span>
+                    fireCount += fireCount &gt;= fireCD ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    fireCount--;            <span class="hljs-comment">//开火CD 自然减少</span>
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">int</span>[] temp = tryMove();
+        <span class="hljs-keyword">if</span> (!outOfArea(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>]) &amp;&amp; !runIntoSth(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>])) &#123;
+            releaseCollisionSize();
+            setCollisionSize(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>], -<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>);
+            x = temp[<span class="hljs-number">0</span>];
+            y = temp[<span class="hljs-number">1</span>];
+        &#125;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (fireCount &gt; <span class="hljs-number">0</span>) &#123;            <span class="hljs-comment">//如果 开火CD 没到，让其自然减少，然后 return</span>
+            fireCount--;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-built_in">super</span>.fire();               <span class="hljs-comment">//真正的开火</span>
+    &#125;
+
+
+    <span class="hljs-comment">//获得经验值。每次消灭敌人坦克会调用该方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">enhanced</span><span class="hljs-params">(Vehicle vehicle)</span> &#123;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.vehicle == Vehicle.Basic &amp;&amp; Math.random() &gt; <span class="hljs-number">0.9</span>) &#123;         <span class="hljs-comment">//特殊设定：Basic 的场合，消灭敌人有概率夺取坦克</span>
+            <span class="hljs-keyword">switch</span> (vehicle) &#123;
+                <span class="hljs-keyword">case</span> Tank_E1:
+                    setVehicle(Vehicle.Tank_Lv1);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_E2:
+                    setVehicle(Vehicle.Tank_Lv2);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_E3:
+                    setVehicle(Vehicle.Tank_Lv3);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_Special:
+                    setVehicle(Vehicle.Tank_Special);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">switch</span> (vehicle) &#123;
+                <span class="hljs-keyword">case</span> Tank_E1:
+                    enhance += <span class="hljs-number">1</span>;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_E2:
+                    enhance += <span class="hljs-number">2</span>;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_E3:
+                    enhance += <span class="hljs-number">3</span>;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_Special:
+                    enhance += <span class="hljs-number">10</span>;
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+            enhanced();         <span class="hljs-comment">//看看能不能升级</span>
+        &#125;
+    &#125;
+
+
+
+    <span class="hljs-comment">//查看是否升级</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">enhanced</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (vehicle.LEVEL_UP_REQUIRED &gt; <span class="hljs-number">0</span> &amp;&amp; enhance &gt;= vehicle.LEVEL_UP_REQUIRED) &#123;
+            enhance -= vehicle.LEVEL_UP_REQUIRED;
+            releaseCollisionSize();
+            <span class="hljs-keyword">switch</span> (vehicle) &#123;
+                <span class="hljs-keyword">case</span> Basic:
+                    setVehicle(Vehicle.Tank_Lv1);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_Lv1:
+                    setVehicle(Vehicle.Tank_Lv2);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Tank_Lv2:
+                    setVehicle(Vehicle.Tank_Lv3);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+            &#125;
+            setCollisionSize(x, y, -<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>);
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//设置坦克。每次设置会重置经验值</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setVehicle</span><span class="hljs-params">(Vehicle vehicle)</span> &#123;
+        <span class="hljs-built_in">super</span>.setVehicle(vehicle);
+        <span class="hljs-built_in">this</span>.enhance = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (vehicle == Vehicle.Basic) &#123;
+            fireCount = fireCD;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//受到伤害。传入的是造成伤害的坦克，和击中的子弹方向</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">takeDamage</span><span class="hljs-params">(Tank tank, <span class="hljs-type">char</span> dir)</span> &#123;
+        <span class="hljs-type">double</span> <span class="hljs-variable">damage</span> <span class="hljs-operator">=</span> tank.getAtk() * vehicle.DEF_BY_PERCENT - (isFront(dir) ? <span class="hljs-built_in">this</span>.getDef() : <span class="hljs-number">0</span>);    <span class="hljs-comment">//侧后方中弹，防御力不生效</span>
+        <span class="hljs-keyword">if</span> (invincible &gt; <span class="hljs-number">0</span>) &#123;               <span class="hljs-comment">//无敌的场合，不受伤害</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((lifeRemains -= Math.max(damage, <span class="hljs-number">0.1</span>)) &lt;= <span class="hljs-number">0</span>) &#123;           <span class="hljs-comment">//这里扣除了生命值。最少扣除 0.1。</span>
+            invincible += <span class="hljs-number">200</span>;              <span class="hljs-comment">//坦克被打爆，给一段无敌时间</span>
+            releaseCollisionSize();
+            <span class="hljs-keyword">switch</span> (vehicle) &#123;              <span class="hljs-comment">//坦克降级。Basic 的场合，游戏结束</span>
+                <span class="hljs-keyword">case</span> Tank_Lv3:
+                <span class="hljs-keyword">case</span> Tank_Lv2:
+                <span class="hljs-keyword">case</span> Tank_Lv1:
+                <span class="hljs-keyword">case</span> Tank_Special:
+                    setVehicle(Vehicle.Basic);
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> Basic:
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            &#125;
+           
+            setCollisionSize(x, y, -<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>);
+        &#125;
+        invincible += <span class="hljs-number">100</span>;      <span class="hljs-comment">//只要受到了伤害，产生短暂无敌时间</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Enemy.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+
+<span class="hljs-comment">//敌人的坦克</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Enemy</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Tank</span> &#123;
+    <span class="hljs-comment">//step：坦克的前进次数。归 0 时会转向</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">step</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> FIRE_PROBABILITY;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Enemy</span><span class="hljs-params">(Vehicle vehicle)</span> &#123;
+        <span class="hljs-built_in">super</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        setVehicle(vehicle);
+        party = <span class="hljs-number">1</span>;
+        dir = <span class="hljs-string">&#x27;d&#x27;</span>;
+        invincible = <span class="hljs-number">300</span>;
+        FIRE_PROBABILITY = <span class="hljs-number">0.95</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Enemy</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, Map map)</span> &#123;
+        <span class="hljs-built_in">this</span>(x, y);
+        giveVehicle(map.probability_E1, map.probability_E2);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Enemy</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-built_in">super</span>(x, y);
+        party = <span class="hljs-number">1</span>;              <span class="hljs-comment">//敌方坦克阵营为 1</span>
+<span class="hljs-comment">//        randomDir();</span>
+<span class="hljs-comment">//        giveVehicle();</span>
+        dir = <span class="hljs-string">&#x27;d&#x27;</span>;
+        invincible = <span class="hljs-number">130</span>;       <span class="hljs-comment">//敌方坦克出生时，赋予短时间的无敌</span>
+        FIRE_PROBABILITY = <span class="hljs-number">0.985</span>;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            Thread.sleep(<span class="hljs-number">700</span> + specialCount);          <span class="hljs-comment">//坦克出生时，使其短暂休眠。</span>
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        specialCount = <span class="hljs-number">200</span> + (<span class="hljs-type">int</span>) (<span class="hljs-number">80</span> * lifeRemains);         <span class="hljs-comment">//坦克的 死亡计数，和坦克种类有关</span>
+        <span class="hljs-keyword">while</span> (alive) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                Thread.sleep((<span class="hljs-number">100</span> / getSpeed()));       <span class="hljs-comment">//坦克速度越快，其所有行动速度越快</span>
+            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+            <span class="hljs-keyword">if</span> (!pause) &#123;
+                <span class="hljs-keyword">if</span> (invincible &gt; <span class="hljs-number">0</span>) &#123;           <span class="hljs-comment">//无敌时间减少</span>
+                    invincible--;
+                &#125;
+                <span class="hljs-keyword">if</span> (fireCount &gt; <span class="hljs-number">0</span>) &#123;            <span class="hljs-comment">//开火CD计数减少</span>
+                    fireCount--;
+                &#125;
+                move();               <span class="hljs-comment">//移动</span>
+            &#125;
+        &#125;
+        releaseCollisionSize();
+        <span class="hljs-keyword">while</span> (specialCount &gt;= <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                Thread.sleep(<span class="hljs-number">1</span>);
+            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+            <span class="hljs-keyword">if</span> (!pause) &#123;
+                specialCount--;                                    <span class="hljs-comment">//*****此处需要修改*****</span>
+            &#125;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">giveVehicle</span><span class="hljs-params">(<span class="hljs-type">double</span> probabilityE1, <span class="hljs-type">double</span> probabilityE2)</span> &#123;
+        <span class="hljs-type">double</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Math.random();
+        <span class="hljs-keyword">if</span> (result &lt;= probabilityE1) &#123;
+            setVehicle(Vehicle.Tank_E1);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (result &lt;= probabilityE2) &#123;
+            setVehicle(Vehicle.Tank_E2);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            setVehicle(Vehicle.Tank_E3);
+        &#125;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">()</span> &#123;            <span class="hljs-comment">//传入的字符没用。</span>
+        <span class="hljs-keyword">if</span> (step &lt;= <span class="hljs-number">0</span>) &#123;
+            randomDir();                        <span class="hljs-comment">//步数归 0 时，赋予其随机方向</span>
+            realMove();
+            step = (<span class="hljs-type">int</span>) (Math.random() * <span class="hljs-number">200</span> + <span class="hljs-number">60</span> - <span class="hljs-number">3</span> * getSpeed());       <span class="hljs-comment">//赋予其随机的步数</span>
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (step &lt;= <span class="hljs-number">60</span> - <span class="hljs-number">2</span> * getSpeed()) &#123;       <span class="hljs-comment">//最后几步的时候，让坦克在原地稍作停留（不移动）</span>
+            step--;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            realMove();
+            step--;
+        &#125;
+        <span class="hljs-keyword">if</span> (Math.random() &gt; FIRE_PROBABILITY) &#123;            <span class="hljs-comment">//使敌方坦克有 1.5% 的概率开火。这个概率经过测试，比较合适           这里可以更改</span>
+            fire();
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">realMove</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">int</span>[] temp = tryMove();
+        <span class="hljs-keyword">if</span> (!outOfArea(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>]) &amp;&amp; !runIntoSth(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>])) &#123;
+            releaseCollisionSize();
+            setCollisionSize(temp[<span class="hljs-number">0</span>], temp[<span class="hljs-number">1</span>], -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
+            x = temp[<span class="hljs-number">0</span>];
+            y = temp[<span class="hljs-number">1</span>];
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            step -= <span class="hljs-number">10</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">//赋予随机方向（概率均匀）</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">randomDir</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">switch</span> ((<span class="hljs-type">int</span>) (Math.random() * <span class="hljs-number">4</span>)) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+                dir = <span class="hljs-string">&#x27;u&#x27;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                dir = <span class="hljs-string">&#x27;r&#x27;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                dir = <span class="hljs-string">&#x27;d&#x27;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+                dir = <span class="hljs-string">&#x27;l&#x27;</span>;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-comment">//受伤。传入的是造成伤害的坦克（以计算伤害），及子弹方向（用于判断是否是正面中弹）</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">takeDamage</span><span class="hljs-params">(Tank tank, <span class="hljs-type">char</span> dir)</span> &#123;
+        <span class="hljs-type">double</span> <span class="hljs-variable">damage</span> <span class="hljs-operator">=</span> tank.getAtk() * vehicle.DEF_BY_PERCENT - (isFront(dir) ? getDef() : <span class="hljs-number">0</span>);     <span class="hljs-comment">//侧后方中弹的场合，防御力不生效</span>
+        <span class="hljs-keyword">if</span> (invincible &gt; <span class="hljs-number">0</span>) &#123;               <span class="hljs-comment">//如果坦克无敌，不会受到伤害</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> (<span class="hljs-built_in">this</span>.lifeRemains -= Math.max(damage, <span class="hljs-number">0.1</span>)) &gt; <span class="hljs-number">0</span>;        <span class="hljs-comment">//在这里进行了生命值的扣除，最少扣 0.1。返回是否生命值有剩</span>
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Vehicle.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+
+
+<span class="hljs-comment">//该枚举类存放所有可能的坦克种类及其参数</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Vehicle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span>&#123;
+    <span class="hljs-comment">//Basic 是特别的。设定上，Basic 是离开载具，扛着加特林的驾驶员。其体积和一般坦克不同</span>
+    Basic(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">3</span>, <span class="hljs-number">400</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-string">&#x27;g&#x27;</span>, <span class="hljs-number">10</span>),
+    Tank_Lv1(<span class="hljs-number">5</span>, <span class="hljs-number">11</span>, <span class="hljs-number">1</span>, <span class="hljs-number">12</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1000</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_Lv2(<span class="hljs-number">7</span>, <span class="hljs-number">15</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1000</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0.9</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_Lv3(<span class="hljs-number">10</span>, <span class="hljs-number">17</span>, <span class="hljs-number">3</span>, <span class="hljs-number">12</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1600</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0.8</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_E1(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">11</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1000</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_E2(<span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1000</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0.8</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_E3(<span class="hljs-number">10</span>, <span class="hljs-number">18</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1600</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0.6</span>, <span class="hljs-string">&#x27;n&#x27;</span>),
+    Tank_Special(<span class="hljs-number">25</span>, <span class="hljs-number">13</span>, <span class="hljs-number">4</span>, <span class="hljs-number">18</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100000</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0.4</span>, <span class="hljs-string">&#x27;e&#x27;</span>);
+
+    <span class="hljs-comment">//从上到下依次是：攻击力、生命值、防御力、速度、攻击速度、攻击范围、升级经验、减伤、子弹种类</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> ATK;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> LIFE;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> DEF;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> SPEED;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> ATK_SPEED;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> ATK_RANGE;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> LEVEL_UP_REQUIRED;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> DEF_BY_PERCENT;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> BULLET;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> SIZE;
+
+
+    Vehicle(<span class="hljs-type">int</span> atk, <span class="hljs-type">double</span> life, <span class="hljs-type">int</span> def, <span class="hljs-type">int</span> speed, <span class="hljs-type">int</span> atkSpeed, <span class="hljs-type">int</span> atkRange,
+            <span class="hljs-type">int</span> levelUpRequired, <span class="hljs-type">double</span> defByPercent, <span class="hljs-type">char</span> bullet, <span class="hljs-type">int</span> size) &#123;
+        <span class="hljs-built_in">this</span>.ATK = atk;
+        <span class="hljs-built_in">this</span>.LIFE = life;
+        <span class="hljs-built_in">this</span>.DEF = def;
+        <span class="hljs-built_in">this</span>.SPEED = speed;
+        <span class="hljs-built_in">this</span>.ATK_SPEED = atkSpeed;
+        <span class="hljs-built_in">this</span>.ATK_RANGE = atkRange;
+        <span class="hljs-built_in">this</span>.LEVEL_UP_REQUIRED = levelUpRequired;
+        <span class="hljs-built_in">this</span>.DEF_BY_PERCENT = defByPercent;
+        <span class="hljs-built_in">this</span>.BULLET = bullet;
+        <span class="hljs-built_in">this</span>.SIZE = size;
+    &#125;
+
+    Vehicle(<span class="hljs-type">int</span> atk, <span class="hljs-type">double</span> life, <span class="hljs-type">int</span> def, <span class="hljs-type">int</span> speed, <span class="hljs-type">int</span> atkSpeed, <span class="hljs-type">int</span> atkRange,
+            <span class="hljs-type">int</span> levelUpRequired, <span class="hljs-type">double</span> defByPercent, <span class="hljs-type">char</span> bullet) &#123;
+        <span class="hljs-built_in">this</span>(atk, life, def, speed, atkSpeed, atkRange, levelUpRequired, defByPercent, bullet, <span class="hljs-number">80</span>);
+    &#125;
+&#125;
+
+
+<span class="hljs-comment">//子弹类</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Bullet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-comment">//从上到下依次是：横坐标、纵坐标、方向、子弹速度、子弹是否存在、最大飞行范围、穿透数量、已命中的坦克</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> x;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> y;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">char</span> dir;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> BULLET_SPEED;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">active</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> range;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> pierce;
+    <span class="hljs-keyword">private</span> Tank master;
+    <span class="hljs-keyword">private</span> Tank[] hit;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">pause</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Bullet</span><span class="hljs-params">(<span class="hljs-type">char</span> type, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">char</span> dir, <span class="hljs-type">int</span> range, Tank master)</span> &#123;
+        <span class="hljs-keyword">switch</span> (type) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;e&#x27;</span>:
+                <span class="hljs-built_in">this</span>.BULLET_SPEED = <span class="hljs-number">3</span>;
+                <span class="hljs-built_in">this</span>.pierce = <span class="hljs-number">3</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;g&#x27;</span>:
+                <span class="hljs-built_in">this</span>.BULLET_SPEED = <span class="hljs-number">2</span>;
+                <span class="hljs-built_in">this</span>.pierce = <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;n&#x27;</span>:
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-built_in">this</span>.BULLET_SPEED = <span class="hljs-number">1</span>;
+                <span class="hljs-built_in">this</span>.pierce = <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">break</span>;
+
+        &#125;
+        hit = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Tank</span>[pierce];
+        <span class="hljs-built_in">this</span>.x = x;
+        <span class="hljs-built_in">this</span>.y = y;
+        <span class="hljs-built_in">this</span>.dir = dir;
+        <span class="hljs-built_in">this</span>.range = range;
+        <span class="hljs-built_in">this</span>.master = master;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">switch</span> (dir) &#123;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;u&#x27;</span>:
+                y -= BULLET_SPEED;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                y += BULLET_SPEED;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;r&#x27;</span>:
+                x += BULLET_SPEED;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                x -= BULLET_SPEED;
+                <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> ((range -= BULLET_SPEED) &lt;= <span class="hljs-number">0</span> || outOfArea(x, y)) &#123;     <span class="hljs-comment">//如果达到最大飞行范围，则销毁该子弹</span>
+            active = <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">outOfArea</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">0</span> || y &lt; <span class="hljs-number">0</span> || x &gt; MyPanel.width - <span class="hljs-number">10</span> || y &gt; MyPanel.height - <span class="hljs-number">10</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getX</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> x;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getY</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> y;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">char</span> <span class="hljs-title function_">getDir</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> dir;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getBULLET_SPEED</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> BULLET_SPEED;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setHit</span><span class="hljs-params">(Tank tank)</span> &#123;             <span class="hljs-comment">//当有坦克被该子弹击中后，该方法会被调用。一般由 MyPanel 类中的 checkHit 方法调用</span>
+        hit[hit.length - pierce--] = tank;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasHit</span><span class="hljs-params">(Tank tank)</span> &#123;          <span class="hljs-comment">//判断一辆坦克是否已被击中过。一般由 MyPanel 类中的 checkHit 方法调用</span>
+        <span class="hljs-keyword">for</span> (Tank t : hit) &#123;
+            <span class="hljs-keyword">if</span> (t == tank) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">pause</span><span class="hljs-params">(<span class="hljs-type">boolean</span> pause)</span> &#123;
+        <span class="hljs-built_in">this</span>.pause = pause;
+    &#125;
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">while</span> (active) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                Thread.sleep(<span class="hljs-number">1</span>);
+            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+            <span class="hljs-keyword">if</span> (!pause) &#123;
+                move();
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Map.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Map</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    Level1(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">null</span>, <span class="hljs-number">0</span>, creatNewMap1()),
+    Level2(<span class="hljs-number">15</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, Vehicle.Tank_E2, <span class="hljs-number">10</span>, creatNewMap2()),
+    Level3(<span class="hljs-number">20</span>, <span class="hljs-number">0.33</span>, <span class="hljs-number">0.66</span>, Vehicle.Tank_E3, <span class="hljs-number">15</span>, creatNewMap3()),
+    Level4(<span class="hljs-number">20</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.5</span>, Vehicle.Tank_Special, <span class="hljs-number">20</span>, creatNewMap4());
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> levelEnemyNum;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> probability_E1;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> probability_E2;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Tank boss;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[][][] mapData;
+    <span class="hljs-comment">//[0]：种类。-1 坦克；0 道路；1 墙；2 草丛；3 水池</span>
+    <span class="hljs-comment">//[1]：HP。-1 不可破坏；0 可以通行；1 basic以外任意子弹击中1次可以破坏；2、3 同 1</span>
+
+    Map(<span class="hljs-type">int</span> levelEnemyNum, <span class="hljs-type">double</span> probability_E1, <span class="hljs-type">double</span> probability_E2, Vehicle boss, <span class="hljs-type">int</span> bossBuff, <span class="hljs-type">int</span>[][][] map) &#123;
+        <span class="hljs-built_in">this</span>.levelEnemyNum = levelEnemyNum;
+        <span class="hljs-built_in">this</span>.probability_E1 = probability_E1;
+        <span class="hljs-built_in">this</span>.probability_E2 = probability_E2;
+        <span class="hljs-keyword">if</span> (boss == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-built_in">this</span>.boss = <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in">this</span>.boss = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Enemy</span>(boss);
+            <span class="hljs-built_in">this</span>.boss.lifeRemains += bossBuff;
+        &#125;
+        mapData = map;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatNewMap1() &#123;
+        <span class="hljs-type">int</span>[][][] newMap = creatNewMap();
+        <span class="hljs-keyword">return</span> newMap;
+    &#125;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatNewMap2() &#123;
+        <span class="hljs-type">int</span>[][][] newMap = creatNewMap();
+        <span class="hljs-keyword">return</span> newMap;
+    &#125;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatNewMap3() &#123;
+        <span class="hljs-type">int</span>[][][] newMap = creatNewMap();
+        <span class="hljs-keyword">return</span> newMap;
+    &#125;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatNewMap4() &#123;
+        <span class="hljs-type">int</span>[][][] newMap = creatNewMap();
+        <span class="hljs-keyword">return</span> newMap;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatNewMap() &#123;
+        <span class="hljs-type">int</span>[][][] newMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">30</span>][<span class="hljs-number">20</span>][<span class="hljs-number">2</span>];
+        newMap = creatBasicMap(newMap);
+        <span class="hljs-keyword">return</span> newMap;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][][] creatBasicMap(<span class="hljs-type">int</span>[][][] map)&#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; map.length; i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; map[i].length; j++) &#123;
+                map[i][j][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;
+                map[i][j][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> map;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addWall</span><span class="hljs-params">(<span class="hljs-type">int</span>[][][] map, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        map[x][y][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+        map[x][y][<span class="hljs-number">1</span>] = -<span class="hljs-number">1</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[][][] map, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> kind, <span class="hljs-type">int</span> hp)</span> &#123;
+        map[x][y][<span class="hljs-number">0</span>] = kind;
+        map[x][y][<span class="hljs-number">1</span>] = hp;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeTankCollisionSize</span><span class="hljs-params">(Tank tank)</span> &#123;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setTankCollisionSize</span><span class="hljs-params">(Tank tank)</span> &#123;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>InputImage.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-keyword">import</span> java.awt.*;
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+
+
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">该类中存放所有需要的图片。</span>
+<span class="hljs-comment">包含：坦克图片（tank/basic：4 * 2 + 1 = 9 种）；</span>
+<span class="hljs-comment">     子弹图片（bullet：2 * 2 = 4 种）；</span>
+<span class="hljs-comment">     护盾图片（bubble：2 * 2 = 4种）；</span>
+<span class="hljs-comment">     星星图片（star：2种）、爆炸图片（explosion：5种）;</span>
+<span class="hljs-comment">     地形图片（4种）</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">InputImage</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank1</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv1.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank2</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv2.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank3</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv3.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">basic</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/P.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">basicL</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Pl.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">basicR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Pr.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">basicLR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Plr.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE1</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E1.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE2</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E2.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE3</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E3.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank1r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv1r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank2r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv2r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tank3r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Lv3r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE1r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E1r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE2r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E2r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankE3r</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_E3r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankSp</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Sp.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">tankSpr</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Tank_Spr.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">bubble</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Bubble_red.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">bubbleR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Bubble_red_r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">bubbleE</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Bubble.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">bubbleER</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Bubble_r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">eBullet</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/E_bullet.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">eBulletR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/E_bullet_r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">nBullet</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/N_bullet.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">nBulletR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/N_bullet_r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">gBullet</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/G_bullet.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">gBulletR</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/G_bullet_r.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">star</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Star.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">nStar</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Star_n.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">explosion1</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Explosion/Explosion1.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">explosion2</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Explosion/Explosion2.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">explosion3</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Explosion/Explosion3.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">explosion4</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Explosion/Explosion4.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">explosion5</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Explosion/Explosion5.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">iron</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Iron.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">wall</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Wall.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">water</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Water.png&quot;</span>));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">trees</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Trees.png&quot;</span>));
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Timing.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Timing</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span>&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> time;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Timing</span><span class="hljs-params">(<span class="hljs-type">int</span> time)</span>&#123;
+        <span class="hljs-built_in">this</span>.time = time;
+    &#125;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            Thread.sleep(time);
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        MyPanel.gameSuspend = <span class="hljs-literal">true</span>;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p>导入的图片</p>
+<p><img src="/img/Java_InputImage/pic/Bubble.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Java_InputImage/pic/Bubble_r.png" srcset="/img/loading.gif" lazyload alt="Bubble_r"></p>
+<p><img src="/img/Java_InputImage/pic/Bubble_red.png" srcset="/img/loading.gif" lazyload alt="Bubble_red"></p>
+<p><img src="/img/Java_InputImage/pic/Bubble_red_r.png" srcset="/img/loading.gif" lazyload alt="Bubble_red_r"></p>
+<p><img src="/img/Java_InputImage/pic/E_bullet.png" srcset="/img/loading.gif" lazyload alt="E_bullet"></p>
+<p><img src="/img/Java_InputImage/pic/E_bullet_r.png" srcset="/img/loading.gif" lazyload alt="E_bullet_r"></p>
+<p><img src="/img/Java_InputImage/pic/G_Bullet.png" srcset="/img/loading.gif" lazyload alt="G_Bullet"></p>
+<p><img src="/img/Java_InputImage/pic/G_Bullet_r.png" srcset="/img/loading.gif" lazyload alt="G_Bullet_r"></p>
+<p><img src="/img/Java_InputImage/pic/N_bullet.png" srcset="/img/loading.gif" lazyload alt="N_bullet"></p>
+<p><img src="/img/Java_InputImage/pic/N_bullet_r.png" srcset="/img/loading.gif" lazyload alt="N_bullet_r"></p>
+<p><img src="/img/Java_InputImage/pic/p.png" srcset="/img/loading.gif" lazyload alt="p"></p>
+<p><img src="/img/Java_InputImage/pic/pl.png" srcset="/img/loading.gif" lazyload alt="pl"></p>
+<p><img src="/img/Java_InputImage/pic/plr.png" srcset="/img/loading.gif" lazyload alt="plr"></p>
+<p><img src="/img/Java_InputImage/pic/Pr.png" srcset="/img/loading.gif" lazyload alt="Pr"></p>
+<p><img src="/img/Java_InputImage/pic/Star.png" srcset="/img/loading.gif" lazyload alt="Star"></p>
+<p><img src="/img/Java_InputImage/pic/Star_n.png" srcset="/img/loading.gif" lazyload alt="Star_n"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E1.png" srcset="/img/loading.gif" lazyload alt="Tank_E1"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E1r.png" srcset="/img/loading.gif" lazyload alt="Tank_E1r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E2.png" srcset="/img/loading.gif" lazyload alt="Tank_E2"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E2r.png" srcset="/img/loading.gif" lazyload alt="Tank_E2r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E3.png" srcset="/img/loading.gif" lazyload alt="Tank_E3"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_E3r.png" srcset="/img/loading.gif" lazyload alt="Tank_E3r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv1.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv1r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv2.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv2r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv3.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Lv3r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3r"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Sp.png" srcset="/img/loading.gif" lazyload alt="Tank_Sp"></p>
+<p><img src="/img/Java_InputImage/pic/Tank_Spr.png" srcset="/img/loading.gif" lazyload alt="Tank_Spr"></p>
+<p><img src="/img/Java_InputImage/pic/Landform/Iron.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Java_InputImage/pic/Landform/Trees.png" srcset="/img/loading.gif" lazyload alt="Trees"></p>
+<p><img src="/img/Java_InputImage/pic/Landform/Wall.png" srcset="/img/loading.gif" lazyload alt="Wall"></p>
+<p><img src="/img/Java_InputImage/pic/Landform/Water.png" srcset="/img/loading.gif" lazyload alt="Water"></p>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion2.png" srcset="/img/loading.gif" lazyload alt="Explosion2"></p>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion3.png" srcset="/img/loading.gif" lazyload alt="Explosion3"></p>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion4.png" srcset="/img/loading.gif" lazyload alt="Explosion4"></p>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion5.png" srcset="/img/loading.gif" lazyload alt="Explosion5"></p>
+</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;18 项目（坦克大战）</div>
+      <div>https://i-melody.github.io/2022/01/11/Java/入门阶段/18 项目：坦克大战/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

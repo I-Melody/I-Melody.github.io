@@ -1,0 +1,1524 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="14 树什么是树？                       结构严格派唯一父节点和复数子节点         结构中立派有前驱和后继关系就行         结构自由派能存放内容就行                   类型严格派是一种数据结构         二叉树是树         链表也是树         栈也是树                   类型中立派和编程有关就行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;14 树">
+<meta property="og:url" content="https://i-melody.github.io/2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="14 树什么是树？                       结构严格派唯一父节点和复数子节点         结构中立派有前驱和后继关系就行         结构自由派能存放内容就行                   类型严格派是一种数据结构         二叉树是树         链表也是树         栈也是树                   类型中立派和编程有关就行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E6%A0%91%E7%BB%93%E6%9E%84%E5%9B%BE_14.1.png">
+<meta property="article:published_time" content="2022-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-19T14:14:45.357Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/%E6%A0%91%E7%BB%93%E6%9E%84%E5%9B%BE_14.1.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;14 树 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;14 树"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-02 00:00" pubdate>
+          2022年6月2日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          87 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;14 树</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年7月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="14-树"><a href="#14-树" class="headerlink" title="14 树"></a>14 树</h1><h4 id="什么是树？"><a href="#什么是树？" class="headerlink" title="什么是树？"></a>什么是树？</h4><table>
+    <tr align="center">
+        <td></td>
+        <td><b>结构严格派</b><br/><font color="#FF4000">唯一父节点和复数子节点</font></td>
+        <td><b>结构中立派</b><br/>有前驱和后继关系就行</td>
+        <td><b>结构自由派</b><br/>能存放内容就行</td>
+    </tr>
+    <tr align="center">
+        <td><b>类型严格派</b><br/><font color="#FF4000">是一种数据结构</font></td>
+        <td>二叉树是树</td>
+        <td>链表也是树</td>
+        <td>栈也是树</td>
+    </tr>
+    <tr align="center">
+        <td><b>类型中立派</b><br/>和编程有关就行</td>
+        <td>包也是树</td>
+        <td>语句肯定是树</td>
+        <td>标识符都是树</td>
+    </tr>
+    <tr align="center">
+        <td><b>类型自由派</b><br/>和程序员有关就行</td>
+        <td>wifi 当然是树</td>
+        <td>衣服拉链也是树</td>
+        <td>馄饨也是树！</td>
+    </tr>
+</table>
+
+
+<h2 id="14-1-二叉树："><a href="#14-1-二叉树：" class="headerlink" title="14.1 二叉树："></a>14.1 二叉树：</h2><p><img src="/img/Java_InputImage/%E6%A0%91%E7%BB%93%E6%9E%84%E5%9B%BE_14.1.png" srcset="/img/loading.gif" lazyload></p>
+<p><em>（树结构图_14.1）</em></p>
+<ul>
+<li><p><strong>二叉树：</strong>树有多种。每个节点最多只能有 2 个子节点的一种树的形式称为二叉树</p>
+<p>二叉树的子节点分为 <font color="#FF0000"><strong>左节点</strong></font > 和 <font color="#5070FF"><strong>右节点</strong></font>。</p>
+</li>
+<li><p><strong>满二叉树：</strong>二叉树的 所有叶节点 都在 最后一层，且节点总数是 2<sup>n</sup> - 1</p>
+</li>
+<li><p><strong>完全二叉树：</strong>二叉树的 所有叶节点 都在 最后一层 和 倒数第二层，且最后一层的叶节点在左侧连续、倒数第二层的叶节点在右侧连续</p>
+</li>
+</ul>
+<h4 id="二叉树的遍历："><a href="#二叉树的遍历：" class="headerlink" title="二叉树的遍历："></a>二叉树的遍历：</h4><ul>
+<li><p><strong>前序遍历：</strong>先输出<font color="#EF9F00">父节点</font>，再遍历<font color="#FF3030">左子树</font>和<font color="#5070FF">右子树</font>。</p>
+<p>自根节点起。先输出当前节点。再递归前序遍历左节点。那之后，递归前序遍历右节点。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;					<span class="hljs-comment">// 节点类</span>
+    <span class="hljs-type">int</span> val;
+    Node left;
+    Node right;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">traverse</span><span class="hljs-params">(Node root)</span> &#123;
+    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+    traverse(root, sb);
+    <span class="hljs-keyword">return</span> sb.toString();
+&#125;
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">traverse</span><span class="hljs-params">(Node root, StringBuilder sb)</span> &#123;
+    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+    sb.append(root.val).append(<span class="hljs-string">&quot; &quot;</span>);		<span class="hljs-comment">// 先输出父节点</span>
+    traverse(root.left, sb);				<span class="hljs-comment">// 再遍历左子树</span>
+    traverse(root.right, sb);				<span class="hljs-comment">// 再遍历右子树</span>
+&#125;</code></pre></div>
+</li>
+<li><p><strong>中序遍历：</strong>先遍历<font color="#FF3030">左子树</font>，再输出<font color="#EF9F00">父节点</font>，再遍历<font color="#5070FF">右子树</font>。</p>
+</li>
+<li><p><strong>后序遍历：</strong>先遍历<font color="#FF3030">左子树</font>，再遍历<font color="#5070FF">右子树</font>，再输出<font color="#EF9F00">父节点</font>。</p>
+</li>
+</ul>
+<h3 id="14-1-1-顺序存储二叉树"><a href="#14-1-1-顺序存储二叉树" class="headerlink" title="14.1.1 顺序存储二叉树"></a>14.1.1 顺序存储二叉树</h3><p>从数据存储来看，数组与树可以相互转换。数组可以转换成树，树也能转换成数组。</p>
+<p>顺序存储二叉树通常只考虑完全二叉树。将数组转换成树后，将可以进行前序、中序、后序遍历。</p>
+<p><strong>顺序存储二叉树的例子：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[] array = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>&#125;;</code></pre></div>
+
+<p>该 array 的顺序存储二叉树为：</p>
+<pre><code class=" mermaid">graph TD
+A(0)---B(1)---C(3)
+A---a(2)---aa(5)
+B---D(4)
+a---ab(6)
+C---E(7)
+C---F(8)
+D---G(9)
+D---H(10)</code></pre>
+
+<h4 id="顺序存储二叉树的转换："><a href="#顺序存储二叉树的转换：" class="headerlink" title="顺序存储二叉树的转换："></a>顺序存储二叉树的转换：</h4><ul>
+<li><p>数组下标为 0 的元素放在根节点。</p>
+</li>
+<li><p>对于数组下标为 n 的元素，其左子节点的数组下标为 2 × n + 1、右子节点的数组下标为 2 × n + 2、父节点的数组下标为 (n - 1) &#x2F; 2</p>
+<p>可以发现，所有左节点都是奇数下标，右节点都是偶数下标</p>
+</li>
+</ul>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Node <span class="hljs-title function_">toTree</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
+    <span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(array[<span class="hljs-number">0</span>]);
+    List&lt;Node&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Node&gt;();
+    list.add(root);									<span class="hljs-comment">// 数组下标为 0 的元素放在根节点。</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; array.length; i++) &#123;		<span class="hljs-comment">// 按照前述方法，创建每个元素节点，并放在对应父节点下</span>
+        <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(array[i]);
+        list.add(temp);
+        <span class="hljs-type">Node</span> <span class="hljs-variable">parent</span> <span class="hljs-operator">=</span> list.get((i - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>);
+        <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) parent.right = temp;
+        <span class="hljs-keyword">else</span> parent.left = temp;
+    &#125;
+    <span class="hljs-keyword">return</span> root;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> val;
+    <span class="hljs-keyword">public</span> Node left;
+    <span class="hljs-keyword">public</span> Node right;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;
+        <span class="hljs-built_in">this</span>.val = val;
+    &#125;
+&#125;</code></pre></div>
+
+<p>以上是一种显式的转换。也可以直接将数组视为抽象的顺序存储二叉树。</p>
+<p>如：堆。<em><strong>——见 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-8-%E5%A0%86%E6%8E%92%E5%BA%8F">[5.4.8 堆排序]</a></strong></em></p>
+<h3 id="14-1-2-线索化二叉树"><a href="#14-1-2-线索化二叉树" class="headerlink" title="14.1.2 线索化二叉树"></a>14.1.2 线索化二叉树</h3><p>含有 n 各节点的二叉链表中，有 n + 1 个空指针域。利用这些空指针域，存放指向节点在某种遍历次序下的前驱和后继节点的指针，这种附加的指针称为 <strong>线索</strong>。加上了线索的二叉链表称为 <strong>线索链表</strong>，相应二叉树称为 <strong>线索二叉树</strong>。</p>
+<p>线索二叉树可分为：前序线索二叉树、中序线索二叉树、后续线索二叉树。</p>
+<p>线索化二叉树后，那些左节点和右节点既可能指向 自身的子树，也可能指向自身的 前驱 &#x2F; 后继 节点。因此，需要添加一组标记，以记录线索的种类。</p>
+<p>这个遍历的场合，不能再使用递归方式遍历，而是改为线性方式遍历即可。</p>
+<h3 id="14-1-3-赫夫曼树"><a href="#14-1-3-赫夫曼树" class="headerlink" title="14.1.3 赫夫曼树"></a>14.1.3 赫夫曼树</h3><p>给定 n 个权值作为 n 个叶节点，构造一棵二叉树。若该树的带权路径长度（WPL）最小，则称其为 <strong>最优二叉树</strong>（赫夫曼树、哈夫曼树、霍夫曼树）</p>
+<ul>
+<li><p>节点的带权路径长度：该节点的权 × 节点路径长度</p>
+</li>
+<li><p>树的带权路径长度：所有的叶结点的带权路径长度之和</p>
+<p>赫夫曼树中，一定是权值较大的节点距离根更近。</p>
+</li>
+</ul>
+<p><strong>赫夫曼树的例子：</strong></p>
+<pre><code class=" mermaid">graph TD
+A(NaN)---B(NaN)---C(14)
+B---b(NaN)---c(5)
+b---D(NaN)---E(1)
+D---F(2)
+A---a(NaN)---aa(16)
+a---ab(20)</code></pre>
+
+
+
+<h4 id="生成赫夫曼树："><a href="#生成赫夫曼树：" class="headerlink" title="生成赫夫曼树："></a>生成赫夫曼树：</h4><ol>
+<li>对数据进行排序。每个数据都可以创建一个节点</li>
+<li>取出权值最小的两颗二叉树，合并为一棵新的二叉树。该二叉树权值是两棵子树的权值之和</li>
+<li>将数据再次排序，重复合并步骤，直至剩余唯一的树，即为赫夫曼树</li>
+</ol>
+<h4 id="赫夫曼编码："><a href="#赫夫曼编码：" class="headerlink" title="赫夫曼编码："></a>赫夫曼编码：</h4><blockquote>
+<p>赫夫曼编码是一种编码方式，是一种程序算法。赫夫曼编码是赫夫曼树在电讯通信中的经典应用之一。</p>
+<p>赫夫曼编码广泛应用于数据文件压缩，其压缩率在 20% ~ 90% 间</p>
+<p>赫夫曼编码是可变字长编码的一种。是老赫在 1952 年提出的编码方法，称为 “最佳编码”</p>
+<p>赫夫曼编码是无损处理方案。由于赫夫曼编码是按字节处理数据，因此可以处理所有文件</p>
+</blockquote>
+<p>编码方式有三种：</p>
+<ul>
+<li><p><strong>定长编码：</strong></p>
+<p>如 ASCII 码，其每个字符占用长度为固定 8 字节</p>
+</li>
+<li><p><strong>变长编码：</strong></p>
+<p>对字符进行统计，按照各个字符出现的次数进行编码。出现次数越多，编码越小。</p>
+<p>字符的编码不能是其他字符编码的前缀，这样的编码叫做前缀编码（消除二义性）。</p>
+</li>
+<li><p><strong>赫夫曼编码：</strong></p>
+<p>按照字符的出现次数，构建赫夫曼树。之后，按照赫夫曼树结构，给字符规定编码。向左的路径记为 0，向右记为 1。</p>
+<p>这样得到的编码，一定是前缀编码。因为那些字符节点都是叶节点。赫夫曼行啊赫夫曼！</p>
+<p>之后，用规定的编码将指定字符串转化为字节数组。最后，传递字符数组即可。</p>
+</li>
+</ul>
+<h5 id="实现赫夫曼编码："><a href="#实现赫夫曼编码：" class="headerlink" title="实现赫夫曼编码："></a>实现赫夫曼编码：</h5><p><em><strong>——见本章附录：[F1 实现赫夫曼编码&#x2F;解码]</strong></em></p>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>压缩已经过压缩处理的文件，那个压缩率会变低</li>
+<li>如果一个文件中重复的数据很少，压缩效果也会不明显</li>
+</ul>
+<h3 id="14-1-4-二叉排序树"><a href="#14-1-4-二叉排序树" class="headerlink" title="14.1.4 二叉排序树"></a>14.1.4 二叉排序树</h3><p>二叉排序树（BST，Binary Sort Tree）：对于任何一个非叶节点，其左节点小于等于当前节点，右节点大于等于当前节点</p>
+<p><strong>二叉排序树的例子：</strong></p>
+<pre><code class=" mermaid">graph TD
+A(10)---B(8)
+B---D(4)---c(2)---d(1)
+D---b(6)
+B---E(9)
+A---C(15)---e(12)
+C---ee(23)</code></pre>
+
+<p><strong>二叉排序树删除节点：</strong></p>
+<ul>
+<li><p>删除叶节点的场合，将那个父节点的对应连接置空即可。</p>
+</li>
+<li><p>删除有唯一子节点的节点场合，让那个父节点的对应连接改为指向子树即可。</p>
+</li>
+<li><p>删除有两个子节点的节点的场合，将该节点置为正无穷或负无穷。</p>
+<p>之后维护该二叉排序树，直到该节点成为叶节点时，删除该节点即可。</p>
+</li>
+</ul>
+<h4 id="14-1-4-1-平衡二叉树"><a href="#14-1-4-1-平衡二叉树" class="headerlink" title="14.1.4.1 平衡二叉树"></a>14.1.4.1 平衡二叉树</h4><blockquote>
+<p>二叉排序树可能形成一些奇怪的形状（如左子树全部为空），这样就不能发挥树形结构的比较优势。</p>
+</blockquote>
+<p>平衡二叉树（AVL 树）：也叫平衡二叉搜索树。非空时，其任意节点左右两个子树的高度差不超过 1，且左右子树也都是平衡二叉树。</p>
+<p>平衡二叉树的实现方法有：红黑树、AVL、替罪羊树、Treap、伸展树等</p>
+<h5 id="平衡二叉树的左旋转："><a href="#平衡二叉树的左旋转：" class="headerlink" title="平衡二叉树的左旋转："></a>平衡二叉树的左旋转：</h5><ul>
+<li>创建一个新节点。该节点的值等于根节点值</li>
+<li>使该新节点的左子树指向当前根节点的左子树。使该节点的右子树指向当前根节点右子树的左子树</li>
+<li>使当前根节点的右子树的左子树指向该新节点</li>
+<li>使当前根节点的右子树成为新的根节点。旧的根节点被废弃</li>
+</ul>
+<p>简单的说，就是让根节点的右子树指向右子树的左子树。而右子树的左子树指向根节点。</p>
+<p>合理性在于，根节点（root）的右子树（right）上的所有值都大于 root；而 right 的所有左子树的值，以及 root 所有左子树的值也一定小于 right 值</p>
+<h5 id="平衡二叉树的右旋转："><a href="#平衡二叉树的右旋转：" class="headerlink" title="平衡二叉树的右旋转："></a>平衡二叉树的右旋转：</h5><p>还不是一样？</p>
+<h5 id="平衡二叉树的双旋转："><a href="#平衡二叉树的双旋转：" class="headerlink" title="平衡二叉树的双旋转："></a>平衡二叉树的双旋转：</h5><p>符合进行右旋转的条件（右子树高度 &gt; 左子树高度 + 1）时，如果那个左子树的右子树高度高于其左子树高度，需要先对左子树进行左旋转。以此类推。</p>
+<h5 id="实现平衡二叉树："><a href="#实现平衡二叉树：" class="headerlink" title="实现平衡二叉树："></a>实现平衡二叉树：</h5><p><em><strong>——见本章附录：[F2 实现平衡二叉树]</strong></em></p>
+<h3 id="14-1-5-线段树"><a href="#14-1-5-线段树" class="headerlink" title="14.1.5 线段树"></a>14.1.5 线段树</h3><p>线段树（Segment Tree）是一棵二叉树。其每个节点表示一个闭区间，父节点的区间内包含所有子节点的区间。</p>
+<ul>
+<li><p>对于每个非叶节点，将其区间平均划分成两个子区间。左节点指向其中较小区间，右节点指向那个较大区间</p>
+<p>换言之，对于非叶节点 [L, R]，其左子节点是 [L, (L + R) &#x2F; 2]，右子节点是 [((L + R) &#x2F; 2) + 1, R]</p>
+</li>
+<li><p>对于每个叶节点，其区间仅包含一个元素。即，其区间的左界等于右界。</p>
+</li>
+</ul>
+<p><strong>线段树的例子：</strong></p>
+<p>在区间 [1, 9] 中，记录 [2, 9] 的样子</p>
+<pre><code class=" mermaid">graph TB
+Root(&amp;#91&amp;#49,9&amp;#93)
+
+Root---L(&amp;#91&amp;#49,5&amp;#93)
+style R fill: #BFFFFC
+Root---R(&amp;#91&amp;#54,9&amp;#93)
+
+L---LL(&amp;#91&amp;#49,3&amp;#93)
+style LR fill: #BFFFFC
+L---LR(&amp;#91&amp;#52,5&amp;#93)
+R---RL(&amp;#91&amp;#54,7&amp;#93)
+R---RR(&amp;#91&amp;#56,9&amp;#93)
+
+LL---LLL(&amp;#91&amp;#49,2&amp;#93)
+style LLR fill: #BFFFFC
+LL---LLR(&amp;#91&amp;#51,3&amp;#93)
+LR---LRL(&amp;#91&amp;#52,4&amp;#93)
+LR---LRR(&amp;#91&amp;#53,5&amp;#93)
+RL---RLL(&amp;#91&amp;#54,6&amp;#93)
+RL---RLR(&amp;#91&amp;#55,7&amp;#93)
+RR---RRL(&amp;#91&amp;#56,8&amp;#93)
+RR---RRR(&amp;#91&amp;#57,9&amp;#93)
+
+LLL---LLLL(&amp;#91&amp;#49,1&amp;#93)
+style LLLR fill: #BFFFFC
+LLL---LLLR(&amp;#91&amp;#50,2&amp;#93)</code></pre>
+
+<p>线段树是近似的完全二叉树。有时，线段树的节点是随着线段树的更新逐渐建立的，此时线段树不处于完全二叉树的状态。</p>
+<p><strong>线段树的更新：</strong></p>
+<p>标记区间时，按照 <strong>广度优先搜索</strong> 的思想，从根节点开始遍历区间。</p>
+<p><em><strong>——广度优先搜索，见本章 [14.3.2 广度优先搜索 BFS]</strong></em></p>
+<p>比如，添加区间 [START, END] 时：</p>
+<ul>
+<li><p>如果一个节点的区间内所有元素都被标记，则标记这个节点</p>
+<p>对于区间 [L, R]，如果 L &gt;&#x3D; STRAT 且 R &lt;&#x3D; END，则标记该节点</p>
+</li>
+<li><p>如果一个节点的区间内部分元素被标记，则继续遍历其左右节点</p>
+<p>对于区间 [L, R]，MID &#x3D; (L + R) &#x2F; 2</p>
+<p>如果 MID &gt;&#x3D; L，则需要遍历其左节点。如果 MID &lt; R，则需要遍历其右节点</p>
+</li>
+</ul>
+<p>标记节点时，只需在该节点添加懒标记，而不必对所有子节点进行标记。</p>
+<p><strong>懒标记：</strong></p>
+<p>使用懒标记，可以只更新到满足条件的区间，而不必对所有子区间一一更新。此后再次遍历到该节点时，再对懒标记进行下推</p>
+<p>上述例子中，记录区间 [2, 7] 时，仅更新了 [2, 2]、[3, 3]、[4, 5]、[6, 9] 这些节点。</p>
+<p>以节点 [6, 9] 为例，该区间上被添加了懒标记，代表该区间及所有子区间都被记录了一次。下次遍历到这个节点时，懒标记被下推给子节点 [6, 7]、[8, 9]</p>
+<p><strong>线段树的查询：</strong></p>
+<p>一个区间的元素和，等于 <em>其子区间各自元素和</em> 的合计值</p>
+<p>一个区间中的最大值，等于 <em>其子区间各自最大值</em> 中的较大值</p>
+<h2 id="14-2-多路查找树"><a href="#14-2-多路查找树" class="headerlink" title="14.2 多路查找树"></a>14.2 多路查找树</h2><blockquote>
+<p>二叉树虽然效率较高，但需要加载到内存中。节点过多时就可能出现问题。</p>
+<p>如：需要进行多次 I &#x2F; O 操作，导致构建速度慢；造成二叉树高度很大，降低操作速度。</p>
+</blockquote>
+<p>每个节点可以拥有更多数据项和更多子节点的树，就是多叉树（multiway tree）。</p>
+<p>多叉树通过重新组织节点，能减少树的高度，能对二叉树进行优化。</p>
+<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li>节点的度：节点的子节点数量</li>
+<li>树的度 &#x2F; 阶：树中所有节点的度的最大值</li>
+</ul>
+<h3 id="14-2-1-2-3-树"><a href="#14-2-1-2-3-树" class="headerlink" title="14.2.1 2-3 树"></a>14.2.1 2-3 树</h3><p>2-3 树是最简单的 B 树结构。其具有如下特点：</p>
+<ul>
+<li><p>所有叶节点都在同一层。节点包含不超过 2 个值。</p>
+</li>
+<li><p>有两个子节点的节点叫 <strong>二节点</strong>。二节点要么没有子节点，要么有两个子节点。</p>
+<p>有三个子节点的节点叫 <strong>三节点</strong>。三节点要么没有子节点，要么有三个子节点。</p>
+</li>
+<li><p>2-3 树是由 二节点 和 三节点 构成的树。其节点仍遵循二叉排序树的规则。</p>
+<p>对于二节点：其左子树的值需小于当前节点、右子树的值需大于当前节点</p>
+<p>对于三节点：其左子树的值小于当前节点的最小值，中子树的值需介于当前节点的两个值之间，右子树的值大于当前节点的最大值</p>
+</li>
+</ul>
+<p><strong>2-3 树的例子：</strong></p>
+<pre><code class=" mermaid">graph TD
+A(10)---B(6)
+B---D(1, 3)
+B---E(7)
+A---C(15, 20)
+C---F(11, 12)
+C---G(19)
+C---H(22, 32)</code></pre>
+
+<h4 id="构建-2-3-树："><a href="#构建-2-3-树：" class="headerlink" title="构建 2-3 树："></a>构建 2-3 树：</h4><ul>
+<li><p>插入节点时，如果不能满足条件，即需要拆分。</p>
+<p>拆分时先拆上层。上层满时，才拆本层。拆分后仍要满足规则</p>
+</li>
+</ul>
+<h4 id="2-3-4-树："><a href="#2-3-4-树：" class="headerlink" title="2-3-4 树："></a>2-3-4 树：</h4><p>还不是一样？</p>
+<h3 id="14-2-2-B-树"><a href="#14-2-2-B-树" class="headerlink" title="14.2.2 B 树"></a>14.2.2 B 树</h3><p>B 树（b-tree，balance tree）。2-3 树与 2-3-4 树都是 B 树的种类。</p>
+<pre><code class=" mermaid">graph TD
+ROOT(30, 60&lt;br/&gt;P1 - P2 - P3)
+ROOT---R1(10, 20&lt;br/&gt;P1 - P2 - P3)
+ROOT---R2(40, 50&lt;br/&gt;. - P2 - P3)
+ROOT---R3(70, 80&lt;br/&gt;P1 - P2 - P3)
+R1---R11(3, 6)
+R1---R12(12, 13)
+R1---R13(23, 24)
+R2---R21( )
+R2---R22(41, 48)
+R2---R23(55, 57)
+R3---R31(61, 62)
+R3---R32(73, 74)
+R3---R33(84, 86)</code></pre>
+
+<p>B 树具有如下特点：</p>
+<ul>
+<li><p>树树我啊，所有叶节点都在同一层呢。</p>
+</li>
+<li><p>搜索时，从根节点起，对当前节点内的关键字（有序）进行二分查找。</p>
+<p>命中则结束。否则，进入那个对应范围的子节点。那个命中可能发生在叶节点，也可能在非叶节点。</p>
+<p>如果当前节点为空，则表示没有找到。</p>
+</li>
+<li><p>B 树的关键字集合分布在整棵树中，非叶节点和叶节点都存放数据</p>
+</li>
+<li><p>B 树的搜索性能等价于在关键字全集内进行二分查找</p>
+</li>
+</ul>
+<h4 id="B-树："><a href="#B-树：" class="headerlink" title="B+ 树："></a>B+ 树：</h4><p>B+ 树是 B 树的变体。</p>
+<p>使用链表存储数据时，查找数据缓慢。因此将链表数据分为若干段，将每段的索引节点保存为树。</p>
+<pre><code class=" mermaid">graph TD
+ROOT(0, 32, 61&lt;br/&gt;A - B - C)
+ROOT---R1(0, 12, 23&lt;br/&gt;A - B - C)
+ROOT---R2(32, 40, 52&lt;br/&gt;A - B - C)
+ROOT---R3(61, 73, 84&lt;br/&gt;A - B - C)
+R1---R11(0&lt;br/&gt;4&lt;br/&gt;9)
+R1---R12(12&lt;br/&gt;13&lt;br/&gt;17)
+R1---R13(23&lt;br/&gt;24&lt;br/&gt;25)
+R2---R21(32&lt;br/&gt;38&lt;br/&gt;39)
+R2---R22(40&lt;br/&gt;41&lt;br/&gt;48)
+R2---R23(52&lt;br/&gt;55&lt;br/&gt;57)
+R3---R31(61&lt;br/&gt;62&lt;br/&gt;66)
+R3---R32(73&lt;br/&gt;74&lt;br/&gt;79)
+R3---R33(84&lt;br/&gt;86&lt;br/&gt;87)
+subgraph 数据链表
+R11
+R12
+R13
+R21
+R22
+R23
+R31
+R32
+R33
+end</code></pre>
+
+<p>B+ 树具有如下特点：</p>
+<ul>
+<li><p>B+ 树的关键字都出现在叶节点的链表中，链表中数据是有序的。</p>
+<p>非叶节点只相当于叶节点的索引（稀疏索引），叶节点相当于是存储数据的数据层（稠密索引）。</p>
+</li>
+<li><p>B+ 树的命中只可能发生在叶节点。</p>
+</li>
+<li><p>B+ 树的搜索性能也等价于在关键字全集内进行二分查找</p>
+</li>
+<li><p>B+ 树更适合文件索引系统</p>
+</li>
+</ul>
+<h4 id="B-树：-1"><a href="#B-树：-1" class="headerlink" title="B* 树："></a>B* 树：</h4><p>B* 树是 B+ 树的变体，其在非根、非叶节点间加入了兄弟指针。</p>
+<pre><code class=" mermaid">graph TD
+ROOT(0, 32, 61&lt;br/&gt;A - B - C)
+ROOT---R1(0, 12, 23&lt;br/&gt;A - B - C)
+ROOT---R2(32, 40, 52&lt;br/&gt;A - B - C)
+ROOT---R3(61, 73, 84&lt;br/&gt;A - B - C)
+R1---R11(0&lt;br/&gt;4&lt;br/&gt;9)
+R1---R12(12&lt;br/&gt;13&lt;br/&gt;17)
+R1---R13(23&lt;br/&gt;24&lt;br/&gt;25)
+R2---R21(32&lt;br/&gt;38&lt;br/&gt;39)
+R2---R22(40&lt;br/&gt;41&lt;br/&gt;48)
+R2---R23(52&lt;br/&gt;55&lt;br/&gt;57)
+R3---R31(61&lt;br/&gt;62&lt;br/&gt;66)
+R3---R32(73&lt;br/&gt;74&lt;br/&gt;79)
+R3---R33(84&lt;br/&gt;86&lt;br/&gt;87)
+subgraph 数据链表
+R11
+R12
+R13
+R21
+R22
+R23
+R31
+R32
+R33
+end
+subgraph 索引相连
+R1
+R2
+R3
+end</code></pre>
+
+<p>B* 树具有以下特点：</p>
+<ul>
+<li>B* 树定义了非叶子节点关键字个数至少为 (2 &#x2F; 3) * M。其块的最低使用率为 2 &#x2F; 3，而 B+ 树最低使用率为 1 &#x2F; 2</li>
+<li>B* 树分配新节点的概率更低，空间使用率更高</li>
+</ul>
+<h3 id="14-2-3-前缀树"><a href="#14-2-3-前缀树" class="headerlink" title="14.2.3 前缀树"></a>14.2.3 前缀树</h3><p>前缀树（字典树、单词查找树、键树），是一种多路查找树。利用元素的公共前缀来减少查询时间。</p>
+<p>下面是一个存储了数个单词（a、act、art、cat、can、cant、roin）的前缀树：</p>
+<pre><code class=" mermaid">graph TB
+R[ ]
+style a fill: #C0F0E0
+R --- a((a))
+R --- c[c]
+R --- r[r]
+a --- ac[c]
+a --- ar[r]
+style act fill: #C0F0E0
+ac --- act((t))
+style art fill: #C0F0E0
+ar --- art((t))
+c --- ca[a]
+style cat fill: #C0F0E0
+ca --- cat((t))
+style can fill: #C0F0E0
+ca --- can((n))
+style cant fill: #C0F0E0
+can --- cant((t))
+r --- ro[o]
+ro --- roi[i]
+style roin fill: #C0F0E0
+roi --- roin((n))</code></pre>
+
+<p>前缀树具有如下特点：</p>
+<ul>
+<li><p>根节点不包含字符，除根节点外每一个节点包含一个字符。</p>
+</li>
+<li><p>节点的路径即为一条存储字符串。特别的，根节点表示空字符串</p>
+<p>每个节点持有一个计数器，计算该节点处存储的字符串数量。</p>
+</li>
+<li><p>所有的子节点都与父节点具有相同前缀。</p>
+</li>
+<li><p>在前缀树中，查询字符串的时间复杂度为 O(L)，其中 L 为字符串长度</p>
+</li>
+</ul>
+<p><strong>实现前缀树：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrimTree</span> &#123;
+    <span class="hljs-comment">/* 节点类 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;
+        Map&lt;Character, Node&gt; next = <span class="hljs-literal">null</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        Node() &#123;
+            <span class="hljs-built_in">this</span>.next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+            <span class="hljs-built_in">this</span>.count = <span class="hljs-number">0</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;		<span class="hljs-comment">// 根节点</span>
+
+    <span class="hljs-comment">/* 构造器 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">TrimTree</span><span class="hljs-params">(String... strings)</span> &#123;
+        <span class="hljs-built_in">this</span>.root = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>();
+        <span class="hljs-keyword">for</span> (String s : strings) add(s);
+    &#125;
+	
+    <span class="hljs-comment">/* 添加字符串 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(String s)</span> &#123;
+        <span class="hljs-type">Node</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> root;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray()) &#123;
+            <span class="hljs-keyword">if</span> (!p.next.containsKey(c)) p.next.put(c, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>());
+            p = p.next.get(c);
+        &#125;
+        p.count++;
+    &#125;
+	
+    <span class="hljs-comment">/* 查找字符串 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">search</span><span class="hljs-params">(String s)</span> &#123;
+        <span class="hljs-type">Node</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> root;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray()) &#123;
+            <span class="hljs-keyword">if</span> (!p.next.containsKey(c)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            p = p.next.get(c);
+        &#125;
+        <span class="hljs-keyword">return</span> p.count;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h2 id="14-3-图"><a href="#14-3-图" class="headerlink" title="14.3 图"></a>14.3 图</h2><blockquote>
+<p>线性表局限于一个直接前驱和一个直接后继的关系。</p>
+<p>树可能有数个直接后继，但只能有一个直接前驱（父节点）</p>
+<p>当需要表示多对多关系时，就需要 <strong>图</strong></p>
+</blockquote>
+<p>图是一种数据结构。每个节点可以有零个或多个相邻元素。</p>
+<p>两个节点间的连接称为 <strong>边（edge）</strong>，节点也被称为 <strong>顶点（vertex）</strong></p>
+<p>图的分类：</p>
+<ul>
+<li>按照 顶点间的连接有无方向 分为：有向图、无向图</li>
+<li>按照 是否带权 分为：带权图（网）、非带权图</li>
+<li>按照 表示方式 分为：二维数组表示（邻接矩阵）、链表表示（邻接表）</li>
+</ul>
+<h4 id="图的表示方式："><a href="#图的表示方式：" class="headerlink" title="图的表示方式："></a>图的表示方式：</h4><p>一组连接的节点：</p>
+<pre><code class=" mermaid">graph TD
+A(1)---B(0)
+A---C(2)
+B---C
+B---D(3)
+B---E(4)</code></pre>
+
+<p><strong>邻接矩阵：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs -">   0  1  2  3  4
+0 ┌0, 1, 1, 1, 1┐
+1 |1, 0, 1, 0, 0|
+2 |1, 1, 0, 0, 0|
+3 |1, 0, 0, 0, 0|
+4 └1, 0, 0, 0, 0┘</code></pre></div>
+
+<p>其中，(0, 1) &#x3D;&#x3D; 1 表示 节点 0 与 节点 1 相连</p>
+<p>邻接矩阵为每个顶点都分配了 n 个边的空间。这样，造成了空间的损失</p>
+<p><strong>邻接表：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs -">0 [1]→[2]→[3]→[4]→
+1 [0]→[2]→
+2 [0]→[1]→
+3 [0]→
+4 [0]→</code></pre></div>
+
+<p>邻接表为每个节点创建一个链表，链表中是与其相连的节点。邻接表由 数组 + 链表 组成</p>
+<p>邻接表只关心存在的边，不关心不存在的边，因此没有空间浪费</p>
+<h3 id="14-3-1-深度优先搜索-DFS"><a href="#14-3-1-深度优先搜索-DFS" class="headerlink" title="14.3.1 深度优先搜索 DFS"></a>14.3.1 深度优先搜索 DFS</h3><p>深度优先搜索（Depth First Search），其策略是优先纵向挖掘深入，而不是对一个节点的所有节点先进行横向访问。</p>
+<p>从初始访问节点出发，首先访问其第一个相邻节点。之后，从那个访问节点出发，递归访问第一个相邻节点。直到一个节点的路径完全访问结束后，才访问第二个节点。</p>
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><ul>
+<li>访问初始节点 s，标记其为已访问</li>
+<li>从 s 的第一个相邻节点起，以递归方式对其进行深度优先搜索。</li>
+<li>当前节点没有可访问的相邻节点时，就完成了对一条路径访问。此时才返回上一级，继续搜索下一节点。</li>
+</ul>
+<h3 id="14-3-2-广度优先搜索-BFS"><a href="#14-3-2-广度优先搜索-BFS" class="headerlink" title="14.3.2 广度优先搜索 BFS"></a>14.3.2 广度优先搜索 BFS</h3><p>广度优先搜索（Broad First Search），其策略是优先横向访问所有相邻节点，而不是对一条路径进行纵向挖掘。</p>
+<p>从初始访问节点出发，记录所有相邻节点。之后，访问先前记录节点，并记录所有相邻节点。直到没有能访问的节点为止，就完成了对所有连接节点的搜索。</p>
+<h4 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h4><ul>
+<li>记录初始节点 s</li>
+<li>访问上一次记录的节点，将其标记为已访问。将那些节点的所有可访问的相邻节点记录。</li>
+<li>重复上一步，直到没有可访问的节点时，就完成了对所有连接节点的访问。</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="F1-实现赫夫曼编码-x2F-解码"><a href="#F1-实现赫夫曼编码-x2F-解码" class="headerlink" title="F1 实现赫夫曼编码&#x2F;解码"></a>F1 实现赫夫曼编码&#x2F;解码</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/* 压缩数据包 */</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">DataBox</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">byte</span>[] data;				<span class="hljs-comment">// 压缩信息主体</span>
+    <span class="hljs-keyword">public</span> Map&lt;Byte, String&gt; key;	<span class="hljs-comment">// 赫夫曼表</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> step;				<span class="hljs-comment">// 补位数</span>
+&#125;
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Huff</span> &#123;
+    <span class="hljs-comment">/* 将数据压缩，返回一个压缩包 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> DataBox <span class="hljs-title function_">huff</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] data)</span> &#123;
+        <span class="hljs-type">DataBox</span> <span class="hljs-variable">dataBox</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DataBox</span>();
+        dataBox.key = getHuffMap(data);						<span class="hljs-comment">// 在压缩包内记录编码表</span>
+        dataBox.data = toHuff(data, dataBox);				<span class="hljs-comment">// 在压缩包内记录压缩后数据，也会记录补位数</span>
+        <span class="hljs-keyword">return</span> dataBox;
+    &#125;
+	
+    <span class="hljs-comment">/* 根据要压缩的数据，计算那个赫夫曼表 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;Byte, String&gt; <span class="hljs-title function_">getHuffMap</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] val)</span> &#123;
+        <span class="hljs-keyword">if</span> (val == <span class="hljs-literal">null</span> || val.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        Map&lt;Byte, Node&gt; huff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">byte</span> c : val) &#123;								<span class="hljs-comment">// 记录每个字符出现的次数</span>
+            <span class="hljs-keyword">if</span> (huff.containsKey(c)) huff.get(c).times++;
+            <span class="hljs-keyword">else</span> huff.put(c, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(c, <span class="hljs-number">1</span>));
+        &#125;
+        PriorityQueue&lt;Node&gt; pq = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(huff.values());
+        <span class="hljs-keyword">while</span> (pq.size() &gt; <span class="hljs-number">1</span>) &#123;								<span class="hljs-comment">// 生成赫夫曼树</span>
+            <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(pq.remove(), pq.remove());
+            pq.add(temp);
+        &#125;
+        Map&lt;Byte, String&gt; ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        update(ret, pq.remove(), <span class="hljs-string">&quot;&quot;</span>);						<span class="hljs-comment">// 根据那个赫夫曼树，生成赫夫曼编码</span>
+        <span class="hljs-keyword">if</span> (ret.size() == <span class="hljs-number">1</span>) ret.put(val[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;0&quot;</span>);			<span class="hljs-comment">// 特别地，只有唯一字符从场合这样处理</span>
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+	
+    <span class="hljs-comment">/* 根据赫夫曼表，将数据压缩 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] toHuff(<span class="hljs-type">byte</span>[] val, DataBox d) &#123;
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">byte</span> c : val) &#123;								<span class="hljs-comment">// 得到压缩后的 bit 字符串</span>
+            sb.append(d.key.get(c));
+        &#125;
+        <span class="hljs-type">byte</span>[] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[(sb.length() + <span class="hljs-number">7</span>) / <span class="hljs-number">8</span>];		<span class="hljs-comment">// 压缩后的数据放在 byte 数组中</span>
+        d.step = sb.length() % <span class="hljs-number">8</span>;							<span class="hljs-comment">// 记录那个补位数</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; ret.length; i ++) &#123;
+            <span class="hljs-keyword">if</span> (i &gt;= ret.length - <span class="hljs-number">1</span> &amp;&amp; d.step != <span class="hljs-number">0</span>) &#123;		<span class="hljs-comment">// 最后一位可能有补位。那个场合，让有效数字在最左侧</span>
+                ret[i] = (<span class="hljs-type">byte</span>) (Integer.parseInt(sb.substring(<span class="hljs-number">8</span> * i), <span class="hljs-number">2</span>) &lt;&lt; (<span class="hljs-number">8</span> - d.step));
+            &#125; <span class="hljs-keyword">else</span> ret[i] = (<span class="hljs-type">byte</span>) Integer.parseInt(sb.substring(<span class="hljs-number">8</span> * i, <span class="hljs-number">8</span> * i + <span class="hljs-number">8</span>), <span class="hljs-number">2</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+	
+    <span class="hljs-comment">/* 该方法能遍历赫夫曼树，以获取赫夫曼表 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(Map&lt;Byte, String&gt; ss, Node root, String s)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (root.right == <span class="hljs-literal">null</span> &amp;&amp; root.left == <span class="hljs-literal">null</span>) &#123;
+            ss.put(root.val, s);									<span class="hljs-comment">// 是叶节点的场合，记录这个编码值</span>
+        &#125;
+        <span class="hljs-keyword">if</span> (root.left != <span class="hljs-literal">null</span>) update(ss, root.left, s + <span class="hljs-string">&quot;0&quot;</span>);		<span class="hljs-comment">// 向左路径记为 0</span>
+        <span class="hljs-keyword">if</span> (root.right != <span class="hljs-literal">null</span>) update(ss, root.right, s + <span class="hljs-string">&quot;1&quot;</span>);	<span class="hljs-comment">// 向右路径记为 1</span>
+    &#125;
+    
+    <span class="hljs-comment">/* 解压压缩包 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] antiHuff(DataBox d) &#123;
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; d.data.length; i++) &#123;					<span class="hljs-comment">// 获取那个压缩数据的编码</span>
+            <span class="hljs-type">String</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">if</span> (i &gt;= d.data.length - <span class="hljs-number">1</span> &amp;&amp; d.step != <span class="hljs-number">0</span>) sb.append((temp = Integer.toBinaryString(d.data[i] | <span class="hljs-number">256</span>)), temp.length() - <span class="hljs-number">8</span>, temp.length() - <span class="hljs-number">8</span> + d.step);				<span class="hljs-comment">// 遍历到最后，要处理那个补位</span>
+            <span class="hljs-keyword">else</span> sb.append((temp = Integer.toBinaryString(d.data[i] | <span class="hljs-number">256</span>)).substring(temp.length() - <span class="hljs-number">8</span>));
+        &#125;
+        Map&lt;String, Byte&gt; anti = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        <span class="hljs-keyword">for</span> (Byte aByte : d.key.keySet()) &#123;							<span class="hljs-comment">// 将编码表转化为解码表</span>
+            anti.put(d.key.get(aByte), aByte);
+        &#125;
+        List&lt;Byte&gt; ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; sb.length(); i++) &#123;						<span class="hljs-comment">// 按照解码表，把压缩编码转化为未解压编码</span>
+            s.append(sb.charAt(i));
+            <span class="hljs-keyword">if</span> (anti.containsKey(s.toString())) &#123;
+                ret.add(anti.get(s.toString()));
+                s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            &#125;
+        &#125;
+        <span class="hljs-type">byte</span>[] bt = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[ret.size()];							<span class="hljs-comment">// 将 Byte 数组转化为 byte 数组</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; bt.length; i++) &#123;
+            bt[i] = ret.get(i);
+        &#125;
+        <span class="hljs-keyword">return</span> bt;
+    &#125;
+
+	<span class="hljs-comment">/* 节点类，是构建赫夫曼树时用到的类 */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Comparable</span>&lt;Node&gt; &#123;
+        <span class="hljs-keyword">public</span> <span class="hljs-type">byte</span> val;			<span class="hljs-comment">// 代表的 byte 值</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> times;			<span class="hljs-comment">// 出现的次数</span>
+        <span class="hljs-keyword">public</span> Node left;
+        <span class="hljs-keyword">public</span> Node right;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(Node l, Node r)</span> &#123;
+            <span class="hljs-built_in">this</span>.left = l;
+            <span class="hljs-built_in">this</span>.right = r;
+            <span class="hljs-built_in">this</span>.times = l.times + r.times;
+        &#125;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">byte</span> val, <span class="hljs-type">int</span> pow)</span> &#123;
+            <span class="hljs-built_in">this</span>.val = val;
+            <span class="hljs-built_in">this</span>.times = pow;
+        &#125;
+
+
+        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">byte</span> val)</span> &#123;
+            <span class="hljs-built_in">this</span>.val = val;
+            <span class="hljs-built_in">this</span>.times = <span class="hljs-number">0</span>;
+        &#125;
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compareTo</span><span class="hljs-params">(Node o)</span> &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.times - o.times;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+<h3 id="F2-实现平衡二叉树"><a href="#F2-实现平衡二叉树" class="headerlink" title="F2 实现平衡二叉树"></a>F2 实现平衡二叉树</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">AVL</span>&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;				<span class="hljs-comment">// 根节点</span>
+    
+    <span class="hljs-comment">/* 添加一个值（添加一个节点）</span>
+<span class="hljs-comment">    	val：要添加的值 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;
+        <span class="hljs-type">Node</span> <span class="hljs-variable">toAdd</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(val);
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) root = toAdd;
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-type">Node</span> <span class="hljs-variable">par</span> <span class="hljs-operator">=</span> root;
+            <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> root;
+            <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">null</span>) &#123;			<span class="hljs-comment">// 确定其插入位置</span>
+                par = temp;
+                <span class="hljs-keyword">if</span> (val &gt; temp.val) &#123;
+                    temp = temp.right;
+                    toAdd.way = <span class="hljs-literal">true</span>;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    temp = temp.left;
+                    toAdd.way = <span class="hljs-literal">false</span>;
+                &#125;
+            &#125;
+            <span class="hljs-keyword">if</span> (toAdd.way) &#123;				<span class="hljs-comment">// 将其插入到指定位置</span>
+                par.right = toAdd;
+                par.right.parent = par;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                par.left = toAdd;
+                par.left.parent = par;
+            &#125;
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;					<span class="hljs-comment">// 维护该平衡二叉树</span>
+                par = toAVL(par);
+                <span class="hljs-keyword">if</span> (par.parent == <span class="hljs-literal">null</span>) &#123;
+                    root = par;
+                    <span class="hljs-keyword">break</span>;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    <span class="hljs-keyword">if</span> (par.way) par.parent.right = par;
+                    <span class="hljs-keyword">else</span> par.parent.left = par;
+                    par = par.parent;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+	
+    <span class="hljs-comment">/* 维护平衡二叉树</span>
+<span class="hljs-comment">    	root: 待检查节点 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Node <span class="hljs-title function_">toAVL</span><span class="hljs-params">(Node root)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">gap</span> <span class="hljs-operator">=</span> root.rightHeight() - root.leftHeight();
+        <span class="hljs-keyword">if</span> (Math.abs(gap) &gt; <span class="hljs-number">1</span>) &#123;			<span class="hljs-comment">// |gap| &gt; 1 时，需要旋转</span>
+            <span class="hljs-keyword">if</span> (gap &gt; <span class="hljs-number">0</span>) &#123;					<span class="hljs-comment">// gap &gt; 0 需要左旋，否则右旋</span>
+                <span class="hljs-keyword">if</span> (root.right.leftHeight() &gt; root.right.rightHeight()) root.right = roll(root.right, <span class="hljs-literal">true</span>);
+                <span class="hljs-keyword">return</span> roll(root, <span class="hljs-literal">false</span>);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-keyword">if</span> (root.left.rightHeight() &gt; root.left.leftHeight()) root.left = roll(root.left, <span class="hljs-literal">false</span>);
+                <span class="hljs-keyword">return</span> roll(root, <span class="hljs-literal">true</span>);
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> root;
+    &#125;
+
+    <span class="hljs-comment">/* 对该节点进行旋转。</span>
+<span class="hljs-comment">    	root：待旋转节点</span>
+<span class="hljs-comment">    	dirR：true 的场合右旋，否则左旋 */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Node <span class="hljs-title function_">roll</span><span class="hljs-params">(Node root, <span class="hljs-type">boolean</span> dirR)</span> &#123;
+        <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (dirR) &#123;
+            temp = root.left;
+            root.left = temp.right;
+            <span class="hljs-keyword">if</span> (temp.right != <span class="hljs-literal">null</span>) &#123;
+                temp.right.way = <span class="hljs-literal">false</span>;
+                temp.right.parent = root;
+            &#125;
+            temp.right = root;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            temp = root.right;
+            root.right = temp.left;
+            <span class="hljs-keyword">if</span> (temp.left != <span class="hljs-literal">null</span>) &#123;
+                temp.left.way = <span class="hljs-literal">true</span>;
+                temp.left.parent = root;
+            &#125;
+            temp.left = root;
+        &#125;
+        temp.way = root.way;
+        temp.parent = root.parent;
+        root.way = dirR;
+        root.parent = temp;
+        <span class="hljs-keyword">return</span> temp;
+    &#125;
+    
+    <span class="hljs-comment">/* 一个展示树的方法。供 debug 用 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">(Node root)</span> &#123;
+        LinkedList&lt;Node&gt; a = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();
+        LinkedList&lt;Node&gt; b = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();
+        a.add(root);
+        <span class="hljs-keyword">while</span> (!a.isEmpty()) &#123;
+            <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> a.removeFirst();
+            System.out.print(temp.val + <span class="hljs-string">&quot; &quot;</span>);
+            <span class="hljs-keyword">if</span> (temp.left != <span class="hljs-literal">null</span>) b.add(temp.left);
+            <span class="hljs-keyword">if</span> (temp.right != <span class="hljs-literal">null</span>) b.add(temp.right);
+            <span class="hljs-keyword">if</span> (a.isEmpty()) &#123;
+                System.out.println();
+                a = b;
+                b = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();
+            &#125;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;共 &quot;</span> + count(root) + <span class="hljs-string">&quot; 个节点&quot;</span>);
+    &#125;
+    
+    <span class="hljs-comment">/* 一个清点树中节点的方法 */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">count</span><span class="hljs-params">(Node root)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + count(root.left) + count(root.right);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> val;				<span class="hljs-comment">// 值</span>
+        <span class="hljs-keyword">public</span> Node left;			<span class="hljs-comment">// 左节点</span>
+        <span class="hljs-keyword">public</span> Node right;			<span class="hljs-comment">// 右节点</span>
+        <span class="hljs-keyword">public</span> Node parent;			<span class="hljs-comment">// 父节点</span>
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">way</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;        <span class="hljs-comment">// false：该节点是左节点；true：是右节点</span>
+
+        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;
+            <span class="hljs-built_in">this</span>.val = val;
+        &#125;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">leftHeight</span><span class="hljs-params">()</span> &#123;	<span class="hljs-comment">// 左子树高度</span>
+            <span class="hljs-keyword">return</span> (left == <span class="hljs-literal">null</span> ? <span class="hljs-number">0</span> : left.height());
+        &#125;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rightHeight</span><span class="hljs-params">()</span> &#123;	<span class="hljs-comment">// 右子树高度</span>
+            <span class="hljs-keyword">return</span> (right == <span class="hljs-literal">null</span> ? <span class="hljs-number">0</span> : right.height());
+        &#125;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">height</span><span class="hljs-params">()</span> &#123;		<span class="hljs-comment">// 该节点树高度</span>
+            <span class="hljs-keyword">return</span> Math.max(leftHeight(), rightHeight()) + <span class="hljs-number">1</span>;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;14 树</div>
+      <div>https://i-melody.github.io/2022/06/02/Java/入门阶段/14 树/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

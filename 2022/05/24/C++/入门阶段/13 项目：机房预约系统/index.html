@@ -1,0 +1,1854 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="13 项目：机房预约系统13.1 项目需求 有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通过或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;C++&gt;13 项目：机房预约系统">
+<meta property="og:url" content="https://i-melody.github.io/2022/05/24/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%9C%BA%E6%88%BF%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="13 项目：机房预约系统13.1 项目需求 有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通过或">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-26T00:57:16.214Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;C++&gt;13 项目：机房预约系统 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;C++&gt;13 项目：机房预约系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-24 00:00" pubdate>
+          2022年5月24日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          26k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          143 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;C++&gt;13 项目：机房预约系统</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月26日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="13-项目：机房预约系统"><a href="#13-项目：机房预约系统" class="headerlink" title="13 项目：机房预约系统"></a>13 项目：机房预约系统</h1><h2 id="13-1-项目需求"><a href="#13-1-项目需求" class="headerlink" title="13.1 项目需求"></a>13.1 项目需求</h2><blockquote>
+<p>有数个规格不同的机房，现开发一套预约系统，以解决使用冲突</p>
+<p>三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号）</p>
+<p>机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人）</p>
+<p>管理员：申请的订单每周由管理员手动清空</p>
+<p>学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午</p>
+<p>教师：审核预约，选择通过或不通过</p>
+</blockquote>
+<p><strong>菜单：</strong></p>
+<ul>
+<li>学生（学号、姓名、登陆密码）<ul>
+<li>申请预约</li>
+<li>查看自身预约</li>
+<li>查看所有预约</li>
+<li>取消预约（成功的预约或审核中的预约）</li>
+<li>注销登录（二次确认）</li>
+</ul>
+</li>
+<li>老师（职工号、姓名、登陆密码）<ul>
+<li>查看所有预约</li>
+<li>审核预约</li>
+<li>注销登录（二次确认）</li>
+</ul>
+</li>
+<li>管理员（管理员编号、登陆密码）<ul>
+<li>添加账号</li>
+<li>查看账号</li>
+<li>修改账号</li>
+<li>查看机房</li>
+<li>清空预约记录</li>
+<li>注销登录（二次确认）</li>
+</ul>
+</li>
+<li>退出</li>
+</ul>
+<p><strong>账号：</strong></p>
+<ul>
+<li>账号类（ID、姓名、密码、标识符）<ul>
+<li>管理员（ID 为 000000，标识符）</li>
+<li>教师（ID 为 1000XX，标识符）</li>
+<li>学生（ID 为 3000XX，标识符）</li>
+</ul>
+</li>
+</ul>
+<p><strong>机房：</strong></p>
+<ul>
+<li>机房类（容量，预约记录）</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="机房预约系统"><a href="#机房预约系统" class="headerlink" title="机房预约系统"></a>机房预约系统</h3><blockquote>
+<p>执行以下代码</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-built_in">menu0</span>();
+&#125;</code></pre></div>
+</blockquote>
+<h4 id="1-2头文件："><a href="#1-2头文件：" class="headerlink" title="1 2头文件："></a>1 2头文件：</h4><p><strong>room.h</strong></p>
+<blockquote>
+<p>包含机房类。还声明了一个预定信息类。</p>
+<p>这两个类的实现都在：<strong>room.cpp</strong></p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;person.h&quot;</span></span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">List</span>;									<span class="hljs-comment">// 预定信息类</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Room</span> &#123;								<span class="hljs-comment">// 机房类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-built_in">Room</span>(<span class="hljs-type">int</span> seats);						<span class="hljs-comment">// 构造器，初始指定那个座位数</span>
+	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">add_request</span><span class="hljs-params">(List* list)</span></span>;			<span class="hljs-comment">// 添加预定</span>
+	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">confirm_request</span><span class="hljs-params">(vector&lt;List*&gt;::const_iterator r, <span class="hljs-type">bool</span> passed, Teacher* t, <span class="hljs-type">bool</span> link = <span class="hljs-literal">false</span>)</span></span>;
+    										<span class="hljs-comment">// 完成预定</span>
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 清空信息</span>
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showAllTBD</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 显示全部 待审核预定 的信息</span>
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showAllD</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 显示全部 已审核预定 的信息</span>
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getSeat</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 返回那个座位数</span>
+	<span class="hljs-function">string <span class="hljs-title">getName</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 返回机房名称</span>
+	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cancel</span><span class="hljs-params">(vector&lt;List*&gt;::const_iterator tar)</span></span>;
+    										<span class="hljs-comment">// 取消一个 待审核预定</span>
+	<span class="hljs-type">static</span> vector&lt;Room*&gt;* rooms;			<span class="hljs-comment">// 机房集。静态容器，包含全部机房</span>
+	vector&lt;List*&gt; tbd;						<span class="hljs-comment">// 待审核集。该容器包含全部 待审核预定</span>
+	vector&lt;List*&gt; confirmed;				<span class="hljs-comment">// 已审核集。该容器包含全部 已审核预定</span>
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-type">int</span> seats;								<span class="hljs-comment">// 座位数</span>
+	string name;							<span class="hljs-comment">// 机房名</span>
+	<span class="hljs-type">static</span> <span class="hljs-type">int</span> m_name_count;				<span class="hljs-comment">// 静态变量。初始化时自动分配机房名称</span>
+&#125;;
+</code></pre></div>
+
+<p><strong>person.h</strong></p>
+<blockquote>
+<p>包含所有账号类，以及预定信息类</p>
+<p>账号类：Person（信息账号类）、Student（学生账号类）、Teacher（教师账号类）、Manager（管理员账号类）</p>
+<p>账号类的实现在：<strong>person.cpp</strong></p>
+<p>预定信息类的实现在：<strong>room.cpp</strong></p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;vector&gt;</span></span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">List</span>;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Room</span>;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;								<span class="hljs-comment">// 信息账号类。该类是所有账号类的父类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getID</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 获取账号 ID</span>
+	<span class="hljs-function"><span class="hljs-type">char</span> <span class="hljs-title">getSign</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 获取账号标记（教师为 T，学生为 S，管理员为 M，信息为 W）</span>
+	<span class="hljs-function">string <span class="hljs-title">getName</span><span class="hljs-params">()</span></span>;
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(string name)</span></span>;
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setID</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span></span>;					
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setPW</span><span class="hljs-params">(string ne)</span></span>;
+	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">checkPW</span><span class="hljs-params">(string pw)</span></span>;				<span class="hljs-comment">// 检查密码是否正确</span>
+	<span class="hljs-function">string <span class="hljs-title">print</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 返回该账号的信息构成的字符串</span>
+	<span class="hljs-type">static</span> Person* reject_has_existed;		<span class="hljs-comment">// 一个静态的实例。当提交的预定与当前已审核的预定冲突时，用该实例进行标记</span>
+<span class="hljs-keyword">protected</span>:
+	<span class="hljs-built_in">Person</span>();								<span class="hljs-comment">// 构造器。不允许实例化该类对象</span>
+	<span class="hljs-built_in">Person</span>(string name, <span class="hljs-type">int</span> id);
+	string name;							<span class="hljs-comment">// 姓名</span>
+	<span class="hljs-type">int</span> id = <span class="hljs-number">-1</span>;							<span class="hljs-comment">// ID</span>
+	<span class="hljs-type">char</span> sign = <span class="hljs-string">&#x27;P&#x27;</span>;						<span class="hljs-comment">// 账号标记（教师为 T，学生为 S，管理员为 M，信息为 W）</span>
+	string password;						<span class="hljs-comment">// 密码</span>
+&#125;;
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Manager</span>: <span class="hljs-keyword">public</span> Person &#123;				<span class="hljs-comment">// 管理员类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-built_in">Manager</span>(string name, string pw);
+	<span class="hljs-function"><span class="hljs-type">static</span> Manager* <span class="hljs-title">getManager</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">// 静态方法。返回唯一的管理员账号实例。</span>
+	<span class="hljs-function">Person* <span class="hljs-title">createAccount</span><span class="hljs-params">(<span class="hljs-type">char</span> identity, string name, string pw)</span></span>;
+    										<span class="hljs-comment">// 创建账号</span>
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-type">static</span> Manager* ss;						<span class="hljs-comment">// 静态实例。管理员账号是唯一的，就是这个实例</span>
+	<span class="hljs-type">static</span> <span class="hljs-type">int</span> m_id_count;
+&#125;;
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> : <span class="hljs-keyword">public</span> Person &#123;				<span class="hljs-comment">// 学生类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-built_in">Student</span>(string name, string pw);
+	<span class="hljs-function"><span class="hljs-type">static</span> vector&lt;Student*&gt;* <span class="hljs-title">all</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">// 静态方法。返回包含全部学生实例的容器</span>
+	<span class="hljs-function">List* <span class="hljs-title">order</span><span class="hljs-params">(<span class="hljs-type">int</span> date, <span class="hljs-type">bool</span> time)</span></span>;		<span class="hljs-comment">// 返回一个新的预约</span>
+	<span class="hljs-function"><span class="hljs-type">static</span> Student* <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span></span>;			<span class="hljs-comment">// 静态方法。按 ID 查找学生</span>
+	<span class="hljs-function"><span class="hljs-type">static</span> Student* <span class="hljs-title">find</span><span class="hljs-params">(string name)</span></span>;		<span class="hljs-comment">// 静态方法。按姓名查找学生</span>
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-type">static</span> vector&lt;Student*&gt;* ss;			<span class="hljs-comment">// 学生集。静态容器。是包含全部学生实例的容器</span>
+	<span class="hljs-type">static</span> <span class="hljs-type">int</span> m_id_count;					<span class="hljs-comment">// 实例化学生类时自动分配 ID</span>
+&#125;;
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Teacher</span> : <span class="hljs-keyword">public</span> Person &#123;				<span class="hljs-comment">// 教师类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-built_in">Teacher</span>(string name, string pw);
+	<span class="hljs-function"><span class="hljs-type">static</span> vector&lt;Teacher*&gt;* <span class="hljs-title">all</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">// 静态方法。返回包含全部教师实例的容器</span>
+	<span class="hljs-function">List* <span class="hljs-title">confirm</span><span class="hljs-params">(List* l, <span class="hljs-type">bool</span> b)</span></span>;			<span class="hljs-comment">// 返回一个经过审核的预约</span>
+	<span class="hljs-function"><span class="hljs-type">static</span> Teacher* <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span></span>;
+	<span class="hljs-function"><span class="hljs-type">static</span> Teacher* <span class="hljs-title">find</span><span class="hljs-params">(string name)</span></span>;
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-type">static</span> vector&lt;Teacher*&gt;* ss;			<span class="hljs-comment">// 教师集。静态容器。是包含全部教师实例的容器</span>
+	<span class="hljs-type">static</span> <span class="hljs-type">int</span> m_id_count;
+&#125;;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">List</span> &#123;								<span class="hljs-comment">// 预约信息类</span>
+<span class="hljs-keyword">public</span>:
+	Person* requester;						<span class="hljs-comment">// 此处一般是一个 Student*，表示预约人的信息</span>
+	Person* confirmer;						<span class="hljs-comment">// 此处可能是一个 Teacher*，也可能是一个 Person*</span>
+    										<span class="hljs-comment">// Teacher* 的场合，表示审核人的信息</span>
+    										<span class="hljs-comment">// Person* 的场合，表示那个错误的原因</span>
+	<span class="hljs-type">int</span> state;								<span class="hljs-comment">// 审核状态：0待审核、1通过、-1拒绝</span>
+	<span class="hljs-type">int</span> date;								<span class="hljs-comment">// 日期，范围是 1 - 7（周一 ~ 周日）</span>
+	<span class="hljs-type">bool</span> time;								<span class="hljs-comment">// 时段：true 上午、false 下午</span>
+	Room* room;								<span class="hljs-comment">// 机房</span>
+	<span class="hljs-built_in">List</span>(<span class="hljs-type">int</span> date, <span class="hljs-type">bool</span> time, Student* s);
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">confirm</span><span class="hljs-params">(<span class="hljs-type">bool</span> pass, Person* t)</span></span>;		<span class="hljs-comment">// 更新审核状态</span>
+	<span class="hljs-function">string <span class="hljs-title">print</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 返回预约信息构成的字符串</span>
+&#125;;</code></pre></div>
+
+<p><strong>menu.h</strong></p>
+<blockquote>
+<p>菜单。程序的主干。</p>
+<p>执行 <code>menu0()</code> 以进入机房预约系统</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;room.h&quot;</span></span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">testing_initial</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 测试初始化。这个方法初始化了数个账号及机房，以供测试之用</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu0</span><span class="hljs-params">()</span></span>;								<span class="hljs-comment">// 程序的主入口</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu0</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 显示 一级菜单</span>
+<span class="hljs-function">Person* <span class="hljs-title">log_in</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>;						<span class="hljs-comment">// 尝试登录。返回将要登录的账号信息</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_stu</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 学生菜单入口</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_stu</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 显示 学生菜单</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_tea</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 教师菜单入口</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_tea</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 显示 教师菜单</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_man</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 管理员菜单入口</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_man</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 显示 管理员菜单</span>
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">log_out</span><span class="hljs-params">()</span></span>;								<span class="hljs-comment">// 登出的二次确认</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">stu_order</span><span class="hljs-params">(Student* student)</span></span>;			<span class="hljs-comment">// 预约机房</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">check_order</span><span class="hljs-params">(Student* student)</span></span>;			<span class="hljs-comment">// 查看该账号的所有预约</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 查看所有预约</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all_tbd</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 查看所有 未审核的预约</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all_confirmed</span><span class="hljs-params">()</span></span>;					<span class="hljs-comment">// 查看所有 审核通过的预约（不包含被拒绝的预约）</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">cancel</span><span class="hljs-params">(Student* student)</span></span>;				<span class="hljs-comment">// 取消一条 未审核的预约</span>
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">confirm</span><span class="hljs-params">(Teacher* t)</span></span>;					<span class="hljs-comment">// 审核预约</span>
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">confirm_it</span><span class="hljs-params">(<span class="hljs-type">int</span> num, <span class="hljs-type">bool</span> passed, Teacher* t)</span></span>;
+											<span class="hljs-comment">// 审核预约的执行程序</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add_account</span><span class="hljs-params">(Manager* m)</span></span>;				<span class="hljs-comment">// 添加账号</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_accounts</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 展示全部账号</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change_account</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 修改一个账号的信息</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_rooms</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 展示全部机房</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear_history</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 清空预约记录</span></code></pre></div>
+
+<h4 id="2-源文件："><a href="#2-源文件：" class="headerlink" title="2 源文件："></a>2 源文件：</h4><p><strong>room.cpp</strong></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;room.h&quot;</span></span>
+
+Room::<span class="hljs-built_in">Room</span>(<span class="hljs-type">int</span> seats) &#123;
+	<span class="hljs-keyword">this</span>-&gt;seats = seats;
+	<span class="hljs-keyword">this</span>-&gt;name = <span class="hljs-string">&quot;机房&quot;</span> + <span class="hljs-built_in">to_string</span>(++m_name_count);
+    
+    <span class="hljs-comment">/* 实例化时，自动将自身放入 Room::rooms 房间集 */</span>
+	rooms-&gt;<span class="hljs-built_in">push_back</span>(<span class="hljs-keyword">this</span>);
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Room::add_request</span><span class="hljs-params">(List* list)</span> </span>&#123;
+	list-&gt;room = <span class="hljs-keyword">this</span>;
+    
+    <span class="hljs-comment">/* 同一账号不能重复添加内容完全相同的请求 */</span>
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = <span class="hljs-keyword">this</span>-&gt;tbd.<span class="hljs-built_in">begin</span>(); i != <span class="hljs-keyword">this</span>-&gt;tbd.<span class="hljs-built_in">end</span>(); i++) &#123;
+		List* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;requester == list-&gt;requester &amp;&amp; temp-&gt;date == list-&gt;date &amp;&amp; temp-&gt;time == list-&gt;time) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		&#125;
+	&#125;
+    
+    <span class="hljs-comment">/* 如果指定机房在指定时段已被占用，直接拒绝该请求 */</span>
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = <span class="hljs-keyword">this</span>-&gt;confirmed.<span class="hljs-built_in">begin</span>(); i != <span class="hljs-keyword">this</span>-&gt;confirmed.<span class="hljs-built_in">end</span>(); i++) &#123;
+		List* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;state &gt; <span class="hljs-number">0</span> &amp;&amp; temp-&gt;date == list-&gt;date &amp;&amp; temp-&gt;time == list-&gt;time) &#123;
+            <span class="hljs-comment">/* 向该请求添加错误信息 */</span>
+			list-&gt;<span class="hljs-built_in">confirm</span>(<span class="hljs-literal">false</span>, Person::reject_has_existed);
+			confirmed.<span class="hljs-built_in">push_back</span>(list);
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		&#125;
+	&#125;
+    
+    <span class="hljs-comment">/* 检查通过后，将该请求放入 待审核集 */</span>
+	<span class="hljs-keyword">this</span>-&gt;tbd.<span class="hljs-built_in">push_back</span>(list);
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Room::confirm_request</span><span class="hljs-params">(vector&lt;List*&gt;::const_iterator r, <span class="hljs-type">bool</span> passed, Teacher* t，<span class="hljs-type">bool</span> link)</span></span>&#123;
+    <span class="hljs-comment">/* 这是正在审核的预约对象 */</span>
+	List* list = *r;
+    <span class="hljs-comment">/* 如果审核结果是通过，那么有必要同时拒绝所有其他相同时间的未审核预定 */</span>
+	<span class="hljs-keyword">if</span> (passed) link = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">/* 从 未审核集 中移除该预约 */</span>
+	tbd.<span class="hljs-built_in">erase</span>(r);
+    
+    <span class="hljs-comment">/* 在 已审核集 中进行搜索。时间安排如有冲突则直接拒绝 */</span>
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = confirmed.<span class="hljs-built_in">begin</span>(); i != confirmed.<span class="hljs-built_in">end</span>(); i++) &#123;
+		List* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;state &gt; <span class="hljs-number">0</span> &amp;&amp; temp-&gt;date == list-&gt;date &amp;&amp; temp-&gt;time == list-&gt;time) &#123;
+            <span class="hljs-comment">/* 向该请求添加错误信息 */</span>
+			list-&gt;<span class="hljs-built_in">confirm</span>(<span class="hljs-literal">false</span>, Person::reject_has_existed);
+			confirmed.<span class="hljs-built_in">push_back</span>(list);
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		&#125;
+	&#125;
+    
+    <span class="hljs-comment">/* 更新该预约的审核状态 */</span>
+	list-&gt;<span class="hljs-built_in">confirm</span>(passed, t);
+    
+    <span class="hljs-comment">/* 认为需要拒绝其他请求时，递归调用此方法，直至拒绝了全部请求 */</span>
+	<span class="hljs-keyword">if</span> (link) &#123;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = tbd.<span class="hljs-built_in">begin</span>(); i != tbd.<span class="hljs-built_in">end</span>(); i++) &#123;
+			List* temp = *i;
+			<span class="hljs-keyword">if</span> (temp-&gt;date == list-&gt;date &amp;&amp; temp-&gt;time == list-&gt;time) &#123;
+				<span class="hljs-built_in">confirm_request</span>(i, <span class="hljs-literal">false</span>, t, <span class="hljs-literal">true</span>);
+				<span class="hljs-keyword">break</span>;
+			&#125;
+		&#125;
+	&#125;
+    
+    <span class="hljs-comment">/* 不需要拒绝其他请求时，将该预约添加到 已审核集。 */</span>
+	<span class="hljs-keyword">this</span>-&gt;confirmed.<span class="hljs-built_in">push_back</span>(list);
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;;
+
+
+<span class="hljs-comment">/* 清空该机房所有预定记录 */</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Room::clear</span><span class="hljs-params">()</span></span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = confirmed.<span class="hljs-built_in">begin</span>(); i != confirmed.<span class="hljs-built_in">end</span>(); i++) &#123;
+		<span class="hljs-keyword">delete</span>* i;
+	&#125;
+	confirmed.<span class="hljs-built_in">clear</span>();
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = tbd.<span class="hljs-built_in">begin</span>(); i != tbd.<span class="hljs-built_in">end</span>(); i++) &#123;
+		<span class="hljs-keyword">delete</span>* i;
+	&#125;
+	tbd.<span class="hljs-built_in">clear</span>();
+    tbd.<span class="hljs-built_in">swap</span>(confirm);
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Room::showAllTBD</span><span class="hljs-params">()</span></span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;机房：&quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;待确认申请如下：&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;申请人ID\t姓名\t日期\t时段\t申请状态\t审核ID\t审核姓名&quot;</span> &lt;&lt; endl;
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = tbd.<span class="hljs-built_in">begin</span>(); i != tbd.<span class="hljs-built_in">end</span>(); i++) &#123;
+		List* temp = *i;
+		cout &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+	&#125;
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Room::showAllD</span><span class="hljs-params">()</span></span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;机房：&quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;已完成申请如下：&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;申请人ID\t姓名\t日期\t时段\t申请状态\t审核ID\t审核姓名&quot;</span> &lt;&lt; endl;
+	<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = confirmed.<span class="hljs-built_in">begin</span>(); i != confirmed.<span class="hljs-built_in">end</span>(); i++) &#123;
+		List* temp = *i;
+		cout &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Room::getSeat</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;seats;
+&#125;;
+
+<span class="hljs-function">string <span class="hljs-title">Room::getName</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;name;
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Room::cancel</span><span class="hljs-params">(vector&lt;List*&gt;::const_iterator tar)</span> </span>&#123;
+	<span class="hljs-keyword">this</span>-&gt;tbd.<span class="hljs-built_in">erase</span>(tar);
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;;
+
+List::<span class="hljs-built_in">List</span>(<span class="hljs-type">int</span> date, <span class="hljs-type">bool</span> time, Student* s) &#123;
+	<span class="hljs-keyword">this</span>-&gt;date = date;
+	<span class="hljs-keyword">this</span>-&gt;time = time;
+	<span class="hljs-keyword">this</span>-&gt;requester = s;
+	<span class="hljs-keyword">this</span>-&gt;state = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">this</span>-&gt;confirmer = <span class="hljs-literal">NULL</span>;
+	<span class="hljs-keyword">this</span>-&gt;room = <span class="hljs-literal">NULL</span>;
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">List::confirm</span><span class="hljs-params">(<span class="hljs-type">bool</span> pass, Person* t)</span> </span>&#123;
+	<span class="hljs-keyword">this</span>-&gt;confirmer = t;
+	<span class="hljs-keyword">if</span> (pass) <span class="hljs-keyword">this</span>-&gt;state = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>-&gt;state = <span class="hljs-number">-1</span>;
+&#125;;
+
+
+
+<span class="hljs-function">string <span class="hljs-title">List::print</span><span class="hljs-params">()</span> </span>&#123;
+	string ret = requester-&gt;<span class="hljs-built_in">print</span>() + <span class="hljs-string">&quot;\t周&quot;</span> + <span class="hljs-built_in">to_string</span>(date) + <span class="hljs-string">&quot;\t&quot;</span> + (time ? <span class="hljs-string">&quot;上午&quot;</span> : <span class="hljs-string">&quot;下午&quot;</span>) + <span class="hljs-string">&quot;\t&quot;</span>;
+	<span class="hljs-keyword">if</span> (state == <span class="hljs-number">0</span>) &#123;
+		ret += <span class="hljs-string">&quot;审核中&quot;</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		ret += (state &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;通过&quot;</span> : <span class="hljs-string">&quot;拒绝&quot;</span>);
+		ret += <span class="hljs-string">&quot;\t&quot;</span> + confirmer-&gt;<span class="hljs-built_in">print</span>();
+	&#125;
+	<span class="hljs-keyword">return</span> ret;
+&#125;;
+
+
+<span class="hljs-type">int</span> Room::m_name_count = <span class="hljs-number">0</span>;
+vector&lt;Room*&gt;* Room::rooms = <span class="hljs-keyword">new</span> vector&lt;Room*&gt;;</code></pre></div>
+
+<p><strong>person.cpp</strong></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;person.h&quot;</span></span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Person::getID</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> id;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">char</span> <span class="hljs-title">Person::getSign</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> sign;
+&#125;
+
+<span class="hljs-function">string <span class="hljs-title">Person::getName</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> name;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Person::setName</span><span class="hljs-params">(string name)</span> </span>&#123;
+	<span class="hljs-keyword">this</span>-&gt;name = name;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Person::setID</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> </span>&#123;
+	<span class="hljs-keyword">this</span>-&gt;id = id;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Person::setPW</span><span class="hljs-params">(string ne)</span> </span>&#123;
+	password = ne;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Person::checkPW</span><span class="hljs-params">(string pw)</span> </span>&#123;
+	<span class="hljs-keyword">return</span> pw == password;
+&#125;
+
+
+<span class="hljs-function">string <span class="hljs-title">Person::print</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">to_string</span>(id) + <span class="hljs-string">&quot;\t&quot;</span> + name;
+&#125;;
+
+
+Person::<span class="hljs-built_in">Person</span>()&#123;&#125;;
+
+Person::<span class="hljs-built_in">Person</span>(string name, <span class="hljs-type">int</span> id) &#123;
+	<span class="hljs-keyword">this</span>-&gt;name = name;
+	<span class="hljs-keyword">this</span>-&gt;id = id;
+	<span class="hljs-keyword">this</span>-&gt;sign = <span class="hljs-string">&#x27;W&#x27;</span>;
+&#125;;
+
+Manager::<span class="hljs-built_in">Manager</span>(string name, string pw) &#123;
+	<span class="hljs-keyword">this</span>-&gt;name = name;
+	<span class="hljs-keyword">this</span>-&gt;id = m_id_count;
+	<span class="hljs-keyword">this</span>-&gt;password = pw;
+	<span class="hljs-keyword">this</span>-&gt;sign = <span class="hljs-string">&#x27;M&#x27;</span>;
+&#125;;
+
+
+Student::<span class="hljs-built_in">Student</span>(string name, string pw) &#123;
+	<span class="hljs-keyword">this</span>-&gt;name = name;
+	<span class="hljs-keyword">this</span>-&gt;id = ++m_id_count;
+	<span class="hljs-keyword">this</span>-&gt;password = pw;
+	<span class="hljs-keyword">this</span>-&gt;sign = <span class="hljs-string">&#x27;S&#x27;</span>;
+    
+    <span class="hljs-comment">/* 实例化学生对象时，该对象会被自动添加到 学生集 */</span>
+	Student::ss-&gt;<span class="hljs-built_in">push_back</span>(<span class="hljs-keyword">this</span>);
+&#125;;
+
+
+Teacher::<span class="hljs-built_in">Teacher</span>(string name, string pw) &#123;
+	<span class="hljs-keyword">this</span>-&gt;name = name;
+	<span class="hljs-keyword">this</span>-&gt;id = ++m_id_count;
+	<span class="hljs-keyword">this</span>-&gt;password = pw;
+	<span class="hljs-keyword">this</span>-&gt;sign = <span class="hljs-string">&#x27;T&#x27;</span>;
+    
+    <span class="hljs-comment">/* 实例化教师对象时，该对象会被自动添加到 教师集 */</span>
+	Teacher::ss-&gt;<span class="hljs-built_in">push_back</span>(<span class="hljs-keyword">this</span>);
+&#125;;
+
+<span class="hljs-function">List* <span class="hljs-title">Student::order</span><span class="hljs-params">(<span class="hljs-type">int</span> date, <span class="hljs-type">bool</span> time)</span> </span>&#123;
+	List* order = <span class="hljs-keyword">new</span> <span class="hljs-built_in">List</span>(date, time, <span class="hljs-keyword">this</span>);
+	<span class="hljs-keyword">return</span> order;
+&#125;
+
+<span class="hljs-function">List* <span class="hljs-title">Teacher::confirm</span><span class="hljs-params">(List* l, <span class="hljs-type">bool</span> b)</span> </span>&#123;
+	l-&gt;<span class="hljs-built_in">confirm</span>(b, <span class="hljs-keyword">this</span>);
+	<span class="hljs-keyword">return</span> l;
+&#125;;
+
+<span class="hljs-function">vector&lt;Student*&gt;* <span class="hljs-title">Student::all</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> ss;
+&#125;;
+<span class="hljs-function">Manager* <span class="hljs-title">Manager::getManager</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> ss;
+&#125;;
+<span class="hljs-function">vector&lt;Teacher*&gt;* <span class="hljs-title">Teacher::all</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-keyword">return</span> ss;
+&#125;;
+
+
+
+<span class="hljs-function">Student* <span class="hljs-title">Student::find</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> </span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;Student*&gt;::const_iterator i = ss-&gt;<span class="hljs-built_in">begin</span>(); i != ss-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Student* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;id == id) &#123;
+			<span class="hljs-keyword">return</span> temp;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+&#125;;
+<span class="hljs-function">Student* <span class="hljs-title">Student::find</span><span class="hljs-params">(string name)</span> </span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;Student*&gt;::const_iterator i = ss-&gt;<span class="hljs-built_in">begin</span>(); i != ss-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Student* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;name == name) &#123;
+			<span class="hljs-keyword">return</span> temp;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+&#125;;
+<span class="hljs-function">Teacher* <span class="hljs-title">Teacher::find</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> </span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;Teacher*&gt;::const_iterator i = ss-&gt;<span class="hljs-built_in">begin</span>(); i != ss-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Teacher* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;id == id) &#123;
+			<span class="hljs-keyword">return</span> temp;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+&#125;;
+<span class="hljs-function">Teacher* <span class="hljs-title">Teacher::find</span><span class="hljs-params">(string name)</span> </span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;Teacher*&gt;::const_iterator i = ss-&gt;<span class="hljs-built_in">begin</span>(); i != ss-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Teacher* temp = *i;
+		<span class="hljs-keyword">if</span> (temp-&gt;name == name) &#123;
+			<span class="hljs-keyword">return</span> temp;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+&#125;;
+
+
+<span class="hljs-function">Person* <span class="hljs-title">Manager::createAccount</span><span class="hljs-params">(<span class="hljs-type">char</span> identity, string name, string pw)</span> </span>&#123;
+	Person* get;
+	<span class="hljs-keyword">switch</span> (identity) &#123;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;S&#x27;</span>:
+		get = Student::<span class="hljs-built_in">find</span>(name);
+		<span class="hljs-keyword">if</span> (get != <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+		<span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(name, pw);
+		&#125;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;T&#x27;</span>:
+		get = Teacher::<span class="hljs-built_in">find</span>(name);
+		<span class="hljs-keyword">if</span> (get != <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+		<span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Teacher</span>(name, pw);
+		&#125;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;M&#x27;</span>:
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+	<span class="hljs-keyword">default</span>:
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+	&#125;
+&#125;;
+
+
+<span class="hljs-comment">/* 以下是一些静态变量的初始化 */</span>
+Person* Person::reject_has_existed = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Person</span>(<span class="hljs-string">&quot;机房已被占用&quot;</span>, <span class="hljs-number">-9001</span>);	<span class="hljs-comment">// 错误信息</span>
+vector&lt;Student*&gt;* Student::ss = <span class="hljs-keyword">new</span> vector&lt;Student*&gt;;					<span class="hljs-comment">// 学生集</span>
+Manager* Manager::ss = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Manager</span>(<span class="hljs-string">&quot;Heruin&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);					<span class="hljs-comment">// 管理员初始化</span>
+vector&lt;Teacher*&gt;* Teacher::ss = <span class="hljs-keyword">new</span> vector&lt;Teacher*&gt;;					<span class="hljs-comment">// 教师集</span>
+<span class="hljs-type">int</span> Manager::m_id_count = <span class="hljs-number">0</span>;
+<span class="hljs-type">int</span> Student::m_id_count = <span class="hljs-number">300000</span>;
+<span class="hljs-type">int</span> Teacher::m_id_count = <span class="hljs-number">100000</span>;</code></pre></div>
+
+<p><strong>menu.cpp</strong></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
+
+Person* user = <span class="hljs-literal">NULL</span>;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">testing_initial</span><span class="hljs-params">()</span> </span>&#123;				<span class="hljs-comment">// 初始化了一些账号和机房，以便测试之用</span>
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(<span class="hljs-string">&quot;胡桃&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(<span class="hljs-string">&quot;香菱&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(<span class="hljs-string">&quot;行秋&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(<span class="hljs-string">&quot;重云&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Teacher</span>(<span class="hljs-string">&quot;甘雨&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Teacher</span>(<span class="hljs-string">&quot;凝光&quot;</span>, <span class="hljs-string">&quot;000000&quot;</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Room</span>(<span class="hljs-number">15</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Room</span>(<span class="hljs-number">20</span>);
+	<span class="hljs-keyword">new</span> <span class="hljs-built_in">Room</span>(<span class="hljs-number">40</span>);
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu0</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-built_in">testing_initial</span>();		<span class="hljs-comment">/* initial for test only */</span>
+
+	<span class="hljs-type">bool</span> running = <span class="hljs-literal">true</span>;
+	<span class="hljs-keyword">while</span> (running) &#123;
+		<span class="hljs-built_in">show_menu0</span>();
+		cout &lt;&lt; <span class="hljs-string">&quot;请选择：&quot;</span>;
+		<span class="hljs-type">int</span> choice = <span class="hljs-number">0</span>;
+		cin &gt;&gt; choice;
+		<span class="hljs-keyword">if</span> (choice &gt; <span class="hljs-number">0</span> &amp;&amp; choice &lt; <span class="hljs-number">4</span>) &#123;
+			user = <span class="hljs-built_in">log_in</span>(choice);
+			<span class="hljs-keyword">if</span> (user == <span class="hljs-literal">NULL</span>) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;登录失败&quot;</span> &lt;&lt; endl;
+				<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);
+				<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+				<span class="hljs-keyword">continue</span>;
+			&#125;
+		&#125;
+		<span class="hljs-keyword">switch</span> (choice) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+			<span class="hljs-built_in">menu_stu</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+			<span class="hljs-built_in">menu_tea</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+			<span class="hljs-built_in">menu_man</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">log_out</span>()) &#123;
+				running = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;输入有误，请重新输入&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		user = <span class="hljs-literal">NULL</span>;
+		<span class="hljs-keyword">if</span> (running) <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu0</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;—————机房预约系统（登陆页面）—————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t1 学 生 登 录&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t2 教 师 登 录&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t3 管 理 员 登 录&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t9 退 出 系 统&quot;</span> &lt;&lt; endl;
+&#125;;
+
+<span class="hljs-function">Person* <span class="hljs-title">log_in</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;——————————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入 ID：&quot;</span>;
+	<span class="hljs-type">int</span> id;
+	cin &gt;&gt; id;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;请输入密码：&quot;</span>;
+	string pw;
+	cin &gt;&gt; pw;
+	<span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;
+		Student* ts = Student::<span class="hljs-built_in">find</span>(id);
+		<span class="hljs-keyword">if</span> (ts == <span class="hljs-literal">NULL</span> || !ts-&gt;<span class="hljs-built_in">checkPW</span>(pw)) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+		&#125; 
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> ts;
+	&#125;
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span>) &#123;
+		Teacher* ts = Teacher::<span class="hljs-built_in">find</span>(id);
+		<span class="hljs-keyword">if</span> (ts == <span class="hljs-literal">NULL</span> || !ts-&gt;<span class="hljs-built_in">checkPW</span>(pw)) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+		&#125;
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> ts;
+	&#125;
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">3</span>) &#123;
+		Manager* manager = Manager::<span class="hljs-built_in">getManager</span>();
+		<span class="hljs-keyword">if</span> (id == manager-&gt;<span class="hljs-built_in">getID</span>() &amp;&amp; manager-&gt;<span class="hljs-built_in">checkPW</span>(pw)) &#123;
+			<span class="hljs-keyword">return</span> manager;
+		&#125;
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_stu</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-type">bool</span> running = <span class="hljs-literal">true</span>;
+	Student* student = (Student*)user;
+	<span class="hljs-keyword">while</span> (running) &#123;
+		<span class="hljs-built_in">show_menu_stu</span>();
+		cout &lt;&lt; <span class="hljs-string">&quot;请选择：&quot;</span>;
+		<span class="hljs-type">int</span> choice;
+		cin &gt;&gt; choice;
+		<span class="hljs-keyword">switch</span> (choice) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			<span class="hljs-built_in">stu_order</span>(student);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			<span class="hljs-built_in">check_order</span>(student);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			<span class="hljs-built_in">check_all</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			<span class="hljs-built_in">cancel</span>(student);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">log_out</span>()) &#123;
+				running = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;输入有误&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (running) <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_stu</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;————机房预约系统（学生端：&quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getID</span>() &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; <span class="hljs-string">&quot;）————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t1 预 约 机 房&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t2 预 约 查 询&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t3 机 房 状 态 查 询&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t4 取 消 预 约&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t9 注 销 登 录&quot;</span> &lt;&lt; endl;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_tea</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-type">bool</span> running = <span class="hljs-literal">true</span>;
+	Teacher* teacher = (Teacher*)user;
+	<span class="hljs-keyword">while</span> (running) &#123;
+		<span class="hljs-built_in">show_menu_tea</span>();
+		cout &lt;&lt; <span class="hljs-string">&quot;请选择：&quot;</span>;
+		<span class="hljs-type">int</span> choice = <span class="hljs-number">0</span>;
+		cin &gt;&gt; choice;
+		<span class="hljs-keyword">switch</span> (choice) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			<span class="hljs-built_in">check_all</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			<span class="hljs-built_in">confirm</span>(teacher);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">log_out</span>()) &#123;
+				running = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;输入有误&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (running) <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_tea</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;————机房预约系统（教师端：&quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getID</span>() &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; <span class="hljs-string">&quot;）————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t1 查 看 预 约&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t2 审 核 查 询&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t9 注 销 登 录&quot;</span> &lt;&lt; endl;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu_man</span><span class="hljs-params">()</span> </span>&#123;
+	Manager* manager = (Manager*)user;
+	<span class="hljs-type">bool</span> running = <span class="hljs-literal">true</span>;
+	<span class="hljs-keyword">while</span> (running) &#123;
+		<span class="hljs-built_in">show_menu_man</span>();
+		cout &lt;&lt; <span class="hljs-string">&quot;请选择：&quot;</span>;
+		<span class="hljs-type">int</span> choice = <span class="hljs-number">0</span>;
+		cin &gt;&gt; choice;
+		<span class="hljs-keyword">switch</span> (choice) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			<span class="hljs-built_in">add_account</span>(manager);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			<span class="hljs-built_in">show_accounts</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			<span class="hljs-built_in">change_account</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			<span class="hljs-built_in">show_rooms</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+			<span class="hljs-built_in">clear_history</span>();
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">log_out</span>()) &#123;
+				running = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;输入有误&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (running) <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_menu_man</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;————机房预约系统（管理员：&quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getID</span>() &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; user-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; <span class="hljs-string">&quot;）————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t1 添 加 账 号&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t2 查 看 账 号&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t3 修 改 账 号&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t4 查 看 机 房&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t5 清 空 记 录&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t9 注 销 登 录&quot;</span> &lt;&lt; endl;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">log_out</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-type">char</span> confirm = <span class="hljs-string">&#x27;N&#x27;</span>;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;确定要退出吗？（Y / N）：&quot;</span>;
+	cin &gt;&gt; confirm;
+	<span class="hljs-keyword">if</span> (confirm == <span class="hljs-string">&#x27;Y&#x27;</span> || confirm == <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+	&#125;
+&#125;;
+
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">stu_order</span><span class="hljs-params">(Student* student)</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;============预 定 机 房============&quot;</span> &lt;&lt; endl;
+	<span class="hljs-built_in">show_rooms</span>();
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入要预定的机房序号：&quot;</span>;
+	<span class="hljs-type">int</span> room = <span class="hljs-number">0</span>;
+	cin &gt;&gt; room;
+	room--;
+	<span class="hljs-keyword">if</span> (room &gt;= Room::rooms-&gt;<span class="hljs-built_in">size</span>() || room &lt; <span class="hljs-number">0</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;输入错误：不存在的机房&quot;</span> &lt;&lt; endl;
+	&#125;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;请输入要预定的日期（周一 到 周末）&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;输入 1 - 7 的数字：&quot;</span>;
+	<span class="hljs-type">int</span> date = <span class="hljs-number">0</span>;
+	cin &gt;&gt; date;
+	<span class="hljs-keyword">if</span> (date &lt; <span class="hljs-number">1</span> || date &gt; <span class="hljs-number">7</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;输入错误：日期需是 1 - 7 的整数&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-type">char</span> time = <span class="hljs-string">&#x27;P&#x27;</span>;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;请输入要预定的时间段（N 上午/ A 下午）：&quot;</span>;
+	cin &gt;&gt; time;
+	<span class="hljs-type">bool</span> t = <span class="hljs-literal">true</span>;
+	<span class="hljs-keyword">if</span> (time == <span class="hljs-string">&#x27;N&#x27;</span> || time == <span class="hljs-string">&#x27;n&#x27;</span>) &#123;
+		t = <span class="hljs-literal">true</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (time == <span class="hljs-string">&#x27;A&#x27;</span> || time == <span class="hljs-string">&#x27;a&#x27;</span>) &#123;
+		t = <span class="hljs-literal">false</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;输入错误：只能是上午（N）或下午（A）&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	Room* temp = Room::rooms-&gt;<span class="hljs-built_in">at</span>(room);
+	<span class="hljs-keyword">if</span> (temp-&gt;<span class="hljs-built_in">add_request</span>(student-&gt;<span class="hljs-built_in">order</span>(date, t))) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;预定提交成功&quot;</span> &lt;&lt; endl;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;预定提交失败&quot;</span> &lt;&lt; endl;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">check_order</span><span class="hljs-params">(Student* student)</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;============预 定 查 询============&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		cout &lt;&lt; <span class="hljs-string">&quot;☆·&quot;</span> &lt;&lt; temp_room-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; endl;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;tbd.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;tbd.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			<span class="hljs-keyword">if</span> (temp-&gt;requester == student) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;\t&lt;&quot;</span> &lt;&lt; count++ &lt;&lt; <span class="hljs-string">&quot;&gt; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+			&#125;
+		&#125;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;confirmed.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;confirmed.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			<span class="hljs-keyword">if</span> (temp-&gt;requester == student) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;\t&lt;&quot;</span> &lt;&lt; count++ &lt;&lt; <span class="hljs-string">&quot;&gt; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; (temp -&gt; state &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;\t★&quot;</span> : <span class="hljs-string">&quot;\t☆&quot;</span>) &lt;&lt; endl;
+			&#125;
+		&#125;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;============查 看 全 部 预 约============&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> ret = <span class="hljs-number">0</span>;
+	ret += <span class="hljs-built_in">check_all_tbd</span>();
+	cout &lt;&lt; endl;
+	ret += <span class="hljs-built_in">check_all_confirmed</span>();
+	<span class="hljs-keyword">return</span> ret;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all_tbd</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;==============待 审 核 预 约=============&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		cout &lt;&lt; <span class="hljs-string">&quot;☆·&quot;</span> &lt;&lt; temp_room-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; endl;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;tbd.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;tbd.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			cout &lt;&lt; <span class="hljs-string">&quot;\t&lt;&quot;</span> &lt;&lt; count++ &lt;&lt; <span class="hljs-string">&quot;&gt; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> count - <span class="hljs-number">1</span>;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check_all_confirmed</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;==============已 通 过 预 约=============&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		cout &lt;&lt; <span class="hljs-string">&quot;★·&quot;</span> &lt;&lt; temp_room-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; endl;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;confirmed.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;confirmed.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			<span class="hljs-keyword">if</span> (temp-&gt;state &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;
+			cout &lt;&lt; <span class="hljs-string">&quot;\t&lt;&quot;</span> &lt;&lt; count++ &lt;&lt; <span class="hljs-string">&quot;&gt; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> count - <span class="hljs-number">1</span>;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">cancel</span><span class="hljs-params">(Student* student)</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;============取 消 预 定===========&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> n = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		cout &lt;&lt; <span class="hljs-string">&quot;☆·&quot;</span> &lt;&lt; temp_room-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; endl;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;tbd.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;tbd.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			<span class="hljs-keyword">if</span> (temp-&gt;requester == student) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;\t&lt;&quot;</span> &lt;&lt; n++ &lt;&lt; <span class="hljs-string">&quot;&gt; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+			&#125;
+		&#125;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入要取消的订单号：&quot;</span>;
+	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;
+	cin &gt;&gt; num;
+	<span class="hljs-keyword">if</span> (num &lt; <span class="hljs-number">1</span> || num &gt; n) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;输入有误：（输入值 &quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-string">&quot;，订单号范围 &quot;</span> &lt;&lt; <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">&quot; - &quot;</span> &lt;&lt; n &lt;&lt; <span class="hljs-string">&quot;）&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	n = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;tbd.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;tbd.<span class="hljs-built_in">end</span>(); il++) &#123;
+			List* temp = *il;
+			<span class="hljs-keyword">if</span> (temp-&gt;requester == student) &#123;
+				<span class="hljs-keyword">if</span> (n == num) &#123;
+					<span class="hljs-keyword">if</span> (temp_room-&gt;<span class="hljs-built_in">cancel</span>(il)) &#123;
+						cout &lt;&lt; <span class="hljs-string">&quot;取消成功&quot;</span> &lt;&lt; endl;
+					&#125;
+					<span class="hljs-keyword">else</span> &#123;
+						cout &lt;&lt; <span class="hljs-string">&quot;取消失败！&quot;</span> &lt;&lt; endl;
+					&#125;
+					<span class="hljs-keyword">return</span>;
+				&#125;
+				<span class="hljs-keyword">else</span> &#123;
+					n++;
+				&#125;
+			&#125;
+		&#125;
+	&#125;
+
+&#125;;
+
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">confirm</span><span class="hljs-params">(Teacher* t)</span> </span>&#123;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;★============·审 核 预 约·===========★&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> count = <span class="hljs-built_in">check_all_tbd</span>();
+	<span class="hljs-keyword">if</span> (count == <span class="hljs-number">0</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;当前没有要审核的预约&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;输入要批复的预约编号：&quot;</span>;
+	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;
+	cin &gt;&gt; num;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;是否批准？（Y / N）：&quot;</span>;
+	<span class="hljs-type">char</span> con = <span class="hljs-string">&#x27;P&#x27;</span>;
+	cin &gt;&gt; con;
+	<span class="hljs-type">bool</span> done = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">switch</span> (con) &#123;
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>Y<span class="hljs-number">&#x27;</span>:
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>y<span class="hljs-number">&#x27;</span>:
+		done = <span class="hljs-built_in">confirm_it</span>(num, <span class="hljs-literal">true</span>, t);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>n<span class="hljs-number">&#x27;</span>:
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>N<span class="hljs-number">&#x27;</span>:
+		done = <span class="hljs-built_in">confirm_it</span>(num, <span class="hljs-literal">false</span>, t);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">default</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;输入错误！&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">break</span>;
+	&#125;
+	<span class="hljs-keyword">if</span> (done) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;审核成功&quot;</span> &lt;&lt; endl;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;审核失败！&quot;</span> &lt;&lt; endl;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;是否继续？（Y / N）：&quot;</span>;
+	cin &gt;&gt; con;
+	<span class="hljs-keyword">if</span> (con == <span class="hljs-string">&#x27;Y&#x27;</span> || con == <span class="hljs-string">&#x27;y&#x27;</span> || con == <span class="hljs-string">&#x27;1&#x27;</span>) <span class="hljs-built_in">confirm</span>(t);
+&#125;;
+
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">confirm_it</span><span class="hljs-params">(<span class="hljs-type">int</span> num, <span class="hljs-type">bool</span> passed, Teacher* t)</span> </span>&#123;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp_room = *i;
+		<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator il = temp_room-&gt;tbd.<span class="hljs-built_in">begin</span>(); il != temp_room-&gt;tbd.<span class="hljs-built_in">end</span>(); il++) &#123;
+			num--;
+			<span class="hljs-keyword">if</span> (num == <span class="hljs-number">0</span>) &#123;
+				temp_room-&gt;<span class="hljs-built_in">confirm_request</span>(il, passed, t);
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+			&#125;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add_account</span><span class="hljs-params">(Manager* m)</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;★=============·创 建 账 号·=============★&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入姓名：&quot;</span>;
+	string name = <span class="hljs-string">&quot;&quot;</span>;
+	cin &gt;&gt; name;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入初始密码：&quot;</span>;
+	string pw = <span class="hljs-string">&quot;&quot;</span>;
+	cin &gt;&gt; pw;
+	cout &lt;&lt; <span class="hljs-string">&quot;要创建何种账号？（S 学生账号/ T 教师账号）：&quot;</span>;
+	<span class="hljs-type">char</span> acc = <span class="hljs-string">&#x27;M&#x27;</span>;
+	cin &gt;&gt; acc;
+	Person* p = <span class="hljs-literal">NULL</span>;
+	<span class="hljs-keyword">switch</span> (acc) &#123;
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>s<span class="hljs-number">&#x27;</span>:
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>S<span class="hljs-number">&#x27;</span>:
+		p = m-&gt;<span class="hljs-built_in">createAccount</span>(<span class="hljs-string">&#x27;S&#x27;</span>, name, pw);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>T<span class="hljs-number">&#x27;</span>:
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>t<span class="hljs-number">&#x27;</span>:
+		p = m-&gt;<span class="hljs-built_in">createAccount</span>(<span class="hljs-string">&#x27;T&#x27;</span>, name, pw);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>m<span class="hljs-number">&#x27;</span>:
+	<span class="hljs-keyword">case</span><span class="hljs-number">&#x27;</span>M<span class="hljs-number">&#x27;</span>:
+		p = m-&gt;<span class="hljs-built_in">createAccount</span>(<span class="hljs-string">&#x27;M&#x27;</span>, name, pw);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">default</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;输入错误！&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">if</span> (p == <span class="hljs-literal">NULL</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;创建失败！&quot;</span> &lt;&lt; endl;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;创建成功：&quot;</span> &lt;&lt; endl;
+		cout &lt;&lt; <span class="hljs-string">&quot;\t&quot;</span> &lt;&lt;  p-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;继续吗？（Y / N）：&quot;</span>;
+	cin &gt;&gt; acc;
+	<span class="hljs-keyword">if</span> (acc == <span class="hljs-string">&#x27;y&#x27;</span> || acc == <span class="hljs-string">&#x27;Y&#x27;</span> || acc == <span class="hljs-string">&#x27;1&#x27;</span>) <span class="hljs-built_in">add_account</span>(m);
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_accounts</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;=================显示全部账号=================&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;———————学 生 账 号———————&quot;</span> &lt;&lt; endl;
+	<span class="hljs-keyword">if</span> (Student::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">empty</span>()) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;\t\t 尚无学生账号&quot;</span> &lt;&lt; endl;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">for</span> (vector&lt;Student*&gt;::const_iterator i = Student::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">begin</span>(); i != Student::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+			Student* temp = *i;
+			cout &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+		&#125;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;———————教 师 账 号———————&quot;</span> &lt;&lt; endl;
+	<span class="hljs-keyword">if</span> (Teacher::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">empty</span>()) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;\t\t 尚无教师账号&quot;</span> &lt;&lt; endl;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">for</span> (vector&lt;Teacher*&gt;::const_iterator i = Teacher::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">begin</span>(); i != Teacher::<span class="hljs-built_in">all</span>()-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+			Teacher* temp = *i;
+			cout &lt;&lt; temp-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+		&#125;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change_account</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-built_in">show_accounts</span>();
+	cout &lt;&lt; <span class="hljs-string">&quot;★=============·修改账号信息·=============★&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入更改账号的类别（S 学生账号/ T 教师账号）：&quot;</span>;
+	<span class="hljs-type">char</span> acc = <span class="hljs-string">&#x27;M&#x27;</span>;
+	cin &gt;&gt; acc;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入账号 ID：&quot;</span>;
+	<span class="hljs-type">int</span> id = <span class="hljs-number">0</span>;
+	cin &gt;&gt; id;
+	Person* account = <span class="hljs-literal">NULL</span>;
+	<span class="hljs-keyword">switch</span> (acc) &#123;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;s&#x27;</span>:
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;S&#x27;</span>:
+		account = Student::<span class="hljs-built_in">find</span>(id);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;t&#x27;</span>:
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;T&#x27;</span>:
+		account = Teacher::<span class="hljs-built_in">find</span>(id);
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;m&#x27;</span>:
+	<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;M&#x27;</span>:
+		<span class="hljs-keyword">return</span>;
+	<span class="hljs-keyword">default</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;错误的账号类别！&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">if</span> (account == <span class="hljs-literal">NULL</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;未找到该账号&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> &#123;
+		cout &lt;&lt; account-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入姓名：&quot;</span>;
+	string name;
+	cin &gt;&gt; name;
+	account-&gt;<span class="hljs-built_in">setName</span>(name);
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入密码：&quot;</span>;
+	cin &gt;&gt; name;
+	account-&gt;<span class="hljs-built_in">setPW</span>(name);
+	cout &lt;&lt; <span class="hljs-string">&quot;修改完毕：&quot;</span>;
+	cout &lt;&lt; account-&gt;<span class="hljs-built_in">print</span>() &lt;&lt; endl;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;继续吗？（Y / N）：&quot;</span>;
+	cin &gt;&gt; acc;
+	<span class="hljs-keyword">if</span> (acc == <span class="hljs-string">&#x27;y&#x27;</span> || acc == <span class="hljs-string">&#x27;Y&#x27;</span>) &#123;
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);
+		<span class="hljs-built_in">change_account</span>();
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_rooms</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;可用机房如下：&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> n = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator i = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); i != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); i++) &#123;
+		Room* temp = *i;
+		cout &lt;&lt; n++ &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">getName</span>() &lt;&lt; <span class="hljs-string">&quot;\t座位数：&quot;</span> &lt;&lt; temp-&gt;<span class="hljs-built_in">getSeat</span>() &lt;&lt; endl;
+	&#125;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear_history</span><span class="hljs-params">()</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;★★★=========·清空预定记录·=========★★★&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;现有记录会被全部清空！确定吗？（Y / N）：&quot;</span>;
+	<span class="hljs-type">char</span> confirm = <span class="hljs-string">&#x27;N&#x27;</span>;
+	cin &gt;&gt; confirm;
+	<span class="hljs-keyword">if</span> (confirm == <span class="hljs-string">&#x27;Y&#x27;</span> || confirm == <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+		<span class="hljs-keyword">for</span> (vector&lt;Room*&gt;::const_iterator ri = Room::rooms-&gt;<span class="hljs-built_in">begin</span>(); ri != Room::rooms-&gt;<span class="hljs-built_in">end</span>(); ri++) &#123;
+			Room* room = *ri;
+			<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = room-&gt;tbd.<span class="hljs-built_in">begin</span>(); i != room-&gt;tbd.<span class="hljs-built_in">end</span>(); i++) &#123;
+				List* temp = *i;
+				<span class="hljs-keyword">delete</span> temp;
+			&#125;
+			room-&gt;tbd.<span class="hljs-built_in">clear</span>();
+			<span class="hljs-keyword">for</span> (vector&lt;List*&gt;::const_iterator i = room-&gt;confirmed.<span class="hljs-built_in">begin</span>(); i != room-&gt;confirmed.<span class="hljs-built_in">end</span>(); i++) &#123;
+				List* temp = *i;
+				<span class="hljs-keyword">delete</span> temp;
+			&#125;
+			room-&gt;confirmed.<span class="hljs-built_in">clear</span>();
+			room-&gt;tbd.<span class="hljs-built_in">swap</span>(room-&gt;confirmed);
+		&#125;
+	&#125;
+	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;清空完成&quot;</span> &lt;&lt; endl;
+&#125;;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;C++&gt;13 项目：机房预约系统</div>
+      <div>https://i-melody.github.io/2022/05/24/C++/入门阶段/13 项目：机房预约系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月24日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

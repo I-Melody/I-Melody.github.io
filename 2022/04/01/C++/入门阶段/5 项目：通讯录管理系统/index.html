@@ -1,0 +1,1130 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="5 项目：通讯录管理系统项目需求：  添加联系人：（序号、姓名、性别、年龄、联系电话、家庭住址）最多 1000 条 显示联系人 删除联系人：按照 姓名 &#x2F; 电话 &#x2F; 序号 删除联系人 查找联系人 修改联系人 清空联系人 退出通讯录  一些功能： system(&quot;pause&quot;);			&#x2F;&#x2F;按任意键继续 system(&quot;cls&quot;);				&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;C++&gt;5 项目：通讯录管理系统">
+<meta property="og:url" content="https://i-melody.github.io/2022/04/01/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="5 项目：通讯录管理系统项目需求：  添加联系人：（序号、姓名、性别、年龄、联系电话、家庭住址）最多 1000 条 显示联系人 删除联系人：按照 姓名 &#x2F; 电话 &#x2F; 序号 删除联系人 查找联系人 修改联系人 清空联系人 退出通讯录  一些功能： system(&quot;pause&quot;);			&#x2F;&#x2F;按任意键继续 system(&quot;cls&quot;);				&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:52:35.015Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;C++&gt;5 项目：通讯录管理系统 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;C++&gt;5 项目：通讯录管理系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-01 00:00" pubdate>
+          2022年4月1日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;C++&gt;5 项目：通讯录管理系统</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="5-项目：通讯录管理系统"><a href="#5-项目：通讯录管理系统" class="headerlink" title="5 项目：通讯录管理系统"></a>5 项目：通讯录管理系统</h1><p><strong>项目需求：</strong></p>
+<ul>
+<li>添加联系人：（序号、姓名、性别、年龄、联系电话、家庭住址）最多 1000 条</li>
+<li>显示联系人</li>
+<li>删除联系人：按照 姓名 &#x2F; 电话 &#x2F; 序号 删除联系人</li>
+<li>查找联系人</li>
+<li>修改联系人</li>
+<li>清空联系人</li>
+<li>退出通讯录</li>
+</ul>
+<p>一些功能：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);			<span class="hljs-comment">//按任意键继续</span>
+<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);				<span class="hljs-comment">//清屏</span></code></pre></div>
+
+
+
+<h2 id="附录：通讯录管理系统"><a href="#附录：通讯录管理系统" class="headerlink" title="附录：通讯录管理系统"></a>附录：通讯录管理系统</h2><h3 id="Here-cpp"><a href="#Here-cpp" class="headerlink" title="Here.cpp"></a>Here.cpp</h3><blockquote>
+<p>main 方法</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;headF1.h&quot;</span>			<span class="hljs-comment">//自定义头文件</span></span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-built_in">menu</span>();					<span class="hljs-comment">//通讯录方法</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre></div>
+
+<h3 id="headF1-h"><a href="#headF1-h" class="headerlink" title="headF1.h"></a>headF1.h</h3><blockquote>
+<p>头文件</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Data</span>;						<span class="hljs-comment">//每条记录对应一个结构体变量</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Book</span>;						<span class="hljs-comment">//所有记录被包含在该结构体变量中</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu</span><span class="hljs-params">()</span></span>;								<span class="hljs-comment">//程序主方法</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showSingle</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* dp)</span></span>;			<span class="hljs-comment">//展示一条记录</span>
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showMenu</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">int</span>* num)</span></span>;				<span class="hljs-comment">//展示通讯录菜单</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span></span>;			<span class="hljs-comment">//添加一条记录</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* p, <span class="hljs-type">int</span> num)</span></span>;		<span class="hljs-comment">//展示全部记录</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">searchList</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* dp, <span class="hljs-type">int</span> num)</span></span>;	<span class="hljs-comment">//搜索记录</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">changeList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span> num)</span></span>;			<span class="hljs-comment">//修改记录</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">deleteSingle</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span></span>;		<span class="hljs-comment">//删除一条记录</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clearList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span></span>;			<span class="hljs-comment">//删除全部记录</span></code></pre></div>
+
+<h3 id="menuTool-cpp"><a href="#menuTool-cpp" class="headerlink" title="menuTool.cpp"></a>menuTool.cpp</h3><blockquote>
+<p>源文件</p>
+<p>混沌！毁灭！RUA！！！</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;headF1.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+
+<span class="hljs-type">const</span> <span class="hljs-type">int</span> MAX_SIZE = <span class="hljs-number">1000</span>;
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Data</span> &#123;
+	<span class="hljs-type">int</span> id = <span class="hljs-number">-1</span>;		<span class="hljs-comment">//联系人 ID，该变量由系统生成，-1 的场合表示空</span>
+	string name;		<span class="hljs-comment">//联系人名</span>
+	<span class="hljs-type">char</span> gender;		<span class="hljs-comment">//联系人性别</span>
+	<span class="hljs-type">int</span> age;			<span class="hljs-comment">//联系人年龄</span>
+	string call;		<span class="hljs-comment">//联系人电话</span>
+	string home;		<span class="hljs-comment">//联系人住址</span>
+&#125;;
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Book</span> &#123;				<span class="hljs-comment">//保存全部联系人的结构体</span>
+    						<span class="hljs-comment">//不如此做会导致一些问题</span>
+	Data list[MAX_SIZE];	<span class="hljs-comment">//联系人数组</span>
+	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;			<span class="hljs-comment">//已添加的联系人数量</span>
+&#125;book;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">menu</span><span class="hljs-params">()</span> </span>&#123;	
+	<span class="hljs-type">int</span> userIn;									<span class="hljs-comment">//接收用户输入</span>
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+		<span class="hljs-built_in">showMenu</span>(&amp;book.num);					<span class="hljs-comment">//方法：显示菜单</span>
+		cin &gt;&gt; userIn;
+		<span class="hljs-keyword">switch</span> (userIn) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————添加联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">addList</span>(book.list, &amp;book.num);		<span class="hljs-comment">//方法：添加联系人</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————显示全部联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">showList</span>(book.list, book.num);		<span class="hljs-comment">//方法：显示通讯录</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————查找联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">searchList</span>(book.list, book.num);	<span class="hljs-comment">//方法：查找联系人</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————修改联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">changeList</span>(book.list, book.num);	<span class="hljs-comment">//方法：修改联系人</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————删除联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">deleteSingle</span>(book.list, &amp;book.num);	<span class="hljs-comment">//方法：删除联系人</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;————清空联系人————&quot;</span> &lt;&lt; endl;
+			<span class="hljs-built_in">clearList</span>(book.list, &amp;book.num);	<span class="hljs-comment">//方法：清空联系人</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;再次输入 9 退出通讯录系统：&quot;</span>;
+			cin &gt;&gt; userIn;
+			<span class="hljs-keyword">if</span> (userIn == <span class="hljs-number">9</span>) &#123;
+				<span class="hljs-keyword">return</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);						<span class="hljs-comment">//添加一个暂停</span>
+		<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;cls&quot;</span>);							<span class="hljs-comment">//清屏</span>
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showMenu</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">int</span> * num)</span> </span>&#123;				<span class="hljs-comment">//方法：显示菜单</span>
+	cout &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;————通讯录系统（共 &quot;</span> &lt;&lt; *num &lt;&lt; <span class="hljs-string">&quot; 条记录）————&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t1.添加联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t2.显示全部联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t3.查找联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t4.修改联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t5.删除联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t6.清空联系人&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;\t\t9.退      出&quot;</span> &lt;&lt; endl;
+	cout &lt;&lt; endl;
+	cout &lt;&lt; <span class="hljs-string">&quot;请选择：&quot;</span>;
+&#125;
+
+
+
+	
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showSingle</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* dp)</span> </span>&#123;			<span class="hljs-comment">//方法：展示单条记录</span>
+	cout &lt;&lt; dp-&gt;id &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; dp-&gt;name &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; dp-&gt;gender &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; dp-&gt;age &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; dp-&gt;call &lt;&lt; <span class="hljs-string">&#x27;\t&#x27;</span> &lt;&lt; dp-&gt;home &lt;&lt; endl;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span> </span>&#123;			<span class="hljs-comment">//方法：添加联系人</span>
+	<span class="hljs-keyword">if</span> (*num &gt;= MAX_SIZE) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;通讯录已满&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-type">int</span> id = <span class="hljs-number">0</span>;					<span class="hljs-comment">//准备分配 ID</span>
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;				<span class="hljs-comment">//遍历全部通讯录位置，直到找到空位</span>
+		++id;					<span class="hljs-comment">//其实，ID 即数组下标 + 1</span>
+		<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;		<span class="hljs-comment">//位置 id = -1 表示该位为空位</span>
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-keyword">else</span> &#123;
+			dp++;
+		&#125;
+	&#125;
+	Data nextP;					<span class="hljs-comment">//创建新的联系人，并初始化</span>
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入联系人姓名：&quot;</span>;
+	cin &gt;&gt; nextP.name;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入联系人性别（M/F）：&quot;</span>;
+	cin &gt;&gt; nextP.gender;
+	<span class="hljs-keyword">if</span> ((nextP.gender != <span class="hljs-string">&#x27;M&#x27;</span>) &amp;&amp; (nextP.gender != <span class="hljs-string">&#x27;F&#x27;</span>)) &#123;
+		nextP.gender = <span class="hljs-string">&#x27;-&#x27;</span>;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入联系人年龄：&quot;</span>;
+	cin &gt;&gt; nextP.age;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入联系人电话：&quot;</span>;
+	cin &gt;&gt; nextP.call;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入联系人家庭住址：&quot;</span>;
+	cin &gt;&gt; nextP.home;
+	nextP.id = id;
+	*dp = nextP;				<span class="hljs-comment">//在刚才确定的位置上，添加联系人</span>
+	(*num)++;					<span class="hljs-comment">//添加的联系人数量 + 1</span>
+&#125;
+	
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showList</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* dp, <span class="hljs-type">int</span> num)</span> </span>&#123;		<span class="hljs-comment">//方法：展示通讯录</span>
+	cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+	<span class="hljs-keyword">while</span> (num &gt; <span class="hljs-number">0</span>) &#123;
+		<span class="hljs-keyword">if</span> (dp-&gt;id &gt;= <span class="hljs-number">0</span>) &#123;
+			num--;
+			<span class="hljs-built_in">showSingle</span>(dp);		<span class="hljs-comment">//方法：展示单条记录</span>
+		&#125;
+		dp++;
+	&#125;
+&#125;
+
+
+
+<span class="hljs-comment">/*——————————对了，我写啥注释啊，又没人看，溜了——————————*/</span>
+<span class="hljs-comment">/*…………………………………………这么个破代码还看啥看…………………………………………*/</span>
+
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">searchList</span><span class="hljs-params">(<span class="hljs-type">const</span> Data* dp, <span class="hljs-type">int</span> num)</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入查找模式（1.ID；2.姓名；3.电话号码；0.取消）：&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> user;
+	cin &gt;&gt; user;
+	string temp;
+	<span class="hljs-keyword">switch</span> (user) &#123;
+	<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;请输入要查询的 ID：&quot;</span>;
+		cin &gt;&gt; user;
+		<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+			<span class="hljs-keyword">if</span> (num &lt;= <span class="hljs-number">0</span>) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;没有找到该联系人&quot;</span> &lt;&lt; endl;
+				<span class="hljs-keyword">break</span>;
+			&#125;
+			<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+				<span class="hljs-keyword">continue</span>;
+			&#125;
+			num--;
+			<span class="hljs-keyword">if</span> (dp-&gt;id == user) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+				<span class="hljs-built_in">showSingle</span>(dp);
+				<span class="hljs-keyword">break</span>;
+			&#125;
+			dp++;
+		&#125;
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;请输入要查询的 姓名：&quot;</span>;
+		cin &gt;&gt; temp;
+		user = <span class="hljs-number">0</span>;
+		<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+			<span class="hljs-keyword">if</span> (num &lt;= <span class="hljs-number">0</span>) &#123;
+				cout &lt;&lt; (user == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;没有找到该联系人&quot;</span> : <span class="hljs-string">&quot;查询完毕&quot;</span>) &lt;&lt; endl;
+				<span class="hljs-keyword">break</span>;
+			&#125;
+			<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+				<span class="hljs-keyword">continue</span>;
+			&#125;
+			num--;
+			<span class="hljs-keyword">if</span> (dp-&gt;name == temp) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+				<span class="hljs-built_in">showSingle</span>(dp);
+				user++;
+			&#125;
+			dp++;
+		&#125;
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+		cout &lt;&lt; <span class="hljs-string">&quot;请输入要查询的 电话号码：&quot;</span>;
+		cin &gt;&gt; temp;
+		user = <span class="hljs-number">0</span>;
+		<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+			<span class="hljs-keyword">if</span> (num &lt;= <span class="hljs-number">0</span>) &#123;
+				cout &lt;&lt; (user == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;没有找到该联系人&quot;</span> : <span class="hljs-string">&quot;查询完毕&quot;</span>) &lt;&lt; endl;
+				<span class="hljs-keyword">break</span>;
+			&#125;
+			<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+				<span class="hljs-keyword">continue</span>;
+			&#125;
+			num--;
+			<span class="hljs-keyword">if</span> (dp-&gt;call == temp) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+				<span class="hljs-built_in">showSingle</span>(dp);
+				user++;
+			&#125;
+			dp++;
+		&#125;
+		<span class="hljs-keyword">break</span>;
+	<span class="hljs-keyword">default</span>:
+		<span class="hljs-keyword">return</span>;
+	&#125;
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">changeList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span> num)</span> </span>&#123;
+	Data* start = dp;
+	<span class="hljs-type">int</span> num2 = num;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入查找模式（1.ID；2.姓名；0.返回）：&quot;</span> &lt;&lt; endl;
+	<span class="hljs-type">int</span> user;
+	cin &gt;&gt; user;
+	string temp;
+	<span class="hljs-keyword">if</span> (user &gt; <span class="hljs-number">2</span> || user &lt; <span class="hljs-number">1</span>) &#123;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">if</span> (user == <span class="hljs-number">2</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;请输入要查询的联系人姓名：&quot;</span>;
+		cin &gt;&gt; temp;
+		user = <span class="hljs-number">0</span>;
+		<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+			<span class="hljs-keyword">if</span> (num &lt;= <span class="hljs-number">0</span>) &#123;
+				<span class="hljs-keyword">if</span> (user == <span class="hljs-number">0</span>) &#123;
+					cout &lt;&lt; <span class="hljs-string">&quot;没有找到该联系人&quot;</span> &lt;&lt; endl;
+				&#125;
+				<span class="hljs-keyword">break</span>;
+			&#125;
+			<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+				<span class="hljs-keyword">continue</span>;
+			&#125;
+			num--;
+			<span class="hljs-keyword">if</span> (dp-&gt;name == temp) &#123;
+				cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+				<span class="hljs-built_in">showSingle</span>(dp);
+				user++;
+			&#125;
+			dp++;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">if</span> (user == <span class="hljs-number">0</span>) &#123;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	dp = start;
+	num = num2;
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入要修改的 ID：&quot;</span>;
+	<span class="hljs-type">int</span> id;
+	cin &gt;&gt; id;
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+		<span class="hljs-keyword">if</span> (num &lt;= <span class="hljs-number">0</span>) &#123;
+			cout &lt;&lt; <span class="hljs-string">&quot;没有找到该联系人&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">return</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+			<span class="hljs-keyword">continue</span>;
+		&#125;
+		num--;
+		<span class="hljs-keyword">if</span> (dp-&gt;id == id) &#123;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		dp++;
+	&#125;
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;——————————————————————————————&quot;</span> &lt;&lt; endl;
+		cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+		<span class="hljs-built_in">showSingle</span>(dp);
+		cout &lt;&lt; <span class="hljs-string">&quot;请输入要修改的项（1.姓名；2.性别；3.年龄；4.联系电话；5.家庭住址；0.返回）：&quot;</span>;
+		cin &gt;&gt; user;
+		<span class="hljs-keyword">switch</span> (user) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;请输入姓名：&quot;</span>;
+			cin &gt;&gt; dp-&gt;name;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;请输入性别：&quot;</span>;
+			cin &gt;&gt; dp-&gt;gender;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;请输入年龄：&quot;</span>;
+			cin &gt;&gt; dp-&gt;age;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;请输入联系电话：&quot;</span>;
+			cin &gt;&gt; dp-&gt;call;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+			cout &lt;&lt; <span class="hljs-string">&quot;请输入家庭住址：&quot;</span>;
+			cin &gt;&gt; dp-&gt;home;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:
+			<span class="hljs-keyword">return</span>;
+		&#125;
+	&#125;
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">deleteSingle</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span> </span>&#123;
+	cout &lt;&lt; <span class="hljs-string">&quot;首先查询联系人（不需要查询输入0）&quot;</span> &lt;&lt; endl;
+	<span class="hljs-built_in">searchList</span>(dp, *num);
+	cout &lt;&lt; <span class="hljs-string">&quot;请输入要删除的 ID（0.取消）：&quot;</span>;
+	<span class="hljs-type">int</span> id;
+	cin &gt;&gt; id;
+	<span class="hljs-keyword">if</span> (id == <span class="hljs-number">0</span>) &#123;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (id &gt; <span class="hljs-number">1000</span> || id &lt; <span class="hljs-number">0</span>) &#123;
+		cout &lt;&lt; <span class="hljs-string">&quot;ID 错误&quot;</span> &lt;&lt; endl;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-type">int</span> count = *num;
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+		<span class="hljs-keyword">if</span> (count &lt;= <span class="hljs-number">0</span>) &#123;
+			cout &lt;&lt; <span class="hljs-string">&quot;没有找到该联系人&quot;</span> &lt;&lt; endl;
+			<span class="hljs-keyword">return</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (dp-&gt;id == <span class="hljs-number">-1</span>) &#123;
+			<span class="hljs-keyword">continue</span>;
+		&#125;
+		count--;
+		<span class="hljs-keyword">if</span> (dp-&gt;id == id) &#123;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		dp++;
+	&#125;
+	cout &lt;&lt; <span class="hljs-string">&quot;ID\t姓名\t性别\t年龄\t联系电话\t家庭住址&quot;</span> &lt;&lt; endl;
+	<span class="hljs-built_in">showSingle</span>(dp);
+	cout &lt;&lt; <span class="hljs-string">&quot;确定删除该联系人吗？（Y/N）：&quot;</span>;
+	<span class="hljs-type">char</span> confirm;
+	cin &gt;&gt; confirm;
+	<span class="hljs-keyword">if</span> (confirm != <span class="hljs-string">&#x27;Y&#x27;</span> &amp;&amp; confirm != <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	dp-&gt;id = <span class="hljs-number">-1</span>;
+	(*num)--;
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clearList</span><span class="hljs-params">(Data* dp, <span class="hljs-type">int</span>* num)</span> </span>&#123;
+	<span class="hljs-type">char</span> user;
+	cout &lt;&lt; <span class="hljs-string">&quot;确定要删除全部联系人吗？（Y/N）：&quot;</span>;
+	cin &gt;&gt; user;
+	<span class="hljs-keyword">if</span> (user != <span class="hljs-string">&#x27;Y&#x27;</span> &amp;&amp; user != <span class="hljs-string">&#x27;y&#x27;</span>) &#123;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+		<span class="hljs-keyword">if</span> (*num &lt;= <span class="hljs-number">0</span>) &#123;
+			<span class="hljs-keyword">return</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (dp-&gt;id != <span class="hljs-number">-1</span>) &#123;
+			(*num)--;
+			dp-&gt;id = <span class="hljs-number">-1</span>;
+		&#125;
+		dp++;
+	&#125;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;C++&gt;5 项目：通讯录管理系统</div>
+      <div>https://i-melody.github.io/2022/04/01/C++/入门阶段/5 项目：通讯录管理系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月1日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

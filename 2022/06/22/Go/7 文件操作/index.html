@@ -1,0 +1,975 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="7 文件操作文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;* 打开文件 *&#x2F; if">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Go&gt;7 文件操作">
+<meta property="og:url" content="https://i-melody.github.io/2022/06/22/Go/7%20%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="7 文件操作文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;* 打开文件 *&#x2F; if">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-26T07:32:42.130Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Go&gt;7 文件操作 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Go&gt;7 文件操作"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-22 00:00" pubdate>
+          2022年6月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Go&gt;7 文件操作</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月26日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="7-文件操作"><a href="#7-文件操作" class="headerlink" title="7 文件操作"></a>7 文件操作</h1><p>文件是……是什么大家都懂的吧。</p>
+<p>在程序中，以流的形式对文件来进行操作</p>
+<p>流：数据在文件和程序间经历的路径</p>
+<p>输入流：数据从数据源（文件）到程序（内存）的路径</p>
+<p>输出流：数据从程序（内存）到数据源（文件）的路径</p>
+<h2 id="7-1-打开、关闭文件"><a href="#7-1-打开、关闭文件" class="headerlink" title="7.1 打开、关闭文件"></a>7.1 打开、关闭文件</h2><p>在 os 包中，封装了所有文件相关的操作。</p>
+<p>os 包的结构体 File 代表一个打开的文件对象</p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> file *os.File
+
+<span class="hljs-comment">/* 打开文件 */</span>
+<span class="hljs-keyword">if</span> f, err := os.Open(<span class="hljs-string">&quot;D:/1.txt&quot;</span>); err == <span class="hljs-literal">nil</span> &#123;	<span class="hljs-comment">// [1]</span>
+    fmt.Println(<span class="hljs-string">&quot;打开成功\t&quot;</span>, f)
+    file = f
+&#125; <span class="hljs-keyword">else</span> &#123;
+    fmt.Println(<span class="hljs-string">&quot;打开失败\t&quot;</span>, err)
+&#125;
+
+<span class="hljs-comment">/* 关闭文件 */</span>
+<span class="hljs-keyword">if</span> err := file.Close(); err == <span class="hljs-literal">nil</span> &#123;			<span class="hljs-comment">// [2]</span>
+    fmt.Println(<span class="hljs-string">&quot;关闭文件&quot;</span>)
+&#125; <span class="hljs-keyword">else</span> &#123;
+    fmt.Println(<span class="hljs-string">&quot;关闭失败\t&quot;</span>, err)
+&#125;</code></pre></div>
+
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><blockquote>
+<p>以下函数存在于 os 包</p>
+</blockquote>
+<p><strong>打开文件</strong></p>
+<ul>
+<li><p><code>func Open(name string) (*File, error)</code>：打开文件</p>
+<p>打开一个文件用于读取。成功时，返回一个文件指针</p>
+</li>
+<li><p><code>OpenFile(name string, flag int, perm FileMode) (file *File, err error)</code></p>
+<p>使用指定的选项打开文件。其中 flag 是文件打开模式（可组合使用），perm 为权限控制</p>
+<p>flag 有以下选择：</p>
+<ul>
+<li>os.O_RDONLY：以只读模式打开文件</li>
+<li>os.O_WRONLY：以只写方式打开文件</li>
+<li>os.O_RDWR：读写模式打开文件</li>
+<li>os.O_APPEND：以追加模式打开文件</li>
+<li>os.O_CREATE：文件不存在时，会创建该文件</li>
+<li>os.O_EXCL：和 os.O_CREATE 配合使用。要求文件必须不存在</li>
+<li>os.O_SYNC：打开文件用于同步 I&#x2F;O</li>
+<li>os.O_TRUNC：打开时清空文件</li>
+</ul>
+<p>一定要慎重选择 flag 哟~</p>
+<p>另外，perm 权限控制在 Windows 系统下无效。仅 Linux 系统有效。</p>
+</li>
+</ul>
+<p><strong>文件状态</strong></p>
+<ul>
+<li><p><code>Stat(name string) (fi FileInfo, err error)</code>：返回文件状态</p>
+<p>err 为 nil 时，说明文件或文件夹存在。os.IsNotExist(err) 返回 true 时，说明文件不存在。</p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> _, err := os.Stat(<span class="hljs-string">`d:\1.txt`</span>); err == <span class="hljs-literal">nil</span> &#123;
+    fmt.Println(<span class="hljs-string">&quot;文件存在&quot;</span>)
+&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> os.IsNotExist(err) &#123;
+    fmt.Println(<span class="hljs-string">&quot;文件不存在&quot;</span>)
+&#125; <span class="hljs-keyword">else</span> &#123;
+    fmt.Println(<span class="hljs-string">`优质答案：&quot;我不知道&quot;`</span>)
+&#125;</code></pre></div></li>
+</ul>
+<p><strong>关闭文件</strong></p>
+<ul>
+<li><p><code>func (f *File) Close() error</code>：关闭文件</p>
+<p><strong>注意：</strong>当函数退出时，要及时关闭 File，否则会有内存泄漏</p>
+<p>可以使用 defer 进行延迟关闭</p>
+</li>
+</ul>
+<h2 id="7-2-读、写文件"><a href="#7-2-读、写文件" class="headerlink" title="7.2 读、写文件"></a>7.2 读、写文件</h2><h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p><strong>读取文件内容（带缓冲区）：</strong></p>
+<blockquote>
+<p>需要导入 bufio 包。该包下有一个 Reader 结构体</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs go">file, _ := os.Open(<span class="hljs-string">&quot;d:\\1.txt&quot;</span>)
+reader := bufio.NewReader(file)			<span class="hljs-comment">// [1]</span>
+<span class="hljs-keyword">for</span> &#123;
+    str, err := reader.ReadString(<span class="hljs-string">&#x27;\n&#x27;</span>)	<span class="hljs-comment">// [2]</span>
+    fmt.Print(str)
+    <span class="hljs-keyword">if</span> err == io.EOF &#123;					<span class="hljs-comment">// [3]</span>
+        <span class="hljs-keyword">break</span>
+    &#125;
+&#125;
+file.Close()</code></pre></div>
+
+<ol>
+<li>创建一个 *Reader，其缓冲区默认为 4096</li>
+<li>直到遇到指定字符前，读取字符</li>
+<li>EOF 是文件结束标记。err &#x3D;&#x3D; EOF 时表明文件已经结束</li>
+</ol>
+<p><strong>读取文件内容（一次性读完）：</strong></p>
+<blockquote>
+<p>需要导入 ioutil 包。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs go">str, err := ioutil.ReadFile(<span class="hljs-string">&quot;D:\\1.txt&quot;</span>)	<span class="hljs-comment">// [1]</span>
+<span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> &#123;
+    fmt.Println(<span class="hljs-type">string</span>(str))
+&#125; <span class="hljs-keyword">else</span> &#123;
+    fmt.Println(err)
+&#125;</code></pre></div>
+
+<ol>
+<li><p><code>ReadFile(filename string) (byte[], error)</code></p>
+<p>读取文件全部内容，返回字节数组</p>
+<p>这个方法不需要额外对 File 进行打开或关闭</p>
+<p><strong>注意：</strong>该方法仅适用于较小文件</p>
+</li>
+</ol>
+<h4 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h4><p><strong>写入文件内容（带缓冲区）：</strong></p>
+<blockquote>
+<p>需要导入 bufio 包。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs go">f, _ := os.OpenFile(<span class="hljs-string">&quot;D:\\1.txt&quot;</span>, os.O_APPEND|os.O_RDWR|os.O_CREATE, <span class="hljs-number">0</span>)
+writer := bufio.NewWriter(f)		<span class="hljs-comment">// [1]</span>
+writer.Write([]<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;\n★&quot;</span>))		<span class="hljs-comment">// [2]</span>
+writer.Flush()					<span class="hljs-comment">// [3]</span>
+f.Close()</code></pre></div>
+
+<ol>
+<li>创建一个 *Writer</li>
+<li>写入字符。此时，字符存在于缓存，还未真正写入文件</li>
+<li>将缓存内容写入文件</li>
+</ol>
+<p><strong>写入文件内容（一次性写入）：</strong></p>
+<blockquote>
+<p>需要导入 ioutil 包。</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs go">err := ioutil.WriteFile(<span class="hljs-string">&quot;D:\\1.txt&quot;</span>, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;刻晴\n刻晴\n刻晴\n&quot;</span>), <span class="hljs-number">0666</span>)	<span class="hljs-comment">// [1]</span>
+<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+    fmt.Println(err)
+&#125;</code></pre></div>
+
+<ol>
+<li><p><code>WriteFile(filename string, data []byte, perm FileMode) error</code></p>
+<p>向文件写入指定全部内容。</p>
+<p>文件存在时，删除原本内容。不存在时，创建该文件。</p>
+</li>
+</ol>
+<h2 id="7-3-命令行参数"><a href="#7-3-命令行参数" class="headerlink" title="7.3 命令行参数"></a>7.3 命令行参数</h2><h4 id="os-Args-获取命令行参数"><a href="#os-Args-获取命令行参数" class="headerlink" title="os.Args 获取命令行参数"></a>os.Args 获取命令行参数</h4><p>os.Args 是一个 string 的切片，其存放所有的命令行参数</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe ☆ <span class="hljs-number">123</span></code></pre></div>
+
+<p>上述指令的命令行参数分别是</p>
+<div class="code-wrapper"><pre><code class="hljs go">fmt.Println(os.Args[<span class="hljs-number">0</span>])		<span class="hljs-comment">// ******\test.exe</span>
+fmt.Println(os.Args[<span class="hljs-number">1</span>])		<span class="hljs-comment">// ☆</span>
+fmt.Println(os.Args[<span class="hljs-number">2</span>])		<span class="hljs-comment">// 123</span></code></pre></div>
+
+<p>第一个参数是文件名（* 是我省略的部分），之后以空格为间隔区分其他参数</p>
+<h4 id="flag-包解析命令行参数"><a href="#flag-包解析命令行参数" class="headerlink" title="flag 包解析命令行参数"></a>flag 包解析命令行参数</h4><p>os.Args 必须严格按照输入顺序解析命令行参数。解析参数不方便，也不便于指定参数。</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe -c ☆ -d <span class="hljs-number">123</span></code></pre></div>
+
+<p>上述指令的命令行参数分别是</p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> i <span class="hljs-type">int</span>
+<span class="hljs-keyword">var</span> s <span class="hljs-type">string</span>
+<span class="hljs-keyword">var</span> lack <span class="hljs-type">string</span>
+
+<span class="hljs-comment">/* 进行注册 */</span>
+flag.IntVar(&amp;i, <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-number">-1</span>, <span class="hljs-string">&quot;命令行参数 -d，该项输入值是 123，默认值是 -1&quot;</span>)
+flag.StringVar(&amp;s, <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;--&quot;</span>, <span class="hljs-string">&quot;命令行参数 -c，该项输入值是 ☆，默认值是 --&quot;</span>)
+flag.StringVar(&amp;lack, <span class="hljs-string">&quot;l&quot;</span>, <span class="hljs-string">&quot;--&quot;</span>, <span class="hljs-string">&quot;命令行参数 -l，该项没有输入值，默认值是 --&quot;</span>)
+
+fmt.Println(i)    <span class="hljs-comment">// -1</span>
+fmt.Println(s)    <span class="hljs-comment">// --</span>
+fmt.Println(lack) <span class="hljs-comment">// --</span>
+
+i = <span class="hljs-number">-1000</span>
+s = <span class="hljs-string">&quot;s&quot;</span>
+lack = <span class="hljs-string">&quot;lack&quot;</span>
+
+flag.Parse()
+fmt.Println(i)    <span class="hljs-comment">// 123</span>
+fmt.Println(s)    <span class="hljs-comment">// ☆</span>
+fmt.Println(lack) <span class="hljs-comment">// lack</span></code></pre></div>
+
+<ul>
+<li><p><code>StringVar(p *string, name string, value string, usage string)</code></p>
+<p>用指定的 名称 name、默认值 value、使用信息 usage 注册一个 string 类型的 flag，将其值保存到 p 指向的变量。</p>
+<p>在注册时，即向 p 中填充默认值。之后调用 Parse 方法时，再将解析到的参数填入</p>
+<p><code>IntVar(p *int, name string, value int, usage string)</code></p>
+<p>注册一个 int类型的 flag，将其值保存到 p 指向的变量。</p>
+</li>
+<li><p><code>Parse()</code>：转换</p>
+<p>从 os.Args[1:] 中解析注册的 flag。未解析到时，不进行任何赋值</p>
+<p>该函数建议在上述注册函数注册完成后，对变量进行调用前调用</p>
+</li>
+</ul>
+<h2 id="7-4-JSON"><a href="#7-4-JSON" class="headerlink" title="7.4 JSON"></a>7.4 JSON</h2><p>JSON（JavaScript Object Notation）是一种轻量级数据交换格式。</p>
+<p>JSON 易于阅读和编写，也易于机器解析和生成</p>
+<p>JSON 自 2001 年起推广使用，目前已成为主流的数据格式。</p>
+<p>JSON 易于机器解析和生成，并能有效地提升网络传输效率。通常程序在网络传输时会先将数据序列化为 JSON 字符串。接收方得到 JSON 字符串时，再将其反序列化恢复为原先数据。该方式已然成为各个语言的标准。</p>
+<pre><code class=" mermaid">graph LR
+a(Golang) --序列化--&gt; b(JSON 字符串) --网络传输--&gt; c(程序) --反序列化--&gt; d(其他语言)</code></pre>
+
+<p>在 JS 语言中，一切都是对象。任何数据都能通过 JSON 来表示。</p>
+<p>JSON 是用键值对来保存数据的方式。键名在前，值在后，内容用引号 <code>&quot; &quot;</code> 包裹。键值间以冒号 <code>:</code> 间隔。多个值时用方括号 <code>[ ]</code> 包裹。不同项间以逗号 <code>,</code> 间隔。</p>
+<p>比如：</p>
+<div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Heruin&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;H.M.J&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;I.M&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span></code></pre></div>
+
+<h4 id="JSON-序列化"><a href="#JSON-序列化" class="headerlink" title="JSON 序列化"></a>JSON 序列化</h4><p>JSON 序列化是指将具有 key-value 结构的数据类型（如结构体、切片、map）序列化。</p>
+<p>在 json 包下提供了序列化方法</p>
+<ul>
+<li><p><code>Marshal(v interface) ([]byte, error)</code>：将给定接口序列化。</p>
+<p>要注意结构体中字段的访问权限（首字母大写）</p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;
+	Name <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;A_Name&quot;`</span>
+	Age  <span class="hljs-type">int</span>
+	add  <span class="hljs-type">string</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+    <span class="hljs-comment">/* 结构体的序列化 */</span>
+	a := A&#123;<span class="hljs-string">&quot;Heruin&quot;</span>, <span class="hljs-number">6</span>, <span class="hljs-string">&quot;H.M.J&quot;</span>&#125;
+	s, _ := json.Marshal(a)
+	fmt.Println(<span class="hljs-type">string</span>(s))			<span class="hljs-comment">// &#123;&quot;A_Name&quot;:&quot;Heruin&quot;,&quot;Age&quot;:6&#125;</span>
+    
+    <span class="hljs-comment">/* 切片的序列化 */</span>
+	b := []<span class="hljs-type">string</span>&#123;<span class="hljs-string">&quot;☆&quot;</span>, <span class="hljs-string">&quot;★&quot;</span>&#125;
+	s, _ = json.Marshal(b)
+	fmt.Println(<span class="hljs-type">string</span>(s))			<span class="hljs-comment">// [&quot;☆&quot;,&quot;★&quot;]</span>
+    
+    <span class="hljs-comment">/* map的序列化 */</span>
+    c := <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">string</span>&#123;<span class="hljs-number">0</span>: <span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-number">1</span>: <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-number">2</span>: <span class="hljs-string">&quot;C&quot;</span>&#125;
+	s, _ = json.Marshal(c)
+	fmt.Println(<span class="hljs-type">string</span>(s))			<span class="hljs-comment">// &#123;&quot;0&quot;:&quot;A&quot;,&quot;1&quot;:&quot;B&quot;,&quot;2&quot;:&quot;C&quot;&#125;</span>
+    
+    <span class="hljs-comment">/* 对基本数据类型序列化 */</span>
+	d := <span class="hljs-number">1000</span>
+	s, _ = json.Marshal(d)
+	fmt.Println(<span class="hljs-type">string</span>(s))			<span class="hljs-comment">// 1000</span>
+&#125;</code></pre></div></li>
+</ul>
+<h4 id="JSON-反序列化"><a href="#JSON-反序列化" class="headerlink" title="JSON 反序列化"></a>JSON 反序列化</h4><p>JSON 序列化是指将 JSON 字符串转换成指定的数据类型</p>
+<p>在 json 包下提供了反序列化方法</p>
+<ul>
+<li><p><code>Unmarshal(str []byte, v *interface) error</code>：将字符串反序列化，结果放在 v 指示的变量中</p>
+<p>反序列化时，应确保序列化前后的类型一致</p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;
+	Name <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;A_Name&quot;`</span>
+	Age  <span class="hljs-type">int</span>
+	add  <span class="hljs-type">string</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	s1 := <span class="hljs-string">`&#123;&quot;A_Name&quot;:&quot;Heruin&quot;,&quot;Age&quot;:6&#125;`</span>
+	<span class="hljs-keyword">var</span> a A
+	json.Unmarshal([]<span class="hljs-type">byte</span>(s1), &amp;a)		<span class="hljs-comment">// 除了 add 字段外，值等于前面的 a</span>
+
+	s2 := <span class="hljs-string">`[&quot;☆&quot;,&quot;★&quot;]`</span>
+	<span class="hljs-keyword">var</span> b []<span class="hljs-type">string</span>
+	json.Unmarshal([]<span class="hljs-type">byte</span>(s2), &amp;b)		<span class="hljs-comment">// 值等于前面的 b</span>
+
+	s3 := <span class="hljs-string">`&#123;&quot;0&quot;:&quot;A&quot;,&quot;1&quot;:&quot;B&quot;,&quot;2&quot;:&quot;C&quot;&#125;`</span>
+	<span class="hljs-keyword">var</span> c <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">string</span>
+	json.Unmarshal([]<span class="hljs-type">byte</span>(s3), &amp;c)		<span class="hljs-comment">// 值等于前面的 c</span>
+
+	s4 := <span class="hljs-string">`1000`</span>
+	<span class="hljs-keyword">var</span> d <span class="hljs-type">int</span>
+	json.Unmarshal([]<span class="hljs-type">byte</span>(s4), &amp;d)		<span class="hljs-comment">// 值等于前面的 d</span>
+&#125;</code></pre></div></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Go&gt;7 文件操作</div>
+      <div>https://i-melody.github.io/2022/06/22/Go/7 文件操作/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

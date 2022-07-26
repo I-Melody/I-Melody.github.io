@@ -1,0 +1,1078 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="21 反射  反射机制（Reflection）允许程序在执行期借助于 Reflection API 取得任何类的内部信息（如成员变量、成员方法等），并能操作对象的属性及方法。反射在设计模式和框架底层都会用到。 加载完类之后，在堆中就产生了一个 Class 类型的对象（一个类只有一个 Class 对象），这个对象包含了类的完整结构信息。通过这个对象得到类的结构。这个对象就像一面镜子，透过这个镜子看到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;21 反射">
+<meta property="og:url" content="https://i-melody.github.io/2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="21 反射  反射机制（Reflection）允许程序在执行期借助于 Reflection API 取得任何类的内部信息（如成员变量、成员方法等），并能操作对象的属性及方法。反射在设计模式和框架底层都会用到。 加载完类之后，在堆中就产生了一个 Class 类型的对象（一个类只有一个 Class 对象），这个对象包含了类的完整结构信息。通过这个对象得到类的结构。这个对象就像一面镜子，透过这个镜子看到">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%9B%BE_21.3.png">
+<meta property="article:published_time" content="2022-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:51:20.406Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%9B%BE_21.3.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;21 反射 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;21 反射"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-20 00:00" pubdate>
+          2022年1月20日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;21 反射</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="21-反射"><a href="#21-反射" class="headerlink" title="21 反射"></a>21 反射</h1><blockquote>
+<ol>
+<li>反射机制（Reflection）允许程序在执行期借助于 Reflection API 取得任何类的内部信息（如成员变量、成员方法等），并能操作对象的属性及方法。反射在设计模式和框架底层都会用到。</li>
+<li>加载完类之后，在堆中就产生了一个 <code>Class</code> 类型的对象（一个类只有一个 <code>Class</code> 对象），这个对象包含了类的完整结构信息。通过这个对象得到类的结构。这个对象就像一面镜子，透过这个镜子看到类的结构。所以，形象地称之为：反射</li>
+</ol>
+<p>ocp 原则（开闭原则）：不修改源码来扩展功能</p>
+</blockquote>
+<p><strong>计算机的三个阶段</strong></p>
+<ol>
+<li><p>代码阶段 &#x2F; 编译阶段</p>
+<blockquote>
+<p>编写代码 ——（Javac 编译）——&gt; .class 字节码文件</p>
+</blockquote>
+</li>
+<li><p>Class 类阶段 &#x2F; 加载阶段</p>
+<blockquote>
+<p>字节码文件 ——（ClassLoader 类加载器）——&gt; <code>Class</code> 类对象（堆中）· 字节码二进制数据 &#x2F; 元数据（方法区）</p>
+<p><code>Class</code> 类对象包含：成员变量 <code>Field[] fields</code>、构造器 <code>Constructor[] cons</code>、成员方法 <code>Methord[] ms</code></p>
+</blockquote>
+</li>
+<li><p>Runtime 运行阶段</p>
+<blockquote>
+<p>创建对象，该对象知道其属于哪个 <code>Class</code> 对象</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>反射机制可以完成</strong></p>
+<ol>
+<li>在运行时判断任意一个对象所属的类</li>
+<li>在运行时构造任意一个类的对象</li>
+<li>在运行时得到任意一个类所具有的成员变量和方法</li>
+<li>在运行时调用任意一个对象的成员变量和方法</li>
+<li>生成动态代理</li>
+</ol>
+<h2 id="21-1-反射相关的常用类"><a href="#21-1-反射相关的常用类" class="headerlink" title="21.1 反射相关的常用类"></a>21.1 反射相关的常用类</h2><ol>
+<li><p><code>java.lang.Class</code>：代表一个类。<code>Class</code> 对象表示某个类加载后在堆中的对象</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">cls</span> <span class="hljs-operator">=</span> Class.forName(classFullPath);			<span class="hljs-comment">//[1]</span>
+<span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> cls.newInstance();						<span class="hljs-comment">//[2]</span></code></pre></div>
+
+<ol>
+<li>通过完整类名得到一个类的 Class 对象</li>
+<li>通过该 Class 对象创建一个该类的 对象实例</li>
+</ol>
+</blockquote>
+</li>
+<li><p><code>java.lang.reflect.Method</code>：代表类的方法。<code>Method</code> 对象表示某个类的某个方法</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Method</span> <span class="hljs-variable">method</span> <span class="hljs-operator">=</span> cls.getMethod(methodName);			<span class="hljs-comment">//[1]</span>
+method.invoke(o);									<span class="hljs-comment">//[2]</span></code></pre></div>
+
+<ol>
+<li>通过该 Class 对象得到一个 方法对象</li>
+<li>方法对象.invoke：调用该方法</li>
+</ol>
+</blockquote>
+</li>
+<li><p><code>java.lang.reflect.Field</code>：代表类的成员变量</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> cls.getField(fieldName);				<span class="hljs-comment">//[1]</span></code></pre></div>
+
+<ol>
+<li>该方法只能得到非私有对象</li>
+</ol>
+</blockquote>
+</li>
+<li><p><code>java.lang.reflect.Constructor</code>：代表类的构造方法</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Constructor</span> <span class="hljs-variable">constructor</span> <span class="hljs-operator">=</span> cls.getConstructor();		<span class="hljs-comment">//[1]</span>
+<span class="hljs-type">Constructor</span> <span class="hljs-variable">constructor2</span> <span class="hljs-operator">=</span> cls.getConstructor(String.class)
+    													<span class="hljs-comment">//[2]</span></code></pre></div>
+
+<ol>
+<li>得到一个无参构造器</li>
+<li>得到一个形参是 <code>(String str)</code> 的构造器</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p><strong>反射的优点和缺点</strong></p>
+<ul>
+<li>优点：可以动态地创建和使用对象（也是框架底层核心），使用灵活。没有反射机制，框架技术就失去底层支撑</li>
+<li>缺点：使用反射基本是解释执行。这对执行速度有影响。</li>
+</ul>
+<p><strong>反射调用优化 - 关闭访问检查</strong></p>
+<ol>
+<li><p><code>Method</code> 和 <code>Field</code>、<code>Constructor</code> 对象都有 <code>setAccessible()</code> 方法</p>
+</li>
+<li><p><code>setAccessible()</code> 作用是启动和禁用访问安全检查的开关</p>
+</li>
+<li><p>参数值为 true，表示反射对象在使用时取消访问检查，这样能提高反射效率。</p>
+<p>为 false 表示执行访问检查</p>
+</li>
+</ol>
+<h2 id="21-2-Class-类"><a href="#21-2-Class-类" class="headerlink" title="21.2 Class 类"></a>21.2 <code>Class</code> 类</h2><ol>
+<li><code>Class</code> 也是类，因此也继承 <code>Object</code> 类</li>
+<li><code>Class</code> 类不是 new 出来的，而是系统创建的</li>
+<li>对于某个类的 <code>Class</code> 类对象，在内存中只有一份，因为类只加载一次</li>
+<li>每个类的实例都会记得自己是由哪个 <code>Class</code> 实例生成</li>
+<li>通过 <code>Class</code> 可以完整地得到一个类的完整结构，通过一系列 API</li>
+<li><code>Class</code> 对象是存放在堆的</li>
+<li>类的字节码二进制数据，是放在方法区的。有的地方称为类的元数据（包括 方法代码、变量名、方法名、访问权限 等）</li>
+</ol>
+<h3 id="21-2-1-Class-类的常用方法"><a href="#21-2-1-Class-类的常用方法" class="headerlink" title="21.2.1 Class 类的常用方法"></a>21.2.1 <code>Class</code> 类的常用方法</h3><ul>
+<li><p><code>Class.forName(String)</code>：返回指定类名的 <code>Class</code> 对象</p>
+</li>
+<li><p><code>newInstance()</code>：返回一个无参构造器创建的实例</p>
+</li>
+<li><p><code>getName()</code>：返回该 <code>Class</code> 对象表示的实体的全类名</p>
+</li>
+<li><p><code>getClass()</code>：返回该 <code>Class</code> 对象的运行类型 <code>java.lang.Class</code></p>
+</li>
+<li><p><code>getPackage()</code>：返回该 <code>Class</code> 对象所在的包</p>
+</li>
+<li><p><code>getSuperClass()</code>：返回该 <code>Class</code> 对象的父类 <code>Class</code> 对象</p>
+</li>
+<li><p><code>getInterface()</code>：返回该 <code>Class</code> 对象的接口（数组）</p>
+</li>
+<li><p><code>getAnnotations()</code>：返回注解信息（<code>Annotation[]</code>）</p>
+</li>
+<li><p><code>getClassLoader()</code>：返回该 <code>Class</code> 对象的加载器（<code>ClassLoader</code> 类型）</p>
+</li>
+<li><p><code>getSuperclass()</code>：返回该 <code>Class</code> 对象实体的超类的 <code>Class</code></p>
+</li>
+<li><p><code>getConstructors()</code>：返回本类所有包含 <code>public</code> 修饰的构造器的 <code>Constructor</code> 对象数组</p>
+<p>该方法返回的构造器不含父类构造器！</p>
+</li>
+<li><p><code>getDeclaredConstructer()</code>：返回本类所有构造器的 <code>Constructor</code> 对象数组</p>
+</li>
+<li><p><code>getFileds()</code>：返回一个包含 <code>public</code> 修饰的属性的 <code>Field</code> 对象的数组</p>
+<p><code>getFiled(String name)</code>：返回指定的 <code>Field</code></p>
+</li>
+<li><p><code>getDeclaredFields()</code>：获取本类中所有属性</p>
+</li>
+<li><p><code>field.get(instance)</code>：返回指定实例的指定属性</p>
+</li>
+<li><p><code>field.set(instance, ..)</code>：给指定实例的指定属性赋值</p>
+</li>
+<li><p><code>getMethod()</code>：获得所有 <code>public</code> 修饰的方法的 <code>Method</code> 对象</p>
+</li>
+<li><p><code>getMethod(String name, Class paramTypes, ...)</code>：返回一个 <code>Method</code> 对象，其形参类型为 paramType</p>
+</li>
+<li><p><code>getDeclaredMethod()</code>：获取本类中所有方法</p>
+</li>
+</ul>
+<h3 id="21-2-2-获取-Class-对象"><a href="#21-2-2-获取-Class-对象" class="headerlink" title="21.2.2 获取 Class 对象"></a>21.2.2 获取 <code>Class</code> 对象</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.note;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> &#123;&#125;</code></pre></div>
+
+<ol>
+<li><p>（编译阶段）已知一个类的全类名，且该类在类路径下：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">cls1</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;com.melody.note.Test&quot;</span>);</code></pre></div>
+
+<p>应用场景：配置文件，读取类全路径，加载类。</p>
+<p>可能抛出 <code>ClassNotFoundExcption</code></p>
+</blockquote>
+</li>
+<li><p>（加载阶段）已知具体的类：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">cls2</span> <span class="hljs-operator">=</span> Test.class;</code></pre></div>
+
+<p>应用场景：参数传递。</p>
+<p>该方法最为安全</p>
+</blockquote>
+</li>
+<li><p>（运行阶段）已知某个类的实例：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">cls3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Test</span>().getClass();</code></pre></div>
+
+<p>应用场景：通过创建好的对象获取 <code>Class</code> 对象</p>
+</blockquote>
+</li>
+<li><p>通过类加载器：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ClassLoader</span> <span class="hljs-variable">cll</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Test</span>().getClass().getClassLoader();
+<span class="hljs-type">Class</span> <span class="hljs-variable">cls4</span> <span class="hljs-operator">=</span> cll.loadClass(<span class="hljs-string">&quot;com.melody.note.Test&quot;</span>);</code></pre></div>
+</blockquote>
+</li>
+<li><p>基本数据类型：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">clsB1</span> <span class="hljs-operator">=</span> <span class="hljs-type">int</span>.class;
+Class&lt;Boolean&gt; clsB2 = <span class="hljs-type">boolean</span>.class;</code></pre></div>
+</blockquote>
+</li>
+<li><p>基本数据类型包装类：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Class</span> <span class="hljs-variable">clsB3</span> <span class="hljs-operator">=</span> Character.TYPE;
+Class&lt;Long&gt; clsB4 = Long.TYPE;</code></pre></div></blockquote>
+</li>
+</ol>
+<h3 id="21-2-3-哪些类有-Class-对象"><a href="#21-2-3-哪些类有-Class-对象" class="headerlink" title="21.2.3 哪些类有 Class 对象"></a>21.2.3 哪些类有 <code>Class</code> 对象</h3><ol>
+<li>外部类、成员内部类、静态内部类、局部内部类、匿名内部类</li>
+<li>接口（interface）</li>
+<li>数组</li>
+<li>枚举（enum）</li>
+<li>注解</li>
+<li>基本数据类型</li>
+<li>void</li>
+</ol>
+<h2 id="21-3-类的加载"><a href="#21-3-类的加载" class="headerlink" title="21.3 类的加载"></a>21.3 类的加载</h2><p><strong>基本说明</strong></p>
+<blockquote>
+<p>反射机制是 Java 实现动态语言的关键，也就是通过反射实现类动态加载</p>
+</blockquote>
+<ol>
+<li>静态加载：编译时加载相关的类，如果没有则报错。依赖性强</li>
+<li>静态加载：运行时加载需要的类，如果运行时不用该类，则不报错。降低了依赖性</li>
+</ol>
+<p><strong>类加载时机</strong></p>
+<ol>
+<li>创建对象时（new） [静态加载]</li>
+<li>子类被加载时，父类也被加载 [静态加载]</li>
+<li>调用类中的静态成员 [静态加载]</li>
+<li>通过反射 [动态加载]</li>
+</ol>
+<p><img src="/img/Java_InputImage/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%9B%BE_21.3.png" srcset="/img/loading.gif" lazyload></p>
+<p><em>（类加载图_21.3）</em></p>
+<ul>
+<li><p>加载（Loading）：</p>
+<p>将类的 .class 文件读入内存，并为之创建一个 java.lang.Class 对象。此过程由类加载器完成</p>
+</li>
+<li><p>连接（Linking）：</p>
+<p>将类的二进制数据合并进 JRE 中</p>
+</li>
+<li><p>初始化（initialization）：</p>
+<p>JVM 负责对类进行初始化。这里主要是静态成员</p>
+</li>
+</ul>
+<h3 id="21-3-1-类加载的五个阶段"><a href="#21-3-1-类加载的五个阶段" class="headerlink" title="21.3.1 类加载的五个阶段"></a>21.3.1 类加载的五个阶段</h3><ul>
+<li><p><strong>加载阶段</strong></p>
+<p>JVM 在该阶段的主要目的是将字节码从不同数据源（.class 文件、jar 包、网络等）转化为二进制字节流加载到内存中，并生成一个代表该类的 <code>java.lang.Class</code> 对象</p>
+</li>
+<li><p><strong>连接阶段 - 验证</strong></p>
+<p>目的是确保 <code>Class</code> 文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</p>
+<p>包括：文件格式验证（是否以魔数 0xcafebabe 开头）、元数据验证、字节码验证、符号引用验证</p>
+<p>可以考虑使用 <code>-Xverify:none</code> 参数来关闭大部分的类验证措施，以缩短虚拟机加载的时间</p>
+</li>
+<li><p><strong>连接阶段 - 准备</strong></p>
+<p>JVM 会在该阶段对 静态变量 分配内存并执行默认初始化。这些变量使用的内存都将在方法区中进行分配</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;					<span class="hljs-comment">//实例属性，非静态变量，此阶段不分配内存</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;			<span class="hljs-comment">//静态变量，默认初始化为 0</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;		<span class="hljs-comment">//static final 常量，静态初始化为 3</span></code></pre></div>
+</li>
+<li><p><strong>连接阶段 - 解析</strong></p>
+<p>JVM 将常量池内符号引用替换为直接引用的过程</p>
+</li>
+<li><p><strong>初始化</strong></p>
+<p>到初始化阶段，才真正开始执行类中定义的 Java 程序代码。此阶段是执行 <code>&lt;clinit&gt;()</code> 方法的过程</p>
+<p><code>&lt;clinit&gt;()</code> 方法是由编译器按语句在文件中出现的顺序，依次自动收集类中所有静态变量的赋值动作和静态代码块中的语句，并进行合并</p>
+<p>JVM 会保证一个类的 <code>&lt;clinit&gt;()</code> 方法在多线程环境中被正确地加锁、同步。如果多个线程去初始化一个类，那么只会有一个线程去执行这个类的 <code>&lt;clinit&gt;()</code> 方法，其他线程都需要阻塞等待，直到活动线程执行 <code>&lt;clinit&gt;()</code> 方法完毕</p>
+</li>
+</ul>
+<h2 id="21-4-通过反射获取类的结构信息"><a href="#21-4-通过反射获取类的结构信息" class="headerlink" title="21.4 通过反射获取类的结构信息"></a>21.4 通过反射获取类的结构信息</h2><p><strong><code>java.lang.Class</code> 类（与前面的的重复）</strong></p>
+<blockquote>
+<ul>
+<li><p><code>getSuperClass()</code>：返回该 <code>Class</code> 对象的父类 <code>Class</code> 对象</p>
+</li>
+<li><p><code>getInterface()</code>：返回该 <code>Class</code> 对象的接口（数组）</p>
+</li>
+<li><p><code>getAnnotations()</code>：返回注解信息（<code>Annotation[]</code>）</p>
+</li>
+<li><p><code>getClassLoader()</code>：返回该 <code>Class</code> 对象的加载器（<code>ClassLoader</code> 类型）</p>
+</li>
+<li><p><code>getSuperclass()</code>：返回该 <code>Class</code> 对象实体的超类的 <code>Class</code></p>
+</li>
+<li><p><code>getConstructors()</code>：返回本类所有包含 <code>public</code> 修饰的构造器的 <code>Constructor</code> 对象数组</p>
+<p>该方法返回的构造器不含父类构造器！</p>
+</li>
+<li><p><code>getDeclaredConstructer()</code>：返回本类所有构造器的 <code>Constructor</code> 对象数组</p>
+</li>
+<li><p><code>getFileds()</code>：返回一个包含 <code>public</code> 修饰的属性的 <code>Field</code> 对象的数组</p>
+<p><code>getFiled(String name)</code>：返回指定的 <code>Field</code></p>
+</li>
+<li><p><code>getDeclaredFields()</code>：获取本类中所有属性</p>
+</li>
+<li><p><code>field.get(instance)</code>：返回指定实例的指定属性</p>
+</li>
+<li><p><code>field.set(instance, ..)</code>：给指定实例的指定属性赋值</p>
+</li>
+<li><p><code>getMethod()</code>：获得所有 <code>public</code> 修饰的方法的 <code>Method</code> 对象</p>
+</li>
+<li><p><code>getMethod(String name, Class paramTypes, ...)</code>：返回一个 <code>Method</code> 对象，其形参类型为 paramType</p>
+</li>
+<li><p><code>getDeclaredMethod()</code>：获取本类中所有方法</p>
+</li>
+</ul>
+</blockquote>
+<p><strong><code>java.lang.reflect.Field</code> 类</strong></p>
+<blockquote>
+<ul>
+<li><p><code>getModifiers()</code>：以 int 形式返回修饰符</p>
+<p>默认修饰符 [0]、public [1]、private [2]、protected [4]、static [8]、final [16]</p>
+<p>示例：</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</code></pre></div>
+
+<p>这个变量的修饰符的 int 表示 &#x3D; 1 + 8 + 16 &#x3D; 25</p>
+</blockquote>
+</li>
+<li><p><code>getType()</code>：以 <code>Class</code> 形式返回类型</p>
+<blockquote>
+<p>上例变量的 <code>getType()</code> 等同于 <code>Integer.getClass()</code></p>
+</blockquote>
+</li>
+<li><p><code>getName()</code>：返回属性名</p>
+</li>
+</ul>
+</blockquote>
+<p><strong><code>java.lang.reflect.Method</code> 类</strong></p>
+<blockquote>
+<ul>
+<li><code>getModifiers()</code>：以 int 形式返回修饰符（同上）</li>
+<li><code>getName()</code>：返回方法名</li>
+<li><code>getReturnType()</code>：以 <code>Class</code> 形式返回返回类型</li>
+<li><code>getParameterTypes()</code>：以 <code>Class[]</code> 形式返回形参类型数组</li>
+</ul>
+</blockquote>
+<p><strong><code>java.lang.reflect.Constructer</code> 类</strong></p>
+<blockquote>
+<ul>
+<li><code>getModifiers()</code>：以 int 形式返回修饰符</li>
+<li><code>getName()</code>：返回构造器名（和全类名相等）</li>
+<li><code>getParameterTypes()</code>：以 <code>Class[]</code> 形式返回形参类型数组</li>
+</ul>
+</blockquote>
+<h2 id="21-5-通过反射创建对象"><a href="#21-5-通过反射创建对象" class="headerlink" title="21.5 通过反射创建对象"></a>21.5 通过反射创建对象</h2><ol>
+<li><p>调用类中的 public 修饰的无参构造器</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Object</span> <span class="hljs-variable">obj1</span> <span class="hljs-operator">=</span> cls.newInstance();</code></pre></div>
+</blockquote>
+</li>
+<li><p>调用类中指定的构造器</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Constructer</span> <span class="hljs-variable">cons</span> <span class="hljs-operator">=</span> cls.getConstructer(<span class="hljs-type">int</span>.class, String.class, ...);
+<span class="hljs-type">Object</span> <span class="hljs-variable">obj2</span> <span class="hljs-operator">=</span> cons.newInstance(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;nnn&quot;</span>, ...);</code></pre></div>
+</blockquote>
+</li>
+<li><p><code>setAccessible(true)</code>：爆破（暴力破解）。使用反射可以访问 private 构造器</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Constructer</span> <span class="hljs-variable">cons2</span> <span class="hljs-operator">=</span> cls.getDeclaredConstructer(<span class="hljs-type">boolean</span>.class ...);
+cons2.setAccessible(<span class="hljs-literal">true</span>);
+<span class="hljs-type">Object</span> <span class="hljs-variable">obj3</span> <span class="hljs-operator">=</span> cons.newInstance(<span class="hljs-literal">false</span>, ...);</code></pre></div></blockquote>
+</li>
+</ol>
+<h2 id="21-6-通过反射访问成员"><a href="#21-6-通过反射访问成员" class="headerlink" title="21.6 通过反射访问成员"></a>21.6 通过反射访问成员</h2><blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> cla.getDeclaredField(<span class="hljs-string">&quot;name&quot;</span>);
+field.setAccessible(<span class="hljs-literal">true</span>);
+field.set(o, <span class="hljs-string">&quot;111&quot;</span>);								<span class="hljs-comment">//[1]</span></code></pre></div>
+
+<ol>
+<li><p>o 表示一个类的实例</p>
+<p>如果该属性是静态属性，则对象 o 可以是 null</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Method</span> <span class="hljs-variable">method</span> <span class="hljs-operator">=</span> cls.getDeclaredMethod(<span class="hljs-string">&quot;m1&quot;</span>);
+method.setAccessible(<span class="hljs-literal">true</span>);
+<span class="hljs-type">Object</span> <span class="hljs-variable">returnObj</span> <span class="hljs-operator">=</span> method.invoke(o, <span class="hljs-string">&#x27;c&#x27;</span>, ...);		<span class="hljs-comment">//[1]</span></code></pre></div>
+
+<ol>
+<li><p>o 表示一个类的实例，后面是实参列表</p>
+<p>同理，静态方法的场合，对象 o 可以是 null</p>
+</li>
+</ol>
+</blockquote>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;21 反射</div>
+      <div>https://i-melody.github.io/2022/01/20/Java/入门阶段/21 反射/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

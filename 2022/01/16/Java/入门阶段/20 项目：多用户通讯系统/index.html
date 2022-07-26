@@ -1,0 +1,2500 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="20 项目：多用户通讯系统 项目见（多用户通讯系统） 服务端启动位置（多用户通讯系统\项目：通讯系统（服务端）\src\com\melody\transmission\common\ClientConnect.java） 客户端启动位置（项目：通讯系统（客户端）\src\com\melody\transmission\Test1.java）  20.1 需求分析 用户登录 拉取在线用户列表 无异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;20 项目（多用户通讯系统）">
+<meta property="og:url" content="https://i-melody.github.io/2022/01/16/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/20%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="20 项目：多用户通讯系统 项目见（多用户通讯系统） 服务端启动位置（多用户通讯系统\项目：通讯系统（服务端）\src\com\melody\transmission\common\ClientConnect.java） 客户端启动位置（项目：通讯系统（客户端）\src\com\melody\transmission\Test1.java）  20.1 需求分析 用户登录 拉取在线用户列表 无异常">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:51:12.598Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;20 项目（多用户通讯系统） ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;20 项目（多用户通讯系统）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-16 00:00" pubdate>
+          2022年1月16日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          44k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          248 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;20 项目（多用户通讯系统）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="20-项目：多用户通讯系统"><a href="#20-项目：多用户通讯系统" class="headerlink" title="20 项目：多用户通讯系统"></a>20 项目：多用户通讯系统</h1><blockquote>
+<p><strong>项目见（多用户通讯系统）</strong></p>
+<p>服务端启动位置（多用户通讯系统\项目：通讯系统（服务端）\src\com\melody\transmission\common\ClientConnect.java）</p>
+<p>客户端启动位置（项目：通讯系统（客户端）\src\com\melody\transmission\Test1.java）</p>
+</blockquote>
+<h2 id="20-1-需求分析"><a href="#20-1-需求分析" class="headerlink" title="20.1 需求分析"></a>20.1 需求分析</h2><ol>
+<li>用户登录</li>
+<li>拉取在线用户列表</li>
+<li>无异常退出（客户端、服务端）</li>
+<li>私聊</li>
+<li>群聊</li>
+<li>发文件</li>
+<li>服务器推送新闻</li>
+</ol>
+<h3 id="20-1-1-登录"><a href="#20-1-1-登录" class="headerlink" title="20.1.1 登录"></a>20.1.1 登录</h3><p><strong>服务端</strong></p>
+<ol>
+<li>客户端连接到服务器后，会得到一个 <code>Socket</code></li>
+<li>启动一个线程，该线程持有该 <code>Socket</code> 对象</li>
+<li>为了更好地管理线程，需要使用集合来管理</li>
+</ol>
+<p><strong>客户端</strong></p>
+<ol>
+<li>和服务端通信时，使用对象方式，可以使用对象流来读写</li>
+<li>客户端连接到服务端后，也会得到 <code>Socket</code></li>
+<li>启动一个线程，该线程持有该 <code>Socket</code> 对象</li>
+<li>为了更好地管理线程，需要使用集合来管理</li>
+</ol>
+<h3 id="20-1-2-无异常退出"><a href="#20-1-2-无异常退出" class="headerlink" title="20.1.2 无异常退出"></a>20.1.2 无异常退出</h3><blockquote>
+<p>写下面内容的之前，我已经把代码都完成了。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=688&t=0.8">韩老师的思路</a>都是最基本的思路，这些其实应该不参考笔记自己去想。</p>
+<p>想不通的地方才看答案（笔记），我认为是比较好的方法。</p>
+</blockquote>
+<p><strong>服务端</strong></p>
+<ol>
+<li>服务器端和某个客户端通信的线程接到一个退出请求后，关闭 socket 并退出线程</li>
+</ol>
+<p><strong>客户端</strong></p>
+<ol>
+<li>调用方法，向服务端发送登出请求，之后客户端调用方法正常退出</li>
+</ol>
+<h3 id="下略"><a href="#下略" class="headerlink" title="下略"></a>下略</h3><blockquote>
+<p>没记</p>
+</blockquote>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="多用户通讯系统"><a href="#多用户通讯系统" class="headerlink" title="多用户通讯系统"></a>多用户通讯系统</h3><p>开始写的时候思路没整理好，最后乱七八糟的</p>
+<p>又没什么注释，所以别往下翻了</p>
+<h4 id="通用部分（客户端-amp-服务端）"><a href="#通用部分（客户端-amp-服务端）" class="headerlink" title="通用部分（客户端 &amp; 服务端）"></a>通用部分（客户端 &amp; 服务端）</h4><blockquote>
+<p>MyTools.java：工具类</p>
+<p>UserData.java：用户数据类，包含完整的用户信息。这些信息存储在服务端。每个客户端只可能在验证通过的场合，持有最多一个来自服务端的属于客户自己的该类对象</p>
+<p>User.java：简易的用户类。只是用以传递一组账号和密码。一般由客户端发送往服务端。这些账号和密码未必是正确的。</p>
+<p>Message.java：数据包。客户端和服务端的所有通信都以传递该数据包的形式进行。</p>
+<p>MessageType.java：代码表。客户端和服务端各自持有一份相同的该表，用以对数据包进行识别。</p>
+</blockquote>
+<ul>
+<li><p><strong>MyTools.java</strong></p>
+<p>精简了一下放上来</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com;
+
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTools</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+
+
+    <span class="hljs-comment">//这个方法能读取一个 输入流 的内容</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] whatInputIs(InputStream is) <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">bis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();
+        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">byte</span>[] bytes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>];
+        <span class="hljs-keyword">while</span> ((len = is.read(bytes, <span class="hljs-number">0</span>, bytes.length)) != -<span class="hljs-number">1</span>) &#123;
+            bis.write(bytes, <span class="hljs-number">0</span>, len);
+        &#125;
+        <span class="hljs-keyword">return</span> bis.toByteArray();
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>User.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+    <span class="hljs-keyword">private</span> String id;
+    <span class="hljs-keyword">private</span> String pw;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">User</span><span class="hljs-params">(String id, String pw)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.pw = pw;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(String id)</span> &#123;
+        <span class="hljs-built_in">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPw</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> pw;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPw</span><span class="hljs-params">(String pw)</span> &#123;
+        <span class="hljs-built_in">this</span>.pw = pw;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>UserData.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+<span class="hljs-keyword">import</span> java.util.Objects;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String ID;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String pw;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">online</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">private</span> String[] friendID;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">leftMessage</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+
+    UserData(String name, String pw, String ID) &#123;
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.pw = pw;
+        <span class="hljs-built_in">this</span>.ID = ID;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> ID;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;
+        <span class="hljs-built_in">this</span>.name = name;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPw</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> pw;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPw</span><span class="hljs-params">(String pw)</span> &#123;
+        <span class="hljs-built_in">this</span>.pw = pw;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isOnline</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> online;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setOnline</span><span class="hljs-params">(<span class="hljs-type">boolean</span> online)</span> &#123;
+        <span class="hljs-built_in">this</span>.online = online;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">listed</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> ((online ? <span class="hljs-string">&quot;·在线&quot;</span> : <span class="hljs-string">&quot;离线中&quot;</span>) + <span class="hljs-string">&quot;\t用户名：（&quot;</span> + ID + <span class="hljs-string">&quot;）&quot;</span> + name);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">equals</span><span class="hljs-params">(Object o)</span> &#123;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span> == o) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (o == <span class="hljs-literal">null</span> || getClass() != o.getClass()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">userData</span> <span class="hljs-operator">=</span> (UserData) o;
+        <span class="hljs-type">return</span> <span class="hljs-variable">online</span> <span class="hljs-operator">=</span>= userData.online &amp;&amp; Objects.equals(ID, userData.ID) &amp;&amp; Objects.equals(name, userData.name) &amp;&amp; Objects.equals(pw, userData.pw);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hashCode</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> Objects.hash(ID, name, pw, online);
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Message.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.io.Serializable;
+<span class="hljs-keyword">import</span> java.time.LocalDateTime;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Message</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span>, MessageType &#123;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;
+    <span class="hljs-keyword">private</span> String message;
+    <span class="hljs-keyword">private</span> String time;
+    <span class="hljs-keyword">private</span> String sender;
+    <span class="hljs-keyword">private</span> String receiver;
+    <span class="hljs-keyword">private</span> String messageType;
+    <span class="hljs-keyword">private</span> Object object;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Message</span><span class="hljs-params">(String message, String sender, String receiver, String messageType)</span> &#123;
+        <span class="hljs-built_in">this</span>.message = message;
+        <span class="hljs-built_in">this</span>.time = getDateTime();
+        <span class="hljs-built_in">this</span>.sender = sender;
+        <span class="hljs-built_in">this</span>.receiver = receiver;
+        <span class="hljs-built_in">this</span>.messageType = messageType;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getObject</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> object;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setObject</span><span class="hljs-params">(Object object)</span> &#123;
+        <span class="hljs-built_in">this</span>.object = object;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getMessage</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> message;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMessage</span><span class="hljs-params">(String message)</span> &#123;
+        <span class="hljs-built_in">this</span>.message = message;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getTime</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> time;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setTime</span><span class="hljs-params">(String time)</span> &#123;
+        <span class="hljs-built_in">this</span>.time = time;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getSender</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> sender;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSender</span><span class="hljs-params">(String sender)</span> &#123;
+        <span class="hljs-built_in">this</span>.sender = sender;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getReceiver</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> receiver;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setReceiver</span><span class="hljs-params">(String receiver)</span> &#123;
+        <span class="hljs-built_in">this</span>.receiver = receiver;
+    &#125;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getMessageType</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> messageType;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMessageType</span><span class="hljs-params">(String messageType)</span> &#123;
+        <span class="hljs-built_in">this</span>.messageType = messageType;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDate</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> getDate(LocalDateTime.now());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDate</span><span class="hljs-params">(LocalDateTime ldt)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">mon</span> <span class="hljs-operator">=</span> ldt.getMonthValue();
+        <span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> ldt.getDayOfMonth();
+        <span class="hljs-keyword">return</span> ldt.getYear() + <span class="hljs-string">&quot;.&quot;</span> + (mon &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;0&quot;</span> + mon : mon) + <span class="hljs-string">&quot;.&quot;</span> + (day &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;0&quot;</span> + day : day);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">time</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> time(LocalDateTime.now());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">time</span><span class="hljs-params">(LocalDateTime ldt)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">hour</span> <span class="hljs-operator">=</span> ldt.getHour();
+        <span class="hljs-type">int</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> ldt.getMinute();
+        <span class="hljs-type">int</span> <span class="hljs-variable">sec</span> <span class="hljs-operator">=</span> ldt.getSecond();
+        <span class="hljs-keyword">return</span> (hour &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;0&quot;</span> + hour : hour) + <span class="hljs-string">&quot;:&quot;</span> + (min &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;0&quot;</span> + min : min) + <span class="hljs-string">&quot;:&quot;</span> + (sec &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&quot;0&quot;</span> + sec : sec);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDateTime</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">ldt</span> <span class="hljs-operator">=</span> LocalDateTime.now();
+        <span class="hljs-keyword">return</span> getDate(ldt) + <span class="hljs-string">&quot;  &quot;</span> + time();
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>MessageType.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MessageType</span> &#123;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_SUCCESS</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;lS&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_FAILED</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;lF&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_USER_NOT_EXIST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;lU&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGIN_WRONG_PW</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;lP&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_SHOW_LIST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;11SL&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_SHOW_ONLINE_LIST</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;11SO&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">CHAT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;CM&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">GROUP_CHAT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;GM&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">FILE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;CF&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_CHANGE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;15CN&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_CHANGE_PW</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;16CP&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_CHANGE_HIDE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;17CH&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">LOGGED_LOGOUT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;19OT&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">REQUEST_ALLOWED</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RE&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">REQUEST_REJECTED</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RR&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">REPEAT_LOGIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;EXC_RL&quot;</span>;
+&#125;</code></pre></div></li>
+</ul>
+<h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><blockquote>
+<p>ClientConnet.java：入口</p>
+<p>ClientLogin.java：管理所有登录活动。该线程将持续监听用户登录。用户登录成功后启动一个专用的会话线程。</p>
+<p>Serve.java：这就是那个专用会话线程。会持续监听用户请求，并作出反应。</p>
+<p>ServeCollection.java：该类收集所有活动中的 Serve 线程。</p>
+<p>UserDataEnum.java：记录所有用户数据的枚举类。数据库的替代方法（还没学数据库）</p>
+</blockquote>
+<ul>
+<li><p><strong>ClientConnet.java（入口）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> com.melody.transmission.login.ClientLogin;
+
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.util.HashMap;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientConnect</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">thisIP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;192.168.3.16&quot;</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> HashMap&lt;String, UserData&gt; data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> HashMap&lt;String, Socket&gt; sockets = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+    <span class="hljs-keyword">static</span> &#123;
+        <span class="hljs-keyword">for</span> (UserDataEnum userData : UserDataEnum.values()) &#123;
+            data.put(userData.user.getId(), userData.user);
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ClientLogin</span>()).start();
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>ClientLogin.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.login;
+
+<span class="hljs-keyword">import</span> com.melody.transmission.common.*;
+<span class="hljs-keyword">import</span> com.melody.transmission.connected.Serve;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.net.InetAddress;
+<span class="hljs-keyword">import</span> java.net.ServerSocket;
+<span class="hljs-keyword">import</span> java.net.Socket;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientLogin</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">ServerSocket</span> <span class="hljs-variable">serverSocket</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            serverSocket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServerSocket</span>(<span class="hljs-number">9000</span>);
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+                login(serverSocket);
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">login</span><span class="hljs-params">(ServerSocket serverSocket)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">Socket</span> <span class="hljs-variable">clientSocket</span> <span class="hljs-operator">=</span> serverSocket.accept();
+
+        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">ois</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(clientSocket.getInputStream());
+        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">oos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(clientSocket.getOutputStream());
+
+        String checkRes;
+        <span class="hljs-type">User</span> <span class="hljs-variable">clientUser</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+
+        <span class="hljs-type">Message</span> <span class="hljs-variable">toSend</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, InetAddress.getLocalHost().getHostAddress(), clientSocket.getInetAddress().getHostAddress(), <span class="hljs-literal">null</span>);
+        toSend.setObject(<span class="hljs-literal">null</span>);
+
+        <span class="hljs-keyword">try</span> &#123;
+            clientUser = (User) ois.readObject();
+            checkRes = checkUserData(clientUser);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            checkRes = MessageType.LOGIN_FAILED;
+        &#125;
+        toSend.setMessageType(checkRes);
+        <span class="hljs-keyword">if</span> (checkRes.equals(MessageType.LOGIN_SUCCESS)) &#123;
+            ClientConnect.data.get(clientUser.getId()).setOnline(<span class="hljs-literal">true</span>);
+            toSend.setObject(ClientConnect.data.get(clientUser.getId()));
+            oos.writeObject(toSend);
+            <span class="hljs-type">Serve</span> <span class="hljs-variable">serve</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Serve</span>(clientSocket, oos, ois, clientUser.getId());
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(serve).start();
+<span class="hljs-comment">//            ClientSocketsCollection.addSocket(clientUser.getId(), clientSocket);</span>
+            ServeCollection.add(clientUser.getId(), serve);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            oos.writeObject(toSend);
+            oos.close();
+            ois.close();
+            clientSocket.close();
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> String <span class="hljs-title function_">checkUserData</span><span class="hljs-params">(User inp)</span> &#123;
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">inpIDUser</span> <span class="hljs-operator">=</span> ClientConnect.data.get(inp.getId());
+        <span class="hljs-keyword">if</span> (inpIDUser == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span> MessageType.LOGIN_USER_NOT_EXIST;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!inpIDUser.getPw().equals(inp.getPw())) &#123;
+            <span class="hljs-keyword">return</span> MessageType.LOGIN_WRONG_PW;
+        &#125;
+        <span class="hljs-type">Serve</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> ServeCollection.get(inpIDUser.getId());
+        <span class="hljs-keyword">if</span> (temp != <span class="hljs-literal">null</span>)&#123;
+            <span class="hljs-keyword">try</span> &#123;
+                temp.sendRepeatLoginException();
+                System.out.println(Message.getDateTime() + <span class="hljs-string">&quot; &quot;</span> + temp.id + <span class="hljs-string">&quot; 重复登陆&quot;</span>);
+                temp.forceLogout();
+            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+                <span class="hljs-keyword">return</span> MessageType.LOGIN_FAILED;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> MessageType.LOGIN_SUCCESS;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Serve.java（主干）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.connected;
+
+<span class="hljs-keyword">import</span> com.melody.transmission.common.*;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.net.Socket;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Serve</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+    <span class="hljs-keyword">private</span> Socket clientSocket;
+    <span class="hljs-keyword">private</span> ObjectOutputStream oos;
+    <span class="hljs-keyword">private</span> ObjectInputStream ois;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">connecting</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> String id;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Serve</span><span class="hljs-params">(Socket clientSocket, ObjectOutputStream oos, ObjectInputStream ois, String id)</span> &#123;
+        <span class="hljs-built_in">this</span>.clientSocket = clientSocket;
+        <span class="hljs-built_in">this</span>.oos = oos;
+        <span class="hljs-built_in">this</span>.ois = ois;
+        <span class="hljs-built_in">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        System.out.println(Message.getDateTime() + <span class="hljs-string">&quot; &quot;</span> + id + <span class="hljs-string">&quot; 登录 &quot;</span> + clientSocket.getLocalAddress().getHostName());
+        ClientConnect.data.get(id).setOnline(<span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">while</span> (connecting) &#123;
+            <span class="hljs-keyword">try</span> &#123;
+                serve();
+            &#125; <span class="hljs-keyword">catch</span> (IOException | ClassNotFoundException e) &#123;
+                <span class="hljs-keyword">try</span> &#123;
+                    forceLogout();
+                    System.out.println(Message.getDateTime() + <span class="hljs-string">&quot; &quot;</span> + id + <span class="hljs-string">&quot; 系统强行登出 &quot;</span> + e.toString());
+                &#125; <span class="hljs-keyword">catch</span> (IOException ex) &#123;
+                    ex.printStackTrace();
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">serve</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException &#123;
+        <span class="hljs-type">Message</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> (Message) ois.readObject();
+        <span class="hljs-type">Message</span> <span class="hljs-variable">toSend</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, ClientConnect.thisIP, clientSocket.getInetAddress().getHostAddress(), <span class="hljs-literal">null</span>);
+        <span class="hljs-keyword">if</span> (inp == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_SHOW_LIST)) &#123;
+            sendList(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_CHANGE_NAME)) &#123;
+            setNewName(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_CHANGE_HIDE)) &#123;
+            changeHide(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_CHANGE_PW)) &#123;
+            changPw(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_SHOW_ONLINE_LIST)) &#123;
+            sendOnlineList(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.CHAT)) &#123;
+            chat(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.GROUP_CHAT)) &#123;
+            groupChat(inp, toSend);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.LOGGED_LOGOUT)) &#123;
+            logout(inp);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getMessageType().equals(MessageType.FILE)) &#123;
+            sendFile(inp, toSend);
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendList</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (UserData userData : ClientConnect.data.values()) &#123;
+            sb.append(userData.listed());
+            sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+        &#125;
+        toSend.setMessage(sb.toString());
+        toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendOnlineList</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+        <span class="hljs-keyword">for</span> (UserData userData : ClientConnect.data.values()) &#123;
+            <span class="hljs-keyword">if</span> (userData.isOnline()) &#123;
+                sb.append(userData.listed());
+                sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+            &#125;
+        &#125;
+        toSend.setMessage(sb.toString());
+        toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNewName</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">newName</span> <span class="hljs-operator">=</span> inp.getMessage();
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> (UserData) inp.getObject();
+        <span class="hljs-keyword">if</span> (!temp.getId().equals(id) || !temp.equals(ClientConnect.data.get(id))) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            temp.setName(newName);
+            ClientConnect.data.put(id, temp);
+            toSend.setObject(ClientConnect.data.get(temp.getId()));
+            toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">changPw</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">newPw</span> <span class="hljs-operator">=</span> inp.getMessage();
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> (UserData) inp.getObject();
+        <span class="hljs-keyword">if</span> (!temp.getId().equals(id) || !temp.equals(ClientConnect.data.get(id))) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            temp.setPw(newPw);
+            ClientConnect.data.put(id, temp);
+            toSend.setObject(ClientConnect.data.get(id));
+            toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">changeHide</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> (UserData) inp.getObject();
+        <span class="hljs-keyword">if</span> (!temp.getId().equals(id) || !temp.equals(ClientConnect.data.get(id))) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            temp.setOnline(!temp.isOnline());
+            ClientConnect.data.put(id, temp);
+            toSend.setObject(ClientConnect.data.get(temp.getId()));
+            toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">chat</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        User[] users = (User[]) inp.getObject();
+        <span class="hljs-keyword">if</span> (!users[<span class="hljs-number">0</span>].getId().equals(id) || !users[<span class="hljs-number">0</span>].getPw().equals(ClientConnect.data.get(id).getPw())) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (users[<span class="hljs-number">1</span>].getId().equals(id) || ClientConnect.data.get(users[<span class="hljs-number">1</span>].getId()) == <span class="hljs-literal">null</span>) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-type">UserData</span> <span class="hljs-variable">tar</span> <span class="hljs-operator">=</span> ClientConnect.data.get(users[<span class="hljs-number">1</span>].getId());
+            <span class="hljs-type">UserData</span> <span class="hljs-variable">form</span> <span class="hljs-operator">=</span> ClientConnect.data.get(id);
+            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">send</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+            toSend.setMessageType(MessageType.CHAT);
+            send.append(inp.getTime()).append(<span class="hljs-string">&quot; &quot;</span>).append(form.getName()).append(<span class="hljs-string">&quot; 对 你 说：&quot;</span>).append(inp.getMessage());
+            <span class="hljs-keyword">if</span> (ServeCollection.get(tar.getId()) != <span class="hljs-literal">null</span>) &#123;
+                toSend.setMessage(send.toString());
+                ServeCollection.get(tar.getId()).oos.writeObject(toSend);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                ClientConnect.data.get(tar.getId()).leftMessage.append(send).append(<span class="hljs-string">&quot;\n&quot;</span>);
+            &#125;
+            toSend.setObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(tar.getName(), <span class="hljs-literal">null</span>));
+            toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">groupChat</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> (User) inp.getObject();
+        <span class="hljs-keyword">if</span> (!user.getId().equals(id) || !user.getPw().equals(ClientConnect.data.get(id).getPw())) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            toSend.setMessageType(MessageType.GROUP_CHAT);
+            <span class="hljs-type">String</span> <span class="hljs-variable">word</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;[群发]&quot;</span> + inp.getTime() + <span class="hljs-string">&quot; &quot;</span> + ClientConnect.data.get(id).getName() +
+                    <span class="hljs-string">&quot; 说：&quot;</span> + inp.getMessage();
+            toSend.setMessage(word);
+            <span class="hljs-keyword">for</span> (Serve serve : ServeCollection.toValue()) &#123;
+                serve.oos.writeObject(toSend);
+            &#125;
+            toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendFile</span><span class="hljs-params">(Message inp, Message toSend)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(id, inp.getSender());
+        <span class="hljs-keyword">if</span> (!user.getPw().equals(ClientConnect.data.get(id).getPw())) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inp.getReceiver().equals(id) || ClientConnect.data.get(inp.getReceiver()) == <span class="hljs-literal">null</span>) &#123;
+            toSend.setMessageType(MessageType.REQUEST_REJECTED);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            toSend.setMessageType(MessageType.FILE);
+            toSend.setMessage(inp.getMessage());
+            toSend.setSender(id);
+            toSend.setReceiver(inp.getReceiver());
+            toSend.setObject(inp.getObject());
+            <span class="hljs-keyword">try</span> &#123;
+                ServeCollection.get(inp.getReceiver()).oos.writeObject(toSend);
+                toSend.setMessageType(MessageType.REQUEST_ALLOWED);
+            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+                toSend.setMessageType(MessageType.REQUEST_REJECTED);
+            &#125;
+            toSend.setObject(<span class="hljs-literal">null</span>);
+        &#125;
+        oos.writeObject(toSend);
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">logout</span><span class="hljs-params">(Message inp)</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">UserData</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> (UserData) inp.getObject();
+        <span class="hljs-keyword">if</span> (!temp.getId().equals(id) || !temp.equals(ClientConnect.data.get(id))) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            ClientConnect.data.get(id).setOnline(<span class="hljs-literal">false</span>);
+            ois.close();
+            oos.close();
+            clientSocket.close();
+            connecting = <span class="hljs-literal">false</span>;
+            ServeCollection.remove(id);
+            System.out.println(Message.getDateTime() + <span class="hljs-string">&quot; &quot;</span> + id + <span class="hljs-string">&quot; 用户登出 &quot;</span> + clientSocket.getInetAddress().getHostName());
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">forceLogout</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        ClientConnect.data.get(id).setOnline(<span class="hljs-literal">false</span>);
+        ois.close();
+        oos.close();
+        clientSocket.close();
+        connecting = <span class="hljs-literal">false</span>;
+        ServeCollection.remove(id);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendRepeatLoginException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        oos.writeObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, MessageType.REPEAT_LOGIN));
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>ServeCollection.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> com.melody.transmission.connected.Serve;
+
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.util.Collection;
+<span class="hljs-keyword">import</span> java.util.HashMap;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServeCollection</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HashMap&lt;String, Serve&gt; serves = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(String id, Serve serve)</span>&#123;
+        serves.put(id, serve);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Serve <span class="hljs-title function_">get</span><span class="hljs-params">(String id)</span> &#123;
+        <span class="hljs-keyword">return</span> serves.get(id);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Collection&lt;Serve&gt; <span class="hljs-title function_">toValue</span><span class="hljs-params">()</span>&#123;
+        <span class="hljs-keyword">return</span> serves.values();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">remove</span><span class="hljs-params">(String id)</span>&#123;
+        serves.remove(id);
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>UserDataEnum.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">UserDataEnum</span> &#123;
+    USER01(<span class="hljs-string">&quot;申鹤&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0001&quot;</span>),
+    USER02(<span class="hljs-string">&quot;胡桃&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0002&quot;</span>),
+    USER03(<span class="hljs-string">&quot;甘雨&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0003&quot;</span>),
+    USER04(<span class="hljs-string">&quot;刻晴&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0004&quot;</span>),
+    USER05(<span class="hljs-string">&quot;香菱&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0005&quot;</span>),
+    USER06(<span class="hljs-string">&quot;凝光&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0006&quot;</span>),
+    USER07(<span class="hljs-string">&quot;云堇&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0007&quot;</span>),
+    USER08(<span class="hljs-string">&quot;留云借风真君&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0008&quot;</span>),
+    USER09(<span class="hljs-string">&quot;降魔大圣&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0009&quot;</span>),
+    USER10(<span class="hljs-string">&quot;歌尘浪市真君&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0010&quot;</span>),
+    USER11(<span class="hljs-string">&quot;理水叠山真君&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0011&quot;</span>),
+    USER12(<span class="hljs-string">&quot;摩拉克斯&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0012&quot;</span>),
+    USER13(<span class="hljs-string">&quot;救苦渡厄真君&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;0013&quot;</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> UserData user;
+
+    UserDataEnum(String name, String pw, String ID) &#123;
+        user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserData</span>(name, pw, ID);
+    &#125;
+&#125;</code></pre></div></li>
+</ul>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><blockquote>
+<p>Test1.java：程序入口</p>
+<p>ClientInterface.java：程序的主干</p>
+<p>ClientThread.java：由这个线程收集服务端发来的数据，并记录</p>
+<p>ClientThreadCollection.java：思路混乱的产物。现在我也不知道这是干嘛的（好在没几行代码）</p>
+<p>Utility.java：工具类</p>
+</blockquote>
+<ul>
+<li><p><strong>Test1.java（入口）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission;
+
+<span class="hljs-keyword">import</span> com.melody.transmission.common.ClientInterface;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test1</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClientInterface</span>().menu_0();
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>ClientInterface.java（主干）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.net.InetAddress;
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.time.LocalDateTime;
+<span class="hljs-keyword">import</span> java.util.Date;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientInterface</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">thisIP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;192.168.3.16&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">serverIP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;192.168.3.16&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">UserData</span> <span class="hljs-variable">loggedUser</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> ClientThread ct;
+    <span class="hljs-keyword">private</span> Socket socket;
+    <span class="hljs-keyword">private</span> Message message;
+    ObjectOutputStream oos;
+    ObjectInputStream ois;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">running</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">cancelMenu</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">File</span> <span class="hljs-variable">filePath</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;d:\\&quot;</span>);
+
+
+    <span class="hljs-comment">//一级菜单、登录</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">menu_0</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">running0</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">while</span> (running0) &#123;
+            System.out.println(<span class="hljs-string">&quot;===========欢迎使用通讯系统（试做版）===========&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t\t1. 用户登录&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;\t\t\t9. 退出系统&quot;</span>);
+            System.out.print(<span class="hljs-string">&quot;请输入：&quot;</span>);
+            <span class="hljs-type">String</span> <span class="hljs-variable">inpString</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>);
+            System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+            <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-keyword">if</span> (inpString.equals(<span class="hljs-string">&quot;1&quot;</span>)) &#123;
+                    menuLogin_0_1();
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (inpString.equals(<span class="hljs-string">&quot;9&quot;</span>)) &#123;
+                    running0 = <span class="hljs-literal">false</span>;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+                &#125;
+            &#125; <span class="hljs-keyword">catch</span> (RuntimeException | ClassNotFoundException e) &#123;
+                System.out.println(<span class="hljs-string">&quot;错误&quot;</span>);
+            &#125; <span class="hljs-keyword">catch</span> (IOException d) &#123;
+                System.out.println(<span class="hljs-string">&quot;链接失败！&quot;</span>);
+            &#125; <span class="hljs-keyword">finally</span> &#123;
+                System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+            &#125;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;再见~&quot;</span>);
+    &#125;
+
+
+    <span class="hljs-comment">//一级菜单、登录</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">menuLogin_0_1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException &#123;
+        System.out.println(<span class="hljs-string">&quot;-----------------用户登录-------------------&quot;</span>);
+        System.out.print(<span class="hljs-string">&quot;请输入用户ID（4位）：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">4</span>, <span class="hljs-literal">false</span>);
+        System.out.print(<span class="hljs-string">&quot;请输入密码（6位）：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">pw</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">6</span>, <span class="hljs-literal">false</span>);
+        System.out.println();
+        System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+        user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(id, pw);
+        loggedUser = tryLogin_0_1_1(user);
+        <span class="hljs-keyword">if</span> (loggedUser == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;登录失败&quot;</span>);
+            oos.close();
+            ois.close();
+            socket.close();
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;欢迎回来，&quot;</span> + loggedUser.getName());
+            isLoggedIn_1();
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> UserData <span class="hljs-title function_">tryLogin_0_1_1</span><span class="hljs-params">(User user)</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException &#123;
+        socket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Socket</span>(InetAddress.getByName(serverIP), <span class="hljs-number">9000</span>);
+        oos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(socket.getOutputStream());
+        ois = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(socket.getInputStream());
+        oos.writeObject(user);
+        <span class="hljs-type">Message</span> <span class="hljs-variable">received</span> <span class="hljs-operator">=</span> (Message) ois.readObject();
+        <span class="hljs-type">String</span> <span class="hljs-variable">reply</span> <span class="hljs-operator">=</span> received.getMessageType();
+        <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_WRONG_PW)) &#123;
+            System.out.println(<span class="hljs-string">&quot;密码错误&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_USER_NOT_EXIST)) &#123;
+            System.out.println(<span class="hljs-string">&quot;用户名不存在&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_SUCCESS)) &#123;
+            <span class="hljs-keyword">return</span> (UserData) received.getObject();
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reply.equals(MessageType.LOGIN_FAILED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    &#125;
+
+
+    <span class="hljs-comment">//二级菜单</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">isLoggedIn_1</span><span class="hljs-params">()</span> &#123;
+        ct = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClientThread</span>(socket, oos, ois, <span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(ct).start();
+        running = <span class="hljs-literal">true</span>;
+        showBasicMenu_1_();
+        System.out.println(loggedUser.leftMessage);
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (loggedUser.leftMessage.length() != <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;----------------以上是留言----------------&quot;</span>);
+        &#125;
+        <span class="hljs-keyword">while</span> (running) &#123;
+            showBasicMenu_1_();
+            System.out.print(<span class="hljs-string">&quot;请选择：&quot;</span>);
+            <span class="hljs-type">char</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> Utility.readChar();
+            System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+            <span class="hljs-keyword">switch</span> (inp) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    loggedGetList_1_1();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    loggedChat_1_2();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:
+                    loggedGroupChat_1_3();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:
+                    loggedSendFile_1_4();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;5&#x27;</span>:
+                    loggedChangeName_1_5();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;6&#x27;</span>:
+                    loggedChangePw_1_6();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;7&#x27;</span>:
+                    loggedChangeHide_1_7();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;8&#x27;</span>:
+                    showOthersMenu_1_();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    <span class="hljs-keyword">try</span> &#123;
+                        loggedLogout_1_9();
+                    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+                        System.out.println(<span class="hljs-string">&quot;复位&quot;</span>);
+                    &#125;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;M&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;m&#x27;</span>:
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;L&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;l&#x27;</span>:
+                    loggedShowLeftMessage_1_L();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;H&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;h&#x27;</span>:
+                    loggedShowChatMessage_1_H();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;C&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;c&#x27;</span>:
+                    loggedClearMessage_1_C();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;D&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;d&#x27;</span>:
+                    loggedFileDeal_1_D();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;F&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;f&#x27;</span>:
+                    loggedShowFilePath_1_F();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;N&#x27;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;n&#x27;</span>:
+                    loggedChangeFilePath_1_N();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;错误：请检查输入内容&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showBasicMenu_1_</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (cancelMenu) &#123;
+            cancelMenu = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;================&quot;</span> + loggedUser.getName() + <span class="hljs-string">&quot;（&quot;</span> + loggedUser.getID() + <span class="hljs-string">&quot;）================&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t1. 获取用户列表&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t2. 聊天&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t3. 群聊&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t4. 发送文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t5. 修改昵称&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t6. 修改密码&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t7. 切换隐身状态（目前：&quot;</span> + (loggedUser.isOnline() ? <span class="hljs-string">&quot;非隐身）&quot;</span> : <span class="hljs-string">&quot;隐身★~）&quot;</span>));
+        System.out.println(<span class="hljs-string">&quot;\t\t\t8. 其他&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t9. 退出&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showOthersMenu_1_</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;================&quot;</span> + loggedUser.getName() + <span class="hljs-string">&quot;（&quot;</span> + loggedUser.getID() + <span class="hljs-string">&quot;）================&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tC. 清空在线消息&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tD. 查看文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tH. 在线消息记录&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tL. 查看离线留言&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tF. 查看文件存放目录&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tN. 更改文件存放目录&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\tM. 返回（显示一级菜单）&quot;</span>);
+        cancelMenu = <span class="hljs-literal">true</span>;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedGetList_1_1</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_SHOW_LIST);
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;获取列表失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.messageReceived = <span class="hljs-literal">false</span>;
+            System.out.println(<span class="hljs-string">&quot;----------------成员列表如下----------------&quot;</span>);
+            System.out.println(message.getMessage());
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;获取列表失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedGetActiveList_1_1A</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_SHOW_ONLINE_LIST);
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;获取在线成员列表失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.messageReceived = <span class="hljs-literal">false</span>;
+            System.out.println(<span class="hljs-string">&quot;--------------在线成员列表如下--------------&quot;</span>);
+            System.out.println(message.getMessage());
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;获取在线成员列表失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedChat_1_2</span><span class="hljs-params">()</span> &#123;
+        loggedGetActiveList_1_1A();
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.CHAT);
+        System.out.print(<span class="hljs-string">&quot;请输入私聊对象：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">tarId</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (tarId == <span class="hljs-literal">null</span> || tarId.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tarId.equals(loggedUser.getID())) &#123;
+            System.out.println(<span class="hljs-string">&quot;不能私聊自己&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;发送内容：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">word</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">100</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (word == <span class="hljs-literal">null</span> || word.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        User[] temp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>[<span class="hljs-number">2</span>];
+        temp[<span class="hljs-number">0</span>] = user;
+        temp[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(tarId, <span class="hljs-literal">null</span>);
+        message.setObject(temp);
+        message.setMessage(word);
+        showBasicMenu_1_();
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;\r访问失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.sb.append(<span class="hljs-string">&quot;\n&quot;</span>).append(message.getTime()).append(<span class="hljs-string">&quot; 你对 &quot;</span>).append(((User) message.getObject()).getId()).append(<span class="hljs-string">&quot; 说：&quot;</span>).append(word);
+            System.out.println(ct.sb);
+            System.out.println(<span class="hljs-string">&quot;\r发送成功&quot;</span>);
+            cancelMenu = <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;\r请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;\r发送失败&quot;</span>);
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedGroupChat_1_3</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.GROUP_CHAT);
+        System.out.print(<span class="hljs-string">&quot;发送内容：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">word</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">100</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (word == <span class="hljs-literal">null</span> || word.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        message.setObject(user);
+        message.setMessage(word);
+        showBasicMenu_1_();
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;\r访问失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;\r发送成功&quot;</span>);
+            cancelMenu = <span class="hljs-literal">true</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;\r请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;\r发送失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedSendFile_1_4</span><span class="hljs-params">()</span> &#123;
+        loggedGetActiveList_1_1A();
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.FILE);
+        System.out.println(<span class="hljs-string">&quot;请输入要发送的用户：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">tar</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">4</span>, <span class="hljs-literal">true</span>);
+        message.setReceiver(tar);
+        <span class="hljs-keyword">if</span> (tar == <span class="hljs-literal">null</span> || tar.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tar.equals(loggedUser.getID())) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：不能发给自己&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tar.length() &lt; <span class="hljs-number">4</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：用户 ID 是 4 位字符&quot;</span>);
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;请输入文件完整路径：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">file_Str</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">500</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (file_Str == <span class="hljs-literal">null</span> || file_Str.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-type">byte</span>[] data = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            file = <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(file_Str);
+            <span class="hljs-keyword">if</span> (!file.isFile()) &#123;
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+            data = Utility.loadFile(file);
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            showBasicMenu_1_();
+            System.out.println(<span class="hljs-string">&quot;错误：文件路径错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        message.setSender(loggedUser.getPw());
+        message.setObject(data);
+        message.setMessage(file.getName());
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;发送失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.messageReceived = <span class="hljs-literal">false</span>;
+            System.out.println(<span class="hljs-string">&quot;文件发送成功&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;请求失败&quot;</span>);
+        &#125;
+        cancelMenu = <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedChangeName_1_5</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_CHANGE_NAME);
+        System.out.print(<span class="hljs-string">&quot;请输入一个新名字（不超过10位）：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">newName</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (newName == <span class="hljs-literal">null</span> || newName.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        message.setMessage(newName);
+        message.setObject(loggedUser);
+        loggedUser = <span class="hljs-literal">null</span>;
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;访问失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.messageReceived = <span class="hljs-literal">false</span>;
+            loggedUser = (UserData) message.getObject();
+            System.out.println(<span class="hljs-string">&quot;修改完毕：（&quot;</span> + loggedUser.getID() + <span class="hljs-string">&quot;）&quot;</span> + loggedUser.getName());
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;请求失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedChangePw_1_6</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_CHANGE_PW);
+        System.out.print(<span class="hljs-string">&quot;请输入原密码：&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">pw</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">20</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (pw == <span class="hljs-literal">null</span> || pw.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!pw.equals(loggedUser.getPw())) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：密码错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.print(<span class="hljs-string">&quot;请输入新密码（6位）：&quot;</span>);
+        pw = Utility.readKeyBoard(<span class="hljs-number">6</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (pw == <span class="hljs-literal">null</span> || pw.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pw.length() != <span class="hljs-number">6</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：密码长度应该是 6 位&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        message.setMessage(pw);
+        message.setObject(loggedUser);
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;访问失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            ct.messageReceived = <span class="hljs-literal">false</span>;
+            System.out.println(<span class="hljs-string">&quot;密码修改成功&quot;</span>);
+            loggedUser = (UserData) message.getObject();
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;请求失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedChangeHide_1_7</span><span class="hljs-params">()</span> &#123;
+        message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_CHANGE_HIDE);
+        message.setObject(loggedUser);
+<span class="hljs-comment">//        loggedUser = null;</span>
+        sendAndReceive();
+        <span class="hljs-keyword">if</span> (message == <span class="hljs-literal">null</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;访问失败&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_ALLOWED)) &#123;
+            loggedUser = (UserData) message.getObject();
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.REQUEST_REJECTED)) &#123;
+            System.out.println(<span class="hljs-string">&quot;请求被拒绝&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;请求失败&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedLogout_1_9</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;
+        System.out.println(<span class="hljs-string">&quot;确认退出吗？（Y/N）&quot;</span>);
+        <span class="hljs-keyword">if</span> (Utility.readConfirmSelection() == <span class="hljs-string">&#x27;Y&#x27;</span>) &#123;
+            message = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Message</span>(<span class="hljs-literal">null</span>, loggedUser.getID(), serverIP, MessageType.LOGGED_LOGOUT);
+            message.setObject(loggedUser);
+            oos.writeObject(message);
+            loggedUser = <span class="hljs-literal">null</span>;
+            socket.close();
+            ct.running = <span class="hljs-literal">false</span>;
+            running = <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedShowChatMessage_1_H</span><span class="hljs-params">()</span> &#123;
+        System.out.println(ct.sb);
+        cancelMenu = <span class="hljs-literal">true</span>;
+        System.out.println(<span class="hljs-string">&quot;----------------没有更多了----------------&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedShowLeftMessage_1_L</span><span class="hljs-params">()</span> &#123;
+        System.out.println(loggedUser.leftMessage);
+        cancelMenu = <span class="hljs-literal">true</span>;
+        System.out.println(<span class="hljs-string">&quot;----------------没有更多了----------------&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedClearMessage_1_C</span><span class="hljs-params">()</span> &#123;
+        ct.sb.delete(<span class="hljs-number">0</span>, ct.sb.length());
+        System.out.println(<span class="hljs-string">&quot;完成&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedFileDeal_1_D</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">fileMenuRunning</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">while</span> (fileMenuRunning) &#123;
+            showFileDealMenu_1_D_();
+            System.out.print(<span class="hljs-string">&quot;请选择：&quot;</span>);
+            <span class="hljs-type">char</span> <span class="hljs-variable">inp</span> <span class="hljs-operator">=</span> Utility.readChar();
+            System.out.println(<span class="hljs-string">&quot;--------------------------------------------&quot;</span>);
+            <span class="hljs-keyword">switch</span> (inp) &#123;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:
+                    fileShowAllName_1_D_1();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+                    fileShowNewestName_1_D_2();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:
+                    fileDeleteNewestOne_1_D_3();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:
+                    fileDownloadNewestOne_1_D_4();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;5&#x27;</span>:
+                    fileDownloadAll_1_D_5();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;6&#x27;</span>:
+                    loggedChangeFilePath_1_N();
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;9&#x27;</span>:
+                    fileMenuRunning = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">default</span>:
+                    System.out.println(<span class="hljs-string">&quot;错误：请检查输入内容&quot;</span>);
+                    <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showFileDealMenu_1_D_</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (cancelMenu) &#123;
+            cancelMenu = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;---------------文件管理----------------&quot;</span>);
+        ct.showFilesRemain();
+        loggedShowFilePath_1_F();
+        System.out.println(<span class="hljs-string">&quot;-------------------------------------&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t1. 查看所有文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t2. 查看最新文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t3. 删除最新的文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t4. 下载最新的文件&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t5. 全部下载&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t6. 修改存放路径&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;\t\t\t9. 返回上级目录&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fileShowAllName_1_D_1</span><span class="hljs-params">()</span> &#123;
+        showFileDealMenu_1_D_();
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (ct.filesToDeal.length == <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;没有未处理的文件了★~~&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">do</span> &#123;
+            System.out.println((n + <span class="hljs-number">1</span>) + <span class="hljs-string">&quot;. &quot;</span> + ct.fileName[n]);
+        &#125; <span class="hljs-keyword">while</span> (++n &lt; ct.fileName.length);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fileShowNewestName_1_D_2</span><span class="hljs-params">()</span> &#123;
+        showFileDealMenu_1_D_();
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (ct.filesToDeal.length == <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;没有未处理的文件了★~~&quot;</span>);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(ct.fileName.length + <span class="hljs-string">&quot;. &quot;</span> + ct.fileName[ct.fileName.length - <span class="hljs-number">1</span>]);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fileDeleteNewestOne_1_D_3</span><span class="hljs-params">()</span> &#123;
+        showFileDealMenu_1_D_();
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (ct.filesToDeal.length == <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;没有未处理的文件了★~~&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        System.out.println(ct.fileName.length + <span class="hljs-string">&quot;. &quot;</span> + ct.fileName[ct.fileName.length - <span class="hljs-number">1</span>]);
+        System.out.println(<span class="hljs-string">&quot;确定删除吗？&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;确认退出吗？（Y/N）&quot;</span>);
+        <span class="hljs-keyword">if</span> (Utility.readConfirmSelection() == <span class="hljs-string">&#x27;N&#x27;</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (ct.deleteNewestFile()) &#123;
+            System.out.println(<span class="hljs-string">&quot;删除成功&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fileDownloadNewestOne_1_D_4</span><span class="hljs-params">()</span> &#123;
+        showFileDealMenu_1_D_();
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (ct.filesToDeal.length == <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;没有未处理的文件了★~~&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> ct.fileName[ct.fileName.length - <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (ct.downloadNewestFile()) &#123;
+            System.out.println(str + <span class="hljs-string">&quot; 下载成功&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fileDownloadAll_1_D_5</span><span class="hljs-params">()</span> &#123;
+        showFileDealMenu_1_D_();
+        cancelMenu = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (ct.filesToDeal.length == <span class="hljs-number">0</span>) &#123;
+            System.out.println(<span class="hljs-string">&quot;没有未处理的文件了★~~&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">do</span> &#123;
+            fileDownloadNewestOne_1_D_4();
+        &#125; <span class="hljs-keyword">while</span> (ct.filesToDeal.length &gt; <span class="hljs-number">0</span>);
+        cancelMenu = <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedShowFilePath_1_F</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;文件保存目录如下：&quot;</span> + filePath);
+        cancelMenu = <span class="hljs-literal">true</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">loggedChangeFilePath_1_N</span><span class="hljs-params">()</span> &#123;
+        loggedShowFilePath_1_F();
+        System.out.print(<span class="hljs-string">&quot;请输入一个新的路径&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">newPath</span> <span class="hljs-operator">=</span> Utility.readKeyBoard(<span class="hljs-number">500</span>, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">if</span> (newPath == <span class="hljs-literal">null</span> || newPath.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+            System.out.println(<span class="hljs-string">&quot;取消&quot;</span>);
+            cancelMenu = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        File path;
+        <span class="hljs-keyword">try</span> &#123;
+            path = <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(newPath);
+            path.mkdir();
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：路径输入错误&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        filePath = path;
+        cancelMenu = <span class="hljs-literal">false</span>;
+        showBasicMenu_1_();
+        System.out.println(<span class="hljs-string">&quot;成功&quot;</span>);
+        loggedShowFilePath_1_F();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendAndReceive</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">long</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()).getTime();
+        ct.messageReceived = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">try</span> &#123;
+            oos.writeObject(message);
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            System.out.println(<span class="hljs-string">&quot;异常&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">do</span> &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().getTime() - now &gt;= <span class="hljs-number">5000</span>) &#123;
+                System.out.println(<span class="hljs-string">&quot;超时&quot;</span>);
+                message = <span class="hljs-literal">null</span>;
+                <span class="hljs-keyword">break</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ct.messageReceived) &#123;
+                message = ct.message;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>);
+        ct.messageReceived = <span class="hljs-literal">false</span>;
+    &#125;
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDate</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> getDate(LocalDateTime.now());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDate</span><span class="hljs-params">(LocalDateTime ldt)</span> &#123;
+        <span class="hljs-keyword">return</span> ldt.getYear() + <span class="hljs-string">&quot;.&quot;</span> + ldt.getMonthValue() + <span class="hljs-string">&quot;.&quot;</span> + ldt.getDayOfMonth();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getTime</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> getTime(LocalDateTime.now());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getTime</span><span class="hljs-params">(LocalDateTime ldt)</span> &#123;
+        <span class="hljs-keyword">return</span> ldt.getHour() + <span class="hljs-string">&quot;:&quot;</span> + ldt.getMinute() + <span class="hljs-string">&quot;:&quot;</span> + ldt.getSecond();
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getDateTime</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">ldt</span> <span class="hljs-operator">=</span> LocalDateTime.now();
+        <span class="hljs-keyword">return</span> getDate(ldt) + <span class="hljs-string">&quot;  &quot;</span> + getTime();
+    &#125;
+
+<span class="hljs-comment">//    private Message packageMessage(String str) &#123;</span>
+<span class="hljs-comment">//        return new Message(str, thisIP, serverIP, &quot;0&quot;);</span>
+<span class="hljs-comment">//    &#125;</span>
+&#125;</code></pre></div>
+</li>
+<li><p><strong>ClientThread.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> java.io.ObjectInputStream;
+<span class="hljs-keyword">import</span> java.io.ObjectOutputStream;
+<span class="hljs-keyword">import</span> java.net.Socket;
+<span class="hljs-keyword">import</span> java.util.Arrays;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientThread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;
+    <span class="hljs-keyword">private</span> Socket socket;
+    <span class="hljs-keyword">private</span> ObjectOutputStream oos;
+    <span class="hljs-keyword">private</span> ObjectInputStream ois;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Message</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">messageReceived</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">running</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
+    <span class="hljs-keyword">private</span> ClientInterface ci;
+    <span class="hljs-comment">//    public byte[] fileToDeal;</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">receivedFileDealt</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">byte</span>[][] filesToDeal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>][];			<span class="hljs-comment">//这里改为创建一个本地缓存，在内存里存放路径更好</span>
+    														<span class="hljs-comment">//但我懒得改了</span>
+    <span class="hljs-keyword">public</span> String[] fileName = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[<span class="hljs-number">0</span>];
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">while</span> (running) &#123;
+                message = (Message) ois.readObject();
+                <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.CHAT) || message.getMessageType().equals(MessageType.GROUP_CHAT)) &#123;
+                    chatReceived();
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (message.getMessageType().equals(MessageType.FILE)) &#123;
+                    filesReceived();
+                &#125;
+                messageReceived = <span class="hljs-literal">true</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (IOException | ClassNotFoundException e) &#123;
+            ci.running = <span class="hljs-literal">false</span>;
+            System.out.print(<span class="hljs-string">&quot;\r已离线：&quot;</span>);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClientThread</span><span class="hljs-params">(Socket socket, ObjectOutputStream oos, ObjectInputStream ois, ClientInterface ci)</span> &#123;
+        <span class="hljs-built_in">this</span>.socket = socket;
+        <span class="hljs-built_in">this</span>.oos = oos;
+        <span class="hljs-built_in">this</span>.ois = ois;
+        <span class="hljs-built_in">this</span>.ci = ci;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Socket <span class="hljs-title function_">getSocket</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> socket;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">chatReceived</span><span class="hljs-params">()</span> &#123;
+        sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+        sb.append(message.getMessage());
+        System.out.println(<span class="hljs-string">&quot;\r&quot;</span>);
+        ci.showBasicMenu_1_();
+        System.out.print(<span class="hljs-string">&quot;\r          &quot;</span>);
+        System.out.print(<span class="hljs-string">&quot;\r&quot;</span> + sb);
+        System.out.print(<span class="hljs-string">&quot;\n请选择：&quot;</span>);
+        message.setMessageType(MessageType.REQUEST_ALLOWED);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">filesReceived</span><span class="hljs-params">()</span> &#123;
+        filesToDeal = Arrays.copyOf(filesToDeal, filesToDeal.length + <span class="hljs-number">1</span>);
+        filesToDeal[filesToDeal.length - <span class="hljs-number">1</span>] = (<span class="hljs-type">byte</span>[]) message.getObject();
+        fileName = Arrays.copyOf(fileName, fileName.length + <span class="hljs-number">1</span>);
+        fileName[fileName.length - <span class="hljs-number">1</span>] = message.getMessage();
+        receivedFileDealt = <span class="hljs-literal">false</span>;
+        showFilesRemain();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showFilesRemain</span><span class="hljs-params">()</span> &#123;
+        System.out.println(<span class="hljs-string">&quot;\r★您有 &quot;</span> + filesToDeal.length + <span class="hljs-string">&quot; 个文件等待处理★&quot;</span>);
+<span class="hljs-comment">//        System.out.println(&quot;\r★按 D 键处理★&quot;);</span>
+        <span class="hljs-keyword">if</span> (filesToDeal.length == <span class="hljs-number">0</span>)&#123;
+            receivedFileDealt = <span class="hljs-literal">true</span>;
+        &#125;
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">deleteNewestFile</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            filesToDeal = Arrays.copyOf(filesToDeal, filesToDeal.length - <span class="hljs-number">1</span>);
+            fileName = Arrays.copyOf(fileName, fileName.length - <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">if</span> (fileName.length != filesToDeal.length)&#123;
+                fileName = Arrays.copyOf(fileName, filesToDeal.length - <span class="hljs-number">1</span>);
+                System.out.println(<span class="hljs-string">&quot;错误：文件或文件名丢失&quot;</span>);
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125; <span class="hljs-keyword">finally</span> &#123;
+            showFilesRemain();
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">downloadNewestFile</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">File</span> <span class="hljs-variable">savePath</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(ci.filePath, fileName[fileName.length - <span class="hljs-number">1</span>]);
+        <span class="hljs-keyword">if</span> (Utility.saveFile(filesToDeal[filesToDeal.length -<span class="hljs-number">1</span>], savePath))&#123;
+            <span class="hljs-keyword">return</span> deleteNewestFile();
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;错误：文件存储失败&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+</li>
+<li><p><strong>ClientThreadCollection.java</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+<span class="hljs-keyword">import</span> java.util.HashMap;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Melody</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientThreadCollection</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HashMap&lt;String, ClientThread&gt; threads = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addSocket</span><span class="hljs-params">(String ip, ClientThread ct)</span> &#123;
+        threads.put(ip, ct);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ClientThread <span class="hljs-title function_">get</span><span class="hljs-params">(String ip)</span> &#123;
+        <span class="hljs-keyword">return</span> threads.get(ip);
+    &#125;
+
+&#125;</code></pre></div>
+</li>
+<li><p><strong>Utility.java（工具类，不是我写的）</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.transmission.common;
+
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> 韩顺平</span>
+<span class="hljs-comment"> * 工具类的作用:</span>
+<span class="hljs-comment"> * 处理各种情况的用户输入，并且能够按照程序员的需求，得到用户的控制台输入。</span>
+<span class="hljs-comment"> */</span>
+
+
+<span class="hljs-keyword">import</span> javax.imageio.IIOException;
+<span class="hljs-keyword">import</span> java.io.*;
+<span class="hljs-keyword">import</span> java.util.Scanner;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Utility</span> &#123;
+    <span class="hljs-comment">//静态属性。。。</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的一个菜单选项，值：1——5的范围</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 1——5</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">char</span> <span class="hljs-title function_">readMenuSelection</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">char</span> c;
+        <span class="hljs-keyword">for</span> (; ; ) &#123;
+            <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>);<span class="hljs-comment">//包含一个字符的字符串</span>
+            c = str.charAt(<span class="hljs-number">0</span>);<span class="hljs-comment">//将字符串转换成字符char类型</span>
+            <span class="hljs-keyword">if</span> (c != <span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;2&#x27;</span> &amp;&amp;
+                    c != <span class="hljs-string">&#x27;3&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;4&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;5&#x27;</span>) &#123;
+                System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入：&quot;</span>);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> c;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的一个字符</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 一个字符</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">char</span> <span class="hljs-title function_">readChar</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>);<span class="hljs-comment">//就是一个字符</span>
+        <span class="hljs-keyword">return</span> str.charAt(<span class="hljs-number">0</span>);
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的一个字符，如果直接按回车，则返回指定的默认值；否则返回输入的那个字符</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> defaultValue 指定的默认值</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 默认值或输入的字符</span>
+<span class="hljs-comment">     */</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">char</span> <span class="hljs-title function_">readChar</span><span class="hljs-params">(<span class="hljs-type">char</span> defaultValue)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">1</span>, <span class="hljs-literal">true</span>);<span class="hljs-comment">//要么是空字符串，要么是一个字符</span>
+        <span class="hljs-keyword">return</span> (str.length() == <span class="hljs-number">0</span>) ? defaultValue : str.charAt(<span class="hljs-number">0</span>);
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的整型，长度小于2位</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 整数</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">readInt</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">int</span> n;
+        <span class="hljs-keyword">for</span> (; ; ) &#123;
+            <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">10</span>, <span class="hljs-literal">false</span>);<span class="hljs-comment">//一个整数，长度&lt;=10位</span>
+            <span class="hljs-keyword">try</span> &#123;
+                n = Integer.parseInt(str);<span class="hljs-comment">//将字符串转换成整数</span>
+                <span class="hljs-keyword">break</span>;
+            &#125; <span class="hljs-keyword">catch</span> (NumberFormatException e) &#123;
+                System.out.print(<span class="hljs-string">&quot;数字输入错误，请重新输入：&quot;</span>);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> n;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的 整数或默认值，如果直接回车，则返回默认值，否则返回输入的整数</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> defaultValue 指定的默认值</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 整数或默认值</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">readInt</span><span class="hljs-params">(<span class="hljs-type">int</span> defaultValue)</span> &#123;
+        <span class="hljs-type">int</span> n;
+        <span class="hljs-keyword">for</span> (; ; ) &#123;
+            <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>);
+            <span class="hljs-keyword">if</span> (str.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;
+                <span class="hljs-keyword">return</span> defaultValue;
+            &#125;
+            <span class="hljs-comment">//异常处理...</span>
+            <span class="hljs-keyword">try</span> &#123;
+                n = Integer.parseInt(str);
+                <span class="hljs-keyword">break</span>;
+            &#125; <span class="hljs-keyword">catch</span> (NumberFormatException e) &#123;
+                System.out.print(<span class="hljs-string">&quot;数字输入错误，请重新输入：&quot;</span>);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> n;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的指定长度的字符串</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> limit 限制的长度</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 指定长度的字符串</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">readString</span><span class="hljs-params">(<span class="hljs-type">int</span> limit)</span> &#123;
+        <span class="hljs-keyword">return</span> readKeyBoard(limit, <span class="hljs-literal">false</span>);
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的指定长度的字符串或默认值，如果直接回车，返回默认值，否则返回字符串</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> limit        限制的长度</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> defaultValue 指定的默认值</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 指定长度的字符串</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">readString</span><span class="hljs-params">(<span class="hljs-type">int</span> limit, String defaultValue)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(limit, <span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">return</span> str.equals(<span class="hljs-string">&quot;&quot;</span>) ? defaultValue : str;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能：读取键盘输入的确认选项，Y或N</span>
+<span class="hljs-comment">     * 将小的功能，封装到一个方法中.</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span> Y或N</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">char</span> <span class="hljs-title function_">readConfirmSelection</span><span class="hljs-params">()</span> &#123;
+<span class="hljs-comment">//        System.out.println(&quot;请输入你的选择(Y/N): 请小心选择&quot;);</span>
+        <span class="hljs-type">char</span> c;
+        <span class="hljs-keyword">for</span> (; ; ) &#123;<span class="hljs-comment">//无限循环</span>
+            <span class="hljs-comment">//在这里，将接受到字符，转成了大写字母</span>
+            <span class="hljs-comment">//y =&gt; Y n=&gt;N</span>
+            <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> readKeyBoard(<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>).toUpperCase();
+            c = str.charAt(<span class="hljs-number">0</span>);
+            <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;Y&#x27;</span> || c == <span class="hljs-string">&#x27;N&#x27;</span>) &#123;
+                <span class="hljs-keyword">break</span>;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                System.out.print(<span class="hljs-string">&quot;请重新输入（输入 Y/N）：&quot;</span>);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> c;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 功能： 读取一个字符串</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> limit       读取的长度</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param</span> blankReturn 如果为true ,表示 可以读空字符串。</span>
+<span class="hljs-comment">     *                    如果为false表示 不能读空字符串。</span>
+<span class="hljs-comment">     *                    &lt;p&gt;</span>
+<span class="hljs-comment">     *                    如果输入为空，或者输入大于limit的长度，就会提示重新输入。</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">readKeyBoard</span><span class="hljs-params">(<span class="hljs-type">int</span> limit, <span class="hljs-type">boolean</span> blankReturn)</span> &#123;
+
+        <span class="hljs-comment">//定义了字符串</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">line</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-comment">//scanner.hasNextLine() 判断有没有下一行</span>
+        <span class="hljs-keyword">while</span> (scanner.hasNextLine()) &#123;
+            line = scanner.nextLine();<span class="hljs-comment">//读取这一行</span>
+
+            <span class="hljs-comment">//如果line.length=0, 即用户没有输入任何内容，直接回车</span>
+            <span class="hljs-keyword">if</span> (line.length() == <span class="hljs-number">0</span>) &#123;
+                <span class="hljs-keyword">if</span> (blankReturn) <span class="hljs-keyword">return</span> line;<span class="hljs-comment">//如果blankReturn=true,可以返回空串</span>
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">continue</span>; <span class="hljs-comment">//如果blankReturn=false,不接受空串，必须输入内容</span>
+            &#125;
+            <span class="hljs-comment">//如果用户输入的内容大于了 limit，就提示重写输入</span>
+            <span class="hljs-comment">//0 &lt; 如果用户如的内容  &lt;= limit ,我就接受</span>
+            <span class="hljs-keyword">if</span> (line.length() &lt; <span class="hljs-number">1</span> || line.length() &gt; limit) &#123;
+                System.out.print(<span class="hljs-string">&quot;输入长度（不能大于&quot;</span> + limit + <span class="hljs-string">&quot;）错误，请重新输入：&quot;</span>);
+                <span class="hljs-keyword">continue</span>;
+            &#125;
+            <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> line;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] receiveFile(InputStream is) <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">bis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();
+        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">byte</span>[] bytes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>];
+        <span class="hljs-keyword">while</span> ((len = is.read(bytes, <span class="hljs-number">0</span>, bytes.length)) != -<span class="hljs-number">1</span>) &#123;
+            bis.write(bytes, <span class="hljs-number">0</span>, len);
+        &#125;
+        <span class="hljs-keyword">return</span> bis.toByteArray();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] loadFile(File path) <span class="hljs-keyword">throws</span> IOException &#123;
+        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">bis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();
+        <span class="hljs-type">FileInputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(path);
+        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">byte</span>[] bytes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>];
+        <span class="hljs-keyword">while</span> ((len = is.read(bytes, <span class="hljs-number">0</span>, bytes.length)) != -<span class="hljs-number">1</span>) &#123;
+            bis.write(bytes, <span class="hljs-number">0</span>, len);
+        &#125;
+        bytes = bis.toByteArray();
+        bis.close();
+        <span class="hljs-keyword">return</span> bytes;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">saveFile</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] data, File path)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+        <span class="hljs-type">File</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> path;
+        <span class="hljs-keyword">while</span> (temp.isFile()) &#123;
+            temp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(path.getParent(), <span class="hljs-string">&quot;（拷贝&quot;</span> + n++ + <span class="hljs-string">&quot;）&quot;</span> + path.getName());
+        &#125;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-type">FileOutputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(temp);
+            is.write(data);
+            is.close();
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+&#125;</code></pre></div></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;20 项目（多用户通讯系统）</div>
+      <div>https://i-melody.github.io/2022/01/16/Java/入门阶段/20 项目：多用户通讯系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月16日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

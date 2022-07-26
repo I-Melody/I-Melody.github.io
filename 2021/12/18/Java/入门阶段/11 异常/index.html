@@ -1,0 +1,932 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="11 异常（Exception） 在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。  Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;11 异常">
+<meta property="og:url" content="https://i-melody.github.io/2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="11 异常（Exception） 在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。  Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png">
+<meta property="article:published_time" content="2021-12-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-23T23:50:10.785Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;11 异常 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;11 异常"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-18 00:00" pubdate>
+          2021年12月18日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;11 异常</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年5月24日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="11-异常（Exception）"><a href="#11-异常（Exception）" class="headerlink" title="11 异常（Exception）"></a>11 异常（Exception）</h1><blockquote>
+<p>在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常）</p>
+<p>这些 异常事件 可分为两类：</p>
+<ul>
+<li><p>Error（错误）：Java 虚拟机无法解决的严重问题。</p>
+<p>如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。</p>
+</li>
+<li><p>Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性的代码进行处理。</p>
+<p>如：空指针访问，试图读取不存在的文件，网络中断等等。</p>
+<p>Exception 又分为两大类：</p>
+<ul>
+<li>运行时异常（程序运行时，发生的异常）</li>
+<li>编译时异常（编程时，编译器检查出的异常）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="11-1-异常体系图"><a href="#11-1-异常体系图" class="headerlink" title="11.1 异常体系图"></a>11.1 异常体系图</h2><blockquote>
+<p>编译异常（受检异常） 和 运行异常（非受检异常）</p>
+<p>Java 源程序  ——(javac.exe)——&gt; 字节码文件 ——(java.exe)——&gt; 在内存中加载，运行类</p>
+<p>​                             编译异常↑                                        运行异常↑</p>
+</blockquote>
+<p><img src="/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png" srcset="/img/loading.gif" lazyload></p>
+<p>​    <em>（异常体系图_11.1）</em></p>
+<p>异常分为两大类：运行时异常 和 编译时异常</p>
+<ul>
+<li><p>运行时异常，编译器不要求强制处置的异常。一般是指编程的逻辑错误，是程序员应该避免其出现的异常。</p>
+<p>java.lang.RuntimeException 类及它的子类都是运行时异常</p>
+<p>对于运行时异常，可以不做处理。因为这类异常很普遍，若全处理会对程序的可读性和运行效率产生影响</p>
+</li>
+<li><p>编译时异常，是编译器要求必须处置的异常</p>
+</li>
+</ul>
+<h3 id="11-1-1-常见的运行时异常"><a href="#11-1-1-常见的运行时异常" class="headerlink" title="11.1.1 常见的运行时异常"></a>11.1.1 常见的运行时异常</h3><blockquote>
+<p>常见的运行时异常（RuntimeException）包括</p>
+<ul>
+<li>NullPointerException：空指针异常</li>
+<li>ArithmeticException：数学运算异常</li>
+<li>ArrayIndexOutOfBoundsException：数组下标越界异常</li>
+<li>ClassCastException：类型转换异常</li>
+<li>NumberFormatException：数学格式异常</li>
+</ul>
+</blockquote>
+<p><strong>空指针异常</strong></p>
+<ul>
+<li>当应用程序试图在需要对象的地方使用 null 时，抛出该异常。</li>
+</ul>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> str.length;					<span class="hljs-comment">//这里，出现了 空指针异常</span></code></pre></div>
+</blockquote>
+<p><strong>数学运算异常</strong></p>
+<ul>
+<li>当出现异常的运算条件时，抛出该异常。</li>
+</ul>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span> / <span class="hljs-number">0</span>;					<span class="hljs-comment">//这里，出现了 数学运算异常</span></code></pre></div>
+</blockquote>
+<p><strong>数组下标越界异常</strong></p>
+<ul>
+<li>用非法索引（为负或超出范围）访问数组时，抛出该异常。</li>
+</ul>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;
+nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span>;					<span class="hljs-comment">//这里，出现了 数组下标越界异常</span></code></pre></div>
+</blockquote>
+<p><strong>类型转换异常</strong></p>
+<ul>
+<li>当试图把对象强制转换为不是实例的子类时，抛出该异常。</li>
+</ul>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;
+        <span class="hljs-type">A</span> <span class="hljs-variable">a1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A1</span>();
+        <span class="hljs-type">A2</span> <span class="hljs-variable">a1</span> <span class="hljs-operator">=</span> (A2)a1;				<span class="hljs-comment">//这里，出现了 类型转换异常</span>
+    &#125;
+&#125;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;&#125;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">A1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">A</span> &#123;&#125;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">A2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">A</span> &#123;&#125;</code></pre></div>
+</blockquote>
+<p><strong>数字格式不正确异常</strong></p>
+<ul>
+<li>当应用程序试图将字符串转成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。</li>
+</ul>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ABC&quot;</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> Integer.parseInt(str);	<span class="hljs-comment">//这里，出现了 数字格式不正确异常</span></code></pre></div>
+</blockquote>
+<h3 id="11-1-2-常见的编译异常"><a href="#11-1-2-常见的编译异常" class="headerlink" title="11.1.2 常见的编译异常"></a>11.1.2 常见的编译异常</h3><blockquote>
+<p>常见的编译异常：</p>
+<ul>
+<li>SQLException：操作数据库时，查询表可能发生异常</li>
+<li>IOException：操作文件时，发生的异常</li>
+<li>FileNotFoundException：操作一个不存在的文件时，发生的异常</li>
+<li>ClassNotFoundException：加载类，而该类不存在时，发生的异常</li>
+<li>EOFException：操作文件，到文档末尾，发生的异常</li>
+<li>IllegalArguementException：参数异常</li>
+</ul>
+</blockquote>
+<p>因为还没有学习 SQL、文件编程 等，这里不举例子</p>
+<h2 id="11-2-异常处理"><a href="#11-2-异常处理" class="headerlink" title="11.2 异常处理"></a>11.2 异常处理</h2><blockquote>
+<p>异常发生时，对异常的处理方式。如果没有显式异常处理，默认处理方式是 <code>throws</code></p>
+<ul>
+<li><code>try - chatch - finally</code>：程序员在代码中捕获发生的异常，自行处理</li>
+<li><code>throws</code>：将发生的异常抛出，交给调用者（方法）来处理。最顶级的处理者就是 JVM</li>
+</ul>
+</blockquote>
+<h3 id="11-2-1-try-catch-异常处理"><a href="#11-2-1-try-catch-异常处理" class="headerlink" title="11.2.1 try - catch 异常处理"></a>11.2.1 <code>try - catch</code> 异常处理</h3><blockquote>
+<p> Java 提供 try 和 catch 块 来处理异常。try 块用于包含可能出错的代码，catch 块用于处理 try 块中的异常。可以根据需要在程序中有多个 <code>try - catch</code> 块。</p>
+</blockquote>
+<blockquote>
+<p>基本语法</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">try</span> &#123;
+	<span class="hljs-comment">//可疑代码</span>
+	<span class="hljs-comment">//将异常生成对应的异常对象，传递给 catch 块</span>
+&#125; <span class="hljs-keyword">catch</span>(Exception e) &#123;
+	<span class="hljs-comment">//如果发生异常，执行这些代码</span>
+&#125; <span class="hljs-keyword">finally</span> &#123;
+    <span class="hljs-comment">//无论是否异常，都执行这些代码</span>
+    <span class="hljs-comment">//finally 块可以不写</span>
+&#125;</code></pre></div>
+</blockquote>
+<blockquote>
+<p>快捷键：选中代码后按 ctrl + alt + T</p>
+</blockquote>
+<h4 id="11-2-1-1-使用细节"><a href="#11-2-1-1-使用细节" class="headerlink" title="11.2.1.1 使用细节"></a>11.2.1.1 使用细节</h4><ol>
+<li><p>如果异常发生了，则异常发生后面的代码块都不执行，直接进入 catch 块</p>
+</li>
+<li><p>如果异常未发生，则顺序执行 try 代码块，catch 块不执行</p>
+</li>
+<li><p>如果希望不管是否异常，都执行一些代码，则使用 finally</p>
+</li>
+<li><p>可以有多个 catch 捕获不同的异常。要求 子类异常在前，父类异常在后。</p>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">try</span> &#123;
+	...
+&#125; <span class="hljs-keyword">catch</span> (NullPointerException e) &#123;
+	...
+&#125; <span class="hljs-keyword">catch</span> (ArithmeticException e) &#123;
+	...
+&#125; <span class="hljs-keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;
+	...
+&#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;
+	...
+&#125;</code></pre></div>
+</blockquote>
+</li>
+<li><p>可以进行 try - finally 配合使用（不写 catch）。这种用法相当于没有捕获异常，此时程序如果出错会直接退出。</p>
+<p>应用场景，就是写一段代码，不管是否发生异常，都必须执行某个业务逻辑。</p>
+</li>
+<li><p>如果没有出现异常，执行 try 中所有语句，不执行 catch 语句，最后执行 finally 语句</p>
+</li>
+<li><p>如果出现异常，则 try 块异常发生后，剩余语句不执行。之后执行 catch 语句，最后，执行 finally 语句。</p>
+</li>
+</ol>
+<h3 id="11-2-2-throws-异常处理"><a href="#11-2-2-throws-异常处理" class="headerlink" title="11.2.2 throws 异常处理"></a>11.2.2 <code>throws</code> 异常处理</h3><blockquote>
+<p>如果一个方法可能生成某种异常，但是并不能确定如何处理这种异常，则此方法应显式地声明抛出异常，表明该方法将不对这些异常进行处理，而由调用者负责处理</p>
+<p>在方法中声明 <code>throws</code> 语句可以声明抛出异常的列表。<code>throws</code> 后面的异常类型可以是方法中产生的异常类型，也可以是它的父类。</p>
+</blockquote>
+<blockquote>
+<p>语法</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">metord</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> FileNontFoundException ,NullPointerException &#123;
+	...
+&#125;</code></pre></div>
+</blockquote>
+<h4 id="11-2-2-1-使用细节"><a href="#11-2-2-1-使用细节" class="headerlink" title="11.2.2.1 使用细节"></a>11.2.2.1 使用细节</h4><ol>
+<li>对于 <strong>编译异常</strong>，程序中必须处理。</li>
+<li>对于 <strong>运行异常</strong>，程序中诺没有处理，默认处理是 <code>throws</code></li>
+<li>子类 重写 父类方法时，子类方法抛出的异常类型必须和父类一致，或者是父类抛出异常类型的子类型。</li>
+<li>如果有 <code>try - catch</code> 就不必 <code>throws</code> 了</li>
+</ol>
+<h2 id="11-3-自定义异常"><a href="#11-3-自定义异常" class="headerlink" title="11.3 自定义异常"></a>11.3 自定义异常</h2><blockquote>
+<p>当程序中出现了某些 “错误”，但该信息并未在 <code>Throwable</code> 子类中描述处理，这时候可以自己设计异常类，用于描述该错误信息</p>
+</blockquote>
+<ol>
+<li>定义类：自定义异常类名，继承 RuntimeException 或 Exception</li>
+<li>如果继承 Exception，属于 编译异常。</li>
+<li>如果继承 RuntimeException，属于 运行异常。（一般来说，选这个。这样利用了默认处理机制，更方便）</li>
+</ol>
+<blockquote>
+<div class="code-wrapper"><pre><code class="hljs java">&gt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Metords</span> &#123;
+   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span> &#123;
+       <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+       <span class="hljs-keyword">if</span>(n &gt; <span class="hljs-number">100</span>)&#123;
+           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CustomException</span>(<span class="hljs-string">&quot;不能大于100&quot;</span>);
+       &#125;
+   &#125;
+&gt;&#125;
+
+&gt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">RuntimeException</span> &#123;
+<span class="hljs-keyword">public</span> <span class="hljs-title function_">CustomException</span><span class="hljs-params">(String message)</span> &#123;
+	<span class="hljs-built_in">super</span>(message);
+&#125;
+&gt;&#125;</code></pre></div>
+</blockquote>
+<h3 id="11-3-1-throw-和-throws"><a href="#11-3-1-throw-和-throws" class="headerlink" title="11.3.1 throw 和 throws"></a>11.3.1 <code>throw</code> 和 <code>throws</code></h3><table>
+<thead>
+<tr>
+<th></th>
+<th>意义</th>
+<th>位置</th>
+<th>后面跟的东西</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>throws</code></td>
+<td>异常处理的一种方式</td>
+<td>方法声明时</td>
+<td>异常类型</td>
+</tr>
+<tr>
+<td><code>throw</code></td>
+<td>手动生成异常对象关键字</td>
+<td>方法体中</td>
+<td>异常对象</td>
+</tr>
+</tbody></table>
+<h3 id="11-3-2-编程小技巧"><a href="#11-3-2-编程小技巧" class="headerlink" title="11.3.2 编程小技巧"></a>11.3.2 编程小技巧</h3><p>老韩曰：编写异常时，先确定正确的情况，然后取反。这样写，你的思路就不乱。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;11 异常</div>
+      <div>https://i-melody.github.io/2021/12/18/Java/入门阶段/11 异常/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年12月18日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

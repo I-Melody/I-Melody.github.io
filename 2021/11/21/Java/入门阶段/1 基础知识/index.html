@@ -1,0 +1,1035 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1 Java 概述 程序：一系列有序指令的集合  1.1 Java 历史 目前 Java 版权属于甲骨文公司。  长期支持的版本只有 Java8 与 Java11。这两个版本也是最多使用的版本。  Java SE：标准版 Java EE：企业版（重要） Java ME：小型版（少）   1.2 Java 重要特点 Java 语言是面向对象的（oop） 简单来说，面向对象是一种程序设计技术。其重点放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Java&gt;1 基础知识">
+<meta property="og:url" content="https://i-melody.github.io/2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="1 Java 概述 程序：一系列有序指令的集合  1.1 Java 历史 目前 Java 版权属于甲骨文公司。  长期支持的版本只有 Java8 与 Java11。这两个版本也是最多使用的版本。  Java SE：标准版 Java EE：企业版（重要） Java ME：小型版（少）   1.2 Java 重要特点 Java 语言是面向对象的（oop） 简单来说，面向对象是一种程序设计技术。其重点放">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:50:45.171Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Java&gt;1 基础知识 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Java&gt;1 基础知识"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-21 00:00" pubdate>
+          2021年11月21日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Java&gt;1 基础知识</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月19日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="1-Java-概述"><a href="#1-Java-概述" class="headerlink" title="1 Java 概述"></a>1 Java 概述</h1><blockquote>
+<p>程序：一系列有序指令的集合</p>
+</blockquote>
+<h2 id="1-1-Java-历史"><a href="#1-1-Java-历史" class="headerlink" title="1.1 Java 历史"></a>1.1 Java 历史</h2><ul>
+<li><p>目前 Java 版权属于甲骨文公司。</p>
+</li>
+<li><p>长期支持的版本只有 Java8 与 Java11。这两个版本也是最多使用的版本。</p>
+</li>
+<li><p>Java SE：标准版</p>
+<p>Java EE：企业版（重要）</p>
+<p>Java ME：小型版（少）</p>
+</li>
+</ul>
+<h2 id="1-2-Java-重要特点"><a href="#1-2-Java-重要特点" class="headerlink" title="1.2 Java 重要特点"></a>1.2 Java 重要特点</h2><ol>
+<li><p>Java 语言是<strong>面向对象的（oop）</strong></p>
+<p>简单来说，面向对象是一种程序设计技术。其重点放在数据（对象）和对象的接口上。</p>
+<p><em><strong>——何为面向对象？详见 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/">[ 6 面向对象编程 ]</a></strong></em></p>
+</li>
+<li><p>Java 语言是<strong>健壮的</strong>。其强类型机制、异常处理、垃圾自动收集是健壮性的保证。</p>
+<p>Java 强调早期问题检测、后期动态检测，及消除易出错的情况。其编译器能检测很多其他语言仅在运行时才会发现的问题。</p>
+<p><em><strong>——异常见 <a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/">[ 11 异常 ]</a></strong></em></p>
+</li>
+<li><p>Java 语言是<strong>跨平台性</strong>的：一个编译好的 <code>.class</code> 文件可以在多个不同系统下直接运行。</p>
+<p>Java 中没有 “依赖具体实现” 的地方。其基本数据类型大小、有关运算的行为等都有明确说明。其绝大多数库都能很好地支持平台独立性，而不用担心操作系统。</p>
+</li>
+<li><p>Java 语言是<strong>解释型</strong>的：解释型语言编译后需要解释器才能运行。相对的，编译型语言可以被直接执行。</p>
+<p>Java 解释器能在任何移植了解释器的机器上直接执行 Java 字节码。</p>
+</li>
+</ol>
+<h2 id="1-3-Java-的开发工具"><a href="#1-3-Java-的开发工具" class="headerlink" title="1.3 Java 的开发工具"></a>1.3 Java 的开发工具</h2><ul>
+<li>javac：Java 编译器。将 Java 程序编译成字节码</li>
+<li>java：Java 解释器。执行已经转换为字节码的文件</li>
+<li>jdb：Java 调试器。调试 Java 程序</li>
+<li>javap：反编译。将类文件还原回方法和变量</li>
+<li>javadoc：文档生成器。创建 HTML 文件</li>
+</ul>
+<h2 id="1-4-Java-运行基础"><a href="#1-4-Java-运行基础" class="headerlink" title="1.4 Java 运行基础"></a>1.4 Java 运行基础</h2><blockquote>
+<p>JVM：Java 虚拟机</p>
+</blockquote>
+<ul>
+<li>JVM 是–跨平台性的基础。被包含在 JDK 中。</li>
+<li>不同平台有各自对应的不同  JVM</li>
+<li>JVM 屏蔽了底层平台的区别。能做到 ”一次编译，到处运行”</li>
+</ul>
+<blockquote>
+<p>JDK 全称：Java Development Kit（Java 开发工具包）</p>
+</blockquote>
+<ul>
+<li>JDK &#x3D; JRE + Java 的开发工具（Java，Javac，Javadoc 等等）</li>
+<li>给开发人员使用的，包含 JRE</li>
+</ul>
+<blockquote>
+<p>JRE：Java Runtime Enviroment（Java 运行环境）</p>
+</blockquote>
+<ul>
+<li>JRE &#x3D; JVM + Java SE 标准类库（Java 的核心类库）</li>
+<li>运行一个 Java 程序的基本条件</li>
+</ul>
+<h2 id="1-5-Java-执行流程分析"><a href="#1-5-Java-执行流程分析" class="headerlink" title="1.5 Java 执行流程分析"></a>1.5 Java 执行流程分析</h2><blockquote>
+<p><code>.Java</code> 文件（源文件） — javac（编译）— <code>.class</code> 文件（字节码文件） — java（运行）— 结果</p>
+</blockquote>
+<h3 id="1-5-1-编译"><a href="#1-5-1-编译" class="headerlink" title="1.5.1 编译"></a>1.5.1 编译</h3><div class="code-wrapper"><pre><code class="hljs doc">javac [选项] 源文件名.java			//[] 中是可选项</code></pre></div>
+
+<ul>
+<li>通过编译器将 Java 源文件编译成 JVM 可识别的字节码文件。字节码文件是二进制格式的，其格式是统一的。在源文件目录下使用  Javac 编译工具对 Java 文件进行编译。</li>
+<li>如果没有错误将没有提示，当前目录会对应其中每一个类生成对应名称的 <code>.class</code> 文件，即字节码文件，也是可执行的 Java 程序。</li>
+</ul>
+<h3 id="1-5-2-运行"><a href="#1-5-2-运行" class="headerlink" title="1.5.2 运行"></a>1.5.2 运行</h3><div class="code-wrapper"><pre><code class="hljs doc">java [选项] 程序名 [参数列表]			//[] 中是可选项</code></pre></div>
+
+<ul>
+<li>有了可执行的 Java 程序（字节码文件）</li>
+<li>通过运行工具<code> Java.exe</code> 对字节码文件进行执行，本质是将 <code>.class</code> 文件装载到 JVM 运行。</li>
+</ul>
+<h6 id="注意，修改后的-Java-源文件需要重新编译"><a href="#注意，修改后的-Java-源文件需要重新编译" class="headerlink" title="注意，修改后的 .Java 源文件需要重新编译"></a><em>注意，修改后的 .Java 源文件需要重新编译</em></h6><h2 id="1-6-Java-开发注意事项和细节说明"><a href="#1-6-Java-开发注意事项和细节说明" class="headerlink" title="1.6 Java 开发注意事项和细节说明"></a>1.6 Java 开发注意事项和细节说明</h2><ol>
+<li><p>源文件以 <code>.java</code> 为扩展名，源文件的基本组成部分是类（class）</p>
+</li>
+<li><p>Java 应用程序的执行入口是 <code>main()</code> 方法。其有固定的<strong>书写格式：</strong></p>
+<p><code>public static void main(string[]args)&#123;…&#125;</code></p>
+</li>
+<li><p>Java 语言<strong>严格区分大小写</strong>。</p>
+</li>
+<li><p>Java 方法由一条条语句构成，<strong>每个语句都以 <code>;</code> 结束</strong>。</p>
+</li>
+<li><p><strong>大括号 <code>&#123;</code> <code>&#125;</code> 是成对出现的</strong>，缺一不可。习惯先写 <code>&#123;&#125;</code> 再写代码</p>
+</li>
+<li><p>一个源文件中<strong>最多只有一个 public 类</strong>，其余类不限。</p>
+</li>
+<li><p><strong>如果文件中包含 public 类，则文件名必须按该类命名。</strong></p>
+</li>
+<li><p>也可以把 main 方法写在非 public 类中，然后运行指定非 public 类，这样入口方法是非 public 类的主方法。</p>
+</li>
+<li><p><em><strong>在控制台按 tab 可以实现代码补齐。按方向键 ↑ 或 ↓ 可以调用历史代码。</strong></em></p>
+</li>
+</ol>
+<h2 id="1-7-代码规范"><a href="#1-7-代码规范" class="headerlink" title="1.7 代码规范"></a>1.7 代码规范</h2><ol>
+<li><p>类、方法的注释要以 Javadoc 的方式来写</p>
+</li>
+<li><p>非 Javadoc 的注释，往往是给维护者看的，着重告诉读者为什么这样写，如何修改，注意什么问题等。</p>
+</li>
+<li><p>不要用 <code>a</code> <code>b</code>，这种名称命名变量，尽量写得清楚 <code>int age = 10;</code></p>
+<p>另外，<strong>Java 源代码使用的是 Unicode 码，因此汉语也能作为标识符</strong>。但不推荐使用汉语做标识符。</p>
+</li>
+<li><p>使用 tab 键操作，使代码右移。使用 shift+tab 键，使代码左移。</p>
+</li>
+<li><p>运算符两边各加入空格。注意排版规范。</p>
+</li>
+<li><p>源文件使用 UTF-8 编码。</p>
+</li>
+<li><p>代码行宽度不要超过 80 个字符。超过时通过换行保持简洁。</p>
+</li>
+<li><p>代码编写<strong>次行风格</strong>及<strong>行尾风格</strong></p>
+<blockquote>
+<p>次行风格：换行输入<code>&#123;</code> <code>&#125;</code>，使其总在行头</p>
+<p>行尾风格：在一行的末尾输入 <code>&#123;</code>，换行输入 <code>&#125;</code></p>
+</blockquote>
+</li>
+<li><p>一段代码完成一个小功能，尽量不要混合。这样更加灵活。</p>
+</li>
+</ol>
+<h2 id="1-8-Java-转义字符"><a href="#1-8-Java-转义字符" class="headerlink" title="1.8 Java 转义字符"></a>1.8 Java 转义字符</h2><ol>
+<li><p><code>\t</code>：一个制表位，实现对齐功能</p>
+</li>
+<li><p><code>\n</code>：换行符</p>
+</li>
+<li><p><code>\\</code>：一个 <code>\</code></p>
+</li>
+<li><p><code>\&quot;</code>：一个 <code>&quot;</code></p>
+</li>
+<li><p><code>\&#39;</code>：一个 <code>&#39;</code></p>
+</li>
+<li><p><code>\r</code>：一个回车（不是换行）</p>
+</li>
+<li><p><code>\\.</code>：一个小圆点 <code>.</code></p>
+</li>
+<li><p><code>\b</code>：退格键</p>
+</li>
+<li><p><code>\u????</code>：一个具体的 Unicode 字符。其中 ???? 是 4 位 16 进制数</p>
+<p><code>\???</code>：一个具体的 Unicode 字符。其中 ??? 是 3 位 8 进制数</p>
+</li>
+</ol>
+<h2 id="1-9-注释"><a href="#1-9-注释" class="headerlink" title="1.9 注释"></a>1.9 注释</h2><blockquote>
+<p>注释：用于注解说明程序的文字。其提高了代码的可读性，是一个程序员必须要具有的良好编程习惯。将自己的思想通过注释先整理出来，再用代码去体现。</p>
+<p>被注释的文字不会被 JVM 解释执行。</p>
+</blockquote>
+<h3 id="1-9-1-注释类型"><a href="#1-9-1-注释类型" class="headerlink" title="1.9.1 注释类型"></a>1.9.1 注释类型</h3><ul>
+<li><p><strong>单行注释：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">//这是一条单行注释</span></code></pre></div>
+
+<p>选中文字按 <code>ctrl</code> + <code>/</code> 将选中文字变为单行注释</p>
+</li>
+<li><p><strong>多行注释：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/*	这</span>
+<span class="hljs-comment">	是一段</span>
+<span class="hljs-comment">	多行注释</span>
+<span class="hljs-comment">	*/</span></code></pre></div>
+
+<p>多行注释中不允许多行注释嵌套。</p>
+</li>
+<li><p><strong>文档注释：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span>
+<span class="hljs-comment">*<span class="hljs-doctag">@auther</span> Melody</span>
+<span class="hljs-comment">*<span class="hljs-doctag">@version</span> 3.2.0</span>
+<span class="hljs-comment">*/</span></code></pre></div>
+
+<p>以下写法也同样合法：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span>
+<span class="hljs-comment">	就是说咱可以每行开头不加星号的</span>
+<span class="hljs-comment">*/</span></code></pre></div></li>
+</ul>
+<h3 id="1-9-2-文档注释"><a href="#1-9-2-文档注释" class="headerlink" title="1.9.2 文档注释"></a>1.9.2 文档注释</h3><blockquote>
+<p>文档注释的注释内容可被 JDK 中的 Javadoc 工具解析，生成一套以 HTML 形式体现的说明文档。</p>
+<p>抽取注释：<code>javadoc -d 生成目录 -author -.. 文档名.java</code></p>
+</blockquote>
+<p>文档注释包含 <strong>标记</strong> 和紧随其后的 <strong>自由格式文本</strong>：</p>
+<ul>
+<li><p><strong>标记：</strong></p>
+<p>以 <code>@</code> 开始，如 <code>@since</code></p>
+<p>下面列出了一些 <strong>通用注释</strong>：</p>
+<ul>
+<li><p><code>@since 始于</code>：创建一个 <strong>始于</strong> 条目。其后文本可以是引入该特性的版本的任何描述</p>
+</li>
+<li><p><code>@author 作者</code>：产生一个 <strong>作者</strong> 条目。可以使用多个 <code>@author</code> 标记</p>
+</li>
+<li><p><code>@version 版本</code>：产生一个 <strong>版本</strong> 条目。这里的文本可以是对当前版本的任意描述</p>
+</li>
+<li><p><code>@link 超链接</code>：产生一个 <strong>超链接</strong>，链接到 javadoc 相关部分或外部文档</p>
+<p><code>@see 引用</code>：在 <strong>see also</strong> 部分增加一个超链接。可以添加多个 <code>@see</code> 标记，但必须放在一起。</p>
+<p>这里的 引用 有以下选择：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span>
+<span class="hljs-comment">*<span class="hljs-doctag">@see</span> com.test.Example#act()</span>
+<span class="hljs-comment">*<span class="hljs-doctag">@see</span> &lt;a herf=&quot;../../../../../../&quot;&gt;Melody&#x27;s Box&lt;/a&gt;</span>
+<span class="hljs-comment">*<span class="hljs-doctag">@see</span> &quot;一段文本&quot;</span>
+<span class="hljs-comment">*/</span></code></pre></div>
+
+<blockquote>
+<ol>
+<li>只提供类、方法或变量的名字。那个场合，使用 <strong>#</strong> 来分隔类名和方法名 </li>
+<li><code>@see</code> 后有一个 <strong>&lt;</strong> 字符的场合，需要指定超链接。可以指向任何 URL</li>
+<li><code>@see</code> 后有一个 <strong>“</strong> 字符的场合，文本会显示在 see alse 部分</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>自由格式文本：</strong></p>
+<p>第一句应该是一个概要性的句子。javadoc 会自动抽取这些语句生成概要页</p>
+<p>自由格式文本中，可以使用 HTML 修饰符</p>
+</li>
+</ul>
+<h4 id="注释的插入"><a href="#注释的插入" class="headerlink" title="注释的插入"></a>注释的插入</h4><p>javadoc 工具抽取文档注释时，会从以下位置抽取：</p>
+<ul>
+<li><p>模块</p>
+</li>
+<li><p>包（包注释）</p>
+<p><strong>要想产生包注释，必须在每个包目录中添加一个单独的文件</strong></p>
+<p>有 2 种方法：</p>
+<ul>
+<li>提供一个名为 package-info.java 的文件。其中 <strong>只能</strong> 包含文档注释，以及后面的一个 package 语句。不能包含更多的代码或注释。</li>
+<li>提供一个名为 package.html 的 HTML 文件。此时会抽取 <code>&lt;body&gt;...&lt;/body&gt;</code> 间的所有文本</li>
+</ul>
+</li>
+<li><p>公共类和接口（类注释）</p>
+<p>类注释必须放在 import 语句后，类定义之前</p>
+</li>
+<li><p>公共的和受保护的字段</p>
+<p>只需要对公共字段（通常是静态常量）建立文档</p>
+</li>
+<li><p>公共的和受保护的构造器和方法</p>
+<p>方法注释必须放在所描述的方法之前。除了通用标记外，还能使用如下标记：</p>
+<ul>
+<li><p><code>@param 变量描述</code>：该标记能给当前方法的 <strong>参数</strong> 部分添加一个条目。该描述可以占据多行。</p>
+<p>一个方法的所有 <code>@param</code> 标记必须放在一起</p>
+</li>
+<li><p><code>@return 返回值描述</code>：该标记能给当前方法的 <strong>返回值</strong> 部分添加一个条目。该描述可以占据多行。</p>
+</li>
+<li><p><code>@throws 异常描述</code>：该标记能给当前方法的可能抛出的 <strong>异常</strong> 添加一个条目。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-10-JShell"><a href="#1-10-JShell" class="headerlink" title="1.10 JShell"></a>1.10 JShell</h2><blockquote>
+<p>Java 9 中引入了一种使用 Java 的方法，即 JShell。</p>
+<p>JShell 程序提供了一个 “读取 - 计算 - 打印循环”。键入一个 Java 表达式，JShell 会评估你的输入，打印结果，并等待下一个输入。</p>
+<p>在命令提示符中输入 <code>jshell</code> 以启动 JShell</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs cmd"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Melody</span>&gt;<span class="hljs-title">jshell</span></span></code></pre></div>
+
+<p>在 cmd 中输入 jshell 以启动 JShell</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">|  欢迎使用 JShell -- 版本 <span class="hljs-number">11</span>.<span class="hljs-number">0</span>.<span class="hljs-number">12</span>
+|  要大致了解该版本, 请键入: /<span class="hljs-built_in">help</span> intro
+
+jshell&gt;</code></pre></div>
+
+<p>JShell 会显示一个问候语，之后出现提示符</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">jshell&gt; int n1 = <span class="hljs-number">10</span>;
+n1 ==&gt; <span class="hljs-number">10</span>
+
+jshell&gt; n1++;
+$<span class="hljs-number">2</span> ==&gt; <span class="hljs-number">10</span></code></pre></div>
+
+<p>输入一条语句，JShell 会自动打印每条输入语句的值</p>
+<p>其中的 $2 表示该值可以用于将来的计算。上面的 n1 是自己定义的标识符</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">jshell&gt; Math.
+E                 IEEEremainder(    PI                abs(              acos(             addExact(
+asin(             atan(             atan2(            cbrt(             ceil(             class
+copySign(         cos(              cosh(             decrementExact(   exp(              expm1(
+floor(            floorDiv(         floorMod(         fma(              getExponent(      hypot(
+incrementExact(   log(              log10(            log1p(            max(              min(
+multiplyExact(    multiplyFull(     multiplyHigh(     negateExact(      nextAfter(        nextDown(
+nextUp(           pow(              random()          rint(             round(            scalb(
+signum(           sin(              sinh(             sqrt(             subtractExact(    tan(
+tanh(             toDegrees(        toIntExact(       toRadians(        ulp(</code></pre></div>
+
+<p>输入不完整的语句后，按 tab 键实现方法补全。上面的场合，提示了所有方法的列表</p>
+<div class="code-wrapper"><pre><code class="hljs cmd">jshell&gt; Math.pow(</code></pre></div>
+
+<p>自动补全后的代码。可以手动填入剩余部分。</p>
+<p>可以按 ↑ 键自动填充运行过的代码，以实现重复运行</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="如何快速学习技术和知识点"><a href="#如何快速学习技术和知识点" class="headerlink" title="如何快速学习技术和知识点"></a>如何快速学习技术和知识点</h3><h4 id="1-查看需求"><a href="#1-查看需求" class="headerlink" title="1 查看需求"></a>1 查看需求</h4><blockquote>
+<ol>
+<li>工作需要跳槽</li>
+<li>对方要求</li>
+<li>技术控</li>
+</ol>
+</blockquote>
+<h4 id="2-能否使用传统技术解决"><a href="#2-能否使用传统技术解决" class="headerlink" title="2 能否使用传统技术解决"></a>2 能否使用传统技术解决</h4><blockquote>
+<ol>
+<li>能解决，但不完美</li>
+<li>解决不了</li>
+</ol>
+</blockquote>
+<h4 id="3-引出学习的新技术和知识点"><a href="#3-引出学习的新技术和知识点" class="headerlink" title="3 引出学习的新技术和知识点"></a>3 引出学习的新技术和知识点</h4><h4 id="4-学习新技术或知识点的基本原理和基本语法（不要考虑细节）"><a href="#4-学习新技术或知识点的基本原理和基本语法（不要考虑细节）" class="headerlink" title="4 学习新技术或知识点的基本原理和基本语法（不要考虑细节）"></a>4 学习新技术或知识点的基本原理和基本语法（不要考虑细节）</h4><h4 id="5-快速入门（完成一个基本程序，crud）（能跑起来给老板看）"><a href="#5-快速入门（完成一个基本程序，crud）（能跑起来给老板看）" class="headerlink" title="5 快速入门（完成一个基本程序，crud）（能跑起来给老板看）"></a>5 快速入门（完成一个基本程序，crud）（能跑起来给老板看）</h4><h4 id="6-开始研究技术的注意事项，使用细节，使用规范，如何优化（无穷无尽）"><a href="#6-开始研究技术的注意事项，使用细节，使用规范，如何优化（无穷无尽）" class="headerlink" title="6 开始研究技术的注意事项，使用细节，使用规范，如何优化（无穷无尽）"></a>6 开始研究技术的注意事项，使用细节，使用规范，如何优化（无穷无尽）</h4><h3 id="DOS（只要了解）"><a href="#DOS（只要了解）" class="headerlink" title="DOS（只要了解）"></a>DOS（只要了解）</h3><blockquote>
+<p>DOS：Disk Operating System（磁盘操作系统）</p>
+</blockquote>
+<h4 id="DOS-的基本原理"><a href="#DOS-的基本原理" class="headerlink" title="DOS 的基本原理"></a>DOS 的基本原理</h4><blockquote>
+<p>在 cmd（控制台）输入指令 — DOS系统 接受指令 — 解析指令 — 执行指令</p>
+</blockquote>
+<ul>
+<li><p>相对路径和绝对路径（举例从 JDK8\bin 访问到 JDK8\jre\bin\LICENSE）</p>
+<blockquote>
+<p>相对路径：从当前目录开始定位，形成的路径 <code>..\jre\bin\LICENSE</code></p>
+<p>返回上一级：<code>..\</code></p>
+<p>绝对路径：从顶级目录开始定位，形成的路径 <code>d:\Program\JDK8\jre\bin</code></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="常用的-DOS-命令"><a href="#常用的-DOS-命令" class="headerlink" title="常用的 DOS 命令"></a>常用的 DOS 命令</h4><blockquote>
+<p>查看帮助：<code>help</code> 或 <code>help cd</code> 等</p>
+<p>查看目录内容：<code>dir</code> 查看当前目录 </p>
+<p>​    或 <code>dir d:\Program\JDK8\bin</code> 查看指定目录</p>
+<p>切换到其他盘：<code>cd /D d:</code> 从 C盘 切换至 D盘</p>
+<p>切换到当前盘的其他目录：<code>cd d:\Program\JDK8\jre\bin</code></p>
+<p>返回上级目录：<code>cd ..</code></p>
+<p>切换至根目录：<code>cd \</code></p>
+<p>查看子集目录：<code>tree</code> 当前目录</p>
+<p>​    或 <code>tree d:/Program</code> 指定目录</p>
+<p>清屏：<code>cls</code></p>
+<p>退出：<code>exit</code></p>
+<p>创建&#x2F;删除目录：<code>md 目录名</code> <code>rd 目录名</code></p>
+<p>拷贝&#x2F;删除文件：<code>copy 文件名 目录</code> <code>del 文件名</code></p>
+<p>移动文件：<code>move 文件名 目录</code></p>
+<p>…</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DoS/6672671" title="百度，请">更多</a></p>
+</blockquote>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Java&gt;1 基础知识</div>
+      <div>https://i-melody.github.io/2021/11/21/Java/入门阶段/1 基础知识/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

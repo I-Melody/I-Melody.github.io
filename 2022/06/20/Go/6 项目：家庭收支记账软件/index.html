@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="6 项目：家庭收支记账软件项目1：家庭收支记账软件需求分析实现基于文本界面的家庭收支记账软件 该软件能记录家庭收入、支出，并能打印收支明细表 项目设计graph TD A(登录菜单)--&gt;Aa&amp;#123;密码&amp;#125;.-&gt;A Aa--正确--&gt;B(管理菜单) B--&gt;B1[1 查看账本] B--&gt;B2[2 添加条目] B--&gt;B3[3 删除条目] B--&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Go&gt;6 项目：家庭收支记账软件">
+<meta property="og:url" content="https://i-melody.github.io/2022/06/20/Go/6%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%AE%B6%E5%BA%AD%E6%94%B6%E6%94%AF%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="6 项目：家庭收支记账软件项目1：家庭收支记账软件需求分析实现基于文本界面的家庭收支记账软件 该软件能记录家庭收入、支出，并能打印收支明细表 项目设计graph TD A(登录菜单)--&gt;Aa&amp;#123;密码&amp;#125;.-&gt;A Aa--正确--&gt;B(管理菜单) B--&gt;B1[1 查看账本] B--&gt;B2[2 添加条目] B--&gt;B3[3 删除条目] B--&amp;g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T09:44:24.869Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="程序">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Go&gt;6 项目：家庭收支记账软件 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;Go&gt;6 项目：家庭收支记账软件"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-20 00:00" pubdate>
+          2022年6月20日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Go&gt;6 项目：家庭收支记账软件</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月21日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="6-项目：家庭收支记账软件"><a href="#6-项目：家庭收支记账软件" class="headerlink" title="6 项目：家庭收支记账软件"></a>6 项目：家庭收支记账软件</h1><h2 id="项目1：家庭收支记账软件"><a href="#项目1：家庭收支记账软件" class="headerlink" title="项目1：家庭收支记账软件"></a>项目1：家庭收支记账软件</h2><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>实现基于文本界面的家庭收支记账软件</p>
+<p>该软件能记录家庭收入、支出，并能打印收支明细表</p>
+<h4 id="项目设计"><a href="#项目设计" class="headerlink" title="项目设计"></a>项目设计</h4><pre><code class=" mermaid">graph TD
+A(登录菜单)--&gt;Aa&#123;密码&#125;.-&gt;A
+Aa--正确--&gt;B(管理菜单)
+B--&gt;B1[1 查看账本]
+B--&gt;B2[2 添加条目]
+B--&gt;B3[3 删除条目]
+B--&gt;B4[4 恢复条目]
+B--&gt;B9[9 登出]--&gt;A
+
+B1--&gt;B11[全部]
+
+B2--&gt;B21[进账]
+B2--&gt;B22[出账]</code></pre>
+
+
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="家庭收支记账软件"><a href="#家庭收支记账软件" class="headerlink" title="家庭收支记账软件"></a>家庭收支记账软件</h3><p><strong>main</strong></p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	menu <span class="hljs-string">&quot;go_code/family_balance/menu&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	menu.Menu0()
+&#125;</code></pre></div>
+
+<p><strong>data</strong></p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> data
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;strconv&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Ele <span class="hljs-keyword">struct</span> &#123;
+	Year    <span class="hljs-type">int</span>
+	Month   <span class="hljs-type">int</span>
+	Date    <span class="hljs-type">int</span>
+	Item    <span class="hljs-type">string</span>
+	Amount  <span class="hljs-type">int</span>
+	Abandon <span class="hljs-type">bool</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(e *Ele)</span></span> String() <span class="hljs-type">string</span> &#123;
+	res := strconv.Itoa(e.Year) + <span class="hljs-string">&quot;.&quot;</span> + strconv.Itoa(e.Month) + <span class="hljs-string">&quot;.&quot;</span> + strconv.Itoa(e.Date)
+	<span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(res) &lt; <span class="hljs-number">10</span> &#123;
+		res += <span class="hljs-string">&quot; &quot;</span>
+	&#125;
+	res += <span class="hljs-string">&quot;\t&quot;</span> + strconv.Itoa(e.Amount)
+	res += <span class="hljs-string">&quot;\t&quot;</span> + e.Item
+	<span class="hljs-keyword">return</span> res
+&#125;</code></pre></div>
+
+<p><strong>menu</strong></p>
+<div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> menu
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;errors&quot;</span>
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	data <span class="hljs-string">&quot;go_code/family_balance/data&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> (
+	skipMenu <span class="hljs-type">bool</span>
+	pw       <span class="hljs-type">string</span>
+	datas    []data.Ele
+	dateL    <span class="hljs-type">int</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span> &#123;
+	skipMenu = <span class="hljs-literal">false</span>
+	pw = <span class="hljs-string">&quot;000000&quot;</span>
+	datas = <span class="hljs-built_in">make</span>([]data.Ele, <span class="hljs-number">0</span>)
+	dateL = <span class="hljs-number">0</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Menu0</span><span class="hljs-params">()</span></span> &#123;
+	<span class="hljs-keyword">for</span> &#123;
+		fmt.Println(<span class="hljs-string">`—————————————家庭收支记账软件—————————————`</span>)
+		fmt.Println(<span class="hljs-string">&quot;\t\t1 登 录&quot;</span>)
+		fmt.Println(<span class="hljs-string">&quot;\t\t9 退 出&quot;</span>)
+		fmt.Print(<span class="hljs-string">&quot;请选择：&quot;</span>)
+		i := <span class="hljs-number">0</span>
+		<span class="hljs-keyword">if</span> _, e := fmt.Scan(&amp;i); e != <span class="hljs-literal">nil</span> &#123;
+			fmt.Println(<span class="hljs-string">&quot;输入有误&quot;</span>)
+			<span class="hljs-keyword">continue</span>
+		&#125;
+		<span class="hljs-keyword">switch</span> i &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			<span class="hljs-keyword">if</span> login() &#123;
+				menu()
+			&#125; <span class="hljs-keyword">else</span> &#123;
+				fmt.Println(<span class="hljs-string">&quot;密码错误&quot;</span>)
+			&#125;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">return</span>
+		<span class="hljs-keyword">default</span>:
+			fmt.Println(<span class="hljs-string">`输入错误`</span>)
+		&#125;
+		fmt.Println(<span class="hljs-string">&quot;\n——————————————————————————&quot;</span>)
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">login</span><span class="hljs-params">()</span></span> <span class="hljs-type">bool</span> &#123;
+	fmt.Println(<span class="hljs-string">`——————————————登 录——————————————`</span>)
+	fmt.Print(<span class="hljs-string">`请输入密码：`</span>)
+	word := <span class="hljs-string">&quot;&quot;</span>
+	fmt.Scan(&amp;word)
+	<span class="hljs-keyword">return</span> word == pw
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">showMenu</span><span class="hljs-params">()</span></span> &#123;
+	<span class="hljs-keyword">if</span> skipMenu &#123;
+		skipMenu = <span class="hljs-literal">false</span>
+		<span class="hljs-keyword">return</span>
+	&#125;
+	fmt.Println(<span class="hljs-string">`—————————————欢迎回来—————————————`</span>)
+	fmt.Println(<span class="hljs-string">&quot;\t\t1 查看账本&quot;</span>)
+	fmt.Println(<span class="hljs-string">&quot;\t\t2 添加条目&quot;</span>)
+	fmt.Println(<span class="hljs-string">&quot;\t\t3 删除条目&quot;</span>)
+	fmt.Println(<span class="hljs-string">&quot;\t\t9 退出&quot;</span>)
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">menu</span><span class="hljs-params">()</span></span> &#123;
+	n := <span class="hljs-number">0</span>
+	<span class="hljs-keyword">for</span> &#123;
+		showMenu()
+		fmt.Print(<span class="hljs-string">&quot;请选择：&quot;</span>)
+		fmt.Scan(&amp;n)
+		<span class="hljs-keyword">switch</span> n &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			fmt.Println(<span class="hljs-string">&quot;==============查看账目==============&quot;</span>)
+			fmt.Println(<span class="hljs-string">&quot;\n余额：&quot;</span>, showAll())
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+			fmt.Println(<span class="hljs-string">&quot;==============添加条目==============&quot;</span>)
+			add()
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			fmt.Println(<span class="hljs-string">&quot;==============删除条目==============&quot;</span>)
+			del()
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			update()
+		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+			<span class="hljs-keyword">return</span>
+		<span class="hljs-keyword">default</span>:
+		&#125;
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">showAll</span><span class="hljs-params">()</span></span> <span class="hljs-type">int</span> &#123;
+	<span class="hljs-keyword">if</span> dateL &lt;= <span class="hljs-number">0</span> &#123;
+		fmt.Println(<span class="hljs-string">&quot;当前没有账目&quot;</span>)
+		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+	&#125;
+	count := <span class="hljs-number">0</span>
+	fmt.Println(<span class="hljs-string">&quot;序号&quot;</span>, <span class="hljs-string">&quot;\t日期      \t数额\t项目&quot;</span>)
+	<span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> datas &#123;
+		<span class="hljs-keyword">if</span> v.Abandon &#123;
+			<span class="hljs-keyword">continue</span>
+		&#125;
+		count += v.Amount
+		fmt.Println(i, <span class="hljs-string">&quot;\t&quot;</span>+v.String())
+	&#125;
+	<span class="hljs-keyword">return</span> count
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">add</span><span class="hljs-params">()</span></span> &#123;
+	w := <span class="hljs-string">&quot; &quot;</span>
+	b := <span class="hljs-literal">false</span>
+	e := data.Ele&#123;Abandon: <span class="hljs-literal">false</span>&#125;
+	<span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;
+		<span class="hljs-keyword">if</span> <span class="hljs-built_in">recover</span>() != <span class="hljs-literal">nil</span> &#123;
+			fmt.Println(<span class="hljs-string">&quot;输入有误&quot;</span>)
+		&#125;
+	&#125;()
+	fmt.Println(<span class="hljs-string">`支出（I）/收入（O）：`</span>)
+	fmt.Scan(&amp;w)
+	<span class="hljs-keyword">if</span> w == <span class="hljs-string">&quot;i&quot;</span> || w == <span class="hljs-string">&quot;I&quot;</span> &#123;
+		b = <span class="hljs-literal">true</span>
+	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> w == <span class="hljs-string">&quot;O&quot;</span> || w == <span class="hljs-string">&quot;o&quot;</span> &#123;
+		b = <span class="hljs-literal">false</span>
+	&#125; <span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;&quot;</span>))
+	&#125;
+	fmt.Print(<span class="hljs-string">&quot;\n输入日期（yyyy mm dd）：&quot;</span>)
+	fmt.Scan(&amp;e.Year, &amp;e.Month, &amp;e.Date)
+	<span class="hljs-keyword">if</span> b &#123;
+		e.Item = <span class="hljs-string">&quot;收入&quot;</span>
+	&#125; <span class="hljs-keyword">else</span> &#123;
+		fmt.Print(<span class="hljs-string">&quot;\n输入用途：&quot;</span>)
+		fmt.Scan(&amp;e.Item)
+	&#125;
+	fmt.Print(<span class="hljs-string">&quot;\n输入数额：&quot;</span>)
+	fmt.Scan(&amp;e.Amount)
+	<span class="hljs-keyword">if</span> !b &#123;
+		e.Amount = -e.Amount
+	&#125;
+	datas = <span class="hljs-built_in">append</span>(datas, e)
+	fmt.Println(<span class="hljs-string">&quot;\n添加成功！&quot;</span>)
+	dateL++
+	fmt.Print(<span class="hljs-string">&quot;继续吗？（Y/N）：&quot;</span>)
+	fmt.Scan(&amp;w)
+	<span class="hljs-keyword">if</span> w == <span class="hljs-string">&quot;y&quot;</span> || w == <span class="hljs-string">&quot;Y&quot;</span> &#123;
+		add()
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">del</span><span class="hljs-params">()</span></span> &#123;
+	index := <span class="hljs-number">-1</span>
+	<span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;
+		<span class="hljs-keyword">if</span> <span class="hljs-built_in">recover</span>() != <span class="hljs-literal">nil</span> &#123;
+			fmt.Println(<span class="hljs-string">&quot;输入有误&quot;</span>)
+		&#125;
+	&#125;()
+	showAll()
+	fmt.Print(<span class="hljs-string">&quot;请输入要删除的条目序号：&quot;</span>)
+	fmt.Scan(&amp;index)
+	<span class="hljs-keyword">if</span> !datas[index].Abandon &#123;
+		dateL--
+		datas[index].Abandon = <span class="hljs-literal">true</span>
+		fmt.Println(<span class="hljs-string">&quot;成功&quot;</span>)
+	&#125; <span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;&quot;</span>))
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">update</span><span class="hljs-params">()</span></span> &#123;
+	index := <span class="hljs-number">-1</span>
+	<span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;
+		<span class="hljs-keyword">if</span> <span class="hljs-built_in">recover</span>() != <span class="hljs-literal">nil</span> &#123;
+			fmt.Println(<span class="hljs-string">&quot;输入有误&quot;</span>)
+		&#125;
+	&#125;()
+	showAll()
+	fmt.Print(<span class="hljs-string">&quot;请输入要更新的条目序号：&quot;</span>)
+	fmt.Scan(&amp;index)
+	<span class="hljs-keyword">if</span> datas[index].Abandon &#123;
+		datas[index].Abandon = <span class="hljs-literal">false</span>
+		fmt.Println(<span class="hljs-string">&quot;该条目已恢复&quot;</span>)
+		dateL++
+		<span class="hljs-keyword">return</span>
+	&#125;
+&#125;</code></pre></div>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F/">#程序</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Go&gt;6 项目：家庭收支记账软件</div>
+      <div>https://i-melody.github.io/2022/06/20/Go/6 项目：家庭收支记账软件/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

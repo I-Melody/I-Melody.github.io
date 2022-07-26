@@ -1,0 +1,1403 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="8 I&#x2F;O 流 C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  C++ 流类库关系图：graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;C++&gt;8 I&#x2F;O 流">
+<meta property="og:url" content="https://i-melody.github.io/2022/06/18/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/8%20IO%20%E6%B5%81/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="8 I&#x2F;O 流 C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  C++ 流类库关系图：graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(o">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-20T09:26:01.319Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;C++&gt;8 I/O 流 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;C++&gt;8 I/O 流"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-18 00:00" pubdate>
+          2022年6月18日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          51 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;C++&gt;8 I/O 流</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年6月20日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="8-I-x2F-O-流"><a href="#8-I-x2F-O-流" class="headerlink" title="8 I&#x2F;O 流"></a>8 I&#x2F;O 流</h1><blockquote>
+<p>C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。</p>
+<p>流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。</p>
+</blockquote>
+<h4 id="C-流类库关系图："><a href="#C-流类库关系图：" class="headerlink" title="C++ 流类库关系图："></a>C++ 流类库关系图：</h4><pre><code class=" mermaid">graph TD
+a(ios) --&gt; b(istream)
+c --&gt; e(ofstream)
+a --&gt; c(ostream) --&gt; o(iostream)
+b --&gt; o
+b --&gt; d(ifstream)
+o --&gt; m(fstream)</code></pre>
+
+<p>图中箭头表示继承关系。从 ios 派生 istream 和 ostream 时，均使用了虚继承</p>
+<p>istream 类提供了流的大部分输入操作，对系统预定义的所有输入流重载提取运算符 <code>&gt;&gt;</code></p>
+<p>ostream 类对系统预定义的所有输出流重载插入运算符 <code>&lt;&lt;</code></p>
+<p>C++ 的 iostream 类库提供了数百种 I&#x2F;O 功能。iostream 类库接口部分包含在几个头文件中：</p>
+<ul>
+<li><p>iostream：包含操作所有输入&#x2F;输出流所需的基本信息。大多数 C++ 程序都应该包含该文件。</p>
+<p>该文件有 4 个标准流对象，提供了格式化和无格式化的 I&#x2F;O 功能</p>
+</li>
+<li><p>iomanip：包含格式化 I&#x2F;O 的带参数流操作符，可用于指定数据输入&#x2F;输出的格式</p>
+</li>
+<li><p>fstream：包含处理文件的有关信息，提供建立文件、读&#x2F;写文件的各种操作接口</p>
+</li>
+</ul>
+<h2 id="8-1-标准流对象"><a href="#8-1-标准流对象" class="headerlink" title="8.1 标准流对象"></a>8.1 标准流对象</h2><p>C++ 在头文件 iostream 中定义了 4 个标准流对象：cin（标准输入流）、cout（标准输出流）、cerr（非缓冲错误输出流）、clog（缓冲错误输出流）</p>
+<ul>
+<li><p>cin：与标准输入设备（键盘）相关联，用于读取数据，可以被重定向</p>
+</li>
+<li><p>cout：与标准输出设备（屏幕）相关联，用于输出数据，可以被重定向</p>
+</li>
+<li><p>cerr：与标准错误信息输出设备（屏幕）相关联（非缓冲），用于输出出错信息，不能重定向</p>
+</li>
+<li><p>clog：与标准错误信息输出设备（缓冲）相关联，用于输出出错信息，不能重定向</p>
+<p>其与 cerr 的区别是 cerr 不需要缓存区，直接向显示器输出信息。</p>
+</li>
+</ul>
+<p>程序中可以直接对上述 4 个预定义的标准流进行操作，而无需事先进行 “打开” 操作，也无需在事后进行 “关闭”。系统已经预先为每个程序都隐含了对他们的打开和关闭操作。</p>
+<h4 id="错误状态字"><a href="#错误状态字" class="headerlink" title="错误状态字"></a>错误状态字</h4><p>C++ 在 ios 类中定义了相关的错误状态字来反映流的状态。</p>
+<p>状态字的每一位对应流的一种错误状态，用一个对应的标识常量标记</p>
+<table>
+    <tr align="center">
+        <th>标识常量</th>
+        <th>值</th>
+        <th>含义</th>
+    </tr>
+    <tr>
+        <td align="center">goodbit</td>
+        <td align="center">0x00</td>
+        <td align="left">流状态正常</td>
+    </tr>
+    <tr>
+        <td align="center">eofbit</td>
+        <td align="center">0x01</td>
+        <td align="left">文件结束符</td>
+    </tr>
+    <tr>
+        <td align="center">failbit</td>
+        <td align="center">0x02</td>
+        <td align="left">I/O 操作失败，数据未丢失，可以恢复</td>
+    </tr>
+    <tr>
+        <td align="center">badbit</td>
+        <td align="center">0x04</td>
+        <td align="left">非法操作，数据丢失，无法恢复</td>
+    </tr>
+</table>
+
+<h4 id="常用函数："><a href="#常用函数：" class="headerlink" title="常用函数："></a>常用函数：</h4><ul>
+<li><p><code>FILE* freopen(const char* path, const char* mode, FILE* stream)</code></p>
+<p>将 stream 按照 mode 指定的模式重定向到 path 指向的文件。mode 可以是 w（写）或 r（读）</p>
+<p>重定向发生错误时，将关闭原本的 stream，并返回 NULL</p>
+</li>
+<li><p><code>int eof() const</code></p>
+<p>返回 eofbit 的值。当文本文件结束时，在输入流中会自动设置 eofbit</p>
+<p>抵达结尾时，该值为 1，否则为 0</p>
+<p>在标准输入流 cin 中，按下 ctrl + Z 组合键表示输入流的结束</p>
+</li>
+<li><p><code>int fail() const</code></p>
+<p>返回 failbit 状态，以判断流操作是否失败</p>
+</li>
+<li><p><code>int good() const</code></p>
+<p><code>int operator void*()</code></p>
+<p>返回 goodbit 状态，以判断流操作是否正常。</p>
+<p>当 eofbit、failbit、badbit 都未被置位时，返回 1，否则返回 0</p>
+</li>
+<li><p><code>int bad() const</code></p>
+<p><code>int operator void!()</code></p>
+<p>返回 badbit 状态，以判断流操作是否失败</p>
+<p>当 eofbit、failbit、badbit 都未被置位时，返回 0，否则返回 1</p>
+</li>
+<li><p><code>int rdstate() const</code></p>
+<p>返回流的当前状态</p>
+</li>
+<li><p><code>void clean(int nState = 0)</code></p>
+<p>更改当前错误状态字</p>
+</li>
+</ul>
+<h2 id="8-2-控制-I-x2F-O-格式"><a href="#8-2-控制-I-x2F-O-格式" class="headerlink" title="8.2 控制 I&#x2F;O 格式"></a>8.2 控制 I&#x2F;O 格式</h2><p>不同的应用会对数据输入&#x2F;输出的格式提出不同的要求。可以在使用 cout 输出时控制格式。</p>
+<h3 id="8-2-1-流操作符"><a href="#8-2-1-流操作符" class="headerlink" title="8.2.1 流操作符"></a>8.2.1 流操作符</h3><p>为方便使用，C++ 中对所有的基本数据类型均设置了默认的数据输入&#x2F;数据输出格式。</p>
+<h4 id="默认的输出-x2F-输入格式："><a href="#默认的输出-x2F-输入格式：" class="headerlink" title="默认的输出&#x2F;输入格式："></a>默认的输出&#x2F;输入格式：</h4><table>
+    <tr align="center">
+        <th>I/O 的数据类型</th>
+        <th>默认输入格式</th>
+        <th>默认输出格式</th>
+    </tr>
+    <tr>
+        <td>short、int、long</td>
+        <td>与整型常数相同</td>
+        <td>一般整数形式，负数前带有负号</td>
+    </tr>
+    <tr>
+        <td>float、double、long double</td>
+        <td>与浮点数相同</td>
+        <td>浮点或指数格式。取决于哪个较短</td>
+    </tr>
+    <tr>
+        <td>char</td>
+        <td>第一个非空白字符</td>
+        <td>单个字符（无引号）</td>
+    </tr>
+    <tr>
+        <td>char*</td>
+        <td>从第一个空白字符起，到下一个空白字符结束</td>
+        <td>字符序列（无引号）</td>
+    </tr>
+    <tr>
+        <td>void*</td>
+        <td>无前缀的十六进制数</td>
+        <td>无前缀的十六进制数</td>
+    </tr>
+    <tr>
+        <td>Bool</td>
+        <td>true 或 1 识别为 true<br/>false 或 0 识别为 false</td>
+        <td>1 或 0</td>
+    </tr>
+</table>
+
+<p>C++ 在 iostream 中提供了一些常用的无参数的流操作符（也称格式控制符）</p>
+<p>流操作符可以直接用在 <code>&gt;&gt;</code> 或 <code>&lt;&lt;</code> 后，使用便捷。</p>
+<h4 id="常用的格式控制符："><a href="#常用的格式控制符：" class="headerlink" title="常用的格式控制符："></a>常用的格式控制符：</h4><p>使用以下格式控制符时要包含头文件 iostream</p>
+<table>
+    <tr align="center">
+        <th>流操作符</th>
+        <th>作用</th>
+        <th>输入/输出</th>
+    </tr>
+    <tr align="center">
+        <td>endl</td>
+        <td align="left">输出一个换行符，并清空流</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ends</td>
+        <td align="left">输出字符串结束，并清空流</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>flush</td>
+        <td align="left">清空流缓冲区</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>dec</td>
+        <td align="left">以十进制形式输入/输出整数（默认设置）</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>hex</td>
+        <td align="left">以十六进制形式输入/输出整数</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>ost</td>
+        <td align="left">以八进制形式输入/输出整数</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>ws</td>
+        <td align="left">提取空白字符</td>
+        <td>O</td>
+    </tr>
+</table>
+
+<h4 id="常用的格式控制流操作符："><a href="#常用的格式控制流操作符：" class="headerlink" title="常用的格式控制流操作符："></a>常用的格式控制流操作符：</h4><p>使用以下格式控制符时要包含头文件 iomanip</p>
+<table>
+    <tr align="center">
+        <th>流操作符</th>
+        <th>作用</th>
+    </tr>
+    <tr>
+        <td align="center">fixed</td>
+        <td>以普通小数形式输出浮点数</td>
+    </tr>
+    <tr>
+        <td align="center">scientific</td>
+        <td>以科学计数法形式输出浮点数</td>
+    </tr>
+    <tr>
+        <td align="center">left</td>
+        <td>左对齐。即宽度不足时将字符添加到右边</td>
+    </tr>
+    <tr>
+        <td align="center">right</td>
+        <td>右对齐。即宽度不足时将字符添加到在边（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">setbase(int b)</td>
+        <td>设置输出时的进制。b 可以是 8、10、16</td>
+    </tr>
+    <tr>
+        <td align="center">setw(int w)</td>
+        <td>仅一次有效：设置输出宽度为 w 字符，或输入时读入 w 个字符。</td>
+    </tr>
+    <tr>
+        <td align="center">setfill(int c)</td>
+        <td>输出指定宽度时，不足宽度的场合以 c 字符填充（默认以空格填充）</td>
+    </tr>
+    <tr>
+        <td align="center">setprecision(int n)</td>
+        <td>设置输出浮点数的精度为 n。<br/>
+            非 fixed、scientific 方式的场合，n 为有效数字最多的位数。超过时四舍五入或变为科学计数法并保留最多 n 位<br/>
+            fixed、scientific 方式的场合，n 是小数点后保留的位数</td>
+    </tr>
+    <tr>
+        <td align="center">setiosflags(fmtflags f)</td>
+        <td>通用操作符。将格式标志 f 对应的格式标志位置置为 1</td>
+    </tr>
+    <tr>
+        <td align="center">resetiosflags(fmtflags f)</td>
+        <td>通用操作符。将格式标志 f 对应的格式标志位置置为 0（清除）</td>
+    </tr>
+    <tr>
+        <td align="center">boolapha</td>
+        <td>把 true 和 false 输出为字符串</td>
+    </tr>
+    <tr>
+        <td align="center">noboolapha</td>
+        <td>把 true 和 false 输出为 1 和 0（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">showbase</td>
+        <td>输出表示数值进制的前缀</td>
+    </tr>
+    <tr>
+        <td align="center">noshowbase</td>
+        <td>不输出表示数值进制的前缀（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">showpoint</td>
+        <td>总是输出小数点</td>
+    </tr>
+    <tr>
+        <td align="center">noshowpoint</td>
+        <td>小数存在时才输出小数点（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">showpos</td>
+        <td>在非负值中显示 +</td>
+    </tr>
+    <tr>
+        <td align="center">noshowpos</td>
+        <td>在非负值中不显示 +（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">skipws</td>
+        <td>输入时跳过空白字符（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">noskipws</td>
+        <td>输入时不跳过空白字符（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">uppercase</td>
+        <td>十六进制数中使用 A ~ E<br/>
+            若输出前缀，则前缀输出 0X、0B<br/>
+            科学计数法中输出 E</td>
+    </tr>
+    <tr>
+        <td align="center">nouppercase</td>
+        <td>十六进制数中使用 a ~ e<br/>
+            若输出前缀，则前缀输出 0x、0b
+            <br/>科学计数法中输出 e（默认）</td>
+    </tr>
+    <tr>
+        <td align="center">internal</td>
+        <td>数值的符号（正负号）在指定宽度内左对齐，数值右对齐，中间由填充字符填充</td>
+    </tr>
+</table>
+
+
+<p>以下是一个使用示范：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iomanip&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    cout &lt;&lt; uppercase &lt;&lt; showbase &lt;&lt; <span class="hljs-built_in">setbase</span>(<span class="hljs-number">8</span>);
+    cout &lt;&lt; <span class="hljs-number">100</span> &lt;&lt; endl;							<span class="hljs-comment">// 输出 0X64</span>
+&#125;</code></pre></div>
+
+
+
+<h3 id="8-2-2-标志字"><a href="#8-2-2-标志字" class="headerlink" title="8.2.2 标志字"></a>8.2.2 标志字</h3><p>为满足不同用户对数据输入&#x2F;输出 格式的要求，C++ 提供了通过 setiosflags() 设置标志字进行格式控制的方式。函数的参数为流的格式标志位</p>
+<p>标志字是一个 long 型的数据，由若干系统定义的格式控制标志位组合而成</p>
+<h4 id="常见标志"><a href="#常见标志" class="headerlink" title="常见标志"></a>常见标志</h4><table>
+    <tr align="center">
+        <th>标志常量名</th>
+        <th>值</th>
+        <th>含义</th>
+        <th>输入/输出</th>
+    </tr>
+    <tr align="center">
+        <td>ios::skipws</td>
+        <td>0x0001</td>
+        <td align="left">跳过输入中的空白</td>
+        <td>I</td>
+    </tr>
+    <tr align="center">
+        <td>ios::left</td>
+        <td>0x0002</td>
+        <td align="left">按输出域左对齐，用填充字符填充右边</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::right</td>
+        <td>0x0004</td>
+        <td align="left">按输出域右对齐，用填充字符填充左边（默认）</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::internal</td>
+        <td>0x0008</td>
+        <td align="left">在符号位或基数指示符后填入字符</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::dec</td>
+        <td>0x0010</td>
+        <td align="left">转换为十进制基数格式（默认）</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::oct</td>
+        <td>0x0020</td>
+        <td align="left">转换为八进制基数格式</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::hex</td>
+        <td>0x0040</td>
+        <td align="left">转换为十六进制基数格式</td>
+        <td>I/O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::showbase</td>
+        <td>0x0080</td>
+        <td align="left">在输出中显示基数指示符</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::showpoint</td>
+        <td>0x0100</td>
+        <td align="left">输出浮点数时必须带小数点和尾部的 0</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::uppercase</td>
+        <td>0x0200</td>
+        <td align="left">以大写字母表示十六进制数，科学计数法使用 E</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::showpos</td>
+        <td>0x0400</td>
+        <td align="left">正数前加 + 符号</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::scientific</td>
+        <td>0x0800</td>
+        <td align="left">以科学计数法表示浮点数</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::fixed</td>
+        <td>0x1000</td>
+        <td align="left">定点形式表示浮点数</td>
+        <td>O</td>
+    </tr>
+    <tr align="center">
+        <td>ios::unitbuf</td>
+        <td>0x2000</td>
+        <td align="left">插入操作后立即刷新流</td>
+        <td>O</td>
+    </tr>
+</table>
+
+<p>当要设置多个标志时，使用 | 运算符连接</p>
+<p>流格式标志的每一位表示一种格式，标志位间有相互制约关系。设置了某个标志，又要设置与其矛盾的标志时，应使用函数 resetiosflags() 清除原先的标志</p>
+<p>为便于清除同类互斥位，ios 定义了几个公有静态符号常量：</p>
+<Table>
+    <tr>
+        <td>ios::basefield</td>
+        <td>值为 dec|oct|hex</td>
+    </tr>
+    <tr>
+        <td>ios::adjustifield</td>
+        <td>值为 left|right|internal</td>
+    </tr>
+    <tr>
+        <td>ios::floatfield</td>
+        <td>值为 scientific|fixed</td>
+    </tr>
+</table>
+
+
+
+<h2 id="8-3-cin-x2F-cout-常用函数"><a href="#8-3-cin-x2F-cout-常用函数" class="headerlink" title="8.3 cin&#x2F;cout 常用函数"></a>8.3 cin&#x2F;cout 常用函数</h2><h4 id="cin"><a href="#cin" class="headerlink" title="cin"></a>cin</h4><ul>
+<li><p><code>long flags(long lFlags)</code>：用传入关键字替换原先标志字。返回那个原来的标志字</p>
+<p><code>long flags()</code>：仅返回那个原来的标志字</p>
+<p><code>long setf(long lFlags)</code>：用传入关键字置位原先标志字。返回那个原来的标志字</p>
+<p><code>long setf(long lFlags, long lMask)</code>：将关键字指定标志位清零，再置位关键字</p>
+<p><code>long unsetf(long lMask)</code>：将关键字指定标志位清零</p>
+<blockquote>
+<p>这些函数和流操作符 setiosflags、resetiosflags 作用相同</p>
+</blockquote>
+</li>
+<li><p><code>int width(int nw)</code>：设置输出宽度，返回旧输出宽度</p>
+<p>该函数没有持续性。输出一项数据后输出宽度恢复默认值</p>
+<p><code>int width() const</code>：返回输出宽度</p>
+<blockquote>
+<p>这些函数和流操作符 setw 作用相同</p>
+</blockquote>
+</li>
+<li><p><code>char fill(char cFill)</code>：设置填充字符，返回旧填充字符</p>
+<p><code>char fill() const</code>：返回填充字符</p>
+<blockquote>
+<p>这些函数和流操作符 setfill 作用相同</p>
+</blockquote>
+</li>
+<li><p><code>int percision(int np)</code>：设置数据显示精度，返回旧显示精度</p>
+<p><code>int percision() const</code>：返回显示精度</p>
+<blockquote>
+<p>这些函数和流操作符 setpercision 作用相同</p>
+</blockquote>
+</li>
+</ul>
+<p>ostream 中还有一些输出流通用的成员函数：</p>
+<ul>
+<li><code>ostream&amp; put(char)</code>：向流中插入字符</li>
+<li><code>ostream&amp; write(const char* pch, int nCount)</code>：向流中插入 pch 指向的长度为 nCount 的序列</li>
+</ul>
+<h4 id="cout"><a href="#cout" class="headerlink" title="cout"></a>cout</h4><ul>
+<li><p><code>int get()</code>：从输入流中读取一个字符。</p>
+<p>遇到结束符时，返回值是系统常量 EOF</p>
+</li>
+<li><p><code>istream&amp; getline(char* buf, int bufSize)</code>：从输入流读取字符到缓冲区 buf</p>
+<p>读取到 <code>\n</code> 为止。一次最多读取 bufSize - 1 个字符。函数会在数据结尾自动添加 <code>\0</code></p>
+<p><code>istream&amp; getline(char* buf, int bufSize, char delim)</code>：从输入流读取字符到缓冲区 buf</p>
+<p>读取到 delim 为止。一次最多读取 bufSize - 1 个字符。函数会在数据结尾自动添加 <code>\0</code></p>
+</li>
+<li><p><code>bool eof()</code>：判断是否输入流已结束</p>
+</li>
+<li><p><code>istream&amp; ignore(int n = 1, int delim = EOF)</code>：直到遇到 delim 前，跳过流中的 n 个字符</p>
+</li>
+<li><p><code>int peek()</code>：返回流中的当前字符，但并不取出该字符</p>
+</li>
+</ul>
+<h2 id="8-4-文件操作"><a href="#8-4-文件操作" class="headerlink" title="8.4 文件操作"></a>8.4 文件操作</h2><p>文本类型分为两种：</p>
+<ul>
+<li>文本文件：以文本的 ASCII码 形式储存在计算机中</li>
+<li>二进制文件：以文本的 二进制 形式储存在计算机中</li>
+</ul>
+<p>操作文件的三大类（需包含头文件 fstream）：</p>
+<ul>
+<li>ofstream：写操作</li>
+<li>ifstream：读操作</li>
+<li>fstream：读写操作</li>
+</ul>
+<p>在程序中，要使用一个文件，必须包含 3 个步骤：打开文件、操作文件、关闭文件</p>
+<h3 id="8-4-1-打开和关闭文件"><a href="#8-4-1-打开和关闭文件" class="headerlink" title="8.4.1 打开和关闭文件"></a>8.4.1 打开和关闭文件</h3><p>对文件进行读写操作前，要先打开文件。打开文件有两个目的：</p>
+<ul>
+<li><p>建立关联。通过指定文件名，建立起文件与文件流对象的关联。以后进行操作时，可以通过与其相关的流对象来进行</p>
+</li>
+<li><p>说明文件的使用方式和文件格式。</p>
+<p>使用方式有：只读、只写、既读又写、在末尾追加</p>
+<p>文件格式是：文本方式、二进制方式</p>
+</li>
+</ul>
+<h4 id="打开文件的方式"><a href="#打开文件的方式" class="headerlink" title="打开文件的方式"></a>打开文件的方式</h4><ul>
+<li><p>先建立流对象，再调用 open 函数</p>
+<div class="code-wrapper"><pre><code class="hljs c++">ofstream ofs;		<span class="hljs-comment">// 流类名 对象名;</span>
+ofs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:\1.txt&quot;</span>, ios::out | ios::app);    <span class="hljs-comment">// 对象名.open(文件名, 模式);</span></code></pre></div>
+
+<p><strong>流类</strong>：ifstream（读）、ofstream（写）、fstream（读&#x2F;写）</p>
+<p><strong>文件名</strong>：用字符串标识的外部文件。可以是完整路径，也可以是相对路径</p>
+<p><strong>模式</strong>：是类 ios 中定义的打开方式常量，用来表示文件打开方式</p>
+</li>
+<li><p>使用流类自带的构造函数，在构造流对象时即连接外部文件</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">ofstream <span class="hljs-title">ofs</span><span class="hljs-params">(<span class="hljs-string">&quot;D:\1.txt&quot;</span>, ios::out | ios::app)</span></span>;</code></pre></div>
+
+<p>可以用文件名是否为 true 以判断是否打开成功</p>
+<div class="code-wrapper"><pre><code class="hljs c++">cout &lt;&lt; (ofs ? <span class="hljs-string">&quot;打开成功&quot;</span> : <span class="hljs-string">&quot;打开失败&quot;</span>) &lt;&lt; endl;</code></pre></div></li>
+</ul>
+<h4 id="文件打开模式标记"><a href="#文件打开模式标记" class="headerlink" title="文件打开模式标记"></a>文件打开模式标记</h4><table>
+    <tr align="center">
+        <th>模式标记</th>
+        <th>适用对象</th>
+        <th>作用</th>
+    </tr>
+    <tr align="center">
+        <td>ios::in</td>
+        <td>ifstream<br/>fstream</td>
+        <td align="left">以读方式打开文件。<br/>如果文件不存在，则打开出错</td>
+    </tr>
+    <tr align="center">
+        <td>ios::out</td>
+        <td>ofstream<br/>fstream</td>
+        <td align="left">以写方式打开文件。<br/>如果文件不存在，则创建该文件。否则在打开时清除原先内容</td>
+    </tr>
+    <tr align="center">
+        <td>ios::app</td>
+        <td>ofstream</td>
+        <td align="left">以追加方式打开文件，用于在文件尾部添加数据。<br/>如果文件不存在，则新建该文件</td>
+    </tr>
+    <tr align="center">
+        <td>ios::ate</td>
+        <td>ofstream</td>
+        <td align="left">打开一个已有文件，文件指针指向末尾<br/>如果文件不存在，则打开出错</td>
+    </tr>
+    <tr align="center">
+        <td>ios::trunc</td>
+        <td>ofstream</td>
+        <td align="left">删除文件现有内容。单独使用时等同于 ios::out</td>
+    </tr>
+    <tr align="center">
+        <td>ios::binary</td>
+        <td>ofstream<br/>ifstream<br/>fstream</td>
+        <td align="left">以二进制方式打开文件<br/>若不指定此模式，则以默认的文本方式打开文件</td>
+    </tr>
+</table>
+
+<p>标记可以组合使用。组合时，使用 <code>|</code> 符号分隔。如：</p>
+<p><code>ios::in | ios::out</code>：此时既可以读也可以写，且打开文件时原有内容保持不变</p>
+<h4 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h4><p>发出关闭文件指令后，系统会将缓存区数据完整写入文件，并添加文件结束标记，切断流对象与外部文件的连接。</p>
+<p>使用 fstream 的成员函数 close 关闭文件</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">ofstream <span class="hljs-title">ofs</span><span class="hljs-params">(<span class="hljs-string">&quot;D:\1.txt&quot;</span>, ios::out | ios::app)</span></span>;
+...
+ofs.<span class="hljs-built_in">close</span>();			<span class="hljs-comment">// 关闭了文件</span></code></pre></div>
+
+
+
+<h3 id="8-4-2-读写文件"><a href="#8-4-2-读写文件" class="headerlink" title="8.4.2 读写文件"></a>8.4.2 读写文件</h3><p>每个文件都有一个结束标识。对于文本文件来说，C++ 在 iostream 中定义了一个标识文件结束的标识常量 EOF，其值为 <code>0x1A</code> 的字符。关闭文件流时，该字符被自动加入文件尾部。</p>
+<p>在键盘操作时，按下 ctrl + Z 组合键即可在标准输入流 cin 中输入文件结束符</p>
+<h4 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h4><div class="code-wrapper"><pre><code class="hljs c++">ofstream ofs;					<span class="hljs-comment">// [2] 创建流对象</span>
+ofs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:/1.txt&quot;</span>);			<span class="hljs-comment">// [3] 打开文件</span>
+ofs &lt;&lt; <span class="hljs-string">&quot;OFS&quot;</span>;					<span class="hljs-comment">// [4] 写入数据</span>
+ofs.<span class="hljs-built_in">close</span>();					<span class="hljs-comment">// [5] 关闭文件</span></code></pre></div>
+
+<ol>
+<li><p>包含头文件：<code>#include&lt;fstream&gt;</code></p>
+</li>
+<li><p>创建流对象：<code>ofstream ofs;</code></p>
+</li>
+<li><p>打开文件：<code>ofs.open(&quot;文件路径&quot;, 打开方式);</code></p>
+</li>
+<li><p>写数据：<code>ofs &lt;&lt; &quot;写入的数据&quot;;</code></p>
+<p>也能使用 <code>put(char c)</code> 一次只放入一个字节</p>
+</li>
+<li><p>关闭文件：<code>ofs.close();</code></p>
+</li>
+</ol>
+<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><div class="code-wrapper"><pre><code class="hljs c++">ifstream ifs;							<span class="hljs-comment">// [2] 创建流对象</span>
+ifs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:/1.txt&quot;</span>, ios::in);			<span class="hljs-comment">// [3] 打开文件</span>
+<span class="hljs-keyword">if</span> (!ifs.<span class="hljs-built_in">is_open</span>()) <span class="hljs-keyword">return</span>;
+<span class="hljs-type">char</span> cs[<span class="hljs-number">1024</span>];							<span class="hljs-comment">// [4] 读取文件</span>
+<span class="hljs-keyword">while</span> (ifs &gt;&gt; cs) cout &lt;&lt; cs &lt;&lt; endl;
+ifs.<span class="hljs-built_in">close</span>();							<span class="hljs-comment">// [5] 关闭文件</span></code></pre></div>
+
+<ol start="3">
+<li><p>打开文件</p>
+<p>其中 <code>ifs.is_open()</code> 用于判断是否打开文件。成功的场合返回 true</p>
+<p>判断文件是否为空的方法：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> c;
+ifs &gt;&gt; c;									<span class="hljs-comment">// 读取一个字符</span>
+<span class="hljs-keyword">if</span> (ifs.<span class="hljs-built_in">eof</span>()) cout &lt;&lt; <span class="hljs-string">&quot;文件为空&quot;</span> &lt;&lt; endl;	<span class="hljs-comment">// 遇到标识符 EOF 则文件为空</span></code></pre></div>
+</li>
+<li><p>读取文件。读取文件有 4 种方法：</p>
+<ul>
+<li><p>按数组长度读取至数组</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> cs[<span class="hljs-number">1024</span>];
+<span class="hljs-keyword">while</span> (ifs &gt;&gt; cs) cout &lt;&lt; cs &lt;&lt; endl;</code></pre></div>
+
+<p>其中 <code>ifs &gt;&gt; cs</code> 如果读取到文件末尾，则返回 false</p>
+</li>
+<li><p>按行读取至数组：</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> cs[<span class="hljs-number">1024</span>];
+<span class="hljs-keyword">while</span> (ifs.<span class="hljs-built_in">getline</span>(cs, <span class="hljs-built_in">sizeof</span>(cs))) cout &lt;&lt; cs &lt;&lt; endl;</code></pre></div>
+
+<p>其中 <code>ifs.getline(char*, int)</code> 第一个形参是一个 <code>char*</code>，第二个形参是最大长度。该方法会把读取到的字符写入 <code>char*</code></p>
+</li>
+<li><p>按行读取至字符串：</p>
+<div class="code-wrapper"><pre><code class="hljs c++">string str;
+<span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(ifs, str)) cout &lt;&lt; str &lt;&lt; endl;</code></pre></div>
+</li>
+<li><p>按字符读取（不推荐使用）：</p>
+<p>使用 <code>get()</code> 方法一次读取一个字节，或者 <code>get(char&amp; c)</code> 读取字节并让 c 引用</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> c;
+<span class="hljs-keyword">while</span> ((c = ifs.<span class="hljs-built_in">get</span>()) != EOF) cout &lt;&lt; c;</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="8-4-3-二进制文件"><a href="#8-4-3-二进制文件" class="headerlink" title="8.4.3 二进制文件"></a>8.4.3 二进制文件</h3><p>二进制文件也被称为 类型文件。</p>
+<p>二进制文件以基本数据类型的二进制形式存放。其数据存储格式与内存一致，且长度仅与数据类型有关。二进制数据流不会对写入读出的数据做格式转换，便于高速处理数据。</p>
+<h4 id="二进制文件与文本文件的区别"><a href="#二进制文件与文本文件的区别" class="headerlink" title="二进制文件与文本文件的区别"></a>二进制文件与文本文件的区别</h4><ul>
+<li><p>文本文件兼容性强。但其存储信息时需要人为添加分隔符，占用空间大。读取时需要在内存、外存间进行格式转换，也不便于对数据进行随机访问 。</p>
+</li>
+<li><p>二进制文件以二进制形式存储数据，便于对数据进行随机访问，读写速度快。但兼容性差。</p>
+</li>
+<li><p>在 Windows 中，以文本方式读取文件，系统会将所有 <code>\r\n</code> 转换成 <code>\n</code>。即如果存在连续字节 <code>0x0D0A</code>，系统会将其转换为 <code>0x0A</code></p>
+<p>同样的，写文件时，会将 <code>\n</code> 转换为 <code>\r\n</code></p>
+<p>因此，使用文本方式打开二进制文件进行读写，其结果可能与原先存在出入。所以使用二进制方法打开文件总是更为安全。</p>
+</li>
+</ul>
+<h4 id="读写二进制文件"><a href="#读写二进制文件" class="headerlink" title="读写二进制文件"></a>读写二进制文件</h4><p>二进制文件打开方式要指定为 <code>ios::binary</code></p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Ele</span> &#123;			<span class="hljs-comment">// 随便写的一个类</span>
+<span class="hljs-keyword">public</span>:
+	<span class="hljs-type">int</span> n = <span class="hljs-number">0</span>;
+&#125;;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">write_met</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-function">ofstream <span class="hljs-title">ofs</span><span class="hljs-params">(<span class="hljs-string">&quot;D:/1.txt&quot;</span>, ios::out | ios::binary)</span></span>;	<span class="hljs-comment">//[2] 创建输出流对象</span>
+	Ele e = <span class="hljs-built_in">Ele</span>();
+	e.n = <span class="hljs-number">100</span>;
+	ofs.<span class="hljs-built_in">write</span>((<span class="hljs-type">char</span>*)&amp;e, <span class="hljs-built_in">sizeof</span>(e));					<span class="hljs-comment">//[3] 写入文件</span>
+	ofs.<span class="hljs-built_in">close</span>();
+&#125;
+
+<span class="hljs-function">Ele* <span class="hljs-title">read_met</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-function">ifstream <span class="hljs-title">ifs</span><span class="hljs-params">(<span class="hljs-string">&quot;D:/1.txt&quot;</span>, ios::in | ios::binary)</span></span>;	<span class="hljs-comment">//[4] 创建输入流对象</span>
+	<span class="hljs-keyword">if</span> (!ifs.<span class="hljs-built_in">is_open</span>()) <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+	Ele e;												<span class="hljs-comment">//[5] 读取文件</span>
+	ifs.<span class="hljs-built_in">read</span>((<span class="hljs-type">char</span>*)&amp;e, <span class="hljs-built_in">sizeof</span>(e));
+	<span class="hljs-keyword">return</span> &amp;e;
+&#125;</code></pre></div>
+
+<ol start="3">
+<li><p>写入文件</p>
+<p><code>ofs.write(const char*, int)</code>：需求一个对象的 char* 类型的指针，因此要进行强制转型</p>
+<p><code>ifs.read(const char*, int)</code>：同理</p>
+<p>使用这些方法进行读写时，不需要额外插入分隔符。它们本身都要求指定读写长度</p>
+</li>
+<li><p>能使用 <code>int gcount()</code> 成员函数得到读取的字节数</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> num = ifs.<span class="hljs-built_in">gcount</span>();			<span class="hljs-comment">// 上一次读取的字节数</span></code></pre></div></li>
+</ol>
+<h3 id="8-4-4-随机访问文件"><a href="#8-4-4-随机访问文件" class="headerlink" title="8.4.4 随机访问文件"></a>8.4.4 随机访问文件</h3><p>如果一个文件只能进行顺序存取操作，则称为顺序文件。键盘、显示器、磁带就是典型的顺序文件设备。</p>
+<p>能在文件任意位置进行存取操作的，称为随机访问文件。</p>
+<p>C++ 中，每个流都有一个 <strong>流指针</strong>，其由系统控制，随着流的各种操作在字节流中移动。</p>
+<p>文件打开后，系统会自动生成一个流指针，指向文件开头（以 ios::ate 形式打开时，指向结尾）。文件的 读&#x2F;写 操作从指针位置开始。每次 读&#x2F;写 操作后，指针会移动到下一个 读&#x2F;写 分量的起始位置。</p>
+<p>顺序访问方式下，流指针自动移动，无需人为改变。也能通过函数改变指针位置，实现随机访问。</p>
+<p><strong>istream：</strong></p>
+<ul>
+<li><p><code>istream&amp; seekg(long offset, ios::seek_dir dir)</code>：让文件读指针向指定位置移动</p>
+<p>其中 <code>ios::seek_dir</code> 是 ios 中定义的一个枚举类型，值是：</p>
+<ul>
+<li><code>ios::beg</code>：流的开始位置。此时 offset 需是非负整数</li>
+<li><code>ios::cur</code>：表示流的当前位置。此时 offset 为负表示向前移动</li>
+<li><code>ios::end</code>：；流的结束位置。此时 offset 需是非正整数</li>
+</ul>
+<p><code>istream&amp; seekg(long pos)</code>：设置文件读指针的位置</p>
+<p>等价于 <code>seekg(pos, ios::beg)</code></p>
+</li>
+<li><p><code>long tellg()</code>：返回读指针的当前位置</p>
+</li>
+</ul>
+<p><strong>ostream：</strong></p>
+<ul>
+<li><p><code>ostream&amp; seekp(long offset, ios::seek_dir dir)</code>：让文件写指针向指定位置移动</p>
+<p><code>ostream&amp; seekp(long pos)</code>：设置文件写指针的位置</p>
+</li>
+<li><p><code>long tellp()</code>：返回写指针的当前位置</p>
+</li>
+</ul>
+<p>在 fstream 中，读指针与写指针是同一指针。对其调用上述 读&#x2F;写 函数是等价的</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;C++&gt;8 I/O 流</div>
+      <div>https://i-melody.github.io/2022/06/18/C++/入门阶段/8 IO 流/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月18日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
