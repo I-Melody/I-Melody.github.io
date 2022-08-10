@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/13_3_6%20跳表图.jpg">
 <meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E9%98%9F%E5%88%97%E5%9B%BE_13.4.png">
 <meta property="article:published_time" content="2022-05-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-26T13:30:29.647Z">
+<meta property="article:modified_time" content="2022-08-10T02:00:09.848Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -237,7 +237,7 @@
         
         
         
-          162 分钟
+          81 分钟
         
       </span>
     
@@ -292,7 +292,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月26日 晚上
+                    本文最后更新于：2022年8月10日 上午
                   
                 
               </p>
@@ -344,12 +344,12 @@
 <li><p><code>add</code>：添加单个元素</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ArrayList</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
 list.add(<span class="hljs-string">&quot;哈哈啊&quot;</span>);
-list.add(<span class="hljs-number">10</span>);				<span class="hljs-comment">//相当于List.add(new Integer(10));</span>
-list.add(<span class="hljs-literal">true</span>);				<span class="hljs-comment">//同上</span></code></pre></div>
+list.add(<span class="hljs-number">10</span>);				<span class="hljs-comment">// 相当于List.add(new Integer(10));</span>
+list.add(<span class="hljs-literal">true</span>);				<span class="hljs-comment">// 同上</span></code></pre></div>
 </li>
 <li><p><code>remove</code>：删除单个元素</p>
-<div class="code-wrapper"><pre><code class="hljs java">list.remove(<span class="hljs-number">0</span>)				<span class="hljs-comment">//删除编号 0 的元素。上例中会删除 &quot;哈哈啊&quot;</span>
-list.remove((Integer)<span class="hljs-number">10</span>);	<span class="hljs-comment">//删除上例的 10 要这样写</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs java">list.remove(<span class="hljs-number">0</span>)				<span class="hljs-comment">// 删除编号 0 的元素。上例中会删除 &quot;哈哈啊&quot;</span>
+list.remove((Integer)<span class="hljs-number">10</span>);	<span class="hljs-comment">// 删除上例的 10 要这样写</span></code></pre></div>
 </li>
 <li><p><code>contains</code>：检查元素是否存在</p>
 </li>
@@ -360,16 +360,16 @@ list.remove((Integer)<span class="hljs-number">10</span>);	<span class="hljs-com
 <li><p><code>clear</code>：清空</p>
 </li>
 <li><p><code>addAll</code>：添加多个元素</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ArrayList</span> <span class="hljs-variable">list2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>;
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ArrayList</span> <span class="hljs-variable">list2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
 list2.add(<span class="hljs-number">111</span>);
 list2.add(<span class="hljs-string">&quot;idea&quot;</span>);
-list.addAll(list2);			<span class="hljs-comment">//这里可以输入所有实现了 Collection 接口的集合</span></code></pre></div>
+list.addAll(list2);			<span class="hljs-comment">// 这里可以输入所有实现了 Collection 接口的集合</span></code></pre></div>
 </li>
 <li><p><code>containsAll</code>：检查多个元素是否存在</p>
-<div class="code-wrapper"><pre><code class="hljs java">list.contaionsAll(list2);	<span class="hljs-comment">//同上，放一个实现了 Collection 接口的集合</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs java">list.contaionsAll(list2);	<span class="hljs-comment">// 同上，放一个实现了 Collection 接口的集合</span></code></pre></div>
 </li>
 <li><p><code>removeAll</code>：删除多个元素</p>
-<div class="code-wrapper"><pre><code class="hljs java">list.removeAll(list2);		<span class="hljs-comment">//同上</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs java">list.removeAll(list2);		<span class="hljs-comment">// 同上</span></code></pre></div>
 </li>
 <li><p><code>Iterator iterator()</code>：返回指向集合开始位置的迭代器</p>
 </li>
@@ -400,7 +400,7 @@ Iterator&lt;Object&gt; iterator = c.iterator();		<span class="hljs-comment">// [
 </li>
 <li><p>将迭代器后移，并返回那个后移位置上的元素</p>
 <p>while 循环结束后，指针指向最后元素的位置。再次 <code>next()</code> 会报错。如果需要再使用，需要重置迭代器。</p>
-<div class="code-wrapper"><pre><code class="hljs java">iterator = list.iterator();				<span class="hljs-comment">//重置了迭代器</span></code></pre></div></li>
+<div class="code-wrapper"><pre><code class="hljs java">iterator = list.iterator();				<span class="hljs-comment">// 重置了迭代器</span></code></pre></div></li>
 </ol>
 <p><strong>for each（增强 for 循环）：</strong></p>
 <blockquote>
@@ -426,7 +426,7 @@ Iterator&lt;Object&gt; iterator = c.iterator();		<span class="hljs-comment">// [
 <li><p><code>add(int, obj)</code>：在 int 位置插入 obj 元素。返回 true</p>
 <p><code>add(obj)</code>：在末尾插入 obj。返回 true</p>
 <div class="code-wrapper"><pre><code class="hljs java">list.add(<span class="hljs-number">111</span>);
-list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span>);						<span class="hljs-comment">//在第 1 个位置插入数字 110</span></code></pre></div>
+list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span>);						<span class="hljs-comment">// 在第 1 个位置插入数字 110</span></code></pre></div>
 
 <p><code>addElement(obj)</code>：在末尾插入 obj。无返回值。你说要这方法有啥用？名字还长一截</p>
 </li>
@@ -690,14 +690,14 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <li>图形的深度优先搜索法</li>
 </ul>
 <h4 id="常用方法：-3"><a href="#常用方法：-3" class="headerlink" title="常用方法："></a>常用方法：</h4><ul>
-<li><p><code>E push(E item)</code>：将元素 item 压入栈</p>
+<li><p><code>E push(E item)</code>：将元素 item 压入栈。返回值是 item 自己</p>
 </li>
 <li><p><code>E pop()</code>：让栈顶元素出栈</p>
 </li>
 <li><p><code>E peek()</code>：仅获取栈顶元素</p>
 </li>
 <li><p><code>int search(Object o)</code>：查找该元素最后出现的位置。</p>
-<p>栈顶为 1，栈顶为 size()，不存在返回 -1</p>
+<p>栈底为 1，栈顶为 size()，不存在返回 -1</p>
 </li>
 </ul>
 <h4 id="13-3-5-1-栈模拟计算器"><a href="#13-3-5-1-栈模拟计算器" class="headerlink" title="13.3.5.1 栈模拟计算器"></a>13.3.5.1 栈模拟计算器</h4><blockquote>
