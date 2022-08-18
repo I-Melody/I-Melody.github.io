@@ -24,7 +24,7 @@
 <meta property="og:description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度：算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-28T12:20:44.496Z">
+<meta property="article:modified_time" content="2022-08-18T09:18:09.716Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="程序">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          11k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          33 分钟
+          32 分钟
         
       </span>
     
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月28日 晚上
+                    本文最后更新于：2022年8月18日 下午
                   
                 
               </p>
@@ -504,18 +504,15 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
 </ol>
 <h4 id="实现-KMP-算法："><a href="#实现-KMP-算法：" class="headerlink" title="实现 KMP 算法："></a>实现 KMP 算法：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">KMP</span><span class="hljs-params">(String ori, String tar)</span> &#123;
     <span class="hljs-keyword">if</span> (tar == <span class="hljs-literal">null</span> || ori == <span class="hljs-literal">null</span> || tar.length() &gt; ori.length()) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
-    <span class="hljs-type">char</span>[] ts = tar.toCharArray();		<span class="hljs-comment">// 对象字符串</span>
-    <span class="hljs-type">char</span>[] os = ori.toCharArray();		<span class="hljs-comment">// 源字符串</span>
+    <span class="hljs-type">char</span>[] ts = tar.toCharArray();        <span class="hljs-comment">// 对象字符串</span>
+    <span class="hljs-type">char</span>[] os = ori.toCharArray();        <span class="hljs-comment">// 源字符串</span>
 
     <span class="hljs-comment">/* 初始化部分匹配池 */</span>
     <span class="hljs-type">int</span>[] list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[ts.length];
-    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; list.length; i++) &#123;
-        <span class="hljs-keyword">if</span> (ts[i] == ts[list[i - <span class="hljs-number">1</span>]]) list[i] = list[i - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;
-    &#125;
-    <span class="hljs-comment">/* 将部分匹配池的数据变为指示列表 */</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> list.length - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;
-        <span class="hljs-keyword">if</span> (list[i] &gt; <span class="hljs-number">0</span>) list[i] = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">else</span> list[i] = list[i - <span class="hljs-number">1</span>];
+    list[<span class="hljs-number">0</span>] = -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, k = -<span class="hljs-number">1</span>; j &lt; list.length-<span class="hljs-number">1</span>; ) &#123;
+        <span class="hljs-keyword">if</span> (k == -<span class="hljs-number">1</span> || ts[j] == ts[k]) list[++j] = list[++k] + <span class="hljs-number">1</span>;
+        <span class="hljs-type">else</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> list[k];
     &#125;
 
     <span class="hljs-comment">/* 源串指针 op、对象串指针 tp */</span>
@@ -529,16 +526,9 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (op &gt;= os.length) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
 
         <span class="hljs-comment">/* 匹配时，后移源串指针和对象串指针，继续匹配。</span>
-<span class="hljs-comment">			出现不匹配时，把对象指针移动到部分匹配池指示的位置，并继续匹配。 */</span>
-        <span class="hljs-keyword">if</span> (ts[tp] != os[op]) &#123;
-            <span class="hljs-keyword">while</span> (tp &gt; <span class="hljs-number">0</span>) &#123;
-                tp = list[tp];
-                <span class="hljs-keyword">if</span> (ts[tp] == os[op]) &#123;
-                    tp++;
-                    <span class="hljs-keyword">break</span>;
-                &#125;
-            &#125;
-        &#125; <span class="hljs-keyword">else</span> tp++;
+<span class="hljs-comment">                出现不匹配时，把对象指针移动到部分匹配池指示的位置，并继续匹配。 */</span>
+        <span class="hljs-keyword">while</span> (tp &gt;= <span class="hljs-number">0</span> &amp;&amp; ts[tp] != os[op]) tp = list[tp];
+        tp++;
         op++;
     &#125;
 &#125;</code></pre></div>
