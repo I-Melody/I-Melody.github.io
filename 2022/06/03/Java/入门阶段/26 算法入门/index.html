@@ -24,7 +24,7 @@
 <meta property="og:description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-18T10:21:30.570Z">
+<meta property="article:modified_time" content="2022-08-24T10:21:23.655Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="程序">
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月18日 晚上
+                    本文最后更新于：2022年8月24日 晚上
                   
                 
               </p>
@@ -382,7 +382,7 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         &#125;
         <span class="hljs-comment">/* 由于每堆香蕉至少需要 1 小时，当 piles.length == h 时，k 是那个香蕉堆最大值 */</span>
         <span class="hljs-keyword">if</span> (piles.length == h) <span class="hljs-keyword">return</span> max;
-        min = (<span class="hljs-type">int</span>)Math.ceil(sum / (<span class="hljs-type">double</span>)h);
+        min = (sum + h - <span class="hljs-number">1</span>) / h;	<span class="hljs-comment">// 这里是 int 除法的向上取整</span>
         
         <span class="hljs-comment">/* 二分查找，如果在 p 情况下超时（吃不完香蕉），说明 k &gt; p</span>
 <span class="hljs-comment">        	如果在 p 情况下提前吃完，说明 k &lt; p </span>
