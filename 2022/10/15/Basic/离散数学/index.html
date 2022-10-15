@@ -16,15 +16,15 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="离散数学（1） 0 逻辑关系 0.1 联结词 \(p\)、\(q\)、\(r\) 表示原子命题（简单命题、变元、常元）。\(1\) 表示命题的真值为真，\(0\) 表示假  \(¬p\)：否定联结词（非运算）    p   ¬p     1   0     0   1    \(p\and q\)：合取联结词（与运算）">
+    <meta name="description" content="离散数学（1） 0 逻辑关系 0.1 联结词 \(p\)、\(q\)、\(r\) 表示原子命题（简单命题、变元、常元）。\(1\) 表示命题的真值为真，\(0\) 表示假  \(¬p\)：否定联结词（非运算）    p   ¬p     1   0     0   1    \(p⋀ q\)：合取联结词（与运算）    p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散数学（1）">
 <meta property="og:url" content="https://i-melody.github.io/2022/10/15/Basic/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="离散数学（1） 0 逻辑关系 0.1 联结词 \(p\)、\(q\)、\(r\) 表示原子命题（简单命题、变元、常元）。\(1\) 表示命题的真值为真，\(0\) 表示假  \(¬p\)：否定联结词（非运算）    p   ¬p     1   0     0   1    \(p\and q\)：合取联结词（与运算）">
+<meta property="og:description" content="离散数学（1） 0 逻辑关系 0.1 联结词 \(p\)、\(q\)、\(r\) 表示原子命题（简单命题、变元、常元）。\(1\) 表示命题的真值为真，\(0\) 表示假  \(¬p\)：否定联结词（非运算）    p   ¬p     1   0     0   1    \(p⋀ q\)：合取联结词（与运算）    p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-15T14:08:33.500Z">
+<meta property="article:modified_time" content="2022-10-15T14:28:16.159Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="数学">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          56k 字
+          51k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          155 分钟
+          143 分钟
         
       </span>
     
@@ -330,7 +330,7 @@ class="math inline">\(0\)</span> 表示假</p>
 </td>
 </tr>
 </table></li>
-<li><p><span class="math inline">\(p\and
+<li><p><span class="math inline">\(p⋀
 q\)</span>：合取联结词（与运算）</p>
 <table>
 <tr>
@@ -389,7 +389,7 @@ q\)</span>：合取联结词（与运算）</p>
 </td>
 </tr>
 </table></li>
-<li><p><span class="math inline">\(p\or
+<li><p><span class="math inline">\(p⋁
 q\)</span>：析取联结词（或运算）</p>
 <table>
 <tr>
@@ -513,7 +513,7 @@ class="math inline">\(p\)</span> 的必要条件）</p>
 <blockquote>
 <p>如果认为所有猫都爱睡觉，也就是说：如果有一只猫（<span
 class="math inline">\(p\)</span>），那么这只猫喜欢睡觉（<span
-class="math inline">\(p\rarr q\)</span>）。</p>
+class="math inline">\(p→ q\)</span>）。</p>
 <p>这样的话：</p>
 <p>如果不是一只猫（<span
 class="math inline">\(p=0\)</span>），那么它可以不爱睡觉（<span
@@ -588,22 +588,21 @@ class="math inline">\(p↔q\)</span>：等价联结词（等于，充分必要�
 <p>单个命题变元（或常元）是命题公式。</p>
 <p>若 <span class="math inline">\(p\)</span>、<span
 class="math inline">\(q\)</span> 是命题公式，那么 <span
-class="math inline">\(¬p\)</span>、<span class="math inline">\(p\and
-q\)</span>、<span class="math inline">\(p\or q\)</span>、<span
+class="math inline">\(¬p\)</span>、<span class="math inline">\(p⋀
+q\)</span>、<span class="math inline">\(p⋁ q\)</span>、<span
 class="math inline">\(p→q\)</span>、<span
 class="math inline">\(p↔q\)</span>
 都是命题公式。命题公式的长度是有限的。</p>
 <p>联结词的优先级是： <span class="math inline">\(¬\)</span>、<span
-class="math inline">\(\and \or\)</span>、<span
+class="math inline">\(⋀ ⋁\)</span>、<span
 class="math inline">\(→↔\)</span></p>
 <p>将值永远为 <span class="math inline">\(0\)</span>
-的命题公式称为矛盾式（永假式），如 <span class="math inline">\(p \and
+的命题公式称为矛盾式（永假式），如 <span class="math inline">\(p ⋀
 ¬p\)</span></p>
 <p>将值可能为 <span class="math inline">\(1\)</span>
 的命题公式称为可满足式。</p>
 <p>将值永远为 <span class="math inline">\(1\)</span>
-的命题公式称为重言式（永真式），如 <span
-class="math inline">\(p\and(p\or
+的命题公式称为重言式（永真式），如 <span class="math inline">\(p⋀(p⋁
 q)↔p\)</span>。永真式是可满足式的一种</p>
 <h3 id="等值式">0.3 等值式</h3>
 <p>等值式：如果 <span class="math inline">\(p↔q\)</span> 是永真式，则
@@ -700,61 +699,60 @@ p→q
 <p><span class="math inline">\(∴p→q⇔¬p∨q\)</span></p>
 <p><strong>基本的等值式</strong></p>
 <ul>
-<li><p>幂等率：<span class="math inline">\(p⇔p\or p{\qquad}p⇔p\and
+<li><p>幂等率：<span class="math inline">\(p⇔p⋁ p{\qquad}p⇔p⋀
 p\)</span></p></li>
-<li><p>交换律：<span class="math inline">\(p\or q⇔p\or q{\qquad}p\and
-q⇔q\and p\)</span></p></li>
-<li><p>结合律：<span class="math inline">\((p\or q)\or r⇔p\or(q\or
-r){\qquad}(p\and q)\and r⇔p\and(q\and r)\)</span></p></li>
-<li><p>分配律：<span class="math inline">\(p\or(q\and r)⇔(p\or
-q)\and(p\or r){\qquad}p\and(q\or r)⇔(p\and q)\or(p\and
-r)\)</span></p></li>
-<li><p>德·摩根律：<span class="math inline">\(¬(p\or q)⇔¬p\and
-¬q{\qquad}¬(p\and q)⇔¬p\or ¬q\)</span></p></li>
-<li><p>吸收律：<span class="math inline">\(p\or(p\and
-q)⇔p{\qquad}p\and(p\or q)⇔p\)</span></p></li>
+<li><p>交换律：<span class="math inline">\(p⋁ q⇔p⋁ q{\qquad}p⋀ q⇔q⋀
+p\)</span></p></li>
+<li><p>结合律：<span class="math inline">\((p⋁ q)⋁ r⇔p⋁(q⋁ r){\qquad}(p⋀
+q)⋀ r⇔p⋀(q⋀ r)\)</span></p></li>
+<li><p>分配律：<span class="math inline">\(p⋁(q⋀ r)⇔(p⋁ q)⋀(p⋁
+r){\qquad}p⋀(q⋁ r)⇔(p⋀ q)⋁(p⋀ r)\)</span></p></li>
+<li><p>德·摩根律：<span class="math inline">\(¬(p⋁ q)⇔¬p⋀ ¬q{\qquad}¬(p⋀
+q)⇔¬p⋁ ¬q\)</span></p></li>
+<li><p>吸收律：<span class="math inline">\(p⋁(p⋀ q)⇔p{\qquad}p⋀(p⋁
+q)⇔p\)</span></p></li>
 <li><p>零律：<span
-class="math inline">\(p\or1⇔1{\qquad}p\and0⇔0\)</span></p></li>
+class="math inline">\(p⋁1⇔1{\qquad}p⋀0⇔0\)</span></p></li>
 <li><p>同一律：<span
-class="math inline">\(p\or0⇔p{\qquad}p\and1⇔p\)</span></p></li>
-<li><p>排中律：<span class="math inline">\(p\or¬p⇔1\)</span></p></li>
-<li><p>矛盾律：<span class="math inline">\(p\and¬p⇔0\)</span></p></li>
+class="math inline">\(p⋁0⇔p{\qquad}p⋀1⇔p\)</span></p></li>
+<li><p>排中律：<span class="math inline">\(p⋁¬p⇔1\)</span></p></li>
+<li><p>矛盾律：<span class="math inline">\(p⋀¬p⇔0\)</span></p></li>
 <li><p>双重否定律：<span class="math inline">\(¬¬p⇔p\)</span></p></li>
 <li><p>蕴含等值式：<span
 class="math inline">\(p→q⇔¬p∨q\)</span></p></li>
 <li><p>等价等值式：<span
-class="math inline">\(p↔q⇔(p→q)\and(q→p)\)</span></p></li>
+class="math inline">\(p↔q⇔(p→q)⋀(q→p)\)</span></p></li>
 <li><p>等价否定等值式（否命题）：<span
 class="math inline">\(p↔q⇔¬p↔¬q\)</span></p></li>
 <li><p>假言易位（逆否）：<span
 class="math inline">\(p→q⇔¬q→¬p\)</span></p></li>
 <li><p>归谬论（反证法）：<span
-class="math inline">\((p→q)\and(p→¬q)⇔¬p\)</span></p></li>
+class="math inline">\((p→q)⋀(p→¬q)⇔¬p\)</span></p></li>
 </ul>
 <h3 id="命题逻辑推理">0.4 命题逻辑推理</h3>
 <p>前提：<span class="math inline">\(A_1，A_2，A_3,...，A_k\)</span></p>
 <p>结论：<span class="math inline">\(B\)</span></p>
-<p>推理的形式结构：<span class="math inline">\((A_1\and A_2\and A_3\and
-... \and A_k)→B\)</span></p>
+<p>推理的形式结构：<span class="math inline">\((A_1⋀ A_2⋀ A_3⋀ ... ⋀
+A_k)→B\)</span></p>
 <p>如果 <span class="math inline">\(A→B\)</span> 是永真式，则可以记为
 <span class="math inline">\(A⇒B\)</span></p>
 <p><strong>重要的推理定律</strong></p>
 <ul>
-<li><p>附加律：<span class="math inline">\(A⇒(A\or B)\)</span></p></li>
-<li><p>化简律：<span class="math inline">\((A\and B)⇒A{\qquad}(A\and
+<li><p>附加律：<span class="math inline">\(A⇒(A⋁ B)\)</span></p></li>
+<li><p>化简律：<span class="math inline">\((A⋀ B)⇒A{\qquad}(A⋀
 B)⇒B\)</span></p></li>
-<li><p>假言推理：<span class="math inline">\((A→B)\and
+<li><p>假言推理：<span class="math inline">\((A→B)⋀
 A⇒B\)</span></p></li>
-<li><p>拒取式：<span class="math inline">\((A→B)\and
+<li><p>拒取式：<span class="math inline">\((A→B)⋀
 ¬B⇒¬A\)</span></p></li>
-<li><p>析取三段论：<span class="math inline">\((A\or
-B)\or¬A⇒B{\qquad}(A\or B)\or¬B⇒A\)</span></p></li>
+<li><p>析取三段论：<span class="math inline">\((A⋁ B)⋁¬A⇒B{\qquad}(A⋁
+B)⋁¬B⇒A\)</span></p></li>
 <li><p>假言三段论：<span
-class="math inline">\((A→B)\and(B→C)⇒(A→C)\)</span></p></li>
+class="math inline">\((A→B)⋀(B→C)⇒(A→C)\)</span></p></li>
 <li><p>等价三段论：<span
-class="math inline">\((A↔B)\and(B↔C)⇒(A↔C)\)</span></p></li>
-<li><p>构造性两难：<span class="math inline">\((A→B)\and(C→D)\and(A\or
-C)⇒(B\or D)\)</span></p></li>
+class="math inline">\((A↔B)⋀(B↔C)⇒(A↔C)\)</span></p></li>
+<li><p>构造性两难：<span class="math inline">\((A→B)⋀(C→D)⋀(A⋁ C)⇒(B⋁
+D)\)</span></p></li>
 </ul>
 <h3 id="谓词">0.5 谓词</h3>
 <p><strong>基本概念</strong></p>
@@ -800,10 +798,10 @@ class="math inline">\(F\)</span></p></li>
 <p><strong>命题符号化</strong></p>
 <p>一阶逻辑中命题逻辑化的两个基本公式：</p>
 <ul>
-<li><p><span class="math inline">\(∀x(F(x)\rarr G(x))\)</span></p>
+<li><p><span class="math inline">\(∀x(F(x)→ G(x))\)</span></p>
 <p>个体域中所有具有性质 <span class="math inline">\(F\)</span>
 的个体都具有性质 <span class="math inline">\(G\)</span></p></li>
-<li><p><span class="math inline">\(∃x(F(x)\and G(x))\)</span></p>
+<li><p><span class="math inline">\(∃x(F(x)⋀ G(x))\)</span></p>
 <p>个体域中存在同时具有性质 <span class="math inline">\(F\)</span>
 和性质 <span class="math inline">\(G\)</span> 的个体</p></li>
 </ul>
@@ -832,7 +830,7 @@ class="math inline">\(A\)</span> 的一个解释。</p>
 可以有多种解释。当给出一种解释后，就能判断该解释的真假。</p>
 <p>若 <span class="math inline">\(A\)</span>
 在任何解释下都为真，称之为永真式。还有永假式、可满足式。</p>
-<p>若 <span class="math inline">\(A\harr B\)</span> 是永真式，则称 <span
+<p>若 <span class="math inline">\(A↔ B\)</span> 是永真式，则称 <span
 class="math inline">\(A\)</span> 与 <span
 class="math inline">\(B\)</span> 等值，记为 <span
 class="math inline">\(A⇔B\)</span>，并称之为等值式。</p>
@@ -840,35 +838,28 @@ class="math inline">\(A⇔B\)</span>，并称之为等值式。</p>
 <ul>
 <li><p>在有限个体域 <span class="math inline">\(D=\lbrace
 a_1,a_2,\ldots,a_n\rbrace\)</span> 中消去量词等值式</p>
-<p><span class="math inline">\(\quad ∀xA(x)⇔A(a_1)\and A(a_2)\and \ldots
-\and A(a_n)\)</span></p>
-<p><span class="math inline">\(\quad ∃xA(x)⇔A(a_1)\or A(a_2)\or \ldots
-\or A(a_n)\)</span></p></li>
+<p><span class="math inline">\(\quad ∀xA(x)⇔A(a_1)⋀ A(a_2)⋀ \ldots ⋀
+A(a_n)\)</span></p>
+<p><span class="math inline">\(\quad ∃xA(x)⇔A(a_1)⋁ A(a_2)⋁ \ldots ⋁
+A(a_n)\)</span></p></li>
 <li><p>量词否定等值式</p>
 <p><span class="math inline">\(\quad ¬∀xA(x)⇔∃x¬A(x)\)</span></p>
 <p><span class="math inline">\(\quad ¬∃xA(x)⇔∀x¬A(x)\)</span></p></li>
 <li><p>量词辖域收缩和扩张等值式（<span class="math inline">\(B\)</span>
 中不含 <span class="math inline">\(x\)</span>）</p>
-<p><span class="math inline">\(\quad ∀x(A(x)\or B)⇔∀xA(x)\or
-B\)</span></p>
-<p><span class="math inline">\(\quad ∃x(A(x)\or B)⇔∃xA(x)\or
-B\)</span></p>
-<p><span class="math inline">\(\quad ∀x(A(x)\and B)⇔∀xA(x)\and
-B\)</span></p>
-<p><span class="math inline">\(\quad ∃x(A(x)\and B)⇔∃xA(x)\and
-B\)</span></p>
-<p><span class="math inline">\(\quad ∀x(A(x)\rarr B)⇔∃xA(x)\rarr
-B\)</span></p>
-<p><span class="math inline">\(\quad ∃x(A(x)\rarr B)⇔∀xA(x)\rarr
-B\)</span></p>
-<p><span class="math inline">\(\quad ∀x(B\rarr A(x))⇔B\rarr
-∀xA(x)\)</span></p>
-<p><span class="math inline">\(\quad ∃x(B\rarr A(x))⇔B\rarr
+<p><span class="math inline">\(\quad ∀x(A(x)⋁ B)⇔∀xA(x)⋁ B\)</span></p>
+<p><span class="math inline">\(\quad ∃x(A(x)⋁ B)⇔∃xA(x)⋁ B\)</span></p>
+<p><span class="math inline">\(\quad ∀x(A(x)⋀ B)⇔∀xA(x)⋀ B\)</span></p>
+<p><span class="math inline">\(\quad ∃x(A(x)⋀ B)⇔∃xA(x)⋀ B\)</span></p>
+<p><span class="math inline">\(\quad ∀x(A(x)→ B)⇔∃xA(x)→ B\)</span></p>
+<p><span class="math inline">\(\quad ∃x(A(x)→ B)⇔∀xA(x)→ B\)</span></p>
+<p><span class="math inline">\(\quad ∀x(B→ A(x))⇔B→ ∀xA(x)\)</span></p>
+<p><span class="math inline">\(\quad ∃x(B→ A(x))⇔B→
 ∃xA(x)\)</span></p></li>
 <li><p>量词分配等值式</p>
-<p><span class="math inline">\(\quad ∀x(A(x)\and B(x))⇔∀xA(x)\and
+<p><span class="math inline">\(\quad ∀x(A(x)⋀ B(x))⇔∀xA(x)⋀
 B(x)\)</span></p>
-<p><span class="math inline">\(\quad ∃x(A(x)\or B(x))⇔∃xA(x)\or
+<p><span class="math inline">\(\quad ∃x(A(x)⋁ B(x))⇔∃xA(x)⋁
 B(x)\)</span></p></li>
 </ul>
 <p><strong>前束范式</strong></p>
@@ -885,13 +876,13 @@ class="math inline">\(x_j\)</span>，所得公式 <span
 class="math inline">\(A&#39;⇔A\)</span></p>
 <p>一些重要的推理定律（注意：不是等值式）</p>
 <ul>
-<li><span class="math inline">\(∀xA(x)\or ∀xB(x)⇒∀xA(x)\or
+<li><span class="math inline">\(∀xA(x)⋁ ∀xB(x)⇒∀xA(x)⋁
 B(x)\)</span></li>
-<li><span class="math inline">\(∃x(A(x)\and B(x))⇒∃xA(x)\and
+<li><span class="math inline">\(∃x(A(x)⋀ B(x))⇒∃xA(x)⋀
 ∃xB(x)\)</span></li>
-<li><span class="math inline">\(∀x(A(x)\rarr B(x))⇒∀xA(x)\rarr
+<li><span class="math inline">\(∀x(A(x)→ B(x))⇒∀xA(x)→
 ∀xB(x)\)</span></li>
-<li><span class="math inline">\(∀x(A(x)\rarr B(x))⇒∃xA(x)\rarr
+<li><span class="math inline">\(∀x(A(x)→ B(x))⇒∃xA(x)→
 ∃xB(x)\)</span></li>
 </ul>
 <h2 id="集合论">1 集合论</h2>
@@ -939,18 +930,18 @@ class="math inline">\(a\notin A\)</span></p></li>
 <span class="math inline">\(A \subseteq B\)</span>。否则记为 <span
 class="math inline">\(A \not\subseteq B\)</span>。</p>
 <p>符号化形式：</p>
-<p><span class="math inline">\(\quad B\subseteq A⇔∀x(x\in B \rarr x\in
+<p><span class="math inline">\(\quad B\subseteq A⇔∀x(x\in B → x\in
 A)\)</span></p>
-<p><span class="math inline">\(\quad B\not\subseteq A⇔∃x(x\in B \and
+<p><span class="math inline">\(\quad B\not\subseteq A⇔∃x(x\in B ⋀
 x\not\in A)\)</span></p></li>
 <li><p><strong>相等</strong></p>
 <p>当且仅当两个集合的元素完全相同时，称两个集合相等。记为 <span
 class="math inline">\(A = B\)</span>。否则，称两个集合不相等，记为 <span
 class="math inline">\(A\neq B\)</span>。</p>
 <p>符号化形式：</p>
-<p><span class="math inline">\(\quad A=B ⇔ (A \subseteq B)\and (B
-\subseteq A)\)</span></p>
-<p><span class="math inline">\(\quad A=B ⇔∀x(x\in B \and x\in
+<p><span class="math inline">\(\quad A=B ⇔ (A \subseteq B)⋀ (B \subseteq
+A)\)</span></p>
+<p><span class="math inline">\(\quad A=B ⇔∀x(x\in B ⋀ x\in
 A)\)</span></p></li>
 <li><p><strong>真子集</strong></p>
 <p>如果 <span class="math inline">\(A \subseteq B\)</span> 并且 <span
@@ -958,10 +949,10 @@ class="math inline">\(A \neq B\)</span> 则称 A 是 B 的真子集，记为 <sp
 class="math inline">\(A \subset B\)</span>。否则记为 <span
 class="math inline">\(A \not\subset B\)</span></p>
 <p>符号化形式：</p>
-<p><span class="math inline">\(\quad B\subset A⇔A\subseteq B \and A \neq
+<p><span class="math inline">\(\quad B\subset A⇔A\subseteq B ⋀ A \neq
 B\)</span></p>
-<p><span class="math inline">\(\quad B\not\subset A⇔∃x(x\in A\and
-x\not\in B)\and A \neq B\)</span></p></li>
+<p><span class="math inline">\(\quad B\not\subset A⇔∃x(x\in A⋀ x\not\in
+B)⋀ A \neq B\)</span></p></li>
 <li><p><strong>基数</strong></p>
 <p>集合中的元素个数称为集合的基数。A 的基数记为 <span
 class="math inline">\(|A|\)</span></p>
@@ -996,27 +987,27 @@ class="math inline">\(A\)</span> 的重复度。</p>
 <p>由两个集合 <span class="math inline">\(A,B\)</span>
 所有元素构成的集合为其并集，记作 <span class="math inline">\(A\cup
 B\)</span></p>
-<p>其描述法表示为：<span class="math inline">\(A\cup B=\lbrace x|x\in
-A\or x\in B\rbrace\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cup B=\lbrace x|x\in A⋁
+x\in B\rbrace\)</span></p>
 <p>并运算可以推广到有限个或可数个集合（初级并）</p>
 <p><span class="math inline">\(\quad
-A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n={\lbrace}x|∃i(1{\le}i{\le}n{\and}x{\in}A_i){\rbrace}\)</span></p>
+A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n={\lbrace}x|∃i(1{\le}i{\le}n{⋀}x{\in}A_i){\rbrace}\)</span></p>
 <p><span class="math inline">\(\quad
 {\bigcup_{i=1}^{n}\\}{A_i=A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n}\)</span></p></li>
 <li><p><strong>交集</strong></p>
 <p>由两个集合 <span class="math inline">\(A,B\)</span>
 共有的元素构成的集合为其交集，记作 <span class="math inline">\(A\cap
 B\)</span></p>
-<p>其描述法表示为：<span class="math inline">\(A\cap B=\lbrace x|x\in
-A\and x\in B\rbrace\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cap B=\lbrace x|x\in A⋀
+x\in B\rbrace\)</span></p>
 <p>交运算可以推广到有限个或可数个集合（初级交）</p>
 <p><span class="math inline">\(\quad
-A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n={\lbrace}x|∀i(1{\le}i{\le}n{\rarr}x{\in}A_i){\rbrace}\)</span></p>
+A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n={\lbrace}x|∀i(1{\le}i{\le}n{→}x{\in}A_i){\rbrace}\)</span></p>
 <p><span class="math inline">\(\quad
 {\bigcap_{i=1}^{n}\\}A_i=A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n\)</span></p></li>
 <li><p><strong>不相交</strong></p>
-<p>如果 <span class="math inline">\(A{\cap}B=\emptyset\)</span>，则称
-<span class="math inline">\(A\)</span> 和 <span
+<p>如果 <span class="math inline">\(A{\cap}B=Ø\)</span>，则称 <span
+class="math inline">\(A\)</span> 和 <span
 class="math inline">\(B\)</span> 是不相交的</p></li>
 <li><p><strong>相对补</strong></p>
 <p>对于集合 <span class="math inline">\(A,B\)</span>，由属于 <span
@@ -1026,7 +1017,7 @@ class="math inline">\(B\)</span> 对 <span
 class="math inline">\(A\)</span> 的相对补集。记作 <span
 class="math inline">\(A-B\)</span></p>
 <p>描述法表示为：<span
-class="math inline">\(A-B={\lbrace}x|x{\in}A{\and}x{\not\in}B{\rbrace}\)</span></p></li>
+class="math inline">\(A-B={\lbrace}x|x{\in}A{⋀}x{\not\in}B{\rbrace}\)</span></p></li>
 <li><p><strong>对称差</strong></p>
 <p>由属于 <span class="math inline">\(A\)</span> 但不属于 <span
 class="math inline">\(B\)</span>，或属于 <span
@@ -1036,7 +1027,7 @@ class="math inline">\(B\)</span> 对 <span
 class="math inline">\(A\)</span> 的对称差。记为 <span
 class="math inline">\(A{\oplus}B\)</span></p>
 <p>描述法表示为：<span
-class="math inline">\(A{\oplus}B={\lbrace}x|(x{\in}A{\and}x{\not\in}B){\or}(x{\in}B{\and}x{\not\in}A){\rbrace}\)</span></p>
+class="math inline">\(A{\oplus}B={\lbrace}x|(x{\in}A{⋀}x{\not\in}B){⋁}(x{\in}B{⋀}x{\not\in}A){\rbrace}\)</span></p>
 <p><span
 class="math inline">\(A{\oplus}B=(A-B){\cup}(B-A)=(A{\cup}B)-(A{\cap}B)\)</span></p></li>
 <li><p><strong>绝对补集</strong></p>
@@ -1047,7 +1038,7 @@ class="math inline">\(E\)</span> 的相对补集为 <span
 class="math inline">\(A\)</span> 的绝对补集。记为 <span
 class="math inline">\(\tilde\ {A}\)</span></p>
 <p>描述法表示为：<span class="math inline">\(\tilde\
-{A}={\lbrace}x|x{\in}E{\and}x{\notin}A{\rbrace}\)</span>，由于 <span
+{A}={\lbrace}x|x{\in}E{⋀}x{\notin}A{\rbrace}\)</span>，由于 <span
 class="math inline">\(x{\in}E=1\)</span> 又有 <span
 class="math inline">\(\tilde\ A
 ={\lbrace}x|x{\notin}A{\rbrace}\)</span></p></li>
@@ -1057,7 +1048,7 @@ class="math inline">\(\tilde\ A
 class="math inline">\({\bigcup}{\mathcal A}\)</span>（大并 <span
 class="math inline">\({\mathcal A}\)</span>）</p>
 <p>描述法表示为：<span class="math inline">\({\bigcup}{\mathcal
-A}={\lbrace}x|{\exist}z(x{\in}z{\and}z{\in}{\mathcal
+A}={\lbrace}x|{∃}z(x{\in}z{⋀}z{\in}{\mathcal
 A}){\rbrace}\)</span></p></li>
 <li><p><strong>广义交集</strong></p>
 <p>由一个集族 <span class="math inline">\({\mathcal A}\)</span>
@@ -1065,10 +1056,9 @@ A}){\rbrace}\)</span></p></li>
 class="math inline">\({\bigcap}{\mathcal A}\)</span>（大交 <span
 class="math inline">\({\mathcal A}\)</span>）</p>
 <p>描述法表示为：<span class="math inline">\({\bigcap}{\mathcal
-A}={\lbrace}x|{\forall}z(x{\in}{\mathcal
-A}{\rarr}z{\in}z){\rbrace}\)</span></p>
-<p>空集不能求广义交。即 <span
-class="math inline">\({\cap}{\emptyset}\)</span> 无意义</p></li>
+A}={\lbrace}x|{∀}z(x{\in}{\mathcal A}{→}z{\in}z){\rbrace}\)</span></p>
+<p>空集不能求广义交。即 <span class="math inline">\({\cap}{Ø}\)</span>
+无意义</p></li>
 </ul>
 <p><strong>集合运算的优先级</strong></p>
 <table>
@@ -1147,15 +1137,15 @@ A_2{\cup\ldots\cup}\tilde\ A_n\)</span></p></li>
 <li><p>吸收律：<span
 class="math inline">\(A{\cup}(A{\cap}B)=A{\qquad}A{\cap}(A{\cup}B)=A\)</span></p></li>
 <li><p>零律：<span
-class="math inline">\(A{\cup}E=E{\qquad}A{\cap\emptyset}={\emptyset}\)</span></p></li>
+class="math inline">\(A{\cup}E=E{\qquad}A{\capØ}={Ø}\)</span></p></li>
 <li><p>同一律：<span
-class="math inline">\(A{\cap}E=A{\qquad}A{\cup\emptyset}=A\)</span></p></li>
+class="math inline">\(A{\cap}E=A{\qquad}A{\cupØ}=A\)</span></p></li>
 <li><p>排中律：<span class="math inline">\(A{\cup}\tilde\
 A=E\)</span></p></li>
 <li><p>矛盾律：<span class="math inline">\(A{\cap}\tilde\
-A={\emptyset}\)</span></p></li>
+A={Ø}\)</span></p></li>
 <li><p>余补律：<span class="math inline">\({\tilde\
-E}={\emptyset}{\qquad}{\tilde\ \emptyset}=E\)</span></p></li>
+E}={Ø}{\qquad}{\tilde\ Ø}=E\)</span></p></li>
 <li><p>双重否定律：<span class="math inline">\({\tilde\ \tilde\
 A}=A\)</span></p></li>
 <li><p>补交转换律：<span class="math inline">\(A-B=A{\cap}{\tilde\
@@ -1182,27 +1172,27 @@ S}})={\bigcap_{\alpha\in
 S}\\}(B-A_{\alpha}){\qquad}B-({\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
 S}})={\bigcup_{\alpha\in S}\\}(B-A_{\alpha})\)</span></p></li>
 <li><p>幂集：<span
-class="math inline">\(A{\subseteq}B{\Harr}P(A){\subseteq}P(B){\qquad}P(A-B){\subseteq}(P(A)-P(B)){\cup}{\lbrace\empty\rbrace}\)</span></p></li>
+class="math inline">\(A{\subseteq}B{⇔}P(A){\subseteq}P(B){\qquad}P(A-B){\subseteq}(P(A)-P(B)){\cup}{\lbraceØ\rbrace}\)</span></p></li>
 </ul>
 <h3 id="有序对和笛卡尔积">1.3 有序对和笛卡尔积</h3>
 <ul>
 <li><p><strong>有序对</strong></p>
 <p><span class="math inline">\(\quad
-{\langle}a,b{\rangle}={\lbrace}{\lbrace}a{\rbrace},{\lbrace}a,b{\rbrace}{\rbrace}\)</span></p>
+{⟨}a,b{⟩}={\lbrace}{\lbrace}a{\rbrace},{\lbrace}a,b{\rbrace}{\rbrace}\)</span></p>
 <p>其中 <span class="math inline">\(a\)</span> 为第一元素，<span
 class="math inline">\(b\)</span> 为第二元素。<span
-class="math inline">\({\langle}a,b{\rangle}\)</span> 也记作 <span
+class="math inline">\({⟨}a,b{⟩}\)</span> 也记作 <span
 class="math inline">\((a,b)\)</span></p>
 <p>有定理：<span
-class="math inline">\({\langle}a,b{\rangle}={\langle}c,d{\rangle}{\Harr}(a=c){\and}(b=d)\)</span></p></li>
+class="math inline">\({⟨}a,b{⟩}={⟨}c,d{⟩}{⇔}(a=c){⋀}(b=d)\)</span></p></li>
 <li><p><strong>有序三元组</strong></p>
 <p><span class="math inline">\(\quad
-{\langle}a,b,c{\rangle}={\langle}{\langle}a,b{\rangle},c{\rangle}\)</span></p></li>
+{⟨}a,b,c{⟩}={⟨}{⟨}a,b{⟩},c{⟩}\)</span></p></li>
 <li><p><strong>有序 n 元组</strong></p>
 <p><span class="math inline">\(\quad
-{\langle}a_1,a_2,{\ldots},a_n{\rangle}={\langle}{\langle}a_1,a_2,{\ldots},a_{n-1}{\rangle},a_n{\rangle}\)</span></p>
+{⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}{⟨}a_1,a_2,{\ldots},a_{n-1}{⟩},a_n{⟩}\)</span></p>
 <p>有定理：<span
-class="math inline">\({\langle}a_1,a_2,{\ldots},a_n{\rangle}={\langle}b_1,b_2,{\ldots},b_n{\rangle}{\Harr}a_i=b_i,i=1,2,{\ldots},n\)</span></p></li>
+class="math inline">\({⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}b_1,b_2,{\ldots},b_n{⟩}{⇔}a_i=b_i,i=1,2,{\ldots},n\)</span></p></li>
 <li><p><strong>笛卡尔积</strong></p>
 <p>有集合 <span class="math inline">\(A,B\)</span>，由 <span
 class="math inline">\(A\)</span> 中的每个元素（做第一元素）与 <span
@@ -1212,29 +1202,28 @@ class="math inline">\(B\)</span>
 <p>笛卡尔积的性质：</p>
 <ul>
 <li><p>非交换性：<span
-class="math inline">\((A{\not=}B{\and}A{\not=\empty\and}B{\not=\empty}){\Harr}(A{\times}B{\not
+class="math inline">\((A{\not=}B{⋀}A{\not=Ø⋀}B{\not=Ø}){⇔}(A{\times}B{\not
 =}B{\times}A)\)</span></p></li>
 <li><p>非结合性：<span
-class="math inline">\((A{\not=\empty\and}B{\not=\empty\and}C{\not=\empty}){\Harr}((A{\times}B){\times}C{\not
+class="math inline">\((A{\not=Ø⋀}B{\not=Ø⋀}C{\not=Ø}){⇔}((A{\times}B){\times}C{\not
 =}A{\times}(B{\times}C))\)</span></p></li>
 <li><p>分配律：<span class="math inline">\(A\times (B\cup C)=(A\times
 B)\cup(A\times C)\quad\)</span> 等</p></li>
 <li><p>其他：<span
-class="math inline">\(A{\times}B={\empty}{\Harr}A={\empty\or}B={\empty}\qquad
-A\not=\empty\and A\times B\subseteq A\times C\Harr B\subseteq
-C\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq C\and B\subseteq D\Rarr
-A\times B\subseteq C\times D\)</span></p></li>
+class="math inline">\(A{\times}B={Ø}{⇔}A={Ø⋁}B={Ø}\qquad A\not=Ø⋀
+A\times B\subseteq A\times C⇔ B\subseteq C\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq C⋀ B\subseteq D⇒ A\times
+B\subseteq C\times D\)</span></p></li>
 </ul></li>
 <li><p><strong>n 维笛卡尔积</strong></p>
 <p><span class="math inline">\(\quad A_1\times A_2\times\ldots\times
-A_n=\lbrace\langle x_1,x_2,\ldots,x_n\rangle|x_1\in A_1\and x_2\in
-A_2\and\ldots\and x_n\in A_n\rbrace\)</span></p>
+A_n=\lbrace⟨ x_1,x_2,\ldots,x_n⟩|x_1\in A_1⋀ x_2\in A_2⋀\ldots⋀ x_n\in
+A_n\rbrace\)</span></p>
 <p><span class="math inline">\(\quad A^n=A\times A\times A\ldots\times
 A\)</span></p>
-<p><span class="math inline">\(\quad
-|A_i|=n_i,i=1,2,\ldots,n\Rarr|A_1\times A_2\times\ldots\times
-A_n|=n_1\times n_2\times\ldots\times n_n\)</span></p>
+<p><span class="math inline">\(\quad |A_i|=n_i,i=1,2,\ldots,n⇒|A_1\times
+A_2\times\ldots\times A_n|=n_1\times n_2\times\ldots\times
+n_n\)</span></p>
 <p>n 维卡式积的性质与二维卡式积相似</p></li>
 </ul>
 <h3 id="二元关系">1.4 二元关系</h3>
@@ -1249,15 +1238,15 @@ class="math inline">\(2&lt;15\)</span></li>
 <li>前缀记法：<span class="math inline">\(F(x,y)\quad
 Fxy\qquad\)</span>如 <span
 class="math inline">\(&lt;(2,15)\)</span></li>
-<li>后缀记法：<span class="math inline">\(\langle x,y\rangle\in F\quad
-xyF\qquad\)</span>如 <span class="math inline">\(\langle 2,15\rangle\in
+<li>后缀记法：<span class="math inline">\(⟨ x,y⟩\in F\quad
+xyF\qquad\)</span>如 <span class="math inline">\(⟨ 2,15⟩\in
 &lt;\)</span></li>
 </ul></li>
 <li><p>任何 <span class="math inline">\(A\times B\)</span> 的子集就是
 <span class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的<strong>二元关系</strong>。</p>
-<p><span class="math inline">\(\quad R\,是\,A\,到\,B\,的二元关系\Harr
-R\subseteq A\times B\Harr R\in P(A\times B)\)</span></p>
+<p><span class="math inline">\(\quad R\,是\,A\,到\,B\,的二元关系⇔
+R\subseteq A\times B⇔ R\in P(A\times B)\)</span></p>
 <p>若 <span class="math inline">\(|A|=m,|B|=n,|A\times
 B|=mn\)</span>，故 <span class="math inline">\(|P(A\times
 B)|=2^{mn}\)</span>，即 <span class="math inline">\(A\)</span> 到 <span
@@ -1265,8 +1254,8 @@ class="math inline">\(B\)</span> 的不同二元关系有 <span
 class="math inline">\(2^{mn}\)</span> 个</p></li>
 <li><p>任何 <span class="math inline">\(A\times A\)</span> 的子集就是
 <span class="math inline">\(A\)</span> 上的二元关系。</p>
-<p><span class="math inline">\(\quad R\,是\,A\,上的二元关系\Harr
-R\subseteq A\times A\Harr R\in P(A\times A)\)</span></p>
+<p><span class="math inline">\(\quad R\,是\,A\,上的二元关系⇔ R\subseteq
+A\times A⇔ R\in P(A\times A)\)</span></p>
 <p>若 <span class="math inline">\(|A|=m,|A\times A|=m^2\)</span>，故
 <span class="math inline">\(|P(A\times A)|=2^{m^2}\)</span>，即不同的
 <span class="math inline">\(A\)</span> 上二元关系有 <span
@@ -1275,17 +1264,17 @@ class="math inline">\(2^{m^2}\)</span> 个</p></li>
 <p>设 <span class="math inline">\(A\)</span> 是集合，则可定义 <span
 class="math inline">\(A\)</span> 上的：</p>
 <ul>
-<li>空关系：<span class="math inline">\(\empty\)</span></li>
-<li>恒等关系：<span class="math inline">\(I_A=\lbrace\langle
-x,x\rangle|x\in A\rbrace\)</span></li>
-<li>全域关系：<span class="math inline">\(E_A=A\times A=\lbrace\langle
-x,y\rangle|x\in A\and y\in A\rbrace\)</span></li>
+<li>空关系：<span class="math inline">\(Ø\)</span></li>
+<li>恒等关系：<span class="math inline">\(I_A=\lbrace⟨ x,x⟩|x\in
+A\rbrace\)</span></li>
+<li>全域关系：<span class="math inline">\(E_A=A\times A=\lbrace⟨
+x,y⟩|x\in A⋀ y\in A\rbrace\)</span></li>
 </ul>
 <p>设 <span class="math inline">\(A\subseteq Z\)</span>，则可定义 <span
 class="math inline">\(A\)</span> 上的：</p>
 <ul>
-<li><p>整除关系：<span class="math inline">\(D_A=\lbrace\langle
-x,y\rangle|x\in A\and y\in A\and x|y\rbrace\)</span></p></li>
+<li><p>整除关系：<span class="math inline">\(D_A=\lbrace⟨ x,y⟩|x\in A⋀
+y\in A⋀ x|y\rbrace\)</span></p></li>
 <li><p>小于等于关系：<span class="math inline">\({LE}_A\)</span></p>
 <p>小于关系：<span class="math inline">\(L_A\)</span></p>
 <p>大于等于关系：<span class="math inline">\({GE}_A\)</span></p>
@@ -1299,29 +1288,28 @@ class="math inline">\(P(A)\)</span> 上的：</p>
 </ul></li>
 <li><p><strong>定义域、值域、域</strong></p>
 <p>对于任意集合 <span class="math inline">\(R\)</span>，可以定义</p>
-<p>其定义域：<span class="math inline">\(\operatorname{dom}R=\lbrace
-x|\exist y(xRy)\rbrace\)</span></p>
-<p>其值域：<span class="math inline">\(\operatorname{ran}R=\lbrace
-y|\exist y(xRy)\rbrace\)</span></p>
+<p>其定义域：<span class="math inline">\(\operatorname{dom}R=\lbrace x|∃
+y(xRy)\rbrace\)</span></p>
+<p>其值域：<span class="math inline">\(\operatorname{ran}R=\lbrace y|∃
+y(xRy)\rbrace\)</span></p>
 <p>其域：<span
 class="math inline">\(\operatorname{fld}R=\operatorname{dom}R\cup\operatorname{ran}R\)</span></p>
 <p>如：集合 <span class="math inline">\(R_1=\lbrace
-a,b\rbrace,R_2=\lbrace a,b,\langle c,d\rangle,\langle
-e,f\rangle\rbrace\)</span>，当 <span class="math inline">\(a,b\)</span>
-不是有序对时，<span class="math inline">\(R_1,R_2\)</span>
-不是关系。</p>
+a,b\rbrace,R_2=\lbrace a,b,⟨ c,d⟩,⟨ e,f⟩\rbrace\)</span>，当 <span
+class="math inline">\(a,b\)</span> 不是有序对时，<span
+class="math inline">\(R_1,R_2\)</span> 不是关系。</p>
 <p><span
-class="math inline">\(\quad\operatorname{dom}R_1=\empty\qquad\operatorname{ran}R_1=\empty\qquad\operatorname{fld}R_1=\empty\)</span></p>
+class="math inline">\(\quad\operatorname{dom}R_1=Ø\qquad\operatorname{ran}R_1=Ø\qquad\operatorname{fld}R_1=Ø\)</span></p>
 <p><span class="math inline">\(\quad\operatorname{dom}R_2=\lbrace
 c,e\rbrace\qquad\operatorname{ran}R_2=\lbrace
 d,f\rbrace\qquad\operatorname{fld}R_2=\lbrace
 c,d,e,f\rbrace\)</span></p></li>
 <li><p><strong>逆、合成</strong></p>
 <p>对于任意集合 <span class="math inline">\(F,G\)</span> 可以定义</p>
-<p>逆：<span class="math inline">\(F^{-1}=\lbrace\langle
-x,y\rangle|yFx\rbrace\)</span></p>
+<p>逆：<span class="math inline">\(F^{-1}=\lbrace⟨
+x,y⟩|yFx\rbrace\)</span></p>
 <p>合成（逆序合成、左合成）：<span class="math inline">\(F\circ
-G=\lbrace\langle x,y\rangle|\exist z(xGz\and zFy)\rbrace\)</span></p>
+G=\lbrace⟨ x,y⟩|∃ z(xGz⋀ zFy)\rbrace\)</span></p>
 <p>有以下定理：</p>
 <ul>
 <li><span class="math inline">\((R_1\circ R_2)\circ R_3=R_1\circ
@@ -1331,28 +1319,25 @@ G^{-1}\)</span></li>
 </ul></li>
 <li><p><strong>限制、象</strong></p>
 <p>对于任意集合 <span class="math inline">\(F,A\)</span> 可以定义</p>
-<p>限制：<span class="math inline">\(F\restriction A=\lbrace\langle
-x,y\rangle|xFy\and x\in A\rbrace\)</span></p>
+<p>限制：<span class="math inline">\(F\restriction A=\lbrace⟨ x,y⟩|xFy⋀
+x\in A\rbrace\)</span></p>
 <p>象：<span class="math inline">\(F[A]=\operatorname{ran}(F\restriction
 A)\)</span></p></li>
 <li><p><strong>单根</strong></p>
 <p>对于集合 <span class="math inline">\(F\)</span> 可以定义单根</p>
-<p><span class="math inline">\(\quad F\,是单根的\Harr\forall
-y(y\in\operatorname{ran}F\rarr \exist!x(x\in\operatorname{dom}F\and
-xFy))\Harr(\forall
-y\in\operatorname{ran}F)(\exist!x\in\operatorname{dom}F)(xFy)\)</span></p>
-<p>上面的 <span class="math inline">\(\exist!\)</span>
-表示：存在唯一的</p>
-<p><span class="math inline">\(\forall x(x\in A\rarr B(x))\)</span>
-缩写为 <span class="math inline">\((\forall x\in A)B(x)\)</span></p>
-<p><span class="math inline">\(\exist x(x\in A\and B(x))\)</span> 缩写为
-<span class="math inline">\((\exist x\in A)B(x)\)</span></p></li>
+<p><span class="math inline">\(\quad F\,是单根的⇔∀
+y(y\in\operatorname{ran}F→ ∃!x(x\in\operatorname{dom}F⋀ xFy))⇔(∀
+y\in\operatorname{ran}F)(∃!x\in\operatorname{dom}F)(xFy)\)</span></p>
+<p>上面的 <span class="math inline">\(∃!\)</span> 表示：存在唯一的</p>
+<p><span class="math inline">\(∀ x(x\in A→ B(x))\)</span> 缩写为 <span
+class="math inline">\((∀ x\in A)B(x)\)</span></p>
+<p><span class="math inline">\(∃ x(x\in A⋀ B(x))\)</span> 缩写为 <span
+class="math inline">\((∃ x\in A)B(x)\)</span></p></li>
 <li><p><strong>单值</strong></p>
 <p>对于集合 <span class="math inline">\(F\)</span> 可以定义单根</p>
-<p><span class="math inline">\(\quad F\,是单值的\Harr\forall
-x(x\in\operatorname{dom}F\rarr \exist!y(y\in\operatorname{ran}F\and
-xFy))\Harr(\forall
-x\in\operatorname{dom}F)(\exist!y\in\operatorname{ran}F)(xFy)\)</span></p>
+<p><span class="math inline">\(\quad F\,是单值的⇔∀
+x(x\in\operatorname{dom}F→ ∃!y(y\in\operatorname{ran}F⋀ xFy))⇔(∀
+x\in\operatorname{dom}F)(∃!y\in\operatorname{ran}F)(xFy)\)</span></p>
 <p>函数就可以被视作单值的二元关系</p></li>
 </ul>
 <h3 id="关系的表示">1.5 关系的表示</h3>
@@ -1372,8 +1357,7 @@ M(R)(i,j)=r_{ij}=\begin{cases}1,\quad a_iRb_j\\0,\quad
 否则\end{cases}\)</span></p>
 <blockquote>
 <p>如，<span class="math inline">\(A=\lbrace a,b,c\rbrace,\,B=\lbrace
-d,e,f\rbrace,\,R=\lbrace\langle a,d\rangle,\langle a,f\rangle,\langle
-b,f\rangle,\langle c,e\rangle\rbrace\)</span></p>
+d,e,f\rbrace,\,R=\lbrace⟨ a,d⟩,⟨ a,f⟩,⟨ b,f⟩,⟨ c,e⟩\rbrace\)</span></p>
 <p>则 <span class="math inline">\(M(R)=\left[ \begin{matrix}1\quad
 0\quad 1\\0\quad 0\quad 1\\0\quad 1\quad
 0\end{matrix}\right]\)</span></p>
@@ -1383,9 +1367,9 @@ b,f\rangle,\langle c,e\rangle\rbrace\)</span></p>
 <li><p><strong>矩阵转置</strong>：<span
 class="math inline">\(M(R^{-1})=(M(R))^{T}\)</span></p></li>
 <li><p><strong>逻辑乘</strong>：<span class="math inline">\(M(R_1\circ
-R_2)=M(R_2)\bullet M(R_1)\)</span>，其中乘法对应逻辑的 <span
-class="math inline">\(\and\)</span>，加法对应逻辑的 <span
-class="math inline">\(\or\)</span></p>
+R_2)=M(R_2)• M(R_1)\)</span>，其中乘法对应逻辑的 <span
+class="math inline">\(⋀\)</span>，加法对应逻辑的 <span
+class="math inline">\(⋁\)</span></p>
 <blockquote>
 <p><strong><em>有关矩阵的乘法</em></strong></p>
 <p>设 <span class="math inline">\(A\)</span> 为 <span
@@ -1425,17 +1409,17 @@ class="math inline">\(G(R)\)</span>：</p>
 <ul>
 <li>以 <span class="math inline">\(∘\)</span> 表示 <span
 class="math inline">\(A,B\)</span> 中元素（称为顶点），以 <span
-class="math inline">\(\rarr\)</span> 表示 <span
+class="math inline">\(→\)</span> 表示 <span
 class="math inline">\(R\)</span> 中元素</li>
 <li>若 <span class="math inline">\(a_iRb_j\)</span> 则从顶点 <span
 class="math inline">\(a_i\)</span> 向顶点 <span
 class="math inline">\(b_j\)</span> 引有向边 <span
-class="math inline">\(\langle a_i,b_j\rangle\)</span></li>
+class="math inline">\(⟨ a_i,b_j⟩\)</span></li>
 </ul>
 <p>下面是 <span class="math inline">\(A=\lbrace
-a,b,c\rbrace,\,R=\lbrace{\langle a,a\rangle},{\langle
-a,b\rangle},{\langle b,a\rangle},{\langle b,c\rangle}\rbrace\)</span>
-的关系图 <span class="math inline">\(G(R)\)</span>（我尽力了）</p>
+a,b,c\rbrace,\,R=\lbrace{⟨ a,a⟩},{⟨ a,b⟩},{⟨ b,a⟩},{⟨
+b,c⟩}\rbrace\)</span> 的关系图 <span
+class="math inline">\(G(R)\)</span>（我尽力了）</p>
 <pre><code class=" mermaid">graph LR
 a((a)) --&gt; b((b)) --&gt; c((c))
 b --&gt; a
@@ -1449,82 +1433,78 @@ B)\)</span>，关系图中的边都是由 <span class="math inline">\(A\)</span>
 <li><p><strong>自反性</strong></p>
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其自反性有：</p>
-<p><span class="math inline">\(\quad R\,是自反的\Harr\forall x(x\in
-A\rarr xRx)\Harr(\forall x\in A)xRx\)</span></p>
+<p><span class="math inline">\(\quad R\,是自反的⇔∀ x(x\in A→ xRx)⇔(∀
+x\in A)xRx\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非自反的\Harr\exist x(x\in
-A\and\neg xRx)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非自反的⇔∃ x(x\in A⋀\neg
+xRx)\)</span></p>
 <p>关于自反性有如下定理：</p>
 <p><span class="math inline">\(\quad\begin{align}
-&amp;R\,是自反的\\\Harr\,&amp;I_A\subseteq
-R\\\Harr\,&amp;R^{-1}\,是自反的\\\Harr\,&amp;M(R)\,主对角线上的元素全是\,1\\\Harr\,&amp;G(R)的每个顶点处都有环\end{align}\)</span></p></li>
+&amp;R\,是自反的\\⇔\,&amp;I_A\subseteq
+R\\⇔\,&amp;R^{-1}\,是自反的\\⇔\,&amp;M(R)\,主对角线上的元素全是\,1\\⇔\,&amp;G(R)的每个顶点处都有环\end{align}\)</span></p></li>
 <li><p><strong>反自反性</strong></p>
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其反自反性有：</p>
-<p><span class="math inline">\(\quad R\,是反自反的\Harr\forall x(x\in
-A\rarr \neg xRx)\Harr(\forall x\in A)\neg xRx\)</span></p>
+<p><span class="math inline">\(\quad R\,是反自反的⇔∀ x(x\in A→ \neg
+xRx)⇔(∀ x\in A)\neg xRx\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非反自反的\Harr\exist x(x\in
-A\and xRx)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非反自反的⇔∃ x(x\in A⋀
+xRx)\)</span></p>
 <p>可以想见，对于 <span class="math inline">\(R\subseteq A\times
 A,\,Q=(A\times A)-R\)</span>，如果 <span
 class="math inline">\(R\)</span> 是反自反的，那么 <span
 class="math inline">\(Q\)</span> 就是自反的</p>
 <p>关于反自反性有如下定理：</p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;R\,是反自反的\\\Harr\,&amp;I_A\cap
-R=\emptyset\\\Harr\,&amp;R^{-1}\,是反自反的\\\Harr\,&amp;M(R)\,主对角线上的元素全是\,0\\\Harr\,&amp;G(R)的每个顶点处都无环\end{align}\)</span></p></li>
+class="math inline">\(\quad\begin{align}&amp;R\,是反自反的\\⇔\,&amp;I_A\cap
+R=Ø\\⇔\,&amp;R^{-1}\,是反自反的\\⇔\,&amp;M(R)\,主对角线上的元素全是\,0\\⇔\,&amp;G(R)的每个顶点处都无环\end{align}\)</span></p></li>
 <li><p><strong>对称性</strong></p>
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其对称性有：</p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;R\,是对称的\\\Harr\,&amp;\forall
-x\forall y(x\in A\and y\in A\and xRy\rarr yRx)\Harr(\forall x\in
-A)(\forall y\in A)[xRy\rarr yRx]\end{align}\)</span></p>
+class="math inline">\(\quad\begin{align}&amp;R\,是对称的\\⇔\,&amp;∀ x∀
+y(x\in A⋀ y\in A⋀ xRy→ yRx)⇔(∀ x\in A)(∀ y\in A)[xRy→
+yRx]\end{align}\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非对称的\Harr\exist x\exist
-y(x\in A\and y\in A\and xRy\and\neg yRx)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非对称的⇔∃ x∃ y(x\in A⋀ y\in
+A⋀ xRy⋀\neg yRx)\)</span></p>
 <p>关于对称性有如下定理：</p>
 <p><span class="math inline">\(\quad\begin{align}&amp;
-R\,是对称的\\\Harr\,&amp;R^{-1}=R\\\Harr\,&amp;R^{-1}\,是对称的\\\Harr\,&amp;M(R)\,是对称的\\\Harr\,&amp;G(R)\,的所有边都有反向边\end{align}\)</span></p></li>
+R\,是对称的\\⇔\,&amp;R^{-1}=R\\⇔\,&amp;R^{-1}\,是对称的\\⇔\,&amp;M(R)\,是对称的\\⇔\,&amp;G(R)\,的所有边都有反向边\end{align}\)</span></p></li>
 <li><p><strong>反对称性</strong></p>
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其反对称性有：</p>
 <p><span class="math inline">\(\quad
-\begin{align}&amp;R\,是反对称的\\\Harr\,&amp;\forall x\forall y(x\in
-A\and y\in A\and xRy\and yRx\rarr A=B)\\\Harr\,&amp;(\forall x\in
-A)(\forall y\in A)[xRy\and yRx\rarr A=B]\end{align}\)</span></p>
+\begin{align}&amp;R\,是反对称的\\⇔\,&amp;∀ x∀ y(x\in A⋀ y\in A⋀ xRy⋀
+yRx→ A=B)\\⇔\,&amp;(∀ x\in A)(∀ y\in A)[xRy⋀ yRx→
+A=B]\end{align}\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非反对称的\Harr\exist x\exist
-y(x\in A\and y\in A\and xRy\and yRx \and A\not=B)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非反对称的⇔∃ x∃ y(x\in A⋀ y\in
+A⋀ xRy⋀ yRx ⋀ A\not=B)\)</span></p>
 <p>可见，反对称性可能与对称性同时存在</p>
 <p>关于非反对称性有如下定理：</p>
 <p><span class="math inline">\(\quad
-\begin{align}&amp;R\,是反对称的\\\Harr\,&amp;R^{-1}\cap R\subseteq
-I_A\\\Harr\,&amp;R^{-1}\,是反对称的\\\Harr\,&amp;在\,M(R)\,中，\forall
-i\forall j(i\not=j\and r_{ij}=1\rarr
-r_{ji}=0)\\\Harr\,&amp;G(R)\,的所有不同点间有不多于\,1\,条边\end{align}\)</span></p></li>
+\begin{align}&amp;R\,是反对称的\\⇔\,&amp;R^{-1}\cap R\subseteq
+I_A\\⇔\,&amp;R^{-1}\,是反对称的\\⇔\,&amp;在\,M(R)\,中，∀ i∀ j(i\not=j⋀
+r_{ij}=1→
+r_{ji}=0)\\⇔\,&amp;G(R)\,的所有不同点间有不多于\,1\,条边\end{align}\)</span></p></li>
 <li><p><strong>传递性</strong></p>
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其传递性有：</p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\\Harr\,&amp;\forall
-x\forall y\forall z(x\in A\and y\in A\and z\in A\and xRy\and yRz\rarr
-xRz)\\\Harr\,&amp;(\forall x\in A)(\forall y\in A)(\forall z\in
-A)[xRy\and yRz\rarr xRz]\end{align}\)</span></p>
+class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;∀ x∀
+y∀ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz→ xRz)\\⇔\,&amp;(∀ x\in A)(∀ y\in
+A)(∀ z\in A)[xRy⋀ yRz→ xRz]\end{align}\)</span></p>
 <p>相反地有</p>
-<p><span
-class="math inline">\(\begin{align}\quad&amp;R\,是非传递的\Harr\exist
-x\exist y\exist z(x\in A\and y\in A\and z\in A\and xRy\and yRz\and \neg
-xRz)\end{align}\)</span></p>
+<p><span class="math inline">\(\begin{align}\quad&amp;R\,是非传递的⇔∃ x∃
+y∃ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz⋀ \neg xRz)\end{align}\)</span></p>
 <p>关于传递性有如下定理：</p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\\Harr\,&amp;R\circ
-R\subseteq R\\\Harr\,&amp;R^{-1}\,是传递的\\\Harr\,&amp;\forall i\forall
-j,M(R\circ R)(i,j)\le M(R)(i,j)\\\Harr\,&amp;在\,G(R)\,中，\forall
-a_i\forall a_j\forall a_k，若有有向边\,\langle
-a_i,a_j\rangle\,和\,\langle a_j,a_k\rangle ，则必有有向边\,\langle
-a_i,a_k\rangle\end{align}\)</span></p></li>
+class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;R\circ
+R\subseteq R\\⇔\,&amp;R^{-1}\,是传递的\\⇔\,&amp;∀ i∀ j,M(R\circ
+R)(i,j)\le M(R)(i,j)\\⇔\,&amp;在\,G(R)\,中，∀ a_i∀ a_j∀
+a_k，若有有向边\,⟨ a_i,a_j⟩\,和\,⟨ a_j,a_k⟩ ，则必有有向边\,⟨
+a_i,a_k⟩\end{align}\)</span></p></li>
 </ul>
 <h3 id="关系的幂运算和闭包">1.7 关系的幂运算和闭包</h3>
 <ul>
@@ -1548,29 +1528,29 @@ class="math inline">\(包含\,R\,的某种集合\)</span> 的交集。</p>
 <li><p>自反闭包：<span class="math inline">\(r(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有自反性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq r(R)\qquad
-r(R)是自反的\qquad \forall S((R\subseteq S\and S 自反)\rarr
-r(r)\subseteq S)\)</span></p>
+r(R)是自反的\qquad ∀ S((R\subseteq S⋀ S 自反)→ r(r)\subseteq
+S)\)</span></p>
 <p><span class="math inline">\(\quad r(R)=R\cup I_A\)</span></p></li>
 <li><p>对称闭包：<span class="math inline">\(s(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有对称性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq s(R)\qquad
-s(R)是对称的\qquad \forall S((R\subseteq S\and S 对称)\rarr
-s(r)\subseteq S)\)</span></p>
+s(R)是对称的\qquad ∀ S((R\subseteq S⋀ S 对称)→ s(r)\subseteq
+S)\)</span></p>
 <p><span class="math inline">\(\quad s(R)=R\cup R^{-1}\)</span></p>
 <p>传递关系的对称闭包不一定是传递的</p></li>
 <li><p>传递闭包：<span class="math inline">\(t(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有传递性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq t(R)\qquad
-t(R)是传递的\qquad \forall S((R\subseteq S\and S 传递)\rarr
-t(r)\subseteq S)\)</span></p>
+t(R)是传递的\qquad ∀ S((R\subseteq S⋀ S 传递)→ t(r)\subseteq
+S)\)</span></p>
 <p><span class="math inline">\(\quad t(R)=R\cup R^2\cup
 R^3\cup\dots\)</span></p></li>
 </ul>
 <p>闭包有如下定理：</p>
-<p><span class="math inline">\(\quad R\,是自反的\Harr r(R)=R\quad
-R\,是对称的\Harr s(R)=R\quad R\,是传递的\Harr t(R)=R\)</span></p>
+<p><span class="math inline">\(\quad R\,是自反的⇔ r(R)=R\quad
+R\,是对称的⇔ s(R)=R\quad R\,是传递的⇔ t(R)=R\)</span></p>
 <p><span class="math inline">\(\quad R_1\subseteq R_2\subseteq A\times
-A\Rarr\quad r(R_1)\subseteq r(R_2)\quad s(R_1)\subseteq s(R_2)\quad
+A⇒\quad r(R_1)\subseteq r(R_2)\quad s(R_1)\subseteq s(R_2)\quad
 t(R_1)\subseteq t(R_2)\)</span></p>
 <p><span class="math inline">\(\quad r(R_1\cup R_2)=r(R_1)\cup
 r(R_2);\quad s(R_1\cup R_2)=s(R_1)\cup s(R_2)\quad t(R_1\cup
@@ -1579,7 +1559,7 @@ R_2){\color{Red}{\supseteq}}t(R_1)\cup t(R_2)\)</span></p></li>
 <h3 id="等价关系和划分">1.8 等价关系和划分</h3>
 <ul>
 <li><p><strong>等价关系</strong></p>
-<p>有 <span class="math inline">\(A\not=\empty\quad R\subseteq A\times
+<p>有 <span class="math inline">\(A\not=Ø\quad R\subseteq A\times
 A\)</span>，若 <span class="math inline">\(R\)</span>
 是自反、对称、传递的，则称 <span class="math inline">\(R\)</span>
 是等价关系</p>
@@ -1588,33 +1568,32 @@ A\)</span>，若 <span class="math inline">\(R\)</span>
 class="math inline">\(tsr(R)=trs(R)=rts(R)\)</span> 是等价闭包</p></li>
 <li><p><strong>等价类</strong></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
-class="math inline">\(A\not=\empty\)</span> 上的等价关系，<span
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
 class="math inline">\(x\in A\)</span>，则 <span
 class="math inline">\(x\)</span> 关于 <span
 class="math inline">\(R\)</span> 的等价类是 <span
-class="math inline">\([x]_R=\lbrace y|y\in A\and xRy\rbrace\)</span></p>
+class="math inline">\([x]_R=\lbrace y|y\in A⋀ xRy\rbrace\)</span></p>
 <p>简称 <span class="math inline">\(x\)</span> 的等价类，记为 <span
 class="math inline">\([x]\)</span></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
-class="math inline">\(A\not=\empty\)</span> 上的等价关系，<span
-class="math inline">\(\forall x,y\in A\)</span>，有以下定理</p>
-<p><span class="math inline">\(\quad [x]_R\not=\empty\)</span></p>
-<p><span class="math inline">\(\quad xRy\Rarr[x]_R=[y]_R\)</span></p>
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
+class="math inline">\(∀ x,y\in A\)</span>，有以下定理</p>
+<p><span class="math inline">\(\quad [x]_R\not=Ø\)</span></p>
+<p><span class="math inline">\(\quad xRy⇒[x]_R=[y]_R\)</span></p>
 <p><span class="math inline">\(\quad\neg
-xRy\Rarr[x]_R\cap[y]_R=\empty\)</span></p>
+xRy⇒[x]_R\cap[y]_R=Ø\)</span></p>
 <p><span class="math inline">\(\quad\bigcup\lbrace[x]_R|x\in A\rbrace
 =A\)</span></p></li>
 <li><p><strong>商集</strong></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
-class="math inline">\(A\not=\empty\)</span> 上的等价关系，<span
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
 class="math inline">\(A\)</span> 关于 <span
 class="math inline">\(R\)</span> 的商集是 <span
 class="math inline">\(A/R=\lbrace[x]_R|x\in A\rbrace\)</span></p>
 <p>若 <span class="math inline">\(A=\lbrace
 a_1,a_2,\ldots,a_n\rbrace\)</span> 上有等价关系 <span
-class="math inline">\(I_A,E_A,R_{ij}=I_A\cup\lbrace\langle
-a_i,a_j\rangle,\langle a_j,a_i\rangle\rbrace,a_i,a_j\in
-A,i\not=j\)</span></p>
+class="math inline">\(I_A,E_A,R_{ij}=I_A\cup\lbrace⟨ a_i,a_j⟩,⟨
+a_j,a_i⟩\rbrace,a_i,a_j\in A,i\not=j\)</span></p>
 <p><span class="math inline">\(\quad A/I_A=\lbrace\lbrace
 a_1\rbrace,\lbrace a_2\rbrace,\ldots,\lbrace
 a_n\rbrace\rbrace\)</span></p>
@@ -1624,23 +1603,23 @@ a_1,a_2,\ldots,a_n\rbrace\rbrace\)</span></p>
 a_i,a_j\rbrace\rbrace-\lbrace\lbrace a_i\rbrace,\lbrace
 a_j\rbrace\rbrace\)</span></p></li>
 <li><p><strong>划分</strong></p>
-<p><span class="math inline">\(A\not=\empty\)</span> 的一个划分是 <span
+<p><span class="math inline">\(A\not=Ø\)</span> 的一个划分是 <span
 class="math inline">\({\mathcal A}\subseteq P(A)\)</span> 满足</p>
 <ol type="1">
-<li><span class="math inline">\(\empty\not\in\mathcal A\)</span></li>
-<li><span class="math inline">\(\forall x,y(x,y\in\mathcal A\and x\not=
-y\Rarr x\cap y=\empty)\)</span></li>
+<li><span class="math inline">\(Ø\not\in\mathcal A\)</span></li>
+<li><span class="math inline">\(∀ x,y(x,y\in\mathcal A⋀ x\not= y⇒ x\cap
+y=Ø)\)</span></li>
 <li><span class="math inline">\(\bigcup\mathcal A=A\)</span></li>
 </ol>
 <p><span class="math inline">\(\mathcal A\)</span>
 中的元素称为划分块</p>
-<p>若 <span class="math inline">\(A\not=\empty\)</span> 则有以下定理</p>
-<p><span class="math inline">\(\quad R\,是\,A\,上的等价关系\Rarr
+<p>若 <span class="math inline">\(A\not=Ø\)</span> 则有以下定理</p>
+<p><span class="math inline">\(\quad R\,是\,A\,上的等价关系⇒
 A/R\,是\,A\,的划分\)</span></p>
-<p><span class="math inline">\(\quad\mathcal A\,是\,A\,的划分\Rarr
-同块关系\,R_{\mathcal A}\,是\,A上的等价关系\quad xR_{\mathcal
-A}y\Harr\exist z(z\in\mathcal A\and x\in z\and y\in z)\)</span>，此时
-<span class="math inline">\(R_{\mathcal A}\)</span> 称为 <span
+<p><span class="math inline">\(\quad\mathcal A\,是\,A\,的划分⇒
+同块关系\,R_{\mathcal A}\,是\,A上的等价关系\quad xR_{\mathcal A}y⇔∃
+z(z\in\mathcal A⋀ x\in z⋀ y\in z)\)</span>，此时 <span
+class="math inline">\(R_{\mathcal A}\)</span> 称为 <span
 class="math inline">\(\mathcal A\)</span> 所定义的等价关系</p></li>
 <li><p><strong>Stirling 子集数</strong></p>
 <p>把 n 个编号的球放到 k 个相同的箱子里，不同放法的总数 <span
@@ -1649,7 +1628,7 @@ Stirling 子集数</p>
 <p>Srirling 子集数也是将 n 元集分成 k 个非空子集的分法总数</p>
 <p>递推公式有 <span
 class="math inline">\(\begin{Bmatrix}n\\k\end{Bmatrix}=\begin{cases}\begin{align}&amp;0\quad
-&amp;k=0\\&amp;1\quad &amp;n=k\or k=1\\&amp;2^{n-1}-1\quad
+&amp;k=0\\&amp;1\quad &amp;n=k⋁ k=1\\&amp;2^{n-1}-1\quad
 &amp;k=2\\&amp;C_n^2\quad
 &amp;n=k+1\\&amp;k\begin{Bmatrix}n-1\\k\end{Bmatrix}+\begin{Bmatrix}n-1\\k-1\end{Bmatrix}\quad
 &amp;k &gt; 1\end{align}\end{cases}\)</span></p>
@@ -1666,39 +1645,36 @@ class="math inline">\(\mathcal B\)</span> 的加细</p></li>
 <h3 id="序关系">1.9 序关系</h3>
 <ul>
 <li><p><strong>偏序关系、偏序集</strong></p>
-<p>设 <span class="math inline">\(A\not=\empty,\,R\subseteq A\times
+<p>设 <span class="math inline">\(A\not=Ø,\,R\subseteq A\times
 A\)</span>，若 <span class="math inline">\(R\)</span> 是
 <strong>自反、反对称、传递的</strong>，则称 <span
 class="math inline">\(R\)</span> 是 <span
 class="math inline">\(A\)</span> 上的偏序关系。用 <span
 class="math inline">\(\preccurlyeq\)</span> 表示偏序关系，读作
 “小于等于”</p>
-<p><span class="math inline">\(\quad\langle x,y\rangle\in R\Harr
-xRy\Harr x\preccurlyeq y\)</span></p>
+<p><span class="math inline">\(\quad⟨ x,y⟩\in R⇔ xRy⇔ x\preccurlyeq
+y\)</span></p>
 <p>设 <span class="math inline">\(\preccurlyeq\)</span> 是 <span
 class="math inline">\(A\)</span> 上的偏序关系，则称 <span
-class="math inline">\(\langle A,\preccurlyeq\rangle\)</span>
-为偏序集</p></li>
+class="math inline">\(⟨ A,\preccurlyeq⟩\)</span> 为偏序集</p></li>
 <li><p><strong>可比、严格小于、覆盖</strong></p>
-<p>对于 <span class="math inline">\(\langle
-A,\preccurlyeq\rangle,\,x,y\in A\)</span>，存在 <span
-class="math inline">\(x\preccurlyeq y\or y\preccurlyeq x\)</span>，则称
-<span class="math inline">\(x\)</span> 和 <span
-class="math inline">\(y\)</span> 可比</p>
+<p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
+A\)</span>，存在 <span class="math inline">\(x\preccurlyeq y⋁
+y\preccurlyeq x\)</span>，则称 <span class="math inline">\(x\)</span> 和
+<span class="math inline">\(y\)</span> 可比</p>
 <p>若 <span class="math inline">\(x\not= y\)</span>，则称 <span
 class="math inline">\(x\)</span> 严格小于 <span
 class="math inline">\(y\)</span>，即 <span
-class="math inline">\(x\preccurlyeq y\and x\not=y\Harr x\prec
-y\)</span></p>
+class="math inline">\(x\preccurlyeq y⋀ x\not=y⇔ x\prec y\)</span></p>
 <p>若不存在 <span class="math inline">\(z\)</span> 使 <span
 class="math inline">\(x\prec z\)</span> 且 <span
 class="math inline">\(z\prec y\)</span>，则称 <span
 class="math inline">\(y\)</span> 覆盖 <span
 class="math inline">\(x\)</span>，即 <span class="math inline">\(x\prec
-y\and\neg\exist z(z\in A\and x\prec z\prec y)\)</span></p></li>
+y⋀\neg∃ z(z\in A⋀ x\prec z\prec y)\)</span></p></li>
 <li><p><strong>哈斯图</strong></p>
-<p>对于 <span class="math inline">\(\langle
-A,\preccurlyeq\rangle,\,x,y\in A\)</span></p>
+<p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
+A\)</span></p>
 <p>用顶点表示 <span class="math inline">\(A\)</span> 中元素，当且仅当
 <span class="math inline">\(y\)</span> 覆盖 <span
 class="math inline">\(x\)</span> 时，<span
@@ -1706,23 +1682,22 @@ class="math inline">\(y\)</span> 在 <span
 class="math inline">\(x\)</span> 上方，在 <span
 class="math inline">\(x,y\)</span> 间画无向边，即形成哈斯图</p></li>
 <li><p><strong>全序关系（线序关系）</strong></p>
-<p>对于偏序集 <span class="math inline">\(\langle
-A,\preccurlyeq\rangle\)</span>，若其中任意元素 <span
+<p>对于偏序集 <span class="math inline">\(⟨
+A,\preccurlyeq⟩\)</span>，若其中任意元素 <span
 class="math inline">\(x,y\)</span> 都可比，则称 <span
 class="math inline">\(\preccurlyeq\)</span> 是 <span
 class="math inline">\(A\)</span> 上从全序关系，称 <span
-class="math inline">\(\langle A,\preccurlyeq\rangle\)</span>
-为全序集</p>
-<p><span class="math inline">\(\quad \langle
-A,\preccurlyeq\rangle\,是全序集\Harr 哈斯图是一条直线\)</span></p></li>
+class="math inline">\(⟨ A,\preccurlyeq⟩\)</span> 为全序集</p>
+<p><span class="math inline">\(\quad ⟨ A,\preccurlyeq⟩\,是全序集⇔
+哈斯图是一条直线\)</span></p></li>
 <li><p><strong>拟序关系</strong></p>
-<p>有 <span class="math inline">\(A\not=\empty,\,R\subseteq A\times
+<p>有 <span class="math inline">\(A\not=Ø,\,R\subseteq A\times
 A\)</span>，若 <span class="math inline">\(R\)</span> 是
 <strong>反自反、传递的（反自反性与传递性蕴含反对称性）</strong>，则称
 <span class="math inline">\(R\)</span> 为 <span
 class="math inline">\(A\)</span> 上的拟序关系。用 <span
 class="math inline">\(\prec\)</span> 表示拟序关系，称 <span
-class="math inline">\(\langle A,\prec\rangle\)</span> 为拟序集</p>
+class="math inline">\(⟨ A,\prec⟩\)</span> 为拟序集</p>
 <p>若 <span class="math inline">\(\preccurlyeq\)</span> 是 <span
 class="math inline">\(A\)</span> 上的偏序关系，<span
 class="math inline">\(\prec\)</span> 是 <span
@@ -1739,11 +1714,11 @@ class="math inline">\(A\)</span> 上的拟序关系，则</p>
 <ul>
 <li><span class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span>
 中最多只有一个式子成立</li>
-<li><span class="math inline">\((x\prec y\or x=y)\and(y\prec x\or
-x=y)\Rarr x=y\)</span></li>
+<li><span class="math inline">\((x\prec y⋁ x=y)⋀(y\prec x⋁ x=y)⇒
+x=y\)</span></li>
 </ul></li>
 <li><p><strong>三歧性、拟线序</strong></p>
-<p>有 <span class="math inline">\(A\not=\empty\)</span>，<span
+<p>有 <span class="math inline">\(A\not=Ø\)</span>，<span
 class="math inline">\(\prec\)</span> 是 <span
 class="math inline">\(A\)</span> 上的拟序关系，若 <span
 class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span> 中
@@ -1751,24 +1726,23 @@ class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span> 中
 class="math inline">\(\prec\)</span> 具有三歧性。同时称 <span
 class="math inline">\(\prec\)</span> 为 <span
 class="math inline">\(A\)</span> 上的拟线序关系，称 <span
-class="math inline">\(\langle A,\prec\rangle\)</span>
-为拟线序集</p></li>
+class="math inline">\(⟨ A,\prec⟩\)</span> 为拟线序集</p></li>
 <li><p><strong>最大（小）元、极大（小）元、上（下）界</strong></p>
-<p>对于偏序集 <span class="math inline">\(\langle
-A,\preccurlyeq\rangle,B\subseteq A,y\in B\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的最大元\Harr\forall
-x(x\in B\rarr x\preccurlyeq y)\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的最小元\Harr\forall
-x(x\in B\rarr y\preccurlyeq x)\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的极小元\Harr\forall
-x(x\in B\and y\preccurlyeq x\rarr x= y)\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的极大元\Harr\forall
-x(x\in B\and x\preccurlyeq y\rarr x= y)\)</span></p>
+<p>对于偏序集 <span class="math inline">\(⟨ A,\preccurlyeq⟩,B\subseteq
+A,y\in B\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的最大元⇔∀ x(x\in B→
+x\preccurlyeq y)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的最小元⇔∀ x(x\in B→
+y\preccurlyeq x)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的极小元⇔∀ x(x\in B⋀
+y\preccurlyeq x→ x= y)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的极大元⇔∀ x(x\in B⋀
+x\preccurlyeq y→ x= y)\)</span></p>
 <p>对于 <span class="math inline">\(z\in A\)</span></p>
-<p><span class="math inline">\(\quad z\,是\,A\,的上界\Harr\forall x(x\in
-B\rarr x\preccurlyeq z)\)</span></p>
-<p><span class="math inline">\(\quad z\,是\,A\,的下界\Harr\forall x(x\in
-B\rarr z\preccurlyeq x)\)</span></p></li>
+<p><span class="math inline">\(\quad z\,是\,A\,的上界⇔∀ x(x\in B→
+x\preccurlyeq z)\)</span></p>
+<p><span class="math inline">\(\quad z\,是\,A\,的下界⇔∀ x(x\in B→
+z\preccurlyeq x)\)</span></p></li>
 <li><p><strong>良序</strong></p>
 <p>任何非空子集都有最小元的偏序关系</p>
 <p>公理：任何集合都能被赋予一个良序</p>
@@ -1781,15 +1755,14 @@ class="math inline">\(1,2,\dots,\omega+1,\omega+2,\dots\)</span></li>
 class="math inline">\(\omega,2\omega,\omega^2,\omega^\omega,\dots\)</span></li>
 </ul></li>
 <li><p><strong>链、反链</strong></p>
-<p>设 <span class="math inline">\(\langle A,\preccurlyeq\rangle\)</span>
+<p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
 为偏序集，<span class="math inline">\(B\subseteq A\)</span></p>
-<p><span class="math inline">\(\quad B\,是\,A\,中的链\Harr\forall
-x\forall y(x\in B\and y\in B\rarr x\,与\,y\,可比)\)</span></p>
-<p><span class="math inline">\(\quad B\,是\,A\,中的反链\Harr\forall
-x\forall y(x\in B\and y\in B\and x\not= y\rarr
-x\,与\,y\,不可比)\)</span></p>
+<p><span class="math inline">\(\quad B\,是\,A\,中的链⇔∀ x∀ y(x\in B⋀
+y\in B→ x\,与\,y\,可比)\)</span></p>
+<p><span class="math inline">\(\quad B\,是\,A\,中的反链⇔∀ x∀ y(x\in B⋀
+y\in B⋀ x\not= y→ x\,与\,y\,不可比)\)</span></p>
 <p><span class="math inline">\(\quad|B|\)</span> 称为（反）链的长度</p>
-<p>设 <span class="math inline">\(\langle A,\preccurlyeq\rangle\)</span>
+<p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
 为偏序集，<span class="math inline">\(A\)</span> 中最长链长度为 <span
 class="math inline">\(n\)</span>，则</p>
 <ul>
@@ -1804,53 +1777,53 @@ class="math inline">\(n+1\)</span> 的链</li>
 </ul></li>
 </ul>
 <h3 id="函数">1.10 函数</h3>
-<p>函数：也称映射。单值的二元关系。<span class="math inline">\(\forall
-x\in\operatorname{dom}F,\,\forall y,z\in\operatorname{ran}F,\,xFy\and
-xFz\rarr y=z\)</span></p>
-<p>函数的记号：<span class="math inline">\(F(x)=y\Harr \langle
-x,y\rangle\in F\Harr xFy\)</span></p>
+<p>函数：也称映射。单值的二元关系。<span class="math inline">\(∀
+x\in\operatorname{dom}F,\,∀ y,z\in\operatorname{ran}F,\,xFy⋀ xFz→
+y=z\)</span></p>
+<p>函数的记号：<span class="math inline">\(F(x)=y⇔ ⟨ x,y⟩\in F⇔
+xFy\)</span></p>
 <ul>
 <li><p><strong>偏函数</strong></p>
 <p>设 <span class="math inline">\(F\)</span> 是函数，<span
 class="math inline">\(\operatorname{dom}F\subseteq
-A\and\operatorname{ran}F\subseteq B\)</span> 则称之为 <span
+A⋀\operatorname{ran}F\subseteq B\)</span> 则称之为 <span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的偏函数。记作 <span
-class="math inline">\(F:A\rarr B\)</span></p>
+class="math inline">\(F:A→ B\)</span></p>
 <p>其中 <span class="math inline">\(A\)</span> 称为 <span
 class="math inline">\(F\)</span> 的前域。</p>
 <p><span class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体偏函数记为 <span
-class="math inline">\(A\rarr B=\lbrace F|F:A\rarr B\rbrace\)</span></p>
-<p>显然 <span class="math inline">\(A\rarr B\subseteq P(A\times
+class="math inline">\(A→ B=\lbrace F|F:A→ B\rbrace\)</span></p>
+<p>显然 <span class="math inline">\(A→ B\subseteq P(A\times
 B)\)</span></p></li>
 <li><p><strong>真偏函数</strong></p>
 <p><span class="math inline">\({dom\,}F\subset A\)</span>，记作 <span
-class="math inline">\(F:A\shortparallel\!\!\!\rarr B\)</span>。<span
+class="math inline">\(F:A\shortparallel\!\!\!→ B\)</span>。<span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体真偏函数记为 <span
-class="math inline">\(A\shortparallel\!\!\!\rarr B=\lbrace
-F|F:A\shortparallel\!\!\!\rarr B\rbrace\)</span></p>
-<p>所以，就有 <span class="math inline">\(A\shortmid\!\!\!\rarr B=A\rarr
-B\cup A\shortparallel\!\!\!\rarr B\qquad F:A\shortmid\!\!\!\rarr B\Rarr
-F:\operatorname{dom}F\rarr B\)</span></p></li>
+class="math inline">\(A\shortparallel\!\!\!→ B=\lbrace
+F|F:A\shortparallel\!\!\!→ B\rbrace\)</span></p>
+<p>所以，就有 <span class="math inline">\(A\shortmid\!\!\!→ B=A→ B\cup
+A\shortparallel\!\!\!→ B\qquad F:A\shortmid\!\!\!→ B⇒
+F:\operatorname{dom}F→ B\)</span></p></li>
 <li><p><strong>全函数</strong></p>
 <p><span class="math inline">\(\operatorname{dom}F=A\)</span>，记作
-<span class="math inline">\(F:A\shortmid\!\!\!\rarr B\)</span>。<span
+<span class="math inline">\(F:A\shortmid\!\!\!→ B\)</span>。<span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体全函数记为 <span
-class="math inline">\(B^A=A\rarr B=\lbrace F|F:A\shortmid\!\!\!\rarr
+class="math inline">\(B^A=A→ B=\lbrace F|F:A\shortmid\!\!\!→
 B\rbrace\)</span></p>
 <p><span class="math inline">\(A,B\)</span> 中存在空集 <span
-class="math inline">\(\empty\)</span> 时，<span
+class="math inline">\(Ø\)</span> 时，<span
 class="math inline">\(B^A\)</span> 分为以下几种情况</p>
 <ul>
 <li><span class="math inline">\(A,B\)</span> 是空集：<span
-class="math inline">\(B^A=\empty^{\empty}=\lbrace\empty\rbrace\)</span></li>
+class="math inline">\(B^A=Ø^{Ø}=\lbraceØ\rbrace\)</span></li>
 <li>仅 <span class="math inline">\(A\)</span> 是空集：<span
-class="math inline">\(B^A=B^{\empty}=\lbrace\empty\rbrace\)</span></li>
+class="math inline">\(B^A=B^{Ø}=\lbraceØ\rbrace\)</span></li>
 <li>仅 <span class="math inline">\(B\)</span> 是空集：<span
-class="math inline">\(B^A=\empty^{A}=\empty\)</span></li>
+class="math inline">\(B^A=Ø^{A}=Ø\)</span></li>
 </ul>
 <p>其余时候，<span
 class="math inline">\(|B^A|=|B|^{|A|}\)</span></p></li>
@@ -1861,21 +1834,21 @@ class="math inline">\(|B^A|=|B|^{|A|}\)</span></p></li>
 class="math inline">\(\operatorname{ran}F=B\)</span></li>
 <li>双射：<span class="math inline">\(F\)</span> 即是单射也是满射。</li>
 </ul>
-<p>若有 <span class="math inline">\(F:A\rarr
+<p>若有 <span class="math inline">\(F:A→
 B,\,|A|=n,\,|B|=m\)</span>，则</p>
 <ul>
 <li><span class="math inline">\(n&lt;m\)</span> 时，<span
-class="math inline">\(A\rarr B\)</span> 中无满射、双射。单射数量是 <span
+class="math inline">\(A→ B\)</span> 中无满射、双射。单射数量是 <span
 class="math inline">\(m(m-1)\ldots(m-n+1)\)</span></li>
 <li><span class="math inline">\(n&gt;m\)</span> 时，<span
-class="math inline">\(A\rarr B\)</span> 中无单射、双射。满射数量是 <span
+class="math inline">\(A→ B\)</span> 中无单射、双射。满射数量是 <span
 class="math inline">\(m!\begin{Bmatrix}n\\m\end{Bmatrix}\)</span></li>
 <li><span class="math inline">\(n=m\)</span> 时，<span
-class="math inline">\(A\rarr B\)</span> 中双射个数为 <span
+class="math inline">\(A→ B\)</span> 中双射个数为 <span
 class="math inline">\(n!\)</span></li>
 </ul></li>
 <li><p><strong>象、原象</strong></p>
-<p>给定映射 <span class="math inline">\(f:A\rarr B,\,A&#39;\subseteq
+<p>给定映射 <span class="math inline">\(f:A→ B,\,A&#39;\subseteq
 A,\,B&#39;\subseteq B\)</span></p>
 <p>则 <span class="math inline">\(A&#39;\)</span> 的像 <span
 class="math inline">\(f(A&#39;)=\lbrace y|x\in
@@ -1886,65 +1859,59 @@ $f^{-1}(B')=x|yB',xfy$</p>
 f^{-1}(B)=\operatorname{dom}f=A\)</span></p></li>
 <li><p><strong>特殊函数</strong></p>
 <ul>
-<li><p>常数函数：<span class="math inline">\(f:A\rarr B,\,\exist b\in
-B,\,\forall x\in A,\,f(x)=b\)</span></p></li>
-<li><p>恒等函数：<span class="math inline">\(I_A:A\rarr
+<li><p>常数函数：<span class="math inline">\(f:A→ B,\,∃ b\in B,\,∀ x\in
+A,\,f(x)=b\)</span></p></li>
+<li><p>恒等函数：<span class="math inline">\(I_A:A→
 A,\,I_A(x)=x\)</span></p></li>
 <li><p>特征函数：<span
-class="math inline">\(\chi_A:E\rarr\lbrace0,1\rbrace,\,\chi_A(x)=1\Harr
-x\in A\)</span></p>
-<p>此时当 <span class="math inline">\(\empty\subset A\subset E\)</span>
+class="math inline">\(\chi_A:E→\lbrace0,1\rbrace,\,\chi_A(x)=1⇔ x\in
+A\)</span></p>
+<p>此时当 <span class="math inline">\(Ø\subset A\subset E\)</span>
 时，<span class="math inline">\(\chi_A\)</span> 是满射</p></li>
 </ul></li>
 <li><p><strong>单调函数</strong></p>
-<p>设 <span class="math inline">\(f:A\rarr B\)</span> 且 <span
-class="math inline">\(\lang A,\le_A\rang,\lang B,\le_B\rang\)</span>
-是偏序集</p>
-<p>单调增：<span class="math inline">\(\forall x,y\in A,\,x\le_Ay\Rarr
+<p>设 <span class="math inline">\(f:A→ B\)</span> 且 <span
+class="math inline">\(⟨ A,\le_A⟩,⟨ B,\le_B⟩\)</span> 是偏序集</p>
+<p>单调增：<span class="math inline">\(∀ x,y\in A,\,x\le_Ay⇒
 f(x)\le_Bf(y)\)</span></p>
-<p>单调减：<span class="math inline">\(\forall x,y\in A,\,x\le_Ay\Rarr
+<p>单调减：<span class="math inline">\(∀ x,y\in A,\,x\le_Ay⇒
 f(y)\le_Bf(x)\)</span></p>
 <p>严格单调：将上面的 <span class="math inline">\(\le\)</span> 换为
 <span class="math inline">\(&lt;\)</span>。此时是单射</p></li>
 <li><p><strong>自然映射</strong></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
 class="math inline">\(A\)</span> 上的等价关系</p>
-<p>自然映射（典型映射）：<span class="math inline">\(f:A\rarr
+<p>自然映射（典型映射）：<span class="math inline">\(f:A→
 A/R,\,f(x)=[x]_R\)</span></p>
 <p>当 <span class="math inline">\(R=I_A\)</span> 时，<span
 class="math inline">\(f\)</span> 是单射</p>
-<p>又有 <span class="math inline">\(f:A\rarr B,\,g:B\rarr C\)</span> 则
-<span class="math inline">\(f\circ g:A\rarr C,\,F\circ
-g(x)=f(g(x))\)</span></p>
-<p>若 <span class="math inline">\(f:A\rarr B\)</span> 是双射，则 <span
-class="math inline">\(f^{-1}=B\rarr A\)</span> 也是双射。此时称 <span
+<p>又有 <span class="math inline">\(f:A→ B,\,g:B→ C\)</span> 则 <span
+class="math inline">\(f\circ g:A→ C,\,F\circ g(x)=f(g(x))\)</span></p>
+<p>若 <span class="math inline">\(f:A→ B\)</span> 是双射，则 <span
+class="math inline">\(f^{-1}=B→ A\)</span> 也是双射。此时称 <span
 class="math inline">\(f^{-1}\)</span> 为 <span
 class="math inline">\(f\)</span> 的 <strong>反函数</strong></p></li>
 <li><p><strong>单边逆</strong></p>
-<p>若 <span class="math inline">\(f:A\rarr B,\,g:B\rarr A\)</span></p>
-<p>左逆：<span class="math inline">\(g\,是\,f\,的左逆\Harr g\circ
+<p>若 <span class="math inline">\(f:A→ B,\,g:B→ A\)</span></p>
+<p>左逆：<span class="math inline">\(g\,是\,f\,的左逆⇔ g\circ
 f=I_A\)</span></p>
-<p>右逆：<span class="math inline">\(g\,是\,f\,的右逆\Harr f\circ
+<p>右逆：<span class="math inline">\(g\,是\,f\,的右逆⇔ f\circ
 g=I_B\)</span></p>
-<p><span class="math inline">\(\quad f\,存在左逆\Harr
-f\,是单射\)</span></p>
-<p><span class="math inline">\(\quad f\,存在右逆\Harr
-f\,是满射\)</span></p>
-<p><span class="math inline">\(\quad f\,存在左逆、右逆\Harr
-f\,是双射\Harr f\,的左逆、右逆相等\)</span></p></li>
+<p><span class="math inline">\(\quad f\,存在左逆⇔ f\,是单射\)</span></p>
+<p><span class="math inline">\(\quad f\,存在右逆⇔ f\,是满射\)</span></p>
+<p><span class="math inline">\(\quad f\,存在左逆、右逆⇔ f\,是双射⇔
+f\,的左逆、右逆相等\)</span></p></li>
 </ul>
 <h3 id="自然数">1.11 自然数</h3>
 <ul>
 <li><p><strong>封闭</strong></p>
 <p>有函数 <span class="math inline">\(F\)</span>，<span
 class="math inline">\(A\subseteq\operatorname{dom}F\)</span></p>
-<p>则有：<span class="math inline">\(A\,在函数\,F\,下封闭\Harr
-F(A)\subseteq A\Harr F:A\rarr A\Harr
-F\,是\,A\,上一元运算\)</span></p></li>
+<p>则有：<span class="math inline">\(A\,在函数\,F\,下封闭⇔ F(A)\subseteq
+A⇔ F:A→ A⇔ F\,是\,A\,上一元运算\)</span></p></li>
 <li><p><strong>皮亚诺公理</strong></p>
 <p>皮亚诺公理定义了自然数的集合。</p>
-<p>对于三元组 <span class="math inline">\(\lang M,F,e\rang,\,F:M\rarr
-M\)</span></p>
+<p>对于三元组 <span class="math inline">\(⟨ M,F,e⟩,\,F:M→ M\)</span></p>
 <ul>
 <li><p><span class="math inline">\(e\in M\)</span></p></li>
 <li><p><span class="math inline">\(M\)</span> 在 <span
@@ -1952,57 +1919,56 @@ class="math inline">\(F\)</span> 下封闭</p></li>
 <li><p><span class="math inline">\(e\notin
 \operatorname{ran}F\)</span></p></li>
 <li><p><span class="math inline">\(F\)</span> 是单射</p></li>
-<li><p><span class="math inline">\(A\subseteq M\and e\in A\and
-A\,在\,F\,下封闭\Rarr A=M\)</span></p>
+<li><p><span class="math inline">\(A\subseteq M⋀ e\in A⋀
+A\,在\,F\,下封闭⇒ A=M\)</span></p>
 <p>（极小性公理/数学归纳法原理。即 <span
 class="math inline">\(M\)</span> 是满足条件的最小集合）</p></li>
 </ul></li>
 <li><p><strong>后继</strong></p>
 <p>对于集合 <span class="math inline">\(A\)</span>，其后继 <span
 class="math inline">\(A^+=A\cup\lbrace A\rbrace\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq A^+\and A\in
+<p><span class="math inline">\(\quad A\subseteq A^+⋀ A\in
 A^+\)</span></p></li>
 <li><p><strong>归纳集</strong></p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;A\,是归纳集\\\Harr\,&amp;\empty\in
-A\and\forall x(x\in A\rarr x^+\in
-A)\\\Harr\,&amp;A\,含有\,\empty\,且对后继封闭\end{align}\)</span></p></li>
+class="math inline">\(\quad\begin{align}&amp;A\,是归纳集\\⇔\,&amp;Ø\in
+A⋀∀ x(x\in A→ x^+\in
+A)\\⇔\,&amp;A\,含有\,Ø\,且对后继封闭\end{align}\)</span></p></li>
 <li><p><strong>后继函数</strong></p>
-<p><span class="math inline">\(\quad\sigma:N\rarr N,\,\forall n\in
+<p><span class="math inline">\(\quad\sigma:N→ N,\,∀ n\in
 N,\,\sigma(n)=n^+\)</span></p></li>
 <li><p><strong>传递集</strong></p>
 <p>对于集合 <span class="math inline">\(A\)</span>，<span
-class="math inline">\(\forall x\in a\in A\Rarr x\in A\)</span>，则称
-<span class="math inline">\(A\)</span> 为传递集</p>
+class="math inline">\(∀ x\in a\in A⇒ x\in A\)</span>，则称 <span
+class="math inline">\(A\)</span> 为传递集</p>
 <p><span class="math display">\[\quad\begin{align}
 &amp;A\,是传递集\\
-\Harr\,&amp;{\bigcup\\}A\subseteq A\\
-\Harr\,&amp;\forall a(a\in A\rarr a\subseteq A)\\
-\Harr\,&amp;A\subseteq P(A)\\
-\Harr\,&amp;P(A)\,是传递集
+⇔\,&amp;{\bigcup\\}A\subseteq A\\
+⇔\,&amp;∀ a(a\in A→ a\subseteq A)\\
+⇔\,&amp;A\subseteq P(A)\\
+⇔\,&amp;P(A)\,是传递集
 \end{align}\]</span></p>
 <p>另外，<span
-class="math inline">\(A\,是传递集\Rarr{\bigcup\\}(A^+)=A\)</span></p></li>
+class="math inline">\(A\,是传递集⇒{\bigcup\\}(A^+)=A\)</span></p></li>
 </ul>
 <h4 id="集合论中的数学归纳法">集合论中的数学归纳法</h4>
-<p>目标：证明 <span class="math inline">\(\forall n\in N\)</span>，<span
+<p>目标：证明 <span class="math inline">\(∀ n\in N\)</span>，<span
 class="math inline">\(P(n)\)</span> 为真</p>
 <ol type="1">
-<li><p>构造 <span class="math inline">\(S=\lbrace n|n\in N\and
+<li><p>构造 <span class="math inline">\(S=\lbrace n|n\in N⋀
 P(n)\rbrace\)</span></p></li>
 <li><p>证明 <span class="math inline">\(S\)</span> 是归纳集</p>
-<p><span class="math display">\[\quad\begin{align}&amp;\empty\in
-S\\&amp;\forall n(n\in s\rarr n^+\in
-S)\\∴\quad&amp;S=N\end{align}\]</span></p></li>
+<p><span class="math display">\[\quad\begin{align}&amp;Ø\in S\\&amp;∀
+n(n\in s→ n^+\in S)\\∴\quad&amp;S=N\end{align}\]</span></p></li>
 </ol>
 <h4 id="使用集合来构造-peano-系统">使用集合来构造 Peano 系统</h4>
 <p><strong>自然数</strong>：属于每个归纳集的集合。</p>
 <p><strong>自然数集（<span
 class="math inline">\(N\)</span>）</strong>：包含于每个归纳集的集合。</p>
 <p><span class="math display">\[\quad\begin{align}
-&amp;0=\empty\\
-&amp;1=\empty^+=\lbrace\empty\rbrace=\lbrace 0\rbrace\\
-&amp;2=\empty^{++}=\lbrace\empty,\lbrace\empty\rbrace\rbrace=\lbrace0,1\rbrace\\
+&amp;0=Ø\\
+&amp;1=Ø^+=\lbraceØ\rbrace=\lbrace 0\rbrace\\
+&amp;2=Ø^{++}=\lbraceØ,\lbraceØ\rbrace\rbrace=\lbrace0,1\rbrace\\
 &amp;\dots\\
 &amp;n=(n-1)^+=\lbrace0,1,2,\ldots,n-1\rbrace
 \end{align}\]</span></p>
@@ -2011,7 +1977,7 @@ class="math inline">\(N\)</span>）</strong>：包含于每个归纳集的集合
 &amp;2\cap3=\lbrace0,1\rbrace\cap\lbrace0,1,2\rbrace=\lbrace0,1\rbrace=2=\operatorname{min}(2,3)\\
 &amp;2\cup3=\lbrace0,1\rbrace\cup\lbrace0,1,2\rbrace=\lbrace0,1,2\rbrace=3=\operatorname{max}(2,3)\\
 &amp;3-2=\lbrace0,1,2\rbrace-\lbrace0,1\rbrace=\lbrace2\rbrace\\
-&amp;2-3=\lbrace0,1\rbrace-\lbrace0,1,2\rbrace=\empty\\
+&amp;2-3=\lbrace0,1\rbrace-\lbrace0,1,2\rbrace=Ø\\
 &amp;\bigcup
 n=\bigcup\lbrace0,1,\dots,n-1\rbrace=n-1=\operatorname{max}(0,1,\dots,n-1)\\
 &amp;\bigcap
@@ -2022,45 +1988,43 @@ n=\bigcap\lbrace0,1,\dots,n-1\rbrace=0=\operatorname{min}(0,1,\dots,n-1)\\
 <ul>
 <li><p>自然数集是归纳集，且是最小的归纳集</p>
 <p>自然数是传递集，自然数集也是传递集</p></li>
-<li><p><span class="math inline">\(\lang N,\sigma,0\rang\)</span> 是
-Peano 系统</p></li>
-<li><p><span class="math inline">\(\forall m,n\in N,m^+\in n^+\Harr m\in
+<li><p><span class="math inline">\(⟨ N,\sigma,0⟩\)</span> 是 Peano
+系统</p></li>
+<li><p><span class="math inline">\(∀ m,n\in N,m^+\in n^+⇔ m\in
 n\)</span></p></li>
 <li><p>任何自然数都不是自己的元素。</p></li>
-<li><p><span class="math inline">\(\empty\)</span> 属于 <span
+<li><p><span class="math inline">\(Ø\)</span> 属于 <span
 class="math inline">\(0\)</span> 以外的任意自然数</p></li>
 <li><p>任何自然数的元素都是其子集</p>
-<p><span class="math inline">\(\quad n\in N\Rarr\forall x(x\in n\rarr
-x\subseteq n)\)</span></p></li>
+<p><span class="math inline">\(\quad n\in N⇒∀ x(x\in n→ x\subseteq
+n)\)</span></p></li>
 <li><p>三歧性</p>
-<p>对于 <span class="math inline">\(\forall m,n\in
+<p>对于 <span class="math inline">\(∀ m,n\in
 N\)</span>，以下三式恰有一式成立</p>
 <p><span class="math inline">\(\quad m\in n,\quad m=n,\quad n\in
 m\)</span></p></li>
 <li><p><span class="math inline">\(N\)</span> 上的递归定理</p>
 <p>设 <span class="math inline">\(A\)</span> 为集合，<span
-class="math inline">\(a\in A,\,F:A\rarr A\)</span></p>
-<p>则存在唯一的函数 <span class="math inline">\(h:N\rarr
-A\)</span>，使得 <span class="math inline">\(h(0)=a\)</span>，且 <span
-class="math inline">\(\forall n\in N,\,h(n^+)=F((h(n)))\)</span></p>
+class="math inline">\(a\in A,\,F:A→ A\)</span></p>
+<p>则存在唯一的函数 <span class="math inline">\(h:N→ A\)</span>，使得
+<span class="math inline">\(h(0)=a\)</span>，且 <span
+class="math inline">\(∀ n\in N,\,h(n^+)=F((h(n)))\)</span></p>
 <p>如此一来，就可以递归地定义函数。如</p>
-<p><span class="math inline">\(\quad\begin{align}&amp;a\in A,\,F:A\rarr
-A\\&amp;\begin{cases}h(0)=a\\h(n+1)=F(h(n)),\,\forall n\in
+<p><span class="math inline">\(\quad\begin{align}&amp;a\in A,\,F:A→
+A\\&amp;\begin{cases}h(0)=a\\h(n+1)=F(h(n)),\,∀ n\in
 N\end{cases}\end{align}\)</span></p></li>
 </ul>
 <p>定义自然数集上的二元运算：</p>
 <ul>
 <li><p><strong>加法</strong></p>
-<p><span class="math inline">\(\quad +:N\times N\rarr N\)</span></p>
-<p><span class="math inline">\(\quad+(\lang
-2,3\rang)=5,\quad2+3=5\)</span></p>
+<p><span class="math inline">\(\quad +:N\times N→ N\)</span></p>
+<p><span class="math inline">\(\quad+(⟨ 2,3⟩)=5,\quad2+3=5\)</span></p>
 <p>将 <span class="math inline">\(m\)</span>
 看成固定值，就能定义一元函数 <span
 class="math inline">\(+m\)</span>。再将 <span
 class="math inline">\(m\)</span> 扩展到每个自然数，就有了所有的 <span
 class="math inline">\(+m\)</span></p>
-<p><span class="math inline">\(\quad\begin{align}&amp;m\in
-N,\,A_m:N\rarr
+<p><span class="math inline">\(\quad\begin{align}&amp;m\in N,\,A_m:N→
 N\\&amp;\begin{cases}A_m(0)=m\\A_m(n^+)=(A_m(n))^+\end{cases}\end{align}\)</span></p>
 <p>加法有以下性质</p>
 <ul>
@@ -2070,24 +2034,18 @@ m^++n=(m+n)^+\)</span></li>
 <li><span class="math inline">\(m+n=n+m\)</span></li>
 </ul></li>
 <li><p><strong>乘法</strong></p>
-<p><span class="math inline">\(\quad\bullet:N\times N\rarr
-N\)</span></p>
-<p><span class="math inline">\(\quad\bullet(\lang
-2,3\rang)=6,\quad2\bullet3=6\)</span></p>
-<p>可以定义 $m $ 函数</p>
-<p><span class="math inline">\(\quad\begin{align}&amp;m\in
-N,\,M_m:N\rarr
+<p><span class="math inline">\(\quad•:N\times N→ N\)</span></p>
+<p><span class="math inline">\(\quad•(⟨ 2,3⟩)=6,\quad2•3=6\)</span></p>
+<p>可以定义 $• m $ 函数</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;m\in N,\,M_m:N→
 N\\&amp;\begin{cases}M_m(0)=0\\M_m(n^+)=M_m(n)+m\end{cases}\end{align}\)</span></p>
 <p>乘法有如下性质</p>
 <ul>
-<li><span class="math inline">\(1\bullet n=n\bullet 1=n\)</span></li>
-<li><span class="math inline">\(n\bullet m=m\bullet n\)</span></li>
-<li><span class="math inline">\((m\bullet n)\bullet k=m\bullet (n\bullet
-k)\)</span></li>
-<li><span class="math inline">\(k\not=0\and m\bullet k=n\bullet k\Rarr
-m=n\)</span></li>
-<li><span class="math inline">\(m\bullet (n+k)=(m\bullet n)+(m\bullet
-k)\)</span></li>
+<li><span class="math inline">\(1• n=n• 1=n\)</span></li>
+<li><span class="math inline">\(n• m=m• n\)</span></li>
+<li><span class="math inline">\((m• n)• k=m• (n• k)\)</span></li>
+<li><span class="math inline">\(k\not=0⋀ m• k=n• k⇒ m=n\)</span></li>
+<li><span class="math inline">\(m• (n+k)=(m• n)+(m• k)\)</span></li>
 </ul></li>
 </ul>
 <p>自然数有两个基本性质</p>
@@ -2095,39 +2053,39 @@ k)\)</span></li>
 <li><p><strong>匹配</strong></p>
 <p>在自然数集合与另一集合间建立双射，可以统计集合的大小</p>
 <p><span class="math inline">\(\quad\begin{align}&amp;\lbrace
-a\rbrace\rarr\lbrace 0\rbrace=1\\&amp;\lbrace a,b\rbrace\rarr\lbrace
-0,1\rbrace=2\\&amp;\lbrace a,b,c\rbrace\rarr\lbrace
+a\rbrace→\lbrace 0\rbrace=1\\&amp;\lbrace a,b\rbrace→\lbrace
+0,1\rbrace=2\\&amp;\lbrace a,b,c\rbrace→\lbrace
 0,1,2\rbrace=3\\&amp;\ldots\end{align}\)</span></p></li>
 <li><p><strong>计数</strong></p>
 <p>任意自然数集合都有最小元素，任意自然数间可以比较大小</p>
 <p><span
-class="math inline">\(\quad\begin{align}&amp;0\rarr1\rarr2\rarr3\rarr\ldots\\&amp;a\rarr
-b\\&amp;a\rarr b\rarr c\\&amp;\ldots\end{align}\)</span></p></li>
+class="math inline">\(\quad\begin{align}&amp;0→1→2→3→\ldots\\&amp;a→
+b\\&amp;a→ b→ c\\&amp;\ldots\end{align}\)</span></p></li>
 </ul>
 <h3 id="等势有穷集无穷集">1.12 等势、有穷集、无穷集</h3>
 <ul>
 <li><p><strong>等势</strong></p>
-<p><span class="math inline">\(\quad A\,与\,B\,等势\Harr\exist
-双射\,f:A\rarr B\)</span></p>
+<p><span class="math inline">\(\quad A\,与\,B\,等势⇔∃ 双射\,f:A→
+B\)</span></p>
 <p>记作 <span class="math inline">\(A\approx B\)</span></p>
 <p>则有：</p>
 <p><span class="math inline">\(\quad\begin{align}&amp;Z\approx N\qquad
 N\times N\approx N\qquad N\approx Q\qquad (0,1)\approx
-R\qquad[0,1]\approx(0,1)\\&amp;P(A)\approx 2^A=A\rarr 2\\&amp;A\approx
-A\qquad A\approx B\Rarr B\approx A\qquad A\approx B\and B\approx C\Rarr
-A\approx C\\&amp;N\not\approx R\qquad A\not\approx
+R\qquad[0,1]\approx(0,1)\\&amp;P(A)\approx 2^A=A→ 2\\&amp;A\approx
+A\qquad A\approx B⇒ B\approx A\qquad A\approx B⋀ B\approx C⇒ A\approx
+C\\&amp;N\not\approx R\qquad A\not\approx
 P(A)\end{align}\)</span></p></li>
 <li><p><strong>有穷集</strong></p>
 <p>与某一自然数 <span class="math inline">\(n\)</span>
 等势的集合称为有穷集。</p>
-<p><span class="math inline">\(\quad A\,是有穷集\Harr \exist n(A\approx
-n\and n\in N)\Harr B\subset A\rarr A\not\approx B\)</span></p>
+<p><span class="math inline">\(\quad A\,是有穷集⇔ ∃ n(A\approx n⋀ n\in
+N)⇔ B\subset A→ A\not\approx B\)</span></p>
 <p>不存在与自身真子集等势的自然数，也不存在与自身真子集等势的有穷集</p></li>
 <li><p><strong>无穷集</strong></p>
 <p>不能与任何自然数 <span class="math inline">\(n\)</span>
 等势的集合</p>
-<p><span class="math inline">\(\quad A\,是无穷集\Harr n\in N\rarr
-A\not\approx n\Harr B\subset A\rarr B\approx A\)</span></p>
+<p><span class="math inline">\(\quad A\,是无穷集⇔ n\in N→ A\not\approx
+n⇔ B\subset A→ B\approx A\)</span></p>
 <p>与自身真子集等势的集合是无穷集，自然数集也是无穷集</p></li>
 </ul>
 <h3 id="基数">1.13 基数</h3>
@@ -2137,9 +2095,9 @@ A\not\approx n\Harr B\subset A\rarr B\approx A\)</span></p>
 class="math inline">\(\operatorname{card}A\)</span></p>
 <ul>
 <li><span
-class="math inline">\(\operatorname{card}A=\operatorname{card}B\Harr
+class="math inline">\(\operatorname{card}A=\operatorname{card}B⇔
 A\approx B\)</span></li>
-<li>对于有穷集：<span class="math inline">\(\operatorname{card}A=n\Harr
+<li>对于有穷集：<span class="math inline">\(\operatorname{card}A=n⇔
 A\approx n\)</span></li>
 <li>对于无穷集：<span
 class="math inline">\(\operatorname{card}N=\aleph_0\)</span></li>
@@ -2166,7 +2124,7 @@ class="math inline">\(K_\kappa=\lbrace
 x|x\,是集合且\,\operatorname{card}x=\kappa\rbrace\)</span></p>
 <ul>
 <li><span class="math inline">\(\kappa=0\)</span> 时，<span
-class="math inline">\(K_\kappa=\lbrace\empty\rbrace\)</span> 是集合</li>
+class="math inline">\(K_\kappa=\lbraceØ\rbrace\)</span> 是集合</li>
 <li><span class="math inline">\(\kappa\not=0\)</span> 时，<span
 class="math inline">\(K_\kappa\)</span> 不是集合，而是类</li>
 </ul></li>
@@ -2179,24 +2137,21 @@ class="math inline">\(\operatorname{rand}A\le
 class="math inline">\(B\)</span> 劣势（<span
 class="math inline">\(B\)</span> 较 <span
 class="math inline">\(A\)</span> 优势），记为 <span
-class="math inline">\(A\preccurlyeq\bullet B\)</span> 或 <span
-class="math inline">\(B\succcurlyeq\bullet A\)</span></p>
+class="math inline">\(A\preccurlyeq• B\)</span> 或 <span
+class="math inline">\(B\succcurlyeq• A\)</span></p>
 <p>若有 <span
 class="math inline">\(\operatorname{rand}A&lt;\operatorname{rand}B\)</span>
-则称为绝对劣势（绝对优势），记为 <span
-class="math inline">\(A\prec\bullet B\)</span> 或 <span
-class="math inline">\(B\succ\bullet A\)</span></p>
-<p>显然 <span class="math inline">\(A\subseteq B\Rarr
-A\preccurlyeq\bullet B\quad A\subset B\Rarr A\succcurlyeq\bullet
-B\)</span></p>
-<p><span class="math inline">\(\quad A\preccurlyeq\bull B\and
-B\preccurlyeq\bull A\Rarr A\approx B\)</span></p>
+则称为绝对劣势（绝对优势），记为 <span class="math inline">\(A\prec•
+B\)</span> 或 <span class="math inline">\(B\succ• A\)</span></p>
+<p>显然 <span class="math inline">\(A\subseteq B⇒ A\preccurlyeq• B\quad
+A\subset B⇒ A\succcurlyeq• B\)</span></p>
+<p><span class="math inline">\(\quad A\preccurlyeq\bull B⋀
+B\preccurlyeq\bull A⇒ A\approx B\)</span></p>
 <p><span class="math inline">\(\quad
-\kappa\le\lambda\and\lambda\le\kappa\Rarr\kappa=\lambda\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq B\subseteq C\and
-A\approx C\Rarr A\approx B\approx C\)</span></p>
-<p><span class="math inline">\(\quad
-R\approx(N\rarr2)=2^N\)</span></p></li>
+\kappa\le\lambda⋀\lambda\le\kappa⇒\kappa=\lambda\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq B\subseteq C⋀ A\approx
+C⇒ A\approx B\approx C\)</span></p>
+<p><span class="math inline">\(\quad R\approx(N→2)=2^N\)</span></p></li>
 <li><p><strong>可数集（可列集）</strong></p>
 <p>基数不超过 <span class="math inline">\(\aleph_0\)</span>
 的集合称为可数集。<span class="math inline">\(n\in N\)</span>
@@ -2208,30 +2163,30 @@ a_1,a_2,\dots,a_n\}\)</span></p></li>
 <li><p><strong>基数运算</strong></p>
 <p>基数间也能进行运算</p>
 <p>有集合 <span class="math inline">\(K,L\)</span> 且 <span
-class="math inline">\(K\cap L=\empty\)</span>，基数 <span
+class="math inline">\(K\cap L=Ø\)</span>，基数 <span
 class="math inline">\(\kappa =
 \operatorname{rand}K,\lambda=\operatorname{rand}L\)</span></p>
 <p>则 <span
 class="math inline">\(\kappa+\lambda=\operatorname{rand}(K\cup
 L)\qquad\kappa\bull\lambda=\operatorname{rand}(K\times
-L)\qquad\kappa^\lambda=\operatorname{rand}\lbrace A|A:K\rarr
+L)\qquad\kappa^\lambda=\operatorname{rand}\lbrace A|A:K→
 L\}\)</span></p>
 <p>有 <span
 class="math inline">\(rand\,P(K)=2^\kappa\qquad\aleph=2^{\aleph_0}\)</span></p>
 <p>基数运算的性质</p>
 <ul>
 <li><p><span
-class="math inline">\(\kappa+\lambda=\lambda+\kappa\qquad(\kappa+\lambda)+\mu=\kappa+(\lambda+\mu)\qquad\kappa\le\lambda\Rarr\kappa-\mu\le\lambda-\mu\)</span></p>
+class="math inline">\(\kappa+\lambda=\lambda+\kappa\qquad(\kappa+\lambda)+\mu=\kappa+(\lambda+\mu)\qquad\kappa\le\lambda⇒\kappa-\mu\le\lambda-\mu\)</span></p>
 <p><span
 class="math inline">\(\kappa\bull(\lambda+\mu)=\kappa\bull\lambda+\kappa\bull\mu\qquad\kappa^\lambda\bull\kappa^\mu=\kappa^{\lambda+\mu}\)</span></p>
 <p><span
-class="math inline">\((\kappa\not=0\or\mu\not=0)\and\kappa\le\lambda\Rarr\mu^\kappa\le\mu^\lambda\)</span></p></li>
+class="math inline">\((\kappa\not=0⋁\mu\not=0)⋀\kappa\le\lambda⇒\mu^\kappa\le\mu^\lambda\)</span></p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数则有
 <span class="math inline">\(\kappa\bull\kappa=\kappa\)</span></p>
 <p>即，对于任意无穷集都能和自身的二元关系建立双射</p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，<span
 class="math inline">\(\lambda\)</span> 是基数，则有 <span
-class="math inline">\(\kappa+\lambda=\kappa\bullet\lambda=max\lbrace
+class="math inline">\(\kappa+\lambda=\kappa•\lambda=max\lbrace
 \kappa,\lambda\}\)</span></p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，则
 <span class="math inline">\(\kappa^\kappa=2^\kappa\)</span></p></li>
@@ -2247,45 +2202,43 @@ class="math inline">\(A=\lbrace x|x\not\in x\rbrace\)</span>，则无法判断
 </blockquote>
 <h4 id="zf-公理系统">ZF 公理系统</h4>
 <ul>
-<li><p>空集公理：<span
-class="math inline">\(\empty\,是集合\)</span></p></li>
+<li><p>空集公理：<span class="math inline">\(Ø\,是集合\)</span></p></li>
 <li><p>外延公理：所含元素相同的两个集合相等</p>
-<p><span class="math inline">\(\quad A=B\Harr\forall x(x\in A\harr x\in
+<p><span class="math inline">\(\quad A=B⇔∀ x(x\in A↔ x\in
 B)\)</span></p></li>
-<li><p>无序对公理：<span class="math inline">\(a,b\,是集合\Rarr\lbrace
+<li><p>无序对公理：<span class="math inline">\(a,b\,是集合⇒\lbrace
 a,b\rbrace\,是集合\)</span></p></li>
-<li><p>子集公理：<span class="math inline">\(A\,是集合\Rarr\lbrace x\in
+<li><p>子集公理：<span class="math inline">\(A\,是集合⇒\lbrace x\in
 A|P(x)\rbrace\,是集合\)</span></p></li>
 <li><p>并集公理：<span class="math inline">\({\mathcal
-A}\,是集族\Rarr{\bigcup\\}{\mathcal A}\,是集合\)</span></p></li>
-<li><p>幂集公理：<span class="math inline">\(A\,是集合\Rarr
+A}\,是集族⇒{\bigcup\\}{\mathcal A}\,是集合\)</span></p></li>
+<li><p>幂集公理：<span class="math inline">\(A\,是集合⇒
 P(A)\,是集合\)</span></p></li>
-<li><p>替换公理：<span class="math inline">\(F\,是\,A\,上的函数\Rarr
-\lbrace f(x)|x\in A\}\,是集合\)</span></p></li>
-<li><p>正则公理：<span class="math inline">\(A\not=\empty\Rarr\exist
-B(B\in A\and B\cap A=\empty)\)</span></p></li>
+<li><p>替换公理：<span class="math inline">\(F\,是\,A\,上的函数⇒ \lbrace
+f(x)|x\in A\}\,是集合\)</span></p></li>
+<li><p>正则公理：<span class="math inline">\(A\not=Ø⇒∃ B(B\in A⋀ B\cap
+A=Ø)\)</span></p></li>
 <li><p>无限公理：存在归纳集。</p>
-<p><span class="math inline">\(\quad A\,是归纳集\Harr(\empty\in
-A)\and(a\in A\rarr a\cup\lbrace a\rbrace\in A)\)</span></p></li>
+<p><span class="math inline">\(\quad A\,是归纳集⇔(Ø\in A)⋀(a\in A→
+a\cup\lbrace a\rbrace\in A)\)</span></p></li>
 </ul>
 <p>以上公理组成了 ZF 公理系统。加上下面的选择公理（策梅洛公理）即构成
 ZFC 公理系统</p>
 <ul>
 <li><p>选择公理：<span class="math inline">\(\mathcal A\)</span>
 是元素互不相交的非空集族。从该集族每个元素中选择一个元素，那些选择的元素构成一个集合</p>
-<p><span class="math inline">\(\quad\forall a,b\in{\mathcal A}(a\cap
-b\not=\empty\rarr a=b)\Rarr\exist C(\forall x\in{\mathcal A}\rarr |x\cap
-C|=1)\)</span></p>
+<p><span class="math inline">\(\quad∀ a,b\in{\mathcal A}(a\cap b\not=Ø→
+a=b)⇒∃ C(∀ x\in{\mathcal A}→ |x\cap C|=1)\)</span></p>
 <p>以下公理都是该公理的等价形式：</p>
 <ul>
 <li>广义选择公理：对于任何非空集族都有选择函数 <span
-class="math inline">\(f:\mathcal{A\rarr\bigcup A},\,f(x)\in x\in\mathcal
+class="math inline">\(f:\mathcal{A→\bigcup A},\,f(x)\in x\in\mathcal
 A\)</span></li>
 <li>良序原理：任何集合都可以良序化</li>
 <li>Zorn 原理：链总有上界的非空偏序集存在极大元</li>
 <li>Hausdorff 极大原理：任何链都包含于极大链</li>
 <li>三歧性原理：<span
-class="math inline">\(A,B\,是集合\Rarr|A|\le|B|\or|B|\le|A|\)</span></li>
+class="math inline">\(A,B\,是集合⇒|A|\le|B|⋁|B|\le|A|\)</span></li>
 </ul></li>
 </ul>
 <h2 id="图论">2 图论</h2>
@@ -2293,18 +2246,18 @@ class="math inline">\(A,B\,是集合\Rarr|A|\le|B|\or|B|\le|A|\)</span></li>
 <ul>
 <li><p><strong>无序积</strong></p>
 <p><span class="math inline">\(\quad A\&amp;B=\lbrace\lbrace x,y\}|x\in
-A\and y\in B\}\)</span></p>
+A⋀ y\in B\}\)</span></p>
 <p>其中，记 <span class="math inline">\(\lbrace
 x,y\}=(x,y)\)</span>，允许 <span class="math inline">\(x=y\)</span>，且
 <span class="math inline">\((x,y)=(y,x)\)</span></p></li>
 <li><p><strong>无向图</strong></p>
 <p><span class="math inline">\(V(G)\)</span> 是顶点集，<span
 class="math inline">\(E(G)\)</span> 是边集，且 <span
-class="math inline">\(V\not=\empty\)</span>、<span
+class="math inline">\(V\not=Ø\)</span>、<span
 class="math inline">\(E\subseteq V\&amp;V\)</span></p>
-<p>则无向图 <span class="math inline">\(G=\lang V,E\rang\)</span></p>
-<p>比如：无向图 <span class="math inline">\(G=\lang V,E\rang\quad
-V=\lbrace a,b,c,d\}\quad E=\lbrace (a,b),(b,c),(b,c),(b,d)\}\)</span>
+<p>则无向图 <span class="math inline">\(G=⟨ V,E⟩\)</span></p>
+<p>比如：无向图 <span class="math inline">\(G=⟨ V,E⟩\quad V=\lbrace
+a,b,c,d\}\quad E=\lbrace (a,b),(b,c),(b,c),(b,d)\}\)</span>
 的样子如下所示</p>
 <pre><code class=" mermaid">graph LR
 A((a))---B((b))---C((c))
@@ -2313,23 +2266,22 @@ B---D((d))</code></pre></li>
 <li><p><strong>有向图</strong></p>
 <p><span class="math inline">\(V(D)\)</span> 是顶点集，<span
 class="math inline">\(E(D)\)</span> 是边集，且 <span
-class="math inline">\(V\not=\empty\)</span>、<span
+class="math inline">\(V\not=Ø\)</span>、<span
 class="math inline">\(E\subseteq V\times V\)</span></p>
-<p>则有向图 <span class="math inline">\(D=\lang V,E\rang\)</span></p>
-<p>比如：有向图 <span class="math inline">\(D=\lang V,E\rang\quad
-V=\lbrace a,b,c,d\}\quad E=\lbrace \lang a,b\rang,\lang a,c\rang,\lang
-b,c\rang,\lang b,d\rang\}\)</span> 的样子如下所示</p>
+<p>则有向图 <span class="math inline">\(D=⟨ V,E⟩\)</span></p>
+<p>比如：有向图 <span class="math inline">\(D=⟨ V,E⟩\quad V=\lbrace
+a,b,c,d\}\quad E=\lbrace ⟨ a,b⟩,⟨ a,c⟩,⟨ b,c⟩,⟨ b,d⟩\}\)</span>
+的样子如下所示</p>
 <pre><code class=" mermaid">graph LR
 A((a))--&gt;B((b))--&gt;C((c))
 C--&gt;B
 B--&gt;D((d))</code></pre></li>
 <li><p><strong>n 阶图</strong></p>
 <p><span class="math inline">\(\quad|V(G)|=n\)</span></p>
-<p>当 <span class="math inline">\(n&lt;\infin\)</span> 时称为
-<strong>有限图</strong>。当 <span
-class="math inline">\(E=\empty\)</span> 时称为 <strong>零图</strong>。当
-<span class="math inline">\(V=E=\empty\)</span> 时称为
-<strong>空图</strong></p>
+<p>当 <span class="math inline">\(n&lt;∞\)</span> 时称为
+<strong>有限图</strong>。当 <span class="math inline">\(E=Ø\)</span>
+时称为 <strong>零图</strong>。当 <span
+class="math inline">\(V=E=Ø\)</span> 时称为 <strong>空图</strong></p>
 <p>1 阶的零图 <span class="math inline">\(N_1\)</span> 称为平凡图</p>
 <p>下面是一些例子</p>
 <pre><code class=" mermaid">graph BT
@@ -2380,7 +2332,7 @@ D1((?))--无法表示--&gt;D1</code></pre></li>
 <p>邻域：一个点的相邻点构成的集合称为
 <strong>邻域（开邻域）</strong></p>
 <p><span class="math inline">\(\quad N_G(v)=\lbrace u\in V(G)|(u,v)\in
-E(G)\and u\not=v\}\)</span></p>
+E(G)⋀ u\not=v\}\)</span></p>
 <p>闭邻域：一个点及其相邻点构成的集合称为 <strong>闭邻域</strong></p>
 <p><span class="math inline">\(\quad\overline{N_G(v)}=N_G(v)\cup\lbrace
 v\}\)</span></p>
@@ -2388,11 +2340,11 @@ v\}\)</span></p>
 <p><span class="math inline">\(\quad I_G(v)=\lbrace
 e|e\,与\,v\,关联\}\)</span></p>
 <p>后继：在有向图中，一个点的后继点构成的集合</p>
-<p><span class="math inline">\(\quad{\Gamma_D}^+(v)=\lbrace u\in
-V(D)|\lang v,u\rang\in E(D)\and u\not= v\}\)</span></p>
+<p><span class="math inline">\(\quad{\Gamma_D}^+(v)=\lbrace u\in V(D)|⟨
+v,u⟩\in E(D)⋀ u\not= v\}\)</span></p>
 <p>前驱：在有向图中，一个点的前驱点构成的集合</p>
-<p><span class="math inline">\(\quad{\Gamma_D}^-(v)=\lbrace u\in
-V(D)|\lang u,v\rang\in E(D)\and u\not= v\}\)</span></p>
+<p><span class="math inline">\(\quad{\Gamma_D}^-(v)=\lbrace u\in V(D)|⟨
+u,v⟩\in E(D)⋀ u\not= v\}\)</span></p>
 <p>有向图的开邻域：<span
 class="math inline">\(N_D(v)={\Gamma_D}^+(v)\cup{\Gamma_D}^-(v)\)</span></p>
 <p>有向图的闭邻域：<span
@@ -2413,9 +2365,8 @@ class="math inline">\(\delta(G)=\operatorname{min}\lbrace d_G(v)|v\in
 V(G)\}\)</span></p>
 <p>最大出度、最大入度、最小出度、最小入度</p></li>
 <li><p><strong>握手定理</strong></p>
-<p>设 <span class="math inline">\(G=\lang V,E\rang\)</span>
-是无向图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},\,|E|=m\)</span></p>
+<p>设 <span class="math inline">\(G=⟨ V,E⟩\)</span> 是无向图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},\,|E|=m\)</span></p>
 <p>则 <span
 class="math inline">\(d(v_1)+d(v_2)+\dots+d(v_n)=2m\)</span></p>
 <p>推论：任何图中，奇数度顶点的个数是偶数</p></li>
@@ -2435,33 +2386,32 @@ d=(d(v_1),d(v_2),\dots,d(v_n))\)</span></p>
 class="math inline">\(G\)</span> 的度数列是 <span
 class="math inline">\(d\)</span>，则称 <span
 class="math inline">\(d\)</span> 是 <strong>可图化</strong> 的</p>
-<p><span class="math inline">\(\quad d\,可图化\Harr
-d_1+d_2+\dots+d_n\equiv 0(\operatorname{mod}2)\)</span></p>
+<p><span class="math inline">\(\quad d\,可图化⇔ d_1+d_2+\dots+d_n\equiv
+0(\operatorname{mod}2)\)</span></p>
 <p>若存在简单图 <span class="math inline">\(G\)</span> 使得 <span
 class="math inline">\(G\)</span> 的度数列是 <span
 class="math inline">\(d\)</span>，则称 <span
 class="math inline">\(d\)</span> 是 <strong>可简单图化</strong> 的</p>
-<p><span class="math inline">\(\quad\begin{align}
-&amp;d\,可简单图化\\\Harr
-&amp;d&#39;=(d_2-1,d_3-1,\dots,d_n-1)\,可简单图化\\\Harr&amp;\forall
-r(r\ge1\and r\le n-1)\rarr d_1+d_2+\dots+d_r\le r(r-1)+\min \lbrace
-r,d_{r+1}\}+\min \lbrace r,d_{r+2}\}+\dots+\min \lbrace
-r,d_{n}\}\\\Harr&amp;n-1\ge d_1\ge d_2\ge\dots\ge d_n\ge 0\Rarr
-d_1+d_2+\dots+d_n\le n(n-1)\end{align}\)</span></p></li>
+<p><span class="math inline">\(\quad\begin{align} &amp;d\,可简单图化\\⇔
+&amp;d&#39;=(d_2-1,d_3-1,\dots,d_n-1)\,可简单图化\\⇔&amp;∀ r(r\ge1⋀ r\le
+n-1)→ d_1+d_2+\dots+d_r\le r(r-1)+\min \lbrace r,d_{r+1}\}+\min \lbrace
+r,d_{r+2}\}+\dots+\min \lbrace r,d_{n}\}\\⇔&amp;n-1\ge d_1\ge
+d_2\ge\dots\ge d_n\ge 0⇒ d_1+d_2+\dots+d_n\le
+n(n-1)\end{align}\)</span></p></li>
 <li><p><strong>同构</strong></p>
 <p>对于图 <span class="math inline">\(G_1,G_2\)</span></p>
-<p>如果存在双射 <span class="math inline">\(f:V(G_1)\rarr
-V(G_2)\)</span> 使得 <span class="math inline">\(\forall a,b\in
-V(G_1),\,(a,b)\in E(G_1)\harr (f(a),f(b))\in E(G_2)\)</span> 就称 <span
+<p>如果存在双射 <span class="math inline">\(f:V(G_1)→ V(G_2)\)</span>
+使得 <span class="math inline">\(∀ a,b\in V(G_1),\,(a,b)\in E(G_1)↔
+(f(a),f(b))\in E(G_2)\)</span> 就称 <span
 class="math inline">\(G_1\)</span> 与 <span
 class="math inline">\(G_2\)</span> 同构。记为 <span
 class="math inline">\(G_1\cong G_2\)</span></p>
 <p>同构的图，其图论性质完全一致</p>
 <p>对于有向图 <span class="math inline">\(D_1,D_2\)</span>
-同理，存在双射 <span class="math inline">\(f:V(D_1)\rarr V(D_2)\)</span>
-使得 <span class="math inline">\(\forall a,b\in V(D_1),\,\lang
-a,b\rang\in E(D_1)\harr \lang f(a),f(b)\rang\in E(D_2)\)</span> 就称
-<span class="math inline">\(D_1\)</span> 与 <span
+同理，存在双射 <span class="math inline">\(f:V(D_1)→ V(D_2)\)</span>
+使得 <span class="math inline">\(∀ a,b\in V(D_1),\,⟨ a,b⟩\in E(D_1)↔ ⟨
+f(a),f(b)⟩\in E(D_2)\)</span> 就称 <span
+class="math inline">\(D_1\)</span> 与 <span
 class="math inline">\(D_2\)</span> 同构，记为 <span
 class="math inline">\(D_1\cong D_2\)</span></p>
 <ul>
@@ -2478,74 +2428,73 @@ class="math inline">\(K_n\)</span></p>
 组，每条边的两个端点位于不同的组</p></li>
 <li><p><strong>子图、生成子图</strong></p>
 <p>对于图 <span class="math inline">\(G,G&#39;\)</span>，若有 <span
-class="math inline">\(V&#39;\subseteq V\and E&#39;\subseteq
-E\)</span>，则 <span class="math inline">\(G&#39;\)</span> 是 <span
+class="math inline">\(V&#39;\subseteq V⋀ E&#39;\subseteq E\)</span>，则
+<span class="math inline">\(G&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的<strong>子图</strong>，记为 <span
 class="math inline">\(G&#39;\subseteq G\)</span></p>
-<p>若 <span class="math inline">\(G&#39;\subseteq G\and(V&#39;\subset
-V\and E&#39;\subset E)\)</span>，则 <span
+<p>若 <span class="math inline">\(G&#39;\subseteq G⋀(V&#39;\subset V⋀
+E&#39;\subset E)\)</span>，则 <span
 class="math inline">\(G&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的<strong>真子图</strong>，记为 <span
 class="math inline">\(G&#39;\subset G\)</span></p>
-<p>若 <span class="math inline">\(G&#39;\subseteq G\and
+<p>若 <span class="math inline">\(G&#39;\subseteq G⋀
 V&#39;=V\)</span>，则 <span class="math inline">\(G&#39;\)</span> 是
 <span class="math inline">\(G\)</span>
 的<strong>生成子图</strong></p></li>
 <li><p><strong>导出子图</strong></p>
 <p>若 <span class="math inline">\(V_1\subset V,\, E_1=E\cap
-V_1\&amp;V_1\)</span> 则称 <span class="math inline">\(G[V_1]=\lang
-V_1,E_1\rang\)</span> 是由 <span class="math inline">\(V_1\)</span>
+V_1\&amp;V_1\)</span> 则称 <span class="math inline">\(G[V_1]=⟨
+V_1,E_1⟩\)</span> 是由 <span class="math inline">\(V_1\)</span>
 <strong>导出的子图</strong></p>
-<p>若 <span class="math inline">\(\empty\not=E_1\subset E,\, V_1=\lbrace
+<p>若 <span class="math inline">\(Ø\not=E_1\subset E,\, V_1=\lbrace
 v|v\,与\,E_1\,中的边关联\}\)</span> 则称 <span
-class="math inline">\(G[E_1]=\lang V_1,E_1\rang\)</span> 是由 <span
+class="math inline">\(G[E_1]=⟨ V_1,E_1⟩\)</span> 是由 <span
 class="math inline">\(E_1\)</span> <strong>导出的子图</strong></p></li>
 <li><p><strong>补图</strong></p>
-<p>对于图 <span class="math inline">\(G=\lang V,E\rang\)</span>，其补图
-<span class="math inline">\(\overline G=\lang
-V,E(K_n)-E\rang\)</span></p>
+<p>对于图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，其补图 <span
+class="math inline">\(\overline G=⟨ V,E(K_n)-E⟩\)</span></p>
 <p>如果 <span class="math inline">\(G\cong\overline G\)</span>，则称其为
 <strong>自补图</strong></p></li>
 <li><p><strong>删除</strong></p>
 <p>删除边 <span class="math inline">\(e\)</span>：<span
-class="math inline">\(G-e=\lang V,E-\lbrace e\}\rang\)</span></p>
+class="math inline">\(G-e=⟨ V,E-\lbrace e\}⟩\)</span></p>
 <p>删除边集 <span class="math inline">\(E&#39;\)</span>：<span
-class="math inline">\(G-E&#39;=\lang V,E-E&#39;\rang\)</span></p>
+class="math inline">\(G-E&#39;=⟨ V,E-E&#39;⟩\)</span></p>
 <p>删除顶点 <span class="math inline">\(v\)</span>
-及其关联的所有边：<span class="math inline">\(G-v=\lang V-\lbrace
-v\},E-I_G(v)\rang\)</span></p>
+及其关联的所有边：<span class="math inline">\(G-v=⟨ V-\lbrace
+v\},E-I_G(v)⟩\)</span></p>
 <p>删除顶点集 <span class="math inline">\(V&#39;\)</span>
-及关联的所有边：<span class="math inline">\(G-V&#39;=\lang
-V-V&#39;,E-I_G(V&#39;)\rang\)</span></p></li>
+及关联的所有边：<span class="math inline">\(G-V&#39;=⟨
+V-V&#39;,E-I_G(V&#39;)⟩\)</span></p></li>
 <li><p><strong>收缩、加边</strong></p>
 <p>删除 <span class="math inline">\(e\)</span>，合并 <span
 class="math inline">\(u\)</span> 与 <span
 class="math inline">\(v\)</span>：<span
 class="math inline">\(G{\setminus}e:e=(i,v)\)</span></p>
 <p>在 <span class="math inline">\(u,v\)</span> 间增加新边：<span
-class="math inline">\(G\cup(u,v)=\lang V,E\cup\lbrace
-(u,v)\}\rang\)</span>，也可以写为 <span
+class="math inline">\(G\cup(u,v)=⟨ V,E\cup\lbrace
+(u,v)\}⟩\)</span>，也可以写为 <span
 class="math inline">\(G+(u,v)\)</span></p></li>
 <li><p><strong>不交</strong></p>
 <p>对于 <span class="math inline">\(G_1,G_2\)</span></p>
-<p><span class="math inline">\(\quad G_1\,与\,G_2\,不交\Harr V_1\cap
-V_2=\empty\)</span></p>
-<p><span class="math inline">\(\quad G_1\,与\,G_2\,边不交\Harr E_1\cap
-E_2=\empty\)</span></p></li>
+<p><span class="math inline">\(\quad G_1\,与\,G_2\,不交⇔ V_1\cap
+V_2=Ø\)</span></p>
+<p><span class="math inline">\(\quad G_1\,与\,G_2\,边不交⇔ E_1\cap
+E_2=Ø\)</span></p></li>
 <li><p><strong>并图、交图、差图、环和</strong></p>
 <p>对于无孤立点的图 <span class="math inline">\(G_1,G_2\)</span></p>
-<p>并图：<span class="math inline">\(G_1\cup G_2=\lang V(E_1\cup
-E_2),E_1\cup E_2\rang\)</span></p>
-<p>交图：<span class="math inline">\(G_1\cap G_2=\lang V(E_1\cap
-E_2),E_1\cap E_2\rang\)</span></p>
-<p>差图：<span class="math inline">\(G_1-G_2=\lang
-V(E_1-E_2),E_1-E_2\rang\)</span></p>
-<p>环和：<span class="math inline">\(G_1\oplus G_2=\lang V(E_1\oplus
-E_2),E_1\oplus E_2\rang\)</span></p></li>
+<p>并图：<span class="math inline">\(G_1\cup G_2=⟨ V(E_1\cup
+E_2),E_1\cup E_2⟩\)</span></p>
+<p>交图：<span class="math inline">\(G_1\cap G_2=⟨ V(E_1\cap
+E_2),E_1\cap E_2⟩\)</span></p>
+<p>差图：<span class="math inline">\(G_1-G_2=⟨
+V(E_1-E_2),E_1-E_2⟩\)</span></p>
+<p>环和：<span class="math inline">\(G_1\oplus G_2=⟨ V(E_1\oplus
+E_2),E_1\oplus E_2⟩\)</span></p></li>
 <li><p><strong>联图</strong></p>
 <p><span class="math inline">\(G_1,G_2\)</span> 是不交的无向图</p>
-<p>其联图 <span class="math inline">\(G_1+G_2=\lang V_1\cup V_2,E_1\cup
-E_2\cup(V_1\&amp;V_2)\rang\)</span></p>
+<p>其联图 <span class="math inline">\(G_1+G_2=⟨ V_1\cup V_2,E_1\cup
+E_2\cup(V_1\&amp;V_2)⟩\)</span></p>
 <p><span class="math inline">\(\quad K_r+K_s=K_{r+s}\quad
 N_r+N_s=K_{r,s}\quad n=n_1+n_2,\,m=m_1+m_2+n_1n_2\)</span></p></li>
 </ul>
@@ -2566,7 +2515,7 @@ N_r+N_s=K_{r,s}\quad n=n_1+n_2,\,m=m_1+m_2+n_1n_2\)</span></p></li>
 <p>可以只用边的序列来表示通路。简单图可以只用顶点的序列表示通路。</p>
 <p>图中最长圈的长度称为图的 <strong>周长</strong>。不含圈时，长度为
 <span class="math inline">\(0\)</span> 或 <span
-class="math inline">\(\infin\)</span></p>
+class="math inline">\(∞\)</span></p>
 <p>有以下定理：</p>
 <ul>
 <li><p>在 <span class="math inline">\(n\)</span> 阶图 <span
@@ -2583,7 +2532,7 @@ class="math inline">\(v_j\)</span> 有通路，则从 <span
 class="math inline">\(v_i\)</span> 到 <span
 class="math inline">\(v_j\)</span> 有长度小于等于 <span
 class="math inline">\(n-1\)</span> 的路径</p></li>
-<li><p><span class="math inline">\(G\,是二部图\Harr
+<li><p><span class="math inline">\(G\,是二部图⇔
 G\,中无奇圈\)</span></p></li>
 <li><p>若无向图 <span class="math inline">\(G\)</span> 是连通图，则
 <span class="math inline">\(G\)</span> 的边数 <span
@@ -2620,12 +2569,12 @@ class="math inline">\(d_G(u,v)\)</span></p>
 class="math inline">\(d(G)=\max(d_G(u,v)|u,v\in V(G))\)</span></p>
 <p>有 <span
 class="math inline">\(d(K_n)=1(n\ge2),\,d(C_n)=n/2\)</span>，并且约定零图的直径：<span
-class="math inline">\(d(N_i)=\begin{cases}0,\quad i=1\\\infin,\quad
+class="math inline">\(d(N_i)=\begin{cases}0,\quad i=1\\∞,\quad
 i&gt;1\end{cases}\)</span></p></li>
 <li><p><strong>距离函数</strong></p>
 <p>距离函数具有三个特征</p>
 <ul>
-<li>非负性：<span class="math inline">\(d(u,v)\ge0\and d(u,v)=0\Harr
+<li>非负性：<span class="math inline">\(d(u,v)\ge0⋀ d(u,v)=0⇔
 u=v\)</span></li>
 <li>对称性：<span class="math inline">\(d(u,v)=d(v,u)\)</span></li>
 <li><span class="math inline">\(\Delta\)</span>不等式：<span
@@ -2633,17 +2582,17 @@ class="math inline">\(d(u,v)+d(v,w)\ge d(u,w)\)</span></li>
 </ul>
 <p>任何函数只要满足上述三条特征就能作为距离函数使用。</p></li>
 <li><p><strong>可达、弱连通</strong></p>
-<p>对于有向图 <span class="math inline">\(D=\lang
-V,E\rang\)</span>，若从 <span class="math inline">\(u\)</span> 到 <span
+<p>对于有向图 <span class="math inline">\(D=⟨ V,E⟩\)</span>，若从 <span
+class="math inline">\(u\)</span> 到 <span
 class="math inline">\(v\)</span> 有有向通路，则称从 <span
 class="math inline">\(u\)</span> <strong>可达</strong> <span
-class="math inline">\(v\)</span>，记作 <span
-class="math inline">\(u\rarr v\)</span></p>
-<p>规定 <span class="math inline">\(u\rarr u\)</span>。可达关系是
+class="math inline">\(v\)</span>，记作 <span class="math inline">\(u→
+v\)</span></p>
+<p>规定 <span class="math inline">\(u→ u\)</span>。可达关系是
 自反、传递的。可达关系的导出子图是 <strong>单向连通分支</strong></p>
-<p>若 <span class="math inline">\(u\rarr v\and v\rarr u\)</span> 则称
-<span class="math inline">\(u,v\)</span> <strong>双向可达</strong>，记作
-<span class="math inline">\(u\harr v\)</span></p>
+<p>若 <span class="math inline">\(u→ v⋀ v→ u\)</span> 则称 <span
+class="math inline">\(u,v\)</span> <strong>双向可达</strong>，记作 <span
+class="math inline">\(u↔ v\)</span></p>
 <p>双向可达关系是等价关系。其等价类的导出子图称为
 <strong>强连通分支（双向连通分支）</strong></p>
 <p>若有向图的基图是连通图，则称其为
@@ -2651,10 +2600,10 @@ class="math inline">\(u\rarr v\)</span></p>
 <p>有如下定理：</p>
 <ul>
 <li><p>对于竞赛图，一定有一条路经过每一个点恰好一次</p></li>
-<li><p><span class="math inline">\(有向图\,D\,强连通\Harr
+<li><p><span class="math inline">\(有向图\,D\,强连通⇔
 D\,中有回路经过每个点至少一次\)</span></p>
 <p>这个回路不一定是简单回路</p></li>
-<li><p><span class="math inline">\(有向图\,D\,单向连通\Harr
+<li><p><span class="math inline">\(有向图\,D\,单向连通⇔
 D\,中有通路经过每个顶点至少一次\)</span></p>
 <p>这个通路不一定是简单通路</p></li>
 </ul></li>
@@ -2662,16 +2611,16 @@ D\,中有通路经过每个顶点至少一次\)</span></p>
 <h3 id="连通度">2.3 连通度</h3>
 <ul>
 <li><p><strong>点割集、边割集</strong></p>
-<p>设有图 <span class="math inline">\(G\lang V,E\rang\)</span>，非空点集
-<span class="math inline">\(V&#39;\subset V\)</span>，非空边集 <span
+<p>设有图 <span class="math inline">\(G⟨ V,E⟩\)</span>，非空点集 <span
+class="math inline">\(V&#39;\subset V\)</span>，非空边集 <span
 class="math inline">\(E&#39;\subset E\)</span></p>
 <p>若满足 <span class="math inline">\(p(G-V&#39;)&gt;p(G)\)</span>，且
-<span class="math inline">\(\forall V&#39;&#39;\subset
+<span class="math inline">\(∀ V&#39;&#39;\subset
 V&#39;,\,p(G-V&#39;&#39;)=p(G)\)</span> 则称 <span
 class="math inline">\(V&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的一个 <strong>点割集</strong>。</p>
 <p>若满足 <span class="math inline">\(p(G-E&#39;)&gt;p(G)\)</span>，且
-<span class="math inline">\(\forall E&#39;&#39;\subset
+<span class="math inline">\(∀ E&#39;&#39;\subset
 E&#39;,\,p(G-E&#39;&#39;)=p(G)\)</span> 则称 <span
 class="math inline">\(E&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的一个 <strong>边割集</strong>。</p>
@@ -2680,9 +2629,9 @@ class="math inline">\(p(G-E&#39;)=p(G)+1\)</span></p>
 <p>若 <span class="math inline">\(E&#39;\subseteq I_G(v)\)</span>
 则称其为 <strong>扇形割集</strong></p></li>
 <li><p><strong>割点、割边（桥）</strong></p>
-<p><span class="math inline">\(\quad v\,是割点\Harr\lbrace
+<p><span class="math inline">\(\quad v\,是割点⇔\lbrace
 v\}\,是割集\)</span></p>
-<p><span class="math inline">\(\quad (u,v)\,是割边\Harr\lbrace
+<p><span class="math inline">\(\quad (u,v)\,是割边⇔\lbrace
 (u,v)\}\,是割集\)</span></p>
 <p><span class="math inline">\(I_G(v)\)</span>
 不一定是边割集（不一定极小）。当且仅当 <span
@@ -2742,36 +2691,35 @@ class="math inline">\(G\)</span> 中的 <strong>x-y 割</strong>。</p>
 <li><p><strong>2-连通图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
-&amp;3\,阶以上无向图是\,2-连通图\\ \Harr&amp;图中任意两点都共圈\\
-\Harr&amp;图中任意两顶点间都有\,2\,条以上独立路径
+&amp;3\,阶以上无向图是\,2-连通图\\ ⇔&amp;图中任意两点都共圈\\
+⇔&amp;图中任意两顶点间都有\,2\,条以上独立路径
 \end{align}\)</span></p></li>
 <li><p><strong>2-边连通图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
-&amp;3\,阶以上无向图是\,2-边连通图\\
-\Harr&amp;图中任意两点都共简单回路\\
-\Harr&amp;图中任意两顶点间都有\,2\,条以上边不交路径
+&amp;3\,阶以上无向图是\,2-边连通图\\ ⇔&amp;图中任意两点都共简单回路\\
+⇔&amp;图中任意两顶点间都有\,2\,条以上边不交路径
 \end{align}\)</span></p></li>
 <li><p><strong>k-连通图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
 &amp;3\,阶以上无向图是k-连通图\\
-\Harr&amp;图中任意两顶点间都有\,k\,条以上独立路径
+⇔&amp;图中任意两顶点间都有\,k\,条以上独立路径
 \end{align}\)</span></p></li>
 <li><p><strong>k-边连通图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
 &amp;3\,阶以上无向图是k-边连通图\\
-\Harr&amp;图中任意两顶点间都有\,k\,条以上边不交
+⇔&amp;图中任意两顶点间都有\,k\,条以上边不交
 \end{align}\)</span></p></li>
 <li><p><strong>割点</strong> 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
-&amp;无向连通图中顶点\,v\,是割点\\ \Harr&amp;存在\,u,w\in V(G)-\lbrace
+&amp;无向连通图中顶点\,v\,是割点\\ ⇔&amp;存在\,u,w\in V(G)-\lbrace
 v\}，使得\,u,w\,间的路径都经过\,v \end{align}\)</span></p></li>
 <li><p><strong>桥</strong> 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
 &amp;无向连通图中边\,e\,是桥\\
-\Harr&amp;图中任意圈都不经过\,e\\\Harr&amp;可把\,V(G)\,划分为\,V_1,V_2，任意\,u\in
+⇔&amp;图中任意圈都不经过\,e\\⇔&amp;可把\,V(G)\,划分为\,V_1,V_2，任意\,u\in
 V_1\,和\,v\in V_2\,间的路径都经过\,e \end{align}\)</span></p></li>
 </ul></li>
 <li><p><strong>块</strong></p>
@@ -2780,11 +2728,11 @@ V_1\,和\,v\in V_2\,间的路径都经过\,e \end{align}\)</span></p></li>
 <ul>
 <li><p><strong>块</strong> 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align} &amp;3\,阶以上无向图是块\\
-\Harr&amp;图中任意两顶点都共圈\\ \Harr&amp;图中任意顶点与任意边都共圈\\
-\Harr&amp;图中任意两边都共圈\\
-\Harr&amp;对于任意边，图中任意两点间都存在经过该边的路径\\
-\Harr&amp;对于图中任意三点，都存在路径连接其中两点，并经过第三点\\
-\Harr&amp;对于图中任意三点，都存在路径连接其中两点，且不经过第三点\\
+⇔&amp;图中任意两顶点都共圈\\ ⇔&amp;图中任意顶点与任意边都共圈\\
+⇔&amp;图中任意两边都共圈\\
+⇔&amp;对于任意边，图中任意两点间都存在经过该边的路径\\
+⇔&amp;对于图中任意三点，都存在路径连接其中两点，并经过第三点\\
+⇔&amp;对于图中任意三点，都存在路径连接其中两点，且不经过第三点\\
 \end{align}\)</span></p></li>
 <li><p>n 阶简单连通图的 <span
 class="math inline">\(\kappa,\lambda,\delta\)</span>
@@ -2813,23 +2761,23 @@ class="math inline">\(n\le\kappa\le\lambda\le\delta&lt;n/2\)</span></li>
 <li><p><strong>无向欧拉图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align} &amp;无向图连通图是欧拉图\\
-\Harr&amp;图中所有顶点的度都是偶数\\
-\Harr&amp;图是若干边不交的圈的并\end{align}\)</span></p></li>
+⇔&amp;图中所有顶点的度都是偶数\\
+⇔&amp;图是若干边不交的圈的并\end{align}\)</span></p></li>
 <li><p><strong>无向半欧拉图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
 &amp;无向图连通图是半欧拉图\\
-\Harr&amp;图中恰有两个奇数度顶点\end{align}\)</span></p></li>
+⇔&amp;图中恰有两个奇数度顶点\end{align}\)</span></p></li>
 <li><p><strong>有向欧拉图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align} &amp;有向图连通图是欧拉图\\
-\Harr&amp;\forall v\in V(G),\,d^+(v)=d^-(v)\\
-\Harr&amp;图是若干边不交的有向圈的并\end{align}\)</span></p></li>
+⇔&amp;∀ v\in V(G),\,d^+(v)=d^-(v)\\
+⇔&amp;图是若干边不交的有向圈的并\end{align}\)</span></p></li>
 <li><p><strong>有向半欧拉图</strong>
 的<font color="#20AEA0">充要条件</font></p>
 <p><span class="math inline">\(\begin{align}
 &amp;有向图连通图是半欧拉图\\
-\Harr&amp;恰有一个顶点入度=出度+1，另一个顶点入度=出度-1，其余顶点入度=出度\\
+⇔&amp;恰有一个顶点入度=出度+1，另一个顶点入度=出度-1，其余顶点入度=出度\\
 \end{align}\)</span></p></li>
 </ul></li>
 <li><p><strong>计算欧拉图的方法</strong></p>
@@ -2848,15 +2796,13 @@ class="math inline">\(n\le\kappa\le\lambda\le\delta&lt;n/2\)</span></li>
 <ul>
 <li><p><strong>无向哈密顿图</strong>
 的<font color="#AE20A0">必要条件</font>（不是充分条件）</p>
-<p>设无向哈密顿图图 <span class="math inline">\(G=\lang
-V,E\rang\)</span>，则有 <span class="math inline">\(\forall
-V_1(V_1\not=\empty\and V_1\subset V)\rarr
+<p>设无向哈密顿图图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，则有
+<span class="math inline">\(∀ V_1(V_1\not=Ø⋀ V_1\subset V)→
 p(G-V_1)\le|V_1|\)</span></p></li>
 <li><p><strong>无向半哈密顿图</strong>
 的<font color="#AE20A0">必要条件</font>（不是充分条件）</p>
-<p>设无向半哈密顿图 <span class="math inline">\(G=\lang
-V,E\rang\)</span>，则有 <span class="math inline">\(\forall
-V_1(V_1\not=\empty\and V_1\subset V)\rarr
+<p>设无向半哈密顿图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，则有
+<span class="math inline">\(∀ V_1(V_1\not=Ø⋀ V_1\subset V)→
 p(G-V_1)\le|V_1|+1\)</span></p></li>
 <li><p><strong>无向哈密顿图</strong>
 的<font color="#EEA000">充分条件</font>（不是必要条件）</p>
@@ -2909,9 +2855,9 @@ class="math inline">\(T\)</span></p>
 class="math inline">\(m\)</span> 边无向图 <span
 class="math inline">\(G\)</span>，树的等价定义：</p>
 <p><span class="math inline">\(\quad\begin{align} &amp;G\,是树\\
-\Harr&amp;G\,中任何两个顶点间有唯一的路径\\ \Harr&amp;G\,无圈\and
-m=n-1\\ \Harr&amp;G\,连通\and m=n-1\\ \Harr&amp;G\,极小连通\\
-\Harr&amp;G\,极大无回 \end{align}\)</span></p>
+⇔&amp;G\,中任何两个顶点间有唯一的路径\\ ⇔&amp;G\,无圈⋀ m=n-1\\
+⇔&amp;G\,连通⋀ m=n-1\\ ⇔&amp;G\,极小连通\\ ⇔&amp;G\,极大无回
+\end{align}\)</span></p>
 <p><strong>极小连通</strong>：连通且所有边都是桥</p>
 <p><strong>极大无回</strong>：无圈且新增任何边都会产生唯一的圈</p></li>
 <li><p>任何非平凡树都至少有 2 个树叶</p></li>
@@ -2936,7 +2882,7 @@ class="math inline">\(e\in E(G)-E(T)\)</span> 称为
 class="math inline">\(G[E(G)-E(T)]=\overline{T}\)</span></p>
 <p>有如下定理</p>
 <ul>
-<li><p><span class="math inline">\(无向图\,G\,连通\Harr
+<li><p><span class="math inline">\(无向图\,G\,连通⇔
 G\,有生成树\)</span></p>
 <p>若 <span class="math inline">\(G\)</span> 是 <span
 class="math inline">\(n\)</span> 阶 <span
@@ -3014,15 +2960,15 @@ e)\)</span></p>
 class="math inline">\(e\)</span> 的生成树，加上过边 <span
 class="math inline">\(e\)</span> 的生成树</p></li>
 <li><p><span class="math inline">\(n\ge
-2\Rarr\tau(K_n)=n^{n-2}\)</span></p></li>
+2⇒\tau(K_n)=n^{n-2}\)</span></p></li>
 </ul></li>
 </ul>
 <h3 id="图的矩阵表示">2.6 图的矩阵表示</h3>
 <ul>
 <li><p><strong>有向图关联矩阵</strong></p>
-<p>设 <span class="math inline">\(D=\lang V,E\rang\)</span>
-是无环有向图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},\,E=\lbrace e_1,e_2,\dots,e_m\}\)</span></p>
+<p>设 <span class="math inline">\(D=⟨ V,E⟩\)</span> 是无环有向图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},\,E=\lbrace
+e_1,e_2,\dots,e_m\}\)</span></p>
 <p>则关联矩阵 <span class="math inline">\(M(D)=[m_{ij}]_{n\times
 m}\)</span> 有 <span class="math inline">\(m_{ij}=\begin{cases}1,\quad
 v_i\,是\,e_j\,的起点\\0,\quad v_i\,与\,e_j\,不关联\\-1\,\quad
@@ -3045,9 +2991,9 @@ class="math inline">\(\sum^n_{i=1}\sum^m_{j=1}m_{ij}=0\)</span></p></li>
 <li><p>相同的两列是平行边</p></li>
 </ul></li>
 <li><p><strong>无向图的关联矩阵</strong></p>
-<p>设 <span class="math inline">\(G=\lang V,E\rang\)</span>
-是无环无向图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},\,E=\lbrace e_1,e_2,\dots,e_m\}\)</span></p>
+<p>设 <span class="math inline">\(G=⟨ V,E⟩\)</span> 是无环无向图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},\,E=\lbrace
+e_1,e_2,\dots,e_m\}\)</span></p>
 <p>则关联矩阵 <span class="math inline">\(M(G)=[m_{ij}]_{n\times
 m}\)</span> 有 <span class="math inline">\(m_{ij}=\begin{cases}1,\quad
 v_i\,与\,e_j\,关联\\0,\quad v_i\,与\,e_j\,不关联\end{cases}\)</span></p>
@@ -3067,8 +3013,8 @@ v_i\},\overline{\lbrace v_i\}}]\)</span></p></li>
 <p><span class="math inline">\(\quad
 M(G)=\begin{bmatrix}M(G_1)\\&amp;M(G_2)\\&amp;&amp;\ddots\\&amp;&amp;&amp;M(G_i)\end{bmatrix}\)</span></p></li>
 <li><p>无向连通图的图关联矩阵的秩是 <span
-class="math inline">\(n-1\)</span>：<span
-class="math inline">\(G\,连通\Rarr r(M(G))=n-1\)</span></p>
+class="math inline">\(n-1\)</span>：<span class="math inline">\(G\,连通⇒
+r(M(G))=n-1\)</span></p>
 <blockquote>
 <p><strong><em>有关矩阵的秩</em></strong></p>
 <p>若矩阵的某一行（列）的元素都是 <span
@@ -3093,9 +3039,9 @@ class="math inline">\(r(A)=n\)</span> 则称为列满秩矩阵</p>
 <strong>基本关联矩阵</strong>，记作 <span
 class="math inline">\(M_f(G)\)</span></p>
 <p>有以下推论：</p>
-<p><span class="math inline">\(\quad G,有\,p\,个连通分支\Rarr
+<p><span class="math inline">\(\quad G,有\,p\,个连通分支⇒
 r(M_f(G))=n-p\)</span></p>
-<p><span class="math inline">\(\quad G\,连通\Harr
+<p><span class="math inline">\(\quad G\,连通⇔
 r(M(G))=r(M_f(G))=n-1\)</span></p></li>
 <li><p>对于连通图 <span class="math inline">\(G\)</span>，设 <span
 class="math inline">\(M&#39;_f\)</span> 是 <span
@@ -3107,8 +3053,7 @@ class="math inline">\(n-1\)</span> 行）组成的方阵</p>
 e_{i1},e_{i2},\dots,e_{i(n-1)}\}\)</span> ，导出子图 <span
 class="math inline">\(T=G[\lbrace
 e_{i1},e_{i2},\dots,e_{i(n-1)}\}]\)</span></p>
-<p>则 <span
-class="math inline">\(M&#39;_f\,的行列式\,|M&#39;_f|\not=0\Harr
+<p>则 <span class="math inline">\(M&#39;_f\,的行列式\,|M&#39;_f|\not=0⇔
 T\,是\,G\,的生成树\)</span></p>
 <blockquote>
 <p><strong><em>有关方阵的行列式</em></strong></p>
@@ -3141,9 +3086,9 @@ class="math inline">\(a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a
 </ol></li>
 </ul></li>
 <li><p><strong>有向图邻接矩阵</strong></p>
-<p>设 <span class="math inline">\(D=\lang V,E\rang\)</span>
-是无环有向图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},E=\lbrace e_1,e_2,\dots,e_m\}\)</span></p>
+<p>设 <span class="math inline">\(D=⟨ V,E⟩\)</span> 是无环有向图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},E=\lbrace
+e_1,e_2,\dots,e_m\}\)</span></p>
 <p>邻接矩阵 <span class="math inline">\(A(D)=[a_{ij}]_{n\times
 n}\)</span> 有 <span
 class="math inline">\(a_{ij}=从\,v_i\,到\,v_j\,的边数\)</span></p>
@@ -3157,7 +3102,7 @@ class="math inline">\(\sum^n_{i=1}a_{ij}=d^-(v_j)\)</span></p></li>
 class="math inline">\(\sum^n_{i=1}\sum^n_{j=1}a_{ij}=\sum^n_{i=1}d^-(v_j)=m\)</span></p></li>
 <li><p>环的个数为：<span
 class="math inline">\(\sum^n_{i=1}a_{ii}\)</span></p></li>
-<li><p>若 <span class="math inline">\(A^r=A^{r-1}\bullet
+<li><p>若 <span class="math inline">\(A^r=A^{r-1}•
 A,\,(r\ge2),\,A^r=[a^r_{ij}]_{n\times n}\)</span>，<span
 class="math inline">\(B^r=A+A^2+\dots+A^r=[b^r_{ij}]_{n\times
 n}\)</span></p>
@@ -3179,8 +3124,8 @@ class="math inline">\(\sum^n_{i=1}b^r_{ii}\)</span>
 是这样的回路总数</p></li>
 </ul></li>
 <li><p><strong>有向图可达矩阵</strong></p>
-<p>设 <span class="math inline">\(D=\lang V,E\rang\)</span> 是有向图
-<span class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\}\)</span></p>
+<p>设 <span class="math inline">\(D=⟨ V,E⟩\)</span> 是有向图 <span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\}\)</span></p>
 <p>则可达矩阵 <span class="math inline">\(P(D)=[p_{ij}]_{n\times
 n}\)</span> 有 <span
 class="math inline">\(p_{ij}=\begin{cases}1,&amp;从\,v_i\,可达\,v_j\\1,&amp;从\,v_i\,不可达\,v_j\end{cases}\)</span></p>
@@ -3190,13 +3135,13 @@ class="math inline">\(p_{ij}=\begin{cases}1,&amp;从\,v_i\,可达\,v_j\\1,&amp;�
 <li>对于强连通图，所有元素都是 <span
 class="math inline">\(1\)</span></li>
 <li>对角块是连通分支的可达矩阵称为伪对角阵</li>
-<li><span class="math inline">\(\forall i\not=j,\,p_{ij}=1\Harr
+<li><span class="math inline">\(∀ i\not=j,\,p_{ij}=1⇔
 b^{n-1}_{ij}&gt;0\)</span></li>
 </ul></li>
 <li><p><strong>无向图相邻矩阵</strong></p>
-<p>设 <span class="math inline">\(G=\lang V,E\rang\)</span>
-是无环无向图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},E=\lbrace e_1,e_2,\dots,e_m\}\)</span></p>
+<p>设 <span class="math inline">\(G=⟨ V,E⟩\)</span> 是无环无向图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},E=\lbrace
+e_1,e_2,\dots,e_m\}\)</span></p>
 <p>相邻矩阵 <span class="math inline">\(A(G)=[a_{ij}]_{n\times
 n},\,a_{ii}=0\)</span> 有 <span
 class="math inline">\(a_{ij}=\begin{cases}1,&amp;v_i\,与\,v_j\,相邻且\,i\not=j\\0,&amp;v_i\,与\,v_j\,不相邻\end{cases}\)</span></p>
@@ -3208,7 +3153,7 @@ class="math inline">\(a_{ij}=a_{ji}\)</span></p></li>
 class="math inline">\(\sum^n_{i=1}a_{ij}=d(v_j)\)</span></p></li>
 <li><p>握手定理：<span
 class="math inline">\(\sum^n_{i=1}\sum^n_{j=1}a_{ij}=\sum^n_{i=1}d(v_j)=2m\)</span></p></li>
-<li><p>设 <span class="math inline">\(A^r=A^{r-1}\bullet
+<li><p>设 <span class="math inline">\(A^r=A^{r-1}•
 A,\,(r\ge2),\,A^r=[a^r_{ij}]_{n\times n}\)</span>，<span
 class="math inline">\(B^r=A+A^2+\dots+A^r=[b^r_{ij}]_{n\times
 n}\)</span></p>
@@ -3219,13 +3164,13 @@ class="math inline">\(r\)</span> 的通路总数，<span
 class="math inline">\(\sum^n_{i=1}a^r_{ii}\)</span> 即长度为 <span
 class="math inline">\(r\)</span> 的回路总数</p>
 <p>有 <span class="math inline">\(a^2_{ii}=d(v_i)\)</span></p>
-<p>两点间的最小距离有：<span class="math inline">\(G\,连通\Rarr
+<p>两点间的最小距离有：<span class="math inline">\(G\,连通⇒
 距离\,d(v_i,v_j)=\min\lbrace r|a^r_{ij}\not=0\}\)</span></p></li>
 </ul></li>
 <li><p><strong>连通矩阵</strong></p>
-<p>设 <span class="math inline">\(G=\lang V,E\rang\)</span>
-是无向简单图，<span class="math inline">\(V=\lbrace
-v_1,v_2,\dots,v_n\},E=\lbrace e_1,e_2,\dots,e_m\}\)</span></p>
+<p>设 <span class="math inline">\(G=⟨ V,E⟩\)</span> 是无向简单图，<span
+class="math inline">\(V=\lbrace v_1,v_2,\dots,v_n\},E=\lbrace
+e_1,e_2,\dots,e_m\}\)</span></p>
 <p>连通矩阵 <span class="math inline">\(P(G)=[p_{ij}]_{n\times
 n}\)</span> 有 <span
 class="math inline">\(p_{ij}=\begin{cases}1,&amp;若\,v_i\,与\,v_j\,连通\\0,&amp;若\,v_i\,与\,v_j\,不连通\end{cases}\)</span></p>
@@ -3236,8 +3181,8 @@ class="math inline">\(p_{ij}=\begin{cases}1,&amp;若\,v_i\,与\,v_j\,连通\\0,&
 <li>对角块是连通分支的连通矩阵称为伪对角阵</li>
 <li>若 <span
 class="math inline">\(B^r=A+A^2+\dots+A^r=[b^r_{ij}]_{n\times
-n}\)</span>，则 <span class="math inline">\(\forall i\not=
-j,\,p_{ij}=1\Harr b^{n-1}_{ij}&gt;0\)</span></li>
+n}\)</span>，则 <span class="math inline">\(∀ i\not= j,\,p_{ij}=1⇔
+b^{n-1}_{ij}&gt;0\)</span></li>
 </ul></li>
 </ul>
 <h3 id="平面图">2.7 平面图</h3>
@@ -3251,7 +3196,7 @@ j,\,p_{ij}=1\Harr b^{n-1}_{ij}&gt;0\)</span></li>
 <p>相对的，画在曲面上，使得边与边不相交的画法称为
 <strong>曲面嵌入</strong>；在球面上的画法称为
 <strong>球面嵌入</strong></p>
-<p>有：<span class="math inline">\(可平面嵌入\Harr
+<p>有：<span class="math inline">\(可平面嵌入⇔
 可球面嵌入\)</span>。让球面嵌入对平面投影，就能得到一个平面嵌入。</p></li>
 <li><p><strong>面</strong></p>
 <p>在平面图中，不含顶点与边的极大连通曲面 <span
@@ -3269,8 +3214,8 @@ class="math inline">\(\sum^r_{i=1}\deg(R_i)=2m\)</span></p>
 <strong>极大平面图</strong>。<span class="math inline">\(K_5\)</span>
 去掉一条边后就是极大平面图</p>
 <p><span class="math inline">\(n(n\ge 3)\)</span>
-阶简单连通平面图是极大平面图的充要条件是：<span
-class="math inline">\(\forall R,\,\deg(R)=3\)</span></p>
+阶简单连通平面图是极大平面图的充要条件是：<span class="math inline">\(∀
+R,\,\deg(R)=3\)</span></p>
 <p>删除任意一条边后变成平面图的非平面图称为
 <strong>极小非平面图</strong>。<span
 class="math inline">\(K_5,\,K_{3,3}\)</span> 就是极小非平面图</p></li>
@@ -3316,17 +3261,16 @@ class="math inline">\((u,v)\)</span></p>
 度顶点后同构，则称两个平面图 <strong>同胚</strong></p>
 <p>有如下定理：</p>
 <ul>
-<li><span class="math inline">\(图\,G\,是平面图\Harr
+<li><span class="math inline">\(图\,G\,是平面图⇔
 G\,没有与\,K_5\,或\,K_{3,3}\,同胚的子图\)</span></li>
-<li><span class="math inline">\(图\,G\,是平面图\Harr
+<li><span class="math inline">\(图\,G\,是平面图⇔
 G\,没有可以边收缩到\,K_5\,或\,K_{3,3}\,的子图\)</span></li>
 </ul></li>
 <li><p><strong>对偶图</strong></p>
-<p>设平面图 <span class="math inline">\(G=\lang V,E\rang\)</span>
-，其面集合是 <span class="math inline">\(R\)</span></p>
-<p>另有 <span class="math inline">\(G^*=\lang
-V^*,E^*\rang\)</span>，面集合为 <span
-class="math inline">\(R^*\)</span>，若 <span
+<p>设平面图 <span class="math inline">\(G=⟨ V,E⟩\)</span> ，其面集合是
+<span class="math inline">\(R\)</span></p>
+<p>另有 <span class="math inline">\(G^*=⟨ V^*,E^*⟩\)</span>，面集合为
+<span class="math inline">\(R^*\)</span>，若 <span
 class="math inline">\(V^*\)</span> 与 <span
 class="math inline">\(R\)</span>、<span
 class="math inline">\(E^*\)</span> 与 <span
@@ -3343,13 +3287,13 @@ class="math inline">\(G\)</span> 是 <strong>对偶图</strong></p>
 <li><span class="math inline">\(d_{G^*}(v_i^*)=\deg_G(R_i)\)</span></li>
 <li>即使 <span class="math inline">\(G_1\cong G_2\)</span> 也不能得出
 <span class="math inline">\(G_1^*\cong G_2^*\)</span></li>
-<li><span class="math inline">\(G\,连通\Harr G\cong G^{**}\)</span></li>
+<li><span class="math inline">\(G\,连通⇔ G\cong G^{**}\)</span></li>
 </ul></li>
 <li><p><strong>外（可）平面图</strong></p>
 <p>若平面图所有的顶点都在一个面的边界上，则称其为
 <strong>外平面图</strong></p>
 <ul>
-<li>充要条件：<span class="math inline">\(G\,是外平面图\Harr
+<li>充要条件：<span class="math inline">\(G\,是外平面图⇔
 G\,不含与\,K_4\,或\,K_{2,3}\,同构的子图\)</span></li>
 </ul></li>
 <li><p><strong>极大外平面图</strong></p>
@@ -3361,7 +3305,7 @@ G\,不含与\,K_4\,或\,K_{2,3}\,同构的子图\)</span></li>
 class="math inline">\(G\)</span>，其所有顶点在外部面边界上，则</p>
 <p><span class="math inline">\(\quad\begin{align}
 &amp;G\,是极大外平面图\\
-\Harr&amp;G\,外部面边界是\,n\frac{}{}圈、内部面边界是\,3\frac{}{}圈
+⇔&amp;G\,外部面边界是\,n\frac{}{}圈、内部面边界是\,3\frac{}{}圈
 \end{align}\)</span></p></li>
 <li><p>必要条件</p>
 <p>对于 <span class="math inline">\(n(n\ge3)\)</span> 阶外平面图 <span
@@ -3396,9 +3340,8 @@ class="math inline">\(\quad\sum^n_{i=3}(i-2)(r_i&#39;-r_i&#39;&#39;)=0\)</span><
 <li><p><strong>点着色</strong></p>
 <p>给无环图的每个顶点指定一种颜色，使得所有相邻顶点拥有不同颜色。</p>
 <p>颜色集记为 <span class="math inline">\(C=\lbrace
-1,2\dots,k\}\)</span>，则着色 <span class="math inline">\(f:V\rarr
-C,\,\forall u\forall v(u,v\in V\and u\,与\,v\,相邻\rarr f(u)\not=
-f(v))\)</span></p>
+1,2\dots,k\}\)</span>，则着色 <span class="math inline">\(f:V→ C,\,∀ u∀
+v(u,v\in V⋀ u\,与\,v\,相邻→ f(u)\not= f(v))\)</span></p>
 <p>颜色集的大小 <span class="math inline">\(|C|=k\)</span> 则称为
 <strong>k-着色</strong></p>
 <p>可以 k-着色 但不能 k-1着色的图称为
@@ -3410,13 +3353,13 @@ class="math inline">\(\chi&#39;(G)\)</span>，<strong>面色数</strong>
 <span class="math inline">\(\chi^*(G)\)</span></p>
 <p>点色数的性质：</p>
 <ul>
-<li><p><span class="math inline">\(\chi(G)=1\Harr
+<li><p><span class="math inline">\(\chi(G)=1⇔
 G\,是零图\)</span></p></li>
 <li><p><span class="math inline">\(\chi(K_n)=n\)</span></p></li>
-<li><p><span class="math inline">\(\chi(G)=2\Harr
+<li><p><span class="math inline">\(\chi(G)=2⇔
 G\,是非零图的二部图\)</span></p></li>
-<li><p><span class="math inline">\(G\,可以\,2\frac{}{}着色\Harr
-G\,是二部图\Harr G\,无奇圈\)</span></p></li>
+<li><p><span class="math inline">\(G\,可以\,2\frac{}{}着色⇔ G\,是二部图⇔
+G\,无奇圈\)</span></p></li>
 <li><p><span
 class="math inline">\(\chi(C_n)=\begin{cases}2,&amp;n\,是偶数\\3,&amp;n\,是奇数\end{cases}\)</span></p></li>
 <li><p><span
@@ -3424,15 +3367,15 @@ class="math inline">\(\chi(W_n)=\begin{cases}4,&amp;n\,是偶数\\3,&amp;n\,是�
 <li><p><span
 class="math inline">\(\chi(G)\le\Delta(G)+1\)</span></p></li>
 <li><p><span
-class="math inline">\(n(n\ge3)阶非完全图\,G\,非奇圈\Rarr\chi(G)\le\Delta(G)\)</span></p></li>
+class="math inline">\(n(n\ge3)阶非完全图\,G\,非奇圈⇒\chi(G)\le\Delta(G)\)</span></p></li>
 <li><p>对图 <span class="math inline">\(G\)</span> 进行着色，设 <span
-class="math inline">\(V_i=\lbrace v|v\in V(G)\and
+class="math inline">\(V_i=\lbrace v|v\in V(G)⋀
 v\,着同色\,i\},\,i=1,2,\dots,\chi(G)\)</span></p>
 <p>则 <span class="math inline">\(\Pi=\lbrace
 V_1\,V_2\,\dots\,V_{\chi(G)}\}\)</span> 是 <span
 class="math inline">\(V(G)\)</span> 的划分。<span
 class="math inline">\(V_i\)</span> 中的点构成独立集</p>
-<p>设 <span class="math inline">\(R=\lbrace (u,v)|u,v\in V(G)\and
+<p>设 <span class="math inline">\(R=\lbrace (u,v)|u,v\in V(G)⋀
 u,v\,着同色\}\)</span>，则 <span class="math inline">\(R\)</span> 是
 <span class="math inline">\(V(G)\)</span> 上的等价关系</p></li>
 </ul></li>
@@ -3470,9 +3413,9 @@ class="math inline">\(0\)</span></p>
 <p>最低非零项为 <span class="math inline">\(k^p\)</span>，<span
 class="math inline">\(p\)</span> 是连通分支数。</p>
 <p>不同的连通分支相乘</p></li>
-<li><p><span class="math inline">\(T\,是\,n\,阶树\Harr
+<li><p><span class="math inline">\(T\,是\,n\,阶树⇔
 f(T,k)=k(k-1)^{n-1}\)</span></p>
-<p><span class="math inline">\(C\,是\,n\,阶圈\Rarr
+<p><span class="math inline">\(C\,是\,n\,阶圈⇒
 f(C,k)=(k-1)^n+(-1)*n(k-1)\)</span></p></li>
 <li><p>设 <span class="math inline">\(V_1\)</span> 是 <span
 class="math inline">\(G\)</span> 的点割集，且 <span
@@ -3491,19 +3434,19 @@ class="math inline">\(f(G,k)=\dfrac{\Pi^p_{i=1}f(H_i,k)}{f(G[V_1],k)^{p-1}}\)</s
 <strong>地图</strong>。平面地图的面称为 <strong>国家</strong>。</p>
 <p>若两个国家的公共边界至少有一条公共边，称两个国家
 <strong>相邻</strong></p>
-<p>有：<span class="math inline">\(地图\,G\,能\,k\frac{}{}面着色\Harr
+<p>有：<span class="math inline">\(地图\,G\,能\,k\frac{}{}面着色⇔
 对偶图\,G^*\,能\,k\frac{}{}点着色\)</span></p>
 <p>以及：<span
-class="math inline">\(连通无环平面图\,G\,能\,k\frac{}{}面着色\Harr
+class="math inline">\(连通无环平面图\,G\,能\,k\frac{}{}面着色⇔
 对偶图\,G^*\,能\,k\frac{}{}点着色\)</span></p>
 <p>五色定理：任何平面图都可以 5-着色</p></li>
 <li><p><strong>边着色</strong></p>
 <p>给无环图的每条边指定一种颜色，使得所有相邻边拥有不同颜色。</p>
 <p>有以下定理：</p>
 <ul>
-<li><p><span class="math inline">\(G\,是简单图\Rarr
+<li><p><span class="math inline">\(G\,是简单图⇒
 \Delta(G)\le\chi&#39;(G)\le\Delta(G)+1\)</span></p></li>
-<li><p><span class="math inline">\(G\,是二部图\Rarr
+<li><p><span class="math inline">\(G\,是二部图⇒
 \Delta(G)=\chi&#39;(G)\)</span></p></li>
 <li><p>对于完全图：<span
 class="math inline">\(\chi&#39;(K_n)=\begin{cases}n,&amp;n\,为奇数\\n-1&amp;n\,为偶数\end{cases}\)</span></p></li>
@@ -3521,13 +3464,13 @@ E_1,E_2,\dots,E_k\}\)</span> 是 <span class="math inline">\(E\)</span>
 <h3 id="支配集点覆盖集点独立集">2.9 支配集、点覆盖集、点独立集</h3>
 <ul>
 <li><p><strong>支配集</strong></p>
-<p>对于 <span class="math inline">\(G=\lang V,E\rang\)</span>，存在
-<span class="math inline">\(e=(u,v)\in E\)</span>，则称 <span
+<p>对于 <span class="math inline">\(G=⟨ V,E⟩\)</span>，存在 <span
+class="math inline">\(e=(u,v)\in E\)</span>，则称 <span
 class="math inline">\(u\)</span> <strong>支配</strong> <span
 class="math inline">\(v\)</span>（<span class="math inline">\(v\)</span>
 支配 <span class="math inline">\(u\)</span>）</p>
 <p>若 <span class="math inline">\(V^*\subseteq V\)</span> 有 <span
-class="math inline">\(\forall u\in V-V^*\rarr \exist v\in
+class="math inline">\(∀ u\in V-V^*→ ∃ v\in
 V^*,\,u\,支配\,v\)</span>，则称 <span class="math inline">\(V^*\)</span>
 是 <strong>支配集</strong></p>
 <p>真子集都非支配集的支配集称为 <strong>极小支配集</strong></p>
@@ -3540,11 +3483,11 @@ class="math inline">\(\gamma_0(G)\)</span> 为
 <li>若无向图 <span class="math inline">\(G\)</span> 无孤立点，<span
 class="math inline">\(V^*_1\)</span> 是极小支配集，则存在极小支配集
 <span class="math inline">\(V_2^*\)</span>，且 <span
-class="math inline">\(V_1^*\cap V_2^*=\empty\)</span></li>
+class="math inline">\(V_1^*\cap V_2^*=Ø\)</span></li>
 </ul></li>
 <li><p><strong>独立集</strong></p>
-<p>对于 <span class="math inline">\(G=\lang V,E\rang\)</span>，若 <span
-class="math inline">\(V^*\subseteq V,\,\forall u,v\in
+<p>对于 <span class="math inline">\(G=⟨ V,E⟩\)</span>，若 <span
+class="math inline">\(V^*\subseteq V,\,∀ u,v\in
 V^*,\,u\,与\,v\,不相邻\)</span>，则称 <span
 class="math inline">\(V^*\)</span> 是 <strong>独立集</strong></p>
 <p>真母集都非独立集的独立集称为 <strong>极大独立集</strong></p>
@@ -3555,13 +3498,12 @@ class="math inline">\(\beta_0(G)\)</span> 为
 <p>有如下定理：</p>
 <ul>
 <li>对于无向图 <span class="math inline">\(G\)</span>，<span
-class="math inline">\(V^*\,是极大独立集\Rarr
-V^*\,是极小支配集\)</span></li>
+class="math inline">\(V^*\,是极大独立集⇒ V^*\,是极小支配集\)</span></li>
 <li>对于无向图 <span class="math inline">\(G\)</span>，<span
 class="math inline">\(\gamma_0(G)\le \beta_0(G)\)</span></li>
 </ul></li>
 <li><p><strong>团</strong></p>
-<p>对于 <span class="math inline">\(G=\lang V,E\rang\)</span>，若 <span
+<p>对于 <span class="math inline">\(G=⟨ V,E⟩\)</span>，若 <span
 class="math inline">\(V^*\subseteq V\)</span>，且 <span
 class="math inline">\(G[V^*]\)</span> 是完全子图，则称 <span
 class="math inline">\(V^*\)</span> 是 <strong>团</strong></p>
@@ -3571,18 +3513,18 @@ class="math inline">\(\nu_0(G)\)</span> 为 <strong>团数</strong></p>
 <p>有如下定理：</p>
 <ul>
 <li><p>对于无向图 <span class="math inline">\(G\)</span>，<span
-class="math inline">\(V^*\,是\,G\,的团\Harr
+class="math inline">\(V^*\,是\,G\,的团⇔
 V^*\,是\,\overline{G}\,的独立集\)</span></p></li>
 <li><p>对于无向图 <span class="math inline">\(G\)</span>，<span
 class="math inline">\(\nu_0(G)=\beta_0(\overline{G})\)</span></p>
-<p><span class="math inline">\(V^*\,是\,G\,的极大(最大)团\Harr
+<p><span class="math inline">\(V^*\,是\,G\,的极大(最大)团⇔
 V^*\,是\,\overline{G}\,的极大(最大)独立集\)</span></p></li>
 </ul></li>
 <li><p><strong>点覆盖</strong></p>
-<p>对于 <span class="math inline">\(G=\lang V,E\rang\)</span>，若 <span
+<p>对于 <span class="math inline">\(G=⟨ V,E⟩\)</span>，若 <span
 class="math inline">\(V^*\subseteq V\)</span>，且 <span
-class="math inline">\(\forall e\in E\)</span>，都有 <span
-class="math inline">\(\exist v\in V^*,\,v\,关联\,e\)</span>，则称 <span
+class="math inline">\(∀ e\in E\)</span>，都有 <span
+class="math inline">\(∃ v\in V^*,\,v\,关联\,e\)</span>，则称 <span
 class="math inline">\(V^*\)</span> 是 <strong>点覆盖</strong></p>
 <p>真子集都非点覆盖的点覆盖称为 <strong>极小点覆盖</strong></p>
 <p>顶点数最小的点覆盖称为 <strong>最小点覆盖</strong>，其顶点数 <span
@@ -3596,8 +3538,8 @@ class="math inline">\(G\)</span>，若其无孤立点，则其点覆盖是支配
 class="math inline">\(\gamma_0(G)\le\alpha_0(G)\)</span></p></li>
 <li><p>对于无向图 <span
 class="math inline">\(G\)</span>，若其无孤立点，则 <span
-class="math inline">\(V^*\,是点覆盖\Harr V-V^*\,是独立集\)</span></p>
-<p>且 <span class="math inline">\(V^*\,是最小(极小)点覆盖\Harr
+class="math inline">\(V^*\,是点覆盖⇔ V-V^*\,是独立集\)</span></p>
+<p>且 <span class="math inline">\(V^*\,是最小(极小)点覆盖⇔
 V-V^*\,是最小(极小)独立集\)</span></p>
 <p>此时 <span class="math inline">\(\alpha_0+\beta_0=n\)</span></p></li>
 <li><p><span
@@ -3619,20 +3561,20 @@ class="math inline">\(\nu_0(G)=\beta_0(\overline{G})\)</span></li>
 <h3 id="边覆盖匹配">2.10 边覆盖、匹配</h3>
 <ul>
 <li><p><strong>边覆盖</strong></p>
-<p>对于 <span class="math inline">\(G=\lang V,E\rang\)</span>，若 <span
+<p>对于 <span class="math inline">\(G=⟨ V,E⟩\)</span>，若 <span
 class="math inline">\(E^*\subseteq E\)</span>，且 <span
-class="math inline">\(\forall v\in V\)</span> 都有 <span
-class="math inline">\(\exist e\in E,\,e\,关联\,v\)</span>，则 <span
+class="math inline">\(∀ v\in V\)</span> 都有 <span
+class="math inline">\(∃ e\in E,\,e\,关联\,v\)</span>，则 <span
 class="math inline">\(E^*\)</span> 是 <strong>边覆盖</strong></p>
 <p>真子集都非边覆盖的边覆盖称为 <strong>极小边覆盖</strong></p>
 <p>边数最小的边覆盖称为 <strong>最小边覆盖</strong>，其边数 <span
 class="math inline">\(\alpha_1(G)\)</span> 为
 <strong>边覆盖数</strong></p></li>
 <li><p><strong>匹配</strong></p>
-<p>对于无向图 <span class="math inline">\(G=\lang
-V,E\rang\)</span>，<span class="math inline">\(E^*\subseteq
-E\)</span>，若 <span class="math inline">\(\forall e,f\in E^*\)</span>
-且 <span class="math inline">\(e,f\)</span> 不相邻，则 <span
+<p>对于无向图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，<span
+class="math inline">\(E^*\subseteq E\)</span>，若 <span
+class="math inline">\(∀ e,f\in E^*\)</span> 且 <span
+class="math inline">\(e,f\)</span> 不相邻，则 <span
 class="math inline">\(E^*\)</span> 是 <strong>匹配</strong></p>
 <p>真母集都非匹配的匹配称为 <strong>极大匹配</strong></p>
 <p>边数最多的匹配称为 <strong>最大匹配</strong>，其边数 <span
@@ -3643,8 +3585,8 @@ class="math inline">\(\beta_1(G)\)</span> 称为
 <p>没有非饱和点的匹配称为 <strong>完美匹配</strong></p>
 <p>有如下定理：</p>
 <ul>
-<li><p><span class="math inline">\(G\,有完美匹配\Harr\forall
-V&#39;\subset V(G),p_奇(G-V&#39;)\le|V&#39;|\)</span></p>
+<li><p><span class="math inline">\(G\,有完美匹配⇔∀ V&#39;\subset
+V(G),p_奇(G-V&#39;)\le|V&#39;|\)</span></p>
 <p>其中 <span class="math inline">\(p_奇\)</span>
 是奇数阶的连通分支数</p>
 <p>（推论）无桥的 3-正则图 有完美匹配</p></li>
@@ -3713,43 +3655,42 @@ class="math inline">\(M\)</span> 的可增广路径，则 <span
 class="math inline">\(M&#39;=M\oplus E(\Gamma)\)</span> 也是匹配，且
 <span class="math inline">\(|M&#39;|=|M|+1\)</span></p>
 <p>这个定理可以求出最大匹配</p>
-<p><span class="math inline">\(M\,是\,G\,中的最大匹配\Harr
+<p><span class="math inline">\(M\,是\,G\,中的最大匹配⇔
 G\,中无\,M\,的可增广路径\)</span></p></li>
 </ul></li>
 <li><p><strong>二部图的匹配</strong></p>
-<p>对于二部图 <span class="math inline">\(G=\lang
-V_1,V_2,E\rang,\,|V_1|\le|V_2|\)</span>，若匹配 <span
+<p>对于二部图 <span class="math inline">\(G=⟨
+V_1,V_2,E⟩,\,|V_1|\le|V_2|\)</span>，若匹配 <span
 class="math inline">\(M\)</span> 有 <span
 class="math inline">\(|M|=|V_1|\)</span> 则称其为
 <strong>完备匹配</strong></p>
 <p>有如下定理：</p>
 <ul>
-<li><p><span class="math inline">\(二部图\,G\,有完美匹配\Harr
+<li><p><span class="math inline">\(二部图\,G\,有完美匹配⇔
 G\,满足霍尔条件\)</span></p>
 <p><strong>霍尔条件</strong>（相异性条件）：<span
-class="math inline">\(\forall S\subseteq
-V_1,\,|S|\le|N(S)|\)</span>。<span class="math inline">\(N(S)=\lbrace
-u|\exist v\in S,(v,u)\in E\}=\bigcup_{v\in S}\Gamma(v)\)</span></p>
+class="math inline">\(∀ S\subseteq V_1,\,|S|\le|N(S)|\)</span>。<span
+class="math inline">\(N(S)=\lbrace u|∃ v\in S,(v,u)\in E\}=\bigcup_{v\in
+S}\Gamma(v)\)</span></p>
 <p>换句话说，对于较少顶点侧的任意点集，其对应的另一侧点集大小不少于该点集大小</p></li>
-<li><p><span class="math inline">\(二部图\,G\,有完美匹配\Rarr
+<li><p><span class="math inline">\(二部图\,G\,有完美匹配⇒
 G\,满足\,t\frac{}{}条件\)</span></p>
-<p><strong>t-条件</strong>：二部图 <span class="math inline">\(G=\lang
-V_1,V_2,E\rang,\,t\ge1\)</span>。<span
-class="math inline">\(V_1\)</span>
+<p><strong>t-条件</strong>：二部图 <span class="math inline">\(G=⟨
+V_1,V_2,E⟩,\,t\ge1\)</span>。<span class="math inline">\(V_1\)</span>
 的每个顶点<font color="RED">至少</font>关联 t 条边，且 <span
 class="math inline">\(V_2\)</span>
 的每个顶点<font color="RED">至多</font>关联 t 条边</p></li>
 <li><p>k-正则二部图存在 k 个边不重的完备匹配</p></li>
-<li><p>二部图 <span class="math inline">\(G=\lang
-V_1,V_2,E\rang\)</span> 无孤立点，则 <span
+<li><p>二部图 <span class="math inline">\(G=⟨ V_1,V_2,E⟩\)</span>
+无孤立点，则 <span
 class="math inline">\(\alpha_0=\beta_1\)</span></p></li>
 </ul></li>
 </ul>
 <h3 id="带权图">2.11 带权图</h3>
 <ul>
 <li><p><strong>带权图</strong></p>
-<p>对于图 <span class="math inline">\(G=\lang V,E,W\rang,\,W:E\rarr
-R\)</span>。其中 <span class="math inline">\(W(e)\)</span> 称为图的
+<p>对于图 <span class="math inline">\(G=⟨ V,E,W⟩,\,W:E→ R\)</span>。其中
+<span class="math inline">\(W(e)\)</span> 称为图的
 <strong>权</strong></p></li>
 <li><p><strong>有效算法</strong></p>
 <p>复杂度是多项式函数的算法称为 <strong>有效算法</strong></p>
