@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="23 JDBC 和数据库连接池 JDBC：Java 提供的一套用于操作数据库的接口 API。Java 程序员只需要面向该接口即可连接任何提供了 JDBC 驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。  JDBC 程序编写步骤（示范）：  	&#x2F;* [0] 前置操作 *&#x2F; 	&#x2F;* [1] 注册驱动 *&#x2F; Driver driver &#x3D; new com.m">
+    <meta name="description" content="23 JDBC 和数据库连接池  JDBC：Java 提供的一套用于操作数据库的接口 API。Java 程序员只需要面向该接口即可连接任何提供了 JDBC 驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。  JDBC 程序编写步骤（示范）：  	&#x2F;* [0] 前置操作 *&#x2F; 	&#x2F;* [1] 注册驱动 *&#x2F; Driver driver &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;23 JDBC 和数据库连接池">
 <meta property="og:url" content="https://i-melody.github.io/2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="23 JDBC 和数据库连接池 JDBC：Java 提供的一套用于操作数据库的接口 API。Java 程序员只需要面向该接口即可连接任何提供了 JDBC 驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。  JDBC 程序编写步骤（示范）：  	&#x2F;* [0] 前置操作 *&#x2F; 	&#x2F;* [1] 注册驱动 *&#x2F; Driver driver &#x3D; new com.m">
+<meta property="og:description" content="23 JDBC 和数据库连接池  JDBC：Java 提供的一套用于操作数据库的接口 API。Java 程序员只需要面向该接口即可连接任何提供了 JDBC 驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。  JDBC 程序编写步骤（示范）：  	&#x2F;* [0] 前置操作 *&#x2F; 	&#x2F;* [1] 注册驱动 *&#x2F; Driver driver &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-23T23:51:33.587Z">
@@ -293,8 +293,11 @@
             
             <div class="markdown-body">
               
-              <h1 id="23-JDBC-和数据库连接池"><a href="#23-JDBC-和数据库连接池" class="headerlink" title="23 JDBC 和数据库连接池"></a>23 JDBC 和数据库连接池</h1><blockquote>
-<p>JDBC：Java 提供的一套用于操作数据库的接口 API。Java 程序员只需要面向该接口即可连接任何提供了 JDBC 驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。</p>
+              <h1 id="jdbc-和数据库连接池">23 JDBC 和数据库连接池</h1>
+<blockquote>
+<p>JDBC：Java 提供的一套用于操作数据库的接口 API。Java
+程序员只需要面向该接口即可连接任何提供了 JDBC
+驱动程序的数据库，完成对数据库的各种操作。不同的数据库厂商，需要针对这套接口提供不同的实现。</p>
 </blockquote>
 <p><strong>JDBC 程序编写步骤（示范）：</strong></p>
 <blockquote>
@@ -315,34 +318,32 @@ System.out.println(rows);
 	<span class="hljs-comment">/* [4] 释放资源 */</span>
 statement.close();
 connect.close();</code></pre></div>
-
-<ol start="0">
-<li><p>前置操作：将 <code>mysql-connector-java-8.0.27.jar</code> 该文件拷贝到项目目录下，选中后右键选择 <code>Add as library</code></p>
-</li>
+<ol start="0" type="1">
+<li><p>前置操作：将 <code>mysql-connector-java-8.0.27.jar</code>
+该文件拷贝到项目目录下，选中后右键选择
+<code>Add as library</code></p></li>
 <li><p>注册驱动：加载 <code>Driver</code> 类</p>
-<p>这里我导入了 <code>com.mysql.cj.jdbc.Driver</code>。根据前面的 <code>jar</code> 包的版本不同，应该导入的路径也会不同。</p>
-<p>旧版本的 <code>jar</code> 包可能应该导入 <code>com.mysql.jdbc.Driver</code> 这个包。</p>
-</li>
+<p>这里我导入了 <code>com.mysql.cj.jdbc.Driver</code>。根据前面的
+<code>jar</code> 包的版本不同，应该导入的路径也会不同。</p>
+<p>旧版本的 <code>jar</code> 包可能应该导入
+<code>com.mysql.jdbc.Driver</code> 这个包。</p></li>
 <li><p>获取连接：得到 <code>Connection</code></p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:mysql://localhost:3306/melody&quot;</span>;</code></pre></div>
-
 <p>这里表示进入 <code>melody</code> 这个数据库。</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>执行语句：发送 SQL 命令给 MySQL 执行</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">rows</span> <span class="hljs-operator">=</span> statement.executeUpdate(sql);</code></pre></div>
-
 <p>如果是 dml 语句，这里返回的 rows 是影响的行数。返回 0 表示失败。</p>
-</blockquote>
-</li>
-<li><p>释放资源：关闭相关连接<strong>（切记！）</strong></p>
-</li>
+</blockquote></li>
+<li><p>释放资源：关闭相关连接<strong>（切记！）</strong></p></li>
 </ol>
 </blockquote>
-<h2 id="23-1-连接数据库的-5-种方式"><a href="#23-1-连接数据库的-5-种方式" class="headerlink" title="23.1 连接数据库的 5 种方式"></a>23.1 连接数据库的 5 种方式</h2><ul>
-<li><p>方式 1：直接创建 <code>Driver</code>，调用 <code>driver.connet(url, properties);</code></p>
+<h2 id="连接数据库的-5-种方式">23.1 连接数据库的 5 种方式</h2>
+<ul>
+<li><p>方式 1：直接创建 <code>Driver</code>，调用
+<code>driver.connet(url, properties);</code></p>
 <p>这个方法就是 [23.0] 示范的方法</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Driver</span> <span class="hljs-variable">driver</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">com</span>.mysql.cj.jdbc.Driver();
@@ -351,8 +352,7 @@ connect.close();</code></pre></div>
 properties.setProperty(<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>);
 properties.setProperty(<span class="hljs-string">&quot;password&quot;</span>, <span class="hljs-string">&quot;******&quot;</span>);
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connect</span> <span class="hljs-operator">=</span> driver.connect(url, properties);</code></pre></div>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>方式 2：使用反射加载 <code>Driver</code> 类</p>
 <p>这个方式是动态加载，更加灵活。</p>
 <blockquote>
@@ -362,9 +362,9 @@ properties.setProperty(<span class="hljs-string">&quot;password&quot;</span>, <s
 properties.setProperty(<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>);
 properties.setProperty(<span class="hljs-string">&quot;password&quot;</span>, <span class="hljs-string">&quot;******&quot;</span>);
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connect</span> <span class="hljs-operator">=</span> driver.connect(url, properties);</code></pre></div>
-</blockquote>
-</li>
-<li><p>方式 3：使用 <code>DriverManager</code> 替代 <code>Driver</code> 进行统一管理</p>
+</blockquote></li>
+<li><p>方式 3：使用 <code>DriverManager</code> 替代 <code>Driver</code>
+进行统一管理</p>
 <p>这个方式扩展性更好，更加清晰</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">Class&lt;?&gt; aClass = Class.forName(<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);
@@ -374,24 +374,23 @@ properties.setProperty(<span class="hljs-string">&quot;password&quot;</span>, <s
 <span class="hljs-type">String</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;******&quot;</span>;
 DriverManager.registerDriver(driver);
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, name, password);</code></pre></div>
-
-<p>  这里，<code>DriverManager.getConnetion()</code> 有三种方法。分别是：</p>
+<p>这里，<code>DriverManager.getConnetion()</code>
+有三种方法。分别是：</p>
 <ul>
 <li><code>getConnetion(url);</code></li>
 <li><code>getConnetion(url, properties);</code></li>
 <li><code>getConnetion(url, name, password);</code></li>
 </ul>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>方式 4：使用 <code>Class.forName()</code> 自动完成注册驱动</p>
 <blockquote>
-  <div class="code-wrapper"><pre><code class="hljs java">Class&lt;?&gt; aClass = Class.forName(<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);
+<p><div class="code-wrapper"><pre><code class="hljs java">Class&lt;?&gt; aClass = Class.forName(<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);
 <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:mysql://localhost:3306/melody&quot;</span>;
 <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;root&quot;</span>;
 <span class="hljs-type">String</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;******&quot;</span>;
-<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, name, password);</code></pre></div>
-
-<p><code>Class.forName()</code> 在加载 <code>Driver</code> 类时，会自动完成注册。</p>
+<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, name, password);</code></pre></div></p>
+<p><code>Class.forName()</code> 在加载 <code>Driver</code>
+类时，会自动完成注册。</p>
 </blockquote>
 <p>原理：</p>
 <blockquote>
@@ -403,25 +402,26 @@ DriverManager.registerDriver(driver);
          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;Can&#x27;t register driver!&quot;</span>);
      &#125;
 &#125;</code></pre></div>
-
 <p>这个静态代码块在类加载时会被执行。</p>
 </blockquote>
 <blockquote>
-<p>另外，其实不执行 <code>Class.forName(...);</code> 语句的场合，也能正确获取 <code>Connection</code>。</p>
-<p>这是因为 JDK 1.5 以后使用了 jdbc4。这个场合，系统会自动调用 jar 包下 <code>META-INF\services\java.sql.Driver</code> 这个文件中的类名称去注册。</p>
+<p>另外，其实不执行 <code>Class.forName(...);</code>
+语句的场合，也能正确获取 <code>Connection</code>。</p>
+<p>这是因为 JDK 1.5 以后使用了 jdbc4。这个场合，系统会自动调用 jar 包下
+<code>META-INF\services\java.sql.Driver</code>
+这个文件中的类名称去注册。</p>
 <p>……打开上述文件看看，里面赫然写着：<code>com.mysql.cj.jdbc.Driver</code></p>
 <p>即使如此，还是建议写上 <code>Class.forName(...)</code> 语句！</p>
-</blockquote>
-</li>
-<li><p>方式 5（推荐）：在方式 4 的基础上，使用配置文件，连接数据库更灵活。</p>
+</blockquote></li>
+<li><p>方式 5（推荐）：在方式 4
+的基础上，使用配置文件，连接数据库更灵活。</p>
 <p>这种方式是实际开发最常用的方式。</p>
 <blockquote>
-<p>配置文件（创建 src\mysql.properties）：</p>
+<p>配置文件（创建 src.properties）：</p>
 <div class="code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/melody</span>
 <span class="hljs-attr">user</span>=<span class="hljs-string">root</span>
 <span class="hljs-attr">password</span>=<span class="hljs-string">******</span>
 <span class="hljs-attr">driver</span>=<span class="hljs-string">com.mysql.cj.jdbc.Driver</span></code></pre></div>
-
 <p>代码：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Properties</span> <span class="hljs-variable">pro</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();
 pro.load(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(<span class="hljs-string">&quot;src\\mysql.properties&quot;</span>))
@@ -430,12 +430,15 @@ pro.load(<span class="hljs-keyword">new</span> <span class="hljs-title class_">F
 <span class="hljs-type">String</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> pro.getProperties(<span class="hljs-string">&quot;password&quot;</span>);
 <span class="hljs-type">String</span> <span class="hljs-variable">driver</span> <span class="hljs-operator">=</span> pro.getProperties(<span class="hljs-string">&quot;driver&quot;</span>);
 Class&lt;?&gt; aClass = Class.forName(driver);
-<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, user, password);</code></pre></div></blockquote>
-</li>
+<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, user, password);</code></pre></div>
+</blockquote></li>
 </ul>
-<h2 id="23-2-ReaultSet-结果集"><a href="#23-2-ReaultSet-结果集" class="headerlink" title="23.2 ReaultSet 结果集"></a>23.2 <code>ReaultSet</code> 结果集</h2><blockquote>
+<h2 id="reaultset-结果集">23.2 <code>ReaultSet</code> 结果集</h2>
+<blockquote>
 <p>ResultSet：表示数据库结果集的数据表。通常通过执行查询数据库的语句生成。</p>
-<p>ResultSet 对象保持一个光标指向其当前的数据行。该光标的初始位置在第一行之前。调用 next 方法将光标下移，移动到末端的场合会返回 false。</p>
+<p>ResultSet
+对象保持一个光标指向其当前的数据行。该光标的初始位置在第一行之前。调用
+next 方法将光标下移，移动到末端的场合会返回 false。</p>
 </blockquote>
 <p><strong>如何取出数据（示例）：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from customer&quot;</span>;
@@ -447,21 +450,29 @@ Class&lt;?&gt; aClass = Class.forName(driver);
     <span class="hljs-type">String</span> <span class="hljs-variable">card_id</span> <span class="hljs-operator">=</span> resset.getString(<span class="hljs-number">6</span>);
     System.out.println(id + <span class="hljs-string">&quot;\t&quot;</span> + name + <span class="hljs-string">&quot;\t&quot;</span> + sex + <span class="hljs-string">&quot;\t&quot;</span> + card_id);
 &#125;</code></pre></div>
-
-<p>其中 <code>String sex = resset.getString(5);</code> 表示取出该行数据的第 5 列的字符串数据。</p>
-<p>ResultSet 的数据是以类似二维数组的形式保存在对象中。这不难理解，毕竟表格是二维的嘛。</p>
-<h2 id="23-3-Statement"><a href="#23-3-Statement" class="headerlink" title="23.3 Statement"></a>23.3 <code>Statement</code></h2><blockquote>
-<p><code>Statment</code> 对象用于执行静态 SQL 语句，并返回其生成的结果的对象</p>
+<p>其中 <code>String sex = resset.getString(5);</code>
+表示取出该行数据的第 5 列的字符串数据。</p>
+<p>ResultSet
+的数据是以类似二维数组的形式保存在对象中。这不难理解，毕竟表格是二维的嘛。</p>
+<h2 id="statement">23.3 <code>Statement</code></h2>
+<blockquote>
+<p><code>Statment</code> 对象用于执行静态 SQL
+语句，并返回其生成的结果的对象</p>
 <p>在连接建立后，需要访问数据库、执行命名或 SQL 语句，有如下方式：</p>
 <ul>
-<li><code>Statment</code>（存在 SQL 注入问题，在实际开发中基本不使用）</li>
+<li><code>Statment</code>（存在 SQL
+注入问题，在实际开发中基本不使用）</li>
 <li><code>PerparedStatement</code>（预处理）</li>
 <li><code>CallableStatement</code>（存储过程）</li>
 </ul>
-<p>SQL 注入：利用某些系统没有对用户输入的数据进行充分的检查，故意注入非法的 SQL 语句段或命令，恶意攻击数据库。</p>
+<p>SQL
+注入：利用某些系统没有对用户输入的数据进行充分的检查，故意注入非法的 SQL
+语句段或命令，恶意攻击数据库。</p>
 <p>使用 <code>PreparedStatement</code> 可以防范 SQL 注入</p>
 </blockquote>
-<h3 id="23-3-1-PreparedStatement-预处理"><a href="#23-3-1-PreparedStatement-预处理" class="headerlink" title="23.3.1 PreparedStatement 预处理"></a>23.3.1 <code>PreparedStatement</code> 预处理</h3><div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [1] */</span>
+<h3 id="preparedstatement-预处理">23.3.1 <code>PreparedStatement</code>
+预处理</h3>
+<div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [1] */</span>
 <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from customer where customer_id = ? and name = ?&quot;</span>;
 <span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> connection.prepareStatement(sql);
 	<span class="hljs-comment">/* [2] */</span>
@@ -469,93 +480,96 @@ ps.setInt(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>
 ps.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;萝茵&quot;</span>);
 	<span class="hljs-comment">/* [3] */</span>
 <span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> ps.executeQuery();</code></pre></div>
-
-<ol>
-<li><p><code>PreparedStatement</code> 执行的 SQL 语句的参数用 <code>?</code> 表示。</p>
-</li>
+<ol type="1">
+<li><p><code>PreparedStatement</code> 执行的 SQL 语句的参数用
+<code>?</code> 表示。</p></li>
 <li><p>调用方法设置 SQL 语句中的参数。</p>
-<p>这些方法的两个参数中，第一个是设置的参数的索引，第二个是设置值</p>
-</li>
-<li><p>调用 <code>executeQuery()</code> 返回 <code>ResultSet</code> 对象。或者调用 <code>executeUpdate()</code> 执行增删改</p>
-<p>这里，调用的方法不需要再传入参数</p>
-</li>
+<p>这些方法的两个参数中，第一个是设置的参数的索引，第二个是设置值</p></li>
+<li><p>调用 <code>executeQuery()</code> 返回 <code>ResultSet</code>
+对象。或者调用 <code>executeUpdate()</code> 执行增删改</p>
+<p>这里，调用的方法不需要再传入参数</p></li>
 </ol>
 <p><strong>预处理的好处</strong></p>
-<ol>
+<ol type="1">
 <li>不再使用拼接语句，增加代码可读性，减少语法错误</li>
 <li>解决了 SQL 注入问题</li>
 <li>大大减少了编译次数，效率提高</li>
 </ol>
 <table>
+
 <thead>
-<tr>
-<th>类 &#x2F; 接口</th>
+<tr class="header">
+<th>类 / 接口</th>
 <th>方法</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>DriverManager 驱动管理类</td>
 <td>getConnection(url, user, pwd) 获取连接</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Connection 接口</td>
 <td>createStatement() 创建 Statement 对象</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>preparedStatement(sql) 生成预处理 PreparedStatement 对象</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Statement 接口</td>
 <td>executeUpdate(sql) 执行 dml 语句，返回影响行数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>executeQuery(sql) 执行查询语句，返回 ResultSet</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>execute(sql) 执行任意 SQL 语句，返回布尔值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>PreparedStatement 接口</td>
 <td>executeUpdate() 执行 dml 语句，返回影响行数</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>executeQuery() 执行查询语句，返回 ResultSet</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>execute() 执行任意 SQL 语句，返回布尔值</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>setXXX(int, xxx) 设置 SQL 语句中占位符的值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>setObject(int, xxx) 设置 SQL 语句中占位符的值</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ResultSet 结果集</td>
 <td>next() 向下移动一行。没有下一行的场合返回 false</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>previous() 向上移动一行。没有上一行的场合返回 false</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
-<td>getXXX(int)、getXXX(name) 返回 int 列 &#x2F; name 列的值</td>
+<td>getXXX(int)、getXXX(name) 返回 int 列 / name 列的值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
-<td>getObject(int)、getObject(name) 返回 int 列 &#x2F; name 列的值</td>
+<td>getObject(int)、getObject(name) 返回 int 列 / name 列的值</td>
 </tr>
-</tbody></table>
-<h2 id="23-4-JDBCUtils"><a href="#23-4-JDBCUtils" class="headerlink" title="23.4 JDBCUtils"></a>23.4 JDBCUtils</h2><blockquote>
-<p>实际操作中，获取连接 和 释放资源 操作经常使用。可以把这些操作封装成工具类 JDBCUtils</p>
+</tbody>
+</table>
+<h2 id="jdbcutils">23.4 JDBCUtils</h2>
+<blockquote>
+<p>实际操作中，获取连接 和 释放资源
+操作经常使用。可以把这些操作封装成工具类 JDBCUtils</p>
 </blockquote>
 <p><strong>JDCUtils.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody;
@@ -610,12 +624,14 @@ ps.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<ol>
+<ol type="1">
 <li>实际开发中，可以把编译异常转换为运行异常。这样，调用者可以自行选择捕获异常还是默认处理。</li>
 </ol>
-<h2 id="23-5-事务"><a href="#23-5-事务" class="headerlink" title="23.5 事务"></a>23.5 事务</h2><blockquote>
-<p>事务：JDBC 程序中，当一个 <code>Connection</code> 对象创建时，默认情况下会自动提交事务。为了让多个 SQL 语句一体执行，需要使用事务。</p>
+<h2 id="事务">23.5 事务</h2>
+<blockquote>
+<p>事务：JDBC 程序中，当一个 <code>Connection</code>
+对象创建时，默认情况下会自动提交事务。为了让多个 SQL
+语句一体执行，需要使用事务。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
 <span class="hljs-keyword">try</span> &#123;
@@ -637,38 +653,35 @@ ps.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot
 &#125; <span class="hljs-keyword">finally</span> &#123;
     connection.close();									<span class="hljs-comment">//[5] 关闭连接</span>
 &#125;</code></pre></div>
-
-<ol>
+<ol type="1">
 <li><p>取消自动提交事务：</p>
-<div class="code-wrapper"><pre><code class="hljs java">connection.setAutoCommit(<span class="hljs-literal">false</span>);</code></pre></div>
-</li>
-<li><p>这是一个 SQL 语句。表示在 name &#x3D; 萝茵 的数据中只保留 id 最小的一条。</p>
+<div class="code-wrapper"><pre><code class="hljs java">connection.setAutoCommit(<span class="hljs-literal">false</span>);</code></pre></div></li>
+<li><p>这是一个 SQL 语句。表示在 name = 萝茵 的数据中只保留 id
+最小的一条。</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">delete from actor where name = &#x27;萝茵&#x27; and id &gt; (select * from (select min(id) from actor where name = &#x27;萝茵&#x27;) a)</code></pre></div>
-
-<p>正常写法会提示不能同表查询（在 MySQL 中，不能在同一语句中先 select 出同一表中的某些值，再 update 这个表）。使用一个额外的 select 过渡就解决了这个问题。特此记录。</p>
-</li>
+<p>正常写法会提示不能同表查询（在 MySQL 中，不能在同一语句中先 select
+出同一表中的某些值，再 update 这个表）。使用一个额外的 select
+过渡就解决了这个问题。特此记录。</p></li>
 <li><p>提交事务：</p>
-<div class="code-wrapper"><pre><code class="hljs java">connection.commit();</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java">connection.commit();</code></pre></div></li>
 <li><p>回滚事务：</p>
 <div class="code-wrapper"><pre><code class="hljs java">connection.rollback();</code></pre></div>
-
-<p>写在 catch 里。这样，语句错误抛出异常的场合会执行到这句话。</p>
-</li>
+<p>写在 catch 里。这样，语句错误抛出异常的场合会执行到这句话。</p></li>
 <li><p>关闭连接：</p>
 <div class="code-wrapper"><pre><code class="hljs java">connection.close();</code></pre></div>
-
-<p>写在 finally 里。这样，执行完语句总会关闭连接。这很好。</p>
-</li>
+<p>写在 finally 里。这样，执行完语句总会关闭连接。这很好。</p></li>
 </ol>
-<h2 id="23-6-批处理"><a href="#23-6-批处理" class="headerlink" title="23.6 批处理"></a>23.6 批处理</h2><blockquote>
+<h2 id="批处理">23.6 批处理</h2>
+<blockquote>
 <p>批处理：把多条语句一次性提交给数据库进行批量处理。这样做比单独提交更有效率。</p>
 </blockquote>
-<p>要使用批处理功能，需要在 url 中加入 <code>?rewriteBatchedStatements=true</code>，即在配置文件中写成：</p>
+<p>要使用批处理功能，需要在 url 中加入
+<code>?rewriteBatchedStatements=true</code>，即在配置文件中写成：</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/test?rewriteBatchedStatements=true</span></code></pre></div>
 </blockquote>
-<p>批处理往往和 PerparedStatement 搭配使用，既减少编译次数，又减少运行次数，岂不美哉？</p>
+<p>批处理往往和 PerparedStatement
+搭配使用，既减少编译次数，又减少运行次数，岂不美哉？</p>
 <p><strong>示例：</strong></p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">//[0] 事前准备</span>
@@ -681,23 +694,20 @@ ps.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot
 &#125;
 ps.executeBatch();						<span class="hljs-comment">//[2]</span>
 JDBCUtils.close(connection, ps, <span class="hljs-literal">null</span>);</code></pre></div>
-<ol start="0">
+<ol start="0" type="1">
 <li><p>修改配置文件</p>
 <div class="code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/test?rewriteBatchedStatements=true</span>
-<span class="hljs-attr">...</span></code></pre></div>
-</li>
+<span class="hljs-attr">...</span></code></pre></div></li>
 <li><p>添加需要批量处理的 SQL 语句</p>
-<div class="code-wrapper"><pre><code class="hljs java">preparedStatement.addBatch();</code></pre></div>
-
-</li>
+<div class="code-wrapper"><pre><code class="hljs java">preparedStatement.addBatch();</code></pre></div></li>
 <li><p>执行批量处理语句</p>
-<div class="code-wrapper"><pre><code class="hljs java">preparedStatement.executeBatch();</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java">preparedStatement.executeBatch();</code></pre></div></li>
 <li><p>（前面的例子里没有这句）清空批处理包的语句</p>
 <div class="code-wrapper"><pre><code class="hljs java">preparedStatement.clearBatch();</code></pre></div></li>
 </ol>
 </blockquote>
-<h3 id="23-6-1-说明"><a href="#23-6-1-说明" class="headerlink" title="23.6.1 说明"></a>23.6.1 说明</h3><ol>
+<h3 id="说明">23.6.1 说明</h3>
+<ol type="1">
 <li><p>第一次添加批处理语句时，创建一个 ArrayList。</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">...
@@ -706,53 +716,55 @@ JDBCUtils.close(connection, ps, <span class="hljs-literal">null</span>);</code><
 &#125;
 ...</code></pre></div>
 </blockquote>
-<p>……会在其中放置批处理语句（指令的数据）</p>
-</li>
-<li><p>该数组满后，按照 1.5 倍扩容</p>
-</li>
-<li><p>达到指定的值后，执行 executeBatch 吧</p>
-</li>
-<li><p>批处理能减少编译次数，也能减少发送 SQL 语句的网络开销。</p>
-</li>
+<p>……会在其中放置批处理语句（指令的数据）</p></li>
+<li><p>该数组满后，按照 1.5 倍扩容</p></li>
+<li><p>达到指定的值后，执行 executeBatch 吧</p></li>
+<li><p>批处理能减少编译次数，也能减少发送 SQL 语句的网络开销。</p></li>
 </ol>
-<h2 id="23-7-数据库连接池"><a href="#23-7-数据库连接池" class="headerlink" title="23.7 数据库连接池"></a>23.7 数据库连接池</h2><blockquote>
+<h2 id="数据库连接池">23.7 数据库连接池</h2>
+<blockquote>
 <p><strong>传统获取 Connection 方法的问题：</strong></p>
-<ol>
-<li>传统的 JDBC 数据库连接使用 DriverManager 获取，每次建立连接都会把 Connection 载入内存，再进行身份验证。每次连接都会重复验证请求，这样会占用过多系统资源，容易造成服务器崩溃。</li>
+<ol type="1">
+<li>传统的 JDBC 数据库连接使用 DriverManager 获取，每次建立连接都会把
+Connection
+载入内存，再进行身份验证。每次连接都会重复验证请求，这样会占用过多系统资源，容易造成服务器崩溃。</li>
 <li>每次连接，使用完毕后必须断开。如果不断开操作，会致使数据库内存泄漏，最终不得不重启数据库。</li>
-<li>传统连接方式不能控制创建的连接数量。连接数量过多的场合，也可能导致内存泄漏，MySQL 崩溃</li>
+<li>传统连接方式不能控制创建的连接数量。连接数量过多的场合，也可能导致内存泄漏，MySQL
+崩溃</li>
 </ol>
 </blockquote>
 <p><strong>因此，需要使用连接池技术：</strong></p>
-<ol>
+<ol type="1">
 <li>预先在缓冲池放入一定数量的连接。需要建立数据库连接时，从缓冲池中取出一个连接。使用完后，把该连接放回缓冲池。</li>
 <li>数据库连接池负责分配、管理和释放数据库连接。其允许应用程序重复使用一个现有的数据库连接，而非建立新的连接。</li>
 <li>当请求连接的数量超过最大数量，这些连接请求会被加入等待队列。</li>
 </ol>
 <p><strong>数据库连接池种类：</strong></p>
-<p>JDBC 数据库连接池使用 javax.sql.DataSource 表示。DataSource 是一个接口，通常由第三方提供实现（提供 jar 包）</p>
+<p>JDBC 数据库连接池使用 javax.sql.DataSource 表示。DataSource
+是一个接口，通常由第三方提供实现（提供 jar 包）</p>
 <ul>
-<li>C3P0：速度稍慢，稳定性好……但是速度再慢也不是传统 JDBC 能比得上的，不自量力！</li>
+<li>C3P0：速度稍慢，稳定性好……但是速度再慢也不是传统 JDBC
+能比得上的，不自量力！</li>
 <li>DBCP：速度稍快，稳定性差</li>
 <li>Proxool：可以监控连接池状态，稳定性稍差</li>
 <li>BoneCP：速度快</li>
-<li>Druid：阿里提供的数据库连接池，集 DBCP、C3P0、Proxool 优点于一身</li>
+<li>Druid：阿里提供的数据库连接池，集 DBCP、C3P0、Proxool
+优点于一身</li>
 </ul>
-<h3 id="23-7-1-C3P0"><a href="#23-7-1-C3P0" class="headerlink" title="23.7.1 C3P0"></a>23.7.1 C3P0</h3><p>写在前面：C3P0 连接时跳一堆红字，不一定是报错……他就这样。</p>
+<h3 id="c3p0">23.7.1 C3P0</h3>
+<p>写在前面：C3P0 连接时跳一堆红字，不一定是报错……他就这样。</p>
 <p><strong>使用 C3P0 的前置工作：</strong></p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/c3p0/?source=navbar">C3P0 jar 包下载</a></p>
-</li>
+<ol type="1">
+<li><p><a
+target="_blank" rel="noopener" href="https://sourceforge.net/projects/c3p0/?source=navbar">C3P0 jar
+包下载</a></p></li>
 <li><p>……和前面一样，把 jar 包装载好。</p>
 <p>为了正常运行程序，这里（上面连接下载的） jar 包（似乎）至少是：</p>
 <p><code>mchange-commons-java-0.2.19.jar</code></p>
-<p><code>c3p0-0.9.5.5.jar</code></p>
-</li>
+<p><code>c3p0-0.9.5.5.jar</code></p></li>
 </ol>
 <ul>
-<li><p>方式一：在程序中指定相关参数</p>
-<blockquote>
-<div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [1] */</span>
+<li><p>方式一：在程序中指定相关参数 &gt; &gt; <div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [1] */</span>
 <span class="hljs-type">ComboPooledDataSource</span> <span class="hljs-variable">cpds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComboPooledDataSource</span>();
 	<span class="hljs-comment">/* [2] */</span>
 cpds.setDriverClass(dirver);
@@ -766,33 +778,20 @@ cpds.setMaxPoolSize(<span class="hljs-number">50</span>);
 	<span class="hljs-comment">/* [5] */</span>
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> cpds.getConnection();
 ...
-connection.close();</code></pre></div>
-
-<ol>
-<li><p>创建数据源对象</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ComboPooledDataSource</span> <span class="hljs-variable">cpds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComboPooledDataSource</span>();</code></pre></div>
-</li>
-<li><p>设置参数</p>
-<div class="code-wrapper"><pre><code class="hljs java">cpds.setDriverClass(String dirver);
+connection.close();</code></pre></div> &gt; &gt;
+1. 创建数据源对象 &gt;<br />
+&gt; <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ComboPooledDataSource</span> <span class="hljs-variable">cpds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComboPooledDataSource</span>();</code></pre></div> &gt;<br />
+&gt; 2. 设置参数 &gt; &gt; <div class="code-wrapper"><pre><code class="hljs java">cpds.setDriverClass(String dirver);
 cpds.setUser(String user);
 cpds.setPassword(String password);
-cpds.serJdbcUrl(String url);</code></pre></div>
-
-<p>……上面输入的形参 <code>user</code> 是字符串 <code>&quot;root&quot;</code>。其他同理。</p>
-</li>
-<li><p>设置初始化连接数</p>
-<div class="code-wrapper"><pre><code class="hljs java">cpds.setInitialPoolSize(<span class="hljs-number">10</span>);</code></pre></div>
-
-<p>初始化连接数，就是指连接池创建时，初始持有的连接数</p>
-</li>
-<li><p>设置最大连接数</p>
-<div class="code-wrapper"><pre><code class="hljs java">cpds.setMaxPoolSize(<span class="hljs-number">50</span>);</code></pre></div>
-</li>
-<li><p>获取一个连接</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> cpds.getConnection();</code></pre></div></li>
-</ol>
-</blockquote>
-</li>
+cpds.serJdbcUrl(String url);</code></pre></div> &gt; &gt; ……上面输入的形参
+<code>user</code> 是字符串 <code>"root"</code>。其他同理。 &gt; &gt; 3.
+设置初始化连接数 &gt;<br />
+&gt; <div class="code-wrapper"><pre><code class="hljs java">cpds.setInitialPoolSize(<span class="hljs-number">10</span>);</code></pre></div> &gt;<br />
+&gt; 初始化连接数，就是指连接池创建时，初始持有的连接数 &gt;<br />
+&gt; 4. 设置最大连接数 &gt; &gt; <div class="code-wrapper"><pre><code class="hljs java">cpds.setMaxPoolSize(<span class="hljs-number">50</span>);</code></pre></div> &gt; &gt; 5.
+获取一个连接 &gt;<br />
+&gt; <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> cpds.getConnection();</code></pre></div> &gt;</p></li>
 <li><p>方式二：使用配置文件模板完成</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [0] 前置操作 */</span> 
@@ -802,11 +801,11 @@ cpds.serJdbcUrl(String url);</code></pre></div>
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> cpds.getConnection();
 ...
 connection.close();</code></pre></div>
-
-<ol start="0">
+<ol start="0" type="1">
 <li><p>加入配置文件</p>
-<p>  <strong>c3p0-config.xml：</strong>配置文件，文件名固定，放在 <code>src/c3p0-config.xml</code> 这个位置</p>
-  <div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">c3p0-config</span>&gt;</span>
+<p><strong>c3p0-config.xml：</strong>配置文件，文件名固定，放在
+<code>src/c3p0-config.xml</code> 这个位置</p>
+<p><div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">c3p0-config</span>&gt;</span>
         <span class="hljs-comment">&lt;!-- 数据源（连接池）名称 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">named-config</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Heruin&quot;</span>&gt;</span>
             <span class="hljs-comment">&lt;!-- 驱动类 --&gt;</span>
@@ -832,30 +831,28 @@ connection.close();</code></pre></div>
             <span class="hljs-comment">&lt;!-- 每个连接可连接的最多的命令对象数 --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxStatementsPerConnection&quot;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">named-config</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">c3p0-config</span>&gt;</span></code></pre></div>
-</li>
+<span class="hljs-tag">&lt;/<span class="hljs-name">c3p0-config</span>&gt;</span></code></pre></div></p></li>
 <li><p>获取数据源对象</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ComboPooledDataSource</span> <span class="hljs-variable">cpds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComboPooledDataSource</span>(String name);</code></pre></div>
-
-<p>这里的 <code>name</code> 就是配置文件中的 <code>数据源名称</code></p>
-</li>
-<li><p>获取连接</p>
-</li>
+<p>这里的 <code>name</code> 就是配置文件中的
+<code>数据源名称</code></p></li>
+<li><p>获取连接</p></li>
 </ol>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-<h3 id="23-7-2-Druid（德鲁伊）连接池"><a href="#23-7-2-Druid（德鲁伊）连接池" class="headerlink" title="23.7.2 Druid（德鲁伊）连接池"></a>23.7.2 Druid（德鲁伊）连接池</h3><p><del>有的人因为看见而相信，有的人因为相信而看见！</del></p>
+<h3 id="druid德鲁伊连接池">23.7.2 Druid（德鲁伊）连接池</h3>
+<p><sub>有的人因为看见而相信，有的人因为相信而看见！</sub></p>
 <p><strong>使用 Druid 的前置工作：</strong></p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/druid">Druid jar 包下载</a></p>
-<p>……这个链接打不开的话，试试 <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/alibaba/druid/">这个</a></p>
-</li>
-<li><p>配置 jar 包</p>
-</li>
+<ol type="1">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/druid">Druid jar
+包下载</a></p>
+<p>……这个链接打不开的话，试试 <a
+target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/alibaba/druid/">这个</a></p></li>
+<li><p>配置 jar 包</p></li>
 <li><p>加入配置文件</p>
 <blockquote>
-<p><strong>durid.properties：</strong>配置文件，文件名任意，放在 <code>src/druid.properties</code></p>
+<p><strong>durid.properties：</strong>配置文件，文件名任意，放在
+<code>src/druid.properties</code></p>
 <div class="code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">driverClassName</span>=<span class="hljs-string">com.mysql.cj.jdbc.Driver</span>
 <span class="hljs-attr">url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/test?rewriteBatchedStatements=true</span>
 <span class="hljs-attr">username</span>=<span class="hljs-string">root</span>
@@ -863,8 +860,8 @@ connection.close();</code></pre></div>
 <span class="hljs-attr">initialSize</span>=<span class="hljs-string">10</span>
 <span class="hljs-attr">minIdle</span>=<span class="hljs-string">5</span>
 <span class="hljs-attr">maxActive</span>=<span class="hljs-string">20</span>
-<span class="hljs-attr">maxWait</span>=<span class="hljs-string">5000</span></code></pre></div></blockquote>
-</li>
+<span class="hljs-attr">maxWait</span>=<span class="hljs-string">5000</span></code></pre></div>
+</blockquote></li>
 </ol>
 <ul>
 <li><p>使用 Druid：</p>
@@ -877,30 +874,32 @@ properties.load(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> dataSource.getConnection();
 ...
 connection.close();</code></pre></div>
-
-<ol start="2">
+<ol start="2" type="1">
 <li><p>初始化数据池</p>
- <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> DruidDataSourceFactory.createDataSource(properties);</code></pre></div>
-</li>
+<p><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> DruidDataSourceFactory.createDataSource(properties);</code></pre></div></p></li>
 <li><p>……没什么好说的，但要说一下这个：</p>
- <div class="code-wrapper"><pre><code class="hljs java">connection.close();</code></pre></div>
-
-<p> <code>Connection</code> 是一个接口，对于方法 <code>close()</code>，不同供应商有不同实现方法。</p>
-<p> 原生的 <code>MySQL</code> 的实现方法是关闭连接，而这些连接池的实现方法是取消引用（放回连接池）。</p>
-</li>
-</ol>
-</li>
+<p><div class="code-wrapper"><pre><code class="hljs java">connection.close();</code></pre></div></p>
+<p><code>Connection</code> 是一个接口，对于方法
+<code>close()</code>，不同供应商有不同实现方法。</p>
+<p>原生的 <code>MySQL</code>
+的实现方法是关闭连接，而这些连接池的实现方法是取消引用（放回连接池）。</p></li>
+</ol></li>
 </ul>
-<h2 id="23-8-Apache-DbUtils"><a href="#23-8-Apache-DbUtils" class="headerlink" title="23.8 Apache - DbUtils"></a>23.8 Apache - DbUtils</h2><blockquote>
-<p><code>commons-DbUtils</code>：是 Apache 组织提供的一个开源的 JDBC 工具库。它是对 JDBC 的封装。使用 dbutils 能极大简化 JDBC 编码的工作量</p>
+<h2 id="apache---dbutils">23.8 Apache - DbUtils</h2>
+<blockquote>
+<p><code>commons-DbUtils</code>：是 Apache 组织提供的一个开源的 JDBC
+工具库。它是对 JDBC 的封装。使用 dbutils 能极大简化 JDBC
+编码的工作量</p>
 <p><strong>DbUtils 的常用类：</strong></p>
 <ul>
-<li><code>QueryRunner</code> 类：封装了 SQL 的执行。是线程安全的，可以实现增、删、改、查、批处理操作</li>
-<li><code>ResultSetHandler</code> 接口：用于处理 <code>ResultSet</code>，按照需求将数据转化为其他形式</li>
+<li><code>QueryRunner</code> 类：封装了 SQL
+的执行。是线程安全的，可以实现增、删、改、查、批处理操作</li>
+<li><code>ResultSetHandler</code> 接口：用于处理
+<code>ResultSet</code>，按照需求将数据转化为其他形式</li>
 </ul>
 </blockquote>
 <p>JDBC 传统方法的不足：</p>
-<ol>
+<ol type="1">
 <li>结果集和连接是关联的。在连接关闭后，就不能使用结果集。</li>
 <li>结果集只能使用一次，这样不便于数据管理</li>
 <li>使用返回信息不方便</li>
@@ -927,10 +926,8 @@ connection.close();</code></pre></div>
     <span class="hljs-comment">/* Geter &amp; Seter 笔记里就省略不记了。光占地方又没技术含量 */</span>
     ...
 &#125;</code></pre></div>
-
 <p>……然后遍历 ResultSet，存放。就不写了。</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>使用 <code>DbUtils</code>：</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">	<span class="hljs-comment">/* [0] 前置操作 */</span>
@@ -943,91 +940,99 @@ qr.query(connection, sql, <span class="hljs-keyword">new</span> <span class="hlj
 ...
 	<span class="hljs-comment">/* [3] 释放资源*/</span>
 connection.close();</code></pre></div>
-
-<ol start="0">
+<ol start="0" type="1">
 <li><p>前置操作：</p>
-<p><a target="_blank" rel="noopener" href="https://commons.apache.org/proper/commons-dbutils/download_dbutils.cgi">获取 jar 包</a>，并完成配置</p>
-<p>得到连接 <code>Connection connection</code>，创建数据类（这里是 <code>SQL_Data</code>）</p>
-</li>
+<p><a
+target="_blank" rel="noopener" href="https://commons.apache.org/proper/commons-dbutils/download_dbutils.cgi">获取
+jar 包</a>，并完成配置</p>
+<p>得到连接 <code>Connection connection</code>，创建数据类（这里是
+<code>SQL_Data</code>）</p></li>
 <li><p>执行相关方法，返回结果集</p>
 <div class="code-wrapper"><pre><code class="hljs java">List&lt;SQL_Data&gt; list = 
     queryRunner.query(connection, sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanListHandler</span>&lt;&gt;(SQL_Data.class), ...);</code></pre></div>
-
 <ul>
-<li><p><code>queryRunner.query</code> 方法：执行 SQL 语句，把得到的 <code>ResultSet</code> 封装到 List 集合。这个方法会自动关闭获得的 <code>ResultSet</code>，所以不会造成资源泄漏</p>
-</li>
-<li><p><code>connection</code>：前置操作中得到的连接</p>
-</li>
-<li><p><code>sql</code>：SQL 语句</p>
-</li>
-<li><p><code>new BeanListHander&lt;&gt;(SQL_Data.class)</code>：利用反射机制，将数据封装到 <code>SQL_Data</code> 对象中</p>
-</li>
-<li><p><code>&quot;id&quot;, 1</code>：给 SQL 语句中的 <code>?</code> 赋值。因为是可变参数，可以写多个，如：<code>queryRunner.query(connection, sql, new BeanListHandler&lt;&gt;(SQL_Data.class), &quot;id&quot;, 1, &quot;name&quot;, &quot;识之律者&quot;);</code></p>
-<p>……这里，可变参数也包含列名的场合，筛选似乎会失效。还不知道原理。特此记录。</p>
-</li>
-</ul>
-</li>
+<li><p><code>queryRunner.query</code> 方法：执行 SQL 语句，把得到的
+<code>ResultSet</code> 封装到 List 集合。这个方法会自动关闭获得的
+<code>ResultSet</code>，所以不会造成资源泄漏</p></li>
+<li><p><code>connection</code>：前置操作中得到的连接</p></li>
+<li><p><code>sql</code>：SQL 语句</p></li>
+<li><p><code>new BeanListHander&lt;&gt;(SQL_Data.class)</code>：利用反射机制，将数据封装到
+<code>SQL_Data</code> 对象中</p></li>
+<li><p><code>"id", 1</code>：给 SQL 语句中的 <code>?</code>
+赋值。因为是可变参数，可以写多个，如：<code>queryRunner.query(connection, sql, new BeanListHandler&lt;&gt;(SQL_Data.class), "id", 1, "name", "识之律者");</code></p>
+<p>……这里，可变参数也包含列名的场合，筛选似乎会失效。还不知道原理。特此记录。</p></li>
+</ul></li>
 <li><p>此时只需要关闭 <code>Connection</code></p>
-<p><code>query()</code> 方法已经关闭了 <code>ResultSet</code> 和 <code>PreparedStatement</code></p>
-</li>
+<p><code>query()</code> 方法已经关闭了 <code>ResultSet</code> 和
+<code>PreparedStatement</code></p></li>
 </ol>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-<h3 id="23-8-1-Apache-DbUtils-常用方法"><a href="#23-8-1-Apache-DbUtils-常用方法" class="headerlink" title="23.8.1 Apache-DbUtils 常用方法"></a>23.8.1 Apache-DbUtils 常用方法</h3><ul>
-<li><p><code>queryRunner.update(connection, sql, ...)</code>：DML 语句。增删改。</p>
+<h3 id="apache-dbutils-常用方法">23.8.1 Apache-DbUtils 常用方法</h3>
+<ul>
+<li><p><code>queryRunner.update(connection, sql, ...)</code>：DML
+语句。增删改。</p>
 <p>后面传入可变参数，用于给 SQL 语句中的 <code>?</code> 赋值</p>
-<p>返回值 int 代表被影响的行数。</p>
-</li>
+<p>返回值 int 代表被影响的行数。</p></li>
 <li><p><code>queryRunner.query(connection, sql, ResultSetHandler, ...)</code>：查询。</p>
 <p>后面传入可变参数，用于给 SQL 语句中的 <code>?</code> 赋值</p>
 <p>关于 <code>ResultSetHandler</code>：</p>
 <ul>
-<li>传入 <code>new BeanListHander&lt;&gt;(SQL_Data.class)</code>：返回多行多列。这个场合，用 <code>List</code> 接收返回值。</li>
-<li>传入 <code>new BeanHandler&lt;&gt;(SQL_Data.class)</code>：返回单行。这个场合，用 <code>SQL_Data data</code> 接收返回值。</li>
-<li>传入 <code>new ScalarHander&lt;&gt;()</code>：返回单行单列。这个场合，用 <code>Object</code> 接收返回值。</li>
+<li>传入
+<code>new BeanListHander&lt;&gt;(SQL_Data.class)</code>：返回多行多列。这个场合，用
+<code>List</code> 接收返回值。</li>
+<li>传入
+<code>new BeanHandler&lt;&gt;(SQL_Data.class)</code>：返回单行。这个场合，用
+<code>SQL_Data data</code> 接收返回值。</li>
+<li>传入
+<code>new ScalarHander&lt;&gt;()</code>：返回单行单列。这个场合，用
+<code>Object</code> 接收返回值。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="23-8-2-表和-JavaBean-的对应关系"><a href="#23-8-2-表和-JavaBean-的对应关系" class="headerlink" title="23.8.2 表和 JavaBean 的对应关系"></a>23.8.2 表和 JavaBean 的对应关系</h3><table>
+<h3 id="表和-javabean-的对应关系">23.8.2 表和 JavaBean 的对应关系</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>表类型</th>
 <th>JavaBean类型</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>int、samllint……</td>
 <td>Integer</td>
 </tr>
-<tr>
+<tr class="even">
 <td>char、varchar……</td>
 <td>String</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>double</td>
 <td>Double</td>
 </tr>
-<tr>
+<tr class="even">
 <td>date</td>
 <td>java.util.Date</td>
 </tr>
-</tbody></table>
-<h2 id="23-9-BasicDAO"><a href="#23-9-BasicDAO" class="headerlink" title="23.9 BasicDAO"></a>23.9 BasicDAO</h2><blockquote>
+</tbody>
+</table>
+<h2 id="basicdao">23.9 BasicDAO</h2>
+<blockquote>
 <p>Apache - DbUtils + Druid 简化了 JDBC 开发，但还有不足。</p>
-<ol>
+<ol type="1">
 <li>SQL 语句固定，不能通过传入参数控制，通用性不好。</li>
 <li>select 操作的返回类型未知，需要使用泛型。</li>
 <li>将来的表很多，业务需求复杂，不可能只靠一个 Java 类完成</li>
 </ol>
 </blockquote>
 <p>DAO：数据访问对象（data access object）</p>
-<ol>
-<li><p>我们把通用的和数据库交互的操作封装到一个通用类中，称为 BasicDAO。</p>
-</li>
-<li><p>在 BasicDAO 基础上，每张表对应一个特化的 DAO（继承 BasicDAO），从而更好地完成功能。</p>
-<p>比如：Data 表 -&gt; Data.java 类（JavaBean）-&gt; DataDAO.java</p>
-</li>
+<ol type="1">
+<li><p>我们把通用的和数据库交互的操作封装到一个通用类中，称为
+BasicDAO。</p></li>
+<li><p>在 BasicDAO 基础上，每张表对应一个特化的 DAO（继承
+BasicDAO），从而更好地完成功能。</p>
+<p>比如：Data 表 -&gt; Data.java 类（JavaBean）-&gt;
+DataDAO.java</p></li>
 </ol>
 <p><strong>BasicDAO.java（示例）</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BasicDAO</span>&lt;T&gt; &#123;
@@ -1081,7 +1086,6 @@ connection.close();</code></pre></div>
         &#125;
     &#125;
 &#125;</code></pre></div>
-
 
               
             </div>

@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="16 多线程16.1 线程的概念 对于一般程序而言，其结构大都可以分为一个入口、一个出口、一个顺次执行的语句序列。这样的语句结构称为进程，它是程序的一次动态执行，对应了代码加载、执行至完毕的全过程。 进程即是程序在处理机中的一次运行。在这样一个结构中不仅包含程序代码，也包括了系统资源的概念。 在单 CPU 计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个作业同时执行。">
+    <meta name="description" content="16 多线程 16.1 线程的概念  对于一般程序而言，其结构大都可以分为一个入口、一个出口、一个顺次执行的语句序列。这样的语句结构称为进程，它是程序的一次动态执行，对应了代码加载、执行至完毕的全过程。 进程即是程序在处理机中的一次运行。在这样一个结构中不仅包含程序代码，也包括了系统资源的概念。 在单 CPU 计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;16 多线程">
 <meta property="og:url" content="https://i-melody.github.io/2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="16 多线程16.1 线程的概念 对于一般程序而言，其结构大都可以分为一个入口、一个出口、一个顺次执行的语句序列。这样的语句结构称为进程，它是程序的一次动态执行，对应了代码加载、执行至完毕的全过程。 进程即是程序在处理机中的一次运行。在这样一个结构中不仅包含程序代码，也包括了系统资源的概念。 在单 CPU 计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个作业同时执行。">
+<meta property="og:description" content="16 多线程 16.1 线程的概念  对于一般程序而言，其结构大都可以分为一个入口、一个出口、一个顺次执行的语句序列。这样的语句结构称为进程，它是程序的一次动态执行，对应了代码加载、执行至完毕的全过程。 进程即是程序在处理机中的一次运行。在这样一个结构中不仅包含程序代码，也包括了系统资源的概念。 在单 CPU 计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-23T23:50:50.327Z">
@@ -293,71 +293,81 @@
             
             <div class="markdown-body">
               
-              <h1 id="16-多线程"><a href="#16-多线程" class="headerlink" title="16 多线程"></a>16 多线程</h1><h2 id="16-1-线程的概念"><a href="#16-1-线程的概念" class="headerlink" title="16.1 线程的概念"></a>16.1 线程的概念</h2><blockquote>
+              <h1 id="多线程">16 多线程</h1>
+<h2 id="线程的概念">16.1 线程的概念</h2>
+<blockquote>
 <p>对于一般程序而言，其结构大都可以分为一个入口、一个出口、一个顺次执行的语句序列。这样的语句结构称为进程，它是程序的一次动态执行，对应了代码加载、执行至完毕的全过程。</p>
 <p>进程即是程序在处理机中的一次运行。在这样一个结构中不仅包含程序代码，也包括了系统资源的概念。</p>
-<p>在单 CPU 计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个作业同时执行。</p>
+<p>在单 CPU
+计算机内部，微观上讲，同一时间只能有一个线程运行。实现多线程即从宏观上使多个作业同时执行。</p>
 </blockquote>
 <p>程序：为完成特定任务，用某种语言编写的一组指令的集合。</p>
 <p>进程：运行中的程序。当你运行一个程序，系统就会为该进程分配空间。进程是程序的一次执行过程。是一个动态过程：有其自身产生、存在、消亡的过程。</p>
 <p>线程：由进程创建的，进程的一个实体。一个进程可以有多个线程。</p>
 <p>单线程：同一时刻，只允许执行一个线程。</p>
 <p>多线程：同一时刻，可以执行多个线程。</p>
-<p>并发：同一时刻，多个任务交替执行，造成一种貌似并行的状态。单核 CPU 实现的多任务就是并发。</p>
+<p>并发：同一时刻，多个任务交替执行，造成一种貌似并行的状态。单核 CPU
+实现的多任务就是并发。</p>
 <p>并行：同一时刻，多个任务同时进行。多核 CPU 可以实现并行。</p>
-<h3 id="16-1-1-线程的结构"><a href="#16-1-1-线程的结构" class="headerlink" title="16.1.1 线程的结构"></a>16.1.1 线程的结构</h3><p>在 Java 中，线程由以下 3 部分组成：</p>
+<h3 id="线程的结构">16.1.1 线程的结构</h3>
+<p>在 Java 中，线程由以下 3 部分组成：</p>
 <ul>
 <li>虚拟 CPU：封装在 java.lang.Thread 类中，控制着整个线程的运行</li>
 <li>执行的代码：传递给 Thread 类，由其控制按序执行</li>
 <li>处理的数据：传递给 Thread 类，是在代码执行过程中需要处理的数据</li>
 </ul>
-<h3 id="16-1-2-线程的状态"><a href="#16-1-2-线程的状态" class="headerlink" title="16.1.2 线程的状态"></a>16.1.2 线程的状态</h3><blockquote>
-<p>Java 的线程是通过包 java.lang 中定义的类 Thread 来实现的。当生成了一个 Thread 类后就产生了一个线程。通过该对象实例，可以启动线程、终止线程，或暂时挂起线程</p>
+<h3 id="线程的状态">16.1.2 线程的状态</h3>
+<blockquote>
+<p>Java 的线程是通过包 java.lang 中定义的类 Thread
+来实现的。当生成了一个 Thread
+类后就产生了一个线程。通过该对象实例，可以启动线程、终止线程，或暂时挂起线程</p>
 </blockquote>
-<p>线程共有 4 种状态：新建（New）、可运行（Runnable）、死亡（Dead）、阻塞（Blocked）</p>
+<p>线程共有 4
+种状态：新建（New）、可运行（Runnable）、死亡（Dead）、阻塞（Blocked）</p>
 <ul>
 <li><p><strong>新建（New）：</strong></p>
-<p>线程对象刚刚创建，还未启动（New）。此时还处于不可运行状态，但已有了相应内存空间及其他资源</p>
-</li>
+<p>线程对象刚刚创建，还未启动（New）。此时还处于不可运行状态，但已有了相应内存空间及其他资源</p></li>
 <li><p><strong>可运行（Runnable）：</strong></p>
-<p>此时线程已经启动，处于线程的 <code>run()</code> 方法中。这种情况下线程可能正在运行；也可能没有运行，但只要 CPU 空闲就会立刻运行。</p>
+<p>此时线程已经启动，处于线程的 <code>run()</code>
+方法中。这种情况下线程可能正在运行；也可能没有运行，但只要 CPU
+空闲就会立刻运行。</p>
 <p>可以运行但没在运行的线程都排在一个队列中，这个队列称为就绪队列。</p>
 <p>可运行状态下，运行中的线程处于运行状态（Running），未运行线程处于就绪状态（Ready）。</p>
-<p>调用 <code>start()</code> 方法可以让线程进入可运行状态。</p>
-</li>
+<p>调用 <code>start()</code> 方法可以让线程进入可运行状态。</p></li>
 <li><p><strong>死亡（Dead）：</strong></p>
-<p>线程死亡（Terminated）的原因有两个：一是 <code>run()</code> 方法最后一个语句执行完毕，二是线程遇到异常退出</p>
-</li>
+<p>线程死亡（Terminated）的原因有两个：一是 <code>run()</code>
+方法最后一个语句执行完毕，二是线程遇到异常退出</p></li>
 <li><p><strong>阻塞（Blocked）：</strong></p>
 <p>一个正常运行的线程因为特殊原因被暂停执行，就进入阻塞状态（Blocked）。</p>
 <p>阻塞时线程不能进入就绪对流排队，必须等到引起阻塞的原因消除，才能重新进入队列排队。</p>
-<p>引起阻塞的方法很多，<code>sleep()</code> 和 <code>wait()</code> 是两个常用的阻塞方法</p>
-</li>
+<p>引起阻塞的方法很多，<code>sleep()</code> 和 <code>wait()</code>
+是两个常用的阻塞方法</p></li>
 <li><p><strong>中断线程：</strong></p>
 <ul>
-<li><p><code>void interrupt()</code>：向一个线程发送一个中断请求，并把该线程的 interruptd 状态变为 true。</p>
-<p>中断阻塞线程的场合，会抛出 InterruptException 异常</p>
-</li>
-<li><p><code>static boolean interrupted()</code>：检测当前线程是否被中断，并重置状态 interrupted 的值。</p>
-<p>连续调用该方法的场合，第二次调用会返回 false</p>
-</li>
-<li><p><code>boolean isInterrupted()</code>：检测当前线程是否中断。不改变 interrupted 的值</p>
-</li>
+<li><p><code>void interrupt()</code>：向一个线程发送一个中断请求，并把该线程的
+interruptd 状态变为 true。</p>
+<p>中断阻塞线程的场合，会抛出 InterruptException 异常</p></li>
+<li><p><code>static boolean interrupted()</code>：检测当前线程是否被中断，并重置状态
+interrupted 的值。</p>
+<p>连续调用该方法的场合，第二次调用会返回 false</p></li>
+<li><p><code>boolean isInterrupted()</code>：检测当前线程是否中断。不改变
+interrupted 的值</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="16-2-线程的使用"><a href="#16-2-线程的使用" class="headerlink" title="16.2 线程的使用"></a>16.2 线程的使用</h2><p>在 Java 中线程使用有两种方法：</p>
-<ol>
+<h2 id="线程的使用">16.2 线程的使用</h2>
+<p>在 Java 中线程使用有两种方法：</p>
+<ol type="1">
 <li><p>继承 <code>Thread</code> 类，重写 <code>run</code> 方法</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Thread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span>		<span class="hljs-comment">//可见 Thread 也是实现了 Runable 接口</span></code></pre></div>
-</blockquote>
-</li>
-<li><p>实现 <code>Runable</code> 接口，重写 <code>run</code> 方法</p>
-</li>
+</blockquote></li>
+<li><p>实现 <code>Runable</code> 接口，重写 <code>run</code>
+方法</p></li>
 </ol>
-<h3 id="16-2-1-继承-Thread-类"><a href="#16-2-1-继承-Thread-类" class="headerlink" title="16.2.1 继承 Thread 类"></a>16.2.1 继承 Thread 类</h3><blockquote>
-<p>Thread 类是 Java 用于表示线程的类。那么，一个类被定义为其子类，则该类也能用来表示线程</p>
+<h3 id="继承-thread-类">16.2.1 继承 Thread 类</h3>
+<blockquote>
+<p>Thread 类是 Java
+用于表示线程的类。那么，一个类被定义为其子类，则该类也能用来表示线程</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
  <span class="hljs-type">Type</span> <span class="hljs-variable">type</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Type</span>();
@@ -365,7 +375,6 @@
  											<span class="hljs-comment">//如果用 run 方法，则还是停留在主线程</span>
  											<span class="hljs-comment">//  那样，相当于 串行。执行完毕才继续</span>
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Type</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> &#123;						<span class="hljs-comment">//先继承 Thread 类</span>
  <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
  <span class="hljs-meta">@Override</span>
@@ -383,7 +392,6 @@
      &#125;
  &#125;
 &#125;</code></pre></div>
-
 <p><strong>关于 <code>start()</code> 方法</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start</span><span class="hljs-params">()</span> &#123;
 	...
@@ -391,22 +399,27 @@
 &#125;
 
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start0</span><span class="hljs-params">()</span>;					<span class="hljs-comment">//start0 是 native。即，底层方法</span></code></pre></div>
-
-<ol>
-<li><code>start()</code> 方法调用了一个 <code>start0()</code> 底层方法</li>
-<li><code>start0()</code> 是本地方法，由 JVM 调用，底层是 c&#x2F;c++ 实现</li>
-<li>真正的多线程效果，是 <code>start0()</code>，而不是 <code>run()</code></li>
-<li><code>start()</code> 方法调用 <code>start0()</code> 方法后，该线程不一定会立刻执行，只是将线程变成了可运行状态。具体何时运行，由 CPU 统一调度</li>
+<ol type="1">
+<li><code>start()</code> 方法调用了一个 <code>start0()</code>
+底层方法</li>
+<li><code>start0()</code> 是本地方法，由 JVM 调用，底层是 c/c++
+实现</li>
+<li>真正的多线程效果，是 <code>start0()</code>，而不是
+<code>run()</code></li>
+<li><code>start()</code> 方法调用 <code>start0()</code>
+方法后，该线程不一定会立刻执行，只是将线程变成了可运行状态。具体何时运行，由
+CPU 统一调度</li>
 </ol>
-<h3 id="16-2-2-实现-Runable-接口"><a href="#16-2-2-实现-Runable-接口" class="headerlink" title="16.2.2 实现 Runable 接口"></a>16.2.2 实现 Runable 接口</h3><blockquote>
-<p>Runnable 是 Java 用以实现线程的接口。从根本上将，任何实现线程的类都必须实现该接口。</p>
+<h3 id="实现-runable-接口">16.2.2 实现 Runable 接口</h3>
+<blockquote>
+<p>Runnable 是 Java
+用以实现线程的接口。从根本上将，任何实现线程的类都必须实现该接口。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
  <span class="hljs-type">Runnable</span> <span class="hljs-variable">type</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Type</span>();					<span class="hljs-comment">//Runable 没有 start()方法</span>
  <span class="hljs-type">Thread</span> <span class="hljs-variable">thread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(type);				<span class="hljs-comment">//所以，这里使用了 静态代理</span>
  thread.start();
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Type</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;				<span class="hljs-comment">//这部分和 Thread 相似</span>
  <span class="hljs-meta">@Override</span>
  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
@@ -424,7 +437,6 @@
      &#125;
  &#125;
 &#125;</code></pre></div>
-
 <p><strong>关于 静态代理</strong></p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Thread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runable</span> &#123;&#125;
@@ -443,17 +455,21 @@
  &#125;
 	...
 &#125;</code></pre></div>
-
 <p>相当于，先创建了一个新线程，然后在新线程中调用 run 方法</p>
 </blockquote>
-<h3 id="16-2-3-继承-Thread-和-实现-Runable-的区别"><a href="#16-2-3-继承-Thread-和-实现-Runable-的区别" class="headerlink" title="16.2.3 继承 Thread 和 实现 Runable 的区别"></a>16.2.3 继承 Thread 和 实现 Runable 的区别</h3><ol>
-<li>从 Java 设计来看，两者本质上没有区别。<code>Thread</code> 类本身就实现了 <code>Runable</code> 接口</li>
-<li>实现 <code>Runable</code> 接口的方式更加适合多个线程共享一个资源的情况，且避免了单继承的限制。建议使用。</li>
+<h3 id="继承-thread-和-实现-runable-的区别">16.2.3 继承 Thread 和 实现
+Runable 的区别</h3>
+<ol type="1">
+<li>从 Java 设计来看，两者本质上没有区别。<code>Thread</code>
+类本身就实现了 <code>Runable</code> 接口</li>
+<li>实现 <code>Runable</code>
+接口的方式更加适合多个线程共享一个资源的情况，且避免了单继承的限制。建议使用。</li>
 </ol>
-<h3 id="16-2-4-线程中止"><a href="#16-2-4-线程中止" class="headerlink" title="16.2.4 线程中止"></a>16.2.4 线程中止</h3><ol>
-<li><p>当线程结束后，会自动退出</p>
-</li>
-<li><p>还可以通过使用变量来控制 <code>run</code> 方法退出的方式来停止线程，即 通知方式。</p>
+<h3 id="线程中止">16.2.4 线程中止</h3>
+<ol type="1">
+<li><p>当线程结束后，会自动退出</p></li>
+<li><p>还可以通过使用变量来控制 <code>run</code>
+方法退出的方式来停止线程，即 通知方式。</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
  <span class="hljs-keyword">while</span> (active) &#123;					<span class="hljs-comment">//这个场合，只要外部控制 active 即可</span>
@@ -464,20 +480,19 @@
      &#125;
      move();
  &#125;
-&#125;</code></pre></div></blockquote>
-</li>
+&#125;</code></pre></div>
+</blockquote></li>
 </ol>
-<h3 id="16-2-5-线程常用方法"><a href="#16-2-5-线程常用方法" class="headerlink" title="16.2.5 线程常用方法"></a>16.2.5 线程常用方法</h3><ul>
-<li><p><code>setName(name)</code>：设置线程名称，使之与参数 name 相同</p>
-</li>
-<li><p><code>getName()</code>：返回线程名称</p>
-</li>
-<li><p><code>start()</code>：线程开始执行。JVM 调用 <code>start0</code> 方法</p>
-<p>该方法会创建新的线程，新线程调用 <code>run</code>。</p>
-</li>
+<h3 id="线程常用方法">16.2.5 线程常用方法</h3>
+<ul>
+<li><p><code>setName(name)</code>：设置线程名称，使之与参数 name
+相同</p></li>
+<li><p><code>getName()</code>：返回线程名称</p></li>
+<li><p><code>start()</code>：线程开始执行。JVM 调用 <code>start0</code>
+方法</p>
+<p>该方法会创建新的线程，新线程调用 <code>run</code>。</p></li>
 <li><p><code>run()</code>：到下面玩跑步</p>
-<p>就是简单的方法调用，不会产生新线程。</p>
-</li>
+<p>就是简单的方法调用，不会产生新线程。</p></li>
 <li><p><code>setPriority(int priority)</code>：更改线程优先级</p>
 <p><code>getPriority()</code>：获取线程优先级</p>
 <p>priority 范围：</p>
@@ -486,140 +501,148 @@
 <li>MIN_PRIORITY：最低优先级（1）</li>
 <li>NORM_PRIORITY：不高不低，真是好极了的优先级（5）</li>
 </ul>
-<p>每个线程都有一个<strong>优先级</strong>。Java 线程调度采用如下优先级策略：</p>
+<p>每个线程都有一个<strong>优先级</strong>。Java
+线程调度采用如下优先级策略：</p>
 <ul>
 <li>优先级高的先执行，优先级低的后执行</li>
 <li>每个线程创建时会被自动分配一个优先级。默认的场合，继承父类优先级</li>
 <li>任务紧急的线程，优先级较高</li>
 <li>同优先级线程按 “先进先出” 原则调度</li>
-</ul>
-</li>
+</ul></li>
 <li><p><code>sleep(int millsecond)</code>：让线程休眠指定的时间</p>
-<p>该方法是 Thread 类的静态方法，可以直接调用</p>
-</li>
-<li><p><code>interrupt()</code>：中断线程（不是 中止）</p>
-</li>
-<li><p><code>yield()</code>：线程的礼让。让出 CPU 让其他线程执行。因为礼让的时间不确定，所以不一定礼让成功。</p>
-<p>本质是 RUNNING 切换为 READY，即让当前线程放弃执行权</p>
-</li>
+<p>该方法是 Thread 类的静态方法，可以直接调用</p></li>
+<li><p><code>interrupt()</code>：中断线程（不是 中止）</p></li>
+<li><p><code>yield()</code>：线程的礼让。让出 CPU
+让其他线程执行。因为礼让的时间不确定，所以不一定礼让成功。</p>
+<p>本质是 RUNNING 切换为 READY，即让当前线程放弃执行权</p></li>
 <li><p><code>wait()</code>：导致当前线程等待</p>
-<p>直到其他线程调用此对象的 <code>notify()</code> 方法或 <code>notifyAll()</code> 方法才能唤醒此线程</p>
-<p><code>notify()</code>、<code>notifyAll()</code>：唤醒因 <code>wait()</code> 阻塞的线程。</p>
-<p>这些方法（<code>wait()</code>、<code>notify()</code>、<code>notifyAll()</code>）只能在 synchrnized 方法或代码块中调用</p>
-</li>
+<p>直到其他线程调用此对象的 <code>notify()</code> 方法或
+<code>notifyAll()</code> 方法才能唤醒此线程</p>
+<p><code>notify()</code>、<code>notifyAll()</code>：唤醒因
+<code>wait()</code> 阻塞的线程。</p>
+<p>这些方法（<code>wait()</code>、<code>notify()</code>、<code>notifyAll()</code>）只能在
+synchrnized 方法或代码块中调用</p></li>
 <li><p><code>join()</code>：线程的插队。插队的线程一旦插入成功，则必定先执行完插队线程的所有任务</p>
 <p>将导致其他线程的等待，直到 <code>join()</code> 方法的线程结束</p>
-<p><code>join(long timeout)</code>：join，但是时间到后也能结束其他线程的等待</p>
-</li>
-<li><p><code>isAlive()</code>：测试当前线程是否在活动</p>
-</li>
-<li><p><code>Thread.currentThread()</code>：引用当前运行中的线程</p>
-</li>
+<p><code>join(long timeout)</code>：join，但是时间到后也能结束其他线程的等待</p></li>
+<li><p><code>isAlive()</code>：测试当前线程是否在活动</p></li>
+<li><p><code>Thread.currentThread()</code>：引用当前运行中的线程</p></li>
 </ul>
-<h3 id="16-2-6-用户线程和守护线程"><a href="#16-2-6-用户线程和守护线程" class="headerlink" title="16.2.6 用户线程和守护线程"></a>16.2.6 用户线程和守护线程</h3><ul>
-<li><p>用户线程：也叫工作线程。当线程任务执行完毕或通知方式结束</p>
-</li>
+<h3 id="用户线程和守护线程">16.2.6 用户线程和守护线程</h3>
+<ul>
+<li><p>用户线程：也叫工作线程。当线程任务执行完毕或通知方式结束</p></li>
 <li><p>守护线程：一般是为工作线程服务的。当所有线程结束，守护线程自动结束</p>
 <p>常见的守护线程：垃圾回收机制</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Thread</span> <span class="hljs-variable">thraed</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(bullet);
 thread.setDeamon(<span class="hljs-literal">true</span>);							<span class="hljs-comment">//这样，子线程被设置为主线程的守护线程</span>
-thread.start();</code></pre></div></blockquote>
-</li>
+thread.start();</code></pre></div>
+</blockquote></li>
 </ul>
-<h3 id="16-2-7-线程的生命周期"><a href="#16-2-7-线程的生命周期" class="headerlink" title="16.2.7 线程的生命周期"></a>16.2.7 线程的生命周期</h3><p>线程的状态有</p>
+<h3 id="线程的生命周期">16.2.7 线程的生命周期</h3>
+<p>线程的状态有</p>
 <ul>
-<li><p>NEW：尚未启动</p>
-</li>
+<li><p>NEW：尚未启动</p></li>
 <li><p>RUNNABLE：在 JVM 中执行的线程</p>
-<p>可细分为 READY 和 RUNNING</p>
-</li>
-<li><p>BLOCKED：被阻塞等待监视器锁定的线程</p>
-</li>
-<li><p>WAITING：正等待另一个线程执行特定动作的线程</p>
-</li>
-<li><p>TIMED_WAITING：正等待另一个线程执行特定动作达到等待时间的线程</p>
-</li>
-<li><p>TERMINATED：已退出的线程</p>
-</li>
+<p>可细分为 READY 和 RUNNING</p></li>
+<li><p>BLOCKED：被阻塞等待监视器锁定的线程</p></li>
+<li><p>WAITING：正等待另一个线程执行特定动作的线程</p></li>
+<li><p>TIMED_WAITING：正等待另一个线程执行特定动作达到等待时间的线程</p></li>
+<li><p>TERMINATED：已退出的线程</p></li>
 </ul>
-<p>有一张重要的图，去 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=593&t=1010.6">这里</a> 查看吧</p>
-<h2 id="16-3-线程的互斥"><a href="#16-3-线程的互斥" class="headerlink" title="16.3 线程的互斥"></a>16.3 线程的互斥</h2><blockquote>
+<p>有一张重要的图，去 <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=593&amp;t=1010.6">这里</a>
+查看吧</p>
+<h2 id="线程的互斥">16.3 线程的互斥</h2>
+<blockquote>
 <p>在多线程编程，一些敏感数据不允许被多个线程同时访问。此时就用同步访问技术，保证数据在任意时刻，最多有一个线程同时访问，以保证数据的完整性。</p>
 <p>也可以这样理解：线程同步，即当有一个线程对内存进行操作时，其他线程都不能对这个内存地址进行操作（被阻塞），直到该线程完成操作，再让下一线程进行操作。</p>
 </blockquote>
-<h3 id="16-3-1-互斥锁"><a href="#16-3-1-互斥锁" class="headerlink" title="16.3.1 互斥锁"></a>16.3.1 互斥锁</h3><blockquote>
-<p>在 Java 语言中，引入了 “对象互斥锁” 的概念，也称为监视器，来保证共享数据操作的完整性</p>
-<p>每个对象都对应一个可称为 “互斥锁” 的标记，这个标记用来保证在任一时刻都只能有一个线程访问对象。</p>
+<h3 id="互斥锁">16.3.1 互斥锁</h3>
+<blockquote>
+<p>在 Java 语言中，引入了 “对象互斥锁”
+的概念，也称为监视器，来保证共享数据操作的完整性</p>
+<p>每个对象都对应一个可称为 “互斥锁”
+的标记，这个标记用来保证在任一时刻都只能有一个线程访问对象。</p>
 <p>Java 语言中，有 2 种方式实现互斥锁：</p>
 <ul>
-<li>用关键字 volatile 声明一个共享数据（变量）。一般很少使用该关键字</li>
+<li>用关键字 volatile
+声明一个共享数据（变量）。一般很少使用该关键字</li>
 <li>用关键字 synchronized 声明共享数据的一个方法或一个代码</li>
 </ul>
 <p>同步的局限性：导致程序的执行效率要降低。</p>
-<p>非静态的对象，同步方法的锁可以是 this，也可以是其他对象（要求是同一对象）</p>
+<p>非静态的对象，同步方法的锁可以是
+this，也可以是其他对象（要求是同一对象）</p>
 <p>静态对象，同步方法的锁为当前类本身</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>同步代码块</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">synchronized</span> (对象) &#123;		<span class="hljs-comment">//得到对象的锁，才能操作同步代码</span>
 	需要被同步代码;
 &#125;</code></pre></div>
-
 <p>在第一个线程持有锁定标记时，如果另一个线程企图执行该代码块语句，将从对象中索取锁定标记。</p>
 <p>因为此时该标记不可得，古该线程不能继续执行，而是加入等待队列。</p>
-<p>程序运行完 synchronized 代码块后，锁定标记会被自动返还。即使该同步代码块执行过程中抛出异常也是如此。一个线程多次调用该同步代码块的场合，也会在最外层执行完毕后正确返还。</p>
-</li>
+<p>程序运行完 synchronized
+代码块后，锁定标记会被自动返还。即使该同步代码块执行过程中抛出异常也是如此。一个线程多次调用该同步代码块的场合，也会在最外层执行完毕后正确返还。</p></li>
 <li><p>放在方法声明中，表示整个方法为同步方法</p>
-<p>因为 synchronized 语句的参数必须是 this，因此允许下面这种简洁的写法：</p>
+<p>因为 synchronized 语句的参数必须是
+this，因此允许下面这种简洁的写法：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span>&#123;
 	代码;
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="16-3-2-线程死锁"><a href="#16-3-2-线程死锁" class="headerlink" title="16.3.2 线程死锁"></a>16.3.2 线程死锁</h3><blockquote>
+<h3 id="线程死锁">16.3.2 线程死锁</h3>
+<blockquote>
 <p>多个线程都占用了对方的资源，不肯相让，就导致了死锁。编程时要避免死锁的产生。</p>
 </blockquote>
 <ul>
 <li><p>以下操作会释放锁</p>
-<ol>
+<ol type="1">
 <li>当前线程的同步方法、同步代码块执行结束。</li>
-<li>当前线程在同步方法、同步代码块中遇到 <code>break</code>、<code>return</code></li>
-<li>当前线程在同步方法、同步代码块中出现了未处理的 <code>Error</code></li>
-<li>当前线程在同步方法、同步代码块中执行了 <code>wait()</code> 方法，当前线程暂停，并释放锁</li>
-</ol>
-</li>
+<li>当前线程在同步方法、同步代码块中遇到
+<code>break</code>、<code>return</code></li>
+<li>当前线程在同步方法、同步代码块中出现了未处理的
+<code>Error</code></li>
+<li>当前线程在同步方法、同步代码块中执行了 <code>wait()</code>
+方法，当前线程暂停，并释放锁</li>
+</ol></li>
 <li><p>以下操作不会释放锁</p>
-<ol>
-<li><p>执行同步方法、同步代码块时，程序调用 <code>Thread.sleep()</code> 或 <code>Thread.yield()</code> 方法暂停当前线程的执行，不会释放锁</p>
-</li>
-<li><p>线程执行同步代码块时，其他线程调用了该线程的 <code>suspend()</code> 方法将该线程挂起，该线程不会释放锁</p>
-<p>所以，应尽量避免使用 <code>suspend()</code> 和 <code>resume()</code> 来控制线程</p>
-</li>
-</ol>
-</li>
+<ol type="1">
+<li><p>执行同步方法、同步代码块时，程序调用 <code>Thread.sleep()</code>
+或 <code>Thread.yield()</code>
+方法暂停当前线程的执行，不会释放锁</p></li>
+<li><p>线程执行同步代码块时，其他线程调用了该线程的
+<code>suspend()</code> 方法将该线程挂起，该线程不会释放锁</p>
+<p>所以，应尽量避免使用 <code>suspend()</code> 和 <code>resume()</code>
+来控制线程</p></li>
+</ol></li>
 </ul>
-<h2 id="16-4-线程的同步"><a href="#16-4-线程的同步" class="headerlink" title="16.4 线程的同步"></a>16.4 线程的同步</h2><blockquote>
-<p>Java 中，可以使用 <code>wait()</code>、<code>notify()</code>、<code>notifyAll()</code> 来协调线程间的运行速度关系。这些方法都被定义在 java.lang.Object 中</p>
-<p>Java 中的每个对象实例都有两个线程队列和它相连。一个用以实现等待锁定标志的线程，另一个用来实现 <code>wait()</code> 和 <code>notify()</code> 的交互机制</p>
+<p>## 16.4 线程的同步</p>
+<blockquote>
+<p>Java 中，可以使用
+<code>wait()</code>、<code>notify()</code>、<code>notifyAll()</code>
+来协调线程间的运行速度关系。这些方法都被定义在 java.lang.Object 中</p>
+<p>Java
+中的每个对象实例都有两个线程队列和它相连。一个用以实现等待锁定标志的线程，另一个用来实现
+<code>wait()</code> 和 <code>notify()</code> 的交互机制</p>
 </blockquote>
 <ul>
-<li><p><code>wait()</code>：让当前线程释放所有其持有的 “对象互斥锁”，进入等待队列</p>
-</li>
-<li><p><code>notify()</code>、<code>notifyAll()</code>：唤醒一个或所有在等待队列中等待的线程，并将他们移入同一个等待 “对象互斥锁” 的队列。</p>
-<p>执行这些方法时如果没有等待中的线程，则其不会生效，也不会被保留到以后再生效</p>
-</li>
+<li><p><code>wait()</code>：让当前线程释放所有其持有的
+“对象互斥锁”，进入等待队列</p></li>
+<li><p><code>notify()</code>、<code>notifyAll()</code>：唤醒一个或所有在等待队列中等待的线程，并将他们移入同一个等待
+“对象互斥锁” 的队列。</p>
+<p>执行这些方法时如果没有等待中的线程，则其不会生效，也不会被保留到以后再生效</p></li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">synchronized</span> (key) &#123;
     <span class="hljs-keyword">if</span> (key.value == <span class="hljs-number">0</span>) key.wait();
     key.value--;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">synchronized</span> (key) &#123;
     key.value++;
     key.nitifyAll();
 &#125;</code></pre></div>
-
-<p>因为调用这些方法时必须持有对象的 “对象互斥锁”，所以上述方法只能在 synhronized 方法或代码块中执行。</p>
+<p>因为调用这些方法时必须持有对象的 “对象互斥锁”，所以上述方法只能在
+synhronized 方法或代码块中执行。</p>
 
               
             </div>

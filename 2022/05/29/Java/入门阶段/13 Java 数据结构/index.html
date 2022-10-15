@@ -16,25 +16,25 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="13 Java 数据结构 数据结构分为两种：线性结构、非线性结构  线性结构：  最常用的数据结构。数据元素间存在一对一线性关系。  线性结构有 2 种不同的存储结构：顺序储存结构，链式储存结构 顺序存储结构中元素存储在连续的内存空间中。 链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息  常见的线性结构有：数组、队列、链表、栈等   非线性结构：  非线性结构包">
+    <meta name="description" content="13 Java 数据结构  数据结构分为两种：线性结构、非线性结构  线性结构：  最常用的数据结构。数据元素间存在一对一线性关系。 线性结构有 2 种不同的存储结构：顺序储存结构，链式储存结构 顺序存储结构中元素存储在连续的内存空间中。 链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息 常见的线性结构有：数组、队列、链表、栈等  非线性结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;13 Java 数据结构">
 <meta property="og:url" content="https://i-melody.github.io/2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="13 Java 数据结构 数据结构分为两种：线性结构、非线性结构  线性结构：  最常用的数据结构。数据元素间存在一对一线性关系。  线性结构有 2 种不同的存储结构：顺序储存结构，链式储存结构 顺序存储结构中元素存储在连续的内存空间中。 链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息  常见的线性结构有：数组、队列、链表、栈等   非线性结构：  非线性结构包">
+<meta property="og:description" content="13 Java 数据结构  数据结构分为两种：线性结构、非线性结构  线性结构：  最常用的数据结构。数据元素间存在一对一线性关系。 线性结构有 2 种不同的存储结构：顺序储存结构，链式储存结构 顺序存储结构中元素存储在连续的内存空间中。 链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息 常见的线性结构有：数组、队列、链表、栈等  非线性结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E9%9B%86%E5%90%88%E4%BD%93%E7%B3%BB%E5%9B%BE_13.1.png">
-<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E9%93%BE%E8%A1%A8%E5%9B%BE_13.3.3.png">
-<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E6%A0%88%E5%9B%BE_13.3.5.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/集合体系图_13.1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/链表图_13.3.3.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/栈图_13.3.5.png">
 <meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/13_3_6%20跳表图.jpg">
-<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E9%98%9F%E5%88%97%E5%9B%BE_13.4.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/队列图_13.4.png">
 <meta property="article:published_time" content="2022-05-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-08-10T02:00:09.848Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/%E9%9B%86%E5%90%88%E4%BD%93%E7%B3%BB%E5%9B%BE_13.1.png">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/集合体系图_13.1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -299,84 +299,81 @@
             
             <div class="markdown-body">
               
-              <h1 id="13-Java-数据结构"><a href="#13-Java-数据结构" class="headerlink" title="13 Java 数据结构"></a>13 Java 数据结构</h1><blockquote>
+              <h1 id="java-数据结构">13 Java 数据结构</h1>
+<blockquote>
 <p>数据结构分为两种：线性结构、非线性结构</p>
 </blockquote>
 <p><strong>线性结构：</strong></p>
 <ul>
-<li><p>最常用的数据结构。数据元素间存在一对一线性关系。</p>
-</li>
+<li><p>最常用的数据结构。数据元素间存在一对一线性关系。</p></li>
 <li><p>线性结构有 2 种不同的存储结构：顺序储存结构，链式储存结构</p>
 <p>顺序存储结构中元素存储在连续的内存空间中。</p>
-<p>链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息</p>
-</li>
-<li><p>常见的线性结构有：数组、队列、链表、栈等</p>
-</li>
+<p>链式储存结构中元素储存在非连续的空间中，元素节点中存放数据元素及相邻元素的地址信息</p></li>
+<li><p>常见的线性结构有：数组、队列、链表、栈等</p></li>
 </ul>
 <p><strong>非线性结构：</strong></p>
 <ul>
 <li>非线性结构包括：二维数组、多维数组、广义表、树结构、图结构</li>
 </ul>
-<h2 id="13-1-集合的框架体系"><a href="#13-1-集合的框架体系" class="headerlink" title="13.1 集合的框架体系"></a>13.1 集合的框架体系</h2><blockquote>
-<p>Java 提供了一系列集合容器，以方便程序员动态保存元素。并提供了一系列方便的操作对象的方法。</p>
+<h2 id="集合的框架体系">13.1 集合的框架体系</h2>
+<blockquote>
+<p>Java
+提供了一系列集合容器，以方便程序员动态保存元素。并提供了一系列方便的操作对象的方法。</p>
 <p>Java 集合主要分为两组：单列集合（Collection）、双列集合（Map）</p>
 </blockquote>
-<p><img src="/img/Java_InputImage/%E9%9B%86%E5%90%88%E4%BD%93%E7%B3%BB%E5%9B%BE_13.1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Java_InputImage/集合体系图_13.1.png" srcset="/img/loading.gif" lazyload /></p>
 <p><em>（集合体系图_13.1）</em></p>
 <ul>
-<li><p><strong>Collection 接口</strong>（单列集合）：可以存放多个元素。每个元素可以是 Object</p>
-<p>Collection 接口有两个重要子接口：List（有序集合）和 Set（无序集合）</p>
-</li>
-<li><p><strong>Map 接口</strong>（双列集合）：用于保存具有映射关系的数据：key - value（双列元素）</p>
-<p>key 和 value 可以是任何类型的引用数据类型。其中 key 不能重复，value 可以重复</p>
-<p>key 和 value 存在单一对应关系。通过特定的 key 一定能找到指定的 value</p>
-</li>
+<li><p><strong>Collection
+接口</strong>（单列集合）：可以存放多个元素。每个元素可以是 Object</p>
+<p>Collection 接口有两个重要子接口：List（有序集合）和
+Set（无序集合）</p></li>
+<li><p><strong>Map
+接口</strong>（双列集合）：用于保存具有映射关系的数据：key -
+value（双列元素）</p>
+<p>key 和 value 可以是任何类型的引用数据类型。其中 key 不能重复，value
+可以重复</p>
+<p>key 和 value 存在单一对应关系。通过特定的 key 一定能找到指定的
+value</p></li>
 </ul>
-<h2 id="13-2-单列集合接口-Collection"><a href="#13-2-单列集合接口-Collection" class="headerlink" title="13.2 单列集合接口 Collection"></a>13.2 单列集合接口 Collection</h2><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Collection</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Lterable</span>&lt;E&gt;</code></pre></div>
-
+<h2 id="单列集合接口-collection">13.2 单列集合接口 Collection</h2>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Collection</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Lterable</span>&lt;E&gt;</code></pre></div>
 <blockquote>
 <p>Collection 实现子类可以存放多个元素。每个元素可以是 Object</p>
 <p>有些 Collection 实现子类能存放重复的元素，有些不能</p>
 <p>有些 Collection 实现子类是有序的（List） ，有些不是（Set）</p>
 <p>Collection 接口没有直接的实现子类，都是通过其子接口实现的</p>
 </blockquote>
-<h3 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h3><ul>
+<h3 id="常用方法">常用方法：</h3>
+<ul>
 <li><p><code>add</code>：添加单个元素</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ArrayList</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
 list.add(<span class="hljs-string">&quot;哈哈啊&quot;</span>);
 list.add(<span class="hljs-number">10</span>);				<span class="hljs-comment">// 相当于List.add(new Integer(10));</span>
-list.add(<span class="hljs-literal">true</span>);				<span class="hljs-comment">// 同上</span></code></pre></div>
-</li>
+list.add(<span class="hljs-literal">true</span>);				<span class="hljs-comment">// 同上</span></code></pre></div></li>
 <li><p><code>remove</code>：删除单个元素</p>
 <div class="code-wrapper"><pre><code class="hljs java">list.remove(<span class="hljs-number">0</span>)				<span class="hljs-comment">// 删除编号 0 的元素。上例中会删除 &quot;哈哈啊&quot;</span>
-list.remove((Integer)<span class="hljs-number">10</span>);	<span class="hljs-comment">// 删除上例的 10 要这样写</span></code></pre></div>
-</li>
-<li><p><code>contains</code>：检查元素是否存在</p>
-</li>
-<li><p><code>size</code>：获取元素个数</p>
-</li>
-<li><p><code>isEmpty</code>：判断是否为空</p>
-</li>
-<li><p><code>clear</code>：清空</p>
-</li>
+list.remove((Integer)<span class="hljs-number">10</span>);	<span class="hljs-comment">// 删除上例的 10 要这样写</span></code></pre></div></li>
+<li><p><code>contains</code>：检查元素是否存在</p></li>
+<li><p><code>size</code>：获取元素个数</p></li>
+<li><p><code>isEmpty</code>：判断是否为空</p></li>
+<li><p><code>clear</code>：清空</p></li>
 <li><p><code>addAll</code>：添加多个元素</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">ArrayList</span> <span class="hljs-variable">list2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
 list2.add(<span class="hljs-number">111</span>);
 list2.add(<span class="hljs-string">&quot;idea&quot;</span>);
-list.addAll(list2);			<span class="hljs-comment">// 这里可以输入所有实现了 Collection 接口的集合</span></code></pre></div>
-</li>
+list.addAll(list2);			<span class="hljs-comment">// 这里可以输入所有实现了 Collection 接口的集合</span></code></pre></div></li>
 <li><p><code>containsAll</code>：检查多个元素是否存在</p>
-<div class="code-wrapper"><pre><code class="hljs java">list.contaionsAll(list2);	<span class="hljs-comment">// 同上，放一个实现了 Collection 接口的集合</span></code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java">list.contaionsAll(list2);	<span class="hljs-comment">// 同上，放一个实现了 Collection 接口的集合</span></code></pre></div></li>
 <li><p><code>removeAll</code>：删除多个元素</p>
-<div class="code-wrapper"><pre><code class="hljs java">list.removeAll(list2);		<span class="hljs-comment">// 同上</span></code></pre></div>
-</li>
-<li><p><code>Iterator iterator()</code>：返回指向集合开始位置的迭代器</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java">list.removeAll(list2);		<span class="hljs-comment">// 同上</span></code></pre></div></li>
+<li><p><code>Iterator iterator()</code>：返回指向集合开始位置的迭代器</p></li>
 </ul>
-<h3 id="13-2-1-迭代器-Iterator"><a href="#13-2-1-迭代器-Iterator" class="headerlink" title="13.2.1 迭代器 Iterator"></a>13.2.1 迭代器 Iterator</h3><blockquote>
+<h3 id="迭代器-iterator">13.2.1 迭代器 Iterator</h3>
+<blockquote>
 <p>Iterator 对象称为迭代器，主要用于遍历 Collection 集合中的元素。</p>
-<p>Collection 继承的 Iterable 接口中，提供了 <code>iterator()</code> 方法，会返回一个新的迭代器。</p>
+<p>Collection 继承的 Iterable 接口中，提供了 <code>iterator()</code>
+方法，会返回一个新的迭代器。</p>
 <p>Iterator 对象仅用于遍历集合，本身不存放元素</p>
 <p>IDEA 中，迭代器 while 循环的模板快捷键：<code>itit</code></p>
 </blockquote>
@@ -392,78 +389,78 @@ Iterator&lt;Object&gt; iterator = c.iterator();		<span class="hljs-comment">// [
 	<span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> iterator.next();				<span class="hljs-comment">// [3]</span>
 	System.out.println(obj);
 &#125;</code></pre></div>
-
-<ol>
-<li><p>获取迭代器</p>
-</li>
-<li><p>判断有无下一元素</p>
-</li>
+<ol type="1">
+<li><p>获取迭代器</p></li>
+<li><p>判断有无下一元素</p></li>
 <li><p>将迭代器后移，并返回那个后移位置上的元素</p>
-<p>while 循环结束后，指针指向最后元素的位置。再次 <code>next()</code> 会报错。如果需要再使用，需要重置迭代器。</p>
+<p>while 循环结束后，指针指向最后元素的位置。再次 <code>next()</code>
+会报错。如果需要再使用，需要重置迭代器。</p>
 <div class="code-wrapper"><pre><code class="hljs java">iterator = list.iterator();				<span class="hljs-comment">// 重置了迭代器</span></code></pre></div></li>
 </ol>
 <p><strong>for each（增强 for 循环）：</strong></p>
 <blockquote>
-<p>for each 的语法与 for 循环相似，但是可以遍历 Collection 和 数组 中的元素</p>
+<p>for each 的语法与 for 循环相似，但是可以遍历 Collection 和 数组
+中的元素</p>
 <p>IDEA 中，增强 for 循环的模板快捷键：<code>I</code></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (Object o : list)&#123;
 	...
 &#125;</code></pre></div>
-
 <ul>
 <li>for each 可在 Collection 集合中使用。</li>
-<li>for each 的底层在本质上也是 <code>Iterator</code>。可以理解为简化版本的迭代器遍历。</li>
+<li>for each 的底层在本质上也是
+<code>Iterator</code>。可以理解为简化版本的迭代器遍历。</li>
 </ul>
-<h2 id="13-3-有序集合接口-List"><a href="#13-3-有序集合接口-List" class="headerlink" title="13.3 有序集合接口 List"></a>13.3 有序集合接口 List</h2><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">List</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Collection</span>&lt;E&gt;</code></pre></div>
-
+<h2 id="有序集合接口-list">13.3 有序集合接口 List</h2>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">List</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Collection</span>&lt;E&gt;</code></pre></div>
 <blockquote>
 <p>List 是 Collection 接口的子类接口</p>
 <p>List 是有序（添加顺序和取出顺序一致）的，可重复的</p>
 <p>List 中的每个元素都有其对应的顺序索引（从 0 开始编号）</p>
 </blockquote>
-<h3 id="常用方法：-1"><a href="#常用方法：-1" class="headerlink" title="常用方法："></a>常用方法：</h3><ul>
-<li><p><code>add(int, obj)</code>：在 int 位置插入 obj 元素。返回 true</p>
+<h3 id="常用方法-1">常用方法：</h3>
+<ul>
+<li><p><code>add(int, obj)</code>：在 int 位置插入 obj 元素。返回
+true</p>
 <p><code>add(obj)</code>：在末尾插入 obj。返回 true</p>
 <div class="code-wrapper"><pre><code class="hljs java">list.add(<span class="hljs-number">111</span>);
 list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span>);						<span class="hljs-comment">// 在第 1 个位置插入数字 110</span></code></pre></div>
-
-<p><code>addElement(obj)</code>：在末尾插入 obj。无返回值。你说要这方法有啥用？名字还长一截</p>
-</li>
-<li><p><code>addAll(int, collection)</code>：在 int 位置插入 collection 中的所有元素</p>
-</li>
-<li><p><code>get(int)</code>：返回 int 位置的元素</p>
-</li>
-<li><p><code>indexOf(obj)</code>：返回 obj 首次出现时的位置</p>
-</li>
-<li><p><code>lastIndexOf(obj)</code>：返回 obj 最后一次出现时的位置</p>
-</li>
-<li><p><code>remove(int)</code>：移除 int 位置的元素，并返回那个被移除的元素</p>
-</li>
-<li><p><code>set(int, obj)</code>：设置 int 位置的元素为 obj。相当于替换。返回那个被替换元素的下标</p>
-<p><code>setElement(obj, int)</code>：设置 int 位置的元素为 obj。无返回值</p>
-</li>
-<li><p><code>subList(int1, int2)</code>：返回 [int1, int2) 范围的元素构成的子集合</p>
-</li>
+<p><code>addElement(obj)</code>：在末尾插入
+obj。无返回值。你说要这方法有啥用？名字还长一截</p></li>
+<li><p><code>addAll(int, collection)</code>：在 int 位置插入 collection
+中的所有元素</p></li>
+<li><p><code>get(int)</code>：返回 int 位置的元素</p></li>
+<li><p><code>indexOf(obj)</code>：返回 obj 首次出现时的位置</p></li>
+<li><p><code>lastIndexOf(obj)</code>：返回 obj
+最后一次出现时的位置</p></li>
+<li><p><code>remove(int)</code>：移除 int
+位置的元素，并返回那个被移除的元素</p></li>
+<li><p><code>set(int, obj)</code>：设置 int 位置的元素为
+obj。相当于替换。返回那个被替换元素的下标</p>
+<p><code>setElement(obj, int)</code>：设置 int 位置的元素为
+obj。无返回值</p></li>
+<li><p><code>subList(int1, int2)</code>：返回 [int1, int2)
+范围的元素构成的子集合</p></li>
 </ul>
-<h3 id="13-3-1-可变数组-ArrayList"><a href="#13-3-1-可变数组-ArrayList" class="headerlink" title="13.3.1 可变数组 ArrayList"></a>13.3.1 可变数组 ArrayList</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ArrayList</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractList</span>&lt;E&gt;
+<h3 id="可变数组-arraylist">13.3.1 可变数组 ArrayList</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ArrayList</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractList</span>&lt;E&gt;
      <span class="hljs-keyword">implements</span> <span class="hljs-title class_">List</span>&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
 <p>ArrayList 是 List 的实现子类。其底层由数组来实现存储。</p>
 <p>ArrayList 可以存放 null</p>
 </blockquote>
-<h4 id="ArrayList-的源码："><a href="#ArrayList-的源码：" class="headerlink" title="ArrayList 的源码："></a>ArrayList 的源码：</h4><ol>
-<li><p>ArrayList 中维护了一个 Object 类型的数组 elementData。该数组就是用来存放元素的数组</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Object[] elementData;</code></pre></div>
-</li>
-<li><p>创建 ArrayList 对象时，如果使用无参构造器，则 elementData[] 初始容量为 0</p>
+<h4 id="arraylist-的源码">ArrayList 的源码：</h4>
+<ol type="1">
+<li><p>ArrayList 中维护了一个 Object 类型的数组
+elementData。该数组就是用来存放元素的数组</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Object[] elementData;</code></pre></div></li>
+<li><p>创建 ArrayList 对象时，如果使用无参构造器，则 elementData[]
+初始容量为 0</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;
 
 <span class="hljs-keyword">public</span> <span class="hljs-title function_">ArrayList</span><span class="hljs-params">()</span> &#123;
     <span class="hljs-built_in">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>如果使用指定大小构造器，则初始容量为指定大小。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;
 
@@ -477,10 +474,10 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
     &#125; <span class="hljs-keyword">else</span> &#123;
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(...);
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>扩容的场合：</p>
-<p>如果是 <strong>无参构造器生成的初始 0 长度的 elementData</strong>，则将其容量置为 10。</p>
+<p>如果是 <strong>无参构造器生成的初始 0 长度的
+elementData</strong>，则将其容量置为 10。</p>
 <p>否则容量扩容为 1.5 倍。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/* 扩容方法，传入的参数 minCapacity 是容器现有元素数量 + 1 的值</span>
 <span class="hljs-comment">	如果是无参构造器生成的默认数组，此时传入固定值 10 */</span>
@@ -497,19 +494,20 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
     elementData = Arrays.copyOf(elementData, newCapacity);
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-3-2-可变数组-Vector"><a href="#13-3-2-可变数组-Vector" class="headerlink" title="13.3.2 可变数组 Vector"></a>13.3.2 可变数组 Vector</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector</span>&lt;E&gt;
+<h3 id="可变数组-vector">13.3.2 可变数组 Vector</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector</span>&lt;E&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractList</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">List</span>&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
 <p>Vector 是 List 的实现子类。其底层由数组来实现存储</p>
-<p>Vector 与 ArrayList 基本等同。ArrayList 效率更高，Vector 线程安全。</p>
+<p>Vector 与 ArrayList 基本等同。ArrayList 效率更高，Vector
+线程安全。</p>
 <p>在开发中，需要考虑线程安全时，建议使用 Vector ，而非 ArrayList。</p>
 </blockquote>
-<h4 id="Vector-的源码："><a href="#Vector-的源码：" class="headerlink" title="Vector 的源码："></a>Vector 的源码：</h4><ol>
+<h4 id="vector-的源码">Vector 的源码：</h4>
+<ol type="1">
 <li><p>底层维护了一个 Object 类型的数组 elementData。用以存放元素</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> Object[] elementData;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> Object[] elementData;</code></pre></div></li>
 <li><p>使用无参构造器创建对象时，默认大小是 10</p>
 <p>使用有参构造器的场合，默认是那个指定大小（initialCapaticy）</p>
 <p>也能在构造器中指定那个扩容的增长速度（capacityIncrement）</p>
@@ -527,8 +525,7 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(...);
     <span class="hljs-built_in">this</span>.elementData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[initialCapacity];
     <span class="hljs-built_in">this</span>.capacityIncrement = capacityIncrement;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>扩容的场合，容量变成 2 倍</p>
 <p>使用有参构造器改变了 capacityIncrement 的场合，增量是那个指定数值</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">grow</span><span class="hljs-params">(<span class="hljs-type">int</span> minCapacity)</span> &#123;
@@ -544,36 +541,37 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
     elementData = Arrays.copyOf(elementData, newCapacity);
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-3-3-链表-LinkedList"><a href="#13-3-3-链表-LinkedList" class="headerlink" title="13.3.3 链表 LinkedList"></a>13.3.3 链表 LinkedList</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkedList</span>&lt;E&gt;
+<h3 id="链表-linkedlist">13.3.3 链表 LinkedList</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkedList</span>&lt;E&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractSequentialList</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">List</span>&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
 <p>LinkedList 是 List 的实现子类，底层以链表形式存储元素。</p>
 <p>链表是一种<strong>非线性结构</strong>：其以节点方式存储，节点间在内存上的位置不连续。</p>
-<p>链表是有序的列表。单向链表每个节点包含 data 域和 next 域。那些 next 域指向下一节点的位置。</p>
-<p>双向链表在单向链表的基础上，每个节点加入 prev 区域以指示其前方节点。这样，就能实现双向查找。双向链表可以不依靠辅助节点而实现自我删除。</p>
+<p>链表是有序的列表。单向链表每个节点包含 data 域和 next 域。那些 next
+域指向下一节点的位置。</p>
+<p>双向链表在单向链表的基础上，每个节点加入 prev
+区域以指示其前方节点。这样，就能实现双向查找。双向链表可以不依靠辅助节点而实现自我删除。</p>
 <p>LinkedList 底层实现了 双向链表 和 双端队列 特点。</p>
-<p>LinkedList 可以添加 null，可添加重复元素。但没有实现同步，因此线程不安全。</p>
+<p>LinkedList 可以添加
+null，可添加重复元素。但没有实现同步，因此线程不安全。</p>
 </blockquote>
-<p><img src="/img/Java_InputImage/%E9%93%BE%E8%A1%A8%E5%9B%BE_13.3.3.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="常用方法：-2"><a href="#常用方法：-2" class="headerlink" title="常用方法："></a>常用方法：</h4><ul>
+<p><img src="/img/Java_InputImage/链表图_13.3.3.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="常用方法-2">常用方法：</h4>
+<ul>
 <li><p><code>void addLast(E e)</code>：尾插一个新的元素</p>
-<p>LinkedList 的 add 方法即调用该方法</p>
-</li>
-<li><p><code>void addFirst(E e)</code>：头插一个新的元素</p>
-</li>
+<p>LinkedList 的 add 方法即调用该方法</p></li>
+<li><p><code>void addFirst(E e)</code>：头插一个新的元素</p></li>
 <li><p><code>E removeLast()</code>：移除并返回尾部元素。为空时报错</p>
 <p><code>E poll()</code>：移除并返回尾部元素。为空时返回 null</p>
-<p><code>E removeFirst()</code>：移除并返回头部元素。为空时报错</p>
-</li>
+<p><code>E removeFirst()</code>：移除并返回头部元素。为空时报错</p></li>
 <li><p><code>E getLast()</code>：仅返回尾部元素。为空时报错</p>
 <p><code>E peek()</code>：返回尾部元素。为空时返回 null</p>
 <p><code>E element()</code>：返回头部元素。为空时返回 null</p>
-<p><code>E getFirst()</code></p>
-</li>
+<p><code>E getFirst()</code></p></li>
 </ul>
-<h4 id="LinkedList-的源码"><a href="#LinkedList-的源码" class="headerlink" title="LinkedList 的源码"></a>LinkedList 的源码</h4><ol>
+<h4 id="linkedlist-的源码">LinkedList 的源码</h4>
+<ol type="1">
 <li><p>LinkedList 只有默认构造器和一个拷贝构造器</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkedList</span><span class="hljs-params">()</span> &#123;
 &#125;
@@ -581,12 +579,12 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
 <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkedList</span><span class="hljs-params">(Collection&lt;? extends E&gt; c)</span> &#123;
     <span class="hljs-built_in">this</span>();
     addAll(c);
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>LinkedList 底层维护了一个 双向链表</p>
 <p>两个属性 first、last 分别指向 首节点 和 尾节点</p>
 <p>每个节点（Node 对象），里面又维护了 prev、next、item 属性。</p>
-<p>其中通过 prev 指向前一个节点，通过 next 指向后一个节点。最终实现双向链表。</p>
+<p>其中通过 prev 指向前一个节点，通过 next
+指向后一个节点。最终实现双向链表。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Node&lt;E&gt; first;
 <span class="hljs-keyword">transient</span> Node&lt;E&gt; last;
 
@@ -600,46 +598,49 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
         <span class="hljs-built_in">this</span>.next = next;
         <span class="hljs-built_in">this</span>.prev = prev;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>LinkedList 不需要扩容。其增删元素时只要改变节点的指向即可。</p>
-<p>也因此，其添加、删除元素效率比数组更高</p>
-</li>
+<p>也因此，其添加、删除元素效率比数组更高</p></li>
 </ol>
-<h4 id="ArrayList-和-LinkedList-的比较："><a href="#ArrayList-和-LinkedList-的比较：" class="headerlink" title="ArrayList 和 LinkedList 的比较："></a>ArrayList 和 LinkedList 的比较：</h4><table>
+<h4 id="arraylist-和-linkedlist-的比较">ArrayList 和 LinkedList
+的比较：</h4>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>底层结构</th>
 <th>增删效率</th>
 <th>改查效率</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>ArrayList</td>
 <td>可变数组</td>
 <td>低（数组扩容）</td>
 <td>高</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>LinkedList</code></td>
 <td>双向链表</td>
 <td>高（链表追加）</td>
 <td>低</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>应该根据实际情况来选择使用的集合：</p>
 <ul>
-<li><p>如果改查操作多，选择 ArrayList。一般来说，在程序中，80% - 90% 都是查询。大部分情况下，选择 ArrayList。</p>
-</li>
-<li><p>如果增删操作多，选择 LinkedList</p>
-</li>
+<li><p>如果改查操作多，选择 ArrayList。一般来说，在程序中，80% - 90%
+都是查询。大部分情况下，选择 ArrayList。</p></li>
+<li><p>如果增删操作多，选择 LinkedList</p></li>
 </ul>
-<h3 id="13-3-4-稀疏数组"><a href="#13-3-4-稀疏数组" class="headerlink" title="13.3.4 稀疏数组"></a>13.3.4 稀疏数组</h3><blockquote>
-<p>二维数组的很多值是默认值 0，因此记录了很多没有意义的数据。因此，可以使用稀疏数组。</p>
+<h3 id="稀疏数组">13.3.4 稀疏数组</h3>
+<blockquote>
+<p>二维数组的很多值是默认值
+0，因此记录了很多没有意义的数据。因此，可以使用稀疏数组。</p>
 </blockquote>
 <p>稀疏数组的处理方法：</p>
-<ol>
+<ol type="1">
 <li>记录数组共有几行几列，有多少个不同的值</li>
 <li>把具有不同值的元素的行列及值记录在一个小规模数组中，从而缩小程序规模</li>
 </ol>
@@ -653,8 +654,8 @@ list.add(<span class="hljs-number">0</span>, <span class="hljs-number">110</span
               &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,
               &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;,
               &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;&#125;;</code></pre></div>
-
-<p>遍历原始的二维数组，得到有效数据的个数 sum，并将二维数组的有效数据存入稀疏数组</p>
+<p>遍历原始的二维数组，得到有效数据的个数
+sum，并将二维数组的有效数据存入稀疏数组</p>
 <div class="code-wrapper"><pre><code class="hljs java">List&lt;<span class="hljs-type">int</span>[]&gt; sparseArray = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
 
 sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;map.length, map[<span class="hljs-number">0</span>].length, <span class="hljs-number">0</span>&#125;);	<span class="hljs-comment">//</span>
@@ -667,12 +668,11 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         &#125;
     &#125;
 &#125;</code></pre></div>
-
 <p><strong>稀疏数组转化为二维数组：</strong></p>
 <p>读取稀疏数组的每一行，按照其第一行数据，创建原始的二维数组。</p>
 <p>读取后几行数据，将值赋给二维数组</p>
-<h3 id="13-3-5-栈-Stack"><a href="#13-3-5-栈-Stack" class="headerlink" title="13.3.5 栈 Stack"></a>13.3.5 栈 Stack</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Stack</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Vector</span>&lt;E&gt;</code></pre></div>
-
+<h3 id="栈-stack">13.3.5 栈 Stack</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Stack</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Vector</span>&lt;E&gt;</code></pre></div>
 <blockquote>
 <p>Stack 是 Vector 的子类。以数组模拟了栈的数据结构。</p>
 <p>栈是一个先入后出的有序列表。其元素之插入删除只能在该线性表的同一端进行。</p>
@@ -680,7 +680,7 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <p>最先放入的元素位于栈底，最后放入的元素位于栈顶。</p>
 <p>放入元素称为入栈（push），取出元素称为出栈（pop）</p>
 </blockquote>
-<p><img src="/img/Java_InputImage/%E6%A0%88%E5%9B%BE_13.3.5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Java_InputImage/栈图_13.3.5.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>栈的应用场景：</strong></p>
 <ul>
 <li>子程序的调用</li>
@@ -689,18 +689,17 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <li>二叉树的遍历</li>
 <li>图形的深度优先搜索法</li>
 </ul>
-<h4 id="常用方法：-3"><a href="#常用方法：-3" class="headerlink" title="常用方法："></a>常用方法：</h4><ul>
-<li><p><code>E push(E item)</code>：将元素 item 压入栈。返回值是 item 自己</p>
-</li>
-<li><p><code>E pop()</code>：让栈顶元素出栈</p>
-</li>
-<li><p><code>E peek()</code>：仅获取栈顶元素</p>
-</li>
+<h4 id="常用方法-3">常用方法：</h4>
+<ul>
+<li><p><code>E push(E item)</code>：将元素 item 压入栈。返回值是 item
+自己</p></li>
+<li><p><code>E pop()</code>：让栈顶元素出栈</p></li>
+<li><p><code>E peek()</code>：仅获取栈顶元素</p></li>
 <li><p><code>int search(Object o)</code>：查找该元素最后出现的位置。</p>
-<p>栈底为 1，栈顶为 size()，不存在返回 -1</p>
-</li>
+<p>栈底为 1，栈顶为 size()，不存在返回 -1</p></li>
 </ul>
-<h4 id="13-3-5-1-栈模拟计算器"><a href="#13-3-5-1-栈模拟计算器" class="headerlink" title="13.3.5.1 栈模拟计算器"></a>13.3.5.1 栈模拟计算器</h4><blockquote>
+<h4 id="栈模拟计算器">13.3.5.1 栈模拟计算器</h4>
+<blockquote>
 <p>使用栈结构完成对计算器的实现</p>
 </blockquote>
 <p>要进行计算，需要获得表达式。</p>
@@ -708,8 +707,7 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <ul>
 <li><p><strong>中缀表达式：</strong></p>
 <p>中缀表达式即生活中常见的运算表达式。比如：(3 + 4) * 5 - 6</p>
-<p>中缀表达式是人最熟悉的。但是对于计算机来说却不好操作。因此，计算时常将其转化为其他表达式进行操作。</p>
-</li>
+<p>中缀表达式是人最熟悉的。但是对于计算机来说却不好操作。因此，计算时常将其转化为其他表达式进行操作。</p></li>
 <li><p><strong>前缀表达式：</strong></p>
 <p>前缀表达式（波兰表达式）是一种没有括号的表达式。其将运算符写在前面，操作数写在后面</p>
 <blockquote>
@@ -722,8 +720,7 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <li>将数字压入堆栈</li>
 <li>遇到运算符的场合，对数字栈顶元素与次顶元素进行计算，并把那个结果入栈</li>
 <li>重复该操作，最终数字栈的唯一剩余数字即为运算结果</li>
-</ul>
-</li>
+</ul></li>
 <li><p><strong>后缀表达式：</strong></p>
 <p>后缀表达式（逆波兰表达式）与前缀表达式相似。但其运算符位于操作数之后</p>
 <blockquote>
@@ -736,37 +733,36 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <li>将数字压入堆栈</li>
 <li>遇到运算符的场合，对数字栈顶元素与次顶元素进行计算，并把那个结果入栈</li>
 <li>重复该操作，最终数字栈的唯一剩余数字即为运算结果</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>对于人类来说，中缀表达式最为熟悉。但对于计算机来说，前缀、后缀表达式更容易识别。</p>
 <p>我们可以将中缀表达式转化为后缀表达式，再进行运算。</p>
 <p><strong>中缀表达式转换为后缀表达式：</strong></p>
-<ol>
-<li><p>初始化两个栈：运算符栈 operator_stack、表达式栈 formula_stack</p>
-</li>
-<li><p>从左到右扫描中缀表达式</p>
-</li>
-<li><p>遇到操作数时，将其压入表达式栈 formula_stack</p>
-</li>
+<ol type="1">
+<li><p>初始化两个栈：运算符栈 operator_stack、表达式栈
+formula_stack</p></li>
+<li><p>从左到右扫描中缀表达式</p></li>
+<li><p>遇到操作数时，将其压入表达式栈 formula_stack</p></li>
 <li><p>遇到运算符时，比较其与 operator_stack 栈顶运算符的优先级。</p>
 <ul>
-<li>operator_stack 为空，或栈顶为 <code>(</code> 的场合，让运算符入栈</li>
+<li>operator_stack 为空，或栈顶为 <code>(</code>
+的场合，让运算符入栈</li>
 <li>优先级高于栈顶运算符的场合，让其入栈</li>
-<li>优先级低于或等于栈顶运算符的场合，将那个堆顶运算符弹出并压入 formula_stack。之后，重复该步骤。</li>
-</ul>
-</li>
+<li>优先级低于或等于栈顶运算符的场合，将那个堆顶运算符弹出并压入
+formula_stack。之后，重复该步骤。</li>
+</ul></li>
 <li><p>遇到括号时：</p>
 <ul>
 <li>遇到 <code>(</code> 时，压入 operator_stack</li>
-<li>遇到 <code>)</code> 时，直到遇到 <code>(</code> 前，依次弹出 operator_stack 堆顶的运算符，并压入 formula_stack。之后将这一对括号丢弃。</li>
-</ul>
-</li>
-<li><p>到达表达式最右边时，依次弹出 operator_stack 堆顶的运算符，压入 formula_stack。</p>
-</li>
+<li>遇到 <code>)</code> 时，直到遇到 <code>(</code> 前，依次弹出
+operator_stack 堆顶的运算符，并压入
+formula_stack。之后将这一对括号丢弃。</li>
+</ul></li>
+<li><p>到达表达式最右边时，依次弹出 operator_stack 堆顶的运算符，压入
+formula_stack。</p></li>
 <li><p>此时，formula_stack 即为后缀表达式。</p>
-<p>使用 Java 的 toArray 方法将其转为数组。或将其依次弹出，并逆序输出。</p>
-</li>
+<p>使用 Java 的 toArray
+方法将其转为数组。或将其依次弹出，并逆序输出。</p></li>
 </ol>
 <p><strong>计算器的实现：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Calculator</span> &#123;
@@ -843,12 +839,10 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         <span class="hljs-keyword">return</span> ns.pop();
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h3 id="13-3-6-跳表-SkipList"><a href="#13-3-6-跳表-SkipList" class="headerlink" title="13.3.6 跳表 SkipList"></a>13.3.6 跳表 SkipList</h3><p>跳表是一种特殊的链表。普通的链表虽然添加、删除节点的速度很快（O(1)），但是要查找节点却很慢（O(n)）。跳表是一个多层次的链表，其在链表的基础上增加了多级索引，实现了 O(㏒n) 的查找速度。</p>
-<img src="/img/Java_InputImage/13_3_6 跳表图.jpg" srcset="/img/loading.gif" lazyload/>
-
+<h3 id="跳表-skiplist">13.3.6 跳表 SkipList</h3>
+<p>跳表是一种特殊的链表。普通的链表虽然添加、删除节点的速度很快（O(1)），但是要查找节点却很慢（O(n)）。跳表是一个多层次的链表，其在链表的基础上增加了多级索引，实现了
+O(㏒n) 的查找速度。</p>
+<p><img src="/img/Java_InputImage/13_3_6 跳表图.jpg" srcset="/img/loading.gif" lazyload/></p>
 <p><em>（13_3_6 跳表图）</em></p>
 <p>跳表将原本数据层的数据按照一定间隔抽取节点形成索引层，之后再从索引层抽取节点形成第二级索引，以此类推形成多层索引。</p>
 <p>跳表的查询速度得到了优化，但占用空间更大。本质上是一种空间换时间的做法。</p>
@@ -957,49 +951,45 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     &#125;
 &#125;</code></pre></div>
-
-
-
-
-
-<h2 id="13-4-队列接口-Queue"><a href="#13-4-队列接口-Queue" class="headerlink" title="13.4 队列接口 Queue"></a>13.4 队列接口 Queue</h2><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Queue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Collection</span>&lt;E&gt;</code></pre></div>
-
+<h2 id="队列接口-queue">13.4 队列接口 Queue</h2>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Queue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Collection</span>&lt;E&gt;</code></pre></div>
 <blockquote>
 <p>Queue 是 Collection 的子接口</p>
-<p>Queue 的实现子类都是队列式集合。队列是一个有序列表，可以用数组或链表来实现</p>
+<p>Queue
+的实现子类都是队列式集合。队列是一个有序列表，可以用数组或链表来实现</p>
 <p>队列遵循先入先出的原则。队列中元素是以添加顺序取出的。</p>
 <p>向队列中增加元素称为<strong>入列</strong>（push），取出元素称为<strong>出列</strong>（pop）</p>
 </blockquote>
-<p><img src="/img/Java_InputImage/%E9%98%9F%E5%88%97%E5%9B%BE_13.4.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="常用方法：-4"><a href="#常用方法：-4" class="headerlink" title="常用方法："></a>常用方法：</h3><ul>
+<p><img src="/img/Java_InputImage/队列图_13.4.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="常用方法-4">常用方法：</h3>
+<ul>
 <li><p><code>add(E e)</code>：添加元素。队列满的场合抛出异常</p>
 <p><code>put(E e)</code>：添加元素。队列满的场合可能阻塞</p>
-<p><code>boolean offer(E e)</code>：添加元素。队列满的场合返回 false</p>
-</li>
+<p><code>boolean offer(E e)</code>：添加元素。队列满的场合返回
+false</p></li>
 <li><p><code>E remove()</code>：移除并返回队列头部元素。队列空的场合抛出异常</p>
 <p><code>E poll()</code>：移除并返回队列头部元素</p>
-<p><code>E take()</code>：移除并返回队列头部元素。队列空的场合可能阻塞</p>
-</li>
+<p><code>E take()</code>：移除并返回队列头部元素。队列空的场合可能阻塞</p></li>
 <li><p><code>E peek()</code>：仅返回队列头部元素。为空时返回 null</p>
-<p><code>E element()</code>：仅返回队列头部元素。为空时抛出异常</p>
-</li>
+<p><code>E element()</code>：仅返回队列头部元素。为空时抛出异常</p></li>
 </ul>
-<h3 id="13-4-1-优先级队列-PriorityQueue"><a href="#13-4-1-优先级队列-PriorityQueue" class="headerlink" title="13.4.1 优先级队列 PriorityQueue"></a>13.4.1 优先级队列 PriorityQueue</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PriorityQueue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractQueue</span>&lt;E&gt;
+<h3 id="优先级队列-priorityqueue">13.4.1 优先级队列 PriorityQueue</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PriorityQueue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractQueue</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">java</span>.io.Serializable</code></pre></div>
-
 <blockquote>
 <p>PriorityQueue 是一个无界优先级队列。底层以数组储存元素。</p>
 <p>无界队列：即没有范围限制的队列。</p>
 <p>PriorityQueue 不允许 null 元素，也不允许不可比较的元素。</p>
-<p>PriorityQueue 中的元素以自然顺序，或传入的比较器决定的顺序排序。其中的最小元素位于队头，最大元素位于队尾。</p>
-<p>以迭代器遍历时，会按照原本的放入顺序获取元素。PriorityQueue 的源码：</p>
+<p>PriorityQueue
+中的元素以自然顺序，或传入的比较器决定的顺序排序。其中的最小元素位于队头，最大元素位于队尾。</p>
+<p>以迭代器遍历时，会按照原本的放入顺序获取元素。PriorityQueue
+的源码：</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>底层维护了一个 Object 类型的数组 queue。用以存放元素</p>
 <p>另维护了一个比较器 comparator，用以比较元素</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Object[] queue;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Comparator&lt;? <span class="hljs-built_in">super</span> E&gt; comparator;</code></pre></div>
-</li>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Comparator&lt;? <span class="hljs-built_in">super</span> E&gt; comparator;</code></pre></div></li>
 <li><p>默认构造器初始容量为 11，比较器为 null</p>
 <p>也能指定初始容量，或传入比较器</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">PriorityQueue</span><span class="hljs-params">()</span> &#123;
@@ -1020,13 +1010,13 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>();
     <span class="hljs-built_in">this</span>.queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[initialCapacity];
     <span class="hljs-built_in">this</span>.comparator = comparator;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>放入时依靠比较器 comparator 进行排序。</p>
-<p>那个比较器为 null 的场合，每次放入元素会按元素自身的自然顺序进行排序。</p>
-<p>不能排序的场合会抛出异常。</p>
-</li>
-<li><p>扩容时，容量小于 64 的场合容量变为 2 倍 + 2。否则那个容量变为 1.5 倍</p>
+<p>那个比较器为 null
+的场合，每次放入元素会按元素自身的自然顺序进行排序。</p>
+<p>不能排序的场合会抛出异常。</p></li>
+<li><p>扩容时，容量小于 64 的场合容量变为 2 倍 + 2。否则那个容量变为 1.5
+倍</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">grow</span><span class="hljs-params">(<span class="hljs-type">int</span> minCapacity)</span> &#123;
         <span class="hljs-type">int</span> <span class="hljs-variable">oldCapacity</span> <span class="hljs-operator">=</span> queue.length;
         <span class="hljs-type">int</span> <span class="hljs-variable">newCapacity</span> <span class="hljs-operator">=</span> oldCapacity + ((oldCapacity &lt; <span class="hljs-number">64</span>) ?
@@ -1037,8 +1027,9 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         queue = Arrays.copyOf(queue, newCapacity);
     &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-4-2-阻塞队列接口-BlockingQueue"><a href="#13-4-2-阻塞队列接口-BlockingQueue" class="headerlink" title="13.4.2 阻塞队列接口 BlockingQueue"></a>13.4.2 阻塞队列接口 BlockingQueue</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">BlockingQueue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Queue</span>&lt;E&gt;</code></pre></div>
-
+<h3 id="阻塞队列接口-blockingqueue">13.4.2 阻塞队列接口
+BlockingQueue</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">BlockingQueue</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Queue</span>&lt;E&gt;</code></pre></div>
 <blockquote>
 <p>BlockingQueue 是一个接口，其实现子类都是阻塞队列。</p>
 <p>阻塞队列：</p>
@@ -1052,109 +1043,149 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <ul>
 <li>ArrayBlockingQueue：底层以数组存放元素的有界阻塞队列</li>
 <li>LinkedBlockingQueue：底层以链表存放元素的可选边界的阻塞队列</li>
-<li>PriorityBlockingQueue：无界阻塞队列，与 PriorityQueue 排序方式相同</li>
+<li>PriorityBlockingQueue：无界阻塞队列，与 PriorityQueue
+排序方式相同</li>
 </ul>
 </blockquote>
-<h4 id="常用方法：-5"><a href="#常用方法：-5" class="headerlink" title="常用方法："></a>常用方法：</h4><p>实际上，其常用方法能分为几类：</p>
+<h4 id="常用方法-5">常用方法：</h4>
+<p>实际上，其常用方法能分为几类：</p>
 <table>
-    <tr>
-        <td></td>
-        <th>抛出异常</th>
-        <th>特殊值</th>
-        <th>阻塞</th>
-        <th>等待</th>
-    </tr>
-    <tr>
-        <th>插入</th>
-        <td>add(e)</td>
-        <td>offer(e)</td>
-        <td>put(e)</td>
-        <td>offer(e, time, unit)</td>
-    </tr>
-    <tr>
-        <th>删除</th>
-        <td>remove()</td>
-        <td>poll()</td>
-        <td>take()</td>
-        <td>take(time, unit)</td>
-    </tr>
-    <tr>
-        <th>查找</th>
-        <td>element()</td>
-        <td>peek()</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
+<tr>
+<td>
+</td>
+<th>
+抛出异常
+</th>
+<th>
+特殊值
+</th>
+<th>
+阻塞
+</th>
+<th>
+等待
+</th>
+</tr>
+<tr>
+<th>
+插入
+</th>
+<td>
+add(e)
+</td>
+<td>
+offer(e)
+</td>
+<td>
+put(e)
+</td>
+<td>
+offer(e, time, unit)
+</td>
+</tr>
+<tr>
+<th>
+删除
+</th>
+<td>
+remove()
+</td>
+<td>
+poll()
+</td>
+<td>
+take()
+</td>
+<td>
+take(time, unit)
+</td>
+</tr>
+<tr>
+<th>
+查找
+</th>
+<td>
+element()
+</td>
+<td>
+peek()
+</td>
+<td>
+-
+</td>
+<td>
+-
+</td>
+</tr>
 </table>
-
-
-
-
-<h2 id="13-5-双列集合接口-Map"><a href="#13-5-双列集合接口-Map" class="headerlink" title="13.5 双列集合接口 Map"></a>13.5 双列集合接口 Map</h2><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Map</span>&lt;K,V&gt;</code></pre></div>
-
+<h2 id="双列集合接口-map">13.5 双列集合接口 Map</h2>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Map</span>&lt;K,V&gt;</code></pre></div>
 <p><strong>以下关于 Map 接口的描述，适用于 JDK 8 的环境</strong></p>
 <blockquote>
-<p>Map 与 Collection 并列存在，用于保存具有映射关系的数据：key - value（双列元素）</p>
+<p>Map 与 Collection 并列存在，用于保存具有映射关系的数据：key -
+value（双列元素）</p>
 <p>Map 的 key 和 value 可以是任何类型的引用数据类型，也能存入 null。</p>
-<p>Map 的 key 不允许重复，value 可以重复。key 和 value 存在单一对应关系。通过特定的 key 一定能找到指定的 value。</p>
-<p>一组 k - v 会被封装到一个 Entry 对象中。Entry 是一个内部接口。Map 的实现子类中都包含一个实现这个接口的内部类。</p>
+<p>Map 的 key 不允许重复，value 可以重复。key 和 value
+存在单一对应关系。通过特定的 key 一定能找到指定的 value。</p>
+<p>一组 k - v 会被封装到一个 Entry 对象中。Entry 是一个内部接口。Map
+的实现子类中都包含一个实现这个接口的内部类。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Entry</span>&lt;K,V&gt; &#123;
 	K <span class="hljs-title function_">getKey</span><span class="hljs-params">()</span>;
 	V <span class="hljs-title function_">getValue</span><span class="hljs-params">()</span>;
     ...
 &#125;</code></pre></div>
-
-<p>如果添加相同的 key，会覆盖原先的 key -value。等同于修改（key 不会替换，value 会被替换）</p>
+<p>如果添加相同的 key，会覆盖原先的 key -value。等同于修改（key
+不会替换，value 会被替换）</p>
 </blockquote>
-<h4 id="常用方法：-6"><a href="#常用方法：-6" class="headerlink" title="常用方法："></a>常用方法：</h4><ul>
-<li><p><code>put()</code>：添加。已存在的场合，实行替换。（key 不替换，value 替换）</p>
-</li>
-<li><p><code>remove()</code>：根据键删除映射关系</p>
-</li>
-<li><p><code>get()</code>：根据键获取值</p>
-</li>
-<li><p><code>size()</code>：元素个数</p>
-</li>
-<li><p><code>isEmpty()</code>：判断个数是否为 0</p>
-</li>
-<li><p><code>clear()</code>：清空</p>
-</li>
-<li><p><code>containsKey()</code>：查找键是否存在</p>
-</li>
+<h4 id="常用方法-6">常用方法：</h4>
+<ul>
+<li><p><code>put()</code>：添加。已存在的场合，实行替换。（key
+不替换，value 替换）</p></li>
+<li><p><code>remove()</code>：根据键删除映射关系</p></li>
+<li><p><code>get()</code>：根据键获取值</p></li>
+<li><p><code>size()</code>：元素个数</p></li>
+<li><p><code>isEmpty()</code>：判断个数是否为 0</p></li>
+<li><p><code>clear()</code>：清空</p></li>
+<li><p><code>containsKey()</code>：查找键是否存在</p></li>
 <li><p><code>Set&lt;K&gt; keySet()</code>：获取所有 键 构成的集合</p>
-<p><code>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code>：获取所有 Entry 构成的集合</p>
-<p><code>Collection&lt;V&gt; values()</code>：获取所有 值 构成的集合</p>
-</li>
+<p><code>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code>：获取所有
+Entry 构成的集合</p>
+<p><code>Collection&lt;V&gt; values()</code>：获取所有 值
+构成的集合</p></li>
 </ul>
-<h4 id="Map-接口遍历元素："><a href="#Map-接口遍历元素：" class="headerlink" title="Map 接口遍历元素："></a>Map 接口遍历元素：</h4><ul>
-<li><p><strong>方法一</strong>：利用 <code>Set&lt;K&gt; keySet()</code> 方法</p>
+<h4 id="map-接口遍历元素">Map 接口遍历元素：</h4>
+<ul>
+<li><p><strong>方法一</strong>：利用 <code>Set&lt;K&gt; keySet()</code>
+方法</p>
 <p>先得到所有 keys，再遍历 keys，根据每个 key 获得 value：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Set</span> <span class="hljs-variable">keyset</span> <span class="hljs-operator">=</span> map.keySet();
 <span class="hljs-keyword">for</span> (Object o : keyset) &#123;
 	System.out.println(o + <span class="hljs-string">&quot; = &quot;</span> + map.get(o));
-&#125;</code></pre></div>
-</li>
-<li><p><strong>方法二</strong>：利用 <code>Set&lt;V&gt; values()</code> 方法</p>
+&#125;</code></pre></div></li>
+<li><p><strong>方法二</strong>：利用 <code>Set&lt;V&gt; values()</code>
+方法</p>
 <p>直接把所有 values 取出，之后遍历 values</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Collection</span> <span class="hljs-variable">values</span> <span class="hljs-operator">=</span> map.values();
 <span class="hljs-keyword">for</span> (Object value : values) &#123;
 	System.out.println(value);
-&#125;</code></pre></div>
-</li>
-<li><p><strong>方法三</strong>：利用 <code>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code> 方法</p>
+&#125;</code></pre></div></li>
+<li><p><strong>方法三</strong>：利用
+<code>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code> 方法</p>
 <p>通过获取 entrySet 来获取 k - v</p>
 <div class="code-wrapper"><pre><code class="hljs java">Set&lt;Map.Entry&gt; entrySet = map.entrySet();
 <span class="hljs-keyword">for</span> (Map.Entry e : entrySet) &#123;
 	System.out.println(e.getKey() + <span class="hljs-string">&quot; - &quot;</span> + e.getValue());
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="13-5-1-散列表-HashMap"><a href="#13-5-1-散列表-HashMap" class="headerlink" title="13.5.1 散列表 HashMap"></a>13.5.1 散列表 HashMap</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashMap</span>&lt;K,V&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractMap</span>&lt;K,V&gt;
+<h3 id="散列表-hashmap">13.5.1 散列表 HashMap</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashMap</span>&lt;K,V&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractMap</span>&lt;K,V&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Map</span>&lt;K,V&gt;, Cloneable, Serializable</code></pre></div>
-
 <blockquote>
-<p>HashMap 是 Map 接口使用频率最高的实现类。是根据关键码值（key value）而进行直接访问的数据结构。通过将关键码值映射到表中一个位置来访问记录，以加快查找速度。</p>
+<p>HashMap 是 Map 接口使用频率最高的实现类。是根据关键码值（key
+value）而进行直接访问的数据结构。通过将关键码值映射到表中一个位置来访问记录，以加快查找速度。</p>
 <p>那个映射函数叫做散列函数，存放记录的数组叫做散列表（哈希表）</p>
-<p>HashMap 是以 k - v 对得到方式来存储数据。一组数据会被封装到一个 Node 对象中。</p>
+<p>HashMap 是以 k - v 对得到方式来存储数据。一组数据会被封装到一个 Node
+对象中。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&lt;K,V&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Map</span>.Entry&lt;K,V&gt; &#123;
  <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> hash;
  <span class="hljs-keyword">final</span> K key;
@@ -1163,22 +1194,23 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 
  ...
 &#125;</code></pre></div>
-
-<p>JDK 7 前，HashMap 底层是 数组 + 链表。JDK 8 后，底层是 数组 + 链表 + 红黑树。HashMap 不保证映射的顺序。</p>
+<p>JDK 7 前，HashMap 底层是 数组 + 链表。JDK 8 后，底层是 数组 + 链表 +
+红黑树。HashMap 不保证映射的顺序。</p>
 <p>HashMap 没有实现同步（没有 synchronized），是线程不安全的</p>
 </blockquote>
-<h4 id="HashMap-的源码："><a href="#HashMap-的源码：" class="headerlink" title="HashMap 的源码："></a>HashMap 的源码：</h4><ol>
+<h4 id="hashmap-的源码">HashMap 的源码：</h4>
+<ol type="1">
 <li><p>HashMap 底层维护了 Node 类型的数组 table。默认为 null</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Node&lt;K,V&gt;[] table;</code></pre></div>
-
-<p>另外，还有集合 values、keySet、enrtySet。这些集合能帮助程序员进行遍历</p>
+<p>另外，还有集合
+values、keySet、enrtySet。这些集合能帮助程序员进行遍历</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">transient</span> Set&lt;K&gt;				keySet;
 <span class="hljs-keyword">transient</span> Collection&lt;V&gt;			values;
-<span class="hljs-keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt;	entrySet;</code></pre></div>
-</li>
+<span class="hljs-keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt;	entrySet;</code></pre></div></li>
 <li><p>创建对象时，默认构造器将加载因子（loadfactor）初始化为 0.75。</p>
 <p>也能指定那些初始容量和加载因子。</p>
-<p>默认构造器第一次添加元素的场合，table 扩容为 16，临界值为 16 * 0.75 &#x3D; 12。</p>
+<p>默认构造器第一次添加元素的场合，table 扩容为 16，临界值为 16 * 0.75 =
+12。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">float</span> <span class="hljs-variable">DEFAULT_LOAD_FACTOR</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.75f</span>;
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MAXIMUM_CAPACITY</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>;
 
@@ -1200,13 +1232,16 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(...);
     <span class="hljs-built_in">this</span>.loadFactor = loadFactor;
     <span class="hljs-built_in">this</span>.threshold = tableSizeFor(initialCapacity);
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>添加时容量不够的场合，需要扩容。</p>
-<p>默认构造器第一次添加元素的场合，table 扩容为 16，临界值为 16 * 0.75 &#x3D; 12。</p>
+<p>默认构造器第一次添加元素的场合，table 扩容为 16，临界值为 16 * 0.75 =
+12。</p>
 <p>扩容的场合，容量变为 2 倍。临界值相应变化。</p>
-<p>临界值不会超过那个指定的 MAXIMUM_CAPACITY（1 &lt;&lt; 30），否则变成 Integer.MAX_VALUE。</p>
-<p>JDK 8 中，如果一条链表的元素个数超过 TREEIFY_THRESHOLD（默认是 8），并且 <code>table</code> 的大小 &gt;&#x3D; MIN_TREEIFY_CAPACITY（默认 64），会进行树化。</p>
+<p>临界值不会超过那个指定的 MAXIMUM_CAPACITY（1 &lt;&lt; 30），否则变成
+Integer.MAX_VALUE。</p>
+<p>JDK 8 中，如果一条链表的元素个数超过 TREEIFY_THRESHOLD（默认是
+8），并且 <code>table</code> 的大小 &gt;= MIN_TREEIFY_CAPACITY（默认
+64），会进行树化。</p>
 <p>剪枝：红黑树的元素减少到一定程度，会被重新转化为 链表</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MAXIMUM_CAPACITY</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>;
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">DEFAULT_INITIAL_CAPACITY</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">4</span>;
@@ -1299,11 +1334,12 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
         &#125;
     &#125;
     <span class="hljs-keyword">return</span> newTab;
-&#125;</code></pre></div>
-</li>
-<li><p>添加 k - v 时，通过 key 的哈希值得到其在 table 的索引，判断索引位置是否被占用。</p>
+&#125;</code></pre></div></li>
+<li><p>添加 k - v 时，通过 key 的哈希值得到其在 table
+的索引，判断索引位置是否被占用。</p>
 <p>未占用的场合，直接添加。</p>
-<p>占用的场合，判断其 key 是否相等。相等的场合，替换 value。否则，按照 树 或 链表 的方式处理。</p>
+<p>占用的场合，判断其 key 是否相等。相等的场合，替换 value。否则，按照
+树 或 链表 的方式处理。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> V <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span> &#123;
     <span class="hljs-keyword">return</span> putVal(hash(key), key, value, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);
 &#125;
@@ -1400,16 +1436,18 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <span class="hljs-keyword">void</span> <span class="hljs-title function_">afterNodeInsertion</span><span class="hljs-params">(<span class="hljs-type">boolean</span> evict)</span> &#123; &#125;
 <span class="hljs-keyword">void</span> <span class="hljs-title function_">afterNodeRemoval</span><span class="hljs-params">(Node&lt;K,V&gt; p)</span> &#123; &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-5-2-散列表-Hashtable"><a href="#13-5-2-散列表-Hashtable" class="headerlink" title="13.5.2 散列表 Hashtable"></a>13.5.2 散列表 Hashtable</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Hashtable</span>&lt;K,V&gt;
+<h3 id="散列表-hashtable">13.5.2 散列表 Hashtable</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Hashtable</span>&lt;K,V&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Dictionary</span>&lt;K,V&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Map</span>&lt;K,V&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
-<p>Hashtable 和 HashMap 基本一致，但Hashtable 是线程安全的 。但也因为如此，Hashtable 的效率低下。</p>
+<p>Hashtable 和 HashMap 基本一致，但Hashtable 是线程安全的
+。但也因为如此，Hashtable 的效率低下。</p>
 </blockquote>
-<h4 id="Hashtable-与-HashMap-的比较："><a href="#Hashtable-与-HashMap-的比较：" class="headerlink" title="Hashtable 与 HashMap 的比较："></a>Hashtable 与 HashMap 的比较：</h4><table>
+<h4 id="hashtable-与-hashmap-的比较">Hashtable 与 HashMap 的比较：</h4>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>版本</th>
 <th>线程安全（同步）</th>
@@ -1417,45 +1455,47 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <th>是否允许 null值</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Hashtable</td>
 <td>1.0</td>
 <td>安全</td>
 <td>较低</td>
 <td>不允许</td>
 </tr>
-<tr>
+<tr class="even">
 <td>HashMap</td>
 <td>1.2</td>
 <td>不安全</td>
 <td>高</td>
 <td>允许</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
-<li><p>Hashtable 底层也是有数组，默认构造器的初始容量为 11。临界值是 11 * 0.75 &#x3D; 8。</p>
-</li>
+<li><p>Hashtable 底层也是有数组，默认构造器的初始容量为 11。临界值是 11
+* 0.75 = 8。</p></li>
 <li><p>扩容大致如下：</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">newCapacity</span> <span class="hljs-operator">=</span> (oldCapacity &lt;&lt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>;			<span class="hljs-comment">//即，原容量 * 2 + 1</span></code></pre></div>
-</li>
-<li><p>Hashtable 不会树化</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">newCapacity</span> <span class="hljs-operator">=</span> (oldCapacity &lt;&lt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>;			<span class="hljs-comment">//即，原容量 * 2 + 1</span></code></pre></div></li>
+<li><p>Hashtable 不会树化</p></li>
 </ul>
-<h3 id="13-5-3-红黑树-TreeMap"><a href="#13-5-3-红黑树-TreeMap" class="headerlink" title="13.5.3 红黑树 TreeMap"></a>13.5.3 红黑树 TreeMap</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeMap</span>&lt;K,V&gt;
+<h3 id="红黑树-treemap">13.5.3 红黑树 TreeMap</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeMap</span>&lt;K,V&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractMap</span>&lt;K,V&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">NavigableMap</span>&lt;K,V&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
 <p>TreeMap 实现了 Map 接口。底层使用 红黑树 存储数据。</p>
 <p>相较数组（访问快，检索、插入慢）和链表（插入快，检索、访问慢），树形数据结构（如二叉排序树）在保证数据检索速度的同时，也能保证数据插入、删除、修改的速度</p>
 </blockquote>
-<p><em><strong>——见 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-1-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91">[14.1.4.1 平衡二叉树]</a></strong></em></p>
-<h4 id="TreeMap-的源码："><a href="#TreeMap-的源码：" class="headerlink" title="TreeMap 的源码："></a>TreeMap 的源码：</h4><ol>
+<p><strong><em>——见 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-1-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91">[14.1.4.1
+平衡二叉树]</a></em></strong></p>
+<h4 id="treemap-的源码">TreeMap 的源码：</h4>
+<ol type="1">
 <li><p>TreeMap 底层维护了一个二叉树，以及一个比较器</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Comparator&lt;? <span class="hljs-built_in">super</span> K&gt; comparator;
 
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> Entry&lt;K,V&gt; root;</code></pre></div>
-</li>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> Entry&lt;K,V&gt; root;</code></pre></div></li>
 <li><p>创建对象时，能采用无参构造，也能指定比较器完成构造</p>
 <p>那个无参构造的场合，比较器为空。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">TreeMap</span><span class="hljs-params">()</span> &#123;
@@ -1465,13 +1505,12 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 <span class="hljs-keyword">public</span> <span class="hljs-title function_">TreeMap</span><span class="hljs-params">(Comparator&lt;? <span class="hljs-built_in">super</span> K&gt; comparator)</span> &#123;
     <span class="hljs-built_in">this</span>.comparator = comparator;
 &#125;</code></pre></div>
-
-<p>比较器如果为空，则要求传入的 key 必须是 Comparable 接口的实现子类，否则无法进行比较。</p>
+<p>比较器如果为空，则要求传入的 key 必须是 Comparable
+接口的实现子类，否则无法进行比较。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(Object k1, Object k2)</span> &#123;
     <span class="hljs-keyword">return</span> comparator==<span class="hljs-literal">null</span> ? ((Comparable&lt;? <span class="hljs-built_in">super</span> K&gt;)k1).compareTo((K)k2)
         : comparator.compare((K)k1, (K)k2);
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>添加时，通过比较器确定那个添加位置。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> V <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span> &#123;
     Entry&lt;K,V&gt; t = root;	<span class="hljs-comment">// &lt;- 树的根节点</span>
@@ -1533,8 +1572,7 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
     size++;
     modCount++;
     <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>添加的最后，会试着将该树转换成完全二叉树</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fixAfterInsertion</span><span class="hljs-params">(Entry&lt;K,V&gt; x)</span> &#123;
     x.color = RED;
@@ -1577,44 +1615,49 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
     root.color = BLACK;
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-5-4-Properties"><a href="#13-5-4-Properties" class="headerlink" title="13.5.4 Properties"></a>13.5.4 Properties</h3><blockquote>
-<p>Properties 继承自 Hashtable  并实现了 Map 接口。也使用键值对的方式保存数据</p>
+<h3 id="properties">13.5.4 Properties</h3>
+<blockquote>
+<p>Properties 继承自 Hashtable 并实现了 Map
+接口。也使用键值对的方式保存数据</p>
 <p>Properties 使用特点与 Hashtable 相似</p>
-<p>Properties 还可以用于 xxx.properties 文件中，加载数据到 Properties 对象，进行读取和修改</p>
+<p>Properties 还可以用于 xxx.properties 文件中，加载数据到 Properties
+对象，进行读取和修改</p>
 <p>xxx.properties 文件常作为配置文件</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Properties</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Hashtable</span>&lt;Object,Object&gt;</code></pre></div>
-
-<p><em><strong>——关于这些，详见 <a href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/">[17 IO流 ]</a></strong></em></p>
+<p><strong><em>——关于这些，详见 <a
+href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/">[17
+IO流 ]</a></em></strong></p>
 <ul>
-<li><p><code>String getProperty(String key)</code> ：输入一个 String 类型的 key，返回一个 String 的 value</p>
- <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getProperty</span><span class="hljs-params">(String key)</span> &#123;
+<li><p><code>String getProperty(String key)</code> ：输入一个 String
+类型的 key，返回一个 String 的 value</p>
+<p><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getProperty</span><span class="hljs-params">(String key)</span> &#123;
 <span class="hljs-type">Object</span> <span class="hljs-variable">oval</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">super</span>.get(key);
 <span class="hljs-type">String</span> <span class="hljs-variable">sval</span> <span class="hljs-operator">=</span> (oval <span class="hljs-keyword">instanceof</span> String) ? (String)oval : <span class="hljs-literal">null</span>;
 <span class="hljs-keyword">return</span> ((sval == <span class="hljs-literal">null</span>) &amp;&amp; (defaults != <span class="hljs-literal">null</span>)) ? defaults.getProperty(key) : sval;
-&#125;</code></pre></div></li>
+&#125;</code></pre></div></p></li>
 </ul>
-<h2 id="13-6-无序集合接口-Set"><a href="#13-6-无序集合接口-Set" class="headerlink" title="13.6 无序集合接口 Set"></a>13.6 无序集合接口 Set</h2><blockquote>
+<h2 id="无序集合接口-set">13.6 无序集合接口 Set</h2>
+<blockquote>
 <p>Set 是 Collection 接口的子类接口。</p>
-<p>Set 接口的特点是无序（添加和取出顺序不一致，其取出顺序由某个算法决定），没有索引</p>
+<p>Set
+接口的特点是无序（添加和取出顺序不一致，其取出顺序由某个算法决定），没有索引</p>
 <p>不允许重复元素。故而，最多包含一个 null</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Set</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Collection</span>&lt;E&gt;</code></pre></div>
-
-
-
-<h3 id="13-6-1-HashSet"><a href="#13-6-1-HashSet" class="headerlink" title="13.6.1 HashSet"></a>13.6.1 HashSet</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashSet</span>&lt;E&gt;
+<h3 id="hashset">13.6.1 HashSet</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashSet</span>&lt;E&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractSet</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Set</span>&lt;E&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
-<p>HashSet 实现了 Set 接口。底层实际上使用 HashMap 来存储数据。<del>身在 Collection 心在 Map</del></p>
+<p>HashSet 实现了 Set 接口。底层实际上使用 HashMap 来存储数据。<del>身在
+Collection 心在 Map</del></p>
 <p>HashSet 是无序的。其实际顺序取决于计算得到的 hash 值</p>
 </blockquote>
-<h4 id="HashSet-的源码"><a href="#HashSet-的源码" class="headerlink" title="HashSet 的源码"></a>HashSet 的源码</h4><ol>
+<h4 id="hashset-的源码">HashSet 的源码</h4>
+<ol type="1">
 <li><p>HashSet 底层是 HashMap。</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> HashMap&lt;E,Object&gt; map;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> HashMap&lt;E,Object&gt; map;</code></pre></div></li>
 <li><p>实例化也和 HashMap 相同</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">HashSet</span><span class="hljs-params">()</span> &#123;
     map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
@@ -1626,28 +1669,31 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
 
 <span class="hljs-keyword">public</span> <span class="hljs-title function_">HashSet</span><span class="hljs-params">(<span class="hljs-type">int</span> initialCapacity, <span class="hljs-type">float</span> loadFactor)</span> &#123;
     map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(initialCapacity, loadFactor);
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>添加一个元素时调用 HashMap 的方法</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">add</span><span class="hljs-params">(E e)</span> &#123;
     <span class="hljs-keyword">return</span> map.put(e, PRESENT)==<span class="hljs-literal">null</span>;
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-6-2-LinkedHashSet"><a href="#13-6-2-LinkedHashSet" class="headerlink" title="13.6.2 LinkedHashSet"></a>13.6.2 LinkedHashSet</h3><blockquote>
+<h3 id="linkedhashset">13.6.2 LinkedHashSet</h3>
+<blockquote>
 <p>LinkedHashSet 是 HashSet 的子类</p>
-<p>LinkedHashSet 底层是一个 LinkedHashMap，维护了一个数组 + 双向链表。<del>有其父必有其子</del></p>
-<p>LinkedHashSet 根据元素的 hashCode 值来决定元素的存储位置。同时，使用链表维护元素的次序。这使得元素看起来是以插入顺序保存的，并得以按照放入顺序取出</p>
+<p>LinkedHashSet 底层是一个 LinkedHashMap，维护了一个数组 +
+双向链表。<del>有其父必有其子</del></p>
+<p>LinkedHashSet 根据元素的 hashCode
+值来决定元素的存储位置。同时，使用链表维护元素的次序。这使得元素看起来是以插入顺序保存的，并得以按照放入顺序取出</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkedHashSet</span>&lt;E&gt;
     <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HashSet</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Set</span>&lt;E&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
-<h4 id="LinkedHashSet-的源码："><a href="#LinkedHashSet-的源码：" class="headerlink" title="LinkedHashSet 的源码："></a>LinkedHashSet 的源码：</h4><ol>
-<li><p>在类 HashSet 中，存在一个默认访问范围的构造器。该构造器不同于其他构造器，会让实例维护一个 LinkedHashMap </p>
+<h4 id="linkedhashset-的源码">LinkedHashSet 的源码：</h4>
+<ol type="1">
+<li><p>在类 HashSet
+中，存在一个默认访问范围的构造器。该构造器不同于其他构造器，会让实例维护一个
+LinkedHashMap</p>
 <div class="code-wrapper"><pre><code class="hljs java">HashSet(<span class="hljs-type">int</span> initialCapacity, <span class="hljs-type">float</span> loadFactor, <span class="hljs-type">boolean</span> dummy) &#123;
     map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedHashMap</span>&lt;&gt;(initialCapacity, loadFactor);
 &#125;</code></pre></div>
-
 <p>LinkedHashSet 的构造器即调用了该父类构造器</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkedHashSet</span><span class="hljs-params">(<span class="hljs-type">int</span> initialCapacity, <span class="hljs-type">float</span> loadFactor)</span> &#123;
     <span class="hljs-built_in">super</span>(initialCapacity, loadFactor, <span class="hljs-literal">true</span>);
@@ -1661,78 +1707,75 @@ sparseArray.add(<span class="hljs-keyword">new</span> <span class="hljs-title cl
     <span class="hljs-built_in">super</span>(<span class="hljs-number">16</span>, <span class="hljs-number">.75f</span>, <span class="hljs-literal">true</span>);
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="13-6-3-TreeSet"><a href="#13-6-3-TreeSet" class="headerlink" title="13.6.3 TreeSet"></a>13.6.3 TreeSet</h3><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeSet</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractSet</span>&lt;E&gt;
+<h3 id="treeset">13.6.3 TreeSet</h3>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeSet</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractSet</span>&lt;E&gt;
     <span class="hljs-keyword">implements</span> <span class="hljs-title class_">NavigableSet</span>&lt;E&gt;, Cloneable, java.io.Serializable</code></pre></div>
-
 <blockquote>
-<p>TreeSet 实现了 Set 接口，其底层是一个 TreeMap。<del>好家伙，原来 Set 全家都是卧底</del></p>
-<p>调用无参构造器创建 TreeSet 时，默认是无序排列。也能在构造时传入一个比较器。有比较器的场合，比较器返回 0 时，不发生替换</p>
-<p>不传入比较器的场合，使用的是传入对象自带的比较器。所以，这个场合，传入的 key 对象必须是 Comparable 接口的实现子类</p>
+<p>TreeSet 实现了 Set 接口，其底层是一个 TreeMap。<del>好家伙，原来 Set
+全家都是卧底</del></p>
+<p>调用无参构造器创建 TreeSet
+时，默认是无序排列。也能在构造时传入一个比较器。有比较器的场合，比较器返回
+0 时，不发生替换</p>
+<p>不传入比较器的场合，使用的是传入对象自带的比较器。所以，这个场合，传入的
+key 对象必须是 Comparable 接口的实现子类</p>
 </blockquote>
-<h2 id="13-7-集合的选择"><a href="#13-7-集合的选择" class="headerlink" title="13.7 集合的选择"></a>13.7 集合的选择</h2><p>在开发中，选择什么集合实现类，主要取决于业务操作特点，然后根据集合实现类特性进行分析选择。</p>
-<p>判断存储的类型（一组对象 [单列]，或一组键值对 [双列]）</p>
-<ul>
-<li>一组对象：Collection 接口<ul>
-<li>允许重复：List<ul>
-<li>增删多：<code>LinkedList</code> （双向链表）</li>
-<li>改查多：ArrayList （<code>Object[]</code> 数组）</li>
-</ul>
-</li>
-<li>不允许重复：Set<ul>
-<li>无序：HashSet （数组 + 链表 + 红黑树，底层是 HashMap）</li>
-<li>排序：<code>TreeSet</code></li>
-<li>顺序一致：LinkedHashSet （数组 + 双向链表，底层是 <code>LinkedHashMap</code>）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>一组键值对：Map<ul>
-<li>键无序：HashMap （数组 + 链表 + 红黑树 [ JDK 8 以后 ] ）</li>
-<li>键排序：<code>TreeMap</code></li>
-<li>键顺序一致：<code>LinkedHashMap</code> （底层是 HashMap）</li>
-<li>读取文件：Properties</li>
-</ul>
-</li>
-</ul>
-<h2 id="13-8-工具类-Collections"><a href="#13-8-工具类-Collections" class="headerlink" title="13.8 工具类 Collections"></a>13.8 工具类 Collections</h2><blockquote>
+<h2 id="集合的选择">13.7 集合的选择</h2>
+<p>在开发中，选择什么集合实现类，主要取决于业务操作特点，然后根据集合实现类特性进行分析选择。</p>
+<p>判断存储的类型（一组对象 [单列]，或一组键值对 [双列]） -
+一组对象：Collection 接口 - 允许重复：List -
+增删多：<code>LinkedList</code> （双向链表） - 改查多：ArrayList
+（<code>Object[]</code> 数组） - 不允许重复：Set - 无序：HashSet （数组
++ 链表 + 红黑树，底层是 HashMap） - 排序：<code>TreeSet</code> -
+顺序一致：LinkedHashSet （数组 + 双向链表，底层是
+<code>LinkedHashMap</code>） - 一组键值对：Map - 键无序：HashMap （数组
++ 链表 + 红黑树 [ JDK 8 以后 ] ） - 键排序：<code>TreeMap</code> -
+键顺序一致：<code>LinkedHashMap</code> （底层是 HashMap） -
+读取文件：Properties</p>
+<h2 id="工具类-collections">13.8 工具类 Collections</h2>
+<blockquote>
 <p>Collections 工具类是一个操作 Set、List、Map 等集合的工具类</p>
 <p>其中提供了一系列静态方法，对集合元素进行 排序、查询和修改等操作</p>
 </blockquote>
-<h4 id="常用方法：-7"><a href="#常用方法：-7" class="headerlink" title="常用方法："></a>常用方法：</h4><p><strong>排序：</strong></p>
+<h4 id="常用方法-7">常用方法：</h4>
+<p><strong>排序：</strong></p>
 <ul>
 <li><code>reverse(List)</code>：反转 List 中元素的排序</li>
-<li><code>shuffle(List)</code>：对 <code>List </code> 中元素进行随机排序</li>
-<li><code>sort(List)</code>：根据元素的自然顺序对指定 List 集合元素升序排列</li>
-<li><code>reverse(List, Comparator)</code>：根据指定 Comparator 对 List 排序</li>
+<li><code>shuffle(List)</code>：对 <code>List</code>
+中元素进行随机排序</li>
+<li><code>sort(List)</code>：根据元素的自然顺序对指定 List
+集合元素升序排列</li>
+<li><code>reverse(List, Comparator)</code>：根据指定 Comparator 对 List
+排序</li>
 <li><code>swap(List, int, int)</code>：将两处元素位置互换</li>
 </ul>
 <p><strong>查找、替换：</strong></p>
 <ul>
-<li><p><code>Object max(Collection)</code>：根据元素的自然排序，返回集合中最大的元素</p>
-</li>
-<li><p><code>Object max(Collection, Comparator)</code>：根据比较器，返回最大元素</p>
-</li>
-<li><p><code>Object min(Collection)</code>：根据元素的自然排序，返回最小元素</p>
-</li>
-<li><p><code>Object min(Collection, Comparator)</code>：根据比较器，返回最小元素</p>
-</li>
-<li><p><code>int frequency(Collection, Object)</code>：返回集合中指定元素的出现次数</p>
-</li>
-<li><p><code>void copy(List dest, List src)</code>：将 src 的内容复制到 dest 中</p>
-<p>这个场合，要保证 dest 的大小不小于 src。所以，可能需要先给 dest 赋值</p>
-</li>
-<li><p><code>boolean replaceAll(List list, Object oldVal, Object newVal)</code>：用 newVal 替换所有 oldVal 值</p>
-</li>
+<li><p><code>Object max(Collection)</code>：根据元素的自然排序，返回集合中最大的元素</p></li>
+<li><p><code>Object max(Collection, Comparator)</code>：根据比较器，返回最大元素</p></li>
+<li><p><code>Object min(Collection)</code>：根据元素的自然排序，返回最小元素</p></li>
+<li><p><code>Object min(Collection, Comparator)</code>：根据比较器，返回最小元素</p></li>
+<li><p><code>int frequency(Collection, Object)</code>：返回集合中指定元素的出现次数</p></li>
+<li><p><code>void copy(List dest, List src)</code>：将 src 的内容复制到
+dest 中</p>
+<p>这个场合，要保证 dest 的大小不小于 src。所以，可能需要先给 dest
+赋值</p></li>
+<li><p><code>boolean replaceAll(List list, Object oldVal, Object newVal)</code>：用
+newVal 替换所有 oldVal 值</p></li>
 </ul>
-<h2 id="13-9-JUnit"><a href="#13-9-JUnit" class="headerlink" title="13.9 JUnit"></a>13.9 JUnit</h2><blockquote>
-<p>一个类有多个功能代码需要测试，为了测试，就要写入 <code>main</code> 方法中</p>
+<h2 id="junit">13.9 JUnit</h2>
+<blockquote>
+<p>一个类有多个功能代码需要测试，为了测试，就要写入 <code>main</code>
+方法中</p>
 <p>如果有多个功能代码测试，需要反复撤销，过程繁琐</p>
 </blockquote>
 <blockquote>
 <p>JUnit 是一个 Java 语言单元测试框架</p>
 <p>多数 Java 开发环境都已集成了 JUnit 作为单元测试工具</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=566&t=259.3" title="看这个吧">使用方法</a></p>
-<p>……总的来讲，方法就是加入 <code>@Test</code>，然后 <code>alt + enter</code> 引入 JUnit 5，最后运行</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=566&amp;t=259.3"
+title="看这个吧">使用方法</a></p>
+<p>……总的来讲，方法就是加入 <code>@Test</code>，然后
+<code>alt + enter</code> 引入 JUnit 5，最后运行</p>
 </blockquote>
 
               

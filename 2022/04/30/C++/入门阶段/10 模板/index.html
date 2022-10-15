@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="10 模板 C++ 另一种编程思想称为：泛型编程。主要利用的技术就是模板 C++ 提供两种模板：函数模板、类模板  10.1 函数模板 函数模板：建立一个通用函数，其返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。  语法： template&lt;typename T&gt;		&#x2F;&#x2F; &lt;———— 声明模板 T met(T obj) &amp;#123;				&#x2F;&#x2F; &lt;———— 这">
+    <meta name="description" content="10 模板  C++ 另一种编程思想称为：泛型编程。主要利用的技术就是模板 C++ 提供两种模板：函数模板、类模板  10.1 函数模板  函数模板：建立一个通用函数，其返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。  语法： template&lt;typename T&gt;		&#x2F;&#x2F; &lt;———— 声明模板 T met(T obj) &amp;#123;				&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;10 模板">
 <meta property="og:url" content="https://i-melody.github.io/2022/04/30/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/10%20%E6%A8%A1%E6%9D%BF/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="10 模板 C++ 另一种编程思想称为：泛型编程。主要利用的技术就是模板 C++ 提供两种模板：函数模板、类模板  10.1 函数模板 函数模板：建立一个通用函数，其返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。  语法： template&lt;typename T&gt;		&#x2F;&#x2F; &lt;———— 声明模板 T met(T obj) &amp;#123;				&#x2F;&#x2F; &lt;———— 这">
+<meta property="og:description" content="10 模板  C++ 另一种编程思想称为：泛型编程。主要利用的技术就是模板 C++ 提供两种模板：函数模板、类模板  10.1 函数模板  函数模板：建立一个通用函数，其返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。  语法： template&lt;typename T&gt;		&#x2F;&#x2F; &lt;———— 声明模板 T met(T obj) &amp;#123;				&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-29T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-22T07:49:54.021Z">
@@ -294,11 +294,13 @@
             
             <div class="markdown-body">
               
-              <h1 id="10-模板"><a href="#10-模板" class="headerlink" title="10 模板"></a>10 模板</h1><blockquote>
+              <h1 id="模板">10 模板</h1>
+<blockquote>
 <p>C++ 另一种编程思想称为：泛型编程。主要利用的技术就是模板</p>
 <p>C++ 提供两种模板：函数模板、类模板</p>
 </blockquote>
-<h2 id="10-1-函数模板"><a href="#10-1-函数模板" class="headerlink" title="10.1 函数模板"></a>10.1 函数模板</h2><blockquote>
+<h2 id="函数模板">10.1 函数模板</h2>
+<blockquote>
 <p>函数模板：建立一个通用函数，其返回值类型和形参类型可以不具体指定，用一个虚拟的类型来代表。</p>
 </blockquote>
 <p><strong>语法：</strong></p>
@@ -306,7 +308,6 @@
 <span class="hljs-function">T <span class="hljs-title">met</span><span class="hljs-params">(T obj)</span> </span>&#123;				<span class="hljs-comment">// &lt;———— 这里是一处函数的声明或定义</span>
     <span class="hljs-keyword">return</span> obj;
 &#125;</code></pre></div>
-
 <blockquote>
 <p>template：声明创建模板</p>
 <p>typename：其后面的符号是一种数据类型。也能写成 class</p>
@@ -319,8 +320,7 @@
 </blockquote>
 <p><strong>注意事项：</strong></p>
 <ul>
-<li><p>自动类型推导，必须推导出一致的泛型才能使用</p>
-</li>
+<li><p>自动类型推导，必须推导出一致的泛型才能使用</p></li>
 <li><p>模板必须确定泛型的数据类型才能使用。</p>
 <p>不能推导的场合，应该显式地指定泛型类型</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span>
@@ -334,24 +334,18 @@
 </ul>
 <p><strong>普通函数与函数模板的区别：</strong></p>
 <ul>
-<li><p>函数模板在编译时不生成任何目标代码。仅当通过模板生成具体的函数实例时才生成目标代码。</p>
-</li>
-<li><p>函数指针只能指向模板的实例，而不能指向模板本身</p>
-</li>
-<li><p>被多个源文件引用的函数模板，应当连同函数体一起放在头文件中</p>
-</li>
+<li><p>函数模板在编译时不生成任何目标代码。仅当通过模板生成具体的函数实例时才生成目标代码。</p></li>
+<li><p>函数指针只能指向模板的实例，而不能指向模板本身</p></li>
+<li><p>被多个源文件引用的函数模板，应当连同函数体一起放在头文件中</p></li>
 <li><p>普通函数调用时能发生自动类型转换</p>
 <p>函数模板调用时，如果<strong>利用自动类型推导，则不发生自动类型转换</strong>。</p>
-<p>如果<strong>显式指定泛型类型，则仍会发生自动类型转换</strong></p>
-</li>
+<p>如果<strong>显式指定泛型类型，则仍会发生自动类型转换</strong></p></li>
 </ul>
 <p><strong>普通函数和函数模板的调用规则：</strong></p>
 <ul>
-<li><p>函数模板可以发生重载</p>
-</li>
+<li><p>函数模板可以发生重载</p></li>
 <li><p>如果普通函数和函数模板都能实现，则优先调用普通函数</p>
-<p>可以通过空模板参数列表来强制调用函数模板</p>
-</li>
+<p>可以通过空模板参数列表来强制调用函数模板</p></li>
 <li><p>如果函数模板可以产生更好的匹配，则优先调用函数模板</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act</span><span class="hljs-params">(T t)</span> </span>&#123;
@@ -370,7 +364,8 @@
 </ul>
 <p><strong>模板的局限性：</strong></p>
 <ul>
-<li><p>模板的通用性不是万能的。C++ 提供模板的重载，可以为特定类型实现更好的操作</p>
+<li><p>模板的通用性不是万能的。C++
+提供模板的重载，可以为特定类型实现更好的操作</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act</span><span class="hljs-params">(T t)</span> </span>&#123;						<span class="hljs-comment">// &lt;—————— 函数模板</span>
 	cout &lt;&lt; <span class="hljs-string">&quot;T&quot;</span> &lt;&lt; endl;
@@ -385,7 +380,8 @@
     <span class="hljs-built_in">act</span>(s);							<span class="hljs-comment">// &lt;—————— 此处调用重载模板</span>
 &#125;</code></pre></div></li>
 </ul>
-<h2 id="10-2-类模板"><a href="#10-2-类模板" class="headerlink" title="10.2 类模板"></a>10.2 类模板</h2><blockquote>
+<h2 id="类模板">10.2 类模板</h2>
+<blockquote>
 <p>声明模板 template 后加一个类即构成类模板</p>
 </blockquote>
 <p><strong>语法：</strong></p>
@@ -409,28 +405,23 @@
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-function">Lumine&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; <span class="hljs-title">lumine</span><span class="hljs-params">(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</span></span>;		<span class="hljs-comment">// &lt;—————— 要这样去实例化</span>
 &#125;</code></pre></div>
-
 <p><strong>与函数模板的区别：</strong></p>
 <ul>
-<li><p>类模板不能自动类型推导，所以必须显式指定类型</p>
-</li>
+<li><p>类模板不能自动类型推导，所以必须显式指定类型</p></li>
 <li><p>类模板在模板列表中可以有默认参数</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span> = string, <span class="hljs-keyword">class</span> Y&gt;		<span class="hljs-comment">// &lt;———— 添加了默认参数。这样，不显示指定就用默认类型</span>
 <span class="hljs-keyword">class</span> Lumine;</code></pre></div></li>
 </ul>
 <p><strong>类模板中成员函数的创建时机：</strong></p>
 <ul>
-<li><p>普通类的成员函数在一开始就能创建</p>
-</li>
+<li><p>普通类的成员函数在一开始就能创建</p></li>
 <li><p>类模板的成员函数在调用时才能创建</p>
-<p>因为数据类型不确定，该类在模板被调用前不会被创建</p>
-</li>
+<p>因为数据类型不确定，该类在模板被调用前不会被创建</p></li>
 </ul>
 <p><strong>类模板继承问题：</strong></p>
 <ul>
 <li><p>子类继承的父类是一个模板的场合，子类声明时要指明那个父类的泛型类型</p>
-<p>不指定的场合，编译器不能给子类分配内存</p>
-</li>
+<p>不指定的场合，编译器不能给子类分配内存</p></li>
 <li><p>想要灵活指定父类泛型类型的场合，子类也要称为模板</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">TAR</span>&gt;
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">DF17</span> &#123;&#125;;
@@ -453,31 +444,29 @@ Cryo&lt;<span class="hljs-type">char</span>&gt;::<span class="hljs-built_in">Cry
 
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> E&gt;
 <span class="hljs-type">void</span> Cryo&lt;E&gt;::<span class="hljs-built_in">act</span>(E t) &#123;&#125;			<span class="hljs-comment">// &lt;—————— 类模板成员函数类外实现</span></code></pre></div>
-
-<h3 id="10-2-1-类模板对象做函数参数"><a href="#10-2-1-类模板对象做函数参数" class="headerlink" title="10.2.1 类模板对象做函数参数"></a>10.2.1 类模板对象做函数参数</h3><p><em>（下例中的）模板类如下：</em></p>
+<h3 id="类模板对象做函数参数">10.2.1 类模板对象做函数参数</h3>
+<p><em>（下例中的）模板类如下：</em></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Gro</span>&#123;&#125;;			<span class="hljs-comment">// &lt;—————— 随便写的一个空类</span></code></pre></div>
-
 <p><strong>三种方式：</strong></p>
 <ul>
 <li><p>指定传入类型：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act1</span><span class="hljs-params">(Gro&lt;<span class="hljs-type">int</span>&gt;&amp; g)</span> </span>&#123;		<span class="hljs-comment">// &lt;———— “都说了是 Gro&lt;int&gt; 啦，你怎么听的呀（怒）”</span>
     cout &lt;&lt; <span class="hljs-string">&quot;指定传入类型&quot;</span> &lt;&lt; endl;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>参数模板化：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act2</span><span class="hljs-params">(Gro&lt;T&gt;&amp; g)</span> </span>&#123;			<span class="hljs-comment">// &lt;———— “回去告诉你们那个参数，他是个模板朕也是个模板”</span>
     cout &lt;&lt; <span class="hljs-string">&quot;参数模板化&quot;</span> &lt;&lt; endl;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>整个类模板化：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act3</span><span class="hljs-params">(T&amp; t)</span> </span>&#123;				<span class="hljs-comment">// &lt;———— “啊？什么模板类，没看到啊”</span>
     cout &lt;&lt; <span class="hljs-string">&quot;整个类模板化&quot;</span> &lt;&lt; endl;
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="10-2-2-类模板分文件编写"><a href="#10-2-2-类模板分文件编写" class="headerlink" title="10.2.2 类模板分文件编写"></a>10.2.2 类模板分文件编写</h3><blockquote>
+<h3 id="类模板分文件编写">10.2.2 类模板分文件编写</h3>
+<blockquote>
 <p>类模板分文件编写的场合，在运行时可能报错</p>
 <p>这是因为，分文件编写的场合，包含的是头文件。而类模板成员函数是在调用时创建，这会导致编译器不能读取源文件中的实现。</p>
 </blockquote>
@@ -488,14 +477,12 @@ Cryo&lt;<span class="hljs-type">char</span>&gt;::<span class="hljs-built_in">Cry
 	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act</span><span class="hljs-params">(ELE t)</span></span>;
 	<span class="hljs-built_in">Hydro</span>();
 &#125;;</code></pre></div>
-
 <p>源文件 <code>hydro.cpp</code>：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">R</span>&gt;
 Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>() &#123;&#125;			<span class="hljs-comment">// &lt;———— 随便写的，意思一下</span>
 
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> E&gt;
 <span class="hljs-type">void</span> Hydro&lt;E&gt;::<span class="hljs-built_in">act</span>(E t) &#123;&#125;		<span class="hljs-comment">// &lt;———— 随便写的，意思一下</span></code></pre></div>
-
 <p><strong>解决方法：</strong></p>
 <ul>
 <li><p>不包含头文件，而是包含源文件（一般不这样）：</p>
@@ -505,8 +492,7 @@ Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>() &#123;&#125;			<span 
 
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
     Hydro h;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>将头文件和源文件合并为 <code>hydro.hpp</code>：</p>
 <p>头文件 <code>hydro.hpp</code>：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">ELE</span>&gt;
@@ -521,7 +507,6 @@ Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>()&#123;&#125;
 
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> E&gt;
 <span class="hljs-type">void</span> Hydro&lt;E&gt;::<span class="hljs-built_in">act</span>(E t) &#123;&#125;</code></pre></div>
-
 <p>之后，包含该 hpp 文件即可</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
@@ -530,11 +515,10 @@ Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>()&#123;&#125;
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
     Hydro h;
 &#125;</code></pre></div>
-
-<p>后缀名 hpp 是约定俗成的名称。非要变也可以</p>
-</li>
+<p>后缀名 hpp 是约定俗成的名称。非要变也可以</p></li>
 </ul>
-<h3 id="10-2-3-类模板做友元"><a href="#10-2-3-类模板做友元" class="headerlink" title="10.2.3 类模板做友元"></a>10.2.3 类模板做友元</h3><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">L</span>&gt;
+<h3 id="类模板做友元">10.2.3 类模板做友元</h3>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">L</span>&gt;
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Anemo</span>;							<span class="hljs-comment">// &lt;———— [5]</span>
 
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> L&gt;</span>
@@ -550,40 +534,43 @@ Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>()&#123;&#125;
 
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> L&gt;</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">act2</span><span class="hljs-params">(Anemo&lt;L&gt; a)</span> </span>&#123;&#125;				<span class="hljs-comment">// &lt;———— [2]</span></code></pre></div>
-
-<ol>
+<ol type="1">
 <li><p>全局函数<font color="#00AA00"><strong>类内实现</strong></font>的场合，可以直接包含友元</p>
 <blockquote>
 <p>[1]</p>
-<p>friend void act1(Anemo&lt;L&gt; a) <font color="#00AA00"><strong>{}</strong></font></p>
-</blockquote>
-</li>
+<p>friend void act1(Anemo&lt;L&gt; a)
+<font color="#00AA00"><strong>{}</strong></font></p>
+</blockquote></li>
 <li><p>全局函数的类外实现，需要添加<font color="#FFA000"><strong>模板声明</strong></font></p>
 <blockquote>
 <p>[2]</p>
-<p><font color="#FFA000"><strong>template&lt;typename L&gt;</strong></font><br>void act2(Anemo&lt;L&gt; a) {}</p>
-</blockquote>
-</li>
+<p><font color="#FFA000"><strong>template&lt;typename
+L&gt;</strong></font> void act2(Anemo&lt;L&gt; a) {}</p>
+</blockquote></li>
 <li><p>全局函数类外实现的场合，包含友元时要加入<font color="#00AA00"><strong>空模板参数列表</strong></font>，以示其为模板函数而非普通函数</p>
 <blockquote>
 <p>[3]</p>
-<p>friend <font color="#FF0010"><em>void act2</em></font><font color="#00AA00"><strong>&lt;&gt;</strong></font>(Anemo&lt;L&gt; a);</p>
-</blockquote>
-</li>
+<p>friend <font color="#FF0010"><em>void
+act2</em></font><font color="#00AA00"><strong>&lt;&gt;</strong></font>(Anemo&lt;L&gt;
+a);</p>
+</blockquote></li>
 <li><p>由于类内使用了<font color="#FF0010"><em>此前未声明过的全局函数</em></font>，所以还要将全局函数在类实现前进行<font color="#FFA000"><strong>声明</strong></font>，以向编译器提示该函数的存在</p>
 <blockquote>
 <p>[4]</p>
-<p>template&lt;typename L&gt;<br><font color="#FFA000"><strong>void act2</strong></font>(<font color="#FF00ff"><em>Anemo&lt;L&gt; a</em></font>);</p>
-</blockquote>
-</li>
+<p>template&lt;typename L&gt; <font color="#FFA000"><strong>void
+act2</strong></font>(<font color="#FF00ff"><em>Anemo&lt;L&gt;
+a</em></font>);</p>
+</blockquote></li>
 <li><p>由于该全局函数参数是一个<font color="#FF00ff"><em>此前未声明过的类</em></font>，故该类也要在全局函数声明前<font color="#00AA00"><strong>声明</strong></font>，以向编译器提示该类的存在</p>
 <blockquote>
 <p>[5]</p>
-<p>template&lt;class L&gt;<br><font color=#00AA00><strong>class Anemo;</strong></font></p>
-</blockquote>
-</li>
+<p>template&lt;class L&gt; <font color=#00AA00><strong>class
+Anemo;</strong></font></p>
+</blockquote></li>
 </ol>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="可变数组类"><a href="#可变数组类" class="headerlink" title="可变数组类"></a>可变数组类</h3><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span>&gt;
+<h2 id="附录">附录</h2>
+<h3 id="可变数组类">可变数组类</h3>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span>&gt;
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">OArray</span> &#123;
 <span class="hljs-keyword">public</span>:
 	C* cs = <span class="hljs-literal">NULL</span>;
@@ -657,7 +644,6 @@ Hydro&lt;R&gt;::<span class="hljs-built_in">Hydro</span>()&#123;&#125;
 	<span class="hljs-type">int</span> m_size = <span class="hljs-number">0</span>;
 	<span class="hljs-type">int</span> m_length = <span class="hljs-number">0</span>;
 &#125;;</code></pre></div>
-
 
               
             </div>

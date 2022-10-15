@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="12 常用类12.1 包装类 包装类（Wrapper）：针对 八种基本数据类型 相应的 引用类型 有了类的特点，就可以调用类中的方法     基本数据类型 包装类 父类    boolean Boolean Object   char Character Object   int Integer Number   float Float Number   double Double Number">
+    <meta name="description" content="12 常用类 12.1 包装类  包装类（Wrapper）：针对 八种基本数据类型 相应的 引用类型 有了类的特点，就可以调用类中的方法     基本数据类型 包装类 父类     boolean Boolean Object   char Character Object   int Integer Number   float F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;12 常用类">
 <meta property="og:url" content="https://i-melody.github.io/2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="12 常用类12.1 包装类 包装类（Wrapper）：针对 八种基本数据类型 相应的 引用类型 有了类的特点，就可以调用类中的方法     基本数据类型 包装类 父类    boolean Boolean Object   char Character Object   int Integer Number   float Float Number   double Double Number">
+<meta property="og:description" content="12 常用类 12.1 包装类  包装类（Wrapper）：针对 八种基本数据类型 相应的 引用类型 有了类的特点，就可以调用类中的方法     基本数据类型 包装类 父类     boolean Boolean Object   char Character Object   int Integer Number   float F">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-18T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-08T05:04:06.561Z">
@@ -231,7 +231,7 @@
         
         
         
-          37 分钟
+          36 分钟
         
       </span>
     
@@ -293,252 +293,248 @@
             
             <div class="markdown-body">
               
-              <h1 id="12-常用类"><a href="#12-常用类" class="headerlink" title="12 常用类"></a>12 常用类</h1><h2 id="12-1-包装类"><a href="#12-1-包装类" class="headerlink" title="12.1 包装类"></a>12.1 包装类</h2><blockquote>
+              <h1 id="常用类">12 常用类</h1>
+<h2 id="包装类">12.1 包装类</h2>
+<blockquote>
 <p>包装类（Wrapper）：针对 八种基本数据类型 相应的 引用类型</p>
 <p>有了类的特点，就可以调用类中的方法</p>
 </blockquote>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>基本数据类型</th>
 <th>包装类</th>
 <th>父类</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>boolean</td>
 <td>Boolean</td>
 <td>Object</td>
 </tr>
-<tr>
+<tr class="even">
 <td>char</td>
 <td>Character</td>
 <td>Object</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>int</td>
 <td>Integer</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="even">
 <td>float</td>
 <td>Float</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>double</td>
 <td>Double</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="even">
 <td>long</td>
 <td>Long</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>short</td>
 <td>Short</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="even">
 <td>byte</td>
 <td>Byte</td>
 <td>Number</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>void</td>
 <td>Void</td>
 <td>Object</td>
 </tr>
-</tbody></table>
-<h3 id="12-1-1-装箱和拆箱"><a href="#12-1-1-装箱和拆箱" class="headerlink" title="12.1.1 装箱和拆箱"></a>12.1.1 装箱和拆箱</h3><ul>
+</tbody>
+</table>
+<h3 id="装箱和拆箱">12.1.1 装箱和拆箱</h3>
+<ul>
 <li><p><strong>手动装箱和拆箱（JDK 5 以前）</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
 <span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(n1);			<span class="hljs-comment">// 手动装箱</span>
 <span class="hljs-type">Integer</span> <span class="hljs-variable">integer2</span> <span class="hljs-operator">=</span> Integer.valueOf(n1);		<span class="hljs-comment">// 手动装箱</span>
-<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> integer.intValue();					<span class="hljs-comment">// 手动拆箱</span></code></pre></div>
-</li>
+<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> integer.intValue();					<span class="hljs-comment">// 手动拆箱</span></code></pre></div></li>
 <li><p><strong>自动装箱和拆箱（JDK 5 以后）</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java">n2 = <span class="hljs-number">200</span>;
 <span class="hljs-type">Integer</span> <span class="hljs-variable">integer3</span> <span class="hljs-operator">=</span> n2;						<span class="hljs-comment">// 自动装箱</span>
 <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> integer3;							<span class="hljs-comment">// 自动拆箱</span></code></pre></div>
-
-<p>虽然可以自动装箱、拆箱，但使用 == 直接比较两个包装类时，仍然是比较其地址。以下比较通常会失败：</p>
+<p>虽然可以自动装箱、拆箱，但使用 ==
+直接比较两个包装类时，仍然是比较其地址。以下比较通常会失败：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Integer</span> <span class="hljs-variable">ia</span> <span class="hljs-operator">=</span> <span class="hljs-number">1000</span>;
 <span class="hljs-type">Integer</span> <span class="hljs-variable">ib</span> <span class="hljs-operator">=</span> <span class="hljs-number">1000</span>;
 System.out.print(ia == ib);					<span class="hljs-comment">// false</span></code></pre></div>
-
-<p>但，Java 实现仍有可能使其成立。Byte、Boolean 以及 Short、Integer 中 [-128, 127] 间的值已被包装到固定的对象中。对他们的比较可以成功。</p>
+<p>但，Java 实现仍有可能使其成立。Byte、Boolean 以及 Short、Integer 中
+[-128, 127] 间的值已被包装到固定的对象中。对他们的比较可以成功。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Integer</span> <span class="hljs-variable">ia</span> <span class="hljs-operator">=</span> <span class="hljs-number">127</span>;
 <span class="hljs-type">Integer</span> <span class="hljs-variable">ib</span> <span class="hljs-operator">=</span> <span class="hljs-number">127</span>;
 System.out.print(ia == ib);					<span class="hljs-comment">// true</span></code></pre></div>
-
-<p>由此可见，使用  == 直接比较两个包装类会带来不确定性。<strong>尽量使用 equals 方法对包装类进行比较。</strong></p>
-</li>
+<p>由此可见，使用 == 直接比较两个包装类会带来不确定性。<strong>尽量使用
+equals 方法对包装类进行比较。</strong></p></li>
 </ul>
-<p>装箱与拆箱是 <strong>编译器</strong> 的工作。在生成可执行的字节码文件时，编译器已经插入了必要的方法调用。</p>
-<h3 id="12-1-2-包装类和-String-的相互转换"><a href="#12-1-2-包装类和-String-的相互转换" class="headerlink" title="12.1.2 包装类和 String 的相互转换"></a>12.1.2 包装类和 <code>String</code> 的相互转换</h3><ul>
+<p>装箱与拆箱是 <strong>编译器</strong>
+的工作。在生成可执行的字节码文件时，编译器已经插入了必要的方法调用。</p>
+<h3 id="包装类和-string-的相互转换">12.1.2 包装类和 <code>String</code>
+的相互转换</h3>
+<ul>
 <li><p>包装类转 <code>String</code>：</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">&gt;<span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
 &gt;<span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> integer + <span class="hljs-string">&quot;&quot;</span>;					<span class="hljs-comment">//方法1（自动拆箱）</span>
 &gt;<span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> integer.toString();			<span class="hljs-comment">//方法2（toString方法）</span>
 &gt;<span class="hljs-type">String</span> <span class="hljs-variable">str3</span> <span class="hljs-operator">=</span> String.valueOf(integer);		<span class="hljs-comment">//方法3（自动拆箱）</span></code></pre></div>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p><code>String</code> 转包装类：</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str4</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;100&quot;</span>;
 <span class="hljs-type">Integer</span> <span class="hljs-variable">integer2</span> <span class="hljs-operator">=</span> Integer.parseInt(str4);	<span class="hljs-comment">//方法1（自动装箱）</span>
-<span class="hljs-type">Integer</span> <span class="hljs-variable">integer3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(str4);		<span class="hljs-comment">//方法2（构造器）</span></code></pre></div></blockquote>
-</li>
+<span class="hljs-type">Integer</span> <span class="hljs-variable">integer3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(str4);		<span class="hljs-comment">//方法2（构造器）</span></code></pre></div>
+</blockquote></li>
 </ul>
-<h3 id="12-1-3-包装类的常用方法"><a href="#12-1-3-包装类的常用方法" class="headerlink" title="12.1.3 包装类的常用方法"></a>12.1.3 包装类的常用方法</h3><ul>
-<li><p><code>Integer.MIN_VALUE</code>：返回最大值</p>
-</li>
-<li><p><code>Double.MAX_VALUE</code>：返回最小值</p>
-</li>
+<h3 id="包装类的常用方法">12.1.3 包装类的常用方法</h3>
+<ul>
+<li><p><code>Integer.MIN_VALUE</code>：返回最大值</p></li>
+<li><p><code>Double.MAX_VALUE</code>：返回最小值</p></li>
 <li><p><code>byteValue()</code>、<code>doubleValue()</code>、<code>floatValue()</code>、<code>intValue()</code>、<code>longValue()</code></p>
-<p>按各种基本数据类型返回该对象的值</p>
-</li>
+<p>按各种基本数据类型返回该对象的值</p></li>
 <li><p><code>Character.isDigit(int)</code>：判断是不是数字</p>
 <p><code>Character.isLetter(int)</code>：判断是不是字母</p>
 <p><code>Character.isUpperCase(int)</code>：判断是不是大写字母</p>
 <p><code>Character.isLowerCase(int)</code>：判断是不是小写字母</p>
-<p><code>Characher.isWhitespace(int)</code>：判断是不是空格</p>
-</li>
+<p><code>Characher.isWhitespace(int)</code>：判断是不是空格</p></li>
 <li><p><code>Character.toUpperCase(int)</code>：转成大写字母</p>
-<p><code>Character.toLowerCase(int)</code>：转成小写字母</p>
-</li>
+<p><code>Character.toLowerCase(int)</code>：转成小写字母</p></li>
 <li><p><code>Integer.parseInt(string)</code>：将 String 内容转为 int</p>
-<p><code>Double.parseDouble(string)</code></p>
-</li>
-<li><p><code>Integer.toBinaryString(int)</code>：将数字转为 2 进制表示的字符串</p>
-<p><code>Integer.toHexString(int)</code>：将数字转为 16 进制表示的字符串</p>
-<p><code>Integer.toOctalString(int)</code>：将数字转为 8 进制表示的字符串</p>
-<p>特别地，浮点数类型的包装类只有转成 16 进制的方法。而 Short、Byte 及其他包装类无此方法</p>
-</li>
-<li><p><code>int Integer.bitCount(i int)</code>：统计指定数字的二进制格式中 1 的数量</p>
-</li>
+<p><code>Double.parseDouble(string)</code></p></li>
+<li><p><code>Integer.toBinaryString(int)</code>：将数字转为 2
+进制表示的字符串</p>
+<p><code>Integer.toHexString(int)</code>：将数字转为 16
+进制表示的字符串</p>
+<p><code>Integer.toOctalString(int)</code>：将数字转为 8
+进制表示的字符串</p>
+<p>特别地，浮点数类型的包装类只有转成 16 进制的方法。而 Short、Byte
+及其他包装类无此方法</p></li>
+<li><p><code>int Integer.bitCount(i int)</code>：统计指定数字的二进制格式中
+1 的数量</p></li>
 </ul>
-<h3 id="12-1-4-strictfp-关键字"><a href="#12-1-4-strictfp-关键字" class="headerlink" title="12.1.4 strictfp 关键字"></a>12.1.4 strictfp 关键字</h3><blockquote>
-<p>由于不同处理器对于浮点数寄存采取不同策略（有些处理器使用 64 位寄存 double，有些则是 80 位），对于浮点数的运算在不同平台上可能出现不同结果。</p>
+<h3 id="strictfp-关键字">12.1.4 strictfp 关键字</h3>
+<blockquote>
+<p>由于不同处理器对于浮点数寄存采取不同策略（有些处理器使用 64 位寄存
+double，有些则是 80
+位），对于浮点数的运算在不同平台上可能出现不同结果。</p>
 </blockquote>
-<p>使用 strictfp 关键字标记的方法或类中，所有指令都会使用严格统一的浮点数运算。</p>
+<p>使用 strictfp
+关键字标记的方法或类中，所有指令都会使用严格统一的浮点数运算。</p>
 <p>比如，把 main 方法标记为 strictfp</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">strictfp</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
     <span class="hljs-type">double</span> ᓚᘏᗢ = <span class="hljs-number">1</span> / <span class="hljs-number">13.97</span>;
     System.out.println(ᓚᘏᗢ);
 &#125;</code></pre></div>
-
-
-
-<h2 id="12-2-String-类"><a href="#12-2-String-类" class="headerlink" title="12.2 String 类"></a>12.2 <code>String</code> 类</h2><ol>
-<li><p><code>String</code> 对象用于保存字符串，也就是一组字符序列</p>
-</li>
-<li><p>字符串常量对象是用双引号扩起的字符序列。例如 <code>&quot;你好&quot;</code></p>
-</li>
-<li><p>字符串的字符使用 Unicode 字符编码。一个字符（不论字母汉字）占 2 字节</p>
-</li>
+<h2 id="string-类">12.2 <code>String</code> 类</h2>
+<ol type="1">
+<li><p><code>String</code>
+对象用于保存字符串，也就是一组字符序列</p></li>
+<li><p>字符串常量对象是用双引号扩起的字符序列。例如
+<code>"你好"</code></p></li>
+<li><p>字符串的字符使用 Unicode 字符编码。一个字符（不论字母汉字）占 2
+字节</p></li>
 <li><p>常用构造器：</p>
 <ul>
-<li><p><code>String str1 = new String();</code></p>
-</li>
-<li><p><code>String str2 = new String(String original);</code></p>
-</li>
-<li><p><code>String str3 = new String(char[] a);</code></p>
-</li>
-<li><p><code>String str4 = new String(char[] a, int startIndex, int count);   </code></p>
-<p>这句意思是：<code>char[]</code> 从 <code>startIndex</code> 起的 <code>count</code> 个字符</p>
-</li>
-</ul>
-</li>
-<li><p><code>String</code> 实现了接口 <code>Serializable</code> 和 <code>Comparable</code> ，可以 串行化和 比较大小</p>
-<p><em><strong>串行化：即，可以被网络传输，也能保存到文件</strong></em></p>
-</li>
-<li><p><code>String</code> 是 <code>final</code>  类，不能被继承</p>
-</li>
-<li><p><code>String</code> 有属性 <code>private final char[] value;</code> 用于存放字符串内容。</p>
-<p><code>value</code> 是 <code>final</code> 属性。其在栈中的地址不能修改，但堆中的内容可以修改。</p>
-</li>
+<li><p><code>String str1 = new String();</code></p></li>
+<li><p><code>String str2 = new String(String original);</code></p></li>
+<li><p><code>String str3 = new String(char[] a);</code></p></li>
+<li><p><code>String str4 = new String(char[] a, int startIndex, int count);</code></p>
+<p>这句意思是：<code>char[]</code> 从 <code>startIndex</code> 起的
+<code>count</code> 个字符</p></li>
+</ul></li>
+<li><p><code>String</code> 实现了接口 <code>Serializable</code> 和
+<code>Comparable</code> ，可以 串行化和 比较大小</p>
+<p><strong><em>串行化：即，可以被网络传输，也能保存到文件</em></strong></p></li>
+<li><p><code>String</code> 是 <code>final</code> 类，不能被继承</p></li>
+<li><p><code>String</code> 有属性
+<code>private final char[] value;</code> 用于存放字符串内容。</p>
+<p><code>value</code> 是 <code>final</code>
+属性。其在栈中的地址不能修改，但堆中的内容可以修改。</p></li>
 </ol>
-<h3 id="12-2-1-String-构造方法"><a href="#12-2-1-String-构造方法" class="headerlink" title="12.2.1 String 构造方法"></a>12.2.1 <code>String</code> 构造方法</h3><ul>
-<li><p>直接指定</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;哈哈哈&quot;</span>;</code></pre></div>
-
-<p>该方法：先从常量池看是否有 <code>&quot;哈哈哈&quot;</code> 数据空间。有的场合，指向那个空间；否则重新创建然后指向。</p>
-<p>这个方法，<code>str1</code> 指向 常量池中的地址。</p>
-</li>
-<li><p>构造器</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;嘿嘿嘿&quot;</span>);</code></pre></div>
-
-<p>该方法：先在堆中创建空间，里面维护一个 <code>value</code> 属性，指向 或 创建后指向 常量池的 <code>&quot;嘿嘿嘿&quot;</code> 空间。</p>
-<p>这个方法，<code>str2</code> 指向 堆中的地址</p>
-</li>
+<h3 id="string-构造方法">12.2.1 <code>String</code> 构造方法</h3>
+<ul>
+<li><p>直接指定 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;哈哈哈&quot;</span>;</code></pre></div></p>
+<p>该方法：先从常量池看是否有 <code>"哈哈哈"</code>
+数据空间。有的场合，指向那个空间；否则重新创建然后指向。</p>
+<p>这个方法，<code>str1</code> 指向 常量池中的地址。</p></li>
+<li><p>构造器 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;嘿嘿嘿&quot;</span>);</code></pre></div></p>
+<p>该方法：先在堆中创建空间，里面维护一个 <code>value</code> 属性，指向
+或 创建后指向 常量池的 <code>"嘿嘿嘿"</code> 空间。</p>
+<p>这个方法，<code>str2</code> 指向 堆中的地址</p></li>
 </ul>
-<h3 id="12-2-2-字符串的特性"><a href="#12-2-2-字符串的特性" class="headerlink" title="12.2.2 字符串的特性"></a>12.2.2 字符串的特性</h3><ul>
-<li><p>常量相加，看的是池</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aa&quot;</span> + <span class="hljs-string">&quot;bb&quot;</span>;				<span class="hljs-comment">//常量相加，看的是池</span></code></pre></div>
-
+<h3 id="字符串的特性">12.2.2 字符串的特性</h3>
+<ul>
+<li><p>常量相加，看的是池 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aa&quot;</span> + <span class="hljs-string">&quot;bb&quot;</span>;				<span class="hljs-comment">//常量相加，看的是池</span></code></pre></div></p>
 <blockquote>
-<p>上例由于构造器自身优化，相当于 <code>String str1 = &quot;aabb&quot;;</code></p>
-</blockquote>
-</li>
-<li><p>变量相加，是在堆中</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aa&quot;</span>;
+<p>上例由于构造器自身优化，相当于 <code>String str1 = "aabb";</code></p>
+</blockquote></li>
+<li><p>变量相加，是在堆中 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aa&quot;</span>;
 <span class="hljs-type">String</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;bb&quot;</span>;
-<span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> a + b;					<span class="hljs-comment">//变量相加，是在堆中</span></code></pre></div>
-
+<span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> a + b;					<span class="hljs-comment">//变量相加，是在堆中</span></code></pre></div></p>
 <blockquote>
 <p>上例的底层是如下代码</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
 sb.append(a);
 sb.append(b);
-str2 = sb.toString();	<span class="hljs-comment">//sb.toString()：return new String(value, 0, count);</span></code></pre></div></blockquote>
-</li>
+str2 = sb.toString();	<span class="hljs-comment">//sb.toString()：return new String(value, 0, count);</span></code></pre></div>
+</blockquote></li>
 </ul>
-<h3 id="12-2-3-String-的常用方法"><a href="#12-2-3-String-的常用方法" class="headerlink" title="12.2.3 String 的常用方法"></a>12.2.3 <code>String</code> 的常用方法</h3><p>以下方法不需死记硬背，手熟自然牢记</p>
+<h3 id="string-的常用方法">12.2.3 <code>String</code> 的常用方法</h3>
+<p>以下方法不需死记硬背，手熟自然牢记</p>
 <ul>
 <li><p><code>boolean equals(String s)</code>：区分大小写，判断内容是否相等</p>
-<p><code>boolean equalsIgnoreCase(String s)</code>：判断内容是否相等（忽略大小写）</p>
-</li>
-<li><p><code>boolean empty()</code>：返回是否为空</p>
-</li>
+<p><code>boolean equalsIgnoreCase(String s)</code>：判断内容是否相等（忽略大小写）</p></li>
+<li><p><code>boolean empty()</code>：返回是否为空</p></li>
 <li><p><code>int charAt(int index)</code>：获取某索引处的字符（代码单元）。</p>
-<p>必须用 <code>char c = str.charAt(15);</code>，不能用 <code>char c = str[15];</code></p>
+<p>必须用 <code>char c = str.charAt(15);</code>，不能用
+<code>char c = str[15];</code></p>
 <p><code>int codePointAt(int index)</code></p>
 <p><code>int length()</code>：获取字符（<strong>代码单元</strong>）的个数</p>
-<p><em><strong>—— 代码单元，见 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-6-2-%E5%AD%97%E7%AC%A6%E6%9C%AC%E8%B4%A8%E4%B8%8E%E7%BC%96%E7%A0%81%E8%A1%A8">[2.6.2.4 字符本质与编码表]</a></strong></em></p>
+<p><strong><em>—— 代码单元，见 <a
+href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-6-2-%E5%AD%97%E7%AC%A6%E6%9C%AC%E8%B4%A8%E4%B8%8E%E7%BC%96%E7%A0%81%E8%A1%A8">[2.6.2.4
+字符本质与编码表]</a></em></strong></p>
 <p><code>IntStream codePoints()</code>：返回字符串中全部码点构成的流</p>
 <p><code>long codePoints().count()</code>：返回真正长度（码点数量）</p>
-<p><em><strong>—— 流，见 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-4-Stream-API">[27.4 Stream API]</a></strong></em></p>
-</li>
-<li><p><code>int indexOf(String str)</code>：获取字符（串）在字符串中第一次出现的索引。如果找不到，返回 -1</p>
-<p><code>int indexOf(int char)</code> 参数也可以传入一个 int。由于自动类型转换的存在，也能填入 char</p>
-<p><code>int indexOf(String str, int index)</code>：从 index 处（包含）开始查找指定字符（串）</p>
-<p><code>int lastIndexOf(String str)</code>：获取字符在字符串中最后一次出现的索引。如果找不到，返回 -1</p>
-</li>
-<li><p><code>String substring(int start, int end)</code>：返回截取指定范围 [start, end) 的 <strong>新</strong> 字符串</p>
-<p><code>String substring(int index)</code>：截取 index（包含）之后的部分</p>
-</li>
-<li><p><code>String trim()</code>：返回去前后空格的新字符串</p>
-</li>
+<p><strong><em>—— 流，见 <a
+href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-4-Stream-API">[27.4
+Stream API]</a></em></strong></p></li>
+<li><p><code>int indexOf(String str)</code>：获取字符（串）在字符串中第一次出现的索引。如果找不到，返回
+-1</p>
+<p><code>int indexOf(int char)</code> 参数也可以传入一个
+int。由于自动类型转换的存在，也能填入 char</p>
+<p><code>int indexOf(String str, int index)</code>：从 index
+处（包含）开始查找指定字符（串）</p>
+<p><code>int lastIndexOf(String str)</code>：获取字符在字符串中最后一次出现的索引。如果找不到，返回
+-1</p></li>
+<li><p><code>String substring(int start, int end)</code>：返回截取指定范围
+[start, end) 的 <strong>新</strong> 字符串</p>
+<p><code>String substring(int index)</code>：截取
+index（包含）之后的部分</p></li>
+<li><p><code>String trim()</code>：返回去前后空格的新字符串</p></li>
 <li><p><code>String toUperCase()</code>：返回字母全部转为大写的新字符串</p>
-<p><code>String toLowerCase()</code>：返回字母全部转为小写的新字符串</p>
-</li>
-<li><p><code>String concat(String another)</code>：返回拼接字符串</p>
-</li>
+<p><code>String toLowerCase()</code>：返回字母全部转为小写的新字符串</p></li>
+<li><p><code>String concat(String another)</code>：返回拼接字符串</p></li>
 <li><p><code>String replace(char oldChar, char newChar)</code>：替换字符串中的元素</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Foolish cultists&quot;</span>;
-<span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> str1.replace(<span class="hljs-string">&quot;cultists&quot;</span>, <span class="hljs-string">&quot;believers&quot;</span>);	<span class="hljs-comment">//str1不变，str2为改变的值</span></code></pre></div>
-</li>
+<span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> str1.replace(<span class="hljs-string">&quot;cultists&quot;</span>, <span class="hljs-string">&quot;believers&quot;</span>);	<span class="hljs-comment">//str1不变，str2为改变的值</span></code></pre></div></li>
 <li><p><code>String[] split(String regex)</code>：分割字符串。</p>
 <p>对于某些分割字符，我们需要转义</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aaa,bbb,ccc&quot;</span>;
 String[] strs1 = str1.split(<span class="hljs-string">&quot;,&quot;</span>);		<span class="hljs-comment">//这个场合，strs = &#123;&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;&#125;;4</span>
 <span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aaa\bbb\ccc&quot;</span>;
-String[] strs2 = str2.split(<span class="hljs-string">&quot;\\&quot;</span>);		<span class="hljs-comment">//&quot;\&quot; 是特殊字符，需要转义为 &quot;\\&quot;</span></code></pre></div>
-</li>
+String[] strs2 = str2.split(<span class="hljs-string">&quot;\\&quot;</span>);		<span class="hljs-comment">//&quot;\&quot; 是特殊字符，需要转义为 &quot;\\&quot;</span></code></pre></div></li>
 <li><p><code>int compareTo(String another)</code>：按照字典顺序比较两个字符串（的大小）。</p>
 <p>返回出现第一处不同的字符的编号差。前面字符相同，长度不同的场合，返回那个长度差。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ccc&quot;</span>;
@@ -546,11 +542,9 @@ String[] strs2 = str2.split(<span class="hljs-string">&quot;\\&quot;</span>);		<
 <span class="hljs-type">String</span> <span class="hljs-variable">str3</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ccc111abc&quot;</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> str1.compareTo(str2);			<span class="hljs-comment">//此时 n1 = &#x27;c&#x27; - &#x27;a&#x27; = 2</span>
 <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> str1.compareTo(str3);			<span class="hljs-comment">//此时 n2 = str1,length - str3.length = -6</span>
-<span class="hljs-type">int</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> str1.compareTo(str1);			<span class="hljs-comment">//此时 n3 = 0</span></code></pre></div>
-</li>
+<span class="hljs-type">int</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> str1.compareTo(str1);			<span class="hljs-comment">//此时 n3 = 0</span></code></pre></div></li>
 <li><p><code>char[] toCharArray()</code>：转换成字符数组</p>
-<p><code>byte[] getBytes()</code>：字符串转为字节数组</p>
-</li>
+<p><code>byte[] getBytes()</code>：字符串转为字节数组</p></li>
 <li><p><code>String String.format(String format, Object... args)</code>：（静态方法）格式字符串</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Roin&quot;</span>;
 <span class="hljs-type">String</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1M&quot;</span>;
@@ -558,110 +552,122 @@ String[] strs2 = str2.split(<span class="hljs-string">&quot;\\&quot;</span>);		<
 <span class="hljs-type">String</span> <span class="hljs-variable">formatStr</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;I am %s, I am %s old, I am a %s&quot;</span>;
 <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> String.format(formatStr, name, age, state);
 <span class="hljs-comment">//其中 %s 是占位符。此时，str = &quot;I am Roin, I am 1M old, I am a computer&quot;;</span>
-<span class="hljs-comment">//%s 表示字符串替换；%d 表示整数替换；#.2f 表示小数（四舍五入保留2位）替换；%c 表示字符替换</span></code></pre></div>
-</li>
-<li><p><code>String join(deli, ele...)</code>：拼接字符串（<code>ele...</code>），以 <code>deli</code> 间隔。</p>
-</li>
-<li><p><code>boolean startsWith(str)</code>：测试 str 是否为当前字符串的前缀</p>
-</li>
-<li><p><code>String repeat(int n)</code>：返回该字符串重复 n 次的结果</p>
-</li>
+<span class="hljs-comment">//%s 表示字符串替换；%d 表示整数替换；#.2f 表示小数（四舍五入保留2位）替换；%c 表示字符替换</span></code></pre></div></li>
+<li><p><code>String join(deli, ele...)</code>：拼接字符串（<code>ele...</code>），以
+<code>deli</code> 间隔。</p></li>
+<li><p><code>boolean startsWith(str)</code>：测试 str
+是否为当前字符串的前缀</p></li>
+<li><p><code>String repeat(int n)</code>：返回该字符串重复 n
+次的结果</p></li>
 </ul>
-<h2 id="12-3-StringBuffer-类"><a href="#12-3-StringBuffer-类" class="headerlink" title="12.3 StringBuffer 类"></a>12.3 <code>StringBuffer</code> 类</h2><blockquote>
-<p><code>java.lang.StringBuffer</code> 代表可变的字符序列。可以对字符串内容进行增删。</p>
-<p>很多方法和 <code>String</code> 相同，但 <code>StringBuffer</code> 是可变长度。同时，<code>StringBuffer</code> 是一个容器</p>
+<h2 id="stringbuffer-类">12.3 <code>StringBuffer</code> 类</h2>
+<blockquote>
+<p><code>java.lang.StringBuffer</code>
+代表可变的字符序列。可以对字符串内容进行增删。</p>
+<p>很多方法和 <code>String</code> 相同，但 <code>StringBuffer</code>
+是可变长度。同时，<code>StringBuffer</code> 是一个容器</p>
 </blockquote>
-<ol>
-<li><code>StringBuffer</code> 的直接父类是 <code>AbstractStringBuffer</code></li>
-<li><code>StringBuffer</code> 实现了 <code>Serialiazable</code>，可以串行化</li>
-<li>在父类中，<code>AbstractStringBuffer</code> 有属性 <code>char[] value</code> 不是 <code>final</code></li>
-<li><code>StringBuffer</code> 是一个 <code>final</code> 类，不能被继承</li>
+<ol type="1">
+<li><code>StringBuffer</code> 的直接父类是
+<code>AbstractStringBuffer</code></li>
+<li><code>StringBuffer</code> 实现了
+<code>Serialiazable</code>，可以串行化</li>
+<li>在父类中，<code>AbstractStringBuffer</code> 有属性
+<code>char[] value</code> 不是 <code>final</code></li>
+<li><code>StringBuffer</code> 是一个 <code>final</code>
+类，不能被继承</li>
 </ol>
-<p><strong><code>String</code> 对比 <code>StringBuffer</code></strong></p>
+<p><strong><code>String</code> 对比
+<code>StringBuffer</code></strong></p>
 <ul>
-<li><code>String</code> 保存字符串常量，其中的值不能更改。每次更新实际上是更改地址，效率较低</li>
-<li><code>StringBuffer</code> 保存字符串变量，里面的值可以更改。每次更新是更新内容，不用每次更新地址。</li>
+<li><code>String</code>
+保存字符串常量，其中的值不能更改。每次更新实际上是更改地址，效率较低</li>
+<li><code>StringBuffer</code>
+保存字符串变量，里面的值可以更改。每次更新是更新内容，不用每次更新地址。</li>
 </ul>
-<h3 id="12-3-1-StringBuffer-构造方法"><a href="#12-3-1-StringBuffer-构造方法" class="headerlink" title="12.3.1 StringBuffer 构造方法"></a>12.3.1 <code>StringBuffer</code> 构造方法</h3><ol>
-<li><p>无参构造</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();</code></pre></div>
-
+<h3 id="stringbuffer-构造方法">12.3.1 <code>StringBuffer</code>
+构造方法</h3>
+<ol type="1">
+<li><p>无参构造 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();</code></pre></div></p>
 <blockquote>
 <p>创造一个 16 位容量的空 <code>StringBuffer</code></p>
-</blockquote>
-</li>
-<li><p>传入字符串构造</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abcabc&quot;</span>;
-<span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>(str1);</code></pre></div>
-
+</blockquote></li>
+<li><p>传入字符串构造 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abcabc&quot;</span>;
+<span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>(str1);</code></pre></div></p>
 <blockquote>
-<p>（上例）创造一个 str1.length + 16 容量的 <code>StringBuffer</code></p>
-</blockquote>
-</li>
-<li><p>指定容量构造</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>(<span class="hljs-number">3</span>);</code></pre></div>
-
+<p>（上例）创造一个 str1.length + 16 容量的
+<code>StringBuffer</code></p>
+</blockquote></li>
+<li><p>指定容量构造 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>(<span class="hljs-number">3</span>);</code></pre></div></p>
 <blockquote>
 <p>（上例）创造一个 3 容量的空 <code>StringBuffer</code></p>
-</blockquote>
-</li>
+</blockquote></li>
 </ol>
-<h3 id="12-3-2-String-和-StringBuffer的转换"><a href="#12-3-2-String-和-StringBuffer的转换" class="headerlink" title="12.3.2 String 和 StringBuffer的转换"></a>12.3.2 <code>String</code> 和 <code>StringBuffer</code>的转换</h3><ol>
+<h3 id="string-和-stringbuffer的转换">12.3.2 <code>String</code> 和
+<code>StringBuffer</code>的转换</h3>
+<ol type="1">
 <li><p>转 <code>StringBuffer</code></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abcabc&quot;</span>;
 <span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>(str1);	<span class="hljs-comment">//方法1（构造器）</span>
 <span class="hljs-type">StringBuffer</span> <span class="hljs-variable">strb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();		
-strb1 = strb1.append(str1);						<span class="hljs-comment">//方法2（先空再append）</span></code></pre></div>
-</li>
+strb1 = strb1.append(str1);						<span class="hljs-comment">//方法2（先空再append）</span></code></pre></div></li>
 <li><p>转 <code>String</code></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> strb1.toString();					<span class="hljs-comment">//方法1（toString）</span>
 <span class="hljs-type">String</span> <span class="hljs-variable">str3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(strb1);				<span class="hljs-comment">//方法2（构造器）</span></code></pre></div></li>
 </ol>
-<h3 id="12-3-3-StringBuffer-的常用方法"><a href="#12-3-3-StringBuffer-的常用方法" class="headerlink" title="12.3.3  StringBuffer 的常用方法"></a>12.3.3  <code>StringBuffer</code> 的常用方法</h3><ul>
+<h3 id="stringbuffer-的常用方法">12.3.3 <code>StringBuffer</code>
+的常用方法</h3>
+<ul>
 <li><p><code>append(char c)</code>：增加</p>
 <p><code>append(String s)</code> 参数也能是字符串</p>
-<p>特别的，<code>append(null);</code> 的场合，等同于 <code>append(&quot;null&quot;);</code></p>
-</li>
-<li><p><code>delete(start, end)</code>：删减 [start, end) 的内容</p>
-</li>
-<li><p><code>replace(start, end, string)</code>：将 start 与 end 间的内容替换为 string</p>
-</li>
-<li><p><code>indexOf</code>：查找指定字符串第一次出现时的索引。没找到的场合返回 -1</p>
-</li>
-<li><p><code>insert</code>：在指定索引位置之前插入指定字符串</p>
-</li>
+<p>特别的，<code>append(null);</code> 的场合，等同于
+<code>append("null");</code></p></li>
+<li><p><code>delete(start, end)</code>：删减 [start, end)
+的内容</p></li>
+<li><p><code>replace(start, end, string)</code>：将 start 与 end
+间的内容替换为 string</p></li>
+<li><p><code>indexOf</code>：查找指定字符串第一次出现时的索引。没找到的场合返回
+-1</p></li>
+<li><p><code>insert</code>：在指定索引位置之前插入指定字符串</p></li>
 <li><p><code>length()</code>：返回字符长度</p>
 <p><code>capacity()</code>：返回当前的容量</p>
 <p>String 类对象分配内存时，按照对象中所含字符个数等量分配。</p>
-<p>StringBuffer 类对象分配内存时，除去字符所占空间外，会另加 16 字符大小的缓冲区。</p>
-<p>对于 <code>length()</code> 方法，返回的是字符串长度。对于 <code>capacity()</code> 方法，返回的是 字符串 + 缓冲区 的大小。</p>
-</li>
+<p>StringBuffer 类对象分配内存时，除去字符所占空间外，会另加 16
+字符大小的缓冲区。</p>
+<p>对于 <code>length()</code> 方法，返回的是字符串长度。对于
+<code>capacity()</code> 方法，返回的是 字符串 + 缓冲区 的大小。</p></li>
 </ul>
-<h2 id="12-4-StringBuilder-类"><a href="#12-4-StringBuilder-类" class="headerlink" title="12.4 StringBuilder 类"></a>12.4 <code>StringBuilder</code> 类</h2><blockquote>
-<p>一个可变的字符序列。此类提供一个与 <code>StringBuffer</code> 兼容的 API，但不保证同步（有线程安全问题）。该类被设计成  <code>StringBuffer</code> 的一个简易替换，<strong>用在字符串缓冲区被单个线程使用的时候</strong>。如果可能，建议优先使用该类。因为在大多数实现中，它比起 <code>StringBuffer</code> 要快。</p>
-<p>在 <code>StringBuilder</code> 是的主要操作是 <code>append</code> 和 <code>insert</code> 方法。可以重载这些方法，以接受任意类型的数据。</p>
+<h2 id="stringbuilder-类">12.4 <code>StringBuilder</code> 类</h2>
+<blockquote>
+<p>一个可变的字符序列。此类提供一个与 <code>StringBuffer</code> 兼容的
+API，但不保证同步（有线程安全问题）。该类被设计成
+<code>StringBuffer</code>
+的一个简易替换，<strong>用在字符串缓冲区被单个线程使用的时候</strong>。如果可能，建议优先使用该类。因为在大多数实现中，它比起
+<code>StringBuffer</code> 要快。</p>
+<p>在 <code>StringBuilder</code> 是的主要操作是 <code>append</code> 和
+<code>insert</code> 方法。可以重载这些方法，以接受任意类型的数据。</p>
 </blockquote>
-<ol>
-<li><p><code>StringBuilder</code> 也继承了 <code>AbstractStringBuffer</code></p>
-</li>
-<li><p><code>StringBuilder</code> 也实现了 <code>Serialiazable</code>，可以串行化</p>
-</li>
-<li><p>仍然是在父类中有属性 <code>char[] value</code> ，而且不是 <code>final</code></p>
-</li>
-<li><p><code>StringBuilder</code> 也是一个 <code>final</code> 类，不能被继承</p>
-</li>
-<li><p><code>StringBuilder</code> 的方法，没有做互斥的处理（没有 <code>synchronize</code>），故而存在线程安全问题</p>
-</li>
+<ol type="1">
+<li><p><code>StringBuilder</code> 也继承了
+<code>AbstractStringBuffer</code></p></li>
+<li><p><code>StringBuilder</code> 也实现了
+<code>Serialiazable</code>，可以串行化</p></li>
+<li><p>仍然是在父类中有属性 <code>char[] value</code> ，而且不是
+<code>final</code></p></li>
+<li><p><code>StringBuilder</code> 也是一个 <code>final</code>
+类，不能被继承</p></li>
+<li><p><code>StringBuilder</code> 的方法，没有做互斥的处理（没有
+<code>synchronize</code>），故而存在线程安全问题</p></li>
 </ol>
-<h3 id="12-4-1-String、StringBuffer、StringBuilder-的对比"><a href="#12-4-1-String、StringBuffer、StringBuilder-的对比" class="headerlink" title="12.4.1 String、StringBuffer、StringBuilder 的对比"></a>12.4.1 <code>String</code>、<code>StringBuffer</code>、<code>StringBuilder</code> 的对比</h3><ol>
-<li><p><code>StringBuilder</code> 和 <code>StringBuffer</code> 类似，均代表可变字符序列，而且方法也一样</p>
-</li>
-<li><p><code>String</code>：不可变字符序列，效率低，但复用率高</p>
-</li>
-<li><p><code>StringBuffer</code>：可变字符序列，效率较高，线程安全</p>
-</li>
-<li><p><code>StringBuilder</code>：可变字符序列，效率最高，存在线程安全问题</p>
-</li>
+<h3 id="stringstringbufferstringbuilder-的对比">12.4.1
+<code>String</code>、<code>StringBuffer</code>、<code>StringBuilder</code>
+的对比</h3>
+<ol type="1">
+<li><p><code>StringBuilder</code> 和 <code>StringBuffer</code>
+类似，均代表可变字符序列，而且方法也一样</p></li>
+<li><p><code>String</code>：不可变字符序列，效率低，但复用率高</p></li>
+<li><p><code>StringBuffer</code>：可变字符序列，效率较高，线程安全</p></li>
+<li><p><code>StringBuilder</code>：可变字符序列，效率最高，存在线程安全问题</p></li>
 <li><p><code>String</code> 为何效率低：</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;aa&quot;</span>;					<span class="hljs-comment">//创建了一个字符串</span>
@@ -669,61 +675,56 @@ strb1 = strb1.append(str1);						<span class="hljs-comment">//方法2（先空�
 	str1 += <span class="hljs-string">&quot;bb&quot;</span>;					<span class="hljs-comment">//这里，原先的字符串被丢弃，创建新字符串</span>
 &#125;									<span class="hljs-comment">//多次执行后，大量副本字符串留在内存中</span>
 									<span class="hljs-comment">//导致效率降低，也会影响程序性能</span></code></pre></div>
-
-<p>如上，对 <code>String</code> 大量修改的场合，不要使用 <code>String</code></p>
-</blockquote>
-</li>
+<p>如上，对 <code>String</code> 大量修改的场合，不要使用
+<code>String</code></p>
+</blockquote></li>
 </ol>
-<h2 id="12-5-Math-类"><a href="#12-5-Math-类" class="headerlink" title="12.5 Math 类"></a>12.5 <code>Math</code> 类</h2><ul>
+<h2 id="math-类">12.5 <code>Math</code> 类</h2>
+<ul>
 <li><p><code>Math.multiplyExact(int n1, int n2)</code>：进行乘法运算，返回运算结果</p>
-<p>通常的乘法 <code>n1 * n2</code> 在结果大于那个数据类型存储上限时，可能返回错误的值。</p>
+<p>通常的乘法 <code>n1 * n2</code>
+在结果大于那个数据类型存储上限时，可能返回错误的值。</p>
 <p>使用此方法，结果大于那个数据类型存储上限时，会抛出异常</p>
 <p><code>Math.addExact(int n1, int n2)</code>：加法</p>
 <p><code>Math.subtractExact(int n1, int n2)</code>：减法</p>
 <p><code>Math.incrementExact(int n1)</code>：自增</p>
 <p><code>Math.decrementExact(int n1)</code>：自减</p>
-<p><code>Math.negateExact(int n1, int n2)</code>：改变符号</p>
-</li>
-<li><p><code>Math.abs(n)</code>：求绝对值，返回 |n1|</p>
-</li>
-<li><p><code>Math.pow(n, i)</code>：求幂，返回 n3 ^ i</p>
-</li>
-<li><p><code>Math.ceil(n)</code>：向上取整，返回 &gt;&#x3D; n3 的最小整数（转成double）</p>
-</li>
-<li><p><code>Math.floor(n)</code>：向下取整，返回 &lt;&#x3D;n4 的最小整数（转成double）</p>
-</li>
-<li><p><code>Math.floorMod(int n1, int n2)</code>：返回 n1 除以 n2 的余数</p>
-<p><code>n1 % n2</code> 的场合，返回的可能是负数，而不是数学意义上的余数</p>
-</li>
-<li><p><code>Math.round(n)</code>：四舍五入，相当于 <code>Math.floor(n5 + 0.5)</code></p>
-</li>
-<li><p><code>Math.sqrt(n)</code>：求开方。负数的场合，返回 <code>NaN</code></p>
-</li>
-<li><p><code>Math.random()</code>：返回一个 [0, 1) 区间的随机小数</p>
-</li>
+<p><code>Math.negateExact(int n1, int n2)</code>：改变符号</p></li>
+<li><p><code>Math.abs(n)</code>：求绝对值，返回 |n1|</p></li>
+<li><p><code>Math.pow(n, i)</code>：求幂，返回 n3 ^ i</p></li>
+<li><p><code>Math.ceil(n)</code>：向上取整，返回 &gt;= n3
+的最小整数（转成double）</p></li>
+<li><p><code>Math.floor(n)</code>：向下取整，返回 &lt;=n4
+的最小整数（转成double）</p></li>
+<li><p><code>Math.floorMod(int n1, int n2)</code>：返回 n1 除以 n2
+的余数</p>
+<p><code>n1 % n2</code>
+的场合，返回的可能是负数，而不是数学意义上的余数</p></li>
+<li><p><code>Math.round(n)</code>：四舍五入，相当于
+<code>Math.floor(n5 + 0.5)</code></p></li>
+<li><p><code>Math.sqrt(n)</code>：求开方。负数的场合，返回
+<code>NaN</code></p></li>
+<li><p><code>Math.random()</code>：返回一个 [0, 1)
+区间的随机小数</p></li>
 <li><p><code>Math.sin(n)</code>：正弦函数</p>
 <p><code>Math.cos(n)</code>：余弦函数</p>
 <p><code>Math.tan(n)</code>、<code>Math.atan(n)</code>、<code>Math.atan2(n)</code></p>
 <p>要注意，上述方法传入的参数是 <strong>弧度值</strong>。</p>
-<p>要得到一个角度的弧度值，应使用：<code>Math.toRadians(n)</code></p>
-</li>
+<p>要得到一个角度的弧度值，应使用：<code>Math.toRadians(n)</code></p></li>
 <li><p><code>Math.exp(n)</code>：e 的 n 次幂</p>
 <p><code>Math.log10(n)</code>：10 为底的对数</p>
-<p><code>Math.log()</code>：自然对数</p>
-</li>
+<p><code>Math.log()</code>：自然对数</p></li>
 <li><p><code>Math.PI</code>：圆周率的近似值</p>
-<p><code>Math.E</code>：e 的近似值</p>
-</li>
+<p><code>Math.E</code>：e 的近似值</p></li>
 </ul>
-<h2 id="12-6-Arrays-类"><a href="#12-6-Arrays-类" class="headerlink" title="12.6 Arrays 类"></a>12.6 <code>Arrays</code> 类</h2><ul>
+<h2 id="arrays-类">12.6 <code>Arrays</code> 类</h2>
+<ul>
 <li><p><code>Arrays.toString()</code>：返回数组的字符串形式</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">33</span>&#125;;
 <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> Array.toString(nums);		<span class="hljs-comment">//此时，str = &quot;[0, 1, 33]&quot;</span></code></pre></div>
-
-<p>特别的，输入为 null 时返回 “null”</p>
-</blockquote>
-</li>
+<p>特别的，输入为 null 时返回 "null"</p>
+</blockquote></li>
 <li><p><code>Arrays.sort(arr)</code>：排序</p>
 <p>因为数组是引用类型，使用 sort 排序后，会直接影响到实参。</p>
 <p>默认（自然排序）从小到大排序。</p>
@@ -736,123 +737,116 @@ Comparator&lt;Integer, Integer&gt; c = <span class="hljs-keyword">new</span> <sp
         <span class="hljs-keyword">return</span> n2 - n1;						<span class="hljs-comment">// 这个场合，变成从大到小排序</span>
     &#125;
 &#125;
-Arrays.sort(nums, c);</code></pre></div>
-</li>
+Arrays.sort(nums, c);</code></pre></div></li>
 <li><p><code>Arrays.binarySearch(array, num)</code>：通过二分搜索法查找。前提是必须先排序。</p>
 <p>找不到的场合，返回 - (low + 1)。即，其应该在的位置的负值</p>
 <div class="code-wrapper"><pre><code class="hljs java">Integer[] nums2 = &#123;-<span class="hljs-number">10</span>, -<span class="hljs-number">5</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>&#125;;
 <span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> Arrays.binarySearch(nums2, <span class="hljs-number">7</span>);	<span class="hljs-comment">// 此时 index = -7</span>
-											<span class="hljs-comment">// 如果 7 存在，应该在第 7 个位置</span></code></pre></div>
-</li>
-<li><p><code>Arrays.copyOf(arr, n)</code>：从 <code>arr</code> 中，复制 n 个元素（成为新的数组）。</p>
-<p>n &gt; arr.length 的场合，在多余的位置添加 <code>null</code>。n &lt; 0 的场合，抛出异常。</p>
-<p>该方法的底层使用的是 <code>System.arraycopy</code></p>
-</li>
-<li><p><code>Arrays.fill(arr, o)</code>：用 o 填充 <code>num</code> 的所有元素。</p>
-</li>
-<li><p><code>Arrays.equals(arr1, arr2)</code>：比较两个数组元素是否完全一致（<code>true</code>&#x2F;<code>false</code>）</p>
-</li>
-<li><p><code>Arrays.asList(a, b, c, d)</code>：将输入数据转成一个 <code>List</code> 集合</p>
-</li>
+											<span class="hljs-comment">// 如果 7 存在，应该在第 7 个位置</span></code></pre></div></li>
+<li><p><code>Arrays.copyOf(arr, n)</code>：从 <code>arr</code> 中，复制
+n 个元素（成为新的数组）。</p>
+<p>n &gt; arr.length 的场合，在多余的位置添加 <code>null</code>。n &lt;
+0 的场合，抛出异常。</p>
+<p>该方法的底层使用的是 <code>System.arraycopy</code></p></li>
+<li><p><code>Arrays.fill(arr, o)</code>：用 o 填充 <code>num</code>
+的所有元素。</p></li>
+<li><p><code>Arrays.equals(arr1, arr2)</code>：比较两个数组元素是否完全一致（<code>true</code>/<code>false</code>）</p></li>
+<li><p><code>Arrays.asList(a, b, c, d)</code>：将输入数据转成一个
+<code>List</code> 集合</p></li>
 </ul>
-<h2 id="12-7-System-类"><a href="#12-7-System-类" class="headerlink" title="12.7 System 类"></a>12.7 <code>System</code> 类</h2><ul>
-<li><p><code>System.exit(0)</code>：退出当前程序。0 表示一个状态，正常状态是 0</p>
-</li>
+<h2 id="system-类">12.7 <code>System</code> 类</h2>
+<ul>
+<li><p><code>System.exit(0)</code>：退出当前程序。0
+表示一个状态，正常状态是 0</p></li>
 <li><p><code>System.arraycopy(arr, 0, newArr, 0 ,3)</code>：复制数组元素。</p>
-<p>上例是：arr 自下标 0 起开始，向 newArr 自下标 0 开始，依次拷贝 3 个值</p>
-<p>这个方法比较适合底层调用。我们一般使用 <code>Arrays.copyOf</code> 来做</p>
-</li>
-<li><p><code>System.currentTimeMillis</code>：返回当前时间距离 1970 - 1 - 1 的毫秒数</p>
-</li>
-<li><p><code>System.gc</code>：运行垃圾回收机制</p>
-</li>
+<p>上例是：arr 自下标 0 起开始，向 newArr 自下标 0 开始，依次拷贝 3
+个值</p>
+<p>这个方法比较适合底层调用。我们一般使用 <code>Arrays.copyOf</code>
+来做</p></li>
+<li><p><code>System.currentTimeMillis</code>：返回当前时间距离 1970 - 1
+- 1 的毫秒数</p></li>
+<li><p><code>System.gc</code>：运行垃圾回收机制</p></li>
 </ul>
-<h2 id="12-8-BigInteger-和-BigDecimal-类"><a href="#12-8-BigInteger-和-BigDecimal-类" class="headerlink" title="12.8 BigInteger 和 BigDecimal 类"></a>12.8 <code>BigInteger</code> 和 <code>BigDecimal</code> 类</h2><blockquote>
+<h2 id="biginteger-和-bigdecimal-类">12.8 <code>BigInteger</code> 和
+<code>BigDecimal</code> 类</h2>
+<blockquote>
 <p><code>BigInteger</code>：适合保存更大的整数</p>
-<p> <code>BigDecimal</code>：适合保存精度更大的浮点数</p>
+<p><code>BigDecimal</code>：适合保存精度更大的浮点数</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">//用引号把大数变成字符串</span>
 <span class="hljs-type">BigInteger</span> <span class="hljs-variable">bigNum</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigInteger</span>(<span class="hljs-string">&quot;100000000000000000000000&quot;</span>);</code></pre></div>
-
 <p><strong>构造方法：</strong></p>
 <ul>
 <li><code>new BigInteger(String intStr)</code>：通过一个字符串构建大数</li>
 <li><code>BigInteger BigInteger.valueOf(1)</code>：通过静态方法，让整数类型转成大数</li>
 </ul>
-<p>另外，在对 <code>BigInteger</code> 和 <code>BigDecimal</code> 进行加减乘除的时候，需要使用对应方法</p>
-<p>不能直接用 <code>+</code> <code>-</code> <code>*</code> <code>/</code></p>
+<p>另外，在对 <code>BigInteger</code> 和 <code>BigDecimal</code>
+进行加减乘除的时候，需要使用对应方法</p>
+<p>不能直接用 <code>+</code> <code>-</code> <code>*</code>
+<code>/</code></p>
 <p><strong>常用方法：</strong></p>
 <ul>
-<li><p><code>BigInteger add(BigInteger)</code>：加法运算。返回新的大数</p>
-</li>
-<li><p><code>BigInteger subtract(BigInteger)</code>：减法</p>
-</li>
-<li><p><code>BigInteger multiply(BigInteger)</code>：乘法</p>
-</li>
+<li><p><code>BigInteger add(BigInteger)</code>：加法运算。返回新的大数</p></li>
+<li><p><code>BigInteger subtract(BigInteger)</code>：减法</p></li>
+<li><p><code>BigInteger multiply(BigInteger)</code>：乘法</p></li>
 <li><p><code>BigInteger divide(BigInteger)</code>：除法运算</p>
 <p>该方法可能抛出异常。因为可能产生是无限长度小数。</p>
-<p>解决方法（保留分子精度）：<code>bigDecimal.divide(bD3, BigDecimal.ROUND_CELLING)</code></p>
-</li>
+<p>解决方法（保留分子精度）：<code>bigDecimal.divide(bD3, BigDecimal.ROUND_CELLING)</code></p></li>
 <li><p>一些常量：</p>
-<p><code>BigInteger.ONE</code>、<code>BigInteger.ZERO</code>、<code>BigInteger.TEN</code> 分别是 1、0、10</p>
-<p>one 就是英文的 1，zero 就是英文的 0……这个大家都懂的吧？</p>
-</li>
+<p><code>BigInteger.ONE</code>、<code>BigInteger.ZERO</code>、<code>BigInteger.TEN</code>
+分别是 1、0、10</p>
+<p>one 就是英文的 1，zero 就是英文的 0……这个大家都懂的吧？</p></li>
 </ul>
-<h2 id="12-9-日期类"><a href="#12-9-日期类" class="headerlink" title="12.9 日期类"></a>12.9 日期类</h2><h3 id="12-9-1-第一代日期类"><a href="#12-9-1-第一代日期类" class="headerlink" title="12.9.1 第一代日期类"></a>12.9.1 第一代日期类</h3><blockquote>
+<h2 id="日期类">12.9 日期类</h2>
+<h3 id="第一代日期类">12.9.1 第一代日期类</h3>
+<blockquote>
 <p>Date：精确到毫秒，代表特定瞬间。这里的是 java.util.Date</p>
 <p>SimpleDateFormat：格式和解析日期的类</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p><code>Date d1 = new Date();</code>：调用默认无参构造器，获取当前系统时间。</p>
 <p>默认输出日期格式是国外的格式，因此通常需要进行格式转换</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">SimpleDateFormat</span> <span class="hljs-variable">sdf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleDateFormat</span>(<span class="hljs-string">&quot;yyyy.MM.dd HH.mm.ss&quot;</span>);
-<span class="hljs-type">String</span> <span class="hljs-variable">dateFormated</span> <span class="hljs-operator">=</span> sdf.(d1);							<span class="hljs-comment">//日期转成指定格式。</span></code></pre></div>
-</li>
+<span class="hljs-type">String</span> <span class="hljs-variable">dateFormated</span> <span class="hljs-operator">=</span> sdf.(d1);							<span class="hljs-comment">//日期转成指定格式。</span></code></pre></div></li>
 <li><p>通过指定毫秒数得到时间：</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Date</span> <span class="hljs-variable">d2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">10000000000</span>);</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Date</span> <span class="hljs-variable">d2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">10000000000</span>);</code></pre></div></li>
 <li><p>把一个格式化的字符串转成对应的 Date：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">SimpleDateFormat</span> <span class="hljs-variable">sdf2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleDateFormat</span>(<span class="hljs-string">&quot;yyyy年MM月dd日 HH点mm分 E&quot;</span>);
 <span class="hljs-type">Date</span> <span class="hljs-variable">d3</span> <span class="hljs-operator">=</span> sdf2.parse(<span class="hljs-string">&quot;2021年12月22日 00点03分 星期三&quot;</span>);</code></pre></div>
-
-<p>这个场合，给定的字符串格式应和 <code>sdf2</code> 格式相同，否则会抛出异常</p>
-</li>
+<p>这个场合，给定的字符串格式应和 <code>sdf2</code>
+格式相同，否则会抛出异常</p></li>
 </ol>
-<h3 id="12-9-2-第二代日期类"><a href="#12-9-2-第二代日期类" class="headerlink" title="12.9.2 第二代日期类"></a>12.9.2 第二代日期类</h3><blockquote>
+<h3 id="第二代日期类">12.9.2 第二代日期类</h3>
+<blockquote>
 <p>Calendar：构造器是私有的，要通过 getInstance 方法获取实例</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>Calendar 是一个抽象类，其构造器私有</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Calendar</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> Calendar.genInstance();				<span class="hljs-comment">//获取实例的方法</span></code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Calendar</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> Calendar.genInstance();				<span class="hljs-comment">//获取实例的方法</span></code></pre></div></li>
 <li><p>提供大量方法和字段提供给程序员使用</p>
 <ul>
-<li><p><code>c1.get(Calendar.YEAR)</code>：获取年份数</p>
-</li>
+<li><p><code>c1.get(Calendar.YEAR)</code>：获取年份数</p></li>
 <li><p><code>c1.get(Calendar.MONTH)</code>：获取月份数</p>
-<p>特别的，实际月份是 返回值 +1。因为 Calendar 的月份是从 0 开始编号的</p>
-</li>
-<li><p><code>c1.get(Calendar.DAY_OF_MONTH)</code>：获取日数</p>
-</li>
+<p>特别的，实际月份是 返回值 +1。因为 Calendar 的月份是从 0
+开始编号的</p></li>
+<li><p><code>c1.get(Calendar.DAY_OF_MONTH)</code>：获取日数</p></li>
 <li><p><code>c1.get(Calendar.HOUR)</code>：获取小时数（12小时制）</p>
-<p><code>c1.get(Calendar.HOUR_OF_DATE)</code>：获取小时数（24小时制）</p>
-</li>
-<li><p><code>c1.get(Calendar.MINUTE)</code>：获取分钟数</p>
-</li>
-<li><p><code>c1.get(Calendar.SECOND)</code>：获取秒数</p>
-</li>
+<p><code>c1.get(Calendar.HOUR_OF_DATE)</code>：获取小时数（24小时制）</p></li>
+<li><p><code>c1.get(Calendar.MINUTE)</code>：获取分钟数</p></li>
+<li><p><code>c1.get(Calendar.SECOND)</code>：获取秒数</p></li>
 </ul>
-<p>Calendar 没有专门的格式化方法，需要程序员自己组合来显示</p>
-</li>
+<p>Calendar 没有专门的格式化方法，需要程序员自己组合来显示</p></li>
 </ol>
-<h3 id="12-9-3-第三代日期类"><a href="#12-9-3-第三代日期类" class="headerlink" title="12.9.3 第三代日期类"></a>12.9.3 第三代日期类</h3><blockquote>
+<h3 id="第三代日期类">12.9.3 第三代日期类</h3>
+<blockquote>
 <p>JDK 1.0 加入的 Date 在 JDK 1.1 加入 Calendar 后已被弃用</p>
 <p>然而，Calendar 也存在不足：</p>
-<ol>
+<ol type="1">
 <li>可变性：像日期和实际这样的类应该是不可改变的</li>
 <li>偏移性：年份都是从 1900 年开始，月份都是从 0 开始</li>
 <li>格式化：只对 Date 有用，对 Calendar 没用</li>
-<li>其他问题：如不能保证线程安全，不能处理闰秒（每隔 2 天多 1 秒）等</li>
+<li>其他问题：如不能保证线程安全，不能处理闰秒（每隔 2 天多 1
+秒）等</li>
 </ol>
 <p>于是，在 JDK 8 加入了以下新日期类：</p>
 <ul>
@@ -863,59 +857,51 @@ Arrays.sort(nums, c);</code></pre></div>
 <li>Instant：时间戳</li>
 </ul>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>使用 <code>now()</code> 方法返回当前时间的对象</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">ldt</span> <span class="hljs-operator">=</span> LocalDateTime.now();				<span class="hljs-comment">//获取当前时间</span></code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">ldt</span> <span class="hljs-operator">=</span> LocalDateTime.now();				<span class="hljs-comment">//获取当前时间</span></code></pre></div></li>
 <li><p>获取各字段方法：</p>
 <ul>
-<li><p><code>ldt.getYear();</code>：获取年份数</p>
-</li>
+<li><p><code>ldt.getYear();</code>：获取年份数</p></li>
 <li><p><code>ldt.getMonth();</code>：获取月份数（英文）</p>
-<p><code>ldt.getMonthValue();</code>：获取月份数（数字）</p>
-</li>
-<li><p><code>ldt.getDayOfMonth();</code>：获取日数</p>
-</li>
-<li><p><code>LocalDateTime ldt2 = ldt.plusDays(100);</code>：获取 ldt 时间 100 天后的时间实例</p>
-</li>
-<li><p><code>LocalDateTime ldt3 = ldt.minusHours(100);</code>：获取 ldt 时间 100 小时前的时间实例</p>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-</li>
+<p><code>ldt.getMonthValue();</code>：获取月份数（数字）</p></li>
+<li><p><code>ldt.getDayOfMonth();</code>：获取日数</p></li>
+<li><p><code>LocalDateTime ldt2 = ldt.plusDays(100);</code>：获取 ldt
+时间 100 天后的时间实例</p></li>
+<li><p><code>LocalDateTime ldt3 = ldt.minusHours(100);</code>：获取 ldt
+时间 100 小时前的时间实例</p></li>
+<li><p>...</p></li>
+</ul></li>
 <li><p>格式化日期：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">DateTimeFormatter</span> <span class="hljs-variable">dtf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DateTimeFormatter</span>(<span class="hljs-string">&quot;yyyy.MM.dd HH.mm.ss&quot;</span>);
-<span class="hljs-type">String</span> <span class="hljs-variable">date</span> <span class="hljs-operator">=</span> dtf.format(ldt);							<span class="hljs-comment">//获取格式化字符串</span></code></pre></div>
-</li>
+<span class="hljs-type">String</span> <span class="hljs-variable">date</span> <span class="hljs-operator">=</span> dtf.format(ldt);							<span class="hljs-comment">//获取格式化字符串</span></code></pre></div></li>
 <li><p><code>Instant</code> 和 <code>Date</code> 类似</p>
 <ul>
-<li><p>获取当前时间戳：<code>Instant instant = Instant.now();</code></p>
-</li>
-<li><p>转换为 <code>Date</code>：<code>Date date = Date.form(instant);</code></p>
-</li>
-<li><p>由 <code>Date</code> 转换：<code>Instant instant = date.toInstant;</code></p>
-</li>
-</ul>
-</li>
+<li><p>获取当前时间戳：<code>Instant instant = Instant.now();</code></p></li>
+<li><p>转换为
+<code>Date</code>：<code>Date date = Date.form(instant);</code></p></li>
+<li><p>由 <code>Date</code>
+转换：<code>Instant instant = date.toInstant;</code></p></li>
+</ul></li>
 </ol>
-<h2 id="12-10-泛型"><a href="#12-10-泛型" class="headerlink" title="12.10 泛型"></a>12.10 泛型</h2><blockquote>
-<p>泛型（generic）：又称 参数化类型。是JDK 5 出现的新特性。解决数据类型的安全性问题。</p>
+<h2 id="泛型">12.10 泛型</h2>
+<blockquote>
+<p>泛型（generic）：又称 参数化类型。是JDK 5
+出现的新特性。解决数据类型的安全性问题。</p>
 <p>在类声明或实例化时只要制定好需要的具体类型即可。</p>
 </blockquote>
 <p>举例说明：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Properties&lt;Person&gt; prop = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>&lt;Person&gt;();</code></pre></div>
-
 <blockquote>
-<p>上例表示存放到 <code>prop</code> 中的必须是 <code>Person</code> 类型。</p>
+<p>上例表示存放到 <code>prop</code> 中的必须是 <code>Person</code>
+类型。</p>
 <p>如果编译器发现添加类型不符合要求，即报错。</p>
 <p>遍历时，直接取出 <code>Person</code> 而非 <code>Object</code></p>
 </blockquote>
-<ol>
-<li><p>编译时，检查添加元素的类型。可以保证如果编译时没发出警告，运行就不会产生 ClassCastException 异常。提高了安全性，使代码更加简洁、健壮。</p>
-</li>
-<li><p>也减少了转换的次数，提高了效率。</p>
-</li>
+<ol type="1">
+<li><p>编译时，检查添加元素的类型。可以保证如果编译时没发出警告，运行就不会产生
+ClassCastException 异常。提高了安全性，使代码更加简洁、健壮。</p></li>
+<li><p>也减少了转换的次数，提高了效率。</p></li>
 <li><p>泛型的作用是：可以在类声明是通过一个标识表示类中某个属性的类型，或某个方法返回值的类型，或参数类型。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">P</span>&lt;E&gt; &#123;
 	E e;				<span class="hljs-comment">//E 表示 e 的数据类型，在定义 P类 时指定。在编译期间即确认类型</span>
@@ -926,62 +912,49 @@ Arrays.sort(nums, c);</code></pre></div>
 		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.e;
 	&#125;
 &#125;</code></pre></div>
-
-<p>实例化时指定 E 的类型，编译时上例所有 E 会被编译器替换为那个指定类型</p>
-</li>
+<p>实例化时指定 E 的类型，编译时上例所有 E
+会被编译器替换为那个指定类型</p></li>
 </ol>
-<h4 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h4><ul>
+<h4 id="使用方法">使用方法：</h4>
+<ul>
 <li><p><strong>声明泛型：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">InterfaceName</span>&lt;T&gt; &#123;...&#125;
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClassName</span>&lt;A, B, C, D&gt; &#123;...&#125;</code></pre></div>
-
-<p>上例 T、A、B、C、D 不是值，而是类型。可以用任意字母代替</p>
-</li>
+<p>上例 T、A、B、C、D 不是值，而是类型。可以用任意字母代替</p></li>
 <li><p><strong>实例化泛型：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java">List&lt;String&gt; strList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;String&gt;();
 Iterator&lt;Integer&gt; iterator = vector.interator&lt;Integer&gt;();</code></pre></div>
-
-<p>类名后面指定类型参数的值</p>
-</li>
+<p>类名后面指定类型参数的值</p></li>
 </ul>
 <p><strong>注意细节：</strong></p>
-<ol>
-<li><p>泛型只能是引用类型</p>
-</li>
-<li><p>指定泛型具体类型后，可以传入该类型或其子类类型</p>
-</li>
+<ol type="1">
+<li><p>泛型只能是引用类型</p></li>
+<li><p>指定泛型具体类型后，可以传入该类型或其子类类型</p></li>
 <li><p>在实际开发中往往简写泛型</p>
 <div class="code-wrapper"><pre><code class="hljs java">List&lt;String&gt; strList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();</code></pre></div>
-
-<p>编译器会进行类型推断，右边 <code>&lt; &gt;</code> 内容可以省略</p>
-</li>
-<li><p>实例化不写泛型的场合，相当于默认泛型为 <code>Object</code></p>
-</li>
+<p>编译器会进行类型推断，右边 <code>&lt; &gt;</code>
+内容可以省略</p></li>
+<li><p>实例化不写泛型的场合，相当于默认泛型为
+<code>Object</code></p></li>
 </ol>
-<h4 id="自定义泛型类-·-接口："><a href="#自定义泛型类-·-接口：" class="headerlink" title="自定义泛型类 · 接口："></a>自定义泛型类 · 接口：</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Name</span>&lt;A, B...&gt; &#123;...&#125;				<span class="hljs-comment">//泛型标识符 可有多个，一般是单个大写字母表示</span></code></pre></div>
-
+<h4 id="自定义泛型类-接口">自定义泛型类 · 接口：</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Name</span>&lt;A, B...&gt; &#123;...&#125;				<span class="hljs-comment">//泛型标识符 可有多个，一般是单个大写字母表示</span></code></pre></div>
 <p>这就是自定义泛型啊</p>
-<ol>
-<li><p>普通成员可以使用泛型（属性、方法）</p>
-</li>
+<ol type="1">
+<li><p>普通成员可以使用泛型（属性、方法）</p></li>
 <li><p>泛型类的类型，是在创建对象时确定的。</p>
-<p>因此：静态方法中不能使用类的泛型；使用泛型的数组，也不能初始化。</p>
-</li>
-<li><p>创建对象时不指定的场合，默认 Object。建议还是写上 <code>&lt;Object&gt;</code>，大气，上档次</p>
-</li>
+<p>因此：静态方法中不能使用类的泛型；使用泛型的数组，也不能初始化。</p></li>
+<li><p>创建对象时不指定的场合，默认 Object。建议还是写上
+<code>&lt;Object&gt;</code>，大气，上档次</p></li>
 <li><p>自定义泛型接口</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Name</span>&lt;T, R...&gt; &#123;...&#125;</code></pre></div>
-
-<p>泛型接口，其泛型在 继承接口 或 实现接口 时确定。</p>
-</li>
+<p>泛型接口，其泛型在 继承接口 或 实现接口 时确定。</p></li>
 </ol>
-<h4 id="自定义泛型方法："><a href="#自定义泛型方法：" class="headerlink" title="自定义泛型方法："></a>自定义泛型方法：</h4><div class="code-wrapper"><pre><code class="hljs java">修饰符 &lt;T, R...&gt; 返回类型 方法名(形参) &#123;...&#125;</code></pre></div>
-
-<ol>
-<li><p>可以定义在普通类中，也可以定义在泛型类中</p>
-</li>
-<li><p>当泛型方法被调用时，类型会确定</p>
-</li>
+<h4 id="自定义泛型方法">自定义泛型方法：</h4>
+<div class="code-wrapper"><pre><code class="hljs java">修饰符 &lt;T, R...&gt; 返回类型 方法名(形参) &#123;...&#125;</code></pre></div>
+<ol type="1">
+<li><p>可以定义在普通类中，也可以定义在泛型类中</p></li>
+<li><p>当泛型方法被调用时，类型会确定</p></li>
 <li><p>以下场合</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">Class C&lt;T&gt; &#123;
@@ -989,14 +962,17 @@ Iterator&lt;Integer&gt; iterator = vector.interator&lt;Integer&gt;();</code></pr
 	&#125;
 &#125;</code></pre></div>
 </blockquote>
-<p>没有 <code>&lt; &gt;</code>，不是泛型方法，而是使用了泛型的普通方法</p>
-</li>
+<p>没有
+<code>&lt; &gt;</code>，不是泛型方法，而是使用了泛型的普通方法</p></li>
 </ol>
-<h4 id="泛型继承："><a href="#泛型继承：" class="headerlink" title="泛型继承："></a>泛型继承：</h4><ol>
+<h4 id="泛型继承">泛型继承：</h4>
+<ol type="1">
 <li>泛型不具有继承性</li>
 <li><code>&lt;?&gt;</code>：支持任意泛型类型</li>
-<li><code>&lt;? extends A&gt;</code>：支持 A 及 A的子类，规定了泛型的上限</li>
-<li><code>&lt;? super B&gt;</code>：支持 B 及 B 的父类，规定了泛型的下限</li>
+<li><code>&lt;? extends A&gt;</code>：支持 A 及
+A的子类，规定了泛型的上限</li>
+<li><code>&lt;? super B&gt;</code>：支持 B 及 B
+的父类，规定了泛型的下限</li>
 </ol>
 
               

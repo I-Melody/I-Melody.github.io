@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3 函数和数组3.1 函数的定义和使用 函数：将一段代码封装起来，提高复用率  3.1.1 函数的定义函数的定义一般有 5 个步骤：  返回值类型：可以无返回值（void）或返回一个值  函数名  参数列表：可以无参或设置任意个参数 参数可以不加标识符，但那个场合可能无法调用参数。  函数体语句  return 表达式：无返回值的场合可以没有   &#x2F;* 返回值类型 函数名 (参数列表) &amp;#123">
+    <meta name="description" content="3 函数和数组 3.1 函数的定义和使用  函数：将一段代码封装起来，提高复用率  3.1.1 函数的定义 函数的定义一般有 5 个步骤：  返回值类型：可以无返回值（void）或返回一个值 函数名 参数列表：可以无参或设置任意个参数 参数可以不加标识符，但那个场合可能无法调用参数。 函数体语句 return 表达式：无返回值的场合可以没有  &#x2F;* 返回值类型 函数名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;3 函数和数组">
 <meta property="og:url" content="https://i-melody.github.io/2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E5%87%BD%E6%95%B0%E5%92%8C%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="3 函数和数组3.1 函数的定义和使用 函数：将一段代码封装起来，提高复用率  3.1.1 函数的定义函数的定义一般有 5 个步骤：  返回值类型：可以无返回值（void）或返回一个值  函数名  参数列表：可以无参或设置任意个参数 参数可以不加标识符，但那个场合可能无法调用参数。  函数体语句  return 表达式：无返回值的场合可以没有   &#x2F;* 返回值类型 函数名 (参数列表) &amp;#123">
+<meta property="og:description" content="3 函数和数组 3.1 函数的定义和使用  函数：将一段代码封装起来，提高复用率  3.1.1 函数的定义 函数的定义一般有 5 个步骤：  返回值类型：可以无返回值（void）或返回一个值 函数名 参数列表：可以无参或设置任意个参数 参数可以不加标识符，但那个场合可能无法调用参数。 函数体语句 return 表达式：无返回值的场合可以没有  &#x2F;* 返回值类型 函数名">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-09T06:10:53.966Z">
@@ -293,22 +293,20 @@
             
             <div class="markdown-body">
               
-              <h1 id="3-函数和数组"><a href="#3-函数和数组" class="headerlink" title="3 函数和数组"></a>3 函数和数组</h1><h2 id="3-1-函数的定义和使用"><a href="#3-1-函数的定义和使用" class="headerlink" title="3.1 函数的定义和使用"></a>3.1 函数的定义和使用</h2><blockquote>
+              <h1 id="函数和数组">3 函数和数组</h1>
+<h2 id="函数的定义和使用">3.1 函数的定义和使用</h2>
+<blockquote>
 <p>函数：将一段代码封装起来，提高复用率</p>
 </blockquote>
-<h3 id="3-1-1-函数的定义"><a href="#3-1-1-函数的定义" class="headerlink" title="3.1.1 函数的定义"></a>3.1.1 函数的定义</h3><p>函数的定义一般有 5 个步骤：</p>
-<ol>
-<li><p>返回值类型：可以无返回值（void）或返回一个值</p>
-</li>
-<li><p>函数名</p>
-</li>
+<h3 id="函数的定义">3.1.1 函数的定义</h3>
+<p>函数的定义一般有 5 个步骤：</p>
+<ol type="1">
+<li><p>返回值类型：可以无返回值（void）或返回一个值</p></li>
+<li><p>函数名</p></li>
 <li><p>参数列表：可以无参或设置任意个参数</p>
-<p>参数可以不加标识符，但那个场合可能无法调用参数。</p>
-</li>
-<li><p>函数体语句</p>
-</li>
-<li><p>return 表达式：无返回值的场合可以没有</p>
-</li>
+<p>参数可以不加标识符，但那个场合可能无法调用参数。</p></li>
+<li><p>函数体语句</p></li>
+<li><p>return 表达式：无返回值的场合可以没有</p></li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/*</span>
 <span class="hljs-comment">返回值类型 函数名 (参数列表) &#123;</span>
@@ -333,13 +331,13 @@
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getGameID</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-number">100278842</span>;
 &#125;</code></pre></div>
-
-<h3 id="3-1-2-函数的调用"><a href="#3-1-2-函数的调用" class="headerlink" title="3.1.2 函数的调用"></a>3.1.2 函数的调用</h3><p>语法：<code>函数名(参数)</code></p>
+<h3 id="函数的调用">3.1.2 函数的调用</h3>
+<p>语法：<code>函数名(参数)</code></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">keQing</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-built_in">repeat</span>(<span class="hljs-number">1</span>);				<span class="hljs-comment">//这就是调用啊！</span>
 &#125;</code></pre></div>
-
-<h3 id="3-1-3-函数的声明"><a href="#3-1-3-函数的声明" class="headerlink" title="3.1.3 函数的声明"></a>3.1.3 函数的声明</h3><blockquote>
+<h3 id="函数的声明">3.1.3 函数的声明</h3>
+<blockquote>
 <p>先告诉编译器函数名称及调用方式。之后，再对函数主体进行定义</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">chop</span><span class="hljs-params">(<span class="hljs-type">int</span> times)</span></span>;				<span class="hljs-comment">//声明了该函数</span>
@@ -354,16 +352,17 @@
         cout &lt;&lt; <span class="hljs-string">&quot;剑光如我，斩尽芜杂！&quot;</span> &lt;&lt; endl;
     &#125;
 &#125;</code></pre></div>
-
 <p><strong>函数可以多次声明，但定义只能进行一次</strong></p>
-<h3 id="3-1-4-标识符的作用域与可见性"><a href="#3-1-4-标识符的作用域与可见性" class="headerlink" title="3.1.4 标识符的作用域与可见性"></a>3.1.4 标识符的作用域与可见性</h3><h4 id="函数原型作用域"><a href="#函数原型作用域" class="headerlink" title="函数原型作用域"></a>函数原型作用域</h4><p>函数声明中的标识符，其作用域仅限于该声明中参数列表的括号间，在程序其他地方不能引用该标识符。因此，在函数声明时往往不写形参名，而仅写参数类型</p>
+<h3 id="标识符的作用域与可见性">3.1.4 标识符的作用域与可见性</h3>
+<h4 id="函数原型作用域">函数原型作用域</h4>
+<p>函数声明中的标识符，其作用域仅限于该声明中参数列表的括号间，在程序其他地方不能引用该标识符。因此，在函数声明时往往不写形参名，而仅写参数类型</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>)</span></span>;			<span class="hljs-comment">// 声明时只写函数类型</span>
 
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;		<span class="hljs-comment">// 定义时可以写形参名</span>
 	<span class="hljs-keyword">return</span> a + b;
 &#125;</code></pre></div>
-
-<h4 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h4><p>程序中使用大括号包裹的程序称为块。作用域局限在块内，即为局部作用域。</p>
+<h4 id="局部作用域">局部作用域</h4>
+<p>程序中使用大括号包裹的程序称为块。作用域局限在块内，即为局部作用域。</p>
 <p>函数定义中，形参列表中形参的作用域即从形参声明处开始，到函数体结束为止。</p>
 <p>函数体内声明的变量，其作用域从声明处开始，到声明所在块的大括号结束为止。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">act</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;						<span class="hljs-comment">// n 的作用域从此处开始，到函数结束为止</span>
@@ -373,43 +372,46 @@
     &#125;
     <span class="hljs-keyword">return</span> n;
 &#125;</code></pre></div>
-
-<h4 id="类作用域"><a href="#类作用域" class="headerlink" title="类作用域"></a>类作用域</h4><p>类可被看作是一组有名字的成员的集合。其成员具有类作用域。</p>
+<h4 id="类作用域">类作用域</h4>
+<p>类可被看作是一组有名字的成员的集合。其成员具有类作用域。</p>
 <p>在类内，如果没有声明同名的局部作用域标识符，则类作用域标识符可以直接访问。</p>
-<p>在类外，通过表达式 <code>实例名.对象名</code> 或 <code>类名::静态对象名</code> 访问。或者 <code>指针名-&gt;对象名</code> 访问</p>
-<h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><p>文件作用域也称单文件作用域。</p>
+<p>在类外，通过表达式 <code>实例名.对象名</code> 或
+<code>类名::静态对象名</code> 访问。或者 <code>指针名-&gt;对象名</code>
+访问</p>
+<h4 id="文件作用域">文件作用域</h4>
+<p>文件作用域也称单文件作用域。</p>
 <p>定义在函数和块外的标识符具有文件作用域。其作用域从定义处（声明处）开始，到整个文件结束。</p>
 <p>文件中定义的全局变量和函数都具有文件作用域</p>
-<h4 id="程序作用域"><a href="#程序作用域" class="headerlink" title="程序作用域"></a>程序作用域</h4><p>程序作用域也叫多文件作用域。</p>
+<h4 id="程序作用域">程序作用域</h4>
+<p>程序作用域也叫多文件作用域。</p>
 <p>属于程序作用域的有通过 extern 关键字修饰的外部变量和外部函数等</p>
-<h4 id="命名空间作用域"><a href="#命名空间作用域" class="headerlink" title="命名空间作用域"></a>命名空间作用域</h4><p>一个命名空间确定了命名空间作用域。凡在命名空间内的，不属于前述几个作用域的标识符，都是命名空间作用域标识符。具有命名空间作用域的变量也称为全局变量。</p>
+<h4 id="命名空间作用域">命名空间作用域</h4>
+<p>一个命名空间确定了命名空间作用域。凡在命名空间内的，不属于前述几个作用域的标识符，都是命名空间作用域标识符。具有命名空间作用域的变量也称为全局变量。</p>
 <p>在命名空间内部可以直接引用当前命名空间作用域的标识符。</p>
-<p>从其他命名空间访问的场合，使用 <code>命名空间名:: 标识符</code> 的方式访问。也能使用 <code>using</code> 语句启用整个命名空间或暴露空间中某特定标识符，届时就能直接访问该空间全部或部分标识符。</p>
-<h4 id="标识符的可见性"><a href="#标识符的可见性" class="headerlink" title="标识符的可见性"></a>标识符的可见性</h4><ul>
-<li><p>标识符必须声明在前，引用在后。</p>
-</li>
-<li><p>在同一作用域中，不能声明同名标识符。在没有互相包含关系的不同作用域中，标识符间互不影响。</p>
-</li>
+<p>从其他命名空间访问的场合，使用 <code>命名空间名:: 标识符</code>
+的方式访问。也能使用 <code>using</code>
+语句启用整个命名空间或暴露空间中某特定标识符，届时就能直接访问该空间全部或部分标识符。</p>
+<h4 id="标识符的可见性">标识符的可见性</h4>
+<ul>
+<li><p>标识符必须声明在前，引用在后。</p></li>
+<li><p>在同一作用域中，不能声明同名标识符。在没有互相包含关系的不同作用域中，标识符间互不影响。</p></li>
 <li><p>具有相互包含关系的作用域中，外层标识符在内层可见。</p>
-<p>内层声明了标识符的场合，那些外层的同名标识符变得不可见。这种机制称为隐藏机制。</p>
-</li>
+<p>内层声明了标识符的场合，那些外层的同名标识符变得不可见。这种机制称为隐藏机制。</p></li>
 </ul>
-<h3 id="3-1-5-函数的分文件编写"><a href="#3-1-5-函数的分文件编写" class="headerlink" title="3.1.5 函数的分文件编写"></a>3.1.5 函数的分文件编写</h3><blockquote>
+<h3 id="函数的分文件编写">3.1.5 函数的分文件编写</h3>
+<blockquote>
 <p>分文件编写，使代码结构更清晰</p>
 </blockquote>
 <p>一般有 4 个步骤：</p>
-<ol>
-<li><p>创建头文件 <code>xxx.h</code></p>
-</li>
-<li><p>创建源文件 <code>xxx.cpp</code></p>
-</li>
+<ol type="1">
+<li><p>创建头文件 <code>xxx.h</code></p></li>
+<li><p>创建源文件 <code>xxx.cpp</code></p></li>
 <li><p>在头文件中声明函数</p>
 <p><strong>headF1.h：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
 
-<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">chop</span><span class="hljs-params">(<span class="hljs-type">int</span> times)</span></span>;</code></pre></div>
-</li>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">chop</span><span class="hljs-params">(<span class="hljs-type">int</span> times)</span></span>;</code></pre></div></li>
 <li><p>在源文件中定义函数</p>
 <p><strong>test.cpp：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;headF1.h&quot;</span>					<span class="hljs-comment">//包含自定义的头文件时使用 &quot; &quot;</span></span>
@@ -418,8 +420,7 @@
     <span class="hljs-keyword">while</span> (times-- &gt; <span class="hljs-number">0</span>) &#123;
         cout &lt;&lt; <span class="hljs-string">&quot;剑光如我，斩尽芜杂！&quot;</span> &lt;&lt; endl;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>在 main 文件中包含该自定义头文件，并调用</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
@@ -430,20 +431,18 @@
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="3-1-6-默认参数"><a href="#3-1-6-默认参数" class="headerlink" title="3.1.6 默认参数"></a>3.1.6 默认参数</h3><blockquote>
+<h3 id="默认参数">3.1.6 默认参数</h3>
+<blockquote>
 <p>C++ 中，函数的形参列表可以有默认值</p>
 </blockquote>
 <p>语法：<code>返回值 函数名(参数 = 默认值) &#123;&#125;</code></p>
 <p><strong>注意事项：</strong></p>
-<ol>
-<li><p>如果某个参数有默认值，则该参数之后的所有参数也都要有默认值</p>
-</li>
-<li><p>如果我们传入了自己的数据，该数据会替代默认值。否则，使用默认值</p>
-</li>
+<ol type="1">
+<li><p>如果某个参数有默认值，则该参数之后的所有参数也都要有默认值</p></li>
+<li><p>如果我们传入了自己的数据，该数据会替代默认值。否则，使用默认值</p></li>
 <li><p>如果函数声明有默认参数，则函数实现不能有默认参数。</p>
 <p>即，该函数所有的声明和实现中，只能有一处出现默认参数。</p>
-<p>否则，运行时报错</p>
-</li>
+<p>否则，运行时报错</p></li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">met</span><span class="hljs-params">(<span class="hljs-type">int</span> n1, <span class="hljs-type">int</span> n2 = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> n3 = <span class="hljs-number">0</span>)</span></span>;
 
@@ -452,13 +451,14 @@
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">met</span><span class="hljs-params">(<span class="hljs-type">int</span> n1, <span class="hljs-type">int</span> n2, <span class="hljs-type">int</span> n3)</span> </span>&#123;
     <span class="hljs-keyword">return</span> n1 + n2 + n3;
 &#125;</code></pre></div>
-
-<h3 id="3-1-7-占位参数"><a href="#3-1-7-占位参数" class="headerlink" title="3.1.7 占位参数"></a>3.1.7 占位参数</h3><blockquote>
-<p>C++ 中函数的形参列表中可以有占位参数，用来占位。调用函数时要填补该位置</p>
+<h3 id="占位参数">3.1.7 占位参数</h3>
+<blockquote>
+<p>C++
+中函数的形参列表中可以有占位参数，用来占位。调用函数时要填补该位置</p>
 </blockquote>
 <p>语法：<code>返回值 函数名(数据类型) &#123;&#125;</code></p>
 <p><strong>注意事项：</strong></p>
-<ol>
+<ol type="1">
 <li>调用函数时要填补占位参数的位置</li>
 <li>现阶段，无法调用占位参数。但后面的学习有办法调用。</li>
 <li>占位参数可以有默认参数。</li>
@@ -475,8 +475,8 @@
     <span class="hljs-built_in">print10</span>();
     <span class="hljs-built_in">println</span>(<span class="hljs-number">10</span>);
 &#125;</code></pre></div>
-
-<h3 id="3-1-8-函数重载"><a href="#3-1-8-函数重载" class="headerlink" title="3.1.8 函数重载"></a>3.1.8 函数重载</h3><blockquote>
+<h3 id="函数重载">3.1.8 函数重载</h3>
+<blockquote>
 <p>函数名相同，但参数不同，则构成重载。可以提高代码复用性</p>
 </blockquote>
 <p><strong>函数重载满足条件：</strong></p>
@@ -494,8 +494,8 @@
     cout &lt;&lt; n;
     <span class="hljs-built_in">println</span>();
 &#125;</code></pre></div>
-
-<h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h4><ul>
+<h4 id="注意事项">注意事项：</h4>
+<ul>
 <li><p>引用作为重载条件的场合：</p>
 <p><code>const</code> 的有无，也能作为重载的条件</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met</span><span class="hljs-params">(<span class="hljs-type">int</span>&amp; n)</span> </span>&#123;
@@ -511,18 +511,15 @@
     <span class="hljs-built_in">met</span>(a);				<span class="hljs-comment">//[1] 输出 10</span>
     <span class="hljs-built_in">met</span>(<span class="hljs-number">10</span>);			<span class="hljs-comment">//[2] 输出 9</span>
 &#125;</code></pre></div>
-
 <blockquote>
-<ol>
-<li><p>这个场合，调用 <code>void met(int&amp; n)</code></p>
-</li>
+<ol type="1">
+<li><p>这个场合，调用 <code>void met(int&amp; n)</code></p></li>
 <li><p>这个场合，调用 <code>void met(const int&amp; n)</code></p>
-<p>因为，传入的是常量，<code>int&amp; n = 10</code> 不成立而 <code>const int&amp; n = 10</code> 成立</p>
-<p><em><strong>—— 见 [6.2.6 常量引用]</strong></em></p>
-</li>
+<p>因为，传入的是常量，<code>int&amp; n = 10</code> 不成立而
+<code>const int&amp; n = 10</code> 成立</p>
+<p><strong><em>—— 见 [6.2.6 常量引用]</em></strong></p></li>
 </ol>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>函数重载有默认参数的场合：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met2</span><span class="hljs-params">(<span class="hljs-type">int</span> n1, <span class="hljs-type">int</span> n2 = <span class="hljs-number">10</span>)</span> </span>&#123;
     cout &lt;&lt; n1 + n2;
@@ -531,85 +528,78 @@
 <span class="hljs-comment">/* void met2(int n)&#123;		//出现二义性</span>
 <span class="hljs-comment">      cout &lt;&lt; n1;</span>
 <span class="hljs-comment">   &#125; */</span></code></pre></div>
-
-<p>这个场合，默认参数本身相当于某种重载，再使用重载时，可能出现二义性</p>
-</li>
+<p>这个场合，默认参数本身相当于某种重载，再使用重载时，可能出现二义性</p></li>
 </ul>
-<h3 id="3-1-9-内联函数"><a href="#3-1-9-内联函数" class="headerlink" title="3.1.9 内联函数"></a>3.1.9 内联函数</h3><p>在程序中使用函数的目的之一是增加代码复用率，提高程序的开发效率和可维护性</p>
+<h3 id="内联函数">3.1.9 内联函数</h3>
+<p>在程序中使用函数的目的之一是增加代码复用率，提高程序的开发效率和可维护性</p>
 <p>调用函数时，需要保存主调函数的现场和返回地址，在栈中为形参和局部变量分配存储空间，实现实参与形参的参数传递，再将程序转移到被调用函数的起始地址继续执行。执行结束后，要回收占用的存储空间，恢复主调函数的现场，取出返回地址，将返回值赋给函数调用本身，再返回地址开始处继续执行。</p>
 <p>调用函数时会产生上述时间、空间开销。当函数体较简单，并被频繁调用时，上述开销会影响程序的性能。</p>
 <p>为避免这种情况，C++ 引入了内联函数的概念。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">inline</span> 返回值类型 函数名(参数列表) &#123;
     ...
 &#125;</code></pre></div>
-
 <p>使用内联函数时，编译器在<strong>编译时</strong>不产生函数调用，而是将程序中出现的每一个内联函数的调用表达式直接用其函数体替换。使用内联函数会让最终可执行程序的体积变大，是一种空间换时间的方式。</p>
 <p>代码量较大的函数通常不定义为内联函数，因为其代码增加对时空效率的不利影响很可能超过了内联函数的速度改善。</p>
-<p><strong>加入 inline 关键字并不能保证函数成为内联函数。</strong>该关键字只是提示编译器，程序员希望该函数成为内联函数。但编译器可能根据其自身处理方式忽略这一提示，而生成函数调用。</p>
-<h2 id="3-2-数组"><a href="#3-2-数组" class="headerlink" title="3.2 数组"></a>3.2 数组</h2><blockquote>
+<p><strong>加入 inline
+关键字并不能保证函数成为内联函数。</strong>该关键字只是提示编译器，程序员希望该函数成为内联函数。但编译器可能根据其自身处理方式忽略这一提示，而生成函数调用。</p>
+<h2 id="数组">3.2 数组</h2>
+<blockquote>
 <p>数组：一个相同类型元素的集合</p>
 </blockquote>
 <p>特点：</p>
 <ul>
-<li><p>数组中每个元素都是<strong>相同的数据类型</strong></p>
-</li>
-<li><p>数组是由<strong>连续的内存位置</strong>组成的</p>
-</li>
+<li><p>数组中每个元素都是<strong>相同的数据类型</strong></p></li>
+<li><p>数组是由<strong>连续的内存位置</strong>组成的</p></li>
 </ul>
-<h3 id="3-2-1-一维数组"><a href="#3-2-1-一维数组" class="headerlink" title="3.2.1 一维数组"></a>3.2.1 一维数组</h3><p>三种定义方式：</p>
+<h3 id="一维数组">3.2.1 一维数组</h3>
+<p>三种定义方式：</p>
 <ul>
 <li><p><code>数据类型 数组名[数组长度];</code></p>
-<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> arr1[<span class="hljs-number">10</span>];</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> arr1[<span class="hljs-number">10</span>];</code></pre></div></li>
 <li><p><code>数据类型 数组名[数组长度] = &#123;值1, 值2, ...&#125;;</code></p>
-<div class="code-wrapper"><pre><code class="hljs c++">string strs[<span class="hljs-number">4</span>] = &#123;<span class="hljs-string">&quot;make&quot;</span>, <span class="hljs-string">&quot;Poland&quot;</span>, <span class="hljs-string">&quot;disapper&quot;</span>, <span class="hljs-string">&quot;again&quot;</span>&#125;;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++">string strs[<span class="hljs-number">4</span>] = &#123;<span class="hljs-string">&quot;make&quot;</span>, <span class="hljs-string">&quot;Poland&quot;</span>, <span class="hljs-string">&quot;disapper&quot;</span>, <span class="hljs-string">&quot;again&quot;</span>&#125;;</code></pre></div></li>
 <li><p><code>数据类型 数组名[] = &#123;值1, 值2, ...&#125;;</code></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> waifu[] = &#123;<span class="hljs-string">&#x27;k&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;q&#x27;</span>, <span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;n&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>&#125;;</code></pre></div></li>
 </ul>
-<h4 id="动态内存分配："><a href="#动态内存分配：" class="headerlink" title="动态内存分配："></a>动态内存分配：</h4><p>数组的长度是声明时决定的。C++ 中，不允许定义元素个数不确定的数组（不允许变量作为数组长度）</p>
-<p>C++ 语言提供了一种动态内存分配的机制。程序运行期间，根据实际需要，临时分配一段内存空间用以存储数据。这种分配是程序运行期间进行的，故而称为 <strong>动态内存分配</strong>。</p>
+<h4 id="动态内存分配">动态内存分配：</h4>
+<p>数组的长度是声明时决定的。C++
+中，不允许定义元素个数不确定的数组（不允许变量作为数组长度）</p>
+<p>C++
+语言提供了一种动态内存分配的机制。程序运行期间，根据实际需要，临时分配一段内存空间用以存储数据。这种分配是程序运行期间进行的，故而称为
+<strong>动态内存分配</strong>。</p>
 <p>使用 new 运算符实现动态内存分配，以分配任意大小的数组</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> n = <span class="hljs-number">15</span>;
 <span class="hljs-type">int</span>* array = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[n];</code></pre></div>
-
-<p><em><strong>——见 [4.1 指针]</strong></em></p>
-<h4 id="数组名用途："><a href="#数组名用途：" class="headerlink" title="数组名用途："></a>数组名用途：</h4><ul>
+<p><strong><em>——见 [4.1 指针]</em></strong></p>
+<h4 id="数组名用途">数组名用途：</h4>
+<ul>
 <li><p>统计整个数组在内存中的长度</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> all = <span class="hljs-built_in">sizeof</span>(waife);						<span class="hljs-comment">//[1]</span>
 <span class="hljs-type">int</span> signal = <span class="hljs-built_in">sizeof</span>(strs[<span class="hljs-number">0</span>]);					<span class="hljs-comment">//[2]</span>
 <span class="hljs-type">int</span> num = <span class="hljs-built_in">sizeof</span>(strs) / <span class="hljs-built_in">sizeof</span>(strs[<span class="hljs-number">0</span>]);		<span class="hljs-comment">//[3]</span></code></pre></div>
-
-<ol>
+<ol type="1">
 <li>整个数组占用的内存空间</li>
 <li>单个元素占用的内存空间</li>
 <li>数组的元素个数</li>
-</ol>
-</li>
+</ol></li>
 <li><p>获取数组在内存中的首地址</p>
 <div class="code-wrapper"><pre><code class="hljs c++">cout &lt;&lt; waifu;									<span class="hljs-comment">//[1]</span>
 cout &lt;&lt; (<span class="hljs-type">int</span>)waifu;								<span class="hljs-comment">//[2]</span>
 cout &lt;&lt; &amp;waifu[<span class="hljs-number">0</span>];								<span class="hljs-comment">//[3]</span></code></pre></div>
-
-<ol>
-<li><p>数组首地址（16 进制），该地址即首元素的首地址</p>
-</li>
-<li><p>数组首地址（10 进制）</p>
-</li>
+<ol type="1">
+<li><p>数组首地址（16 进制），该地址即首元素的首地址</p></li>
+<li><p>数组首地址（10 进制）</p></li>
 <li><p>某元素的首地址</p>
-<p><code>&amp;</code> 是一个取址符</p>
-</li>
-</ol>
-</li>
+<p><code>&amp;</code> 是一个取址符</p></li>
+</ol></li>
 </ul>
 <p>数组名是常量，不可以进行赋值操作</p>
-<h3 id="3-2-2-二维数组"><a href="#3-2-2-二维数组" class="headerlink" title="3.2.2 二维数组"></a>3.2.2 二维数组</h3><p>四种定义方式：</p>
+<h3 id="二维数组">3.2.2 二维数组</h3>
+<p>四种定义方式：</p>
 <ul>
 <li><p><code>数据类型 数组名[行数][列数];</code></p>
-<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> chess[<span class="hljs-number">8</span>][<span class="hljs-number">8</span>];</code></pre></div>
-</li>
-<li><p>&#96;数据类型 数组名[行数][列数] &#x3D;</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">char</span> chess[<span class="hljs-number">8</span>][<span class="hljs-number">8</span>];</code></pre></div></li>
+<li><p>`数据类型 数组名[行数][列数] =</p></li>
 </ul>
 
               

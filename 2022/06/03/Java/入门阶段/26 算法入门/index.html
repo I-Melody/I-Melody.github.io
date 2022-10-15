@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
+    <meta name="description" content="26 算法初级 26.1 算法的执行时间  度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。 事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优   时间频度 算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;26 算法入门">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="26 算法初级26.1 算法的执行时间 度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。  事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    时间频度算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明（计算 1">
+<meta property="og:description" content="26 算法初级 26.1 算法的执行时间  度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。 事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优   时间频度 算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-08-24T10:21:23.655Z">
@@ -294,18 +294,19 @@
             
             <div class="markdown-body">
               
-              <h1 id="26-算法初级"><a href="#26-算法初级" class="headerlink" title="26 算法初级"></a>26 算法初级</h1><h2 id="26-1-算法的执行时间"><a href="#26-1-算法的执行时间" class="headerlink" title="26.1 算法的执行时间"></a>26.1 算法的执行时间</h2><blockquote>
+              <h1 id="算法初级">26 算法初级</h1>
+<h2 id="算法的执行时间">26.1 算法的执行时间</h2>
+<blockquote>
 <p>度量一个算法执行时间的方法：</p>
 <ul>
 <li><p>事后统计方法</p>
-<p>该方法可行，但需要实际运行该程序，并且结果受环境因素影响。</p>
-</li>
+<p>该方法可行，但需要实际运行该程序，并且结果受环境因素影响。</p></li>
 <li><p>事前估算方法</p>
-<p>通过分析算法的时间复杂度来判断哪个算法更优</p>
-</li>
+<p>通过分析算法的时间复杂度来判断哪个算法更优</p></li>
 </ul>
 </blockquote>
-<h4 id="时间频度"><a href="#时间频度" class="headerlink" title="时间频度"></a>时间频度</h4><p>算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。</p>
+<h4 id="时间频度">时间频度</h4>
+<p>算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。</p>
 <p>一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n)</p>
 <p>举例说明（计算 1 - 100 内所有整数之和）：</p>
 <ul>
@@ -315,61 +316,75 @@
 <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;
     result += i;
 &#125;</code></pre></div>
-
-<p>该方法执行了 100 次计算，因此其时间复杂度 T(n) &#x3D; n</p>
-</li>
+<p>该方法执行了 100 次计算，因此其时间复杂度 T(n) = n</p></li>
 <li><p>方法二：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> result;
 result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-number">2</span>);</code></pre></div>
-
-<p>该方法执行了 1 次计算，因此其时间复杂度 T(n) &#x3D; 1</p>
-</li>
+<p>该方法执行了 1 次计算，因此其时间复杂度 T(n) = 1</p></li>
 </ul>
-<h3 id="26-1-1-时间复杂度"><a href="#26-1-1-时间复杂度" class="headerlink" title="26.1.1 时间复杂度"></a>26.1.1 时间复杂度</h3><p>一般情况下，算法中的基本操作语句的重复执行次数是问题规模 n 的某个函数，用 T(n) 表示。</p>
-<p>若有某个辅助函数 f(n)，使得当 n 趋近于无穷大时，T(n) &#x2F; f(n) 的极限值为不等于零的常数，则称 f(n) 为 T(n) 的同量级函数。记作：T(n) &#x3D; O(f(n))。</p>
+<h3 id="时间复杂度">26.1.1 时间复杂度</h3>
+<p>一般情况下，算法中的基本操作语句的重复执行次数是问题规模 n
+的某个函数，用 T(n) 表示。</p>
+<p>若有某个辅助函数 f(n)，使得当 n 趋近于无穷大时，T(n) / f(n)
+的极限值为不等于零的常数，则称 f(n) 为 T(n) 的同量级函数。记作：T(n) =
+O(f(n))。</p>
 <p>称 O(f(n)) 为算法的渐进时间复杂度，简称时间复杂度。</p>
 <p>如：T(3n<sup>2</sup>+2n-1) 的时间复杂度为 O(n<sup>2</sup>)</p>
 <p><strong>常见的时间复杂度（从小到大排列）：</strong></p>
 <ul>
 <li>常数阶 O(1)</li>
 <li>对数阶 O(㏒<sub>k</sub>n)</li>
-<li>线性阶 O(n) </li>
-<li>线性对数阶 O(n㏒<sub>k</sub>n) </li>
+<li>线性阶 O(n)</li>
+<li>线性对数阶 O(n㏒<sub>k</sub>n)</li>
 <li>平方阶 O(n<sup>2</sup>)</li>
 <li>立方阶 O(n<sup>3</sup>)</li>
 <li>k 次方阶 O(n<sup>k</sup>)</li>
 <li>指数阶 O(2<sup>n</sup>)</li>
 </ul>
 <p><strong>计算时间复杂度的方法：</strong></p>
-<ol>
+<ol type="1">
 <li>用常数 1 代替运行时间中的加法常数</li>
 <li>修改后的运行次数函数中，只保留最高阶项</li>
 <li>去除最高阶项的系数</li>
 </ol>
 <p><strong>平均时间复杂度、最坏时间复杂度：</strong></p>
 <ul>
-<li><p>平均时间复杂度：指所有可能的输入实例以等概率出现的情况下，该算法的运行时间</p>
-</li>
+<li><p>平均时间复杂度：指所有可能的输入实例以等概率出现的情况下，该算法的运行时间</p></li>
 <li><p>最坏时间复杂度：最坏情况下的时间复杂度。</p>
 <p>一般讨论时间复杂度都是讨论最坏时间复杂度。原因是：最坏时间复杂度是算法在任何输入实例上运行时间的界限。这就保证了算法运行时间不会比最坏情况更长。</p>
-<p>最坏时间复杂度和平均时间复杂度也许不一致。这和具体算法有关。</p>
-</li>
+<p>最坏时间复杂度和平均时间复杂度也许不一致。这和具体算法有关。</p></li>
 </ul>
-<h4 id="算法的空间复杂度"><a href="#算法的空间复杂度" class="headerlink" title="算法的空间复杂度"></a>算法的空间复杂度</h4><p>类似于时间复杂度的讨论，一个算法的空间复杂度定义为该算法所耗费的存储空间。它也是问题规模 n 的函数。</p>
-<p>空间复杂度是对一个算法在运行过程中临时占用存储空间大小的量度。有的算法需要占用的临时工作单元数与问题规模 n 相关。</p>
+<h4 id="算法的空间复杂度">算法的空间复杂度</h4>
+<p>类似于时间复杂度的讨论，一个算法的空间复杂度定义为该算法所耗费的存储空间。它也是问题规模
+n 的函数。</p>
+<p>空间复杂度是对一个算法在运行过程中临时占用存储空间大小的量度。有的算法需要占用的临时工作单元数与问题规模
+n 相关。</p>
 <p>在做算法分析时，<strong>主要讨论的是时间复杂度</strong>。从用户体验上看，更看重程序执行的速度。一些缓存产品和算法本质是用空间换时间。</p>
-<h2 id="26-2-常用的算法"><a href="#26-2-常用的算法" class="headerlink" title="26.2 常用的算法"></a>26.2 常用的算法</h2><h3 id="26-2-1-二分查找算法"><a href="#26-2-1-二分查找算法" class="headerlink" title="26.2.1 二分查找算法"></a>26.2.1 二分查找算法</h3><p>二分查找只适用于从有序数列中进行查找。其运行时间为 O(㏒<sub>2</sub>n)</p>
-<p><em><strong>——二分查找，见 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">[5.3.2 二分查找]</a></strong></em></p>
-<h4 id="一个用到二分查找算法的典型题目"><a href="#一个用到二分查找算法的典型题目" class="headerlink" title="一个用到二分查找算法的典型题目"></a>一个用到二分查找算法的典型题目</h4><blockquote>
-<p><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/koko-eating-bananas/">爱吃香蕉的珂珂</a></strong></p>
-<p>珂珂喜欢吃香蕉。这里有 n 堆香蕉，第 i 堆中有 piles[i] 根香蕉。警卫已经离开了，将在 h 小时后回来。</p>
-<p>珂珂可以决定她吃香蕉的速度 k （单位：根&#x2F;小时）。每个小时，她将会选择一堆香蕉，从中吃掉 k 根。如果这堆香蕉少于 k 根，她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。  </p>
+<h2 id="常用的算法">26.2 常用的算法</h2>
+<h3 id="二分查找算法">26.2.1 二分查找算法</h3>
+<p>二分查找只适用于从有序数列中进行查找。其运行时间为
+O(㏒<sub>2</sub>n)</p>
+<p><strong><em>——二分查找，见 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">[5.3.2
+二分查找]</a></em></strong></p>
+<h4
+id="一个用到二分查找算法的典型题目">一个用到二分查找算法的典型题目</h4>
+<blockquote>
+<p><strong><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/koko-eating-bananas/">爱吃香蕉的珂珂</a></strong></p>
+<p>珂珂喜欢吃香蕉。这里有 n 堆香蕉，第 i 堆中有 piles[i]
+根香蕉。警卫已经离开了，将在 h 小时后回来。</p>
+<p>珂珂可以决定她吃香蕉的速度 k
+（单位：根/小时）。每个小时，她将会选择一堆香蕉，从中吃掉 k
+根。如果这堆香蕉少于 k
+根，她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。</p>
 <p>珂珂喜欢慢慢吃，但仍然想在警卫回来前吃掉所有的香蕉。</p>
 <p>返回她可以在 h 小时内吃掉所有香蕉的最小速度 k（k 为整数）。</p>
 </blockquote>
 <p><strong>题解：</strong></p>
-<p>注意到，随着 k 的增加，吃光香蕉的用时 t 随之减少。取食数量 k 与进食总时间 t 呈线性相关。</p>
-<p>因此，可以使用二分查找算法，找出 t &#x3D;&#x3D; h 时，k 的最小取值</p>
+<p>注意到，随着 k 的增加，吃光香蕉的用时 t 随之减少。取食数量 k
+与进食总时间 t 呈线性相关。</p>
+<p>因此，可以使用二分查找算法，找出 t == h 时，k 的最小取值</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
     <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minEatingSpeed</span><span class="hljs-params">(<span class="hljs-type">int</span>[] piles, <span class="hljs-type">int</span> h)</span> &#123;
         <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;			<span class="hljs-comment">// k 可能取到的最大值。该值等于：香蕉堆中香蕉数量的最大值</span>
@@ -405,32 +420,41 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         <span class="hljs-keyword">return</span> ret;
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-2-分治算法"><a href="#26-2-2-分治算法" class="headerlink" title="26.2.2 分治算法"></a>26.2.2 分治算法</h3><p>分治算法是一种重要算法。其核心思想是 <strong>分而治之</strong>。</p>
+<h3 id="分治算法">26.2.2 分治算法</h3>
+<p>分治算法是一种重要算法。其核心思想是 <strong>分而治之</strong>。</p>
 <p>将一个复杂问题分为多个子问题，再将子问题分为更小的子问题。直到那些子问题都能简单地直接得解，原问题的解即子问题解的组合。</p>
 <p>该算法也是很多高效算法的基础，如排序算法（快速排序、归并排序），傅立叶变换（快速傅立叶变换）等。</p>
-<h3 id="26-2-3-动态规划"><a href="#26-2-3-动态规划" class="headerlink" title="26.2.3 动态规划"></a>26.2.3 动态规划</h3><p>动态规划的核心思想是：将大问题划分为小问题进行解决，从而一步步获取最优解</p>
+<h3 id="动态规划">26.2.3 动态规划</h3>
+<p>动态规划的核心思想是：将大问题划分为小问题进行解决，从而一步步获取最优解</p>
 <p>与分治法不同的是，适用于动态规划求解的问题，其分解得到的子问题往往不是互相独立的。下一子阶段的求解往往是建立在上一子阶段解的基础上的。</p>
-<h4 id="一个用到动态规划的典型题目："><a href="#一个用到动态规划的典型题目：" class="headerlink" title="一个用到动态规划的典型题目："></a>一个用到动态规划的典型题目：</h4><blockquote>
-<p><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/contest/weekly-contest-298/problems/selling-pieces-of-wood/">卖木块</a></strong></p>
-<p>给你两个整数 <code>m</code> 和 <code>n</code> ，分别表示一块矩形木块的高和宽。同时给你一个二维整数数组 <code>prices</code> ，其中 <code>prices[i] = [hi, wi, pricei]</code> 表示你可以以 <code>pricei</code> 元的价格卖一块高为 <code>hi</code> 宽为 <code>wi</code> 的矩形木块。</p>
+<h4 id="一个用到动态规划的典型题目">一个用到动态规划的典型题目：</h4>
+<blockquote>
+<p><strong><a
+target="_blank" rel="noopener" href="https://leetcode.cn/contest/weekly-contest-298/problems/selling-pieces-of-wood/">卖木块</a></strong></p>
+<p>给你两个整数 <code>m</code> 和 <code>n</code>
+，分别表示一块矩形木块的高和宽。同时给你一个二维整数数组
+<code>prices</code> ，其中 <code>prices[i] = [hi, wi, pricei]</code>
+表示你可以以 <code>pricei</code> 元的价格卖一块高为 <code>hi</code> 宽为
+<code>wi</code> 的矩形木块。</p>
 <p>每一次操作中，你必须按下述方式之一执行切割操作，以得到两块更小的矩形木块：</p>
 <ul>
 <li>沿垂直方向按高度 <strong>完全</strong> 切割木块，或</li>
 <li>沿水平方向按宽度 <strong>完全</strong> 切割木块</li>
 </ul>
-<p>在将一块木块切成若干小木块后，你可以根据 <code>prices</code> 卖木块。你可以卖多块同样尺寸的木块。你不需要将所有小木块都卖出去。你 <strong>不能</strong> 旋转切好后木块的高和宽。</p>
-<p>请你返回切割一块大小为 <code>m x n</code> 的木块后，能得到的 <strong>最多</strong> 钱数。</p>
+<p>在将一块木块切成若干小木块后，你可以根据 <code>prices</code>
+卖木块。你可以卖多块同样尺寸的木块。你不需要将所有小木块都卖出去。你
+<strong>不能</strong> 旋转切好后木块的高和宽。</p>
+<p>请你返回切割一块大小为 <code>m x n</code> 的木块后，能得到的
+<strong>最多</strong> 钱数。</p>
 <p>注意你可以切割木块任意次。</p>
 </blockquote>
 <p><strong>题解：</strong></p>
 <p>我们可以模拟切分木块的过程，从而得到答案。</p>
-<p>对于任意木块 m × n，我们可以将其切开。此时该木块的价值 V 等于两个子木块的价值和。具体来说：</p>
+<p>对于任意木块 m × n，我们可以将其切开。此时该木块的价值 V
+等于两个子木块的价值和。具体来说：</p>
 <ul>
-<li>沿横向切开时，木块价值 V(m, n) &#x3D; V(i, n) + V(m - i, n)</li>
-<li>沿纵向切开时，木块价值 V(m, n) &#x3D; V(m, i) + V(m, n - i)</li>
+<li>沿横向切开时，木块价值 V(m, n) = V(i, n) + V(m - i, n)</li>
+<li>沿纵向切开时，木块价值 V(m, n) = V(m, i) + V(m, n - i)</li>
 <li>也可以选择不切开，此时木块价值为 prices(m, n)</li>
 </ul>
 <p>一块木块的价值是上述三种情况中的最大值。</p>
@@ -460,49 +484,82 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         <span class="hljs-keyword">return</span> val[m][n];
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-4-KMP-算法"><a href="#26-2-4-KMP-算法" class="headerlink" title="26.2.4 KMP 算法"></a>26.2.4 KMP 算法</h3><p>KMP（Knuth-Morris-Pratt，字符串查找算法），该算法以提出该算法的三人姓名命名，是一个解决查找 模式字符串 在 文本中 出现位置的经典算法。</p>
-<p>KMP 算法利用前面判断过的信息，通过一个 next 数组（部分搜索池），保存模式串中，前后最长公共子序列的长度。每次回溯时，通过 next 数组找到前面匹配过的位置，省去了大量计算时间。</p>
-<p>在 KMP 算法里，源串指针永远不会向前回溯，而对象串指针在当前位置匹配成功时后移，匹配失败时前移。</p>
-<h4 id="KMP-算法步骤"><a href="#KMP-算法步骤" class="headerlink" title="KMP 算法步骤"></a>KMP 算法步骤</h4><p>假定我们的对象串是 <code>String tar = &quot;ABCDABD&quot;</code> </p>
-<p>去匹配源串 <code>String ori = &quot;ABCDABCDABCDABDADD&quot;</code></p>
-<ol>
-<li><p>根据对象串，初始化一个部分匹配池。该池中的第 i 位代表匹配进行到此处时，已匹配过的部分与对象串进行自匹配的结果。</p>
+<h3 id="kmp-算法">26.2.4 KMP 算法</h3>
+<p>KMP（Knuth-Morris-Pratt，字符串查找算法），该算法以提出该算法的三人姓名命名，是一个解决查找
+模式字符串 在 文本中 出现位置的经典算法。</p>
+<p>KMP 算法利用前面判断过的信息，通过一个 next
+数组（部分搜索池），保存模式串中，前后最长公共子序列的长度。每次回溯时，通过
+next 数组找到前面匹配过的位置，省去了大量计算时间。</p>
+<p>在 KMP
+算法里，源串指针永远不会向前回溯，而对象串指针在当前位置匹配成功时后移，匹配失败时前移。</p>
+<h4 id="kmp-算法步骤">KMP 算法步骤</h4>
+<p>假定我们的对象串是 <code>String tar = "ABCDABD"</code></p>
+<p>去匹配源串 <code>String ori = "ABCDABCDABCDABDADD"</code></p>
+<ol type="1">
+<li><p>根据对象串，初始化一个部分匹配池。该池中的第 i
+位代表匹配进行到此处时，已匹配过的部分与对象串进行自匹配的结果。</p>
 <table>
-    <tr>
-        <th>搜索词</th>
-        <td>A</td>
-        <td>B</td>
-        <td>C</td>
-        <td>D</td>
-        <td>A</td>
-        <td>B</td>
-        <td>D</td>
-    </tr>
-    <tr>
-        <th>部分匹配值</th>
-        <td>-1</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>1</td>
-        <td>1</td>
-    </tr>
-</table>
-</li>
-<li><p>让源串指针和对象串指针指向各自开头。尝试匹配那些指针指向的字符。</p>
-</li>
+<tr>
+<th>
+<p>搜索词</p>
+</th>
+<td>
+<p>A</p>
+</td>
+<td>
+<p>B</p>
+</td>
+<td>
+<p>C</p>
+</td>
+<td>
+<p>D</p>
+</td>
+<td>
+<p>A</p>
+</td>
+<td>
+<p>B</p>
+</td>
+<td>
+<p>D</p>
+</td>
+</tr>
+<tr>
+<th>
+<p>部分匹配值</p>
+</th>
+<td>
+<p>-1</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+</table></li>
+<li><p>让源串指针和对象串指针指向各自开头。尝试匹配那些指针指向的字符。</p></li>
 <li><p>出现字符匹配时，向后移动源串指针和对象串指针，继续下一步匹配。</p>
 <p>出现不匹配时，把对象指针移动到部分匹配池指示的位置，继续尝试匹配。</p>
-<p>第一个字符都不匹配时，向后移动源串指针，对象串会从头开始匹配。</p>
-</li>
-<li><p>对象串指针指向对象串末尾时，即匹配成功。源串指针指向源串末尾时，即匹配失败。</p>
-</li>
+<p>第一个字符都不匹配时，向后移动源串指针，对象串会从头开始匹配。</p></li>
+<li><p>对象串指针指向对象串末尾时，即匹配成功。源串指针指向源串末尾时，即匹配失败。</p></li>
 </ol>
-<h4 id="实现-KMP-算法"><a href="#实现-KMP-算法" class="headerlink" title="实现 KMP 算法"></a>实现 KMP 算法</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">KMP</span><span class="hljs-params">(String ori, String tar)</span> &#123;
+<h4 id="实现-kmp-算法">实现 KMP 算法</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">KMP</span><span class="hljs-params">(String ori, String tar)</span> &#123;
     <span class="hljs-keyword">if</span> (tar == <span class="hljs-literal">null</span> || ori == <span class="hljs-literal">null</span> || tar.length() &gt; ori.length()) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
     <span class="hljs-type">char</span>[] ts = tar.toCharArray();        <span class="hljs-comment">// 对象字符串</span>
     <span class="hljs-type">char</span>[] os = ori.toCharArray();        <span class="hljs-comment">// 源字符串</span>
@@ -532,15 +589,19 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         op++;
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-5-贪心算法"><a href="#26-2-5-贪心算法" class="headerlink" title="26.2.5 贪心算法"></a>26.2.5 贪心算法</h3><p>贪心算法（贪婪算法）是指在对问题进行求解时，在每一步选择中都采取最好或最优的选择。从而希望结果是最好或最优的算法。</p>
+<h3 id="贪心算法">26.2.5 贪心算法</h3>
+<p>贪心算法（贪婪算法）是指在对问题进行求解时，在每一步选择中都采取最好或最优的选择。从而希望结果是最好或最优的算法。</p>
 <p>贪婪算法得到的结果不一定是最优结果，但都是相对接近最优的结果。</p>
-<p><em><strong>——一个贪心算法的例子，见本章附录：<a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98">[骑士周游问题]</a></strong></em></p>
-<h3 id="26-2-6-普里姆算法"><a href="#26-2-6-普里姆算法" class="headerlink" title="26.2.6 普里姆算法"></a>26.2.6 普里姆算法</h3><p>最小生成树问题（MST，Minimum Cost Spanning Tree）：给定一个带权的无向连通图，如何选取一棵生成树，时树上所有边的权总和最小。</p>
-<p>要解决最小生成树问题，可以采取 <strong>普里姆算法（Prim）</strong></p>
-<h4 id="普里姆算法步骤："><a href="#普里姆算法步骤：" class="headerlink" title="普里姆算法步骤："></a>普里姆算法步骤：</h4><p>示范一个联通网图的格式。后面算法中的 <code>int[][] map</code> 都是该格式的联通网：</p>
+<p><strong><em>——一个贪心算法的例子，见本章附录：<a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98">[骑士周游问题]</a></em></strong></p>
+<h3 id="普里姆算法">26.2.6 普里姆算法</h3>
+<p>最小生成树问题（MST，Minimum Cost Spanning
+Tree）：给定一个带权的无向连通图，如何选取一棵生成树，时树上所有边的权总和最小。</p>
+<p>要解决最小生成树问题，可以采取
+<strong>普里姆算法（Prim）</strong></p>
+<h4 id="普里姆算法步骤">普里姆算法步骤：</h4>
+<p>示范一个联通网图的格式。后面算法中的 <code>int[][] map</code>
+都是该格式的联通网：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[][] map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][]&#123;
         &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;,
         &#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;,
@@ -548,21 +609,22 @@ result = (<span class="hljs-number">1</span> + n) * (n / <span class="hljs-numbe
         &#123;<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>&#125;,
         &#123;<span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0</span>&#125;&#125;;
 <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;</code></pre></div>
-
-<p>网点编号为 [0, n)，n 为网点数量。<code>map[a][b]</code> 是网点 a 与网点 b 间路径的权（0 为不连通）</p>
+<p>网点编号为 [0, n)，n 为网点数量。<code>map[a][b]</code> 是网点 a
+与网点 b 间路径的权（0 为不连通）</p>
 <pre><code class=" mermaid">graph LR
 A((0))--1---B((1))
 A--2---C((2))
 B--3---C
 A--4---D((3))--6---C
 A--5---E((4))--7---D</code></pre>
-
-<ol>
-<li>从任意顶点 i（0 &lt;= i &lt; n）起构造最小生成树。将该顶点标记为已访问</li>
+<ol type="1">
+<li>从任意顶点 i（0 &lt;= i &lt;
+n）起构造最小生成树。将该顶点标记为已访问</li>
 <li>如果联通网图中存在剩余顶点，则记录那些与已访问顶点相连的边中，权值最小的边（避免产生回路），并将该顶点加入已访问集合。</li>
 <li>联通网图中没有未访问节点时，即所有顶点都被联通</li>
 </ol>
-<h4 id="实现普里姆算法"><a href="#实现普里姆算法" class="headerlink" title="实现普里姆算法"></a>实现普里姆算法</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] prim(<span class="hljs-type">int</span>[][] map) &#123;
+<h4 id="实现普里姆算法">实现普里姆算法</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] prim(<span class="hljs-type">int</span>[][] map) &#123;
     <span class="hljs-comment">/* 初始化 */</span>
     Set&lt;Integer&gt; visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();		<span class="hljs-comment">// 已访问集合</span>
     Set&lt;Integer&gt; remain = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();		<span class="hljs-comment">// 待访问集合</span>
@@ -591,16 +653,17 @@ A--5---E((4))--7---D</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-7-克鲁斯卡尔算法"><a href="#26-2-7-克鲁斯卡尔算法" class="headerlink" title="26.2.7 克鲁斯卡尔算法"></a>26.2.7 克鲁斯卡尔算法</h3><p>解决最小生成树问题的另一种方法是 <strong>克鲁斯卡尔算法（Kruskal）</strong></p>
-<h4 id="克鲁斯卡尔算法步骤"><a href="#克鲁斯卡尔算法步骤" class="headerlink" title="克鲁斯卡尔算法步骤"></a>克鲁斯卡尔算法步骤</h4><ol>
+<h3 id="克鲁斯卡尔算法">26.2.7 克鲁斯卡尔算法</h3>
+<p>解决最小生成树问题的另一种方法是
+<strong>克鲁斯卡尔算法（Kruskal）</strong></p>
+<h4 id="克鲁斯卡尔算法步骤">克鲁斯卡尔算法步骤</h4>
+<ol type="1">
 <li>构建一个只含 n 个节点的森林。</li>
 <li>依照权值从小到大，从联通网中选择边加入森林（避免产生回路）。</li>
 <li>直到森林变成一棵树为止，就完成了最小生成树</li>
 </ol>
-<h4 id="实现克鲁斯卡尔算法"><a href="#实现克鲁斯卡尔算法" class="headerlink" title="实现克鲁斯卡尔算法"></a>实现克鲁斯卡尔算法</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] kruskal(<span class="hljs-type">int</span>[][] map) &#123;
+<h4 id="实现克鲁斯卡尔算法">实现克鲁斯卡尔算法</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] kruskal(<span class="hljs-type">int</span>[][] map) &#123;
     <span class="hljs-comment">/* 节点类（局部内部类） */</span>
     <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&#123;
         <span class="hljs-type">Node</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
@@ -640,24 +703,25 @@ A--5---E((4))--7---D</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-8-迪杰斯特拉算法"><a href="#26-2-8-迪杰斯特拉算法" class="headerlink" title="26.2.8 迪杰斯特拉算法"></a>26.2.8 迪杰斯特拉算法</h3><p>要计算一个连通图内，某一节点到图中另一节点的最短路径，可以采用 <strong>迪杰斯特拉算法（Dijkstra）</strong></p>
+<h3 id="迪杰斯特拉算法">26.2.8 迪杰斯特拉算法</h3>
+<p>要计算一个连通图内，某一节点到图中另一节点的最短路径，可以采用
+<strong>迪杰斯特拉算法（Dijkstra）</strong></p>
 <p>该算法是典型最短路径算法，采用广度优先搜索，以起始点为中心向外层层扩展，直到终点为止</p>
-<h4 id="迪杰斯特拉算法步骤"><a href="#迪杰斯特拉算法步骤" class="headerlink" title="迪杰斯特拉算法步骤"></a>迪杰斯特拉算法步骤</h4><ol>
-<li><p>设置出发点 v、顶点集合 V、距离集合 D。其中 v 为起始点，V 包含起始点外所有顶点，D[i] 表示 v 到 V[i] 的距离</p>
-</li>
-<li><p>找到 D[] 中的最小值 D[n] 和其对应的顶点 V[n]。此时D[n] 即为顶点 V[n] 到 v 的最小距离。</p>
-</li>
+<h4 id="迪杰斯特拉算法步骤">迪杰斯特拉算法步骤</h4>
+<ol type="1">
+<li><p>设置出发点 v、顶点集合 V、距离集合 D。其中 v 为起始点，V
+包含起始点外所有顶点，D[i] 表示 v 到 V[i] 的距离</p></li>
+<li><p>找到 D[] 中的最小值 D[n] 和其对应的顶点 V[n]。此时D[n] 即为顶点
+V[n] 到 v 的最小距离。</p></li>
 <li><p>将 V[n] 设置为当前出发点，从 V 中移除 V[n]。</p>
-<p>对 D 进行更新。D[i] 变成 (原本数值) 和 (当前顶点 v 与 V[i] 距离 + D[n]) 的较小一方数值</p>
-<p>从 D 中移除 D[n]</p>
-</li>
-<li><p>重复 2 - 3，直到当前顶点变为终点。此时的行进距离即为最短路径</p>
-</li>
+<p>对 D 进行更新。D[i] 变成 (原本数值) 和 (当前顶点 v 与 V[i] 距离 +
+D[n]) 的较小一方数值</p>
+<p>从 D 中移除 D[n]</p></li>
+<li><p>重复 2 -
+3，直到当前顶点变为终点。此时的行进距离即为最短路径</p></li>
 </ol>
-<h4 id="迪杰斯特拉算法实现"><a href="#迪杰斯特拉算法实现" class="headerlink" title="迪杰斯特拉算法实现"></a>迪杰斯特拉算法实现</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] map, <span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)</span> &#123;
+<h4 id="迪杰斯特拉算法实现">迪杰斯特拉算法实现</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] map, <span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)</span> &#123;
     <span class="hljs-keyword">if</span> (start == end) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     <span class="hljs-comment">/* 将顶点和边放入优先级队列，以便后续取出最短距离</span>
 <span class="hljs-comment">    	对于其中任意元素 n 有：n[1] 为节点，n[0] 为 n[1] 与起始节点的最短距离 */</span>
@@ -681,23 +745,23 @@ A--5---E((4))--7---D</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
 &#125;</code></pre></div>
-
-
-
-<h3 id="26-2-9-弗洛伊德算法"><a href="#26-2-9-弗洛伊德算法" class="headerlink" title="26.2.9 弗洛伊德算法"></a>26.2.9 弗洛伊德算法</h3><p>另一种最短路径算法是 <strong>弗洛伊德算法（Floyd）</strong></p>
+<h3 id="弗洛伊德算法">26.2.9 弗洛伊德算法</h3>
+<p>另一种最短路径算法是 <strong>弗洛伊德算法（Floyd）</strong></p>
 <p><strong><del>I count weights!</del></strong></p>
-<p>迪杰斯特拉算法用于计算图中 <strong>某一顶点</strong> 到其他顶点的最短路径。</p>
-<p>弗洛伊德算法用于计算图中 <strong>各个顶点</strong> 之间的最短路径。</p>
-<h4 id="弗洛伊德算法步骤"><a href="#弗洛伊德算法步骤" class="headerlink" title="弗洛伊德算法步骤"></a>弗洛伊德算法步骤</h4><ol>
-<li><p>对于任意顶点 a、b ，取任意中继节点 k，则 a、b 间最短路径 D(a,b) 是 [a、b 直接路径距离] 与 [D(a,k) + D(b,k)] 间的较小方数值</p>
-</li>
-<li><p>对于上面的 D(a,k) 和 D(b,k)，是以相同方式获得</p>
-</li>
+<p>迪杰斯特拉算法用于计算图中 <strong>某一顶点</strong>
+到其他顶点的最短路径。</p>
+<p>弗洛伊德算法用于计算图中 <strong>各个顶点</strong>
+之间的最短路径。</p>
+<h4 id="弗洛伊德算法步骤">弗洛伊德算法步骤</h4>
+<ol type="1">
+<li><p>对于任意顶点 a、b ，取任意中继节点 k，则 a、b 间最短路径 D(a,b)
+是 [a、b 直接路径距离] 与 [D(a,k) + D(b,k)] 间的较小方数值</p></li>
+<li><p>对于上面的 D(a,k) 和 D(b,k)，是以相同方式获得</p></li>
 <li><p>要计算图中每个节点的最短路径，势必要用每个顶点（作为中继节点）对图进行更新。</p>
-<p>用每个顶点进行更新时，对其他所有边进行更新。</p>
-</li>
+<p>用每个顶点进行更新时，对其他所有边进行更新。</p></li>
 </ol>
-<h4 id="实现弗洛伊德算法"><a href="#实现弗洛伊德算法" class="headerlink" title="实现弗洛伊德算法"></a>实现弗洛伊德算法</h4><div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] floyd(<span class="hljs-type">int</span>[][] map) &#123;
+<h4 id="实现弗洛伊德算法">实现弗洛伊德算法</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] floyd(<span class="hljs-type">int</span>[][] map) &#123;
     <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> map.length;
     <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n][n];
     <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) ret[i] = Arrays.copyOf(map[i], n);
@@ -730,12 +794,9 @@ A--5---E((4))--7---D</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div>
-
-
-
-
-
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="骑士周游问题"><a href="#骑士周游问题" class="headerlink" title="骑士周游问题"></a>骑士周游问题</h3><p>将一枚骑士棋子放在国际象棋棋盘上。使骑士按照行棋规则移动，要求每个方格只能进入一次，最终走遍棋盘上所有方格。</p>
+<h2 id="附录">附录</h2>
+<h3 id="骑士周游问题">骑士周游问题</h3>
+<p>将一枚骑士棋子放在国际象棋棋盘上。使骑士按照行棋规则移动，要求每个方格只能进入一次，最终走遍棋盘上所有方格。</p>
 <p>穷举法效率较低，可以利用贪心算法进行优化。</p>
 <p>每次行棋前，计算那些目标点位上包含的行棋方法的数量。行棋时，从最低数量的点位开始尝试。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Chess</span> &#123;
@@ -842,7 +903,6 @@ A--5---E((4))--7---D</code></pre>
         <span class="hljs-keyword">return</span> sb.toString();
     &#125;
 &#125;</code></pre></div>
-
 
               
             </div>

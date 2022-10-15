@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="24 项目：满汉楼 登录界面 登录（账号、密码） 退出   菜单界面 餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号） 全部、分类   点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统   数据库 登录用户：login（id、name、passw">
+    <meta name="description" content="24 项目：满汉楼  登录界面  登录（账号、密码） 退出  菜单界面  餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号）  全部、分类  点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统  数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;24 项目（满汉楼）">
 <meta property="og:url" content="https://i-melody.github.io/2022/02/26/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/24%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%BB%A1%E6%B1%89%E6%A5%BC/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="24 项目：满汉楼 登录界面 登录（账号、密码） 退出   菜单界面 餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号） 全部、分类   点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统   数据库 登录用户：login（id、name、passw">
+<meta property="og:description" content="24 项目：满汉楼  登录界面  登录（账号、密码） 退出  菜单界面  餐桌状态（显示编号、状态） 预定餐桌（编号[核对、二次确认]、预定人名字、电话） 菜单（名称、价格、类别、编号）  全部、分类  点餐（桌号[核对]、菜品[核对]、数量） 账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态） 结账（桌号、方式、二次确认） 退出系统  数据库">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-19T13:52:11.499Z">
@@ -294,43 +294,51 @@
             
             <div class="markdown-body">
               
-              <h1 id="24-项目：满汉楼"><a href="#24-项目：满汉楼" class="headerlink" title="24 项目：满汉楼"></a>24 项目：满汉楼</h1><ul>
-<li>登录界面<ul>
+              <h1 id="项目满汉楼">24 项目：满汉楼</h1>
+<ul>
+<li>登录界面
+<ul>
 <li>登录（账号、密码）</li>
 <li>退出</li>
-</ul>
-</li>
-<li>菜单界面<ul>
+</ul></li>
+<li>菜单界面
+<ul>
 <li>餐桌状态（显示编号、状态）</li>
 <li>预定餐桌（编号[核对、二次确认]、预定人名字、电话）</li>
-<li>菜单（名称、价格、类别、编号）<ul>
+<li>菜单（名称、价格、类别、编号）
+<ul>
 <li>全部、分类</li>
-</ul>
-</li>
+</ul></li>
 <li>点餐（桌号[核对]、菜品[核对]、数量）</li>
 <li>账单（按照桌号分组。菜品、数量、金额、桌号、日期、状态）</li>
 <li>结账（桌号、方式、二次确认）</li>
 <li>退出系统</li>
-</ul>
-</li>
-<li>数据库<ul>
+</ul></li>
+<li>数据库
+<ul>
 <li>登录用户：login（id、name、password[md5]）</li>
 <li>餐桌状态：table（id、order、seat、customer）</li>
 <li>顾客：customer（id、name、card_id、call）</li>
 <li>菜单：dishes（id、name、price、species、available）</li>
 <li>账单：bill（id、date、customer、num、table、clear、dishes）</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="代码：万民堂"><a href="#代码：万民堂" class="headerlink" title="代码：万民堂"></a>代码：万民堂</h2><p><del>说是满汉楼，其实是万民堂</del></p>
+<h2 id="代码万民堂">代码：万民堂</h2>
+<del>
+说是满汉楼，其实是万民堂
+</del>
 <p><strong>没有优化过，所以健壮性不强。懒得做优化了，反正之前的项目做过了</strong></p>
-<h3 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1. 数据库"></a>1. 数据库</h3><blockquote>
+<h3 id="数据库">1. 数据库</h3>
+<blockquote>
 <div class="code-wrapper"><pre><code class="hljs awk">mysql:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">3306</span>/wan_min</code></pre></div>
 </blockquote>
-<h4 id="表"><a href="#表" class="headerlink" title="表"></a>表</h4><blockquote>
-<p>以下大部分是润色后的 <code>show create table xxx</code> 的返回语句</p>
+<h4 id="表">表</h4>
+<blockquote>
+<p>以下大部分是润色后的 <code>show create table xxx</code>
+的返回语句</p>
 </blockquote>
-<h5 id="table（餐桌）"><a href="#table（餐桌）" class="headerlink" title="table（餐桌）"></a>table（餐桌）</h5><blockquote>
+<h5 id="table餐桌">table（餐桌）</h5>
+<blockquote>
 <p>餐桌号 id（主键）、餐桌状态 order、座数 seat、订餐人 customer</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `table` (
@@ -342,9 +350,10 @@
       KEY `customer` (`customer`),
       CONSTRAINT `table_ibfk_1` FOREIGN KEY (`customer`) REFERENCES `customer` (`id`)
     )</code></pre></div>
-
-<h5 id="dishes（菜单）"><a href="#dishes（菜单）" class="headerlink" title="dishes（菜单）"></a>dishes（菜单）</h5><blockquote>
-<p>餐品号 id（主键）、餐品名 name（唯一）、价格 price、分类 species、是否可用 available</p>
+<h5 id="dishes菜单">dishes（菜单）</h5>
+<blockquote>
+<p>餐品号 id（主键）、餐品名 name（唯一）、价格 price、分类
+species、是否可用 available</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `dishes` (
       `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -355,9 +364,10 @@
       PRIMARY KEY (`id`),
       UNIQUE KEY `name` (`name`)
 )</code></pre></div>
-
-<h5 id="customer（客人信息）"><a href="#customer（客人信息）" class="headerlink" title="customer（客人信息）"></a>customer（客人信息）</h5><blockquote>
-<p>顾客ID id（主键）、顾客名字 name、顾客证件号 card_id（可为空）、顾客电话 call</p>
+<h5 id="customer客人信息">customer（客人信息）</h5>
+<blockquote>
+<p>顾客ID id（主键）、顾客名字 name、顾客证件号
+card_id（可为空）、顾客电话 call</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `customer` (
       `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -366,9 +376,10 @@
       `call` char(11) COLLATE utf8_bin NOT NULL,
       PRIMARY KEY (`id`)
 )</code></pre></div>
-
-<h5 id="login（登录验证）"><a href="#login（登录验证）" class="headerlink" title="login（登录验证）"></a>login（登录验证）</h5><blockquote>
-<p>系统登录ID id（主键）、系统登录名 name（唯一）、密码 password（md5 加密）</p>
+<h5 id="login登录验证">login（登录验证）</h5>
+<blockquote>
+<p>系统登录ID id（主键）、系统登录名 name（唯一）、密码 password（md5
+加密）</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `login` (
       `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -377,9 +388,11 @@
       PRIMARY KEY (`id`),
       UNIQUE KEY `name` (`name`)
 )</code></pre></div>
-
-<h5 id="bill（订单）"><a href="#bill（订单）" class="headerlink" title="bill（订单）"></a>bill（订单）</h5><blockquote>
-<p>订单ID id（主键）、日期 date、顾客 customer（外键）、菜品ID id（外键）、菜品数量 num、桌号 table（外键）、结算状态 clear（枚举，y现金、alipay支付宝、wcpay微信、n未付）</p>
+<h5 id="bill订单">bill（订单）</h5>
+<blockquote>
+<p>订单ID id（主键）、日期 date、顾客 customer（外键）、菜品ID
+id（外键）、菜品数量 num、桌号 table（外键）、结算状态
+clear（枚举，y现金、alipay支付宝、wcpay微信、n未付）</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `bill` (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -397,8 +410,9 @@
       CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`table`) REFERENCES `table` (`id`),
       CONSTRAINT `bill_ibfk_3` FOREIGN KEY (`dishes`) REFERENCES `dishes` (`id`)
 )</code></pre></div>
-
-<h5 id="detail-bill（view，查询订单信息）"><a href="#detail-bill（view，查询订单信息）" class="headerlink" title="detail_bill（view，查询订单信息）"></a>detail_bill（view，查询订单信息）</h5><div class="code-wrapper"><pre><code class="hljs mysql">CREATE VIEW `detail_bill` AS 
+<h5
+id="detail_billview查询订单信息">detail_bill（view，查询订单信息）</h5>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE VIEW `detail_bill` AS 
 	select `customer`.`name` AS `name`,
        `customer`.`call` AS `call`,
        `bill`.`table` AS `table`,
@@ -409,13 +423,14 @@
 	from `bill` , `customer`, `dishes` 
 	where (`bill`.`customer` = `customer`.`id`) 
 		and (`bill`.`dishes` = `dishes`.`id`)</code></pre></div>
-
-
-
-<h3 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h3><h4 id="通用部分"><a href="#通用部分" class="headerlink" title="通用部分"></a>通用部分</h4><blockquote>
+<h3 id="java-代码">Java 代码</h3>
+<h4 id="通用部分">通用部分</h4>
+<blockquote>
 <p>以下各包，客户端和服务端各自持有一份，存放在相同目录下。</p>
 </blockquote>
-<h5 id="com-melody-wmt-common"><a href="#com-melody-wmt-common" class="headerlink" title="com.melody.wmt.common"></a>com.melody.wmt.common</h5><h6 id="Message-java"><a href="#Message-java" class="headerlink" title="Message.java"></a>Message.java</h6><blockquote>
+<h5 id="com.melody.wmt.common">com.melody.wmt.common</h5>
+<h6 id="message.java">Message.java</h6>
+<blockquote>
 <p><em>com.melody.wmt.common.Message.java</em></p>
 <p>信息包。客户端、服务端的通讯依靠发送该包进行</p>
 </blockquote>
@@ -483,8 +498,8 @@
         <span class="hljs-built_in">this</span>.timeStamp = Instant.now();
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="MessageType-java"><a href="#MessageType-java" class="headerlink" title="MessageType.java"></a>MessageType.java</h6><blockquote>
+<h6 id="messagetype.java">MessageType.java</h6>
+<blockquote>
 <p><em>com.melody.wmt.common.MessageType.java</em></p>
 <p>信息标识包。通过该包来分析信息包的种类。该包没有方法。</p>
 </blockquote>
@@ -521,8 +536,9 @@
     <span class="hljs-type">String</span> <span class="hljs-variable">FINISH_BILLS</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;RFB&quot;</span>;			<span class="hljs-comment">//请求完成账单</span>
     <span class="hljs-type">String</span> <span class="hljs-variable">LOGOUT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;LGO&quot;</span>;					<span class="hljs-comment">//请求登出</span>
 &#125;</code></pre></div>
-
-<h5 id="com-melody-wmt-sql"><a href="#com-melody-wmt-sql" class="headerlink" title="com.melody.wmt.sql"></a>com.melody.wmt.sql</h5><h6 id="LoginData-java"><a href="#LoginData-java" class="headerlink" title="LoginData.java"></a>LoginData.java</h6><blockquote>
+<h5 id="com.melody.wmt.sql">com.melody.wmt.sql</h5>
+<h6 id="logindata.java">LoginData.java</h6>
+<blockquote>
 <p><em>com.melody.wmt.sql.LoginData.java</em></p>
 <p>登录信息包。该包对应表 <code>login</code> 的记录。</p>
 </blockquote>
@@ -571,8 +587,8 @@
         <span class="hljs-built_in">this</span>.password = password;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="TableData-java"><a href="#TableData-java" class="headerlink" title="TableData.java"></a>TableData.java</h6><blockquote>
+<h6 id="tabledata.java">TableData.java</h6>
+<blockquote>
 <p><em>com.melody.wmt.sql.TableData.java</em></p>
 <p>餐桌信息包。该包对应表 <code>table</code> 的记录。</p>
 </blockquote>
@@ -637,21 +653,20 @@
         <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + seat + <span class="hljs-string">&quot;\t&quot;</span> + order + <span class="hljs-string">&quot;\t&quot;</span> + (customer == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;-&quot;</span> : customer);
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h4 id="服务端部分"><a href="#服务端部分" class="headerlink" title="服务端部分"></a>服务端部分</h4><h5 id="com-melody-wmt-library"><a href="#com-melody-wmt-library" class="headerlink" title="com.melody.wmt.library"></a>com.melody.wmt.library</h5><blockquote>
+<h4 id="服务端部分">服务端部分</h4>
+<h5 id="com.melody.wmt.library">com.melody.wmt.library</h5>
+<blockquote>
 <p>在目录 <em>com.melody.wmt.library</em> 下，配置以下 jar 包：</p>
 <ul>
-<li><p><code>druid-1.2.8.jar</code>：德鲁伊连接池</p>
-</li>
-<li><p><code>mysql-connector-java-8.0.27.jar</code>：MySQL 数据库</p>
-</li>
-<li><p><code>commons-dbutils-1.7.jar</code>：Apache-DBUtils</p>
-</li>
+<li><p><code>druid-1.2.8.jar</code>：德鲁伊连接池</p></li>
+<li><p><code>mysql-connector-java-8.0.27.jar</code>：MySQL
+数据库</p></li>
+<li><p><code>commons-dbutils-1.7.jar</code>：Apache-DBUtils</p></li>
 </ul>
 </blockquote>
-<h5 id="com-melody-wmt-server"><a href="#com-melody-wmt-server" class="headerlink" title="com.melody.wmt.server"></a>com.melody.wmt.server</h5><h6 id="Server-java"><a href="#Server-java" class="headerlink" title="Server.java"></a>Server.java</h6><blockquote>
+<h5 id="com.melody.wmt.server">com.melody.wmt.server</h5>
+<h6 id="server.java">Server.java</h6>
+<blockquote>
 <p>服务端入口</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.server;
@@ -692,8 +707,8 @@
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="RunningServer-java"><a href="#RunningServer-java" class="headerlink" title="RunningServer.java"></a>RunningServer.java</h6><blockquote>
+<h6 id="runningserver.java">RunningServer.java</h6>
+<blockquote>
 <p>服务端进程主体。由 <em>Server.java</em> 创建。</p>
 <p>该进程能实现：用户登录验证、识别客户端请求</p>
 </blockquote>
@@ -841,8 +856,8 @@
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="ServerUtils-java"><a href="#ServerUtils-java" class="headerlink" title="ServerUtils.java"></a>ServerUtils.java</h6><blockquote>
+<h6 id="serverutils.java">ServerUtils.java</h6>
+<blockquote>
 <p>服务端进程方法包。由 <em>RunningServer.java</em> 调用</p>
 <p>该包实现：监听客户端数据包、发送数据包、处理（各种）客户端请求</p>
 </blockquote>
@@ -1215,8 +1230,9 @@
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<h5 id="com-melody-wmt-sql-1"><a href="#com-melody-wmt-sql-1" class="headerlink" title="com.melody.wmt.sql"></a>com.melody.wmt.sql</h5><h6 id="WanMinSQL-properties"><a href="#WanMinSQL-properties" class="headerlink" title="WanMinSQL.properties"></a>WanMinSQL.properties</h6><blockquote>
+<h5 id="com.melody.wmt.sql-1">com.melody.wmt.sql</h5>
+<h6 id="wanminsql.properties">WanMinSQL.properties</h6>
+<blockquote>
 <p>数据库配置文件</p>
 <p>里面的密码填自己的。另外，其实上一篇笔记里故意漏的密码是假的。</p>
 </blockquote>
@@ -1228,9 +1244,11 @@ initialSize=<span class="hljs-number">10</span>
 minIdle=<span class="hljs-number">5</span>
 maxActive=<span class="hljs-number">50</span>
 maxWait=<span class="hljs-number">5000</span></code></pre></div>
-
-<h6 id="BasicDAO-java"><a href="#BasicDAO-java" class="headerlink" title="BasicDAO.java"></a>BasicDAO.java</h6><blockquote>
-<p><em><strong>——详见 [<a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-9-BasicDAO">23.9 BasicDAO</a>]</strong></em></p>
+<h6 id="basicdao.java">BasicDAO.java</h6>
+<blockquote>
+<p><strong><em>——详见 [<a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-9-BasicDAO">23.9
+BasicDAO</a>]</em></strong></p>
 <p>代码和上面说的是一样的……大概？</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1299,9 +1317,11 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="JDBCUtil-java"><a href="#JDBCUtil-java" class="headerlink" title="JDBCUtil.java"></a>JDBCUtil.java</h6><blockquote>
-<p><em><strong>——见 [<a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-7-2-Druid%EF%BC%88%E5%BE%B7%E9%B2%81%E4%BC%8A%EF%BC%89%E8%BF%9E%E6%8E%A5%E6%B1%A0">23.7.2 Druid（德鲁伊）连接池</a> ]</strong></em></p>
+<h6 id="jdbcutil.java">JDBCUtil.java</h6>
+<blockquote>
+<p><strong><em>——见 [<a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-7-2-Druid%EF%BC%88%E5%BE%B7%E9%B2%81%E4%BC%8A%EF%BC%89%E8%BF%9E%E6%8E%A5%E6%B1%A0">23.7.2
+Druid（德鲁伊）连接池</a> ]</em></strong></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
 
@@ -1353,8 +1373,8 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         &#125;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="TableDAO-java、TableData-java"><a href="#TableDAO-java、TableData-java" class="headerlink" title="TableDAO.java、TableData.java"></a>TableDAO.java、TableData.java</h6><blockquote>
+<h6 id="tabledao.javatabledata.java">TableDAO.java、TableData.java</h6>
+<blockquote>
 <p>对应数据库的 <em>table</em> 表</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1425,7 +1445,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> update(sql, table) &gt; <span class="hljs-number">0</span>;
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
 
 <span class="hljs-keyword">import</span> java.io.Serializable;
@@ -1457,8 +1476,8 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + seat + <span class="hljs-string">&quot;\t&quot;</span> + order + <span class="hljs-string">&quot;\t&quot;</span> + (customer == <span class="hljs-number">0</span> ? <span class="hljs-string">&quot;-&quot;</span> : customer);
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="LoginDAO-java、LoginData-java"><a href="#LoginDAO-java、LoginData-java" class="headerlink" title="LoginDAO.java、LoginData.java"></a>LoginDAO.java、LoginData.java</h6><blockquote>
+<h6 id="logindao.javalogindata.java">LoginDAO.java、LoginData.java</h6>
+<blockquote>
 <p>对应数据库的 <em>Login</em> 表</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1480,7 +1499,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         &#125;
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
     <span class="hljs-keyword">private</span> String name;
@@ -1497,8 +1515,9 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
     <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
 
 &#125;</code></pre></div>
-
-<h6 id="DishesDAO-java、DishesData-java"><a href="#DishesDAO-java、DishesData-java" class="headerlink" title="DishesDAO.java、DishesData.java"></a>DishesDAO.java、DishesData.java</h6><blockquote>
+<h6
+id="dishesdao.javadishesdata.java">DishesDAO.java、DishesData.java</h6>
+<blockquote>
 <p>对应数据库的 <em>Dishes</em> 表</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1522,7 +1541,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> querySingle(DishesData.class, sql, id);
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DishesData</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
     <span class="hljs-keyword">private</span> String name;
@@ -1547,8 +1565,9 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + name + <span class="hljs-string">&quot;\t&quot;</span> + price;
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="CustomerDAO-java、CustomerData-java"><a href="#CustomerDAO-java、CustomerData-java" class="headerlink" title="CustomerDAO.java、CustomerData.java"></a>CustomerDAO.java、CustomerData.java</h6><blockquote>
+<h6
+id="customerdao.javacustomerdata.java">CustomerDAO.java、CustomerData.java</h6>
+<blockquote>
 <p>对应数据库的 <em>Customer</em> 表</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1572,7 +1591,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> update &gt; <span class="hljs-number">0</span>;
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
 
 <span class="hljs-comment">/**</span>
@@ -1597,8 +1615,9 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
     <span class="hljs-comment">/* 省略了 getter 和 setter。实际代码里是有的 */</span>
 
 &#125;</code></pre></div>
-
-<h6 id="BillDAO-java、BillData-java、DetailBillData-java"><a href="#BillDAO-java、BillData-java、DetailBillData-java" class="headerlink" title="BillDAO.java、BillData.java、DetailBillData.java"></a>BillDAO.java、BillData.java、DetailBillData.java</h6><blockquote>
+<h6
+id="billdao.javabilldata.javadetailbilldata.java">BillDAO.java、BillData.java、DetailBillData.java</h6>
+<blockquote>
 <p>对应数据库的 <em>Bill</em> 表，<em>Detail_Bill</em> 视图</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.sql;
@@ -1651,7 +1670,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> update(sql, clear, table);
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BillData</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
     <span class="hljs-keyword">private</span> Date date;
@@ -1681,7 +1699,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> id + <span class="hljs-string">&quot;\t&quot;</span> + customer + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + clear + <span class="hljs-string">&quot;\t&quot;</span> + dishes + <span class="hljs-string">&quot;\t&quot;</span> + date;
     &#125;
 &#125;</code></pre></div>
-
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DetailBillData</span> &#123;
     <span class="hljs-keyword">private</span> String name;
     <span class="hljs-keyword">private</span> String call;
@@ -1711,10 +1728,10 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">return</span> name + <span class="hljs-string">&quot;\t&quot;</span> + call + <span class="hljs-string">&quot;\t&quot;</span> + table + <span class="hljs-string">&quot;\t&quot;</span> + dishes + <span class="hljs-string">&quot;\t&quot;</span> + num + <span class="hljs-string">&quot;\t&quot;</span> + date + <span class="hljs-string">&quot;\t&quot;</span> + clear;
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h4 id="客户端（管理）部分"><a href="#客户端（管理）部分" class="headerlink" title="客户端（管理）部分"></a>客户端（管理）部分</h4><h5 id="com-melody-wmt-client"><a href="#com-melody-wmt-client" class="headerlink" title="com.melody.wmt.client;"></a>com.melody.wmt.client;</h5><h6 id="Clinet-java"><a href="#Clinet-java" class="headerlink" title="Clinet.java"></a>Clinet.java</h6><blockquote>
+<h4 id="客户端管理部分">客户端（管理）部分</h4>
+<h5 id="com.melody.wmt.client">com.melody.wmt.client;</h5>
+<h6 id="clinet.java">Clinet.java</h6>
+<blockquote>
 <p>客户端程序主体</p>
 <p>该包实现：登录界面、菜单界面、选择菜单</p>
 </blockquote>
@@ -1905,8 +1922,8 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(s);
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="Listening-java"><a href="#Listening-java" class="headerlink" title="Listening.java"></a>Listening.java</h6><blockquote>
+<h6 id="listening.java">Listening.java</h6>
+<blockquote>
 <p>监听服务端发送数据包的线程</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.wmt.client;
@@ -1947,8 +1964,8 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         System.out.println(<span class="hljs-string">&quot;监听停止&quot;</span>);
     &#125;
 &#125;</code></pre></div>
-
-<h6 id="MenuUtility-java"><a href="#MenuUtility-java" class="headerlink" title="MenuUtility.java"></a>MenuUtility.java</h6><blockquote>
+<h6 id="menuutility.java">MenuUtility.java</h6>
+<blockquote>
 <p>客户端程序的方法包</p>
 <p>该包实现：……大部分功能</p>
 </blockquote>
@@ -2496,7 +2513,6 @@ maxWait=<span class="hljs-number">5000</span></code></pre></div>
         &#125;
     &#125;
 &#125;</code></pre></div>
-
 
               
             </div>

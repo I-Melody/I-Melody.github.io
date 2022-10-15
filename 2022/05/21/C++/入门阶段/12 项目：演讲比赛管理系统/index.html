@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="12 项目：演讲比赛管理系统12.1 项目需求 共有 12 名选手，编号 10001 - 10012 比赛分为 2 轮：  第一轮比赛分为 2 组分别进行。每组前 3 名晋级下一轮比赛 第二轮比赛的前 3 名胜出  打分方式：10 个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩 每轮比赛过后，显示晋级选手（胜出选手）的信息  选手信息：姓名、编号、性别、成绩、排名 打分范">
+    <meta name="description" content="12 项目：演讲比赛管理系统 12.1 项目需求  共有 12 名选手，编号 10001 - 10012 比赛分为 2 轮：  第一轮比赛分为 2 组分别进行。每组前 3 名晋级下一轮比赛 第二轮比赛的前 3 名胜出  打分方式：10 个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩 每轮比赛过后，显示晋级选手（胜出选手）的信息  选手信息：姓名、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;12 项目：演讲比赛管理系统">
 <meta property="og:url" content="https://i-melody.github.io/2022/05/21/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%BC%94%E8%AE%B2%E6%AF%94%E8%B5%9B%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="12 项目：演讲比赛管理系统12.1 项目需求 共有 12 名选手，编号 10001 - 10012 比赛分为 2 轮：  第一轮比赛分为 2 组分别进行。每组前 3 名晋级下一轮比赛 第二轮比赛的前 3 名胜出  打分方式：10 个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩 每轮比赛过后，显示晋级选手（胜出选手）的信息  选手信息：姓名、编号、性别、成绩、排名 打分范">
+<meta property="og:description" content="12 项目：演讲比赛管理系统 12.1 项目需求  共有 12 名选手，编号 10001 - 10012 比赛分为 2 轮：  第一轮比赛分为 2 组分别进行。每组前 3 名晋级下一轮比赛 第二轮比赛的前 3 名胜出  打分方式：10 个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩 每轮比赛过后，显示晋级选手（胜出选手）的信息  选手信息：姓名、">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-20T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-23T23:53:15.760Z">
@@ -294,14 +294,17 @@
             
             <div class="markdown-body">
               
-              <h1 id="12-项目：演讲比赛管理系统"><a href="#12-项目：演讲比赛管理系统" class="headerlink" title="12 项目：演讲比赛管理系统"></a>12 项目：演讲比赛管理系统</h1><h2 id="12-1-项目需求"><a href="#12-1-项目需求" class="headerlink" title="12.1 项目需求"></a>12.1 项目需求</h2><blockquote>
+              <h1 id="项目演讲比赛管理系统">12 项目：演讲比赛管理系统</h1>
+<h2 id="项目需求">12.1 项目需求</h2>
+<blockquote>
 <p>共有 12 名选手，编号 10001 - 10012</p>
 <p>比赛分为 2 轮：</p>
-<ol>
+<ol type="1">
 <li>第一轮比赛分为 2 组分别进行。每组前 3 名晋级下一轮比赛</li>
 <li>第二轮比赛的前 3 名胜出</li>
 </ol>
-<p>打分方式：10 个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩</p>
+<p>打分方式：10
+个评委分别对每位选手打分，去除最高分和最低分，剩余的平均分为选手本轮成绩</p>
 <p>每轮比赛过后，显示晋级选手（胜出选手）的信息</p>
 </blockquote>
 <p>选手信息：姓名、编号、性别、成绩、排名</p>
@@ -311,34 +314,34 @@
 <li>选手报名</li>
 <li>选手信息变更</li>
 <li>选手查询（按姓名、编号查找）</li>
-<li>开始比赛<ul>
+<li>开始比赛
+<ul>
 <li>显示选手信息、轮次信息（输出至 .csv 文档）</li>
 <li>随机打分、手动打分</li>
 <li>确认晋级选手（输出至 .csv 文档）</li>
 <li>第二轮</li>
 <li>确认胜出选手（输出至 .csv 文档）</li>
-</ul>
-</li>
+</ul></li>
 <li>查看往届记录</li>
 <li>清空比赛记录</li>
 <li>退出系统</li>
 </ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="演讲比赛管理系统"><a href="#演讲比赛管理系统" class="headerlink" title="演讲比赛管理系统"></a>演讲比赛管理系统</h3><p>执行以下代码：</p>
+<h2 id="附录">附录</h2>
+<h3 id="演讲比赛管理系统">演讲比赛管理系统</h3>
+<p>执行以下代码：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
 
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
 	<span class="hljs-built_in">menu0</span>();
 &#125;</code></pre></div>
-
-<h4 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h4><p><strong>player.h</strong></p>
+<h4 id="头文件">头文件</h4>
+<p><strong>player.h</strong></p>
 <blockquote>
 <p>包含 Player 类、Com 类</p>
 <ul>
 <li><p>Player 类：选手类。对象包含选手信息（ID、姓名、得分）。</p>
-<p>该类包含一个静态容器，代表参赛选手的集合</p>
-</li>
-<li><p>Com 类：仿函数。实现对 Player* 的按 socre 的比较</p>
-</li>
+<p>该类包含一个静态容器，代表参赛选手的集合</p></li>
+<li><p>Com 类：仿函数。实现对 Player* 的按 socre 的比较</p></li>
 </ul>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span>
@@ -378,7 +381,6 @@
 <span class="hljs-keyword">public</span>:
 	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(Player* p1, Player* p2)</span> <span class="hljs-type">const</span></span>;
 &#125;;</code></pre></div>
-
 <p><strong>menu.h</strong></p>
 <blockquote>
 <p>程序入口。包含了大部分方法</p>
@@ -411,10 +413,8 @@
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">write</span><span class="hljs-params">()</span></span>;										<span class="hljs-comment">// 将目前的赛况导出</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_all</span><span class="hljs-params">()</span></span>;									<span class="hljs-comment">// 展示参赛选手信息</span>
 <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">log_out</span><span class="hljs-params">()</span></span>;										<span class="hljs-comment">// 退出程序前的确认</span></code></pre></div>
-
-
-
-<h4 id="源文件"><a href="#源文件" class="headerlink" title="源文件"></a>源文件</h4><p><strong>player.cpp</strong></p>
+<h4 id="源文件">源文件</h4>
+<p><strong>player.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;player.h&quot;</span></span>
 
 Player::<span class="hljs-built_in">Player</span>(string name) &#123;				<span class="hljs-comment">// 构造器。每次构造时会更新随机值的种子</span>
@@ -487,7 +487,6 @@ set&lt;Player*, Com&gt;* Player::players = <span class="hljs-keyword">new</span>
 	&#125;
 	<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> p1-&gt;<span class="hljs-built_in">get_id</span>() &gt; p2-&gt;<span class="hljs-built_in">get_id</span>();
 &#125;;</code></pre></div>
-
 <p><strong>menu.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
 
@@ -833,7 +832,6 @@ set&lt;Player*, Com&gt;* Player::players = <span class="hljs-keyword">new</span>
 	cin &gt;&gt; affirm;
 	<span class="hljs-keyword">return</span> affirm == <span class="hljs-string">&#x27;Y&#x27;</span> || affirm == <span class="hljs-string">&#x27;y&#x27;</span>;
 &#125;;</code></pre></div>
-
 
               
             </div>

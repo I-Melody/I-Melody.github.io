@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2 程序流程控制2.1 运算符运算符是一种特殊的符号，用以表示数据运算、赋值、比较等 主要有 6 类：  算术运算符：++、--、+、-、*、&#x2F; 赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、!&#x3D; 比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 逻辑运算符：&amp;&amp;、|| 位运算符：&gt;&gt;、&lt;&lt;、&amp;g">
+    <meta name="description" content="2 程序流程控制 2.1 运算符 运算符是一种特殊的符号，用以表示数据运算、赋值、比较等 主要有 6 类：  算术运算符：++、--、+、-、*、&#x2F; 赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、!&#x3D; 比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 逻辑运算符：&amp;&amp;、|| 位运算符：&gt;&gt;、&lt;&lt;、&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;2 程序流程控制">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/07/Go/2%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="2 程序流程控制2.1 运算符运算符是一种特殊的符号，用以表示数据运算、赋值、比较等 主要有 6 类：  算术运算符：++、--、+、-、*、&#x2F; 赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、!&#x3D; 比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 逻辑运算符：&amp;&amp;、|| 位运算符：&gt;&gt;、&lt;&lt;、&amp;g">
+<meta property="og:description" content="2 程序流程控制 2.1 运算符 运算符是一种特殊的符号，用以表示数据运算、赋值、比较等 主要有 6 类：  算术运算符：++、--、+、-、*、&#x2F; 赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、!&#x3D; 比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 逻辑运算符：&amp;&amp;、|| 位运算符：&gt;&gt;、&lt;&lt;、&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-06T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-21T06:59:35.965Z">
@@ -293,84 +293,82 @@
             
             <div class="markdown-body">
               
-              <h1 id="2-程序流程控制"><a href="#2-程序流程控制" class="headerlink" title="2 程序流程控制"></a>2 程序流程控制</h1><h2 id="2-1-运算符"><a href="#2-1-运算符" class="headerlink" title="2.1 运算符"></a>2.1 运算符</h2><p>运算符是一种特殊的符号，用以表示数据运算、赋值、比较等</p>
+              <h1 id="程序流程控制">2 程序流程控制</h1>
+<h2 id="运算符">2.1 运算符</h2>
+<p>运算符是一种特殊的符号，用以表示数据运算、赋值、比较等</p>
 <p>主要有 6 类：</p>
 <ul>
-<li>算术运算符：++、--、+、-、*、&#x2F;</li>
+<li>算术运算符：++、--、+、-、*、/</li>
 <li>赋值运算符：=、+=、-=、&amp;=、|=、^=、!=</li>
-<li>比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;=、&gt;=、==、!=</li>
+<li>比较运算符 / 关系运算符：&gt;、&lt;、&lt;=、&gt;=、==、!=</li>
 <li>逻辑运算符：&amp;&amp;、||</li>
 <li>位运算符：&gt;&gt;、&lt;&lt;、&gt;&gt;&gt;、&amp;、^、!、|</li>
 <li>其他运算符：取址符 <code>&amp;</code>、指针符 <code>*</code></li>
 </ul>
-<p><strong>特别地</strong>：Go 中的 <code>++</code>、<code>--</code> 都只能独立使用，且只能出现在变量后侧：</p>
+<p><strong>特别地</strong>：Go 中的 <code>++</code>、<code>--</code>
+都只能独立使用，且只能出现在变量后侧：</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> i <span class="hljs-type">int</span> = <span class="hljs-number">10</span>
 i++
 <span class="hljs-comment">/* --i */</span>					<span class="hljs-comment">// 错误用法</span>
 <span class="hljs-comment">/* var n int = i++ */</span>		<span class="hljs-comment">// 错误用法</span></code></pre></div>
-
 <p>另外，Go 语言<strong>明确不支持三元运算符</strong></p>
-<h2 id="2-2-键盘输入、屏幕输出"><a href="#2-2-键盘输入、屏幕输出" class="headerlink" title="2.2 键盘输入、屏幕输出"></a>2.2 键盘输入、屏幕输出</h2><p>这两个功能包含在 fmt 包中。</p>
+<h2 id="键盘输入屏幕输出">2.2 键盘输入、屏幕输出</h2>
+<p>这两个功能包含在 fmt 包中。</p>
 <p>导入 fmt 包：</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span></code></pre></div>
-
-<h4 id="屏幕输出："><a href="#屏幕输出：" class="headerlink" title="屏幕输出："></a>屏幕输出：</h4><ul>
+<h4 id="屏幕输出">屏幕输出：</h4>
+<ul>
 <li><p><code>fmt.Print(a... interface&#123;&#125;)</code>：输出该语句</p>
 <p><code>fmt.Println(a... interface&#123;&#125;)</code>：输出该语句，之后换行</p>
-<p><code>fmt.Printf(format string, a... interface&#123;&#125;)</code>：格式化输出语句</p>
-</li>
+<p><code>fmt.Printf(format string, a... interface&#123;&#125;)</code>：格式化输出语句</p></li>
 </ul>
-<h4 id="键盘输入："><a href="#键盘输入：" class="headerlink" title="键盘输入："></a>键盘输入：</h4><ul>
+<h4 id="键盘输入">键盘输入：</h4>
+<ul>
 <li><p><code>fmt.Scanln(a... interface&#123;&#125;)</code>：获取输入，保存到传入参数中。直到换行时才停止扫描</p>
-<p><code>fmt.Scanf(format string, a... interface&#123;&#125;)</code>：根据指定格式，将成功读取的空白分割的值保存到传入参数中</p>
-</li>
+<p><code>fmt.Scanf(format string, a... interface&#123;&#125;)</code>：根据指定格式，将成功读取的空白分割的值保存到传入参数中</p></li>
 </ul>
-<h2 id="2-3-程序流程控制"><a href="#2-3-程序流程控制" class="headerlink" title="2.3 程序流程控制"></a>2.3 程序流程控制</h2><p>程序流程控制主要分为三种</p>
+<h2 id="程序流程控制-1">2.3 程序流程控制</h2>
+<p>程序流程控制主要分为三种</p>
 <ul>
 <li>顺序控制</li>
 <li>分支控制</li>
 <li>循环控制</li>
 </ul>
-<h3 id="2-3-1-顺序控制"><a href="#2-3-1-顺序控制" class="headerlink" title="2.3.1 顺序控制"></a>2.3.1 顺序控制</h3><blockquote>
+<h3 id="顺序控制">2.3.1 顺序控制</h3>
+<blockquote>
 <p>程序从上到下逐行执行，中间没有任何判断和跳转（默认的控制顺序）</p>
 </blockquote>
 <pre><code class=" mermaid">graph LR
 A(A语句)--&gt;B(B语句)--&gt;C(C语句)--&gt;D(D语句)--&gt;E(...)</code></pre>
-
-
-
-<h3 id="2-3-2-分支控制"><a href="#2-3-2-分支控制" class="headerlink" title="2.3.2 分支控制"></a>2.3.2 分支控制</h3><h4 id="单分支控制："><a href="#单分支控制：" class="headerlink" title="单分支控制："></a>单分支控制：</h4><p>当条件满足时，执行表达式。</p>
+<h3 id="分支控制">2.3.2 分支控制</h3>
+<h4 id="单分支控制">单分支控制：</h4>
+<p>当条件满足时，执行表达式。</p>
 <pre><code class=" mermaid">graph LR
 A(if 语句)--&gt; B&#123;条件表达式&#125;
 B --true--&gt; C(执行语句块)
 C --&gt; D(继续)
 B --false----&gt; D</code></pre>
-
-<p><strong>注意：</strong>在 Go 中，条件表达式不能加括号，且结构体即使只有一句也必须加上大括号</p>
+<p><strong>注意：</strong>在 Go
+中，条件表达式不能加括号，且结构体即使只有一句也必须加上大括号</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> i := <span class="hljs-number">5</span>; i &lt; <span class="hljs-number">10</span> &#123;
     i++
 &#125;</code></pre></div>
-
-
-
-<h4 id="双分支控制："><a href="#双分支控制：" class="headerlink" title="双分支控制："></a>双分支控制：</h4><p>当条件满足时，执行表达式。否则执行另一表达式</p>
+<h4 id="双分支控制">双分支控制：</h4>
+<p>当条件满足时，执行表达式。否则执行另一表达式</p>
 <pre><code class=" mermaid">graph LR
 A(if...else 语句)--&gt; B&#123;条件表达式&#125;
 B --true--&gt; C(执行语句块1)
 C --&gt; D(继续)
 B --false--&gt; F(执行语句块2)
 F --&gt; D</code></pre>
-
 <p><strong>注意：</strong>在 Go 中，不能让 else 语句另起一行</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> i &lt; <span class="hljs-number">10</span> &#123;
     i++
 &#125; <span class="hljs-keyword">else</span> &#123;
     i--
 &#125;</code></pre></div>
-
-
-
-<h4 id="多分支控制："><a href="#多分支控制：" class="headerlink" title="多分支控制："></a>多分支控制：</h4><p>有条件满足时，执行该表达式。否则执行 else 语句或直接继续</p>
+<h4 id="多分支控制">多分支控制：</h4>
+<p>有条件满足时，执行该表达式。否则执行 else 语句或直接继续</p>
 <pre><code class=" mermaid">graph LR
 A(if...else if  语句)--&gt; B&#123;条件1&#125;
 B --true--&gt; C(执行语句块1)
@@ -383,7 +381,6 @@ H --true--&gt; I(执行语句块3)
 I --&gt; D
 H --false--&gt; J(else 语句块)
 J --&gt; D</code></pre>
-
 <p>其中，else 语句块不是必须的。</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> i &lt; <span class="hljs-number">10</span> &#123;
     i++
@@ -392,10 +389,8 @@ J --&gt; D</code></pre>
 &#125; <span class="hljs-keyword">else</span> &#123;
     i = <span class="hljs-number">0</span>
 &#125;</code></pre></div>
-
-
-
-<h4 id="switch-分支结构："><a href="#switch-分支结构：" class="headerlink" title="switch 分支结构："></a>switch 分支结构：</h4><p>switch 语句用于基于不同条件执行不同动作。</p>
+<h4 id="switch-分支结构">switch 分支结构：</h4>
+<p>switch 语句用于基于不同条件执行不同动作。</p>
 <p>每个 case 分支都是唯一的，从上到下逐一测试，直到匹配为止。</p>
 <pre><code class=" mermaid">graph LR
 A(switch  语句)--&gt; B&#123;表达式 a&#125;
@@ -410,7 +405,6 @@ F --&gt; G
 C -.fallthrough.-&gt; D
 D -.fallthrough.-&gt; E
 E -.fallthrough.-&gt; F</code></pre>
-
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> i <span class="hljs-type">int</span>
 fmt.Scanln(&amp;i)
 <span class="hljs-keyword">switch</span> i &#123;
@@ -423,65 +417,63 @@ fmt.Scanln(&amp;i)
     <span class="hljs-keyword">default</span>:
     	fmt.Println(<span class="hljs-string">&quot;滋滋滋&quot;</span>)
 &#125;</code></pre></div>
-
 <p><strong>注意事项：</strong></p>
 <ul>
-<li><p>case 后可以是一个表达式（常量、变量、有返回值的函数）</p>
-</li>
-<li><p>case 后各个表达式数据类型需和 switch 表达式数据类型一致</p>
-</li>
-<li><p>case 后可以有多个表达式，以 <code>,</code> 分隔</p>
-</li>
-<li><p>case 后的表达式若是常量值，则要求不能重复</p>
-</li>
-<li><p>case 后不需要加 break，default 语句可以省略</p>
-</li>
-<li><p>switch 后面可以不带表达式，此时 case  表达式数据类型是布尔值。类似于多个 if…else 分支使用</p>
-</li>
-<li><p>（不推荐）switch 后可以直接声明 &#x2F; 定义一个变量，并以 <code>;</code> 结束</p>
-</li>
-<li><p>在 case 语句块添加 fallthrough，则会穿透执行下一个 case 语句块</p>
-</li>
+<li><p>case 后可以是一个表达式（常量、变量、有返回值的函数）</p></li>
+<li><p>case 后各个表达式数据类型需和 switch 表达式数据类型一致</p></li>
+<li><p>case 后可以有多个表达式，以 <code>,</code> 分隔</p></li>
+<li><p>case 后的表达式若是常量值，则要求不能重复</p></li>
+<li><p>case 后不需要加 break，default 语句可以省略</p></li>
+<li><p>switch 后面可以不带表达式，此时 case
+表达式数据类型是布尔值。类似于多个 if...else 分支使用</p></li>
+<li><p>（不推荐）switch 后可以直接声明 / 定义一个变量，并以
+<code>;</code> 结束</p></li>
+<li><p>在 case 语句块添加 fallthrough，则会穿透执行下一个 case
+语句块</p></li>
 <li><p>type switch 可以用于判断某个 interface 的变量类型</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">switch</span> i := x.(<span class="hljs-keyword">type</span>) &#123;
     <span class="hljs-keyword">case</span> <span class="hljs-type">int</span>:
     	fmt.Println(<span class="hljs-string">&quot;是 int 类型&quot;</span>)
     <span class="hljs-keyword">case</span> <span class="hljs-type">bool</span>:
     	fmt.Println(<span class="hljs-string">&quot;是 bool 类型&quot;</span>)
-&#125;</code></pre></div>
-</li>
-<li><p>在 case 语句块添加 fallthrough，则会穿透执行下一个 case 语句块</p>
+&#125;</code></pre></div></li>
+<li><p>在 case 语句块添加 fallthrough，则会穿透执行下一个 case
+语句块</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">switch</span> i := <span class="hljs-number">2</span>; i &#123;
 <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
 <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
     <span class="hljs-keyword">fallthrough</span>
 <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
 &#125;</code></pre></div>
-
-<p>fallthrough 必须出现在 case 块的最后，且该 case 块不能是最后一个 case 块</p>
-<p><strong>不允许在 type switch 中使用 fallthrough</strong></p>
-</li>
+<p>fallthrough 必须出现在 case 块的最后，且该 case 块不能是最后一个 case
+块</p>
+<p><strong>不允许在 type switch 中使用 fallthrough</strong></p></li>
 </ul>
-<h3 id="2-3-3-循环控制"><a href="#2-3-3-循环控制" class="headerlink" title="2.3.3 循环控制"></a>2.3.3 循环控制</h3><p>基本语法：</p>
+<h3 id="循环控制">2.3.3 循环控制</h3>
+<p>基本语法：</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">for</span> 循环变量初始化; 循环条件; 循环变量迭代 &#123;
     循环操作
 &#125;</code></pre></div>
-
 <pre><code class=" mermaid">graph LR
 A(for 循环语句) --&gt; F[循环变量初始化] --&gt; B&#123;循环条件&#125; --false--&gt; D(继续)
 B --true--&gt; C(循环操作)  --&gt; E[循环变量迭代]  --&gt; B</code></pre>
-
-<p>for 循环四个要素：循环变量初始化、循环的条件、循环的操作、循环变量迭代</p>
-<p>所有循环开始前仅一次进行初始化。直到循环条件变为 false 前，执行循环操作。每轮循环结束后，进行循环变量迭代。</p>
-<p>可以把 变量初始化 和 循环变量迭代 写在其他位置。循环条件为空时，默认无限循环</p>
-<h4 id="for-range"><a href="#for-range" class="headerlink" title="for-range"></a>for-range</h4><p>Golang 提供 for-range 方式，以便于遍历字符串和数组</p>
+<p>for
+循环四个要素：循环变量初始化、循环的条件、循环的操作、循环变量迭代</p>
+<p>所有循环开始前仅一次进行初始化。直到循环条件变为 false
+前，执行循环操作。每轮循环结束后，进行循环变量迭代。</p>
+<p>可以把 变量初始化 和 循环变量迭代
+写在其他位置。循环条件为空时，默认无限循环</p>
+<h4 id="for-range">for-range</h4>
+<p>Golang 提供 for-range 方式，以便于遍历字符串和数组</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> str <span class="hljs-type">string</span> = <span class="hljs-string">&quot;辟邪剑法&quot;</span>
 <span class="hljs-keyword">for</span> index, val := <span class="hljs-keyword">range</span> str &#123;				<span class="hljs-comment">// index 即下标，val 即值。使用 _ 忽略其中的一个</span>
     fmt.Printf(<span class="hljs-string">&quot;%d\t%c\n&quot;</span>, index, val)
 &#125;</code></pre></div>
-
-<p>汉字占 3 字节。传统方法遍历字符串时，可能产生乱码。但 for-range 方式遍历时不会出错。</p>
-<h4 id="while-和-do…while"><a href="#while-和-do…while" class="headerlink" title="while 和 do…while"></a>while 和 do…while</h4><p>Go 语言中没有 while 和 do…while 语法。通过 for 循环来模拟实现其效果。</p>
+<p>汉字占 3 字节。传统方法遍历字符串时，可能产生乱码。但 for-range
+方式遍历时不会出错。</p>
+<h4 id="while-和-do...while">while 和 do...while</h4>
+<p>Go 语言中没有 while 和 do...while 语法。通过 for
+循环来模拟实现其效果。</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-comment">/* 模拟 while */</span>
 <span class="hljs-keyword">for</span> &#123;
     <span class="hljs-keyword">if</span> (循环条件表达式) &#123;
@@ -499,21 +491,19 @@ B --true--&gt; C(循环操作)  --&gt; E[循环变量迭代]  --&gt; B</code></p
         <span class="hljs-keyword">break</span>;
     &#125;
 &#125;</code></pre></div>
-
-
-
-<h2 id="2-4-跳转控制语句"><a href="#2-4-跳转控制语句" class="headerlink" title="2.4 跳转控制语句"></a>2.4 跳转控制语句</h2><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><blockquote>
+<h2 id="跳转控制语句">2.4 跳转控制语句</h2>
+<h4 id="break">break</h4>
+<blockquote>
 <p>用于中止一个语句块的执行。用于中断当前 for 循环或跳出 switch 语句</p>
 </blockquote>
 <pre><code class=" mermaid">graph LR
 A(for 语句) --初始化--&gt; B&#123;循环条件&#125; --false--&gt; D(继续)
 B --true--&gt; c1(语句1) --&gt; c2(语句2) --&gt; c3(语句3) --&gt; E[循环变量迭代] --&gt; B
 c1 --break--&gt; D</code></pre>
-
 <ul>
-<li><p>break 默认会跳出最近的循环</p>
-</li>
-<li><p>break 语句出现在多层嵌套语句块中时，能通过标签指明要中止哪一层语句块</p>
+<li><p>break 默认会跳出最近的循环</p></li>
+<li><p>break
+语句出现在多层嵌套语句块中时，能通过标签指明要中止哪一层语句块</p>
 <div class="code-wrapper"><pre><code class="hljs go">lable1:								<span class="hljs-comment">// 标签</span>
 <span class="hljs-keyword">for</span> &#123;
     <span class="hljs-keyword">for</span> &#123;
@@ -528,26 +518,30 @@ c1 --break--&gt; D</code></pre>
     fmt.Println()
 &#125;</code></pre></div></li>
 </ul>
-<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><blockquote>
+<h4 id="continue">continue</h4>
+<blockquote>
 <p>在循环中出现。用于结束本次循环，继续下一次循环</p>
 </blockquote>
 <pre><code class=" mermaid">graph LR
 A(for 语句) --初始化--&gt; B&#123;循环条件&#125; --false--&gt; D(继续)
 B --true--&gt; c1(语句1) --&gt; c2(语句2) --&gt; c3(语句3) --&gt; E[循环变量迭代] --&gt; B
 c1 --continue--&gt; E</code></pre>
-
 <ul>
 <li>continue 默认会跳过最近的循环</li>
-<li>continue 语句出现在多层嵌套语句块中时，能通过标签指明要跳过哪一层循环</li>
+<li>continue
+语句出现在多层嵌套语句块中时，能通过标签指明要跳过哪一层循环</li>
 </ul>
-<h4 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h4><blockquote>
+<h4 id="goto">goto</h4>
+<blockquote>
 <p>可以无条件地转移到程序中指定的行</p>
 </blockquote>
 <ul>
-<li>goto 语句通常与条件语句配合使用，以实现条件转移，跳出循环体等功能。</li>
+<li>goto
+语句通常与条件语句配合使用，以实现条件转移，跳出循环体等功能。</li>
 <li>一般不建议使用 goto 语句，以免造成流程混乱</li>
 </ul>
-<h4 id="return"><a href="#return" class="headerlink" title="return"></a>return</h4><blockquote>
+<h4 id="return">return</h4>
+<blockquote>
 <p>用于方法或函数中。表示跳出所在的方法或函数</p>
 </blockquote>
 <pre><code class=" mermaid">graph LR
@@ -557,7 +551,6 @@ c1 --continue--&gt; E</code></pre>
     end
 E --执行完毕--&gt; F(继续)
 C --return--&gt; F</code></pre>
-
 <p>如若写在主方法，会直接跳出程序</p>
 
               

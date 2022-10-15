@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3 运算符 运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。  3.1 算数运算符 算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。   + ;  - ;  * ;  &#x2F; ：加（正）、减（负）、乘、除  5 &#x2F; 2 &#x3D; 2; 因为是 int。同理 5.0 &#x2F; 2 &#x3D; 2.5   % ：取模（求余数），结果和被取模数同号。其实 a %">
+    <meta name="description" content="3 运算符  运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。  3.1 算数运算符  算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。   + ; - ; * ; &#x2F; ：加（正）、减（负）、乘、除  5 &#x2F; 2 &#x3D; 2; 因为是 int。同理 5.0 &#x2F; 2 &#x3D; 2.5  % ：取模（求余数），结果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;3 运算符">
 <meta property="og:url" content="https://i-melody.github.io/2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="3 运算符 运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。  3.1 算数运算符 算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。   + ;  - ;  * ;  &#x2F; ：加（正）、减（负）、乘、除  5 &#x2F; 2 &#x3D; 2; 因为是 int。同理 5.0 &#x2F; 2 &#x3D; 2.5   % ：取模（求余数），结果和被取模数同号。其实 a %">
+<meta property="og:description" content="3 运算符  运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。  3.1 算数运算符  算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。   + ; - ; * ; &#x2F; ：加（正）、减（负）、乘、除  5 &#x2F; 2 &#x3D; 2; 因为是 int。同理 5.0 &#x2F; 2 &#x3D; 2.5  % ：取模（求余数），结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-22T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-02T14:09:00.068Z">
@@ -293,63 +293,81 @@
             
             <div class="markdown-body">
               
-              <h1 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3 运算符"></a>3 运算符</h1><blockquote>
+              <h1 id="运算符">3 运算符</h1>
+<blockquote>
 <p>运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。</p>
 </blockquote>
-<h2 id="3-1-算数运算符"><a href="#3-1-算数运算符" class="headerlink" title="3.1 算数运算符"></a>3.1 算数运算符</h2><blockquote>
-<p>算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。</p>
+<h2 id="算数运算符">3.1 算数运算符</h2>
+<blockquote>
+<p>算术运算符是对数值类型的变量进行运算的运算符，在 Java
+程序中使用得非常多。其运算结果是一个数值量。</p>
 </blockquote>
 <ul>
-<li><p><code>+</code> ;  <code>-</code> ;  <code>*</code> ;  <code>/</code> ：加（正）、减（负）、乘、除</p>
+<li><p><code>+</code> ; <code>-</code> ; <code>*</code> ; <code>/</code>
+：加（正）、减（负）、乘、除</p>
 <blockquote>
-<p><code>5 / 2 = 2;</code> 因为是 <code>int</code>。同理 <code>5.0 / 2 = 2.5</code></p>
-</blockquote>
-</li>
-<li><p><code>%</code> ：取模（求余数），结果和被取模数同号。其实 <code>a % b == a - (int)a / b * b;</code></p>
+<p><code>5 / 2 = 2;</code> 因为是 <code>int</code>。同理
+<code>5.0 / 2 = 2.5</code></p>
+</blockquote></li>
+<li><p><code>%</code> ：取模（求余数），结果和被取模数同号。其实
+<code>a % b == a - (int)a / b * b;</code></p>
 <blockquote>
 <p><code>11 % 9 = 2;</code></p>
 <p><code>-11 % 9 = -2;</code></p>
 <p><code>11 % -9 = 2;</code></p>
 <p><code>-11 % -9 = -2;</code></p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p><code>++</code> ：自增。</p>
 <p><code>++i</code> 先自增后赋值；<code>i++</code> 先赋值后自增</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> ++i; 	<span class="hljs-comment">//等价于 i = i + 1; j = i; 此时 i = 10; j = 10`</span>
 <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i++; 	<span class="hljs-comment">//等价于 k = i; i = i + 1; 此时 i = 11; k = 10`</span>
 i = i++; 		<span class="hljs-comment">//系统会先后执行 int temp = i;     i = i + 1;     i = temp</span>
-i = ++i; 		<span class="hljs-comment">//系统会先后执行 i = i + 1;     int temp = i;     i = temp</span></code></pre></div>
-</li>
-<li><p><code>--</code> ：自减。和 <code>++</code> 同理。</p>
-</li>
-<li><p><code>+</code> ：字符串相加</p>
-</li>
+i = ++i; 		<span class="hljs-comment">//系统会先后执行 i = i + 1;     int temp = i;     i = temp</span></code></pre></div></li>
+<li><p><code>--</code> ：自减。和 <code>++</code> 同理。</p></li>
+<li><p><code>+</code> ：字符串相加</p></li>
 </ul>
-<h2 id="3-2-关系运算符（比较运算符）"><a href="#3-2-关系运算符（比较运算符）" class="headerlink" title="3.2 关系运算符（比较运算符）"></a>3.2 关系运算符（比较运算符）</h2><blockquote>
-<p>关系运算符结果都为 <code>boolean</code> 型，要么是 <code>ture</code> 要么是 <code>false</code>。其关系表达式经常用在 <code>if</code> 结构的条件中或循环结构的条件中。</p>
+<h2 id="关系运算符比较运算符">3.2 关系运算符（比较运算符）</h2>
+<blockquote>
+<p>关系运算符结果都为 <code>boolean</code> 型，要么是 <code>ture</code>
+要么是 <code>false</code>。其关系表达式经常用在 <code>if</code>
+结构的条件中或循环结构的条件中。</p>
 </blockquote>
 <ul>
-<li><code>==</code> ：相等于。<code>8 == 7</code> 结果 <code>false</code></li>
+<li><code>==</code> ：相等于。<code>8 == 7</code> 结果
+<code>false</code></li>
 <li><code>!=</code> ：不等于</li>
-<li><code>&lt;</code>  <code>&gt;</code> ：小于、大于</li>
-<li><code>&lt;=</code>  <code>&gt;=</code> ：小于等于、大于等于</li>
-<li><code>instanceof</code> ：检查是否是类的对象。<code>&quot;a&quot; istanceof String</code> 结果 <code>ture</code></li>
+<li><code>&lt;</code> <code>&gt;</code> ：小于、大于</li>
+<li><code>&lt;=</code> <code>&gt;=</code> ：小于等于、大于等于</li>
+<li><code>instanceof</code>
+：检查是否是类的对象。<code>"a" istanceof String</code> 结果
+<code>ture</code></li>
 </ul>
-<h3 id="3-2-1-使用细节"><a href="#3-2-1-使用细节" class="headerlink" title="3.2.1 使用细节"></a>3.2.1 使用细节</h3><ol>
-<li>关系运算符结果都是 <code>boolean</code> 型，要么是 <code>ture</code> ，要么是 <code>false</code></li>
+<h3 id="使用细节">3.2.1 使用细节</h3>
+<ol type="1">
+<li>关系运算符结果都是 <code>boolean</code> 型，要么是 <code>ture</code>
+，要么是 <code>false</code></li>
 <li>关系运算符的表达式，称为<em>关系表达式</em></li>
 <li>比较运算符 <code>==</code> 不要误写为 <code>=</code></li>
-<li>Java 允许将 <code>==</code>、<code>!=</code> 两种运算用于任何数据类型</li>
+<li>Java 允许将 <code>==</code>、<code>!=</code>
+两种运算用于任何数据类型</li>
 </ol>
-<h2 id="3-3-逻辑运算符"><a href="#3-3-逻辑运算符" class="headerlink" title="3.3 逻辑运算符"></a>3.3 逻辑运算符</h2><blockquote>
-<p>用于连接多个条件（多个关系表达式），最终的结果也是一个 <code>boolean</code> 值。</p>
+<h2 id="逻辑运算符">3.3 逻辑运算符</h2>
+<blockquote>
+<p>用于连接多个条件（多个关系表达式），最终的结果也是一个
+<code>boolean</code> 值。</p>
 </blockquote>
 <ul>
-<li><p><code>&amp;&amp;</code> ：短路与。<code>a</code> <code>b</code> 同时为 <code>ture</code>，则结果为 <code>ture</code>，否则为 <code>false</code>。</p>
-</li>
-<li><p><code>&amp;</code> ：逻辑与。<code>a</code> <code>b</code> 同时为 <code>ture</code>，则结果为 <code>ture</code>，否则为 <code>false</code>。</p>
-<p><code>&amp;&amp;</code> 与 <code>&amp;</code> 的区别，在于 <code>a &amp;&amp; b</code> 的场合，<code>a = false</code> 时，则 <code>b</code> 不判断。而 <code>&amp;</code> 会完成判断。开发中多用 <code>&amp;&amp;</code> ，因为其效率更高。</p>
+<li><p><code>&amp;&amp;</code> ：短路与。<code>a</code> <code>b</code>
+同时为 <code>ture</code>，则结果为 <code>ture</code>，否则为
+<code>false</code>。</p></li>
+<li><p><code>&amp;</code> ：逻辑与。<code>a</code> <code>b</code> 同时为
+<code>ture</code>，则结果为 <code>ture</code>，否则为
+<code>false</code>。</p>
+<p><code>&amp;&amp;</code> 与 <code>&amp;</code> 的区别，在于
+<code>a &amp;&amp; b</code> 的场合，<code>a = false</code> 时，则
+<code>b</code> 不判断。而 <code>&amp;</code> 会完成判断。开发中多用
+<code>&amp;&amp;</code> ，因为其效率更高。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
 
@@ -357,163 +375,180 @@ i = ++i; 		<span class="hljs-comment">//系统会先后执行 i = i + 1;     int
 <span class="hljs-comment">/*</span>
 <span class="hljs-comment">此时 a 经历了先判断后自增，返回 false 并且 a = 2</span>
 <span class="hljs-comment">但此时 b = 1; 因为 a = false; 所以 ++b 不执行。</span>
-<span class="hljs-comment">	*/</span></code></pre></div>
-</li>
-<li><p><code>||</code> ：短路或。<code>a</code> <code>b</code> 任一为 <code>ture</code>，则结果为 <code>ture</code>，否则为 <code>false</code>。</p>
-</li>
-<li><p><code>|</code> ：逻辑或。<code>a</code> <code>b</code> 任一为 <code>ture</code>，则结果为 <code>ture</code>，否则为 <code>false</code>。</p>
+<span class="hljs-comment">	*/</span></code></pre></div></li>
+<li><p><code>||</code> ：短路或。<code>a</code> <code>b</code> 任一为
+<code>ture</code>，则结果为 <code>ture</code>，否则为
+<code>false</code>。</p></li>
+<li><p><code>|</code> ：逻辑或。<code>a</code> <code>b</code> 任一为
+<code>ture</code>，则结果为 <code>ture</code>，否则为
+<code>false</code>。</p>
 <blockquote>
-<p>两者的区别和<code>&amp;&amp;</code> 与 <code>&amp;</code> 相似，若第一个为 <code>ture</code> ，则 <code>||</code> 不会判断第二个。</p>
-</blockquote>
-</li>
-<li><p><code>!</code> ：取反。<code>a</code> 为 <code>ture</code>，则结果为 <code>false</code>。反之为 <code>ture</code>。</p>
-</li>
-<li><p><code>^</code>：逻辑异或。<code>a</code> <code>b</code> 不同时，结果为 <code>ture</code>，否则为 <code>false</code>。</p>
-</li>
+<p>两者的区别和<code>&amp;&amp;</code> 与 <code>&amp;</code>
+相似，若第一个为 <code>ture</code> ，则 <code>||</code>
+不会判断第二个。</p>
+</blockquote></li>
+<li><p><code>!</code> ：取反。<code>a</code> 为
+<code>ture</code>，则结果为 <code>false</code>。反之为
+<code>ture</code>。</p></li>
+<li><p><code>^</code>：逻辑异或。<code>a</code> <code>b</code>
+不同时，结果为 <code>ture</code>，否则为 <code>false</code>。</p></li>
 </ul>
-<h2 id="3-4-赋值运算符"><a href="#3-4-赋值运算符" class="headerlink" title="3.4 赋值运算符"></a>3.4 赋值运算符</h2><blockquote>
+<h2 id="赋值运算符">3.4 赋值运算符</h2>
+<blockquote>
 <p>将某个运算后的值，赋给指定变量</p>
 </blockquote>
 <ul>
-<li><p>基本赋值运算符：<code>=</code></p>
-</li>
-<li><p>符合赋值运算符：<code>+=</code> ; <code>-=</code> ; <code>*=</code> ; <code>/=</code> ; <code>%=</code> 等</p>
+<li><p>基本赋值运算符：<code>=</code></p></li>
+<li><p>符合赋值运算符：<code>+=</code> ; <code>-=</code> ;
+<code>*=</code> ; <code>/=</code> ; <code>%=</code> 等</p>
 <blockquote>
 <p><code>a += b</code> 等价于 <code>a = a + b</code>。其余同理。</p>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-<h3 id="3-4-1-使用细节"><a href="#3-4-1-使用细节" class="headerlink" title="3.4.1 使用细节"></a>3.4.1 使用细节</h3><ol>
+<h3 id="使用细节-1">3.4.1 使用细节</h3>
+<ol type="1">
 <li><p>运算顺序从右往左。</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> a + b + c;	<span class="hljs-comment">// 先运行(a + b + c)，再结算int num =</span></code></pre></div>
-</li>
-<li><p>运算符左边只能是变量，右边可以是变量、表达式、常量值。</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> a + b + c;	<span class="hljs-comment">// 先运行(a + b + c)，再结算int num =</span></code></pre></div></li>
+<li><p>运算符左边只能是变量，右边可以是变量、表达式、常量值。</p></li>
 <li><p>复合赋值运算符会进行类型转换。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; b += <span class="hljs-number">3</span>;		<span class="hljs-comment">// 此时 b += 3 等价于 b = (byte)(b + 3)</span>
 b++;					<span class="hljs-comment">// 同理</span></code></pre></div></li>
 </ol>
-<h2 id="3-5-三元运算符"><a href="#3-5-三元运算符" class="headerlink" title="3.5 三元运算符"></a>3.5 三元运算符</h2><blockquote>
+<h2 id="三元运算符">3.5 三元运算符</h2>
+<blockquote>
 <p>基本语法：<code>条件表达式 ? 表达式1 : 表达式2;</code></p>
-<p>运算规则：如果条件表达式为 <code>ture</code> ，运算的结果是表达式1；反之为表达式2。</p>
+<p>运算规则：如果条件表达式为 <code>ture</code>
+，运算的结果是表达式1；反之为表达式2。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">11</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> (a == b ? a++ : b++);		<span class="hljs-comment">// 此时 a = 10  result = 11  b = 12</span></code></pre></div>
 </blockquote>
-<h3 id="3-5-1-使用细节"><a href="#3-5-1-使用细节" class="headerlink" title="3.5.1 使用细节"></a>3.5.1 使用细节</h3><ol>
-<li><p>表达式1 和 表达式2 要为可以赋给接受变量的类型（或可以自动转换，或进行强制转换）</p>
-</li>
-<li><p>三元运算符可以转成 <code>if--else</code></p>
-</li>
+<h3 id="使用细节-2">3.5.1 使用细节</h3>
+<ol type="1">
+<li><p>表达式1 和 表达式2
+要为可以赋给接受变量的类型（或可以自动转换，或进行强制转换）</p></li>
+<li><p>三元运算符可以转成 <code>if--else</code></p></li>
 <li><p>三元运算符是一个整体。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span> ? <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">1</span>) : <span class="hljs-keyword">new</span> <span class="hljs-title class_">Double</span>(<span class="hljs-number">2.2</span>);
 System.out.print(obj)</code></pre></div>
-
 <p>上例中，系统将会输出 <code>1.0</code></p>
-<p>因为 三元运算符 是一个整体，所以根据 [2.8.1.1.1] 发生了类型转换。</p>
-</li>
+<p>因为 三元运算符 是一个整体，所以根据 [2.8.1.1.1]
+发生了类型转换。</p></li>
 </ol>
-<h2 id="3-6-运算符优先级"><a href="#3-6-运算符优先级" class="headerlink" title="3.6 运算符优先级"></a>3.6 运算符优先级</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/794.html" title="百度搜的，你去百度也行">一个网页，可以查看详细优先级</a></p>
+<h2 id="运算符优先级">3.6 运算符优先级</h2>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/794.html"
+title="百度搜的，你去百度也行">一个网页，可以查看详细优先级</a></p>
 <table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>运算符（优先级从高到低）</th>
 <th>结核性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td><code>[]</code>、<code>()</code> 方法调用</td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>!</code>、<code>~</code>、<code>++</code>、<code>--</code>、<code>+</code>（一元运算）、<code>-</code>（一元运算）、强制类型转换、new</td>
 <td>从右向左</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>*</code>、<code>/</code>、<code>%</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>+</code>、<code>-</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;&lt;</code>、<code>&gt;&gt;</code>、<code>&gt;&gt;&gt;</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;</code>、<code>&gt;</code>、<code>&lt;=</code>、<code>&gt;=</code>、instanceof</td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>==</code>、<code>!=</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&amp;</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>^</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
-<td>&#96;</td>
-<td>&#96;</td>
+<tr class="even">
+<td><code>|</code></td>
+<td>从左向右</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&amp;&amp;</code></td>
 <td>从左向右</td>
 </tr>
-<tr>
-<td>&#96;</td>
-<td></td>
+<tr class="even">
+<td><code>||</code></td>
+<td>从左向右</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>?:</code>（三元运算符）</td>
 <td>从右向左</td>
 </tr>
-<tr>
-<td><code>=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>&amp;=</code>、<code>%=</code>、<code>^=</code>、&#96;</td>
-<td>&#x3D;<code>、</code>&lt;&lt;&#x3D;<code>、</code>&gt;&gt;&#x3D;<code>、</code>&gt;&gt;&gt;&#x3D;&#96;</td>
+<tr class="even">
+<td><code>=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>&amp;=</code>、<code>%=</code>、<code>^=</code>、<code>|=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code>、<code>&gt;&gt;&gt;=</code></td>
+<td>从右向左</td>
 </tr>
-</tbody></table>
-<ol>
+</tbody>
+</table>
+<ol type="1">
 <li>运算符有不同优先级。优先级高的总是优先于低的。</li>
 <li>只有单目运算符、赋值运算符是从右向左运算的。</li>
 </ol>
-<h2 id="3-7-标识符"><a href="#3-7-标识符" class="headerlink" title="3.7 标识符"></a>3.7 标识符</h2><blockquote>
-<p>Java 对各种变量、方法和类等命名时使用的字符序列称为标识符</p>
-<p>凡是自己可以起名字的地方都叫标识符 <code>double height = 0.0;</code> </p>
-</blockquote>
-<h3 id="3-7-1-命名规则"><a href="#3-7-1-命名规则" class="headerlink" title="3.7.1 命名规则"></a>3.7.1 命名规则</h3><ol>
-<li><p>标识符由 26 个大、小写英文字母，0 - 9 阿拉伯数字，_ 或 $ 符号组成。</p>
-</li>
-<li><p><strong>数字不能开头</strong>。 错误示范：<code>int 3a = 1;</code></p>
-</li>
-<li><p>不能使用关键字和保留字（可以包含）。<a href="www.baidu.com" title="百度一下，你就知道。">具体的关键字和保留字请自行查询</a></p>
-</li>
-<li><p>严格区分大小写，长度无限制。</p>
-</li>
-<li><p>不能包含空格。</p>
-</li>
-<li><p>与多数编程语言不同。Java 可以用任何 Unicode 字符（特殊字符除外）作为标识符。但不推荐这么做</p>
+<h2 id="标识符">3.7 标识符</h2>
 <blockquote>
-<p><font face=等线 color=#00AFFA><strong>来 String 一只猫：</strong></font></p>
+<p>Java 对各种变量、方法和类等命名时使用的字符序列称为标识符</p>
+<p>凡是自己可以起名字的地方都叫标识符
+<code>double height = 0.0;</code></p>
+</blockquote>
+<h3 id="命名规则">3.7.1 命名规则</h3>
+<ol type="1">
+<li><p>标识符由 26 个大、小写英文字母，0 - 9 阿拉伯数字，_ 或 $
+符号组成。</p></li>
+<li><p><strong>数字不能开头</strong>。
+错误示范：<code>int 3a = 1;</code></p></li>
+<li><p>不能使用关键字和保留字（可以包含）。<a href="www.baidu.com"
+title="百度一下，你就知道。">具体的关键字和保留字请自行查询</a></p></li>
+<li><p>严格区分大小写，长度无限制。</p></li>
+<li><p>不能包含空格。</p></li>
+<li><p>与多数编程语言不同。Java 可以用任何 Unicode
+字符（特殊字符除外）作为标识符。但不推荐这么做</p>
+<blockquote>
+<p><font face=等线 color=#00AFFA><strong>来 String
+一只猫：</strong></font></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">String ᓚᘏᗢ = <span class="hljs-string">&quot;✪ ω ✪&quot;</span>;				<span class="hljs-comment">// 喵？</span></code></pre></div></li>
 </ol>
-<h3 id="3-7-2-命名规范"><a href="#3-7-2-命名规范" class="headerlink" title="3.7.2 命名规范"></a>3.7.2 命名规范</h3><ol>
+<h3 id="命名规范">3.7.2 命名规范</h3>
+<ol type="1">
 <li>包名：多单词组成时所有字母都小写：aaa.bbb.ccc</li>
 <li>类名、接口名：多单词组成时，采用大驼峰法，所有单词的首字母大写：XxxYyyZzz</li>
 <li>变量名、方法名：多单词组成时，采小驼峰法（驼峰法），第一个单词首字母小写，第二个开始每个单词首字母大写：xxxYyyZzz</li>
 <li>常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ</li>
-<li>更详细的规则查看 <a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/709470" title="直接百度也行">Java 编码规范</a></li>
+<li>更详细的规则查看 <a
+target="_blank" rel="noopener" href="https://developer.aliyun.com/article/709470"
+title="直接百度也行">Java 编码规范</a></li>
 </ol>
-<h2 id="3-8-输入与输出"><a href="#3-8-输入与输出" class="headerlink" title="3.8 输入与输出"></a>3.8 输入与输出</h2><blockquote>
+<h2 id="输入与输出">3.8 输入与输出</h2>
+<blockquote>
 <p>为满足读取用户输入、输出的需求，Java 提供了几个基本类</p>
 </blockquote>
-<h3 id="3-8-1-Scanner-类"><a href="#3-8-1-Scanner-类" class="headerlink" title="3.8.1 Scanner 类"></a>3.8.1 Scanner 类</h3><blockquote>
+<h3 id="scanner-类">3.8.1 Scanner 类</h3>
+<blockquote>
 <p>在编程中，需要接收用户输入的数据，就可以使用键盘输入语句来获取。</p>
 <p><code>Input.java</code> ，需要一个 扫描器（对象），就是 Scanner</p>
 <p>Scanner 属于 java.util 包。其包含许多方法</p>
@@ -533,9 +568,8 @@ System.out.print(obj)</code></pre></div>
     + aNumber + <span class="hljs-string">&quot;\&quot;&quot;</span>);
     &#125;
 &#125;</code></pre></div>
-
 <blockquote>
-<ol>
+<ol type="1">
 <li>导入该类所在的包</li>
 <li>创建该类对象（声明变量）</li>
 <li>调用里面的功能，接收用户输入</li>
@@ -543,153 +577,158 @@ System.out.print(obj)</code></pre></div>
 </blockquote>
 <p>构造方法：</p>
 <ul>
-<li><p><code>new Scanner(System.in)</code>：该方法接收一个参数（输入源）。其中 <code>System.in</code> 代表标准输入流。默认情况指键盘。</p>
-<p><em><strong>—— 见 <a href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/#17-2-3-4-%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5-x2F-%E8%BE%93%E5%87%BA%E6%B5%81">[17.2.3.4 标准输入 &#x2F; 输出流]</a></strong></em></p>
-</li>
+<li><p><code>new Scanner(System.in)</code>：该方法接收一个参数（输入源）。其中
+<code>System.in</code> 代表标准输入流。默认情况指键盘。</p>
+<p><strong><em>—— 见 <a
+href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/#17-2-3-4-%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5-x2F-%E8%BE%93%E5%87%BA%E6%B5%81">[17.2.3.4
+标准输入 / 输出流]</a></em></strong></p></li>
 </ul>
 <p>常用方法：</p>
 <ul>
 <li><p><code>String next()</code>：读取下一个输入对象</p>
-<p>Scanner 对象用空白（空格、水平制表符或回车换行符）作为输入的分隔元素</p>
-</li>
+<p>Scanner
+对象用空白（空格、水平制表符或回车换行符）作为输入的分隔元素</p></li>
 <li><p><code>Double nextDouble()</code>：读取下一个 double</p>
-<p><code>Int nextInt()</code>：读取下一个 int</p>
-</li>
-<li><p><code>String nextLine()</code>：读入当前行的所有输入，直到行尾</p>
-</li>
+<p><code>Int nextInt()</code>：读取下一个 int</p></li>
+<li><p><code>String nextLine()</code>：读入当前行的所有输入，直到行尾</p></li>
 <li><p><code>boolean hasNext()</code>：输入中是否还有其他单词</p>
-<p><code>boolean hasNextInt()</code>、<code>boolean hasNextDouble()</code></p>
-</li>
+<p><code>boolean hasNextInt()</code>、<code>boolean hasNextDouble()</code></p></li>
 </ul>
-<h3 id="3-8-2-格式化输出"><a href="#3-8-2-格式化输出" class="headerlink" title="3.8.2 格式化输出"></a>3.8.2 格式化输出</h3><blockquote>
+<h3 id="格式化输出">3.8.2 格式化输出</h3>
+<blockquote>
 <p>System.out 标准输出流。调用该流方法以输出内容至控制台窗口</p>
 </blockquote>
 <ul>
 <li><p><code>println(String s)</code>：输出字符，结束后换行</p>
 <p><code>print(String s)</code>：输出字符，结束后不换行</p>
-<p><code>println(int n)</code>、<code>println(char c)</code>、<code>println(Object obj)</code>……</p>
-</li>
+<p><code>println(int n)</code>、<code>println(char c)</code>、<code>println(Object obj)</code>……</p></li>
 <li><p><code>printf(String format, Object ... args)</code>：格式化输出</p>
 <div class="code-wrapper"><pre><code class="hljs JAVA">System.out.printf(<span class="hljs-string">&quot;%s，你来啦，给你 %d 拳&quot;</span>, <span class="hljs-string">&quot;柏枝凪斗&quot;</span>, <span class="hljs-number">1</span>);	<span class="hljs-comment">// &lt;———— 给了柏枝凪斗一拳</span></code></pre></div>
-
-<p>以 % 开头的 <em>格式说明符</em> 都用相应参数替换。格式说明符尾部的转换符表示要格式化的数值类型</p>
+<p>以 % 开头的 <em>格式说明符</em>
+都用相应参数替换。格式说明符尾部的转换符表示要格式化的数值类型</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>转换符</th>
 <th>类型</th>
-<th align="center"></th>
+<th style="text-align: center;"></th>
 <th>转换符</th>
 <th>类型</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>d</td>
 <td>十进制整数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>s</td>
 <td>字符串</td>
 </tr>
-<tr>
+<tr class="even">
 <td>x</td>
 <td>十六进制整数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>c</td>
 <td>字符</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>o</td>
 <td>八进制整数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>b</td>
 <td>布尔值</td>
 </tr>
-<tr>
+<tr class="even">
 <td>f</td>
 <td>定点浮点数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>h</td>
 <td>散列码</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>e</td>
 <td>指数浮点数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>tx 或 Tx</td>
 <td>日期时间（T强制大写）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>g</td>
 <td>通用浮点数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>%</td>
 <td>百分号</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>a</td>
 <td>十六进制浮点数</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>n</td>
 <td>行分隔符</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>也能指定控制格式化输出外观的各种标志</p>
 <div class="code-wrapper"><pre><code class="hljs java">System.out.printf(<span class="hljs-string">&quot;% (4.12f&quot;</span>, Math.PI);	<span class="hljs-comment">// &lt;————— 保留 12 位，正数添加空格，负数添加括号</span></code></pre></div>
-
 <table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>标志</th>
 <th>目的</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>+</td>
 <td>打印正数和负数的符号</td>
 </tr>
-<tr>
+<tr class="even">
 <td>（空格）</td>
 <td>在正数前添加空格</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>数字前面补 0</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-</td>
 <td>左对齐</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>(</td>
 <td>负号被括号环绕</td>
 </tr>
-<tr>
+<tr class="even">
 <td>,</td>
 <td>添加分组分隔符</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>#（对于 f 格式）</td>
 <td>包含小数点</td>
 </tr>
-<tr>
+<tr class="even">
 <td>#（对于 x 或 0 格式）</td>
 <td>添加前缀 0x 或 0</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>$</td>
 <td>指定要格式化的参数索引：%1$d 以十进制打印第 1 个参数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>&lt;</td>
-<td>格式化前面说明的数值：%d%&lt;x 十进制打印后，再以十六进制打印一遍</td>
+<td>格式化前面说明的数值：%d%&lt;x
+十进制打印后，再以十六进制打印一遍</td>
 </tr>
-</tbody></table>
-</li>
+</tbody>
+</table></li>
 </ul>
-<h3 id="3-8-3-NumberFormat-类"><a href="#3-8-3-NumberFormat-类" class="headerlink" title="3.8.3 NumberFormat 类"></a>3.8.3 NumberFormat 类</h3><blockquote>
+<h3 id="numberformat-类">3.8.3 NumberFormat 类</h3>
+<blockquote>
 <p>Java 提供的格式化输出功能，能使打印或显示是信息更美观</p>
 <p>NumberFormat 类属于 Java 标准类库，在 java.text 包中</p>
-<p>NumberFormat 类不能直接创建对象。利用类中的静态方法获取一个对象实例</p>
+<p>NumberFormat
+类不能直接创建对象。利用类中的静态方法获取一个对象实例</p>
 </blockquote>
 <p>获取实例：</p>
 <ul>
@@ -700,16 +739,18 @@ System.out.print(obj)</code></pre></div>
 </ul>
 <p>常用方法：</p>
 <ul>
-<li><p><code>format(num)</code>：获取 num 的格式化语句</p>
-</li>
-<li><p><code>setMaximunFactionDigits(n)</code>：将该格式的小数部分允许的最大位数设置为 n</p>
-<p><code>setMinimunFactionDigits(n)</code>：将该格式的小数部分允许的最小位数设置为 n</p>
-</li>
-<li><p><code>setMaximunIntegerDigits(n)</code>：将该格式的整数部分允许的最大位数设置为 n</p>
-<p><code>setMinimunIntegerDigits(n)</code>：将该格式的整数部分允许的最小位数设置为 n</p>
-</li>
+<li><p><code>format(num)</code>：获取 num 的格式化语句</p></li>
+<li><p><code>setMaximunFactionDigits(n)</code>：将该格式的小数部分允许的最大位数设置为
+n</p>
+<p><code>setMinimunFactionDigits(n)</code>：将该格式的小数部分允许的最小位数设置为
+n</p></li>
+<li><p><code>setMaximunIntegerDigits(n)</code>：将该格式的整数部分允许的最大位数设置为
+n</p>
+<p><code>setMinimunIntegerDigits(n)</code>：将该格式的整数部分允许的最小位数设置为
+n</p></li>
 </ul>
-<h3 id="3-8-4-DecimalFormat-类"><a href="#3-8-4-DecimalFormat-类" class="headerlink" title="3.8.4 DecimalFormat 类"></a>3.8.4 DecimalFormat 类</h3><blockquote>
+<h3 id="decimalformat-类">3.8.4 DecimalFormat 类</h3>
+<blockquote>
 <p>与 NumberFormat 类不同，DecimalFormat 类可以直接实例化对象。</p>
 </blockquote>
 <p>实例化：</p>
@@ -723,35 +764,44 @@ System.out.print(obj)</code></pre></div>
 <li><code>format(num)</code>：获取 num 的格式化语句</li>
 <li><code>applyPattern(pattern)</code>：变更要使用的格式</li>
 </ul>
-<h2 id="3-9-进制"><a href="#3-9-进制" class="headerlink" title="3.9 进制"></a>3.9 进制</h2><ul>
-<li>二进制：数字有 0 - 1，满 2 进 1，以 <code>0b</code> 或 <code>0B</code> 开头</li>
+<h2 id="进制">3.9 进制</h2>
+<ul>
+<li>二进制：数字有 0 - 1，满 2 进 1，以 <code>0b</code> 或
+<code>0B</code> 开头</li>
 <li>十进制</li>
 <li>八进制：0 - 7，满 8 进 1，以 <code>0</code> 开头表示</li>
-<li>十六进制：0 - 9 及 A - F，满 16 进 1，以<code>0x</code> 或 <code>0X</code> 开头。此处的 A - F 不分大小写。</li>
+<li>十六进制：0 - 9 及 A - F，满 16 进 1，以<code>0x</code> 或
+<code>0X</code> 开头。此处的 A - F 不分大小写。</li>
 </ul>
-<h3 id="3-9-1-进制的转换"><a href="#3-9-1-进制的转换" class="headerlink" title="3.9.1 进制的转换"></a>3.9.1 进制的转换</h3><ul>
+<h3 id="进制的转换">3.9.1 进制的转换</h3>
+<ul>
 <li>其他进制 转 十进制：略</li>
-<li>十进制 转 其他进制：将该数不断除以对象进制数，直到商为0为止，将每步得到的余数倒过来。</li>
-<li>二进制 与 八进制 或 十六进制 互相转换：二进制 从低位开始，每 3 位一组，转成对应的 八进制 即可。反之同理。十六进制亦同理（每 4 位一组）。</li>
+<li>十进制 转
+其他进制：将该数不断除以对象进制数，直到商为0为止，将每步得到的余数倒过来。</li>
+<li>二进制 与 八进制 或 十六进制 互相转换：二进制 从低位开始，每 3
+位一组，转成对应的 八进制 即可。反之同理。十六进制亦同理（每 4
+位一组）。</li>
 </ul>
-<h3 id="3-9-2-原码、反码、补码"><a href="#3-9-2-原码、反码、补码" class="headerlink" title="3.9.2 原码、反码、补码"></a>3.9.2 原码、反码、补码</h3><p>对于有符号数而言：</p>
-<ol>
+<h3 id="原码反码补码">3.9.2 原码、反码、补码</h3>
+<p>对于有符号数而言：</p>
+<ol type="1">
 <li>二进制的最高位是符号位：0表示正数，1表示负数。</li>
 <li>正数的原码、反码、补码都一样。</li>
-<li>负数的反码 &#x3D; 原码符号位不变，其他位取反（0 变 1，1 变 0）</li>
-<li><strong>负数的补码 &#x3D; 反码 + 1。也就是说，负数的反码 &#x3D; 补码 - 1。</strong></li>
+<li>负数的反码 = 原码符号位不变，其他位取反（0 变 1，1 变 0）</li>
+<li><strong>负数的补码 = 反码 + 1。也就是说，负数的反码 = 补码 -
+1。</strong></li>
 <li>0 的反码、补码都是 0。</li>
 <li>Java 没有无符号数。换言之，Java 的数都是有符号的。</li>
 <li><strong>计算机运算时，都是以补码的方式来运算的。</strong></li>
 <li><strong>当我们看运算结果时，要看其原码。</strong></li>
 </ol>
-<h2 id="3-10-位运算符"><a href="#3-10-位运算符" class="headerlink" title="3.10 位运算符"></a>3.10 位运算符</h2><ul>
-<li><p><code>&amp;</code> 按位与：两位都为 1，结果为 1，否则为 0</p>
-</li>
-<li><p><code>|</code> 按位或：两位有一个为 1，结果为 1，否则为 0</p>
-</li>
-<li><p><code>^</code> 按位异或：两位不同，结果为 1，否则为 0</p>
-</li>
+<h2 id="位运算符">3.10 位运算符</h2>
+<ul>
+<li><p><code>&amp;</code> 按位与：两位都为 1，结果为 1，否则为
+0</p></li>
+<li><p><code>|</code> 按位或：两位有一个为 1，结果为 1，否则为
+0</p></li>
+<li><p><code>^</code> 按位异或：两位不同，结果为 1，否则为 0</p></li>
 <li><p><code>~</code> 按位取反：把 0 变 1，1 变 0</p>
 <p>以下是几个示例：</p>
 <ul>
@@ -760,12 +810,11 @@ System.out.print(obj)</code></pre></div>
 <p>2 的原码：00000000 00000000 00000000 00000010</p>
 <p>2 的补码：00000000 00000000 00000000 00000010</p>
 <p>3 的原码：00000000 00000000 00000000 00000011</p>
-<p>3 的补码：00000000 00000000 00000000 00000011 </p>
+<p>3 的补码：00000000 00000000 00000000 00000011</p>
 <p>补码运算结果：00000000 00000000 00000000 00000010</p>
 <p>结果转成原码：00000000 00000000 00000000 00000010</p>
 <p>运算结果：2</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p><code>~-2</code>：</p>
 <blockquote>
 <p>得到 -2 的原码：10000000 00000000 00000000 00000010</p>
@@ -774,8 +823,7 @@ System.out.print(obj)</code></pre></div>
 <p>补码运算结果：00000000 00000000 00000000 00000001</p>
 <p>结果转成原码：00000000 00000000 00000000 00000001</p>
 <p>运算结果：1</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p><code>~2</code>：</p>
 <blockquote>
 <p>2 的原码：00000000 00000000 00000000 00000010</p>
@@ -784,15 +832,13 @@ System.out.print(obj)</code></pre></div>
 <p>结果转成反码：11111111 11111111 11111111 11111100</p>
 <p>反码转成原码：10000000 00000000 00000000 00000011</p>
 <p>运算结果：-3</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p><code>&gt;&gt;</code> 算术右移：低位溢出，符号位不变，用符号位补溢出的高位</p>
-</li>
-<li><p><code>&lt;&lt;</code> 算数左移：符号位不变，低位补 0</p>
-</li>
-<li><p><code>&gt;&gt;&gt;</code> 逻辑右移（无符号右移）：低位溢出，高位补 0</p>
+</blockquote></li>
+</ul></li>
+<li><p><code>&gt;&gt;</code>
+算术右移：低位溢出，符号位不变，用符号位补溢出的高位</p></li>
+<li><p><code>&lt;&lt;</code> 算数左移：符号位不变，低位补 0</p></li>
+<li><p><code>&gt;&gt;&gt;</code>
+逻辑右移（无符号右移）：低位溢出，高位补 0</p>
 <p>下面是示例：</p>
 <ul>
 <li><p>将数字 1 算术右移 2 位：<code>int a = 1 &gt;&gt; 2</code></p>
@@ -800,34 +846,41 @@ System.out.print(obj)</code></pre></div>
 <p>1 的补码：00000000 00000000 00000000 00000001</p>
 <p>补码结果：00000000 00000000 00000000 00000000</p>
 <p>结果：00000000 00000000 00000000 00000000</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>将数字 1 算术左移 2 位：<code>int b = 1 &lt;&lt; 2</code></p>
 <blockquote>
 <p>1 的补码：00000000 00000000 00000000 00000001</p>
 <p>补码结果：00000000 00000000 00000000 00000100</p>
 <p>结果：00000000 00000000 00000000 00000100</p>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
-<p>也就是说，<code>1 &lt;&lt; 2</code> 本质是 <code>1 * 2 * 2 = 4</code></p>
-<p>而 <code>1 &gt;&gt; 2</code> 本质是 <code>1 / 2 / 2 = 0</code></p>
-</li>
+<p>也就是说，<code>1 &lt;&lt; 2</code> 本质是
+<code>1 * 2 * 2 = 4</code></p>
+<p>而 <code>1 &gt;&gt; 2</code> 本质是
+<code>1 / 2 / 2 = 0</code></p></li>
 </ul>
 <p><strong>使用细节：</strong></p>
-<ol>
-<li><p>位运算符只对整型、字符类型有效</p>
-</li>
-<li><p>移位运算中，左侧操作 int 的场合，右侧操作数以 32 取模；long 的场合，右侧操作数以 64 取模。</p>
+<ol type="1">
+<li><p>位运算符只对整型、字符类型有效</p></li>
+<li><p>移位运算中，左侧操作 int 的场合，右侧操作数以 32 取模；long
+的场合，右侧操作数以 64 取模。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
 n &gt;&gt;= <span class="hljs-number">32</span>;			<span class="hljs-comment">//这个场合，n 不改变。这样能保证左侧数字不被全部移走</span></code></pre></div></li>
 </ol>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="Java-API-文档"><a href="#Java-API-文档" class="headerlink" title="Java API 文档"></a>Java API 文档</h3><blockquote>
-<p>API：Application Programming Iterface（应用程序编程接口），是 Java 提供的基本编程接口（Java 提供的一些类和方法）。</p>
-<p>Java 语言提供了大量基础类，为了告诉开发者如何使用这些类，及类里包含的方法，就有了API文档。<a href="www.matools.com" title="中文在线文档">具体有哪些请查找</a>；<a target="_blank" rel="noopener" href="https://www.matools.com/api/java8" title="Java 8 API 文档">特别地，Java 8 请查找</a></p>
+<h2 id="附录">附录</h2>
+<h3 id="java-api-文档">Java API 文档</h3>
+<blockquote>
+<p>API：Application Programming Iterface（应用程序编程接口），是 Java
+提供的基本编程接口（Java 提供的一些类和方法）。</p>
+<p>Java
+语言提供了大量基础类，为了告诉开发者如何使用这些类，及类里包含的方法，就有了API文档。<a
+href="www.matools.com" title="中文在线文档">具体有哪些请查找</a>；<a
+target="_blank" rel="noopener" href="https://www.matools.com/api/java8"
+title="Java 8 API 文档">特别地，Java 8 请查找</a></p>
 </blockquote>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
-<li>包 —— 类 &#x2F; 接口 —— 方法</li>
+<h4 id="使用方法">使用方法</h4>
+<ul>
+<li>包 —— 类 / 接口 —— 方法</li>
 <li>直接检索</li>
 </ul>
 

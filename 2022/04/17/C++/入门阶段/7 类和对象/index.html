@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="7 类和对象 面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。 对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。 通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。 C++ 面向对象的三大特性：封装、继承、多态  7">
+    <meta name="description" content="7 类和对象  面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。 对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。 通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。 C++ 面向对象的三大特性：封装、继">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;7 类和对象">
 <meta property="og:url" content="https://i-melody.github.io/2022/04/17/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="7 类和对象 面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。 对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。 通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。 C++ 面向对象的三大特性：封装、继承、多态  7">
+<meta property="og:description" content="7 类和对象  面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。 对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。 通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。 C++ 面向对象的三大特性：封装、继">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-19T13:53:19.170Z">
@@ -293,13 +293,16 @@
             
             <div class="markdown-body">
               
-              <h1 id="7-类和对象"><a href="#7-类和对象" class="headerlink" title="7 类和对象"></a>7 类和对象</h1><blockquote>
-<p>面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。</p>
+              <h1 id="类和对象">7 类和对象</h1>
+<blockquote>
+<p>面向对象程序设计方法是 20 世纪 90
+年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。</p>
 <p>对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。</p>
 <p>通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。</p>
 <p>C++ 面向对象的三大特性：封装、继承、多态</p>
 </blockquote>
-<h2 id="7-1-封装"><a href="#7-1-封装" class="headerlink" title="7.1 封装"></a>7.1 封装</h2><blockquote>
+<h2 id="封装">7.1 封装</h2>
+<blockquote>
 <p>封装是面向对象三大特征之一</p>
 </blockquote>
 <p><strong>封装的意义：</strong></p>
@@ -315,19 +318,15 @@
 		cout &lt;&lt; (b ? <span class="hljs-string">&quot;Just! Do it! Make your dream come true!&quot;</span> : <span class="hljs-string">&quot;这里头水很深，你把握不住！&quot;</span>) &lt;&lt; endl;
 	&#125;
 &#125;;</code></pre></div>
-
 <p><strong>三种访问权限：</strong></p>
 <ul>
 <li><p>public：公共权限</p>
-<p>随意访问</p>
-</li>
+<p>随意访问</p></li>
 <li><p>private：私有权限</p>
 <p>仅自身类内可以访问。<del>爸爸的快乐你想象不到</del></p>
-<p>不进行说明时，成员默认为私有</p>
-</li>
+<p>不进行说明时，成员默认为私有</p></li>
 <li><p>protected：保护权限</p>
-<p>仅自身及子类内可以访问。<del>爸爸的快乐我想象到了</del></p>
-</li>
+<p>仅自身及子类内可以访问。<del>爸爸的快乐我想象到了</del></p></li>
 </ul>
 <p><strong>struct 和 class 的区别：</strong></p>
 <ul>
@@ -353,8 +352,7 @@
 	<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</span> x, <span class="hljs-type">double</span> y);
 	<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">getX</span><span class="hljs-params">()</span></span>;
 	<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">getY</span><span class="hljs-params">()</span></span>;
-&#125;;</code></pre></div>
-</li>
+&#125;;</code></pre></div></li>
 <li><p><strong>源文件（point.cpp）：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
@@ -372,7 +370,8 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 	<span class="hljs-keyword">return</span> y;
 &#125;</code></pre></div></li>
 </ul>
-<h2 id="7-2-对象的初始化和清理"><a href="#7-2-对象的初始化和清理" class="headerlink" title="7.2 对象的初始化和清理"></a>7.2 对象的初始化和清理</h2><blockquote>
+<h2 id="对象的初始化和清理">7.2 对象的初始化和清理</h2>
+<blockquote>
 <p>初始化就是指进行初始化，而清理就是说要清理。</p>
 <p>怎么样，明白了吧</p>
 </blockquote>
@@ -382,17 +381,20 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <li>对于局部变量，系统不会进行默认初始化。不初始化就调用时，是一个随机值</li>
 </ul>
 <p>对象也要先进行初始化才能使用。因为对象的结构和行为更加复杂，需要使用构造函数完成对其初始化。</p>
-<h3 id="7-2-1-构造函数和析构函数"><a href="#7-2-1-构造函数和析构函数" class="headerlink" title="7.2.1 构造函数和析构函数"></a>7.2.1 构造函数和析构函数</h3><blockquote>
+<h3 id="构造函数和析构函数">7.2.1 构造函数和析构函数</h3>
+<blockquote>
 <p>如果一个对象没有初始状态，对其使用的后果是未知</p>
 <p>使用完的对象没有及时清理，会造成一定的安全问题</p>
 </blockquote>
-<p>C++ 中使用 <strong>构造函数</strong> 和 <strong>析构函数</strong> 解决上述问题。这两个函数会被编译器自动调用，完成初始化和清理工作。</p>
+<p>C++ 中使用 <strong>构造函数</strong> 和 <strong>析构函数</strong>
+解决上述问题。这两个函数会被编译器自动调用，完成初始化和清理工作。</p>
 <p>如果我们不提供构造和析构，编译器有默认方法。默认方法是空实现。</p>
 <ul>
 <li>构造函数：在创建对象时被系统自动调用。为对象的成员属性赋值</li>
 <li>析构函数：于对象销毁前被系统自动调用。执行一些清理工作</li>
 </ul>
-<h4 id="7-2-1-1-构造函数"><a href="#7-2-1-1-构造函数" class="headerlink" title="7.2.1.1 构造函数"></a>7.2.1.1 构造函数</h4><blockquote>
+<h4 id="构造函数">7.2.1.1 构造函数</h4>
+<blockquote>
 <p>在创建对象时被系统自动调用。为对象的成员属性赋值</p>
 </blockquote>
 <p>语法：<code>类名(参数) &#123;构造函数体&#125;</code></p>
@@ -408,17 +410,18 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     
     <span class="hljs-built_in">Test</span>(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b): <span class="hljs-built_in">n</span>(a - <span class="hljs-number">1</span>), <span class="hljs-built_in">j</span>(b) &#123;&#125;		<span class="hljs-comment">// 初始化列表语法</span>
 &#125;;</code></pre></div>
-
 <blockquote>
-<ol>
+<ol type="1">
 <li>构造函数没有返回值，也不写 void</li>
 <li>构造函数名称和类名相同</li>
 <li>构造函数有参数，可以重载</li>
 <li>程序调用对象时会自动调用构造，且仅会调用一次，无需手动调用</li>
-<li>特别地，只有唯一参数的构造函数也被称为 <strong>类型转换构造函数</strong></li>
+<li>特别地，只有唯一参数的构造函数也被称为
+<strong>类型转换构造函数</strong></li>
 </ol>
 </blockquote>
-<h4 id="7-2-1-2-析构函数"><a href="#7-2-1-2-析构函数" class="headerlink" title="7.2.1.2 析构函数"></a>7.2.1.2 析构函数</h4><blockquote>
+<h4 id="析构函数">7.2.1.2 析构函数</h4>
+<blockquote>
 <p>于对象销毁前被系统自动调用。执行一些清理工作</p>
 </blockquote>
 <p>语法：<code>~类名() &#123;析构函数体&#125;</code></p>
@@ -429,16 +432,16 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
         cout &lt;&lt; <span class="hljs-string">&quot;n = &quot;</span> &lt;&lt; n &lt;&lt; endl;
     &#125;
 &#125;;</code></pre></div>
-
 <blockquote>
-<ol>
+<ol type="1">
 <li>析构函数没有返回值，也不写 void</li>
 <li>析构函数名称和类名相同，名称前加上 <code>~</code></li>
 <li>析构函数不能有参数</li>
 <li>程序销毁对象时会自动调用析构，且仅会调用一次，无需手动调用</li>
 </ol>
 </blockquote>
-<h3 id="7-2-2-构造函数的分类及调用"><a href="#7-2-2-构造函数的分类及调用" class="headerlink" title="7.2.2 构造函数的分类及调用"></a>7.2.2 构造函数的分类及调用</h3><p>分类方式：</p>
+<h3 id="构造函数的分类及调用">7.2.2 构造函数的分类及调用</h3>
+<p>分类方式：</p>
 <ul>
 <li>按参数分类：有参构造、无参构造（默认构造）</li>
 <li>按类型分类：普通构造、拷贝构造</li>
@@ -483,57 +486,52 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     Example e6 = e2;
     Example e7 = &#123; <span class="hljs-number">25</span>, <span class="hljs-number">1</span> &#125;;			<span class="hljs-comment">//两个参数这样写</span>
 &#125;</code></pre></div>
-
 <p><strong>注意事项：</strong></p>
-<ol>
+<ol type="1">
 <li><p>使用括号法调用无参构造时，不要加括号</p>
 <p>加了括号的场合，编译器会将其视为一个函数的声明，而不是构造对象</p>
 <p><code>Example wrong();</code> 被认为是：</p>
 <ul>
-<li>方法名 <code>wrong</code> </li>
-<li>返回值 <code>Example</code> </li>
+<li>方法名 <code>wrong</code></li>
+<li>返回值 <code>Example</code></li>
 <li>参数列表 <code>()</code></li>
-</ul>
-</li>
+</ul></li>
 <li><p>不要用拷贝构造函数初始化匿名对象</p>
 <p>若如此做，编译器会将其视为该对象的声明，而不是拷贝构造</p>
 <p><code>Example(e1);</code> 被认为是：</p>
 <ul>
 <li><code>Example e1;</code></li>
 </ul>
-<p>这与之前的声明重复，因此可能报错为重定义</p>
-</li>
+<p>这与之前的声明重复，因此可能报错为重定义</p></li>
 </ol>
-<h3 id="7-2-3-拷贝构造函数的调用时机"><a href="#7-2-3-拷贝构造函数的调用时机" class="headerlink" title="7.2.3 拷贝构造函数的调用时机"></a>7.2.3 拷贝构造函数的调用时机</h3><ol>
+<h3 id="拷贝构造函数的调用时机">7.2.3 拷贝构造函数的调用时机</h3>
+<ol type="1">
 <li><p>使用一个已创建的对象来初始化新对象</p>
 <div class="code-wrapper"><pre><code class="hljs c++">Example e1;					<span class="hljs-comment">//默认构造</span>
-<span class="hljs-function">Example <span class="hljs-title">e2</span><span class="hljs-params">(e1)</span></span>;				<span class="hljs-comment">//拷贝构造</span></code></pre></div>
-</li>
+<span class="hljs-function">Example <span class="hljs-title">e2</span><span class="hljs-params">(e1)</span></span>;				<span class="hljs-comment">//拷贝构造</span></code></pre></div></li>
 <li><p>值传递的方式给函数参数传值</p>
 <p>传入参数实际上是拷贝构造的匿名对象</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met</span><span class="hljs-params">(Example e)</span> </span>&#123;		<span class="hljs-comment">//值传递</span>
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>值方式返回局部对象</p>
 <p>返回值实际上是拷贝构造的匿名对象</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">Example <span class="hljs-title">met2</span><span class="hljs-params">()</span> </span>&#123;			<span class="hljs-comment">//返回局部对象</span>
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">Example</span>();		<span class="hljs-comment">//这里其实是 显式法</span>
 &#125;</code></pre></div></li>
 </ol>
-<h3 id="7-2-4-构造函数的调用规则"><a href="#7-2-4-构造函数的调用规则" class="headerlink" title="7.2.4 构造函数的调用规则"></a>7.2.4 构造函数的调用规则</h3><p>C++ 编译器会为一个类添加 3 个默认函数</p>
+<h3 id="构造函数的调用规则">7.2.4 构造函数的调用规则</h3>
+<p>C++ 编译器会为一个类添加 3 个默认函数</p>
 <ul>
 <li><p>默认构造函数（无参，函数体为空）</p>
 <p>用户定义了任何构造函数的场合，编译器不再提供默认构造函数</p>
-<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">Example</span>() &#123;&#125;				<span class="hljs-comment">//这就是默认构造函数</span></code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">Example</span>() &#123;&#125;				<span class="hljs-comment">//这就是默认构造函数</span></code></pre></div></li>
 <li><p>默认析构函数（无参，函数体为空）</p>
-<div class="code-wrapper"><pre><code class="hljs c++">~<span class="hljs-built_in">Example</span>() &#123;&#125;				<span class="hljs-comment">//这就是默认析构函数</span></code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++">~<span class="hljs-built_in">Example</span>() &#123;&#125;				<span class="hljs-comment">//这就是默认析构函数</span></code></pre></div></li>
 <li><p>默认拷贝构造函数，进行值拷贝</p>
-<p>用户定义了拷贝构造函数的场合，编译器不再提供默认拷贝构造函数</p>
-</li>
+<p>用户定义了拷贝构造函数的场合，编译器不再提供默认拷贝构造函数</p></li>
 </ul>
-<h3 id="7-2-5-深拷贝与浅拷贝"><a href="#7-2-5-深拷贝与浅拷贝" class="headerlink" title="7.2.5 深拷贝与浅拷贝"></a>7.2.5 深拷贝与浅拷贝</h3><ul>
+<h3 id="深拷贝与浅拷贝">7.2.5 深拷贝与浅拷贝</h3>
+<ul>
 <li><p>浅拷贝：简单的赋值拷贝工作。</p>
 <p>浅拷贝可能导致堆区内存的重复释放</p>
 <p>浅拷贝示例：</p>
@@ -560,12 +558,10 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     <span class="hljs-function">E <span class="hljs-title">e1</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;
     <span class="hljs-function">E <span class="hljs-title">e2</span><span class="hljs-params">(e1)</span></span>;						<span class="hljs-comment">//浅拷贝。会导致问题</span>
 &#125;</code></pre></div>
-
 <blockquote>
 <p>由于是浅拷贝，此时，e1.n 储存的地址和 e2.n 相同</p>
 <p>因此，第二次执行析构函数时，已经释放的空间不能被二次释放，就会出错。</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>深拷贝：在堆区重新申请空间，进行拷贝工作</p>
 <p>深拷贝修改后的代码：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">E</span>&#123;
@@ -592,8 +588,10 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     <span class="hljs-function">E <span class="hljs-title">e2</span><span class="hljs-params">(e1)</span></span>;						<span class="hljs-comment">//此时就不会有问题了</span>
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="7-2-6-类对象作为类成员"><a href="#7-2-6-类对象作为类成员" class="headerlink" title="7.2.6 类对象作为类成员"></a>7.2.6 类对象作为类成员</h3><blockquote>
-<p>C++ 类中的成员可以是另一个类的对象。我们称之为成员对象。包含成员对象的类叫封闭类</p>
+<h3 id="类对象作为类成员">7.2.6 类对象作为类成员</h3>
+<blockquote>
+<p>C++
+类中的成员可以是另一个类的对象。我们称之为成员对象。包含成员对象的类叫封闭类</p>
 <p>生成封闭类对象的语句应说明那些成员对象是如何初始化的。否则，编译器会使用默认构造函数（或能省略参数的构造函数）进行初始化。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>&#123;
@@ -613,54 +611,68 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
     B cb = <span class="hljs-built_in">B</span>(<span class="hljs-number">15</span>, <span class="hljs-number">6</span>);
 &#125;</code></pre></div>
-
 <p>这个场合的构造函数、析构函数调用顺序是：</p>
-<ol>
+<ol type="1">
 <li>类成员构造函数被调用</li>
 <li>类构造函数被调用</li>
 <li>类析构函数被调用</li>
 <li>类成员析构函数被调用</li>
 </ol>
-<h3 id="7-2-7-静态成员"><a href="#7-2-7-静态成员" class="headerlink" title="7.2.7 静态成员"></a>7.2.7 静态成员</h3><h4 id="静态变量："><a href="#静态变量：" class="headerlink" title="静态变量："></a>静态变量：</h4><p>全局变量是指在大括号外声明的变量，其作用域范围是全局可见。</p>
-<p>使用 static 修饰的全局变量称为静态全局变量。其作用域限于定义该变量的源文件中</p>
-<p>使用 static 修饰的局部变量是静态局部变量。其具有局部作用域，却有全局生存期。就是说，静态局部变量在整个运行期间存在，其占用空间直到程序结束才释放，但只能在其定义块内访问。</p>
+<h3 id="静态成员">7.2.7 静态成员</h3>
+<h4 id="静态变量">静态变量：</h4>
+<p>全局变量是指在大括号外声明的变量，其作用域范围是全局可见。</p>
+<p>使用 static
+修饰的全局变量称为静态全局变量。其作用域限于定义该变量的源文件中</p>
+<p>使用 static
+修饰的局部变量是静态局部变量。其具有局部作用域，却有全局生存期。就是说，静态局部变量在整个运行期间存在，其占用空间直到程序结束才释放，但只能在其定义块内访问。</p>
 <p>静态局部变量只进行一次初始化。如果显式给出初始值，则其初始化发生在该静态变量所在的块第一次执行时。</p>
-<h4 id="类的静态成员："><a href="#类的静态成员：" class="headerlink" title="类的静态成员："></a>类的静态成员：</h4><p>在类体内定义类成员时，在前方添加 static 关键字，即使其成为静态成员。</p>
+<h4 id="类的静态成员">类的静态成员：</h4>
+<p>在类体内定义类成员时，在前方添加 static
+关键字，即使其成为静态成员。</p>
 <p>类的静态成员被类的所有对象共享。</p>
-<p>在类体外为静态成员赋初始值时，那个赋值时前面不能加 static，以免和静态全局变量混淆</p>
+<p>在类体外为静态成员赋初始值时，那个赋值时前面不能加
+static，以免和静态全局变量混淆</p>
 <p>静态成员分为：</p>
 <ul>
-<li>静态成员变量<ul>
+<li>静态成员变量
+<ul>
 <li>所有对象共享一份数据</li>
 <li>在编译阶段分配内存（在全局区）</li>
 <li>类内声明，类外初始化。</li>
-</ul>
-</li>
-<li>静态成员函数<ul>
+</ul></li>
+<li>静态成员函数
+<ul>
 <li>所有对象共享一个函数</li>
 <li>静态成员函数只能访问静态成员变量</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>访问静态成员：</p>
 <ul>
 <li>通过类对象：<code>类对象.静态成员</code></li>
 <li>通过类名：<code>类名::静态成员</code></li>
 </ul>
-<h2 id="7-3-C-对象模型和-this-指针"><a href="#7-3-C-对象模型和-this-指针" class="headerlink" title="7.3 C++ 对象模型和 this 指针"></a>7.3 C++ 对象模型和 this 指针</h2><blockquote>
-<p>C++ 中，类内的成员变量和成员函数分开存储。只有非静态成员变量才属于类的对象</p>
+<h2 id="c-对象模型和-this-指针">7.3 C++ 对象模型和 this 指针</h2>
+<blockquote>
+<p>C++
+中，类内的成员变量和成员函数分开存储。只有非静态成员变量才属于类的对象</p>
 </blockquote>
 <ul>
-<li>C++ 编译器会为每个空对象分配 1 字节的空间，以区分空对象占用内存的位置</li>
+<li>C++ 编译器会为每个空对象分配 1
+字节的空间，以区分空对象占用内存的位置</li>
 <li>非静态成员变量，属于类的对象</li>
 <li>静态成员变量，不属于类的对象</li>
 <li>非静态成员函数，不属于类的对象</li>
 <li>静态成员函数，不属于类的对象</li>
 </ul>
-<h3 id="7-3-1-this-指针"><a href="#7-3-1-this-指针" class="headerlink" title="7.3.1 this 指针"></a>7.3.1 this 指针</h3><blockquote>
-<p>this 指针是隐含在每一个非静态成员函数内的一种指针。指向被调用的成员函数所属的对象。</p>
-<p>this 指针不需要定义，可以直接使用。类的每个成员函数中都包含该指针。</p>
-<p>this 的本质是 指针常量。其指向不能修改<em><strong>（见 <a href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.2 指针常量]</a>）</strong></em></p>
+<h3 id="this-指针">7.3.1 this 指针</h3>
+<blockquote>
+<p>this
+指针是隐含在每一个非静态成员函数内的一种指针。指向被调用的成员函数所属的对象。</p>
+<p>this
+指针不需要定义，可以直接使用。类的每个成员函数中都包含该指针。</p>
+<p>this 的本质是 指针常量。其指向不能修改<strong><em>（见 <a
+href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.2
+指针常量]</a>）</em></strong></p>
 </blockquote>
 <p>this 指针的用途：</p>
 <ul>
@@ -686,8 +698,8 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     e.<span class="hljs-built_in">setN</span>(<span class="hljs-number">10</span>);
     e.<span class="hljs-built_in">doit</span>().<span class="hljs-built_in">doit</span>().<span class="hljs-built_in">doit</span>();
 &#125;</code></pre></div>
-
-<h3 id="7-3-2-空指针访问成员函数"><a href="#7-3-2-空指针访问成员函数" class="headerlink" title="7.3.2 空指针访问成员函数"></a>7.3.2 空指针访问成员函数</h3><blockquote>
+<h3 id="空指针访问成员函数">7.3.2 空指针访问成员函数</h3>
+<blockquote>
 <p>C++ 中空指针也能调用成员函数，但要注意是否用到 this</p>
 <p>如果用到 this，需要判断以保证代码健壮性</p>
 </blockquote>
@@ -707,8 +719,8 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     e.<span class="hljs-built_in">met1</span>();						<span class="hljs-comment">//这个正常</span>
     <span class="hljs-comment">/* e.met2() */</span>					<span class="hljs-comment">//这个报错</span>
 &#125;</code></pre></div>
-
-<h3 id="7-3-3-const-修饰成员函数"><a href="#7-3-3-const-修饰成员函数" class="headerlink" title="7.3.3 const 修饰成员函数"></a>7.3.3 const 修饰成员函数</h3><blockquote>
+<h3 id="const-修饰成员函数">7.3.3 const 修饰成员函数</h3>
+<blockquote>
 <p>可以用 const 定义成员变量或成员函数，甚至是类对象。</p>
 <p>使用 const 修饰的成员变量称为常量成员变量</p>
 <p>使用 const 修饰的函数称为常量函数（常函数）</p>
@@ -727,42 +739,31 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">A::value</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>&#123;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">100</span>;
 &#125;</code></pre></div>
-
 <ul>
 <li><p>常函数：</p>
 <ul>
 <li><p>成员函数后加 const 则成为常函数</p>
-<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">say</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>&#123;&#125;		<span class="hljs-comment">//常函数</span></code></pre></div>
-</li>
-<li><p>常函数不能修改成员属性</p>
-</li>
-<li><p>成员属性声明时加关键字 mutable 后，可以被常函数修改</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">say</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>&#123;&#125;		<span class="hljs-comment">//常函数</span></code></pre></div></li>
+<li><p>常函数不能修改成员属性</p></li>
+<li><p>成员属性声明时加关键字 mutable 后，可以被常函数修改</p></li>
 <li><p>在成员函数后加 const，本质上是修饰了 this 指针</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">const</span> E* <span class="hljs-type">const</span> <span class="hljs-keyword">this</span>;</code></pre></div>
-
-<p>这样一来，this 指针指向的值也不能修改了</p>
-</li>
+<p>这样一来，this 指针指向的值也不能修改了</p></li>
 <li><p>常对象只能访问常函数，普通对象既能访问普通函数也能访问常函数</p>
-<p>对于重载的常函数，根据调用对象是常对象或普通对象，系统会进行自动匹配</p>
-</li>
-<li><p>如果一个成员函数中没有调用非常函数，也没有修改成员变量，那么建议将其写成常函数</p>
-</li>
-</ul>
-</li>
+<p>对于重载的常函数，根据调用对象是常对象或普通对象，系统会进行自动匹配</p></li>
+<li><p>如果一个成员函数中没有调用非常函数，也没有修改成员变量，那么建议将其写成常函数</p></li>
+</ul></li>
 <li><p>常对象：</p>
 <ul>
 <li><p>声明对象前加 const 称为常对象</p>
-<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">const</span> E e;				<span class="hljs-comment">//常对象</span></code></pre></div>
-</li>
-<li><p>常对象的所有属性值都不能修改，除非其属性有 mutable 关键字</p>
-</li>
-<li><p>常对象只能调用常函数。因为普通成员函数能修改属性</p>
-</li>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">const</span> E e;				<span class="hljs-comment">//常对象</span></code></pre></div></li>
+<li><p>常对象的所有属性值都不能修改，除非其属性有 mutable
+关键字</p></li>
+<li><p>常对象只能调用常函数。因为普通成员函数能修改属性</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="7-4-友元"><a href="#7-4-友元" class="headerlink" title="7.4 友元"></a>7.4 友元</h2><blockquote>
+<h2 id="友元">7.4 友元</h2>
+<blockquote>
 <p>让一个函数或类访问另一个函数中的私有成员。友元关系是单向的</p>
 <p>友元关键字：friend</p>
 <p>友元不受类中访问关键字限制。将其放在类的公有、私有、保护部分，结果是相同的</p>
@@ -811,115 +812,177 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
     cout &lt;&lt; <span class="hljs-string">&quot;你要战，我便战，我有愚人众兄弟千千万！单挑群挑你们也不是对手，别把我们惹急了！&quot;</span> &lt;&lt; endl;
     cout &lt;&lt; <span class="hljs-string">&quot;明天我就上你们几个神家里挨个收神之心，不给别怪我不客气！&quot;</span> &lt;&lt; endl;
 &#125;</code></pre></div>
-
-
-
-<h2 id="7-5-运算符重载"><a href="#7-5-运算符重载" class="headerlink" title="7.5 运算符重载"></a>7.5 运算符重载</h2><blockquote>
+<h2 id="运算符重载">7.5 运算符重载</h2>
+<blockquote>
 <p>对已有运算符重新定义，以适应不同数据类型</p>
 </blockquote>
 <p>对于类运算的运算符通常都要重载。系统提供了两个运算符的默认重载版本：</p>
-<p><code>=</code> 系统默认进行对象成员变量的值拷贝。<code>&amp;</code> 系统默认返回任何类对象的地址</p>
+<p><code>=</code> 系统默认进行对象成员变量的值拷贝。<code>&amp;</code>
+系统默认返回任何类对象的地址</p>
 <p><strong>运算符重载的格式是：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++">返回值 <span class="hljs-keyword">operator</span>运算符 (形参列表) &#123;
     函数体
 &#125;</code></pre></div>
-
 <p>可以重载的运算符有：</p>
 <table>
-    <tr>
-        <th>双目算术运算符</th>
-        <td>+、-、*、/、%</td>
-    </tr>
-    <tr>
-        <th>关系运算符</th>
-        <td>==、!=、&lt、&gt、&lt=、&gt=</td>
-    </tr>
-    <tr>
-        <th>逻辑运算符</th>
-        <td>||、&&、!</td>
-    </tr>
-    <tr>
-        <th>单目运算符</th>
-        <td>+（正）、-（负）、*（指针）、&（取址）</td>
-    </tr>
-    <tr>
-        <th>自增自减运算符</th>
-        <td>++、--</td>
-    </tr>
-    <tr>
-        <th>位运算符</th>
-        <td>&lt&lt、&gt&gt、~、|、&、^</td>
-    </tr>
-    <tr>
-        <th>赋值运算符</th>
-        <td>=、+=、-=、*=、/=、&=、|=、^=、&lt&lt=、&gt&gt=、~=</td>
-    </tr>
-    <tr>
-        <th>空间申请与释放</th>
-        <td>new、delete、new[]、delete[]</td>
-    </tr>
-    <tr>
-        <th>其他运算符</th>
-        <td>()、->、[]、,</td>
-    </tr>
+<tr>
+<th>
+双目算术运算符
+</th>
+<td>
++、-、*、/、%
+</td>
+</tr>
+<tr>
+<th>
+关系运算符
+</th>
+<td>
+==、!=、&amp;lt、&amp;gt、&amp;lt=、&amp;gt=
+</td>
+</tr>
+<tr>
+<th>
+逻辑运算符
+</th>
+<td>
+||、&amp;&amp;、!
+</td>
+</tr>
+<tr>
+<th>
+单目运算符
+</th>
+<td>
++（正）、-（负）、*（指针）、&amp;（取址）
+</td>
+</tr>
+<tr>
+<th>
+自增自减运算符
+</th>
+<td>
+++、--
+</td>
+</tr>
+<tr>
+<th>
+位运算符
+</th>
+<td>
+&amp;lt&amp;lt、&amp;gt&amp;gt、~、|、&amp;、^
+</td>
+</tr>
+<tr>
+<th>
+赋值运算符
+</th>
+<td>
+=、+=、-=、*=、/=、&amp;=、|=、^=、&amp;lt&amp;lt=、&amp;gt&amp;gt=、~=
+</td>
+</tr>
+<tr>
+<th>
+空间申请与释放
+</th>
+<td>
+new、delete、new[]、delete[]
+</td>
+</tr>
+<tr>
+<th>
+其他运算符
+</th>
+<td>
+()、-&gt;、[]、,
+</td>
+</tr>
 </table>
-
 <p>不能重载的运算符有：</p>
 <table>
-    <tr>
-        <th>成员访问运算符</th>
-        <td>.</td>
-    </tr>
-    <tr>
-        <th>成员指针访问运算符</th>
-        <td>.*、->*</td>
-    </tr>
-    <tr>
-        <th>域运算符</th>
-        <td>::</td>
-    </tr>
-    <tr>
-        <th>长度运算符</th>
-        <td>sizeof</td>
-    </tr>
-    <tr>
-        <th>条件运算符</th>
-        <td>?:</td>
-    </tr>
-    <tr>
-        <th>预处理符号</th>
-        <td>#</td>
-    </tr>
+<tr>
+<th>
+成员访问运算符
+</th>
+<td>
+.
+</td>
+</tr>
+<tr>
+<th>
+成员指针访问运算符
+</th>
+<td>
+.<em>、-&gt;</em>
+</td>
+</tr>
+<tr>
+<th>
+域运算符
+</th>
+<td>
+::
+</td>
+</tr>
+<tr>
+<th>
+长度运算符
+</th>
+<td>
+sizeof
+</td>
+</tr>
+<tr>
+<th>
+条件运算符
+</th>
+<td>
+?:
+</td>
+</tr>
+<tr>
+<th>
+预处理符号
+</th>
+<td>
+#
+</td>
+</tr>
 </table>
-
-<h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h4><ul>
-<li>重载运算符的含义应符合原有用法习惯。<ul>
+<h4 id="注意事项">注意事项：</h4>
+<ul>
+<li>重载运算符的含义应符合原有用法习惯。
+<ul>
 <li>避免给自己的猫取名字叫 “小狗” 或者 “笔记本电脑”</li>
-</ul>
-</li>
-<li>运算符重载不能改变运算符原有的语义，包括运算符的优先级和结合性<ul>
+</ul></li>
+<li>运算符重载不能改变运算符原有的语义，包括运算符的优先级和结合性
+<ul>
 <li>不要让自己的猫睡在床上，而自己睡在猫窝里</li>
-</ul>
-</li>
-<li>运算符重载不能改变运算符的操作数个数及语法结构<ul>
+</ul></li>
+<li>运算符重载不能改变运算符的操作数个数及语法结构
+<ul>
 <li>给猫投食时，食物从嘴巴进入，而不能从菊花进入</li>
-</ul>
-</li>
-<li>不能创建新的运算符。即，重载运算符不能超出 C++ 语言允许重载的运算符范围<ul>
+</ul></li>
+<li>不能创建新的运算符。即，重载运算符不能超出 C++
+语言允许重载的运算符范围
+<ul>
 <li>可以去养一只猫，但不要和猫生小孩</li>
-</ul>
-</li>
-<li>重载运算符 <code>()</code>、<code>[]</code>、<code>-&gt;</code>、<code>=</code> 时，只能将它们重载为成员函数，不能重载为全局函数<ul>
+</ul></li>
+<li>重载运算符
+<code>()</code>、<code>[]</code>、<code>-&gt;</code>、<code>=</code>
+时，只能将它们重载为成员函数，不能重载为全局函数
+<ul>
 <li>把猫养在家里，不要养在大街上</li>
-</ul>
-</li>
-<li>运算符重载不能改变该运算符用于基本数据类型对象的含义（即其原本含义）。<ul>
+</ul></li>
+<li>运算符重载不能改变该运算符用于基本数据类型对象的含义（即其原本含义）。
+<ul>
 <li>不要指望猫能变成猫娘</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="7-5-1-加号运算符重载"><a href="#7-5-1-加号运算符重载" class="headerlink" title="7.5.1 加号运算符重载"></a>7.5.1 加号运算符重载</h3><blockquote>
-<p><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 同理</p>
+<h3 id="加号运算符重载">7.5.1 加号运算符重载</h3>
+<blockquote>
+<p><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>
+同理</p>
 </blockquote>
 <ul>
 <li><p>通过成员函数重载：</p>
@@ -931,8 +994,7 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
         ne.n = e.n + <span class="hljs-keyword">this</span>-&gt;n;
         <span class="hljs-keyword">return</span> ne;
     &#125;
-&#125;;</code></pre></div>
-</li>
+&#125;;</code></pre></div></li>
 <li><p>通过全局函数重载：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">E</span>&#123;
 <span class="hljs-keyword">public</span>:
@@ -948,18 +1010,17 @@ E <span class="hljs-keyword">operator</span>+ (E&amp; e1, E&amp; e2) &#123;		<sp
 </ul>
 <p><strong>注意事项：</strong></p>
 <ul>
-<li><p>内置数据类型的运算符不能改变</p>
-</li>
+<li><p>内置数据类型的运算符不能改变</p></li>
 <li><p>不要滥用运算符重载</p>
-<p><code>+</code> 结果实现的是减法，那不是找麻烦吗</p>
-</li>
+<p><code>+</code> 结果实现的是减法，那不是找麻烦吗</p></li>
 </ul>
-<h3 id="7-5-2-左移运算符重载"><a href="#7-5-2-左移运算符重载" class="headerlink" title="7.5.2 左移运算符重载"></a>7.5.2 左移运算符重载</h3><blockquote>
+<h3 id="左移运算符重载">7.5.2 左移运算符重载</h3>
+<blockquote>
 <p>重载左移运算符，配合友元，可以输出自定义数据类型</p>
 </blockquote>
 <ul>
-<li><p>通常不会利用成员函数重载 <code>&lt;&lt;</code> 运算符，因为无法使 cout 在左侧</p>
-</li>
+<li><p>通常不会利用成员函数重载 <code>&lt;&lt;</code> 运算符，因为无法使
+cout 在左侧</p></li>
 <li><p>通过全局函数重载：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">E</span> &#123;
 <span class="hljs-keyword">friend</span> ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt; (ostream&amp; cout, E&amp; e);
@@ -972,7 +1033,8 @@ ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt; (ostream&amp; co
     <span class="hljs-keyword">return</span> cout;
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="7-5-3-递增运算符重载"><a href="#7-5-3-递增运算符重载" class="headerlink" title="7.5.3 递增运算符重载"></a>7.5.3 递增运算符重载</h3><ul>
+<h3 id="递增运算符重载">7.5.3 递增运算符重载</h3>
+<ul>
 <li><p>用成员函数重载：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">E</span> &#123;
 <span class="hljs-keyword">public</span>:
@@ -988,8 +1050,7 @@ ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt; (ostream&amp; co
     &#125;
 <span class="hljs-keyword">private</span>:
     <span class="hljs-type">int</span> n = <span class="hljs-number">100</span>;
-&#125;;</code></pre></div>
-</li>
+&#125;;</code></pre></div></li>
 <li><p>通过全局函数重载：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">E</span> &#123;
     <span class="hljs-keyword">friend</span> E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e);
@@ -1009,7 +1070,8 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="7-5-4-赋值运算符重载"><a href="#7-5-4-赋值运算符重载" class="headerlink" title="7.5.4 赋值运算符重载"></a>7.5.4 赋值运算符重载</h3><p>C++ 编译器至少给一个类添加 4 个函数</p>
+<h3 id="赋值运算符重载">7.5.4 赋值运算符重载</h3>
+<p>C++ 编译器至少给一个类添加 4 个函数</p>
 <ul>
 <li>默认构造函数</li>
 <li>默认析构函数</li>
@@ -1037,15 +1099,15 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 <span class="hljs-keyword">private</span>:
     <span class="hljs-type">int</span>* n = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">100</span>);			<span class="hljs-comment">//在堆里喵</span>
 &#125;;</code></pre></div>
-
-
-
-<h3 id="7-5-5-关系运算符重载"><a href="#7-5-5-关系运算符重载" class="headerlink" title="7.5.5 关系运算符重载"></a>7.5.5 关系运算符重载</h3><blockquote>
+<h3 id="关系运算符重载">7.5.5 关系运算符重载</h3>
+<blockquote>
 <p>略。</p>
 <p>就略了，你看着办吧。</p>
-<p>关系运算符就是 <code>==</code>、<code>&gt;</code>、<code>&gt;=</code> 之类。返回值显然是布尔类型。</p>
+<p>关系运算符就是 <code>==</code>、<code>&gt;</code>、<code>&gt;=</code>
+之类。返回值显然是布尔类型。</p>
 </blockquote>
-<h3 id="7-5-6-仿函数"><a href="#7-5-6-仿函数" class="headerlink" title="7.5.6 仿函数"></a>7.5.6 仿函数</h3><ul>
+<h3 id="仿函数">7.5.6 仿函数</h3>
+<ul>
 <li>函数调用运算符 <code>( )</code> 居然也可以重载</li>
 <li>重载后的使用方式像函数的调用，所以被称为 仿函数</li>
 <li>仿函数没有固定写法，非常灵活</li>
@@ -1065,12 +1127,12 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     <span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;函数调用运算符重载！&quot;</span>);		<span class="hljs-comment">//仿函数</span>
     cout &lt;&lt; <span class="hljs-built_in">P</span>()(<span class="hljs-number">15</span>, <span class="hljs-number">27</span>) &lt;&lt; endl;	<span class="hljs-comment">//P() 匿名对象调用仿函数，即匿名函数对象</span>
 &#125;</code></pre></div>
-
-
-
-<h3 id="7-5-7-类型转换操作符重载"><a href="#7-5-7-类型转换操作符重载" class="headerlink" title="7.5.7 类型转换操作符重载"></a>7.5.7 类型转换操作符重载</h3><p>C++ 中，类型的名字（包括类的名字）本身也是一种操作符，即强制类型转换操作符。</p>
+<h3 id="类型转换操作符重载">7.5.7 类型转换操作符重载</h3>
+<p>C++
+中，类型的名字（包括类的名字）本身也是一种操作符，即强制类型转换操作符。</p>
 <p>强制类型转换操作符是单目运算符，仅能被重载为成员函数，不能重载为全局函数。</p>
-<p>重载后，<code>(类型名)对象</code> 就等价于 <code>对象.operator类型名()</code></p>
+<p>重载后，<code>(类型名)对象</code> 就等价于
+<code>对象.operator类型名()</code></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;
 <span class="hljs-keyword">public</span>:
 	<span class="hljs-function"><span class="hljs-keyword">operator</span> <span class="hljs-title">double</span><span class="hljs-params">()</span> </span>&#123;					<span class="hljs-comment">// 重载强制类型转换操作符 (double)</span>
@@ -1083,10 +1145,10 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 	cout &lt;&lt; (<span class="hljs-type">double</span>)a &lt;&lt; endl;			<span class="hljs-comment">// 输出 100.001</span>
 	cout &lt;&lt; a - <span class="hljs-number">100</span> &lt;&lt; endl;			<span class="hljs-comment">// 输出 0.001</span>
 &#125;</code></pre></div>
-
 <p>重载类型转换运算符时，<strong>不能指定返回值类型</strong>。因为返回值类型是确定的。</p>
 <p>有了类型转换运算符的重载，在本该出现该转换类型的地方，如果出现了一个重载类型，则语法上视为正确。</p>
-<h2 id="7-6-继承"><a href="#7-6-继承" class="headerlink" title="7.6 继承"></a>7.6 继承</h2><blockquote>
+<h2 id="继承">7.6 继承</h2>
+<blockquote>
 <p>面向对象三大特性之一。</p>
 <p>利用继承技术，减少重复代码</p>
 </blockquote>
@@ -1094,61 +1156,56 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 <ul>
 <li><p>S 类即子类（派生类）</p>
 <p>子类中包含父类继承的成员及子类自己的成员</p>
-<p>子类的大小等于：继承的父类大小 + 子类自身大小</p>
-</li>
-<li><p>F 类即父类（基类）</p>
-</li>
+<p>子类的大小等于：继承的父类大小 + 子类自身大小</p></li>
+<li><p>F 类即父类（基类）</p></li>
 </ul>
-<h3 id="7-6-1-继承方式"><a href="#7-6-1-继承方式" class="headerlink" title="7.6.1 继承方式"></a>7.6.1 继承方式</h3><p>继承方式共 3 种：</p>
+<h3 id="继承方式">7.6.1 继承方式</h3>
+<p>继承方式共 3 种：</p>
 <ul>
 <li><p>公共继承 <code>class B: public A&#123;&#125;</code></p>
-<p>成员继承后的访问权限不变</p>
-</li>
+<p>成员继承后的访问权限不变</p></li>
 <li><p>保护继承 <code>class B: protected A&#123;&#125;</code></p>
-<p>private（访问不到）外，其余成员继承后的访问权限变为 protected</p>
-</li>
+<p>private（访问不到）外，其余成员继承后的访问权限变为
+protected</p></li>
 <li><p>私有继承 <code>class B: private A&#123;&#125;</code></p>
 <p>private（访问不到）外，其余成员继承后的访问权限变为 private</p>
 <p>不进行说明时，默认进行私有继承</p>
-<p><em><strong>——访问修饰符见 [7.1 封装]</strong></em></p>
-</li>
+<p><strong><em>——访问修饰符见 <a href="#封装">7.1
+封装</a></em></strong></p></li>
 </ul>
-<h3 id="7-6-2-继承中的对象模型"><a href="#7-6-2-继承中的对象模型" class="headerlink" title="7.6.2 继承中的对象模型"></a>7.6.2 继承中的对象模型</h3><ul>
-<li><p>父类中所有非静态成员属性都会被子类继承（包括 private）</p>
-</li>
-<li><p>父类中 private 成员属性是被编译器隐藏了，故访问不到</p>
-</li>
-<li><p>使用 <code>VS 开发人员命令提示符</code> 跳转到项目目录下，输入指令：</p>
+<h3 id="继承中的对象模型">7.6.2 继承中的对象模型</h3>
+<ul>
+<li><p>父类中所有非静态成员属性都会被子类继承（包括 private）</p></li>
+<li><p>父类中 private 成员属性是被编译器隐藏了，故访问不到</p></li>
+<li><p>使用 <code>VS 开发人员命令提示符</code>
+跳转到项目目录下，输入指令：</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">cl /d1 reportSingleClassLayout类名 所属文件名</code></pre></div>
-
-<p>以查看类的构造。</p>
-</li>
+<p>以查看类的构造。</p></li>
 <li><p>父类持有的友元，在继承后仍只能访问父类成员对象。</p>
-<p>其他类持有父类作为友元，继承后子类也是那些类的友元</p>
-</li>
+<p>其他类持有父类作为友元，继承后子类也是那些类的友元</p></li>
 <li><p>子类构造器中使用父类构造器：</p>
 <div class="code-wrapper"><pre><code class="hljs c++">子类名(参数): 父类<span class="hljs-number">1</span>(参数), 父类<span class="hljs-number">2</span>(参数) &#123;
     ...
 &#125;</code></pre></div>
-
 <p>同一父类的构造器只能调用一次，不声明时默认调用无参构造器</p>
-<p>这个调用的顺序和类声明时的继承声明顺序 <strong>相关</strong>，与该初始化列表中的顺序 <strong>无关</strong></p>
-</li>
+<p>这个调用的顺序和类声明时的继承声明顺序
+<strong>相关</strong>，与该初始化列表中的顺序
+<strong>无关</strong></p></li>
 </ul>
-<h3 id="7-6-3-继承中构造和析构顺序"><a href="#7-6-3-继承中构造和析构顺序" class="headerlink" title="7.6.3 继承中构造和析构顺序"></a>7.6.3 继承中构造和析构顺序</h3><blockquote>
+<h3 id="继承中构造和析构顺序">7.6.3 继承中构造和析构顺序</h3>
+<blockquote>
 <p>子类继承父类后，创建子类对象时，也会调用父类构造函数</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>父类构造函数</li>
 <li>子类构造函数</li>
 <li>子类析构函数</li>
 <li>父类析构函数</li>
 </ol>
-<h3 id="7-6-4-继承同名成员的处理方式"><a href="#7-6-4-继承同名成员的处理方式" class="headerlink" title="7.6.4 继承同名成员的处理方式"></a>7.6.4 继承同名成员的处理方式</h3><ul>
-<li><p>访问子类同名成员：直接访问</p>
-</li>
-<li><p>访问父类同名成员：加作用域</p>
-</li>
+<h3 id="继承同名成员的处理方式">7.6.4 继承同名成员的处理方式</h3>
+<ul>
+<li><p>访问子类同名成员：直接访问</p></li>
+<li><p>访问父类同名成员：加作用域</p></li>
 <li><p>子类同名函数会隐藏所有父类同名函数及其重载函数。此时必须加作用域</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;
 <span class="hljs-keyword">public</span>:
@@ -1175,10 +1232,12 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     cout &lt;&lt; b.A::n &lt;&lt; endl;			<span class="hljs-comment">//加作用域以访问父类成员</span>
 &#125;</code></pre></div></li>
 </ul>
-<h3 id="7-6-5-多继承语法"><a href="#7-6-5-多继承语法" class="headerlink" title="7.6.5 多继承语法"></a>7.6.5 多继承语法</h3><p>语法：<code>class A: public Ba, public Bb, private Bc&#123;...&#125;</code></p>
+<h3 id="多继承语法">7.6.5 多继承语法</h3>
+<p>语法：<code>class A: public Ba, public Bb, private Bc&#123;...&#125;</code></p>
 <p>多继承可能引发父类中有同名成员出现。访问时必须加上作用域</p>
 <p>C++ 中不建议使用多继承。</p>
-<h3 id="7-6-6-菱形继承"><a href="#7-6-6-菱形继承" class="headerlink" title="7.6.6 菱形继承"></a>7.6.6 菱形继承</h3><p>菱形继承（钻石继承）：</p>
+<h3 id="菱形继承">7.6.6 菱形继承</h3>
+<p>菱形继承（钻石继承）：</p>
 <ul>
 <li>两个子类继承同一父类</li>
 <li>某个类同时继承这两个子类</li>
@@ -1187,15 +1246,17 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 <p>两个父类数据重复，只需要一份。可以利用虚继承，解决菱形继承问题。</p>
 <ul>
 <li><p>虚继承：<code>class A: virtual public B, public C&#123;...&#125;</code></p>
-<p>其中加入 <code>virtual</code> 的是虚继承，类 B、C 的共有父类被称为 虚基类</p>
-</li>
+<p>其中加入 <code>virtual</code> 的是虚继承，类 B、C 的共有父类被称为
+虚基类</p></li>
 </ul>
-<h2 id="7-7-多态"><a href="#7-7-多态" class="headerlink" title="7.7 多态"></a>7.7 多态</h2><blockquote>
+<h2 id="多态">7.7 多态</h2>
+<blockquote>
 <p>面向对象三大特性之一</p>
 <p>“一种接口，多种实现”。实现了多态机制的程序，可以使用同一名字实现不同功能</p>
 </blockquote>
 <p>多态分为：静态多态、动态多态</p>
-<h4 id="静态多态"><a href="#静态多态" class="headerlink" title="静态多态"></a>静态多态</h4><p>静态多态通过函数名、参数个数及类型，在编译阶段即建立函数代码与函数调用的对应关系。</p>
+<h4 id="静态多态">静态多态</h4>
+<p>静态多态通过函数名、参数个数及类型，在编译阶段即建立函数代码与函数调用的对应关系。</p>
 <p>静态多态也称 静态连编 或 静态绑定</p>
 <p>静态多态的函数地址早绑定：编译阶段确定地址</p>
 <p>静态多态使程序可读性好，但在控制程序运行和对象行为多样性方面存在局限性</p>
@@ -1221,8 +1282,8 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     Son s;
     <span class="hljs-built_in">check</span>(s);							<span class="hljs-comment">//即使传入子类，也是调用父类方法</span>
 &#125;</code></pre></div>
-
-<h4 id="动态多态"><a href="#动态多态" class="headerlink" title="动态多态"></a>动态多态</h4><p>由于多态的存在，编译器不能在编译阶段得知指针指向父类还是继承子类，也就不能确定调用的函数版本。函数调用与代码入口地址的绑定发生在运行时。</p>
+<h4 id="动态多态">动态多态</h4>
+<p>由于多态的存在，编译器不能在编译阶段得知指针指向父类还是继承子类，也就不能确定调用的函数版本。函数调用与代码入口地址的绑定发生在运行时。</p>
 <p>动态多态也称 动态连编 或 动态绑定。</p>
 <p>动态多态的函数地址晚绑定：运行阶段确定函数地址、</p>
 <p>实现方法：加入 virtual 关键字</p>
@@ -1239,13 +1300,13 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     Son s;
     <span class="hljs-built_in">check</span>(s);							<span class="hljs-comment">//传入子类则调用子类方法</span>
 &#125;</code></pre></div>
-
 <p>在满足赋值兼容的情况下，动态多态需满足以下条件：</p>
-<ol>
+<ol type="1">
 <li>必须声明虚函数</li>
 <li>通过子类类型的引用或指针调用虚函数</li>
 </ol>
-<h3 id="7-7-1-虚函数"><a href="#7-7-1-虚函数" class="headerlink" title="7.7.1 虚函数"></a>7.7.1 虚函数</h3><p>编译器看到哪个指针，就认为要通过该指针访问哪个类的成员，并不会分辨指针是否指向子类对象。仅凭借继承机制，无法实现动态绑定。</p>
+<h3 id="虚函数">7.7.1 虚函数</h3>
+<p>编译器看到哪个指针，就认为要通过该指针访问哪个类的成员，并不会分辨指针是否指向子类对象。仅凭借继承机制，无法实现动态绑定。</p>
 <p>在函数声明时加上 virtual 关键字，即成为虚函数。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;
 <span class="hljs-keyword">public</span>:
@@ -1264,31 +1325,30 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">B::act</span><span class="hljs-params">()</span> </span>&#123;
 	cout &lt;&lt; <span class="hljs-string">&#x27;B&#x27;</span> &lt;&lt; endl;
 &#125;</code></pre></div>
-
-<p>只有类的成员函数声明时才能声明为虚函数。成员函数的类外实现 和 静态成员函数 不能包含 virtual 关键字。</p>
-<h4 id="虚函数原理"><a href="#虚函数原理" class="headerlink" title="虚函数原理"></a>虚函数原理</h4><p>虚函数在类内部保存一个虚函数指针。该指针指向该类的虚函数表内，该虚函数的地址</p>
+<p>只有类的成员函数声明时才能声明为虚函数。成员函数的类外实现 和
+静态成员函数 不能包含 virtual 关键字。</p>
+<h4 id="虚函数原理">虚函数原理</h4>
+<p>虚函数在类内部保存一个虚函数指针。该指针指向该类的虚函数表内，该虚函数的地址</p>
 <p>子类会继承该指针和虚函数表</p>
 <p>子类重写该虚函数的场合，指针指向的虚函数被重写后的函数覆盖</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<h4 id="注意事项-1">注意事项</h4>
+<ul>
 <li><p>如果想要调用虚函数对象，需要在调用前加上基类名及作用域限定符</p>
 <div class="code-wrapper"><pre><code class="hljs c++">A* n = <span class="hljs-keyword">new</span> <span class="hljs-built_in">B</span>();
 n-&gt;<span class="hljs-built_in">act</span>();						<span class="hljs-comment">// B</span>
-n-&gt;A::<span class="hljs-built_in">act</span>();					<span class="hljs-comment">// A</span></code></pre></div>
-</li>
+n-&gt;A::<span class="hljs-built_in">act</span>();					<span class="hljs-comment">// A</span></code></pre></div></li>
 <li><p>虽然不会引起错误，但一般不将虚函数声明为内联函数。</p>
-<p>这是因为：内联函数在编译阶段即进行静态处理，而虚函数是在运行时动态绑定。</p>
-</li>
-<li><p>只有类的成员函数声明时才能声明为虚函数。静态成员函数、友元函数不能定义为虚函数。</p>
-</li>
-<li><p>虚函数类外实现时，只有类内声明有 virtual 关键字，类外实现不加该关键字</p>
-</li>
-<li><p>构造函数不能定义为虚函数。最好也不要将 operator&#x3D; 定义为虚函数，以免混淆。</p>
-<p>最好将父类的析构函数声明为虚函数。</p>
-</li>
-<li><p>不要在构造函数、析构函数中调用虚函数。因为在构造函数、析构函数中，对象是不完整的，可能出现未定义的行为。</p>
-</li>
+<p>这是因为：内联函数在编译阶段即进行静态处理，而虚函数是在运行时动态绑定。</p></li>
+<li><p>只有类的成员函数声明时才能声明为虚函数。静态成员函数、友元函数不能定义为虚函数。</p></li>
+<li><p>虚函数类外实现时，只有类内声明有 virtual
+关键字，类外实现不加该关键字</p></li>
+<li><p>构造函数不能定义为虚函数。最好也不要将 operator=
+定义为虚函数，以免混淆。</p>
+<p>最好将父类的析构函数声明为虚函数。</p></li>
+<li><p>不要在构造函数、析构函数中调用虚函数。因为在构造函数、析构函数中，对象是不完整的，可能出现未定义的行为。</p></li>
 </ul>
-<h3 id="7-7-2-纯虚函数和抽象类"><a href="#7-7-2-纯虚函数和抽象类" class="headerlink" title="7.7.2 纯虚函数和抽象类"></a>7.7.2 纯虚函数和抽象类</h3><blockquote>
+<h3 id="纯虚函数和抽象类">7.7.2 纯虚函数和抽象类</h3>
+<blockquote>
 <p>多态中，父类虚函数的实现往往是无意义的，主要调用子类重写的内容。因此，可以将虚函数改为纯虚函数。</p>
 </blockquote>
 <p>语法：<code>cirtual 返回值类型 函数名 (参数列表) = 0;</code></p>
@@ -1296,27 +1356,26 @@ n-&gt;A::<span class="hljs-built_in">act</span>();					<span class="hljs-comment
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">met</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
 &#125;;</code></pre></div>
-
 <p>有纯虚函数的类被称为抽象类。</p>
 <p><strong>抽象类特点：</strong></p>
-<ol>
+<ol type="1">
 <li>抽象类不能实例化对象</li>
 <li>子类必须重写抽象类的纯虚函数，否则也属于抽象类</li>
 </ol>
-<h3 id="7-7-3-虚析构和纯虚析构"><a href="#7-7-3-虚析构和纯虚析构" class="headerlink" title="7.7.3 虚析构和纯虚析构"></a>7.7.3 虚析构和纯虚析构</h3><blockquote>
+<h3 id="虚析构和纯虚析构">7.7.3 虚析构和纯虚析构</h3>
+<blockquote>
 <p>多态使用时，父类指针释放时无法调用子类析构代码</p>
 <p>拥有纯虚析构函数的类也属于抽象类</p>
 </blockquote>
 <p>语法：</p>
 <ul>
-<li><p>虚析构：<code>virtual ~类名() &#123;析构代码&#125;</code></p>
-</li>
+<li><p>虚析构：<code>virtual ~类名() &#123;析构代码&#125;</code></p></li>
 <li><p>纯虚析构：<code>virtual ~类名() = 0;</code></p>
 <p>和纯虚函数不同。即使是纯虚析构，也要求（在类外）实现代码。</p>
-<p>一言以蔽之：take off trouser to fart</p>
-</li>
+<p>一言以蔽之：take off trouser to fart</p></li>
 </ul>
-<p>只要父类的析构函数是虚析构函数，则子类的虚构函数 <strong>无论是否用 virtual 关键字声明，都自动成为虚析构函数</strong></p>
+<p>只要父类的析构函数是虚析构函数，则子类的虚构函数 <strong>无论是否用
+virtual 关键字声明，都自动成为虚析构函数</strong></p>
 <p>一般来说，只要一个类定义了虚函数，就最好将其析构函数也定义为虚析构函数。</p>
 <p>构造函数不能是虚函数。</p>
 

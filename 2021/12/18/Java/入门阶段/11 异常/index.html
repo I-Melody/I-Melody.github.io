@@ -16,21 +16,21 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="11 异常（Exception） 在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。  Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性">
+    <meta name="description" content="11 异常（Exception）  在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。 Exception：其他因编程错误或偶然的外部因素导致的一般性问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;11 异常">
 <meta property="og:url" content="https://i-melody.github.io/2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="11 异常（Exception） 在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。  Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性">
+<meta property="og:description" content="11 异常（Exception）  在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常） 这些 异常事件 可分为两类：  Error（错误）：Java 虚拟机无法解决的严重问题。 如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。 Exception：其他因编程错误或偶然的外部因素导致的一般性问">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/异常体系图_11.1.png">
 <meta property="article:published_time" content="2021-12-17T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-23T23:50:10.785Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/异常体系图_11.1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -295,40 +295,42 @@
             
             <div class="markdown-body">
               
-              <h1 id="11-异常（Exception）"><a href="#11-异常（Exception）" class="headerlink" title="11 异常（Exception）"></a>11 异常（Exception）</h1><blockquote>
-<p>在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常）</p>
+              <h1 id="异常exception">11 异常（Exception）</h1>
+<blockquote>
+<p>在 Java 语言中，将程序执行中发生的不正常情况称为
+“异常”（开发过程中的语法错误和逻辑错误不是异常）</p>
 <p>这些 异常事件 可分为两类：</p>
 <ul>
 <li><p>Error（错误）：Java 虚拟机无法解决的严重问题。</p>
-<p>如：JVM 系统内部错误，资源耗尽等严重情况。Error 是严重错误，程序会崩溃。</p>
-</li>
+<p>如：JVM 系统内部错误，资源耗尽等严重情况。Error
+是严重错误，程序会崩溃。</p></li>
 <li><p>Exception：其他因编程错误或偶然的外部因素导致的一般性问题，可以使用针对性的代码进行处理。</p>
 <p>如：空指针访问，试图读取不存在的文件，网络中断等等。</p>
 <p>Exception 又分为两大类：</p>
 <ul>
 <li>运行时异常（程序运行时，发生的异常）</li>
 <li>编译时异常（编程时，编译器检查出的异常）</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
-<h2 id="11-1-异常体系图"><a href="#11-1-异常体系图" class="headerlink" title="11.1 异常体系图"></a>11.1 异常体系图</h2><blockquote>
+<h2 id="异常体系图">11.1 异常体系图</h2>
+<blockquote>
 <p>编译异常（受检异常） 和 运行异常（非受检异常）</p>
-<p>Java 源程序  ——(javac.exe)——&gt; 字节码文件 ——(java.exe)——&gt; 在内存中加载，运行类</p>
-<p>​                             编译异常↑                                        运行异常↑</p>
+<p>Java 源程序 ——(javac.exe)——&gt; 字节码文件 ——(java.exe)——&gt;
+在内存中加载，运行类</p>
+<p>​ 编译异常↑ 运行异常↑</p>
 </blockquote>
-<p><img src="/img/Java_InputImage/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE_11.1.png" srcset="/img/loading.gif" lazyload></p>
-<p>​    <em>（异常体系图_11.1）</em></p>
+<p><img src="/img/Java_InputImage/异常体系图_11.1.png" srcset="/img/loading.gif" lazyload /></p>
+<p>​ <em>（异常体系图_11.1）</em></p>
 <p>异常分为两大类：运行时异常 和 编译时异常</p>
 <ul>
 <li><p>运行时异常，编译器不要求强制处置的异常。一般是指编程的逻辑错误，是程序员应该避免其出现的异常。</p>
 <p>java.lang.RuntimeException 类及它的子类都是运行时异常</p>
-<p>对于运行时异常，可以不做处理。因为这类异常很普遍，若全处理会对程序的可读性和运行效率产生影响</p>
-</li>
-<li><p>编译时异常，是编译器要求必须处置的异常</p>
-</li>
+<p>对于运行时异常，可以不做处理。因为这类异常很普遍，若全处理会对程序的可读性和运行效率产生影响</p></li>
+<li><p>编译时异常，是编译器要求必须处置的异常</p></li>
 </ul>
-<h3 id="11-1-1-常见的运行时异常"><a href="#11-1-1-常见的运行时异常" class="headerlink" title="11.1.1 常见的运行时异常"></a>11.1.1 常见的运行时异常</h3><blockquote>
+<h3 id="常见的运行时异常">11.1.1 常见的运行时异常</h3>
+<blockquote>
 <p>常见的运行时异常（RuntimeException）包括</p>
 <ul>
 <li>NullPointerException：空指针异常</li>
@@ -384,7 +386,8 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ABC&quot;</span>;
 <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> Integer.parseInt(str);	<span class="hljs-comment">//这里，出现了 数字格式不正确异常</span></code></pre></div>
 </blockquote>
-<h3 id="11-1-2-常见的编译异常"><a href="#11-1-2-常见的编译异常" class="headerlink" title="11.1.2 常见的编译异常"></a>11.1.2 常见的编译异常</h3><blockquote>
+<h3 id="常见的编译异常">11.1.2 常见的编译异常</h3>
+<blockquote>
 <p>常见的编译异常：</p>
 <ul>
 <li>SQLException：操作数据库时，查询表可能发生异常</li>
@@ -396,15 +399,22 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 </ul>
 </blockquote>
 <p>因为还没有学习 SQL、文件编程 等，这里不举例子</p>
-<h2 id="11-2-异常处理"><a href="#11-2-异常处理" class="headerlink" title="11.2 异常处理"></a>11.2 异常处理</h2><blockquote>
-<p>异常发生时，对异常的处理方式。如果没有显式异常处理，默认处理方式是 <code>throws</code></p>
+<h2 id="异常处理">11.2 异常处理</h2>
+<blockquote>
+<p>异常发生时，对异常的处理方式。如果没有显式异常处理，默认处理方式是
+<code>throws</code></p>
 <ul>
 <li><code>try - chatch - finally</code>：程序员在代码中捕获发生的异常，自行处理</li>
-<li><code>throws</code>：将发生的异常抛出，交给调用者（方法）来处理。最顶级的处理者就是 JVM</li>
+<li><code>throws</code>：将发生的异常抛出，交给调用者（方法）来处理。最顶级的处理者就是
+JVM</li>
 </ul>
 </blockquote>
-<h3 id="11-2-1-try-catch-异常处理"><a href="#11-2-1-try-catch-异常处理" class="headerlink" title="11.2.1 try - catch 异常处理"></a>11.2.1 <code>try - catch</code> 异常处理</h3><blockquote>
-<p> Java 提供 try 和 catch 块 来处理异常。try 块用于包含可能出错的代码，catch 块用于处理 try 块中的异常。可以根据需要在程序中有多个 <code>try - catch</code> 块。</p>
+<h3 id="try---catch-异常处理">11.2.1 <code>try - catch</code>
+异常处理</h3>
+<blockquote>
+<p>Java 提供 try 和 catch 块 来处理异常。try
+块用于包含可能出错的代码，catch 块用于处理 try
+块中的异常。可以根据需要在程序中有多个 <code>try - catch</code> 块。</p>
 </blockquote>
 <blockquote>
 <p>基本语法</p>
@@ -421,14 +431,14 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 <blockquote>
 <p>快捷键：选中代码后按 ctrl + alt + T</p>
 </blockquote>
-<h4 id="11-2-1-1-使用细节"><a href="#11-2-1-1-使用细节" class="headerlink" title="11.2.1.1 使用细节"></a>11.2.1.1 使用细节</h4><ol>
-<li><p>如果异常发生了，则异常发生后面的代码块都不执行，直接进入 catch 块</p>
-</li>
-<li><p>如果异常未发生，则顺序执行 try 代码块，catch 块不执行</p>
-</li>
-<li><p>如果希望不管是否异常，都执行一些代码，则使用 finally</p>
-</li>
-<li><p>可以有多个 catch 捕获不同的异常。要求 子类异常在前，父类异常在后。</p>
+<h4 id="使用细节">11.2.1.1 使用细节</h4>
+<ol type="1">
+<li><p>如果异常发生了，则异常发生后面的代码块都不执行，直接进入 catch
+块</p></li>
+<li><p>如果异常未发生，则顺序执行 try 代码块，catch 块不执行</p></li>
+<li><p>如果希望不管是否异常，都执行一些代码，则使用 finally</p></li>
+<li><p>可以有多个 catch 捕获不同的异常。要求
+子类异常在前，父类异常在后。</p>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">try</span> &#123;
 	...
@@ -441,19 +451,21 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 &#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;
 	...
 &#125;</code></pre></div>
-</blockquote>
-</li>
-<li><p>可以进行 try - finally 配合使用（不写 catch）。这种用法相当于没有捕获异常，此时程序如果出错会直接退出。</p>
-<p>应用场景，就是写一段代码，不管是否发生异常，都必须执行某个业务逻辑。</p>
-</li>
-<li><p>如果没有出现异常，执行 try 中所有语句，不执行 catch 语句，最后执行 finally 语句</p>
-</li>
-<li><p>如果出现异常，则 try 块异常发生后，剩余语句不执行。之后执行 catch 语句，最后，执行 finally 语句。</p>
-</li>
+</blockquote></li>
+<li><p>可以进行 try - finally 配合使用（不写
+catch）。这种用法相当于没有捕获异常，此时程序如果出错会直接退出。</p>
+<p>应用场景，就是写一段代码，不管是否发生异常，都必须执行某个业务逻辑。</p></li>
+<li><p>如果没有出现异常，执行 try 中所有语句，不执行 catch
+语句，最后执行 finally 语句</p></li>
+<li><p>如果出现异常，则 try 块异常发生后，剩余语句不执行。之后执行 catch
+语句，最后，执行 finally 语句。</p></li>
 </ol>
-<h3 id="11-2-2-throws-异常处理"><a href="#11-2-2-throws-异常处理" class="headerlink" title="11.2.2 throws 异常处理"></a>11.2.2 <code>throws</code> 异常处理</h3><blockquote>
+<h3 id="throws-异常处理">11.2.2 <code>throws</code> 异常处理</h3>
+<blockquote>
 <p>如果一个方法可能生成某种异常，但是并不能确定如何处理这种异常，则此方法应显式地声明抛出异常，表明该方法将不对这些异常进行处理，而由调用者负责处理</p>
-<p>在方法中声明 <code>throws</code> 语句可以声明抛出异常的列表。<code>throws</code> 后面的异常类型可以是方法中产生的异常类型，也可以是它的父类。</p>
+<p>在方法中声明 <code>throws</code>
+语句可以声明抛出异常的列表。<code>throws</code>
+后面的异常类型可以是方法中产生的异常类型，也可以是它的父类。</p>
 </blockquote>
 <blockquote>
 <p>语法</p>
@@ -461,19 +473,25 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 	...
 &#125;</code></pre></div>
 </blockquote>
-<h4 id="11-2-2-1-使用细节"><a href="#11-2-2-1-使用细节" class="headerlink" title="11.2.2.1 使用细节"></a>11.2.2.1 使用细节</h4><ol>
+<h4 id="使用细节-1">11.2.2.1 使用细节</h4>
+<ol type="1">
 <li>对于 <strong>编译异常</strong>，程序中必须处理。</li>
-<li>对于 <strong>运行异常</strong>，程序中诺没有处理，默认处理是 <code>throws</code></li>
-<li>子类 重写 父类方法时，子类方法抛出的异常类型必须和父类一致，或者是父类抛出异常类型的子类型。</li>
+<li>对于 <strong>运行异常</strong>，程序中诺没有处理，默认处理是
+<code>throws</code></li>
+<li>子类 重写
+父类方法时，子类方法抛出的异常类型必须和父类一致，或者是父类抛出异常类型的子类型。</li>
 <li>如果有 <code>try - catch</code> 就不必 <code>throws</code> 了</li>
 </ol>
-<h2 id="11-3-自定义异常"><a href="#11-3-自定义异常" class="headerlink" title="11.3 自定义异常"></a>11.3 自定义异常</h2><blockquote>
-<p>当程序中出现了某些 “错误”，但该信息并未在 <code>Throwable</code> 子类中描述处理，这时候可以自己设计异常类，用于描述该错误信息</p>
+<h2 id="自定义异常">11.3 自定义异常</h2>
+<blockquote>
+<p>当程序中出现了某些 “错误”，但该信息并未在 <code>Throwable</code>
+子类中描述处理，这时候可以自己设计异常类，用于描述该错误信息</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>定义类：自定义异常类名，继承 RuntimeException 或 Exception</li>
 <li>如果继承 Exception，属于 编译异常。</li>
-<li>如果继承 RuntimeException，属于 运行异常。（一般来说，选这个。这样利用了默认处理机制，更方便）</li>
+<li>如果继承 RuntimeException，属于
+运行异常。（一般来说，选这个。这样利用了默认处理机制，更方便）</li>
 </ol>
 <blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">&gt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Metords</span> &#123;
@@ -491,29 +509,34 @@ nums[-<span class="hljs-number">50</span>] = <span class="hljs-number">100</span
 &#125;
 &gt;&#125;</code></pre></div>
 </blockquote>
-<h3 id="11-3-1-throw-和-throws"><a href="#11-3-1-throw-和-throws" class="headerlink" title="11.3.1 throw 和 throws"></a>11.3.1 <code>throw</code> 和 <code>throws</code></h3><table>
+<h3 id="throw-和-throws">11.3.1 <code>throw</code> 和
+<code>throws</code></h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>意义</th>
 <th>位置</th>
 <th>后面跟的东西</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td><code>throws</code></td>
 <td>异常处理的一种方式</td>
 <td>方法声明时</td>
 <td>异常类型</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>throw</code></td>
 <td>手动生成异常对象关键字</td>
 <td>方法体中</td>
 <td>异常对象</td>
 </tr>
-</tbody></table>
-<h3 id="11-3-2-编程小技巧"><a href="#11-3-2-编程小技巧" class="headerlink" title="11.3.2 编程小技巧"></a>11.3.2 编程小技巧</h3><p>老韩曰：编写异常时，先确定正确的情况，然后取反。这样写，你的思路就不乱。</p>
+</tbody>
+</table>
+<h3 id="编程小技巧">11.3.2 编程小技巧</h3>
+<p>老韩曰：编写异常时，先确定正确的情况，然后取反。这样写，你的思路就不乱。</p>
 
               
             </div>

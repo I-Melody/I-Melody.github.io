@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="18 项目：坦克大战还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业 关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方的坦克类。Tank.j">
+    <meta name="description" content="18 项目：坦克大战 还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业  关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;18 项目（坦克大战）">
 <meta property="og:url" content="https://i-melody.github.io/2022/01/11/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/18%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="18 项目：坦克大战还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业 关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方的坦克类。Tank.j">
+<meta property="og:description" content="18 项目：坦克大战 还有很多细节、优化方法没实现，但困难的已经没有了。 先不打磨了，还是以学习 Java 为主。 二阶段毕业  关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新 TankGame.java：程序的入口 MyPanel.java：窗口、图像的绘制。这是该项目的主干 Player.java、Enemy.java：己方、敌方">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble.png">
 <meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/pic/Bubble_r.png">
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          43k 字
+          44k 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          121 分钟
+          122 分钟
         
       </span>
     
@@ -334,14 +334,19 @@
             
             <div class="markdown-body">
               
-              <h1 id="18-项目：坦克大战"><a href="#18-项目：坦克大战" class="headerlink" title="18 项目：坦克大战"></a>18 项目：坦克大战</h1><p>还有很多细节、优化方法没实现，但困难的已经没有了。</p>
+              <h1 id="项目坦克大战">18 项目：坦克大战</h1>
+<p>还有很多细节、优化方法没实现，但困难的已经没有了。</p>
 <p>先不打磨了，还是以学习 Java 为主。</p>
-<h3 id="二阶段毕业"><a href="#二阶段毕业" class="headerlink" title="二阶段毕业"></a>二阶段毕业</h3><blockquote>
-<p>关于 数量 的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新</p>
+<h3 id="二阶段毕业">二阶段毕业</h3>
+<blockquote>
+<p>关于 数量
+的注释可能不对。那些注释是早些时候添加的。后来添加了新功能，这些注释没有及时更新</p>
 <p>TankGame.java：程序的入口</p>
 <p>MyPanel.java：窗口、图像的绘制。这是该项目的主干</p>
-<p>Player.java、Enemy.java：己方、敌方的坦克类。Tank.java 是他们的父类</p>
-<p>Vehicle.java：记录了所有坦克预设的枚举类。该包下还有另一个记录了所有子弹类型的枚举类 Bullet</p>
+<p>Player.java、Enemy.java：己方、敌方的坦克类。Tank.java
+是他们的父类</p>
+<p>Vehicle.java：记录了所有坦克预设的枚举类。该包下还有另一个记录了所有子弹类型的枚举类
+Bullet</p>
 <p>Map.java：记录了地图数据的枚举类，包含不同关卡。但我没设计关卡</p>
 <p>InputImage.java：所有导入的图片。是我准备的素材</p>
 <p>Timing.java：一个计时器。当时能力有限，用这个作为某个计时功能的代替方案</p>
@@ -427,8 +432,7 @@
         <span class="hljs-built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     &#125;
 
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>MyPanel.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -1236,8 +1240,7 @@
             &#125;
         &#125;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Tank.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -1456,8 +1459,7 @@
         <span class="hljs-keyword">return</span> vehicle.ATK_RANGE + buffedAtkRange;
     &#125;
 
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Player.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -1626,8 +1628,7 @@
         invincible += <span class="hljs-number">100</span>;      <span class="hljs-comment">//只要受到了伤害，产生短暂无敌时间</span>
         <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Enemy.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -1773,8 +1774,7 @@
             <span class="hljs-keyword">return</span> (<span class="hljs-built_in">this</span>.lifeRemains -= Math.max(damage, <span class="hljs-number">0.1</span>)) &gt; <span class="hljs-number">0</span>;        <span class="hljs-comment">//在这里进行了生命值的扣除，最少扣 0.1。返回是否生命值有剩</span>
         &#125;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Vehicle.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -1943,8 +1943,7 @@
             &#125;
         &#125;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Map.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -2029,8 +2028,7 @@
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setTankCollisionSize</span><span class="hljs-params">(Tank tank)</span> &#123;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>InputImage.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -2091,8 +2089,7 @@
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">wall</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Wall.png&quot;</span>));
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">water</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Water.png&quot;</span>));
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Image</span> <span class="hljs-variable">trees</span> <span class="hljs-operator">=</span> Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(<span class="hljs-string">&quot;/pic/Landform/Trees.png&quot;</span>));
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p><strong>Timing.java</strong></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.melody.tank_game;
 
@@ -2115,49 +2112,160 @@
         &#125;
         MyPanel.gameSuspend = <span class="hljs-literal">true</span>;
     &#125;
-&#125;</code></pre></div>
-</li>
+&#125;</code></pre></div></li>
 <li><p>导入的图片</p>
-<p><img src="/img/Java_InputImage/pic/Bubble.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/Java_InputImage/pic/Bubble_r.png" srcset="/img/loading.gif" lazyload alt="Bubble_r"></p>
-<p><img src="/img/Java_InputImage/pic/Bubble_red.png" srcset="/img/loading.gif" lazyload alt="Bubble_red"></p>
-<p><img src="/img/Java_InputImage/pic/Bubble_red_r.png" srcset="/img/loading.gif" lazyload alt="Bubble_red_r"></p>
-<p><img src="/img/Java_InputImage/pic/E_bullet.png" srcset="/img/loading.gif" lazyload alt="E_bullet"></p>
-<p><img src="/img/Java_InputImage/pic/E_bullet_r.png" srcset="/img/loading.gif" lazyload alt="E_bullet_r"></p>
-<p><img src="/img/Java_InputImage/pic/G_Bullet.png" srcset="/img/loading.gif" lazyload alt="G_Bullet"></p>
-<p><img src="/img/Java_InputImage/pic/G_Bullet_r.png" srcset="/img/loading.gif" lazyload alt="G_Bullet_r"></p>
-<p><img src="/img/Java_InputImage/pic/N_bullet.png" srcset="/img/loading.gif" lazyload alt="N_bullet"></p>
-<p><img src="/img/Java_InputImage/pic/N_bullet_r.png" srcset="/img/loading.gif" lazyload alt="N_bullet_r"></p>
-<p><img src="/img/Java_InputImage/pic/p.png" srcset="/img/loading.gif" lazyload alt="p"></p>
-<p><img src="/img/Java_InputImage/pic/pl.png" srcset="/img/loading.gif" lazyload alt="pl"></p>
-<p><img src="/img/Java_InputImage/pic/plr.png" srcset="/img/loading.gif" lazyload alt="plr"></p>
-<p><img src="/img/Java_InputImage/pic/Pr.png" srcset="/img/loading.gif" lazyload alt="Pr"></p>
-<p><img src="/img/Java_InputImage/pic/Star.png" srcset="/img/loading.gif" lazyload alt="Star"></p>
-<p><img src="/img/Java_InputImage/pic/Star_n.png" srcset="/img/loading.gif" lazyload alt="Star_n"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E1.png" srcset="/img/loading.gif" lazyload alt="Tank_E1"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E1r.png" srcset="/img/loading.gif" lazyload alt="Tank_E1r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E2.png" srcset="/img/loading.gif" lazyload alt="Tank_E2"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E2r.png" srcset="/img/loading.gif" lazyload alt="Tank_E2r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E3.png" srcset="/img/loading.gif" lazyload alt="Tank_E3"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_E3r.png" srcset="/img/loading.gif" lazyload alt="Tank_E3r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv1.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv1r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv2.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv2r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv3.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Lv3r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3r"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Sp.png" srcset="/img/loading.gif" lazyload alt="Tank_Sp"></p>
-<p><img src="/img/Java_InputImage/pic/Tank_Spr.png" srcset="/img/loading.gif" lazyload alt="Tank_Spr"></p>
-<p><img src="/img/Java_InputImage/pic/Landform/Iron.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/Java_InputImage/pic/Landform/Trees.png" srcset="/img/loading.gif" lazyload alt="Trees"></p>
-<p><img src="/img/Java_InputImage/pic/Landform/Wall.png" srcset="/img/loading.gif" lazyload alt="Wall"></p>
-<p><img src="/img/Java_InputImage/pic/Landform/Water.png" srcset="/img/loading.gif" lazyload alt="Water"></p>
-<p><img src="/img/Java_InputImage/pic/Explosion/Explosion1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/Java_InputImage/pic/Explosion/Explosion2.png" srcset="/img/loading.gif" lazyload alt="Explosion2"></p>
-<p><img src="/img/Java_InputImage/pic/Explosion/Explosion3.png" srcset="/img/loading.gif" lazyload alt="Explosion3"></p>
-<p><img src="/img/Java_InputImage/pic/Explosion/Explosion4.png" srcset="/img/loading.gif" lazyload alt="Explosion4"></p>
-<p><img src="/img/Java_InputImage/pic/Explosion/Explosion5.png" srcset="/img/loading.gif" lazyload alt="Explosion5"></p>
-</li>
+<p><img src="/img/Java_InputImage/pic/Bubble.png" srcset="/img/loading.gif" lazyload /></p>
+<figure>
+<img src="/img/Java_InputImage/pic/Bubble_r.png" srcset="/img/loading.gif" lazyload alt="Bubble_r" />
+<figcaption aria-hidden="true">Bubble_r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Bubble_red.png" srcset="/img/loading.gif" lazyload alt="Bubble_red" />
+<figcaption aria-hidden="true">Bubble_red</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Bubble_red_r.png" srcset="/img/loading.gif" lazyload
+alt="Bubble_red_r" />
+<figcaption aria-hidden="true">Bubble_red_r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/E_bullet.png" srcset="/img/loading.gif" lazyload alt="E_bullet" />
+<figcaption aria-hidden="true">E_bullet</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/E_bullet_r.png" srcset="/img/loading.gif" lazyload alt="E_bullet_r" />
+<figcaption aria-hidden="true">E_bullet_r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/G_Bullet.png" srcset="/img/loading.gif" lazyload alt="G_Bullet" />
+<figcaption aria-hidden="true">G_Bullet</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/G_Bullet_r.png" srcset="/img/loading.gif" lazyload alt="G_Bullet_r" />
+<figcaption aria-hidden="true">G_Bullet_r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/N_bullet.png" srcset="/img/loading.gif" lazyload alt="N_bullet" />
+<figcaption aria-hidden="true">N_bullet</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/N_bullet_r.png" srcset="/img/loading.gif" lazyload alt="N_bullet_r" />
+<figcaption aria-hidden="true">N_bullet_r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/p.png" srcset="/img/loading.gif" lazyload alt="p" />
+<figcaption aria-hidden="true">p</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/pl.png" srcset="/img/loading.gif" lazyload alt="pl" />
+<figcaption aria-hidden="true">pl</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/plr.png" srcset="/img/loading.gif" lazyload alt="plr" />
+<figcaption aria-hidden="true">plr</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Pr.png" srcset="/img/loading.gif" lazyload alt="Pr" />
+<figcaption aria-hidden="true">Pr</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Star.png" srcset="/img/loading.gif" lazyload alt="Star" />
+<figcaption aria-hidden="true">Star</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Star_n.png" srcset="/img/loading.gif" lazyload alt="Star_n" />
+<figcaption aria-hidden="true">Star_n</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E1.png" srcset="/img/loading.gif" lazyload alt="Tank_E1" />
+<figcaption aria-hidden="true">Tank_E1</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E1r.png" srcset="/img/loading.gif" lazyload alt="Tank_E1r" />
+<figcaption aria-hidden="true">Tank_E1r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E2.png" srcset="/img/loading.gif" lazyload alt="Tank_E2" />
+<figcaption aria-hidden="true">Tank_E2</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E2r.png" srcset="/img/loading.gif" lazyload alt="Tank_E2r" />
+<figcaption aria-hidden="true">Tank_E2r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E3.png" srcset="/img/loading.gif" lazyload alt="Tank_E3" />
+<figcaption aria-hidden="true">Tank_E3</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_E3r.png" srcset="/img/loading.gif" lazyload alt="Tank_E3r" />
+<figcaption aria-hidden="true">Tank_E3r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv1.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1" />
+<figcaption aria-hidden="true">Tank_Lv1</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv1r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv1r" />
+<figcaption aria-hidden="true">Tank_Lv1r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv2.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2" />
+<figcaption aria-hidden="true">Tank_Lv2</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv2r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv2r" />
+<figcaption aria-hidden="true">Tank_Lv2r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv3.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3" />
+<figcaption aria-hidden="true">Tank_Lv3</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Lv3r.png" srcset="/img/loading.gif" lazyload alt="Tank_Lv3r" />
+<figcaption aria-hidden="true">Tank_Lv3r</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Sp.png" srcset="/img/loading.gif" lazyload alt="Tank_Sp" />
+<figcaption aria-hidden="true">Tank_Sp</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Tank_Spr.png" srcset="/img/loading.gif" lazyload alt="Tank_Spr" />
+<figcaption aria-hidden="true">Tank_Spr</figcaption>
+</figure>
+<p><img src="/img/Java_InputImage/pic/Landform/Iron.png" srcset="/img/loading.gif" lazyload /></p>
+<figure>
+<img src="/img/Java_InputImage/pic/Landform/Trees.png" srcset="/img/loading.gif" lazyload alt="Trees" />
+<figcaption aria-hidden="true">Trees</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Landform/Wall.png" srcset="/img/loading.gif" lazyload alt="Wall" />
+<figcaption aria-hidden="true">Wall</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Landform/Water.png" srcset="/img/loading.gif" lazyload alt="Water" />
+<figcaption aria-hidden="true">Water</figcaption>
+</figure>
+<p><img src="/img/Java_InputImage/pic/Explosion/Explosion1.png" srcset="/img/loading.gif" lazyload /></p>
+<figure>
+<img src="/img/Java_InputImage/pic/Explosion/Explosion2.png" srcset="/img/loading.gif" lazyload
+alt="Explosion2" />
+<figcaption aria-hidden="true">Explosion2</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Explosion/Explosion3.png" srcset="/img/loading.gif" lazyload
+alt="Explosion3" />
+<figcaption aria-hidden="true">Explosion3</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Explosion/Explosion4.png" srcset="/img/loading.gif" lazyload
+alt="Explosion4" />
+<figcaption aria-hidden="true">Explosion4</figcaption>
+</figure>
+<figure>
+<img src="/img/Java_InputImage/pic/Explosion/Explosion5.png" srcset="/img/loading.gif" lazyload
+alt="Explosion5" />
+<figcaption aria-hidden="true">Explosion5</figcaption>
+</figure></li>
 </ul>
 
               

@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="13 项目：机房预约系统13.1 项目需求 有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通过或">
+    <meta name="description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;13 项目：机房预约系统">
 <meta property="og:url" content="https://i-melody.github.io/2022/05/24/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%9C%BA%E6%88%BF%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="13 项目：机房预约系统13.1 项目需求 有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通过或">
+<meta property="og:description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-23T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-26T00:57:16.214Z">
@@ -294,7 +294,9 @@
             
             <div class="markdown-body">
               
-              <h1 id="13-项目：机房预约系统"><a href="#13-项目：机房预约系统" class="headerlink" title="13 项目：机房预约系统"></a>13 项目：机房预约系统</h1><h2 id="13-1-项目需求"><a href="#13-1-项目需求" class="headerlink" title="13.1 项目需求"></a>13.1 项目需求</h2><blockquote>
+              <h1 id="项目机房预约系统">13 项目：机房预约系统</h1>
+<h2 id="项目需求">13.1 项目需求</h2>
+<blockquote>
 <p>有数个规格不同的机房，现开发一套预约系统，以解决使用冲突</p>
 <p>三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号）</p>
 <p>机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人）</p>
@@ -304,45 +306,47 @@
 </blockquote>
 <p><strong>菜单：</strong></p>
 <ul>
-<li>学生（学号、姓名、登陆密码）<ul>
+<li>学生（学号、姓名、登陆密码）
+<ul>
 <li>申请预约</li>
 <li>查看自身预约</li>
 <li>查看所有预约</li>
 <li>取消预约（成功的预约或审核中的预约）</li>
 <li>注销登录（二次确认）</li>
-</ul>
-</li>
-<li>老师（职工号、姓名、登陆密码）<ul>
+</ul></li>
+<li>老师（职工号、姓名、登陆密码）
+<ul>
 <li>查看所有预约</li>
 <li>审核预约</li>
 <li>注销登录（二次确认）</li>
-</ul>
-</li>
-<li>管理员（管理员编号、登陆密码）<ul>
+</ul></li>
+<li>管理员（管理员编号、登陆密码）
+<ul>
 <li>添加账号</li>
 <li>查看账号</li>
 <li>修改账号</li>
 <li>查看机房</li>
 <li>清空预约记录</li>
 <li>注销登录（二次确认）</li>
-</ul>
-</li>
+</ul></li>
 <li>退出</li>
 </ul>
 <p><strong>账号：</strong></p>
 <ul>
-<li>账号类（ID、姓名、密码、标识符）<ul>
+<li>账号类（ID、姓名、密码、标识符）
+<ul>
 <li>管理员（ID 为 000000，标识符）</li>
 <li>教师（ID 为 1000XX，标识符）</li>
 <li>学生（ID 为 3000XX，标识符）</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>机房：</strong></p>
 <ul>
 <li>机房类（容量，预约记录）</li>
 </ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="机房预约系统"><a href="#机房预约系统" class="headerlink" title="机房预约系统"></a>机房预约系统</h3><blockquote>
+<h2 id="附录">附录</h2>
+<h3 id="机房预约系统">机房预约系统</h3>
+<blockquote>
 <p>执行以下代码</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
 
@@ -350,7 +354,8 @@
 	<span class="hljs-built_in">menu0</span>();
 &#125;</code></pre></div>
 </blockquote>
-<h4 id="1-2头文件："><a href="#1-2头文件：" class="headerlink" title="1 2头文件："></a>1 2头文件：</h4><p><strong>room.h</strong></p>
+<h4 id="头文件">1 2头文件：</h4>
+<p><strong>room.h</strong></p>
 <blockquote>
 <p>包含机房类。还声明了一个预定信息类。</p>
 <p>这两个类的实现都在：<strong>room.cpp</strong></p>
@@ -382,7 +387,6 @@
 	<span class="hljs-type">static</span> <span class="hljs-type">int</span> m_name_count;				<span class="hljs-comment">// 静态变量。初始化时自动分配机房名称</span>
 &#125;;
 </code></pre></div>
-
 <p><strong>person.h</strong></p>
 <blockquote>
 <p>包含所有账号类，以及预定信息类</p>
@@ -471,7 +475,6 @@
 	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">confirm</span><span class="hljs-params">(<span class="hljs-type">bool</span> pass, Person* t)</span></span>;		<span class="hljs-comment">// 更新审核状态</span>
 	<span class="hljs-function">string <span class="hljs-title">print</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 返回预约信息构成的字符串</span>
 &#125;;</code></pre></div>
-
 <p><strong>menu.h</strong></p>
 <blockquote>
 <p>菜单。程序的主干。</p>
@@ -511,8 +514,8 @@
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change_account</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 修改一个账号的信息</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_rooms</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 展示全部机房</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear_history</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 清空预约记录</span></code></pre></div>
-
-<h4 id="2-源文件："><a href="#2-源文件：" class="headerlink" title="2 源文件："></a>2 源文件：</h4><p><strong>room.cpp</strong></p>
+<h4 id="源文件">2 源文件：</h4>
+<p><strong>room.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;room.h&quot;</span></span>
 
 Room::<span class="hljs-built_in">Room</span>(<span class="hljs-type">int</span> seats) &#123;
@@ -670,7 +673,6 @@ List::<span class="hljs-built_in">List</span>(<span class="hljs-type">int</span>
 
 <span class="hljs-type">int</span> Room::m_name_count = <span class="hljs-number">0</span>;
 vector&lt;Room*&gt;* Room::rooms = <span class="hljs-keyword">new</span> vector&lt;Room*&gt;;</code></pre></div>
-
 <p><strong>person.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;person.h&quot;</span></span>
 
@@ -836,7 +838,6 @@ vector&lt;Teacher*&gt;* Teacher::ss = <span class="hljs-keyword">new</span> vect
 <span class="hljs-type">int</span> Manager::m_id_count = <span class="hljs-number">0</span>;
 <span class="hljs-type">int</span> Student::m_id_count = <span class="hljs-number">300000</span>;
 <span class="hljs-type">int</span> Teacher::m_id_count = <span class="hljs-number">100000</span>;</code></pre></div>
-
 <p><strong>menu.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;menu.h&quot;</span></span>
 
@@ -1433,7 +1434,6 @@ Person* user = <span class="hljs-literal">NULL</span>;
 	&#125;
 	cout &lt;&lt; endl &lt;&lt; <span class="hljs-string">&quot;清空完成&quot;</span> &lt;&lt; endl;
 &#125;;</code></pre></div>
-
 
               
             </div>

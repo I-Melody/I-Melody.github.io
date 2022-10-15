@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="9 项目：职工管理系统9.1 业务需求公司中员工分 3 类：普通员工、经理、老板 员工信息包含：职工编号、职工姓名、职工岗位、职责  普通员工职责：完成经理交代的任务 经理职责：完成老板交代的任务，下发任务给员工 老板职责：管理公司所有事物  管理系统实现功能包括：  退出管理程序 增加职工信息 批量添加职工 将职工信息导出至文件   显示所有职工信息 删除离职职工：按照编号 修改职工信息：按照编">
+    <meta name="description" content="9 项目：职工管理系统 9.1 业务需求 公司中员工分 3 类：普通员工、经理、老板 员工信息包含：职工编号、职工姓名、职工岗位、职责  普通员工职责：完成经理交代的任务 经理职责：完成老板交代的任务，下发任务给员工 老板职责：管理公司所有事物  管理系统实现功能包括：  退出管理程序 增加职工信息  批量添加职工 将职工信息导出至文件  显示所有职工信息 删除">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;9 项目：职工管理系统">
 <meta property="og:url" content="https://i-melody.github.io/2022/04/27/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="9 项目：职工管理系统9.1 业务需求公司中员工分 3 类：普通员工、经理、老板 员工信息包含：职工编号、职工姓名、职工岗位、职责  普通员工职责：完成经理交代的任务 经理职责：完成老板交代的任务，下发任务给员工 老板职责：管理公司所有事物  管理系统实现功能包括：  退出管理程序 增加职工信息 批量添加职工 将职工信息导出至文件   显示所有职工信息 删除离职职工：按照编号 修改职工信息：按照编">
+<meta property="og:description" content="9 项目：职工管理系统 9.1 业务需求 公司中员工分 3 类：普通员工、经理、老板 员工信息包含：职工编号、职工姓名、职工岗位、职责  普通员工职责：完成经理交代的任务 经理职责：完成老板交代的任务，下发任务给员工 老板职责：管理公司所有事物  管理系统实现功能包括：  退出管理程序 增加职工信息  批量添加职工 将职工信息导出至文件  显示所有职工信息 删除">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-26T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-23T23:52:58.532Z">
@@ -294,7 +294,9 @@
             
             <div class="markdown-body">
               
-              <h1 id="9-项目：职工管理系统"><a href="#9-项目：职工管理系统" class="headerlink" title="9 项目：职工管理系统"></a>9 项目：职工管理系统</h1><h2 id="9-1-业务需求"><a href="#9-1-业务需求" class="headerlink" title="9.1 业务需求"></a>9.1 业务需求</h2><p>公司中员工分 3 类：普通员工、经理、老板</p>
+              <h1 id="项目职工管理系统">9 项目：职工管理系统</h1>
+<h2 id="业务需求">9.1 业务需求</h2>
+<p>公司中员工分 3 类：普通员工、经理、老板</p>
 <p>员工信息包含：职工编号、职工姓名、职工岗位、职责</p>
 <ul>
 <li>普通员工职责：完成经理交代的任务</li>
@@ -304,11 +306,11 @@
 <p>管理系统实现功能包括：</p>
 <ul>
 <li>退出管理程序</li>
-<li>增加职工信息<ul>
+<li>增加职工信息
+<ul>
 <li>批量添加职工</li>
 <li>将职工信息导出至文件</li>
-</ul>
-</li>
+</ul></li>
 <li>显示所有职工信息</li>
 <li>删除离职职工：按照编号</li>
 <li>修改职工信息：按照编号</li>
@@ -316,7 +318,9 @@
 <li>按照编号排序：按照编号，用户能指定排序规则</li>
 <li>清空所有文档：二次确认</li>
 </ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="职工管理系统"><a href="#职工管理系统" class="headerlink" title="职工管理系统"></a>职工管理系统</h3><blockquote>
+<h2 id="附录">附录</h2>
+<h3 id="职工管理系统">职工管理系统</h3>
+<blockquote>
 <p>包含头文件后，执行：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">menu0</span>();</code></pre></div>
 </blockquote>
@@ -340,7 +344,6 @@
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">//排序</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">//清空文档</span>
 <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">exit</span><span class="hljs-params">()</span></span>;			<span class="hljs-comment">//退出</span></code></pre></div>
-
 <blockquote>
 <p><em>myHead.h</em>：几种员工类，及一个数据处理类。</p>
 </blockquote>
@@ -395,7 +398,6 @@
 	<span class="hljs-built_in">Data</span>();							<span class="hljs-comment">//构造器</span>
 	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">read</span><span class="hljs-params">(string ps)</span></span>;			<span class="hljs-comment">//从指定文件中读取数据</span>
 &#125;;</code></pre></div>
-
 <p><strong>源文件：</strong></p>
 <blockquote>
 <p><em>Employee.cpp</em>：3 个员工类</p>
@@ -429,7 +431,6 @@ Manager::<span class="hljs-built_in">Manager</span>(string name) &#123;			<span 
 	<span class="hljs-keyword">this</span>-&gt;pos = <span class="hljs-string">&quot;经理&quot;</span>;
 	duty = <span class="hljs-string">&quot;完成老板交代的任务，下发任务给员工&quot;</span>;
 &#125;</code></pre></div>
-
 <blockquote>
 <p><em>Menu.cpp</em>：菜单类</p>
 <p>接收用户指令，并对数据进行初步处理，最终移交给 Data 类执行</p>
@@ -628,7 +629,6 @@ Manager::<span class="hljs-built_in">Manager</span>(string name) &#123;			<span 
 	cin &gt;&gt; exit;
 	<span class="hljs-keyword">return</span> exit == <span class="hljs-string">&quot;y&quot;</span> || exit == <span class="hljs-string">&quot;Y&quot;</span>;
 &#125;</code></pre></div>
-
 <blockquote>
 <p><em>Data.cpp</em>：数据处理类</p>
 <p>从 Menu 类处获得处理过的数据，并最终完成对数据的处理</p>
@@ -791,7 +791,6 @@ Data::<span class="hljs-built_in">Data</span>() &#123;									<span class="hljs
 <span class="hljs-type">int</span> Employee::count = <span class="hljs-number">0</span>; 				<span class="hljs-comment">//静态变量类外初始化</span>
 
 Data Data::data = <span class="hljs-built_in">Data</span>();				<span class="hljs-comment">//静态变量类外初始化</span></code></pre></div>
-
 
               
             </div>

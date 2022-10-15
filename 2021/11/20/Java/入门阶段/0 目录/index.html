@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="目录 Java 入门教学（韩顺平） 1 Java 概述 1.1 Java 历史 1.2 Java 重要特点 1.3 Java 的开发工具 1.4 Java 运行基础 1.5 Java 执行流程分析 1.5.1 编译 1.5.2 运行   1.6 Java 开发注意事项和细节说明 1.7 代码规范 1.8 Java 转义字符 1.9 注释 1.9.1 注释类型 1.9.2 文档注释   1.10 J">
+    <meta name="description" content="目录  Java 入门教学（韩顺平） 1 Java 概述  1.1 Java 历史 1.2 Java 重要特点 1.3 Java 的开发工具 1.4 Java 运行基础 1.5 Java 执行流程分析  1.5.1 编译 1.5.2 运行  1.6 Java 开发注意事项和细节说明 1.7 代码规范 1.8 Java 转义字符 1.9 注释">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;目录">
 <meta property="og:url" content="https://i-melody.github.io/2021/11/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/0%20%E7%9B%AE%E5%BD%95/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="目录 Java 入门教学（韩顺平） 1 Java 概述 1.1 Java 历史 1.2 Java 重要特点 1.3 Java 的开发工具 1.4 Java 运行基础 1.5 Java 执行流程分析 1.5.1 编译 1.5.2 运行   1.6 Java 开发注意事项和细节说明 1.7 代码规范 1.8 Java 转义字符 1.9 注释 1.9.1 注释类型 1.9.2 文档注释   1.10 J">
+<meta property="og:description" content="目录  Java 入门教学（韩顺平） 1 Java 概述  1.1 Java 历史 1.2 Java 重要特点 1.3 Java 的开发工具 1.4 Java 运行基础 1.5 Java 执行流程分析  1.5.1 编译 1.5.2 运行  1.6 Java 开发注意事项和细节说明 1.7 代码规范 1.8 Java 转义字符 1.9 注释">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-26T13:27:00.936Z">
@@ -232,7 +232,7 @@
         
         
         
-          18 分钟
+          17 分钟
         
       </span>
     
@@ -294,808 +294,1180 @@
             
             <div class="markdown-body">
               
-              <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><hr>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?share_source=copy_web">Java 入门教学（韩顺平）</a></p>
-<h2 id="1-Java-概述"><a href="#1-Java-概述" class="headerlink" title="1 Java 概述"></a>1 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java 概述</a></h2><ul>
-<li><h3 id="1-1-Java-历史"><a href="#1-1-Java-历史" class="headerlink" title="1.1 Java 历史"></a>1.1 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-1-Java-%E5%8E%86%E5%8F%B2">Java 历史</a></h3></li>
-<li><h3 id="1-2-Java-重要特点"><a href="#1-2-Java-重要特点" class="headerlink" title="1.2 Java 重要特点"></a>1.2 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-2-Java-%E9%87%8D%E8%A6%81%E7%89%B9%E7%82%B9">Java 重要特点</a></h3></li>
-<li><h3 id="1-3-Java-的开发工具"><a href="#1-3-Java-的开发工具" class="headerlink" title="1.3 Java 的开发工具"></a>1.3 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-3-Java-%E7%9A%84%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">Java 的开发工具</a></h3></li>
-<li><h3 id="1-4-Java-运行基础"><a href="#1-4-Java-运行基础" class="headerlink" title="1.4 Java 运行基础"></a>1.4 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-4-Java-%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80">Java 运行基础</a></h3></li>
-<li><h3 id="1-5-Java-执行流程分析"><a href="#1-5-Java-执行流程分析" class="headerlink" title="1.5 Java 执行流程分析"></a>1.5 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-5-Java-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">Java 执行流程分析</a></h3><ul>
-<li><h4 id="1-5-1-编译"><a href="#1-5-1-编译" class="headerlink" title="1.5.1 编译"></a>1.5.1 编译</h4></li>
-<li><h4 id="1-5-2-运行"><a href="#1-5-2-运行" class="headerlink" title="1.5.2 运行"></a>1.5.2 运行</h4></li>
-</ul>
-</li>
-<li><h3 id="1-6-Java-开发注意事项和细节说明"><a href="#1-6-Java-开发注意事项和细节说明" class="headerlink" title="1.6 Java 开发注意事项和细节说明"></a>1.6 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-6-Java-%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E">Java 开发注意事项和细节说明</a></h3></li>
-<li><h3 id="1-7-代码规范"><a href="#1-7-代码规范" class="headerlink" title="1.7 代码规范"></a>1.7 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-7-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83">代码规范</a></h3></li>
-<li><h3 id="1-8-Java-转义字符"><a href="#1-8-Java-转义字符" class="headerlink" title="1.8 Java 转义字符"></a>1.8 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-8-Java-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6">Java 转义字符</a></h3></li>
-<li><h3 id="1-9-注释"><a href="#1-9-注释" class="headerlink" title="1.9 注释"></a>1.9 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-9-%E6%B3%A8%E9%87%8A">注释</a></h3><ul>
-<li><h4 id="1-9-1-注释类型"><a href="#1-9-1-注释类型" class="headerlink" title="1.9.1 注释类型"></a>1.9.1 注释类型</h4></li>
-<li><h4 id="1-9-2-文档注释"><a href="#1-9-2-文档注释" class="headerlink" title="1.9.2 文档注释"></a>1.9.2 文档注释</h4></li>
-</ul>
-</li>
-<li><h3 id="1-10-JShell"><a href="#1-10-JShell" class="headerlink" title="1.10 JShell"></a>1.10 <a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-10-JShell">JShell</a></h3></li>
-<li><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><h3 id="如何快速学习技术和知识点"><a href="#如何快速学习技术和知识点" class="headerlink" title="如何快速学习技术和知识点"></a><a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E5%92%8C%E7%9F%A5%E8%AF%86%E7%82%B9">如何快速学习技术和知识点</a></h3><h3 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a><a href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#DOS%EF%BC%88%E5%8F%AA%E8%A6%81%E4%BA%86%E8%A7%A3%EF%BC%89">DOS</a></h3></li>
-</ul>
-<hr>
-<h2 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/">变量</a></h2><ul>
-<li><h3 id="2-1-变量使用注意事项"><a href="#2-1-变量使用注意事项" class="headerlink" title="2.1 变量使用注意事项"></a>2.1 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-1-%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">变量使用注意事项</a></h3></li>
-<li><h3 id="2-2-程序中-的使用"><a href="#2-2-程序中-的使用" class="headerlink" title="2.2 程序中 + 的使用"></a>2.2 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-2-%E7%A8%8B%E5%BA%8F%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8">程序中 <code>+</code> 的使用</a></h3></li>
-<li><h3 id="2-3-Java-数据类型"><a href="#2-3-Java-数据类型" class="headerlink" title="2.3 Java 数据类型"></a>2.3 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-3-Java-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Java 数据类型</a></h3></li>
-<li><h3 id="2-4-整数类型"><a href="#2-4-整数类型" class="headerlink" title="2.4 整数类型"></a>2.4 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-4-%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B">整数类型</a></h3></li>
-<li><h3 id="2-5-浮点类型"><a href="#2-5-浮点类型" class="headerlink" title="2.5 浮点类型"></a>2.5 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-5-%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B">浮点类型</a></h3><ul>
-<li><h4 id="2-5-1-使用细节"><a href="#2-5-1-使用细节" class="headerlink" title="2.5.1 使用细节"></a>2.5.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="2-6-字符类型"><a href="#2-6-字符类型" class="headerlink" title="2.6 字符类型"></a>2.6 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-6-%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B">字符类型</a></h3><ul>
-<li><h4 id="2-6-1-使用细节"><a href="#2-6-1-使用细节" class="headerlink" title="2.6.1 使用细节"></a>2.6.1 使用细节</h4></li>
-<li><h4 id="2-6-2-字符本质与编码表"><a href="#2-6-2-字符本质与编码表" class="headerlink" title="2.6.2 字符本质与编码表"></a>2.6.2 字符本质与编码表</h4></li>
-</ul>
-</li>
-<li><h3 id="2-7-布尔类型"><a href="#2-7-布尔类型" class="headerlink" title="2.7 布尔类型"></a>2.7 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-7-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B">布尔类型</a></h3></li>
-<li><h3 id="2-8-基本数据类型转换"><a href="#2-8-基本数据类型转换" class="headerlink" title="2.8 基本数据类型转换"></a>2.8 <a href="../../../../../../2021/11/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/2%20%E5%8F%98%E9%87%8F/#2-8-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">基本数据类型转换</a></h3><ul>
-<li><h4 id="2-8-1-自动类型转换"><a href="#2-8-1-自动类型转换" class="headerlink" title="2.8.1 自动类型转换"></a>2.8.1 自动类型转换</h4></li>
-<li><h4 id="2-8-2-强制类型转换"><a href="#2-8-2-强制类型转换" class="headerlink" title="2.8.2 强制类型转换"></a>2.8.2 强制类型转换</h4><ul>
-<li><h5 id="2-8-2-1-使用细节"><a href="#2-8-2-1-使用细节" class="headerlink" title="2.8.2.1 使用细节"></a>2.8.2.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="2-8-3-基本数据类型和-String-的转换"><a href="#2-8-3-基本数据类型和-String-的转换" class="headerlink" title="2.8.3 基本数据类型和 String 的转换"></a>2.8.3 基本数据类型和 String 的转换</h4><ul>
-<li><h5 id="2-8-3-1-使用细节"><a href="#2-8-3-1-使用细节" class="headerlink" title="2.8.3.1 使用细节"></a>2.8.3.1 使用细节</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3 运算符"></a>3 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/">运算符</a></h2><ul>
-<li><h3 id="3-1-算术运算符"><a href="#3-1-算术运算符" class="headerlink" title="3.1 算术运算符"></a>3.1 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-1-%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6">算术运算符</a></h3></li>
-<li><h3 id="3-2-关系运算符（比较运算符）"><a href="#3-2-关系运算符（比较运算符）" class="headerlink" title="3.2 关系运算符（比较运算符）"></a>3.2 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-2-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%89">关系运算符（比较运算符）</a></h3><ul>
-<li><h4 id="3-2-1-使用细节"><a href="#3-2-1-使用细节" class="headerlink" title="3.2.1 使用细节"></a>3.2.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="3-3-逻辑运算符"><a href="#3-3-逻辑运算符" class="headerlink" title="3.3 逻辑运算符"></a>3.3 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-3-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a></h3></li>
-<li><h3 id="3-4-赋值运算符"><a href="#3-4-赋值运算符" class="headerlink" title="3.4 赋值运算符"></a>3.4 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">赋值运算符</a></h3><ul>
-<li><h4 id="3-4-1-使用细节"><a href="#3-4-1-使用细节" class="headerlink" title="3.4.1 使用细节"></a>3.4.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="3-5-三元运算符"><a href="#3-5-三元运算符" class="headerlink" title="3.5 三元运算符"></a>3.5 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-5-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6">三元运算符</a></h3><ul>
-<li><h4 id="3-5-1-使用细节"><a href="#3-5-1-使用细节" class="headerlink" title="3.5.1 使用细节"></a>3.5.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="3-6-运算符优先级"><a href="#3-6-运算符优先级" class="headerlink" title="3.6 运算符优先级"></a>3.6 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-6-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7">运算符优先级</a></h3></li>
-<li><h3 id="3-7-标识符"><a href="#3-7-标识符" class="headerlink" title="3.7 标识符"></a>3.7 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-7-%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></h3><ul>
-<li><h4 id="3-7-1-命名规则"><a href="#3-7-1-命名规则" class="headerlink" title="3.7.1 命名规则"></a>3.7.1 命名规则</h4></li>
-<li><h4 id="3-7-2-命名规范"><a href="#3-7-2-命名规范" class="headerlink" title="3.7.2 命名规范"></a>3.7.2 命名规范</h4></li>
-</ul>
-</li>
-<li><h3 id="3-8-输入与输出"><a href="#3-8-输入与输出" class="headerlink" title="3.8 输入与输出"></a>3.8 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-8-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA">输入与输出</a></h3><ul>
-<li><h4 id="3-8-1-Scanner-类"><a href="#3-8-1-Scanner-类" class="headerlink" title="3.8.1 Scanner 类"></a>3.8.1 Scanner 类</h4></li>
-<li><h4 id="3-8-2-格式化输出"><a href="#3-8-2-格式化输出" class="headerlink" title="3.8.2 格式化输出"></a>3.8.2 格式化输出</h4></li>
-<li><h4 id="3-8-3-NumberFormat-类"><a href="#3-8-3-NumberFormat-类" class="headerlink" title="3.8.3 NumberFormat 类"></a>3.8.3 NumberFormat 类</h4></li>
-<li><h4 id="3-8-4-DecimalFormat-类"><a href="#3-8-4-DecimalFormat-类" class="headerlink" title="3.8.4 DecimalFormat 类"></a>3.8.4 DecimalFormat 类</h4></li>
-</ul>
-</li>
-<li><h3 id="3-9-进制"><a href="#3-9-进制" class="headerlink" title="3.9 进制"></a>3.9 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-9-%E8%BF%9B%E5%88%B6">进制</a></h3><ul>
-<li><h4 id="3-9-1-进制的转换"><a href="#3-9-1-进制的转换" class="headerlink" title="3.9.1 进制的转换"></a>3.9.1 进制的转换</h4></li>
-<li><h4 id="3-9-2-原码、反码、补码"><a href="#3-9-2-原码、反码、补码" class="headerlink" title="3.9.2 原码、反码、补码"></a>3.9.2 原码、反码、补码</h4></li>
-</ul>
-</li>
-<li><h3 id="3-10-位运算符"><a href="#3-10-位运算符" class="headerlink" title="3.10 位运算符"></a>3.10 <a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-10-%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6">位运算符</a></h3></li>
-<li><h3 id="附录-1"><a href="#附录-1" class="headerlink" title="附录"></a>附录</h3><h3 id="Java-API-文档"><a href="#Java-API-文档" class="headerlink" title="Java API 文档"></a><a href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#Java-API-%E6%96%87%E6%A1%A3">Java API 文档</a></h3></li>
-</ul>
-<hr>
-<h2 id="4-程序控制结构"><a href="#4-程序控制结构" class="headerlink" title="4 程序控制结构"></a>4 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">程序控制结构</a></h2><ul>
-<li><h3 id="4-1-顺序控制"><a href="#4-1-顺序控制" class="headerlink" title="4.1 顺序控制"></a>4.1 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-1-%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6">顺序控制</a></h3></li>
-<li><h3 id="4-2-if-else-分支控制"><a href="#4-2-if-else-分支控制" class="headerlink" title="4.2 if - else 分支控制"></a>4.2 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-2-%E5%88%86%E6%94%AF%E6%8E%A7%E5%88%B6-if-else">if - else 分支控制</a></h3><ul>
-<li><h4 id="4-2-1-单分支控制"><a href="#4-2-1-单分支控制" class="headerlink" title="4.2.1 单分支控制"></a>4.2.1 单分支控制</h4></li>
-<li><h4 id="4-2-2-双分支控制"><a href="#4-2-2-双分支控制" class="headerlink" title="4.2.2 双分支控制"></a>4.2.2 双分支控制</h4></li>
-<li><h4 id="4-2-3-多分支控制"><a href="#4-2-3-多分支控制" class="headerlink" title="4.2.3 多分支控制"></a>4.2.3 多分支控制</h4></li>
-<li><h4 id="4-2-4-嵌套分支"><a href="#4-2-4-嵌套分支" class="headerlink" title="4.2.4 嵌套分支"></a>4.2.4 嵌套分支</h4></li>
-</ul>
-</li>
-<li><h3 id="4-3-switch-分支控制"><a href="#4-3-switch-分支控制" class="headerlink" title="4.3 switch 分支控制"></a>4.3 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-3-switch-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84">switch 分支控制</a></h3><ul>
-<li><h4 id="4-3-1-使用细节"><a href="#4-3-1-使用细节" class="headerlink" title="4.3.1 使用细节"></a>4.3.1 使用细节</h4></li>
-<li><h4 id="4-3-2-与-if-else-分支结构的取舍"><a href="#4-3-2-与-if-else-分支结构的取舍" class="headerlink" title="4.3.2 与 if-else 分支结构的取舍"></a>4.3.2 与 <code>if-else</code> 分支结构的取舍</h4></li>
-</ul>
-</li>
-<li><h3 id="4-4-for-循环控制"><a href="#4-4-for-循环控制" class="headerlink" title="4.4 for 循环控制"></a>4.4 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-4-for-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">for 循环控制</a></h3><ul>
-<li><h4 id="4-4-1-使用细节"><a href="#4-4-1-使用细节" class="headerlink" title="4.4.1 使用细节"></a>4.4.1 使用细节</h4></li>
-<li><h4 id="4-4-2-for-each（增强-for-循环）"><a href="#4-4-2-for-each（增强-for-循环）" class="headerlink" title="4.4.2 for each（增强 for 循环）"></a>4.4.2 for each（增强 for 循环）</h4></li>
-</ul>
-</li>
-<li><h3 id="4-5-while-循环控制"><a href="#4-5-while-循环控制" class="headerlink" title="4.5 while 循环控制"></a>4.5 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-5-while-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">while 循环控制</a></h3><ul>
-<li><h4 id="4-5-1-使用细节"><a href="#4-5-1-使用细节" class="headerlink" title="4.5.1 使用细节"></a>4.5.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="4-6-do-while-循环控制"><a href="#4-6-do-while-循环控制" class="headerlink" title="4.6 do..while 循环控制"></a>4.6 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-6-do-while-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">do..while 循环控制</a></h3><ul>
-<li><h4 id="4-6-1-使用细节"><a href="#4-6-1-使用细节" class="headerlink" title="4.6.1 使用细节"></a>4.6.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="4-7-多重循环控制"><a href="#4-7-多重循环控制" class="headerlink" title="4.7 多重循环控制"></a>4.7 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-7-%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">多重循环控制</a></h3></li>
-<li><h3 id="4-8-跳转控制语句"><a href="#4-8-跳转控制语句" class="headerlink" title="4.8 跳转控制语句"></a>4.8 <a href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-8-%E8%B7%B3%E8%BD%AC%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5">跳转控制语句</a></h3><ul>
-<li><h4 id="4-8-1-标签"><a href="#4-8-1-标签" class="headerlink" title="4.8.1 标签"></a>4.8.1 标签</h4></li>
-<li><h4 id="4-8-2-break"><a href="#4-8-2-break" class="headerlink" title="4.8.2 break"></a>4.8.2 break</h4></li>
-<li><h4 id="4-8-3-continue"><a href="#4-8-3-continue" class="headerlink" title="4.8.3 continue"></a>4.8.3 continue</h4></li>
-<li><h4 id="4-8-4-return"><a href="#4-8-4-return" class="headerlink" title="4.8.4 return"></a>4.8.4 return</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="5-数组、排序和查找"><a href="#5-数组、排序和查找" class="headerlink" title="5 数组、排序和查找"></a>5 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/">数组、排序和查找</a></h2><ul>
-<li><h3 id="5-1-一维数组"><a href="#5-1-一维数组" class="headerlink" title="5.1 一维数组"></a>5.1 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84">一维数组</a></h3><ul>
-<li><h4 id="5-1-1-数组赋值机制"><a href="#5-1-1-数组赋值机制" class="headerlink" title="5.1.1 数组赋值机制"></a>5.1.1 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-1-%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC%E6%9C%BA%E5%88%B6">数组赋值机制</a></h4></li>
-<li><h4 id="5-1-2-数组的扩容"><a href="#5-1-2-数组的扩容" class="headerlink" title="5.1.2 数组的扩容"></a>5.1.2 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-2-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%AE%B9">数组的扩容</a></h4></li>
-</ul>
-</li>
-<li><h3 id="5-2-二维数组"><a href="#5-2-二维数组" class="headerlink" title="5.2 二维数组"></a>5.2 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-2-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84">二维数组</a></h3></li>
-<li><h3 id="5-3-查找算法"><a href="#5-3-查找算法" class="headerlink" title="5.3 查找算法"></a>5.3 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95">查找算法</a></h3><ul>
-<li><h4 id="5-3-1-线性查找"><a href="#5-3-1-线性查找" class="headerlink" title="5.3.1 线性查找"></a>5.3.1 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-1-%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE">线性查找</a></h4></li>
-<li><h4 id="5-3-2-二分查找"><a href="#5-3-2-二分查找" class="headerlink" title="5.3.2 二分查找"></a>5.3.2 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a></h4></li>
-<li><h4 id="5-3-3-插值查找"><a href="#5-3-3-插值查找" class="headerlink" title="5.3.3 插值查找"></a>5.3.3 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-3-%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE">插值查找</a></h4></li>
-<li><h4 id="5-3-4-斐波那契查找"><a href="#5-3-4-斐波那契查找" class="headerlink" title="5.3.4 斐波那契查找"></a>5.3.4 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-4-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%9F%A5%E6%89%BE">斐波那契查找</a></h4></li>
-</ul>
-</li>
-<li><h3 id="5-4-排序算法"><a href="#5-4-排序算法" class="headerlink" title="5.4 排序算法"></a>5.4 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a></h3><ul>
-<li><h4 id="5-4-1-冒泡排序"><a href="#5-4-1-冒泡排序" class="headerlink" title="5.4.1 冒泡排序"></a>5.4.1 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-1-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">冒泡排序</a></h4></li>
-<li><h4 id="5-4-2-选择排序"><a href="#5-4-2-选择排序" class="headerlink" title="5.4.2 选择排序"></a>5.4.2 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-2-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">选择排序</a></h4></li>
-<li><h4 id="5-4-3-插入排序"><a href="#5-4-3-插入排序" class="headerlink" title="5.4.3 插入排序"></a>5.4.3 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-3-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</a></h4></li>
-<li><h4 id="5-4-4-希尔排序"><a href="#5-4-4-希尔排序" class="headerlink" title="5.4.4 希尔排序"></a>5.4.4 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-4-%E5%B8%8C%E5%84%BF%E6%8E%92%E5%BA%8F">希尔排序</a></h4></li>
-<li><h4 id="5-4-5-快速排序"><a href="#5-4-5-快速排序" class="headerlink" title="5.4.5 快速排序"></a>5.4.5 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-5-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</a></h4></li>
-<li><h4 id="5-4-6-归并排序"><a href="#5-4-6-归并排序" class="headerlink" title="5.4.6 归并排序"></a>5.4.6 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-6-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">归并排序</a></h4></li>
-<li><h4 id="5-4-7-基数排序"><a href="#5-4-7-基数排序" class="headerlink" title="5.4.7 基数排序"></a>5.4.7 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-7-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F">基数排序</a></h4></li>
-<li><h4 id="5-4-8-堆排序"><a href="#5-4-8-堆排序" class="headerlink" title="5.4.8 堆排序"></a>5.4.8 <a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-8-%E5%A0%86%E6%8E%92%E5%BA%8F">堆排序</a></h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="6-面向对象编程（基础）"><a href="#6-面向对象编程（基础）" class="headerlink" title="6 面向对象编程（基础）"></a>6 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/">面向对象编程（基础）</a></h2><ul>
-<li><h3 id="6-1-类与对象（OOP）"><a href="#6-1-类与对象（OOP）" class="headerlink" title="6.1 类与对象（OOP）"></a>6.1 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%EF%BC%88OOP%EF%BC%89">类与对象（OOP）</a></h3><ul>
-<li><h4 id="6-1-1-属性-x2F-成员变量"><a href="#6-1-1-属性-x2F-成员变量" class="headerlink" title="6.1.1 属性&#x2F;成员变量"></a>6.1.1 属性&#x2F;成员变量</h4></li>
-<li><h4 id="6-1-2-创建对象"><a href="#6-1-2-创建对象" class="headerlink" title="6.1.2 创建对象"></a>6.1.2 创建对象</h4></li>
-<li><h4 id="6-1-3-类与对象的内存访问机制"><a href="#6-1-3-类与对象的内存访问机制" class="headerlink" title="6.1.3 类与对象的内存访问机制"></a>6.1.3 类与对象的内存访问机制</h4></li>
-</ul>
-</li>
-<li><h3 id="6-2-成员方法"><a href="#6-2-成员方法" class="headerlink" title="6.2 成员方法"></a>6.2 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-2-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95">成员方法</a></h3><ul>
-<li><h4 id="6-2-1-方法的调用机制"><a href="#6-2-1-方法的调用机制" class="headerlink" title="6.2.1 方法的调用机制"></a>6.2.1 方法的调用机制</h4></li>
-<li><h4 id="6-2-2-使用细节"><a href="#6-2-2-使用细节" class="headerlink" title="6.2.2 使用细节"></a>6.2.2 使用细节</h4></li>
-<li><h4 id="6-2-3-成员方法传参机制"><a href="#6-2-3-成员方法传参机制" class="headerlink" title="6.2.3 成员方法传参机制"></a>6.2.3 成员方法传参机制</h4></li>
-</ul>
-</li>
-<li><h3 id="6-3-方法递归调用"><a href="#6-3-方法递归调用" class="headerlink" title="6.3 方法递归调用"></a>6.3 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-3-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8">方法递归调用</a></h3><ul>
-<li><h4 id="6-3-1-使用细节"><a href="#6-3-1-使用细节" class="headerlink" title="6.3.1 使用细节"></a>6.3.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="6-4-方法重载"><a href="#6-4-方法重载" class="headerlink" title="6.4 方法重载"></a>6.4 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-4-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD">方法重载</a></h3></li>
-<li><h3 id="6-5-可变参数"><a href="#6-5-可变参数" class="headerlink" title="6.5 可变参数"></a>6.5 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-5-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></h3><ul>
-<li><h4 id="6-5-1-使用细节"><a href="#6-5-1-使用细节" class="headerlink" title="6.5.1 使用细节"></a>6.5.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="6-6-作用域"><a href="#6-6-作用域" class="headerlink" title="6.6 作用域"></a>6.6 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-6-%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">作用域</a></h3><ul>
-<li><h4 id="6-6-1-使用细节"><a href="#6-6-1-使用细节" class="headerlink" title="6.6.1 使用细节"></a>6.6.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="6-7-构造方法、构造器"><a href="#6-7-构造方法、构造器" class="headerlink" title="6.7 构造方法、构造器"></a>6.7 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-7-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8">构造方法、构造器</a></h3><ul>
-<li><h4 id="6-7-1-使用细节"><a href="#6-7-1-使用细节" class="headerlink" title="6.7.1 使用细节"></a>6.7.1 使用细节</h4></li>
-<li><h4 id="6-7-2-流程分析"><a href="#6-7-2-流程分析" class="headerlink" title="6.7.2 流程分析"></a>6.7.2 流程分析</h4></li>
-</ul>
-</li>
-<li><h3 id="6-8-this-关键字"><a href="#6-8-this-关键字" class="headerlink" title="6.8 this 关键字"></a>6.8 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-8-this-%E5%85%B3%E9%94%AE%E5%AD%97">this 关键字</a></h3><ul>
-<li><h4 id="6-8-1-使用方法"><a href="#6-8-1-使用方法" class="headerlink" title="6.8.1 使用方法"></a>6.8.1 使用方法</h4></li>
-</ul>
-</li>
-<li><h3 id="附录-2"><a href="#附录-2" class="headerlink" title="附录"></a>附录</h3><h3 id="迷宫游戏代码"><a href="#迷宫游戏代码" class="headerlink" title="迷宫游戏代码"></a><a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#%E8%BF%B7%E5%AE%AB%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81">迷宫游戏代码</a></h3><h3 id="八皇后代码"><a href="#八皇后代码" class="headerlink" title="八皇后代码"></a><a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#%E5%85%AB%E7%9A%87%E5%90%8E%E4%BB%A3%E7%A0%81">八皇后代码</a></h3></li>
-</ul>
-<hr>
-<h2 id="7-面向对象编程（中级）"><a href="#7-面向对象编程（中级）" class="headerlink" title="7 面向对象编程（中级）"></a>7 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/">面向对象编程（中级）</a></h2><ul>
-<li><h3 id="7-1-IDEA-的使用"><a href="#7-1-IDEA-的使用" class="headerlink" title="7.1 IDEA 的使用"></a>7.1 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-1-IDEA-%E7%9A%84%E4%BD%BF%E7%94%A8">IDEA 的使用</a></h3><ul>
-<li><h4 id="7-1-1-常用快捷键"><a href="#7-1-1-常用快捷键" class="headerlink" title="7.1.1 常用快捷键"></a>7.1.1 常用快捷键</h4></li>
-<li><h4 id="7-1-2-模板快捷键"><a href="#7-1-2-模板快捷键" class="headerlink" title="7.1.2 模板快捷键"></a>7.1.2 模板快捷键</h4></li>
-</ul>
-</li>
-<li><h3 id="7-2-包"><a href="#7-2-包" class="headerlink" title="7.2 包"></a>7.2 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-2-%E5%8C%85">包</a></h3></li>
-<li><h3 id="7-3-访问修饰符"><a href="#7-3-访问修饰符" class="headerlink" title="7.3 访问修饰符"></a>7.3 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">访问修饰符</a></h3><ul>
-<li><h4 id="7-3-1-访问权限特点"><a href="#7-3-1-访问权限特点" class="headerlink" title="7.3.1 访问权限特点"></a>7.3.1 访问权限特点</h4></li>
-<li><h4 id="7-3-2-使用说明"><a href="#7-3-2-使用说明" class="headerlink" title="7.3.2 使用说明"></a>7.3.2 使用说明</h4></li>
-</ul>
-</li>
-<li><h3 id="7-4-封装"><a href="#7-4-封装" class="headerlink" title="7.4 封装"></a>7.4 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-4-%E5%B0%81%E8%A3%85%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89">封装</a></h3><ul>
-<li><h4 id="7-4-1-静态导入"><a href="#7-4-1-静态导入" class="headerlink" title="7.4.1 静态导入"></a>7.4.1 静态导入</h4></li>
-<li><h4 id="7-4-2-JAR-文件"><a href="#7-4-2-JAR-文件" class="headerlink" title="7.4.2 JAR 文件"></a>7.4.2 JAR 文件</h4></li>
-</ul>
-</li>
-<li><h3 id="7-5-继承"><a href="#7-5-继承" class="headerlink" title="7.5 继承"></a>7.5 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-5-%E7%BB%A7%E6%89%BF%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89">继承</a></h3><ul>
-<li><h4 id="7-5-1-使用细节"><a href="#7-5-1-使用细节" class="headerlink" title="7.5.1 使用细节"></a>7.5.1 使用细节</h4></li>
-<li><h4 id="7-5-2-继承的本质"><a href="#7-5-2-继承的本质" class="headerlink" title="7.5.2 继承的本质"></a>7.5.2 继承的本质</h4></li>
-<li><h4 id="7-5-3-super-关键字"><a href="#7-5-3-super-关键字" class="headerlink" title="7.5.3 super 关键字"></a>7.5.3 <code>super</code> 关键字</h4></li>
-<li><h4 id="7-5-4-方法重写-x2F-覆盖"><a href="#7-5-4-方法重写-x2F-覆盖" class="headerlink" title="7.5.4 方法重写&#x2F;覆盖"></a>7.5.4 方法重写&#x2F;覆盖</h4></li>
-</ul>
-</li>
-<li><h3 id="7-6-多态"><a href="#7-6-多态" class="headerlink" title="7.6 多态"></a>7.6 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-6-%E5%A4%9A%E6%80%81%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">多态</a></h3><ul>
-<li><h4 id="7-6-1-多态的体现"><a href="#7-6-1-多态的体现" class="headerlink" title="7.6.1 多态的体现"></a>7.6.1 多态的体现</h4></li>
-<li><h4 id="7-6-2-使用细节"><a href="#7-6-2-使用细节" class="headerlink" title="7.6.2 使用细节"></a>7.6.2 使用细节</h4></li>
-<li><h4 id="7-6-3-理解方法调用"><a href="#7-6-3-理解方法调用" class="headerlink" title="7.6.3 理解方法调用"></a>7.6.3 理解方法调用</h4></li>
-</ul>
-</li>
-<li><h3 id="7-7-Object-类"><a href="#7-7-Object-类" class="headerlink" title="7.7 Object 类"></a>7.7 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-7-Object-%E7%B1%BB">Object 类</a></h3><ul>
-<li><h4 id="7-7-1-equals-方法"><a href="#7-7-1-equals-方法" class="headerlink" title="7.7.1 equals 方法"></a>7.7.1 equals 方法</h4></li>
-<li><h4 id="7-7-2-hashCode-方法"><a href="#7-7-2-hashCode-方法" class="headerlink" title="7.7.2 hashCode 方法"></a>7.7.2 hashCode 方法</h4></li>
-<li><h4 id="7-7-3-toString-方法"><a href="#7-7-3-toString-方法" class="headerlink" title="7.7.3 toString 方法"></a>7.7.3 toString 方法</h4></li>
-<li><h4 id="7-7-4-finalize-方法"><a href="#7-7-4-finalize-方法" class="headerlink" title="7.7.4 finalize 方法"></a>7.7.4 finalize 方法</h4></li>
-</ul>
-</li>
-<li><h3 id="7-8-断点调试（Debug）"><a href="#7-8-断点调试（Debug）" class="headerlink" title="7.8 断点调试（Debug）"></a>7.8 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-8-%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%EF%BC%88Debug%EF%BC%89">断点调试（Debug）</a></h3></li>
-<li><h3 id="附录-3"><a href="#附录-3" class="headerlink" title="附录"></a>附录</h3><h3 id="零钱通程序"><a href="#零钱通程序" class="headerlink" title="零钱通程序"></a><a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#%E9%9B%B6%E9%92%B1%E9%80%9A%E7%A8%8B%E5%BA%8F">零钱通程序</a></h3></li>
-</ul>
-<hr>
-<h2 id="8-项目：房屋出租系统"><a href="#8-项目：房屋出租系统" class="headerlink" title="8 项目：房屋出租系统"></a>8 <a href="../../../../../../2021/12/13/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/8%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E7%B3%BB%E7%BB%9F/">项目：房屋出租系统</a></h2><p>2021.12.13  20:12            第一阶段完成</p>
-<hr>
-<h2 id="9-面向对象编程（高级）"><a href="#9-面向对象编程（高级）" class="headerlink" title="9 面向对象编程（高级）"></a>9 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/">面向对象编程（高级）</a></h2><ul>
-<li><h3 id="9-1-类变量和类方法"><a href="#9-1-类变量和类方法" class="headerlink" title="9.1 类变量和类方法"></a>9.1 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-1-%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95">类变量和类方法</a></h3><ul>
-<li><h4 id="9-1-1-类变量"><a href="#9-1-1-类变量" class="headerlink" title="9.1.1 类变量"></a>9.1.1 类变量</h4></li>
-<li><h4 id="9-1-2-类方法"><a href="#9-1-2-类方法" class="headerlink" title="9.1.2 类方法"></a>9.1.2 类方法</h4></li>
-</ul>
-</li>
-<li><h3 id="9-2-理解-main-方法语法"><a href="#9-2-理解-main-方法语法" class="headerlink" title="9.2 理解 main 方法语法"></a>9.2 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-2-%E7%90%86%E8%A7%A3-main-%E6%96%B9%E6%B3%95%E8%AF%AD%E6%B3%95">理解 <code>main</code> 方法语法</a></h3></li>
-<li><h3 id="9-3-代码块"><a href="#9-3-代码块" class="headerlink" title="9.3 代码块"></a>9.3 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-3-%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a></h3><ul>
-<li><h4 id="9-3-1-使用细节"><a href="#9-3-1-使用细节" class="headerlink" title="9.3.1 使用细节"></a>9.3.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="9-4-单例设计模式"><a href="#9-4-单例设计模式" class="headerlink" title="9.4 单例设计模式"></a>9.4 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-4-%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">单例设计模式</a></h3><ul>
-<li><h4 id="9-4-1-应用实例"><a href="#9-4-1-应用实例" class="headerlink" title="9.4.1 应用实例"></a>9.4.1 应用实例</h4><ul>
-<li><h5 id="9-4-1-1-饿汉式"><a href="#9-4-1-1-饿汉式" class="headerlink" title="9.4.1.1 饿汉式"></a>9.4.1.1 饿汉式</h5></li>
-<li><h5 id="9-4-1-2-懒汉式"><a href="#9-4-1-2-懒汉式" class="headerlink" title="9.4.1.2 懒汉式"></a>9.4.1.2 懒汉式</h5></li>
-<li><h5 id="9-4-1-3-两种方法对比"><a href="#9-4-1-3-两种方法对比" class="headerlink" title="9.4.1.3 两种方法对比"></a>9.4.1.3 两种方法对比</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="9-5-final-关键字"><a href="#9-5-final-关键字" class="headerlink" title="9.5 final 关键字"></a>9.5 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-5-final-%E5%85%B3%E9%94%AE%E5%AD%97"><code>final</code> 关键字</a></h3><ul>
-<li><h4 id="9-5-1-使用细节"><a href="#9-5-1-使用细节" class="headerlink" title="9.5.1 使用细节"></a>9.5.1 使用细节</h4></li>
-</ul>
-</li>
-<li><h3 id="9-6-抽象类"><a href="#9-6-抽象类" class="headerlink" title="9.6 抽象类"></a>9.6 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-6-%E6%8A%BD%E8%B1%A1%E7%B1%BB">抽象类</a></h3><ul>
-<li><h4 id="9-6-1-使用细节"><a href="#9-6-1-使用细节" class="headerlink" title="9.6.1 使用细节"></a>9.6.1 使用细节</h4></li>
-<li><h4 id="9-6-2-模板设计模式"><a href="#9-6-2-模板设计模式" class="headerlink" title="9.6.2 模板设计模式"></a>9.6.2 模板设计模式</h4></li>
-</ul>
-</li>
-<li><h3 id="9-7-接口"><a href="#9-7-接口" class="headerlink" title="9.7 接口"></a>9.7 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-7-%E6%8E%A5%E5%8F%A3">接口</a></h3><ul>
-<li><h4 id="9-7-1-使用细节"><a href="#9-7-1-使用细节" class="headerlink" title="9.7.1 使用细节"></a>9.7.1 使用细节</h4></li>
-<li><h4 id="9-7-2-实现接口-vs-继承类"><a href="#9-7-2-实现接口-vs-继承类" class="headerlink" title="9.7.2 实现接口 vs 继承类"></a>9.7.2 实现接口 vs 继承类</h4></li>
-<li><h4 id="9-7-3-接口的多态特性"><a href="#9-7-3-接口的多态特性" class="headerlink" title="9.7.3 接口的多态特性"></a>9.7.3 接口的多态特性</h4></li>
-</ul>
-</li>
-<li><h3 id="9-8-内部类"><a href="#9-8-内部类" class="headerlink" title="9.8 内部类"></a>9.8 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-8-%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%88%E9%87%8D%E9%9A%BE%E7%82%B9%EF%BC%89">内部类</a></h3><ul>
-<li><h4 id="9-8-1-四种内部类"><a href="#9-8-1-四种内部类" class="headerlink" title="9.8.1 四种内部类"></a>9.8.1 四种内部类</h4></li>
-<li><h4 id="9-8-2-局部内部类"><a href="#9-8-2-局部内部类" class="headerlink" title="9.8.2 局部内部类"></a>9.8.2 局部内部类</h4><ul>
-<li><h5 id="9-8-2-1-使用细节"><a href="#9-8-2-1-使用细节" class="headerlink" title="9.8.2.1 使用细节"></a>9.8.2.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="9-8-3-匿名内部类"><a href="#9-8-3-匿名内部类" class="headerlink" title="9.8.3 匿名内部类"></a>9.8.3 匿名内部类</h4><ul>
-<li><h5 id="9-8-3-1-使用细节"><a href="#9-8-3-1-使用细节" class="headerlink" title="9.8.3.1 使用细节"></a>9.8.3.1 使用细节</h5></li>
-<li><h5 id="9-8-3-2-使用场景"><a href="#9-8-3-2-使用场景" class="headerlink" title="9.8.3.2 使用场景"></a>9.8.3.2 使用场景</h5></li>
-</ul>
-</li>
-<li><h4 id="9-8-4-成员内部类"><a href="#9-8-4-成员内部类" class="headerlink" title="9.8.4 成员内部类"></a>9.8.4 成员内部类</h4><ul>
-<li><h5 id="9-8-4-1-使用细节"><a href="#9-8-4-1-使用细节" class="headerlink" title="9.8.4.1 使用细节"></a>9.8.4.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="9-8-5-静态内部类"><a href="#9-8-5-静态内部类" class="headerlink" title="9.8.5 静态内部类"></a>9.8.5 静态内部类</h4><ul>
-<li><h5 id="9-8-5-1-使用细节"><a href="#9-8-5-1-使用细节" class="headerlink" title="9.8.5.1 使用细节"></a>9.8.5.1 使用细节</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="10-枚举和注解"><a href="#10-枚举和注解" class="headerlink" title="10 枚举和注解"></a>10 <a href="../../../../../../2021/12/17/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">枚举和注解</a></h2><ul>
-<li><h3 id="10-1-枚举"><a href="#10-1-枚举" class="headerlink" title="10.1 枚举"></a>10.1 <a href="../../../../../../2021/12/17/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#10-1-%E6%9E%9A%E4%B8%BE">枚举</a></h3><ul>
-<li><h4 id="10-1-1-自定义枚举"><a href="#10-1-1-自定义枚举" class="headerlink" title="10.1.1 自定义枚举"></a>10.1.1 自定义枚举</h4></li>
-<li><h4 id="10-1-2-enum-关键字"><a href="#10-1-2-enum-关键字" class="headerlink" title="10.1.2 enum 关键字"></a>10.1.2 enum 关键字</h4><ul>
-<li><h5 id="10-1-2-1-使用细节"><a href="#10-1-2-1-使用细节" class="headerlink" title="10.1.2.1 使用细节"></a>10.1.2.1 使用细节</h5></li>
-<li><h5 id="10-1-2-2-Enum-类中的常用方法"><a href="#10-1-2-2-Enum-类中的常用方法" class="headerlink" title="10.1.2.2 Enum 类中的常用方法"></a>10.1.2.2 Enum 类中的常用方法</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="10-2-注解"><a href="#10-2-注解" class="headerlink" title="10.2 注解"></a>10.2 <a href="../../../../../../2021/12/17/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#10-2-%E6%B3%A8%E8%A7%A3">注解</a></h3><ul>
-<li><h4 id="10-2-1-Override"><a href="#10-2-1-Override" class="headerlink" title="10.2.1 @Override"></a>10.2.1 @Override</h4></li>
-<li><h4 id="10-2-2-Deprecated"><a href="#10-2-2-Deprecated" class="headerlink" title="10.2.2 @Deprecated"></a>10.2.2 @Deprecated</h4></li>
-<li><h4 id="10-2-3-SuppressWarnings"><a href="#10-2-3-SuppressWarnings" class="headerlink" title="10.2.3 @SuppressWarnings()"></a>10.2.3 @SuppressWarnings()</h4></li>
-<li><h4 id="10-2-4-JDK-的元注解（了解即可）"><a href="#10-2-4-JDK-的元注解（了解即可）" class="headerlink" title="10.2.4 JDK 的元注解（了解即可）"></a>10.2.4 JDK 的元注解（了解即可）</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="11-异常"><a href="#11-异常" class="headerlink" title="11 异常"></a>11 <a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/">异常</a></h2><ul>
-<li><h3 id="11-1-异常体系图"><a href="#11-1-异常体系图" class="headerlink" title="11.1 异常体系图"></a>11.1 <a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/#11-1-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">异常体系图</a></h3><ul>
-<li><h4 id="11-1-1-常见的运行时异常"><a href="#11-1-1-常见的运行时异常" class="headerlink" title="11.1.1 常见的运行时异常"></a>11.1.1 常见的运行时异常</h4></li>
-<li><h4 id="11-1-2-常见的编译异常"><a href="#11-1-2-常见的编译异常" class="headerlink" title="11.1.2 常见的编译异常"></a>11.1.2 常见的编译异常</h4></li>
-</ul>
-</li>
-<li><h3 id="11-2-异常处理"><a href="#11-2-异常处理" class="headerlink" title="11.2 异常处理"></a>11.2 <a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/#11-2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">异常处理</a></h3><ul>
-<li><h4 id="11-2-1-try-catch-异常处理"><a href="#11-2-1-try-catch-异常处理" class="headerlink" title="11.2.1 try - catch 异常处理"></a>11.2.1 try - catch 异常处理</h4><ul>
-<li><h5 id="11-2-1-1-使用细节"><a href="#11-2-1-1-使用细节" class="headerlink" title="11.2.1.1 使用细节"></a>11.2.1.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="11-2-2-throws-异常处理"><a href="#11-2-2-throws-异常处理" class="headerlink" title="11.2.2 throws 异常处理"></a>11.2.2 throws 异常处理</h4><ul>
-<li><h5 id="11-2-2-1-使用细节"><a href="#11-2-2-1-使用细节" class="headerlink" title="11.2.2.1 使用细节"></a>11.2.2.1 使用细节</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="11-3-自定义异常"><a href="#11-3-自定义异常" class="headerlink" title="11.3 自定义异常"></a>11.3 <a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/#11-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8">自定义异常</a></h3><ul>
-<li><h4 id="11-3-1-throw-和-throws"><a href="#11-3-1-throw-和-throws" class="headerlink" title="11.3.1 throw 和 throws"></a>11.3.1 throw 和 throws</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="12-常用类"><a href="#12-常用类" class="headerlink" title="12 常用类"></a>12 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/">常用类</a></h2><ul>
-<li><h3 id="12-1-包装类"><a href="#12-1-包装类" class="headerlink" title="12.1 包装类"></a>12.1 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-1-%E5%8C%85%E8%A3%85%E7%B1%BB">包装类</a></h3><ul>
-<li><h4 id="12-1-1-装箱和拆箱"><a href="#12-1-1-装箱和拆箱" class="headerlink" title="12.1.1 装箱和拆箱"></a>12.1.1 装箱和拆箱</h4></li>
-<li><h4 id="12-1-2-包装类和-String-的相互转换"><a href="#12-1-2-包装类和-String-的相互转换" class="headerlink" title="12.1.2 包装类和 String 的相互转换"></a>12.1.2 包装类和 String 的相互转换</h4></li>
-<li><h4 id="12-1-3-包装类的常用方法"><a href="#12-1-3-包装类的常用方法" class="headerlink" title="12.1.3 包装类的常用方法"></a>12.1.3 包装类的常用方法</h4></li>
-<li><h4 id="12-1-4-strictfp-关键字"><a href="#12-1-4-strictfp-关键字" class="headerlink" title="12.1.4 strictfp 关键字"></a>12.1.4 strictfp 关键字</h4></li>
-</ul>
-</li>
-<li><h3 id="12-2-String-类"><a href="#12-2-String-类" class="headerlink" title="12.2 String 类"></a>12.2 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-2-String-%E7%B1%BB">String 类</a></h3><ul>
-<li><h4 id="12-2-1-String-构造方法"><a href="#12-2-1-String-构造方法" class="headerlink" title="12.2.1 String 构造方法"></a>12.2.1 String 构造方法</h4></li>
-<li><h4 id="12-2-2-字符串的特性"><a href="#12-2-2-字符串的特性" class="headerlink" title="12.2.2 字符串的特性"></a>12.2.2 字符串的特性</h4></li>
-<li><h4 id="12-2-3-String-的常用方法"><a href="#12-2-3-String-的常用方法" class="headerlink" title="12.2.3 String 的常用方法"></a>12.2.3 String 的常用方法</h4></li>
-</ul>
-</li>
-<li><h3 id="12-3-StringBuffer-类"><a href="#12-3-StringBuffer-类" class="headerlink" title="12.3 StringBuffer 类"></a>12.3 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-3-StringBuffer-%E7%B1%BB">StringBuffer 类</a></h3><ul>
-<li><h4 id="12-3-1-StringBuffer-构造方法"><a href="#12-3-1-StringBuffer-构造方法" class="headerlink" title="12.3.1 StringBuffer 构造方法"></a>12.3.1 StringBuffer 构造方法</h4></li>
-<li><h4 id="12-3-2-String-和-StringBuffer-的转换"><a href="#12-3-2-String-和-StringBuffer-的转换" class="headerlink" title="12.3.2 String 和 StringBuffer 的转换"></a>12.3.2 String 和 StringBuffer 的转换</h4></li>
-<li><h4 id="12-3-3-StringBuffer-的常用方法"><a href="#12-3-3-StringBuffer-的常用方法" class="headerlink" title="12.3.3  StringBuffer 的常用方法"></a>12.3.3  StringBuffer 的常用方法</h4></li>
-</ul>
-</li>
-<li><h3 id="12-4-StringBuilder-类"><a href="#12-4-StringBuilder-类" class="headerlink" title="12.4 StringBuilder 类"></a>12.4 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-4-StringBuilder-%E7%B1%BB">StringBuilder 类</a></h3><ul>
-<li><h4 id="12-4-1-String、StringBuffer、StringBuilder-的对比"><a href="#12-4-1-String、StringBuffer、StringBuilder-的对比" class="headerlink" title="12.4.1 String、StringBuffer、StringBuilder 的对比"></a>12.4.1 String、StringBuffer、StringBuilder 的对比</h4></li>
-</ul>
-</li>
-<li><h3 id="12-5-Math-类"><a href="#12-5-Math-类" class="headerlink" title="12.5 Math 类"></a>12.5 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-5-Math-%E7%B1%BB">Math 类</a></h3></li>
-<li><h3 id="12-6-Arrays-类"><a href="#12-6-Arrays-类" class="headerlink" title="12.6 Arrays 类"></a>12.6 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-6-Arrays-%E7%B1%BB">Arrays 类</a></h3></li>
-<li><h3 id="12-7-System-类"><a href="#12-7-System-类" class="headerlink" title="12.7 System 类"></a>12.7 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-7-System-%E7%B1%BB">System 类</a></h3></li>
-<li><h3 id="12-8-BigInteger-和-BigDecimal-类"><a href="#12-8-BigInteger-和-BigDecimal-类" class="headerlink" title="12.8 BigInteger 和 BigDecimal 类"></a>12.8 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-8-BigInteger-%E5%92%8C-BigDecimal-%E7%B1%BB">BigInteger 和 BigDecimal 类</a></h3></li>
-<li><h3 id="12-9-日期类"><a href="#12-9-日期类" class="headerlink" title="12.9 日期类"></a>12.9 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-9-%E6%97%A5%E6%9C%9F%E7%B1%BB">日期类</a></h3><ul>
-<li><h4 id="12-9-1-第一代日期类"><a href="#12-9-1-第一代日期类" class="headerlink" title="12.9.1 第一代日期类"></a>12.9.1 第一代日期类</h4></li>
-<li><h4 id="12-9-2-第二代日期类"><a href="#12-9-2-第二代日期类" class="headerlink" title="12.9.2 第二代日期类"></a>12.9.2 第二代日期类</h4></li>
-<li><h4 id="12-9-3-第三代日期类"><a href="#12-9-3-第三代日期类" class="headerlink" title="12.9.3 第三代日期类"></a>12.9.3 第三代日期类</h4></li>
-</ul>
-</li>
-<li><h3 id="12-10-泛型"><a href="#12-10-泛型" class="headerlink" title="12.10 泛型"></a>12.10 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-10-%E6%B3%9B%E5%9E%8B">泛型</a></h3></li>
-</ul>
-<hr>
-<h2 id="13-Java-数据结构"><a href="#13-Java-数据结构" class="headerlink" title="13 Java 数据结构"></a>13 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Java 数据结构</a></h2><ul>
-<li><h3 id="13-1-集合的框架体系"><a href="#13-1-集合的框架体系" class="headerlink" title="13.1 集合的框架体系"></a>13.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-1-%E9%9B%86%E5%90%88%E7%9A%84%E6%A1%86%E6%9E%B6%E4%BD%93%E7%B3%BB">集合的框架体系</a></h3></li>
-<li><h3 id="13-2-单列集合接口-Collection"><a href="#13-2-单列集合接口-Collection" class="headerlink" title="13.2 单列集合接口 Collection"></a>13.2 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-2-%E5%8D%95%E5%88%97%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Collection">单列集合接口 Collection</a></h3><ul>
-<li><h4 id="13-2-1-迭代器-Iterator"><a href="#13-2-1-迭代器-Iterator" class="headerlink" title="13.2.1 迭代器 Iterator"></a>13.2.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-2-1-%E8%BF%AD%E4%BB%A3%E5%99%A8-Iterator">迭代器 Iterator</a></h4></li>
-</ul>
-</li>
-<li><h3 id="13-3-有序集合接口-List"><a href="#13-3-有序集合接口-List" class="headerlink" title="13.3 有序集合接口 List"></a>13.3 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-List">有序集合接口 List</a></h3><ul>
-<li><h4 id="13-3-1-可变数组-ArrayList"><a href="#13-3-1-可变数组-ArrayList" class="headerlink" title="13.3.1 可变数组 ArrayList"></a>13.3.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-1-%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84-ArrayList">可变数组 ArrayList</a></h4></li>
-<li><h4 id="13-3-2-可变数组-Vector"><a href="#13-3-2-可变数组-Vector" class="headerlink" title="13.3.2 可变数组 Vector"></a>13.3.2 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-2-%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84-Vector">可变数组 Vector</a></h4></li>
-<li><h4 id="13-3-3-链表-LinkedList"><a href="#13-3-3-链表-LinkedList" class="headerlink" title="13.3.3 链表 LinkedList"></a>13.3.3 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-3-%E9%93%BE%E8%A1%A8-LinkedList">链表 LinkedList</a></h4></li>
-<li><h4 id="13-3-4-稀疏数组"><a href="#13-3-4-稀疏数组" class="headerlink" title="13.3.4 稀疏数组"></a>13.3.4 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-4-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84">稀疏数组</a></h4></li>
-<li><h4 id="13-3-5-栈-Stack"><a href="#13-3-5-栈-Stack" class="headerlink" title="13.3.5 栈 Stack"></a>13.3.5 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-5-%E6%A0%88-Stack">栈 Stack</a></h4><ul>
-<li><h5 id="13-3-5-1-栈模拟计算器"><a href="#13-3-5-1-栈模拟计算器" class="headerlink" title="13.3.5.1 栈模拟计算器"></a>13.3.5.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-5-1-%E6%A0%88%E6%A8%A1%E6%8B%9F%E8%AE%A1%E7%AE%97%E5%99%A8">栈模拟计算器</a></h5></li>
-</ul>
-</li>
-<li><h4 id="13-3-6-跳表-SkipList"><a href="#13-3-6-跳表-SkipList" class="headerlink" title="13.3.6 跳表 SkipList"></a>13.3.6 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-6-%E8%B7%B3%E8%A1%A8-SkipList">跳表 SkipList</a></h4></li>
-</ul>
-</li>
-<li><h3 id="13-4-队列接口-Queue"><a href="#13-4-队列接口-Queue" class="headerlink" title="13.4 队列接口 Queue"></a>13.4 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-%E9%98%9F%E5%88%97%E6%8E%A5%E5%8F%A3-Queue">队列接口 Queue</a></h3><ul>
-<li><h4 id="13-4-1-优先级队列-PriorityQueue"><a href="#13-4-1-优先级队列-PriorityQueue" class="headerlink" title="13.4.1 优先级队列 PriorityQueue"></a>13.4.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-1-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97-PriorityQueue">优先级队列 PriorityQueue</a></h4></li>
-<li><h4 id="13-4-2-阻塞队列接口-BlockingQueue"><a href="#13-4-2-阻塞队列接口-BlockingQueue" class="headerlink" title="13.4.2 阻塞队列接口 BlockingQueue"></a>13.4.2 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-2-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%8E%A5%E5%8F%A3-BlockingQueue">阻塞队列接口 BlockingQueue</a></h4></li>
-</ul>
-</li>
-<li><h3 id="13-5-双列集合接口-Map"><a href="#13-5-双列集合接口-Map" class="headerlink" title="13.5 双列集合接口 Map"></a>13.5 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Map">双列集合接口 Map</a></h3><ul>
-<li><h4 id="13-5-1-散列表-HashMap"><a href="#13-5-1-散列表-HashMap" class="headerlink" title="13.5.1 散列表 HashMap"></a>13.5.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-1-%E6%95%A3%E5%88%97%E8%A1%A8-HashMap">散列表 HashMap</a></h4></li>
-<li><h4 id="13-5-2-散列表-Hashtable"><a href="#13-5-2-散列表-Hashtable" class="headerlink" title="13.5.2 散列表 Hashtable"></a>13.5.2 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-2-%E6%95%A3%E5%88%97%E8%A1%A8-Hashtable">散列表 Hashtable</a></h4></li>
-<li><h4 id="13-5-3-红黑树-TreeMap"><a href="#13-5-3-红黑树-TreeMap" class="headerlink" title="13.5.3 红黑树 TreeMap"></a>13.5.3 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-3-%E7%BA%A2%E9%BB%91%E6%A0%91-TreeMap">红黑树 TreeMap</a></h4><ul>
-<li><h5 id="13-5-3-1-二叉树"><a href="#13-5-3-1-二叉树" class="headerlink" title="13.5.3.1 二叉树"></a>13.5.3.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-3-1-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9A">二叉树</a></h5></li>
-</ul>
-</li>
-<li><h4 id="13-5-4-Properties"><a href="#13-5-4-Properties" class="headerlink" title="13.5.4 Properties"></a>13.5.4 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-4-Properties">Properties</a></h4></li>
-</ul>
-</li>
-<li><h3 id="13-6-无序集合接口-Set"><a href="#13-6-无序集合接口-Set" class="headerlink" title="13.6 无序集合接口 Set"></a>13.6 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-%E6%97%A0%E5%BA%8F%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Set">无序集合接口 Set</a></h3><ul>
-<li><h4 id="13-6-1-HashSet"><a href="#13-6-1-HashSet" class="headerlink" title="13.6.1 HashSet"></a>13.6.1 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-1-HashSet">HashSet</a></h4></li>
-<li><h4 id="13-6-2-LinkedHashSet"><a href="#13-6-2-LinkedHashSet" class="headerlink" title="13.6.2 LinkedHashSet"></a>13.6.2 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-2-LinkedHashSet">LinkedHashSet</a></h4></li>
-<li><h4 id="13-6-3-TreeSet"><a href="#13-6-3-TreeSet" class="headerlink" title="13.6.3 TreeSet"></a>13.6.3 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-3-TreeSet">TreeSet</a></h4></li>
-</ul>
-</li>
-<li><h3 id="13-7-集合的选择"><a href="#13-7-集合的选择" class="headerlink" title="13.7 集合的选择"></a>13.7 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-7-%E9%9B%86%E5%90%88%E7%9A%84%E9%80%89%E6%8B%A9">集合的选择</a></h3></li>
-<li><h3 id="13-8-工具类-Collections"><a href="#13-8-工具类-Collections" class="headerlink" title="13.8 工具类 Collections"></a>13.8 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-8-%E5%B7%A5%E5%85%B7%E7%B1%BB-Collections">工具类 Collections</a></h3></li>
-<li><h3 id="13-9-JUnit"><a href="#13-9-JUnit" class="headerlink" title="13.9 JUnit"></a>13.9 <a href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-9-JUnit">JUnit</a></h3></li>
-</ul>
-<hr>
-<h2 id="14-树"><a href="#14-树" class="headerlink" title="14 树"></a>14 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/">树</a></h2><ul>
-<li><h3 id="14-1-二叉树"><a href="#14-1-二叉树" class="headerlink" title="14.1 二叉树"></a>14.1 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9A">二叉树</a></h3><ul>
-<li><h4 id="14-1-1-顺序存储二叉树"><a href="#14-1-1-顺序存储二叉树" class="headerlink" title="14.1.1 顺序存储二叉树"></a>14.1.1 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-1-%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91">顺序存储二叉树</a></h4></li>
-<li><h4 id="14-1-2-线索化二叉树"><a href="#14-1-2-线索化二叉树" class="headerlink" title="14.1.2 线索化二叉树"></a>14.1.2 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-2-%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91">线索化二叉树</a></h4></li>
-<li><h4 id="14-1-3-赫夫曼树"><a href="#14-1-3-赫夫曼树" class="headerlink" title="14.1.3 赫夫曼树"></a>14.1.3 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-3-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91">赫夫曼树</a></h4></li>
-<li><h4 id="14-1-4-二叉排序树"><a href="#14-1-4-二叉排序树" class="headerlink" title="14.1.4 二叉排序树"></a>14.1.4 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91">二叉排序树</a></h4><ul>
-<li><h5 id="14-1-4-1-平衡二叉树"><a href="#14-1-4-1-平衡二叉树" class="headerlink" title="14.1.4.1 平衡二叉树"></a>14.1.4.1 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-1-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91">平衡二叉树</a></h5></li>
-</ul>
-</li>
-<li><h4 id="14-1-5-线段树"><a href="#14-1-5-线段树" class="headerlink" title="14.1.5 线段树"></a>14.1.5 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-%E7%BA%BF%E6%AE%B5%E6%A0%91">线段树</a></h4></li>
-</ul>
-</li>
-<li><h3 id="14-2-多路查找树"><a href="#14-2-多路查找树" class="headerlink" title="14.2 多路查找树"></a>14.2 <a href="">多路查找树</a></h3><ul>
-<li><h4 id="14-2-1-2-3-树"><a href="#14-2-1-2-3-树" class="headerlink" title="14.2.1 2-3 树"></a>14.2.1 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-2-1-2-3-%E6%A0%91">2-3 树</a></h4></li>
-<li><h4 id="14-2-2-B-树"><a href="#14-2-2-B-树" class="headerlink" title="14.2.2 B 树"></a>14.2.2 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-2-2-B-%E6%A0%91">B 树</a></h4></li>
-</ul>
-</li>
-<li><h3 id="14-3-图"><a href="#14-3-图" class="headerlink" title="14.3 图"></a>14.3 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-%E5%9B%BE">图</a></h3><ul>
-<li><h4 id="14-3-1-深度优先搜索-DFS"><a href="#14-3-1-深度优先搜索-DFS" class="headerlink" title="14.3.1 深度优先搜索 DFS"></a>14.3.1 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-1-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS">深度优先搜索 DFS</a></h4></li>
-<li><h4 id="14-3-2-广度优先搜索-BFS"><a href="#14-3-2-广度优先搜索-BFS" class="headerlink" title="14.3.2 广度优先搜索 BFS"></a>14.3.2 <a href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS">广度优先搜索 BFS</a></h4></li>
-</ul>
-</li>
-<li><h3 id="附录-4"><a href="#附录-4" class="headerlink" title="附录"></a>附录</h3><ul>
-<li><h4 id="F1-实现赫夫曼编码-x2F-解码"><a href="#F1-实现赫夫曼编码-x2F-解码" class="headerlink" title="F1 实现赫夫曼编码&#x2F;解码"></a>F1 实现赫夫曼编码&#x2F;解码</h4></li>
-<li><h4 id="F2-实现平衡二叉树"><a href="#F2-实现平衡二叉树" class="headerlink" title="F2 实现平衡二叉树"></a>F2 实现平衡二叉树</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="15-图形界面设计"><a href="#15-图形界面设计" class="headerlink" title="15 图形界面设计"></a>15 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/">图形界面设计</a></h2><ul>
-<li><h3 id="15-1-容器"><a href="#15-1-容器" class="headerlink" title="15.1 容器"></a>15.1 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-1-%E5%AE%B9%E5%99%A8">容器</a></h3><ul>
-<li><h4 id="15-1-1-顶层容器"><a href="#15-1-1-顶层容器" class="headerlink" title="15.1.1 顶层容器"></a>15.1.1 顶层容器</h4></li>
-<li><h4 id="15-1-2-内容窗格"><a href="#15-1-2-内容窗格" class="headerlink" title="15.1.2 内容窗格"></a>15.1.2 内容窗格</h4></li>
-<li><h4 id="15-1-3-面板"><a href="#15-1-3-面板" class="headerlink" title="15.1.3 面板"></a>15.1.3 面板</h4><ul>
-<li><h5 id="15-1-3-1-JPanel"><a href="#15-1-3-1-JPanel" class="headerlink" title="15.1.3.1 JPanel"></a>15.1.3.1 JPanel</h5></li>
-<li><h5 id="15-1-3-2-JScrollPanel"><a href="#15-1-3-2-JScrollPanel" class="headerlink" title="15.1.3.2 JScrollPanel"></a>15.1.3.2 JScrollPanel</h5></li>
-<li><h5 id="15-1-3-3-Scrollbar"><a href="#15-1-3-3-Scrollbar" class="headerlink" title="15.1.3.3 Scrollbar"></a>15.1.3.3 Scrollbar</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="15-2-标签和按钮"><a href="#15-2-标签和按钮" class="headerlink" title="15.2 标签和按钮"></a>15.2 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-2-%E6%A0%87%E7%AD%BE%E5%92%8C%E6%8C%89%E9%92%AE">标签和按钮</a></h3><ul>
-<li><h4 id="15-2-1-标签"><a href="#15-2-1-标签" class="headerlink" title="15.2.1 标签"></a>15.2.1 标签</h4></li>
-<li><h4 id="15-2-2-按钮"><a href="#15-2-2-按钮" class="headerlink" title="15.2.2 按钮"></a>15.2.2 按钮</h4><ul>
-<li><h5 id="15-2-2-1-JButton"><a href="#15-2-2-1-JButton" class="headerlink" title="15.2.2.1 JButton"></a>15.2.2.1 JButton</h5></li>
-<li><h5 id="15-2-2-2-JToggleButton、JCheckButton、JRadioButton"><a href="#15-2-2-2-JToggleButton、JCheckButton、JRadioButton" class="headerlink" title="15.2.2.2 JToggleButton、JCheckButton、JRadioButton"></a>15.2.2.2 JToggleButton、JCheckButton、JRadioButton</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="15-3-布局管理器"><a href="#15-3-布局管理器" class="headerlink" title="15.3 布局管理器"></a>15.3 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-3-%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8">布局管理器</a></h3><ul>
-<li><h4 id="15-3-1-FlowLayout-流布局管理器"><a href="#15-3-1-FlowLayout-流布局管理器" class="headerlink" title="15.3.1 FlowLayout 流布局管理器"></a>15.3.1 FlowLayout 流布局管理器</h4></li>
-<li><h4 id="15-3-2-BorderLayout-边界布局管理器"><a href="#15-3-2-BorderLayout-边界布局管理器" class="headerlink" title="15.3.2 BorderLayout 边界布局管理器"></a>15.3.2 BorderLayout 边界布局管理器</h4></li>
-<li><h4 id="15-3-3-GridLayout-网格布局管理器"><a href="#15-3-3-GridLayout-网格布局管理器" class="headerlink" title="15.3.3 GridLayout 网格布局管理器"></a>15.3.3 GridLayout 网格布局管理器</h4></li>
-<li><h4 id="15-3-4-CardLayout-卡片式布局管理器"><a href="#15-3-4-CardLayout-卡片式布局管理器" class="headerlink" title="15.3.4 CardLayout 卡片式布局管理器"></a>15.3.4 CardLayout 卡片式布局管理器</h4></li>
-<li><h4 id="15-3-5-BoxLayout-方框布局管理器"><a href="#15-3-5-BoxLayout-方框布局管理器" class="headerlink" title="15.3.5 BoxLayout 方框布局管理器"></a>15.3.5 BoxLayout 方框布局管理器</h4></li>
-<li><h4 id="15-3-6-空布局"><a href="#15-3-6-空布局" class="headerlink" title="15.3.6 空布局"></a>15.3.6 空布局</h4></li>
-</ul>
-</li>
-<li><h3 id="15-4-事件处理"><a href="#15-4-事件处理" class="headerlink" title="15.4 事件处理"></a>15.4 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-4-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">事件处理</a></h3><ul>
-<li><h4 id="15-4-1-事件处理模型"><a href="#15-4-1-事件处理模型" class="headerlink" title="15.4.1 事件处理模型"></a>15.4.1 事件处理模型</h4></li>
-<li><h4 id="15-4-2-事件的种类"><a href="#15-4-2-事件的种类" class="headerlink" title="15.4.2 事件的种类"></a>15.4.2 事件的种类</h4></li>
-<li><h4 id="15-4-3-事件适配器"><a href="#15-4-3-事件适配器" class="headerlink" title="15.4.3 事件适配器"></a>15.4.3 事件适配器</h4></li>
-</ul>
-</li>
-<li><h3 id="15-5-Java-绘图技术"><a href="#15-5-Java-绘图技术" class="headerlink" title="15.5 Java 绘图技术"></a>15.5 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-5-Java-%E7%BB%98%E5%9B%BE%E6%8A%80%E6%9C%AF">Java 绘图技术</a></h3><ul>
-<li><h4 id="15-5-1-颜色"><a href="#15-5-1-颜色" class="headerlink" title="15.5.1 颜色"></a>15.5.1 颜色</h4></li>
-<li><h4 id="15-5-2-字体"><a href="#15-5-2-字体" class="headerlink" title="15.5.2 字体"></a>15.5.2 字体</h4></li>
-<li><h4 id="15-5-3-Graphics-类"><a href="#15-5-3-Graphics-类" class="headerlink" title="15.5.3 Graphics 类"></a>15.5.3 Graphics 类</h4><ul>
-<li><h5 id="15-5-3-1-Polygon-类"><a href="#15-5-3-1-Polygon-类" class="headerlink" title="15.5.3.1 Polygon 类"></a>15.5.3.1 Polygon 类</h5></li>
-</ul>
-</li>
-<li><h4 id="15-5-4-Graphics2D-类"><a href="#15-5-4-Graphics2D-类" class="headerlink" title="15.5.4 Graphics2D 类"></a>15.5.4 Graphics2D 类</h4><ul>
-<li><h5 id="15-5-4-1-图形状态属性"><a href="#15-5-4-1-图形状态属性" class="headerlink" title="15.5.4.1 图形状态属性"></a>15.5.4.1 图形状态属性</h5></li>
-<li><h5 id="15-5-4-2-Graphics2D-的绘图方法"><a href="#15-5-4-2-Graphics2D-的绘图方法" class="headerlink" title="15.5.4.2 Graphics2D 的绘图方法"></a>15.5.4.2 Graphics2D 的绘图方法</h5></li>
-<li><h5 id="15-5-4-3-Graphics2D-中的几何图形类"><a href="#15-5-4-3-Graphics2D-中的几何图形类" class="headerlink" title="15.5.4.3 Graphics2D 中的几何图形类"></a>15.5.4.3 Graphics2D 中的几何图形类</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="15-6-组合框与列表"><a href="#15-6-组合框与列表" class="headerlink" title="15.6 组合框与列表"></a>15.6 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-6-%E7%BB%84%E5%90%88%E6%A1%86%E4%B8%8E%E5%88%97%E8%A1%A8">组合框与列表</a></h3><ul>
-<li><h4 id="15-6-1-JComboBox-组合框"><a href="#15-6-1-JComboBox-组合框" class="headerlink" title="15.6.1 JComboBox 组合框"></a>15.6.1 JComboBox 组合框</h4></li>
-<li><h4 id="15-6-2-JList-列表"><a href="#15-6-2-JList-列表" class="headerlink" title="15.6.2 JList 列表"></a>15.6.2 JList 列表</h4></li>
-</ul>
-</li>
-<li><h3 id="15-7-文本组件"><a href="#15-7-文本组件" class="headerlink" title="15.7 文本组件"></a>15.7 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-7-%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6">文本组件</a></h3><ul>
-<li><h4 id="15-7-1-JTextField-文本域"><a href="#15-7-1-JTextField-文本域" class="headerlink" title="15.7.1 JTextField 文本域"></a>15.7.1 JTextField 文本域</h4></li>
-<li><h4 id="15-7-2-JTextArea-文本区"><a href="#15-7-2-JTextArea-文本区" class="headerlink" title="15.7.2 JTextArea 文本区"></a>15.7.2 JTextArea 文本区</h4></li>
-</ul>
-</li>
-<li><h3 id="15-8-菜单组件"><a href="#15-8-菜单组件" class="headerlink" title="15.8 菜单组件"></a>15.8 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-8-%E8%8F%9C%E5%8D%95%E7%BB%84%E4%BB%B6">菜单组件</a></h3><ul>
-<li><h4 id="15-8-1-菜单栏及菜单"><a href="#15-8-1-菜单栏及菜单" class="headerlink" title="15.8.1 菜单栏及菜单"></a>15.8.1 菜单栏及菜单</h4></li>
-<li><h4 id="15-8-2-JMenuItem-菜单项"><a href="#15-8-2-JMenuItem-菜单项" class="headerlink" title="15.8.2 JMenuItem 菜单项"></a>15.8.2 JMenuItem 菜单项</h4></li>
-<li><h4 id="15-8-3-复选菜单项和单选菜单项"><a href="#15-8-3-复选菜单项和单选菜单项" class="headerlink" title="15.8.3 复选菜单项和单选菜单项"></a>15.8.3 复选菜单项和单选菜单项</h4></li>
-</ul>
-</li>
-<li><h3 id="15-9-对话框"><a href="#15-9-对话框" class="headerlink" title="15.9 对话框"></a>15.9 <a href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-9-%E5%AF%B9%E8%AF%9D%E6%A1%86">对话框</a></h3><ul>
-<li><h4 id="15-9-1-JDialog-自定义对话框"><a href="#15-9-1-JDialog-自定义对话框" class="headerlink" title="15.9.1 JDialog 自定义对话框"></a>15.9.1 JDialog 自定义对话框</h4></li>
-<li><h4 id="15-9-2-JOptionalPane-标准对话框"><a href="#15-9-2-JOptionalPane-标准对话框" class="headerlink" title="15.9.2 JOptionalPane 标准对话框"></a>15.9.2 JOptionalPane 标准对话框</h4></li>
-<li><h4 id="15-9-3-JFileChooser-文件对话框"><a href="#15-9-3-JFileChooser-文件对话框" class="headerlink" title="15.9.3 JFileChooser 文件对话框"></a>15.9.3 JFileChooser 文件对话框</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="16-多线程"><a href="#16-多线程" class="headerlink" title="16 多线程"></a>16 <a href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></h2><ul>
-<li><h3 id="16-1-线程的概念"><a href="#16-1-线程的概念" class="headerlink" title="16.1 线程的概念"></a>16.1 <a href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5">线程的概念</a></h3><ul>
-<li><h4 id="16-1-1-线程的结构"><a href="#16-1-1-线程的结构" class="headerlink" title="16.1.1 线程的结构"></a>16.1.1 线程的结构</h4></li>
-<li><h4 id="16-1-2-线程的状态"><a href="#16-1-2-线程的状态" class="headerlink" title="16.1.2 线程的状态"></a>16.1.2 线程的状态</h4></li>
-</ul>
-</li>
-<li><h3 id="16-2-线程的使用"><a href="#16-2-线程的使用" class="headerlink" title="16.2 线程的使用"></a>16.2 <a href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-2-%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8">线程的使用</a></h3><ul>
-<li><h4 id="16-2-1-继承-Thread-类"><a href="#16-2-1-继承-Thread-类" class="headerlink" title="16.2.1 继承 Thread 类"></a>16.2.1 继承 Thread 类</h4></li>
-<li><h4 id="16-2-2-实现-Runable-接口"><a href="#16-2-2-实现-Runable-接口" class="headerlink" title="16.2.2 实现 Runable 接口"></a>16.2.2 实现 Runable 接口</h4></li>
-<li><h4 id="16-2-3-继承-Thread-和-实现-Runable-的区别"><a href="#16-2-3-继承-Thread-和-实现-Runable-的区别" class="headerlink" title="16.2.3 继承 Thread 和 实现 Runable 的区别"></a>16.2.3 继承 Thread 和 实现 Runable 的区别</h4></li>
-<li><h4 id="16-2-4-线程中止"><a href="#16-2-4-线程中止" class="headerlink" title="16.2.4 线程中止"></a>16.2.4 线程中止</h4></li>
-<li><h4 id="16-2-5-线程常用方法"><a href="#16-2-5-线程常用方法" class="headerlink" title="16.2.5 线程常用方法"></a>16.2.5 线程常用方法</h4></li>
-<li><h4 id="16-2-6-用户线程和守护线程"><a href="#16-2-6-用户线程和守护线程" class="headerlink" title="16.2.6 用户线程和守护线程"></a>16.2.6 用户线程和守护线程</h4></li>
-<li><h4 id="16-2-7-线程的生命周期"><a href="#16-2-7-线程的生命周期" class="headerlink" title="16.2.7 线程的生命周期"></a>16.2.7 线程的生命周期</h4></li>
-</ul>
-</li>
-<li><h3 id="16-3-线程的互斥"><a href="#16-3-线程的互斥" class="headerlink" title="16.3 线程的互斥"></a>16.3 <a href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-3-%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%92%E6%96%A5">线程的互斥</a></h3><ul>
-<li><h4 id="16-3-1-互斥锁"><a href="#16-3-1-互斥锁" class="headerlink" title="16.3.1 互斥锁"></a>16.3.1 互斥锁</h4></li>
-<li><h4 id="16-3-2-线程死锁"><a href="#16-3-2-线程死锁" class="headerlink" title="16.3.2 线程死锁"></a>16.3.2 线程死锁</h4></li>
-</ul>
-</li>
-<li><h3 id="16-4-线程的同步"><a href="#16-4-线程的同步" class="headerlink" title="16.4 线程的同步"></a>16.4 <a href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-4-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5">线程的同步</a></h3></li>
-</ul>
-<hr>
-<h2 id="17-IO-流"><a href="#17-IO-流" class="headerlink" title="17 IO 流"></a>17 <a href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/">IO 流</a></h2><ul>
-<li><h3 id="17-1-文件"><a href="#17-1-文件" class="headerlink" title="17.1 文件"></a>17.1 <a href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/#17-1-%E6%96%87%E4%BB%B6">文件</a></h3><ul>
-<li><h4 id="17-1-1-常用的文件操作"><a href="#17-1-1-常用的文件操作" class="headerlink" title="17.1.1 常用的文件操作"></a>17.1.1 常用的文件操作</h4></li>
-</ul>
-</li>
-<li><h3 id="17-2-IO流"><a href="#17-2-IO流" class="headerlink" title="17.2 IO流"></a>17.2 <a href="../../../../../../2022/01/06/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/17%20IO%E6%B5%81/#17-2-IO%E6%B5%81">IO流</a></h3><ul>
-<li><h4 id="17-2-1-IO流的分类"><a href="#17-2-1-IO流的分类" class="headerlink" title="17.2.1 IO流的分类"></a>17.2.1 IO流的分类</h4></li>
-<li><h4 id="17-2-2-IO流-常用类"><a href="#17-2-2-IO流-常用类" class="headerlink" title="17.2.2 IO流 常用类"></a>17.2.2 IO流 常用类</h4><ul>
-<li><h5 id="17-2-2-1-FileInputStream：文件字节输入流"><a href="#17-2-2-1-FileInputStream：文件字节输入流" class="headerlink" title="17.2.2.1 FileInputStream：文件字节输入流"></a>17.2.2.1 FileInputStream：文件字节输入流</h5></li>
-<li><h5 id="17-2-2-2-FileOutputStream：文件字节输出流"><a href="#17-2-2-2-FileOutputStream：文件字节输出流" class="headerlink" title="17.2.2.2 FileOutputStream：文件字节输出流"></a>17.2.2.2 FileOutputStream：文件字节输出流</h5></li>
-<li><h5 id="17-2-2-3-FileReader：文件字符输入流"><a href="#17-2-2-3-FileReader：文件字符输入流" class="headerlink" title="17.2.2.3 FileReader：文件字符输入流"></a>17.2.2.3 FileReader：文件字符输入流</h5></li>
-<li><h5 id="17-2-2-3-FileWriter：文件字符输出流"><a href="#17-2-2-3-FileWriter：文件字符输出流" class="headerlink" title="17.2.2.3 FileWriter：文件字符输出流"></a>17.2.2.3 FileWriter：文件字符输出流</h5></li>
-<li><h5 id="17-2-3-4-转换流-InputStreamReader-和-OutputStreamWriter"><a href="#17-2-3-4-转换流-InputStreamReader-和-OutputStreamWriter" class="headerlink" title="17.2.3.4 转换流 InputStreamReader 和 OutputStreamWriter"></a>17.2.3.4 转换流 InputStreamReader 和 OutputStreamWriter</h5></li>
-</ul>
-</li>
-<li><h4 id="17-2-3-节点流和处理流"><a href="#17-2-3-节点流和处理流" class="headerlink" title="17.2.3 节点流和处理流"></a>17.2.3 节点流和处理流</h4><ul>
-<li><h5 id="17-2-3-1-缓冲区流"><a href="#17-2-3-1-缓冲区流" class="headerlink" title="17.2.3.1 缓冲区流"></a>17.2.3.1 缓冲区流</h5></li>
-<li><h5 id="17-2-3-2-数据数据流"><a href="#17-2-3-2-数据数据流" class="headerlink" title="17.2.3.2 数据数据流"></a>17.2.3.2 数据数据流</h5></li>
-<li><h5 id="17-2-3-3-对象流"><a href="#17-2-3-3-对象流" class="headerlink" title="17.2.3.3 对象流"></a>17.2.3.3 对象流</h5></li>
-<li><h5 id="17-2-3-4-标准输入-x2F-输出流"><a href="#17-2-3-4-标准输入-x2F-输出流" class="headerlink" title="17.2.3.4 标准输入 &#x2F; 输出流"></a>17.2.3.4 标准输入 &#x2F; 输出流</h5></li>
-<li><h5 id="17-2-3-5-打印流-PaintStream-和-PaintWriter"><a href="#17-2-3-5-打印流-PaintStream-和-PaintWriter" class="headerlink" title="17.2.3.5 打印流 PaintStream 和 PaintWriter"></a>17.2.3.5 打印流 PaintStream 和 PaintWriter</h5></li>
-<li><h5 id="17-2-3-6-Properties-类"><a href="#17-2-3-6-Properties-类" class="headerlink" title="17.2.3.6 Properties 类"></a>17.2.3.6 Properties 类</h5></li>
-<li><h5 id="17-2-3-7-随机访问文件"><a href="#17-2-3-7-随机访问文件" class="headerlink" title="17.2.3.7 随机访问文件"></a>17.2.3.7 随机访问文件</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="18-项目：坦克大战-完结"><a href="#18-项目：坦克大战-完结" class="headerlink" title="18 项目：坦克大战 [完结]"></a>18 <a href="../../../../../../2022/01/11/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/18%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/">项目：坦克大战 [完结]</a></h2><p>2022.1.12  01:57            第二阶段完成</p>
-<hr>
-<h2 id="19-网络编程"><a href="#19-网络编程" class="headerlink" title="19 网络编程"></a>19 <a href="../../../../../../2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></h2><ul>
-<li><h3 id="19-1-网络的相关概念"><a href="#19-1-网络的相关概念" class="headerlink" title="19.1 网络的相关概念"></a>19.1 <a href="../../../../../../2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-1-%E7%BD%91%E7%BB%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">网络的相关概念</a></h3><ul>
-<li><h4 id="19-1-1-TCP-和-UDP"><a href="#19-1-1-TCP-和-UDP" class="headerlink" title="19.1.1 TCP 和 UDP"></a>19.1.1 TCP 和 UDP</h4></li>
-</ul>
-</li>
-<li><h3 id="19-2-InetAddress-类"><a href="#19-2-InetAddress-类" class="headerlink" title="19.2 InetAddress 类"></a>19.2 <a href="../../../../../../2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-2-InetAddress-%E7%B1%BB">InetAddress 类</a></h3></li>
-<li><h3 id="19-3-Socket"><a href="#19-3-Socket" class="headerlink" title="19.3 Socket"></a>19.3 <a href="../../../../../../2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-3-Socket">Socket</a></h3><ul>
-<li><h4 id="19-3-1-TCP-网络通信编程"><a href="#19-3-1-TCP-网络通信编程" class="headerlink" title="19.3.1 TCP 网络通信编程"></a>19.3.1 TCP 网络通信编程</h4><ul>
-<li><h5 id="19-3-1-1-netstat-指令"><a href="#19-3-1-1-netstat-指令" class="headerlink" title="19.3.1.1 netstat 指令"></a>19.3.1.1 netstat 指令</h5></li>
-<li><h5 id="19-3-1-2-TCP-连接秘密"><a href="#19-3-1-2-TCP-连接秘密" class="headerlink" title="19.3.1.2 TCP 连接秘密"></a>19.3.1.2 TCP 连接秘密</h5></li>
-</ul>
-</li>
-<li><h4 id="19-3-2-UDP-网络通信编程"><a href="#19-3-2-UDP-网络通信编程" class="headerlink" title="19.3.2 UDP 网络通信编程"></a>19.3.2 UDP 网络通信编程</h4></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="20-项目：多用户通讯系统"><a href="#20-项目：多用户通讯系统" class="headerlink" title="20 项目：多用户通讯系统"></a>20 <a href="../../../../../../2022/01/16/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/20%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/">项目：多用户通讯系统</a></h2><ul>
-<li><h3 id="20-1-需求分析"><a href="#20-1-需求分析" class="headerlink" title="20.1 需求分析"></a>20.1 需求分析</h3></li>
-</ul>
-<hr>
-<h2 id="21-反射"><a href="#21-反射" class="headerlink" title="21 反射"></a>21 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/">反射</a></h2><ul>
-<li><h3 id="21-1-反射相关的常用类"><a href="#21-1-反射相关的常用类" class="headerlink" title="21.1 反射相关的常用类"></a>21.1 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-1-%E5%8F%8D%E5%B0%84%E7%9B%B8%E5%85%B3%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB">反射相关的常用类</a></h3></li>
-<li><h3 id="21-2-Class-类"><a href="#21-2-Class-类" class="headerlink" title="21.2 Class 类"></a>21.2 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-2-Class-%E7%B1%BB">Class 类</a></h3><ul>
-<li><h4 id="21-2-1-Class-类的常用方法"><a href="#21-2-1-Class-类的常用方法" class="headerlink" title="21.2.1 Class 类的常用方法"></a>21.2.1 Class 类的常用方法</h4></li>
-<li><h4 id="21-2-2-获取-Class-对象"><a href="#21-2-2-获取-Class-对象" class="headerlink" title="21.2.2 获取 Class 对象"></a>21.2.2 获取 Class 对象</h4></li>
-<li><h4 id="21-2-3-哪些类有-Class-对象"><a href="#21-2-3-哪些类有-Class-对象" class="headerlink" title="21.2.3 哪些类有 Class 对象"></a>21.2.3 哪些类有 Class 对象</h4></li>
-</ul>
-</li>
-<li><h3 id="21-3-类的加载"><a href="#21-3-类的加载" class="headerlink" title="21.3 类的加载"></a>21.3 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-3-%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD">类的加载</a></h3><ul>
-<li><h4 id="21-3-1-类加载的五个阶段"><a href="#21-3-1-类加载的五个阶段" class="headerlink" title="21.3.1 类加载的五个阶段"></a>21.3.1 类加载的五个阶段</h4></li>
-</ul>
-</li>
-<li><h3 id="21-4-通过反射获取类的结构信息"><a href="#21-4-通过反射获取类的结构信息" class="headerlink" title="21.4 通过反射获取类的结构信息"></a>21.4 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-4-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E7%BB%93%E6%9E%84%E4%BF%A1%E6%81%AF">通过反射获取类的结构信息</a></h3></li>
-<li><h3 id="21-5-通过反射创建对象"><a href="#21-5-通过反射创建对象" class="headerlink" title="21.5 通过反射创建对象"></a>21.5 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-5-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">通过反射创建对象</a></h3></li>
-<li><h3 id="21-6-通过反射访问成员"><a href="#21-6-通过反射访问成员" class="headerlink" title="21.6 通过反射访问成员"></a>21.6 <a href="../../../../../../2022/01/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/21%20%E5%8F%8D%E5%B0%84/#21-6-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98">通过反射访问成员</a></h3></li>
-</ul>
-<hr>
-<h2 id="22-MySQL"><a href="#22-MySQL" class="headerlink" title="22 MySQL"></a>22 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/">MySQL</a></h2><ul>
-<li><h3 id="22-1-数据库"><a href="#22-1-数据库" class="headerlink" title="22.1 数据库"></a>22.1 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-1-%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a></h3><ul>
-<li><h4 id="22-1-1-创建数据库"><a href="#22-1-1-创建数据库" class="headerlink" title="22.1.1 创建数据库"></a>22.1.1 创建数据库</h4></li>
-<li><h4 id="22-1-2-查看-·-删除数据库"><a href="#22-1-2-查看-·-删除数据库" class="headerlink" title="22.1.2 查看 · 删除数据库"></a>22.1.2 查看 · 删除数据库</h4></li>
-<li><h4 id="22-1-3-备份-·-恢复数据库"><a href="#22-1-3-备份-·-恢复数据库" class="headerlink" title="22.1.3 备份 · 恢复数据库"></a>22.1.3 备份 · 恢复数据库</h4></li>
-</ul>
-</li>
-<li><h3 id="22-2-MySQL-常用数据类型（列类型）"><a href="#22-2-MySQL-常用数据类型（列类型）" class="headerlink" title="22.2 MySQL 常用数据类型（列类型）"></a>22.2 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-2-MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%88%97%E7%B1%BB%E5%9E%8B%EF%BC%89">MySQL 常用数据类型（列类型）</a></h3><ul>
-<li><h4 id="22-2-1-数组类型"><a href="#22-2-1-数组类型" class="headerlink" title="22.2.1 数组类型"></a>22.2.1 数组类型</h4><ul>
-<li><h5 id="22-2-1-1-整形"><a href="#22-2-1-1-整形" class="headerlink" title="22.2.1.1 整形"></a>22.2.1.1 整形</h5></li>
-<li><h5 id="22-2-1-2-bit（位类型）"><a href="#22-2-1-2-bit（位类型）" class="headerlink" title="22.2.1.2 bit（位类型）"></a>22.2.1.2 bit（位类型）</h5></li>
-<li><h5 id="22-2-1-3-小数类型"><a href="#22-2-1-3-小数类型" class="headerlink" title="22.2.1.3 小数类型"></a>22.2.1.3 小数类型</h5></li>
-</ul>
-</li>
-<li><h4 id="22-2-2-文本类型"><a href="#22-2-2-文本类型" class="headerlink" title="22.2.2 文本类型"></a>22.2.2 文本类型</h4></li>
-<li><h4 id="22-2-3-时间日期类型"><a href="#22-2-3-时间日期类型" class="headerlink" title="22.2.3 时间日期类型"></a>22.2.3 时间日期类型</h4></li>
-</ul>
-</li>
-<li><h3 id="22-3-表"><a href="#22-3-表" class="headerlink" title="22.3 表"></a>22.3 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-3-%E8%A1%A8">表</a></h3><ul>
-<li><h4 id="22-2-1-创建表"><a href="#22-2-1-创建表" class="headerlink" title="22.2.1 创建表"></a>22.2.1 创建表</h4></li>
-<li><h4 id="22-2-2-删除-·-修改表"><a href="#22-2-2-删除-·-修改表" class="headerlink" title="22.2.2 删除 · 修改表"></a>22.2.2 删除 · 修改表</h4></li>
-</ul>
-</li>
-<li><h3 id="22-4-数据库的增删改查"><a href="#22-4-数据库的增删改查" class="headerlink" title="22.4 数据库的增删改查"></a>22.4 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">数据库的增删改查</a></h3><ul>
-<li><h4 id="22-4-1-INSERT-语句"><a href="#22-4-1-INSERT-语句" class="headerlink" title="22.4.1 INSERT 语句"></a>22.4.1 INSERT 语句</h4></li>
-<li><h4 id="22-4-2-UPDATE-语句"><a href="#22-4-2-UPDATE-语句" class="headerlink" title="22.4.2 UPDATE 语句"></a>22.4.2 UPDATE 语句</h4></li>
-<li><h4 id="22-4-3-DELETE-语句"><a href="#22-4-3-DELETE-语句" class="headerlink" title="22.4.3 DELETE 语句"></a>22.4.3 DELETE 语句</h4></li>
-<li><h4 id="22-4-4-SELECT-语句（单表）"><a href="#22-4-4-SELECT-语句（单表）" class="headerlink" title="22.4.4 SELECT 语句（单表）"></a>22.4.4 SELECT 语句（单表）</h4></li>
-<li><h4 id="22-4-5-常用的运算符"><a href="#22-4-5-常用的运算符" class="headerlink" title="22.4.5 常用的运算符"></a>22.4.5 常用的运算符</h4></li>
-</ul>
-</li>
-<li><h3 id="22-5-函数"><a href="#22-5-函数" class="headerlink" title="22.5 函数"></a>22.5 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-5-%E5%87%BD%E6%95%B0">函数</a></h3><ul>
-<li><h4 id="22-5-1-统计函数"><a href="#22-5-1-统计函数" class="headerlink" title="22.5.1 统计函数"></a>22.5.1 统计函数</h4></li>
-<li><h4 id="22-5-2-字符串函数"><a href="#22-5-2-字符串函数" class="headerlink" title="22.5.2 字符串函数"></a>22.5.2 字符串函数</h4></li>
-<li><h4 id="22-5-3-数学函数"><a href="#22-5-3-数学函数" class="headerlink" title="22.5.3 数学函数"></a>22.5.3 数学函数</h4></li>
-<li><h4 id="22-5-4-时间和日期函数"><a href="#22-5-4-时间和日期函数" class="headerlink" title="22.5.4 时间和日期函数"></a>22.5.4 时间和日期函数</h4></li>
-<li><h4 id="22-5-5-加密和系统函数"><a href="#22-5-5-加密和系统函数" class="headerlink" title="22.5.5 加密和系统函数"></a>22.5.5 加密和系统函数</h4></li>
-<li><h4 id="22-5-6-流程控制函数"><a href="#22-5-6-流程控制函数" class="headerlink" title="22.5.6 流程控制函数"></a>22.5.6 流程控制函数</h4></li>
-</ul>
-</li>
-<li><h3 id="22-6-MySQL-多表查询"><a href="#22-6-MySQL-多表查询" class="headerlink" title="22.6 MySQL 多表查询"></a>22.6 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-6-MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2">MySQL 多表查询</a></h3><ul>
-<li><h4 id="22-6-1-自连接"><a href="#22-6-1-自连接" class="headerlink" title="22.6.1 自连接"></a>22.6.1 自连接</h4></li>
-<li><h4 id="22-6-2-子查询"><a href="#22-6-2-子查询" class="headerlink" title="22.6.2 子查询"></a>22.6.2 子查询</h4></li>
-</ul>
-</li>
-<li><h3 id="22-7-外连接"><a href="#22-7-外连接" class="headerlink" title="22.7 外连接"></a>22.7 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-7-%E5%A4%96%E8%BF%9E%E6%8E%A5">外连接</a></h3></li>
-<li><h3 id="22-8-约束"><a href="#22-8-约束" class="headerlink" title="22.8 约束"></a>22.8 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-8-%E7%BA%A6%E6%9D%9F">约束</a></h3><ul>
-<li><h4 id="22-8-1-primary-key（主键）"><a href="#22-8-1-primary-key（主键）" class="headerlink" title="22.8.1 primary key（主键）"></a>22.8.1 primary key（主键）</h4><ul>
-<li><h5 id="22-8-1-1-使用细节"><a href="#22-8-1-1-使用细节" class="headerlink" title="22.8.1.1 使用细节"></a>22.8.1.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="22-8-2-not-null（非空）"><a href="#22-8-2-not-null（非空）" class="headerlink" title="22.8.2 not null（非空）"></a>22.8.2 not null（非空）</h4></li>
-<li><h4 id="22-8-3-unique（唯一）"><a href="#22-8-3-unique（唯一）" class="headerlink" title="22.8.3 unique（唯一）"></a>22.8.3 unique（唯一）</h4></li>
-<li><h4 id="22-8-4-foreign-key（外键）"><a href="#22-8-4-foreign-key（外键）" class="headerlink" title="22.8.4 foreign key（外键）"></a>22.8.4 foreign key（外键）</h4><ul>
-<li><h5 id="22-8-4-1-使用细节"><a href="#22-8-4-1-使用细节" class="headerlink" title="22.8.4.1 使用细节"></a>22.8.4.1 使用细节</h5></li>
-</ul>
-</li>
-<li><h4 id="22-8-5-check"><a href="#22-8-5-check" class="headerlink" title="22.8.5 check"></a>22.8.5 check</h4></li>
-<li><h4 id="22-8-6-自增长"><a href="#22-8-6-自增长" class="headerlink" title="22.8.6 自增长"></a>22.8.6 自增长</h4><ul>
-<li><h5 id="22-8-6-1-使用细节"><a href="#22-8-6-1-使用细节" class="headerlink" title="22.8.6.1 使用细节"></a>22.8.6.1 使用细节</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="22-9-索引"><a href="#22-9-索引" class="headerlink" title="22.9 索引"></a>22.9 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-9-%E7%B4%A2%E5%BC%95">索引</a></h3><ul>
-<li><h4 id="22-9-1-索引的操作"><a href="#22-9-1-索引的操作" class="headerlink" title="22.9.1 索引的操作"></a>22.9.1 索引的操作</h4></li>
-<li><h4 id="22-9-2-创建规则"><a href="#22-9-2-创建规则" class="headerlink" title="22.9.2 创建规则"></a>22.9.2 创建规则</h4></li>
-</ul>
-</li>
-<li><h3 id="22-10-事务"><a href="#22-10-事务" class="headerlink" title="22.10 事务"></a>22.10 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-10-%E4%BA%8B%E5%8A%A1">事务</a></h3><ul>
-<li><h4 id="22-10-1-事务的操作"><a href="#22-10-1-事务的操作" class="headerlink" title="22.10.1 事务的操作"></a>22.10.1 事务的操作</h4></li>
-<li><h4 id="22-10-2-使用细节"><a href="#22-10-2-使用细节" class="headerlink" title="22.10.2 使用细节"></a>22.10.2 使用细节</h4></li>
-<li><h4 id="22-10-3-隔离级别"><a href="#22-10-3-隔离级别" class="headerlink" title="22.10.3 隔离级别"></a>22.10.3 隔离级别</h4><ul>
-<li><h5 id="22-10-3-1-隔离级别的操作"><a href="#22-10-3-1-隔离级别的操作" class="headerlink" title="22.10.3.1 隔离级别的操作"></a>22.10.3.1 隔离级别的操作</h5></li>
-</ul>
-</li>
-<li><h4 id="22-10-4-事务的-ACID-特性"><a href="#22-10-4-事务的-ACID-特性" class="headerlink" title="22.10.4 事务的 ACID 特性"></a>22.10.4 事务的 ACID 特性</h4></li>
-</ul>
-</li>
-<li><h3 id="22-11-MySQL-表类型和存储引擎"><a href="#22-11-MySQL-表类型和存储引擎" class="headerlink" title="22.11 MySQL 表类型和存储引擎"></a>22.11 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-11-MySQL-%E8%A1%A8%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">MySQL 表类型和存储引擎</a></h3><ul>
-<li><h4 id="22-11-1-如何选择存储引擎"><a href="#22-11-1-如何选择存储引擎" class="headerlink" title="22.11.1 如何选择存储引擎"></a>22.11.1 如何选择存储引擎</h4></li>
-</ul>
-</li>
-<li><h3 id="22-12-视图"><a href="#22-12-视图" class="headerlink" title="22.12 视图"></a>22.12 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-12-%E8%A7%86%E5%9B%BE">视图</a></h3><ul>
-<li><h4 id="22-12-1-基本使用"><a href="#22-12-1-基本使用" class="headerlink" title="22.12.1 基本使用"></a>22.12.1 基本使用</h4></li>
-<li><h4 id="22-12-2-使用细节"><a href="#22-12-2-使用细节" class="headerlink" title="22.12.2 使用细节"></a>22.12.2 使用细节</h4></li>
-<li><h4 id="22-12-3-视图最佳实践"><a href="#22-12-3-视图最佳实践" class="headerlink" title="22.12.3 视图最佳实践"></a>22.12.3 视图最佳实践</h4></li>
-</ul>
-</li>
-<li><h3 id="22-13-MySQL-管理"><a href="#22-13-MySQL-管理" class="headerlink" title="22.13 MySQL 管理"></a>22.13 <a href="../../../../../../2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/#22-13-MySQL-%E7%AE%A1%E7%90%86">MySQL 管理</a></h3><ul>
-<li><h4 id="22-13-1-用户管理"><a href="#22-13-1-用户管理" class="headerlink" title="22.13.1 用户管理"></a>22.13.1 用户管理</h4></li>
-<li><h4 id="22-13-2-权限管理"><a href="#22-13-2-权限管理" class="headerlink" title="22.13.2 权限管理"></a>22.13.2 权限管理</h4></li>
-</ul>
-</li>
-<li><h3 id="附录：数据库"><a href="#附录：数据库" class="headerlink" title="附录：数据库"></a>附录：数据库</h3></li>
-</ul>
-<hr>
-<h2 id="23-JDBC-和数据库连接池"><a href="#23-JDBC-和数据库连接池" class="headerlink" title="23 JDBC 和数据库连接池"></a>23 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-JDBC-%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">JDBC 和数据库连接池</a></h2><ul>
-<li><h3 id="23-1-连接数据库的-5-种方式"><a href="#23-1-连接数据库的-5-种方式" class="headerlink" title="23.1 连接数据库的 5 种方式"></a>23.1 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-1-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84-5-%E7%A7%8D%E6%96%B9%E5%BC%8F">连接数据库的 5 种方式</a></h3></li>
-<li><h3 id="23-2-ReaultSet-结果集"><a href="#23-2-ReaultSet-结果集" class="headerlink" title="23.2 ReaultSet 结果集"></a>23.2 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-2-ReaultSet-%E7%BB%93%E6%9E%9C%E9%9B%86">ReaultSet 结果集</a></h3></li>
-<li><h3 id="23-3-Statement"><a href="#23-3-Statement" class="headerlink" title="23.3 Statement"></a>23.3 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-3-Statement">Statement</a></h3><ul>
-<li><h4 id="23-3-1-PreparedStatement-预处理"><a href="#23-3-1-PreparedStatement-预处理" class="headerlink" title="23.3.1 PreparedStatement 预处理"></a>23.3.1 PreparedStatement 预处理</h4></li>
-</ul>
-</li>
-<li><h3 id="23-4-JDBCUtils"><a href="#23-4-JDBCUtils" class="headerlink" title="23.4 JDBCUtils"></a>23.4 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-4-JDBCUtils">JDBCUtils</a></h3></li>
-<li><h3 id="23-5-事务"><a href="#23-5-事务" class="headerlink" title="23.5 事务"></a>23.5 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-5-%E4%BA%8B%E5%8A%A1">事务</a></h3></li>
-<li><h3 id="23-6-批处理"><a href="#23-6-批处理" class="headerlink" title="23.6 批处理"></a>23.6 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-6-%E6%89%B9%E5%A4%84%E7%90%86">批处理</a></h3><ul>
-<li><h4 id="23-6-1-说明"><a href="#23-6-1-说明" class="headerlink" title="23.6.1 说明"></a>23.6.1 说明</h4></li>
-</ul>
-</li>
-<li><h3 id="23-7-数据库连接池"><a href="#23-7-数据库连接池" class="headerlink" title="23.7 数据库连接池"></a>23.7 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-7-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">数据库连接池</a></h3><ul>
-<li><h4 id="23-7-1-C3P0"><a href="#23-7-1-C3P0" class="headerlink" title="23.7.1 C3P0"></a>23.7.1 C3P0</h4></li>
-<li><h4 id="23-7-2-Druid（德鲁伊）连接池"><a href="#23-7-2-Druid（德鲁伊）连接池" class="headerlink" title="23.7.2 Druid（德鲁伊）连接池"></a>23.7.2 Druid（德鲁伊）连接池</h4></li>
-</ul>
-</li>
-<li><h3 id="23-8-Apache-DbUtils"><a href="#23-8-Apache-DbUtils" class="headerlink" title="23.8 Apache - DbUtils"></a>23.8 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-8-Apache-DbUtils">Apache - DbUtils</a></h3><ul>
-<li><h4 id="23-8-1-Apache-DbUtils-常用方法"><a href="#23-8-1-Apache-DbUtils-常用方法" class="headerlink" title="23.8.1 Apache-DbUtils 常用方法"></a>23.8.1 Apache-DbUtils 常用方法</h4></li>
-</ul>
-</li>
-<li><h3 id="23-9-BasicDAO"><a href="#23-9-BasicDAO" class="headerlink" title="23.9 BasicDAO"></a>23.9 <a href="../../../../../../2022/02/20/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-9-BasicDAO">BasicDAO</a></h3></li>
-</ul>
-<hr>
-<h2 id="24-项目：满汉楼"><a href="#24-项目：满汉楼" class="headerlink" title="24 项目：满汉楼"></a>24 <a href="../../../../../../2022/02/26/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/24%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%BB%A1%E6%B1%89%E6%A5%BC/">项目：满汉楼</a></h2><hr>
-<h2 id="25-正则表达式"><a href="#25-正则表达式" class="headerlink" title="25 正则表达式"></a>25 <a href="../../../../../../2022/03/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></h2><ul>
-<li><h3 id="25-1-语法"><a href="#25-1-语法" class="headerlink" title="25.1 语法"></a>25.1 <a href="../../../../../../2022/03/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-1-%E8%AF%AD%E6%B3%95">语法</a></h3><ul>
-<li><h4 id="25-1-1-转义符号"><a href="#25-1-1-转义符号" class="headerlink" title="25.1.1 转义符号 \"></a>25.1.1 转义符号 <code>\</code></h4></li>
-<li><h4 id="25-1-2-字符匹配符"><a href="#25-1-2-字符匹配符" class="headerlink" title="25.1.2 字符匹配符"></a>25.1.2 字符匹配符</h4></li>
-<li><h4 id="25-1-3-选择匹配符"><a href="#25-1-3-选择匹配符" class="headerlink" title="25.1.3 选择匹配符 |"></a>25.1.3 选择匹配符 <code>|</code></h4></li>
-<li><h4 id="25-1-4-限定符"><a href="#25-1-4-限定符" class="headerlink" title="25.1.4 限定符"></a>25.1.4 限定符</h4></li>
-<li><h4 id="25-1-5-定位符"><a href="#25-1-5-定位符" class="headerlink" title="25.1.5 定位符"></a>25.1.5 定位符</h4></li>
-<li><h4 id="25-1-6-分组"><a href="#25-1-6-分组" class="headerlink" title="25.1.6 分组"></a>25.1.6 分组</h4></li>
-<li><h4 id="25-1-7-非捕获分组"><a href="#25-1-7-非捕获分组" class="headerlink" title="25.1.7 非捕获分组"></a>25.1.7 非捕获分组</h4></li>
-</ul>
-</li>
-<li><h3 id="25-2-常用类"><a href="#25-2-常用类" class="headerlink" title="25.2 常用类"></a>25.2 <a href="../../../../../../2022/03/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-2-%E5%B8%B8%E7%94%A8%E7%B1%BB">常用类</a></h3></li>
-<li><h3 id="25-3-分组、捕获、反向引用"><a href="#25-3-分组、捕获、反向引用" class="headerlink" title="25.3 分组、捕获、反向引用"></a>25.3 <a href="../../../../../../2022/03/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-3-%E5%88%86%E7%BB%84%E3%80%81%E6%8D%95%E8%8E%B7%E3%80%81%E5%8F%8D%E5%90%91%E5%BC%95%E7%94%A8">分组、捕获、反向引用</a></h3></li>
-<li><h3 id="25-4-在-String-中使用正则表达式"><a href="#25-4-在-String-中使用正则表达式" class="headerlink" title="25.4 在 String 中使用正则表达式"></a>25.4 <a href="../../../../../../2022/03/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-4-%E5%9C%A8-String-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">在 String 中使用正则表达式</a></h3></li>
-</ul>
-<hr>
-<h2 id="26-算法入门"><a href="#26-算法入门" class="headerlink" title="26 算法入门"></a>26 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/">算法入门</a></h2><ul>
-<li><h3 id="26-1-算法的执行时间"><a href="#26-1-算法的执行时间" class="headerlink" title="26.1 算法的执行时间"></a>26.1 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-1-%E7%AE%97%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4">算法的执行时间</a></h3><ul>
-<li><h4 id="26-1-1-时间复杂度"><a href="#26-1-1-时间复杂度" class="headerlink" title="26.1.1 时间复杂度"></a>26.1.1 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-1-1-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">时间复杂度</a></h4></li>
-</ul>
-</li>
-<li><h3 id="26-2-常用的算法"><a href="#26-2-常用的算法" class="headerlink" title="26.2 常用的算法"></a>26.2 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%AE%97%E6%B3%95">常用的算法</a></h3><ul>
-<li><h4 id="26-2-1-二分查找算法"><a href="#26-2-1-二分查找算法" class="headerlink" title="26.2.1 二分查找算法"></a>26.2.1 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-1-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95">二分查找算法</a></h4></li>
-<li><h4 id="26-2-2-分治算法"><a href="#26-2-2-分治算法" class="headerlink" title="26.2.2 分治算法"></a>26.2.2 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-2-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95">分治算法</a></h4></li>
-<li><h4 id="26-2-3-动态规划"><a href="#26-2-3-动态规划" class="headerlink" title="26.2.3 动态规划"></a>26.2.3 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></h4></li>
-<li><h4 id="26-2-4-KMP-算法"><a href="#26-2-4-KMP-算法" class="headerlink" title="26.2.4 KMP 算法"></a>26.2.4 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-4-KMP-%E7%AE%97%E6%B3%95">KMP 算法</a></h4></li>
-<li><h4 id="26-2-5-贪心算法"><a href="#26-2-5-贪心算法" class="headerlink" title="26.2.5 贪心算法"></a>26.2.5 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-5-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95">贪心算法</a></h4></li>
-<li><h4 id="26-2-6-普里姆算法"><a href="#26-2-6-普里姆算法" class="headerlink" title="26.2.6 普里姆算法"></a>26.2.6 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-6-%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95">普里姆算法</a></h4></li>
-<li><h4 id="26-2-7-克鲁斯卡尔算法"><a href="#26-2-7-克鲁斯卡尔算法" class="headerlink" title="26.2.7 克鲁斯卡尔算法"></a>26.2.7 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-7-%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95">克鲁斯卡尔算法</a></h4></li>
-<li><h4 id="26-2-8-迪杰斯特拉算法"><a href="#26-2-8-迪杰斯特拉算法" class="headerlink" title="26.2.8 迪杰斯特拉算法"></a>26.2.8 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-8-%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95">迪杰斯特拉算法</a></h4></li>
-<li><h4 id="26-2-9-弗洛伊德算法"><a href="#26-2-9-弗洛伊德算法" class="headerlink" title="26.2.9 弗洛伊德算法"></a>26.2.9 <a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-9-%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%AE%97%E6%B3%95">弗洛伊德算法</a></h4></li>
-</ul>
-</li>
-<li><h3 id="附录：骑士周游问题"><a href="#附录：骑士周游问题" class="headerlink" title="附录：骑士周游问题"></a>附录：<a href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98">骑士周游问题</a></h3></li>
-</ul>
-<hr>
+              <h1 id="目录">目录</h1>
+<hr />
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?share_source=copy_web">Java
+入门教学（韩顺平）</a></p>
+<h2 id="java-概述">1 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java
+概述</a></h2>
+<ul>
+<li><h3 id="java-历史">1.1 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-1-Java-%E5%8E%86%E5%8F%B2">Java
+历史</a></h3></li>
+<li><h3 id="java-重要特点">1.2 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-2-Java-%E9%87%8D%E8%A6%81%E7%89%B9%E7%82%B9">Java
+重要特点</a></h3></li>
+<li><h3 id="java-的开发工具">1.3 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-3-Java-%E7%9A%84%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">Java
+的开发工具</a></h3></li>
+<li><h3 id="java-运行基础">1.4 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-4-Java-%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80">Java
+运行基础</a></h3></li>
+<li><h3 id="java-执行流程分析">1.5 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-5-Java-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">Java
+执行流程分析</a></h3>
+<ul>
+<li><h4 id="编译">1.5.1 编译</h4></li>
+<li><h4 id="运行">1.5.2 运行</h4></li>
+</ul></li>
+<li><h3 id="java-开发注意事项和细节说明">1.6 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-6-Java-%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E">Java
+开发注意事项和细节说明</a></h3></li>
+<li><h3 id="代码规范">1.7 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-7-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83">代码规范</a></h3></li>
+<li><h3 id="java-转义字符">1.8 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-8-Java-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6">Java
+转义字符</a></h3></li>
+<li><h3 id="注释">1.9 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-9-%E6%B3%A8%E9%87%8A">注释</a></h3>
+<ul>
+<li><h4 id="注释类型">1.9.1 注释类型</h4></li>
+<li><h4 id="文档注释">1.9.2 文档注释</h4></li>
+</ul></li>
+<li><h3 id="jshell">1.10 <a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#1-10-JShell">JShell</a></h3></li>
+<li><h3 id="附录">附录</h3>
+<h3 id="如何快速学习技术和知识点"><a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E5%92%8C%E7%9F%A5%E8%AF%86%E7%82%B9">如何快速学习技术和知识点</a></h3>
+<h3 id="dos"><a
+href="../../../../../../2021/11/21/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#DOS%EF%BC%88%E5%8F%AA%E8%A6%81%E4%BA%86%E8%A7%A3%EF%BC%89">DOS</a></h3></li>
+</ul>
+<hr />
+<h2 id="变量">2 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/">变量</a></h2>
+<ul>
+<li><h3 id="变量使用注意事项">2.1 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-1-%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">变量使用注意事项</a></h3></li>
+<li><h3 id="程序中-的使用">2.2 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-2-%E7%A8%8B%E5%BA%8F%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8">程序中
+<code>+</code> 的使用</a></h3></li>
+<li><h3 id="java-数据类型">2.3 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-3-Java-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Java
+数据类型</a></h3></li>
+<li><h3 id="整数类型">2.4 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-4-%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B">整数类型</a></h3></li>
+<li><h3 id="浮点类型">2.5 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-5-%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B">浮点类型</a></h3>
+<ul>
+<li><h4 id="使用细节">2.5.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="字符类型">2.6 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-6-%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B">字符类型</a></h3>
+<ul>
+<li><h4 id="使用细节-1">2.6.1 使用细节</h4></li>
+<li><h4 id="字符本质与编码表">2.6.2 字符本质与编码表</h4></li>
+</ul></li>
+<li><h3 id="布尔类型">2.7 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-7-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B">布尔类型</a></h3></li>
+<li><h3 id="基本数据类型转换">2.8 <a
+href="../../../../../../2021/11/22/Java/入门阶段/2%20%E5%8F%98%E9%87%8F/#2-8-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">基本数据类型转换</a></h3>
+<ul>
+<li><h4 id="自动类型转换">2.8.1 自动类型转换</h4></li>
+<li><h4 id="强制类型转换">2.8.2 强制类型转换</h4>
+<ul>
+<li><h5 id="使用细节-2">2.8.2.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="基本数据类型和-string-的转换">2.8.3 基本数据类型和 String
+的转换</h4>
+<ul>
+<li><h5 id="使用细节-3">2.8.3.1 使用细节</h5></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="运算符">3 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/">运算符</a></h2>
+<ul>
+<li><h3 id="算术运算符">3.1 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-1-%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6">算术运算符</a></h3></li>
+<li><h3 id="关系运算符比较运算符">3.2 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-2-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%89">关系运算符（比较运算符）</a></h3>
+<ul>
+<li><h4 id="使用细节-4">3.2.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="逻辑运算符">3.3 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-3-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a></h3></li>
+<li><h3 id="赋值运算符">3.4 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">赋值运算符</a></h3>
+<ul>
+<li><h4 id="使用细节-5">3.4.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="三元运算符">3.5 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-5-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6">三元运算符</a></h3>
+<ul>
+<li><h4 id="使用细节-6">3.5.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="运算符优先级">3.6 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-6-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7">运算符优先级</a></h3></li>
+<li><h3 id="标识符">3.7 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-7-%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></h3>
+<ul>
+<li><h4 id="命名规则">3.7.1 命名规则</h4></li>
+<li><h4 id="命名规范">3.7.2 命名规范</h4></li>
+</ul></li>
+<li><h3 id="输入与输出">3.8 <a
+href="../../../../../../2021/11/23/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-8-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA">输入与输出</a></h3>
+<ul>
+<li><h4 id="scanner-类">3.8.1 Scanner 类</h4></li>
+<li><h4 id="格式化输出">3.8.2 格式化输出</h4></li>
+<li><h4 id="numberformat-类">3.8.3 NumberFormat 类</h4></li>
+<li><h4 id="decimalformat-类">3.8.4 DecimalFormat 类</h4></li>
+</ul></li>
+<li><h3 id="进制">3.9 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-9-%E8%BF%9B%E5%88%B6">进制</a></h3>
+<ul>
+<li><h4 id="进制的转换">3.9.1 进制的转换</h4></li>
+<li><h4 id="原码反码补码">3.9.2 原码、反码、补码</h4></li>
+</ul></li>
+<li><h3 id="位运算符">3.10 <a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#3-10-%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6">位运算符</a></h3></li>
+<li><h3 id="附录-1">附录</h3>
+<h3 id="java-api-文档"><a
+href="../../../../../../2021/11/23/Java/入门阶段/3%20%E8%BF%90%E7%AE%97%E7%AC%A6/#Java-API-%E6%96%87%E6%A1%A3">Java
+API 文档</a></h3></li>
+</ul>
+<hr />
+<h2 id="程序控制结构">4 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">程序控制结构</a></h2>
+<ul>
+<li><h3 id="顺序控制">4.1 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-1-%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6">顺序控制</a></h3></li>
+<li><h3 id="if---else-分支控制">4.2 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-2-%E5%88%86%E6%94%AF%E6%8E%A7%E5%88%B6-if-else">if
+- else 分支控制</a></h3>
+<ul>
+<li><h4 id="单分支控制">4.2.1 单分支控制</h4></li>
+<li><h4 id="双分支控制">4.2.2 双分支控制</h4></li>
+<li><h4 id="多分支控制">4.2.3 多分支控制</h4></li>
+<li><h4 id="嵌套分支">4.2.4 嵌套分支</h4></li>
+</ul></li>
+<li><h3 id="switch-分支控制">4.3 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-3-switch-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84">switch
+分支控制</a></h3>
+<ul>
+<li><h4 id="使用细节-7">4.3.1 使用细节</h4></li>
+<li><h4 id="与-if-else-分支结构的取舍">4.3.2 与 <code>if-else</code>
+分支结构的取舍</h4></li>
+</ul></li>
+<li><h3 id="for-循环控制">4.4 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-4-for-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">for
+循环控制</a></h3>
+<ul>
+<li><h4 id="使用细节-8">4.4.1 使用细节</h4></li>
+<li><h4 id="for-each增强-for-循环">4.4.2 for each（增强 for
+循环）</h4></li>
+</ul></li>
+<li><h3 id="while-循环控制">4.5 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-5-while-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">while
+循环控制</a></h3>
+<ul>
+<li><h4 id="使用细节-9">4.5.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="do..while-循环控制">4.6 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-6-do-while-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">do..while
+循环控制</a></h3>
+<ul>
+<li><h4 id="使用细节-10">4.6.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="多重循环控制">4.7 <a
+href="../../../../../../2021/11/24/Java/入门阶段/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-7-%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6">多重循环控制</a></h3></li>
+<li><h3 id="跳转控制语句">4.8 <a
+href="../../../../../../2021/11/24/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#4-8-%E8%B7%B3%E8%BD%AC%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5">跳转控制语句</a></h3>
+<ul>
+<li><h4 id="标签">4.8.1 标签</h4></li>
+<li><h4 id="break">4.8.2 break</h4></li>
+<li><h4 id="continue">4.8.3 continue</h4></li>
+<li><h4 id="return">4.8.4 return</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="数组排序和查找">5 <a
+href="../../../../../../2021/11/27/Java/入门阶段/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/">数组、排序和查找</a></h2>
+<ul>
+<li><h3 id="一维数组">5.1 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84">一维数组</a></h3>
+<ul>
+<li><h4 id="数组赋值机制">5.1.1 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-1-%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC%E6%9C%BA%E5%88%B6">数组赋值机制</a></h4></li>
+<li><h4 id="数组的扩容">5.1.2 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-2-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%AE%B9">数组的扩容</a></h4></li>
+</ul></li>
+<li><h3 id="二维数组">5.2 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-2-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84">二维数组</a></h3></li>
+<li><h3 id="查找算法">5.3 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95">查找算法</a></h3>
+<ul>
+<li><h4 id="线性查找">5.3.1 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-1-%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE">线性查找</a></h4></li>
+<li><h4 id="二分查找">5.3.2 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a></h4></li>
+<li><h4 id="插值查找">5.3.3 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-3-%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE">插值查找</a></h4></li>
+<li><h4 id="斐波那契查找">5.3.4 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-3-4-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%9F%A5%E6%89%BE">斐波那契查找</a></h4></li>
+</ul></li>
+<li><h3 id="排序算法">5.4 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a></h3>
+<ul>
+<li><h4 id="冒泡排序">5.4.1 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-1-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">冒泡排序</a></h4></li>
+<li><h4 id="选择排序">5.4.2 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-2-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">选择排序</a></h4></li>
+<li><h4 id="插入排序">5.4.3 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-3-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</a></h4></li>
+<li><h4 id="希尔排序">5.4.4 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-4-%E5%B8%8C%E5%84%BF%E6%8E%92%E5%BA%8F">希尔排序</a></h4></li>
+<li><h4 id="快速排序">5.4.5 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-5-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</a></h4></li>
+<li><h4 id="归并排序">5.4.6 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-6-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">归并排序</a></h4></li>
+<li><h4 id="基数排序">5.4.7 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-7-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F">基数排序</a></h4></li>
+<li><h4 id="堆排序">5.4.8 <a
+href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-4-8-%E5%A0%86%E6%8E%92%E5%BA%8F">堆排序</a></h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="面向对象编程基础">6 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/">面向对象编程（基础）</a></h2>
+<ul>
+<li><h3 id="类与对象oop">6.1 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%EF%BC%88OOP%EF%BC%89">类与对象（OOP）</a></h3>
+<ul>
+<li><h4 id="属性成员变量">6.1.1 属性/成员变量</h4></li>
+<li><h4 id="创建对象">6.1.2 创建对象</h4></li>
+<li><h4 id="类与对象的内存访问机制">6.1.3
+类与对象的内存访问机制</h4></li>
+</ul></li>
+<li><h3 id="成员方法">6.2 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-2-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95">成员方法</a></h3>
+<ul>
+<li><h4 id="方法的调用机制">6.2.1 方法的调用机制</h4></li>
+<li><h4 id="使用细节-11">6.2.2 使用细节</h4></li>
+<li><h4 id="成员方法传参机制">6.2.3 成员方法传参机制</h4></li>
+</ul></li>
+<li><h3 id="方法递归调用">6.3 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-3-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8">方法递归调用</a></h3>
+<ul>
+<li><h4 id="使用细节-12">6.3.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="方法重载">6.4 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-4-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD">方法重载</a></h3></li>
+<li><h3 id="可变参数">6.5 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-5-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></h3>
+<ul>
+<li><h4 id="使用细节-13">6.5.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="作用域">6.6 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-6-%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">作用域</a></h3>
+<ul>
+<li><h4 id="使用细节-14">6.6.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="构造方法构造器">6.7 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-7-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8">构造方法、构造器</a></h3>
+<ul>
+<li><h4 id="使用细节-15">6.7.1 使用细节</h4></li>
+<li><h4 id="流程分析">6.7.2 流程分析</h4></li>
+</ul></li>
+<li><h3 id="this-关键字">6.8 <a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-8-this-%E5%85%B3%E9%94%AE%E5%AD%97">this
+关键字</a></h3>
+<ul>
+<li><h4 id="使用方法">6.8.1 使用方法</h4></li>
+</ul></li>
+<li><h3 id="附录-2">附录</h3>
+<h3 id="迷宫游戏代码"><a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#%E8%BF%B7%E5%AE%AB%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81">迷宫游戏代码</a></h3>
+<h3 id="八皇后代码"><a
+href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#%E5%85%AB%E7%9A%87%E5%90%8E%E4%BB%A3%E7%A0%81">八皇后代码</a></h3></li>
+</ul>
+<hr />
+<h2 id="面向对象编程中级">7 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/">面向对象编程（中级）</a></h2>
+<ul>
+<li><h3 id="idea-的使用">7.1 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-1-IDEA-%E7%9A%84%E4%BD%BF%E7%94%A8">IDEA
+的使用</a></h3>
+<ul>
+<li><h4 id="常用快捷键">7.1.1 常用快捷键</h4></li>
+<li><h4 id="模板快捷键">7.1.2 模板快捷键</h4></li>
+</ul></li>
+<li><h3 id="包">7.2 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-2-%E5%8C%85">包</a></h3></li>
+<li><h3 id="访问修饰符">7.3 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">访问修饰符</a></h3>
+<ul>
+<li><h4 id="访问权限特点">7.3.1 访问权限特点</h4></li>
+<li><h4 id="使用说明">7.3.2 使用说明</h4></li>
+</ul></li>
+<li><h3 id="封装">7.4 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-4-%E5%B0%81%E8%A3%85%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89">封装</a></h3>
+<ul>
+<li><h4 id="静态导入">7.4.1 静态导入</h4></li>
+<li><h4 id="jar-文件">7.4.2 JAR 文件</h4></li>
+</ul></li>
+<li><h3 id="继承">7.5 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-5-%E7%BB%A7%E6%89%BF%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89">继承</a></h3>
+<ul>
+<li><h4 id="使用细节-16">7.5.1 使用细节</h4></li>
+<li><h4 id="继承的本质">7.5.2 继承的本质</h4></li>
+<li><h4 id="super-关键字">7.5.3 <code>super</code> 关键字</h4></li>
+<li><h4 id="方法重写覆盖">7.5.4 方法重写/覆盖</h4></li>
+</ul></li>
+<li><h3 id="多态">7.6 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-6-%E5%A4%9A%E6%80%81%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">多态</a></h3>
+<ul>
+<li><h4 id="多态的体现">7.6.1 多态的体现</h4></li>
+<li><h4 id="使用细节-17">7.6.2 使用细节</h4></li>
+<li><h4 id="理解方法调用">7.6.3 理解方法调用</h4></li>
+</ul></li>
+<li><h3 id="object-类">7.7 <a
+href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-7-Object-%E7%B1%BB">Object
+类</a></h3>
+<ul>
+<li><h4 id="equals-方法">7.7.1 equals 方法</h4></li>
+<li><h4 id="hashcode-方法">7.7.2 hashCode 方法</h4></li>
+<li><h4 id="tostring-方法">7.7.3 toString 方法</h4></li>
+<li><h4 id="finalize-方法">7.7.4 finalize 方法</h4></li>
+</ul></li>
+<li><h3 id="断点调试debug">7.8 <a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-8-%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%EF%BC%88Debug%EF%BC%89">断点调试（Debug）</a></h3></li>
+<li><h3 id="附录-3">附录</h3>
+<h3 id="零钱通程序"><a
+href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#%E9%9B%B6%E9%92%B1%E9%80%9A%E7%A8%8B%E5%BA%8F">零钱通程序</a></h3></li>
+</ul>
+<hr />
+<h2 id="项目房屋出租系统">8 <a
+href="../../../../../../2021/12/13/Java/入门阶段/8%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E7%B3%BB%E7%BB%9F/">项目：房屋出租系统</a></h2>
+<p>2021.12.13 20:12 第一阶段完成</p>
+<hr />
+<h2 id="面向对象编程高级">9 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/">面向对象编程（高级）</a></h2>
+<ul>
+<li><h3 id="类变量和类方法">9.1 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-1-%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95">类变量和类方法</a></h3>
+<ul>
+<li><h4 id="类变量">9.1.1 类变量</h4></li>
+<li><h4 id="类方法">9.1.2 类方法</h4></li>
+</ul></li>
+<li><h3 id="理解-main-方法语法">9.2 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-2-%E7%90%86%E8%A7%A3-main-%E6%96%B9%E6%B3%95%E8%AF%AD%E6%B3%95">理解
+<code>main</code> 方法语法</a></h3></li>
+<li><h3 id="代码块">9.3 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-3-%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a></h3>
+<ul>
+<li><h4 id="使用细节-18">9.3.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="单例设计模式">9.4 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-4-%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">单例设计模式</a></h3>
+<ul>
+<li><h4 id="应用实例">9.4.1 应用实例</h4>
+<ul>
+<li><h5 id="饿汉式">9.4.1.1 饿汉式</h5></li>
+<li><h5 id="懒汉式">9.4.1.2 懒汉式</h5></li>
+<li><h5 id="两种方法对比">9.4.1.3 两种方法对比</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="final-关键字">9.5 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-5-final-%E5%85%B3%E9%94%AE%E5%AD%97"><code>final</code>
+关键字</a></h3>
+<ul>
+<li><h4 id="使用细节-19">9.5.1 使用细节</h4></li>
+</ul></li>
+<li><h3 id="抽象类">9.6 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-6-%E6%8A%BD%E8%B1%A1%E7%B1%BB">抽象类</a></h3>
+<ul>
+<li><h4 id="使用细节-20">9.6.1 使用细节</h4></li>
+<li><h4 id="模板设计模式">9.6.2 模板设计模式</h4></li>
+</ul></li>
+<li><h3 id="接口">9.7 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-7-%E6%8E%A5%E5%8F%A3">接口</a></h3>
+<ul>
+<li><h4 id="使用细节-21">9.7.1 使用细节</h4></li>
+<li><h4 id="实现接口-vs-继承类">9.7.2 实现接口 vs 继承类</h4></li>
+<li><h4 id="接口的多态特性">9.7.3 接口的多态特性</h4></li>
+</ul></li>
+<li><h3 id="内部类">9.8 <a
+href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-8-%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%88%E9%87%8D%E9%9A%BE%E7%82%B9%EF%BC%89">内部类</a></h3>
+<ul>
+<li><h4 id="四种内部类">9.8.1 四种内部类</h4></li>
+<li><h4 id="局部内部类">9.8.2 局部内部类</h4>
+<ul>
+<li><h5 id="使用细节-22">9.8.2.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="匿名内部类">9.8.3 匿名内部类</h4>
+<ul>
+<li><h5 id="使用细节-23">9.8.3.1 使用细节</h5></li>
+<li><h5 id="使用场景">9.8.3.2 使用场景</h5></li>
+</ul></li>
+<li><h4 id="成员内部类">9.8.4 成员内部类</h4>
+<ul>
+<li><h5 id="使用细节-24">9.8.4.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="静态内部类">9.8.5 静态内部类</h4>
+<ul>
+<li><h5 id="使用细节-25">9.8.5.1 使用细节</h5></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="枚举和注解">10 <a
+href="../../../../../../2021/12/17/Java/入门阶段/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">枚举和注解</a></h2>
+<ul>
+<li><h3 id="枚举">10.1 <a
+href="../../../../../../2021/12/17/Java/入门阶段/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#10-1-%E6%9E%9A%E4%B8%BE">枚举</a></h3>
+<ul>
+<li><h4 id="自定义枚举">10.1.1 自定义枚举</h4></li>
+<li><h4 id="enum-关键字">10.1.2 enum 关键字</h4>
+<ul>
+<li><h5 id="使用细节-26">10.1.2.1 使用细节</h5></li>
+<li><h5 id="enum-类中的常用方法">10.1.2.2 Enum 类中的常用方法</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="注解">10.2 <a
+href="../../../../../../2021/12/17/Java/入门阶段/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#10-2-%E6%B3%A8%E8%A7%A3">注解</a></h3>
+<ul>
+<li><h4 id="override">10.2.1 <span class="citation"
+data-cites="Override">@Override</span></h4></li>
+<li><h4 id="deprecated">10.2.2 <span class="citation"
+data-cites="Deprecated">@Deprecated</span></h4></li>
+<li><h4 id="suppresswarnings">10.2.3 <span class="citation"
+data-cites="SuppressWarnings">@SuppressWarnings</span>()</h4></li>
+<li><h4 id="jdk-的元注解了解即可">10.2.4 JDK
+的元注解（了解即可）</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="异常">11 <a
+href="../../../../../../2021/12/18/Java/入门阶段/11%20%E5%BC%82%E5%B8%B8/">异常</a></h2>
+<ul>
+<li><h3 id="异常体系图">11.1 <a
+href="../../../../../../2021/12/18/Java/入门阶段/11%20%E5%BC%82%E5%B8%B8/#11-1-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E5%9B%BE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89">异常体系图</a></h3>
+<ul>
+<li><h4 id="常见的运行时异常">11.1.1 常见的运行时异常</h4></li>
+<li><h4 id="常见的编译异常">11.1.2 常见的编译异常</h4></li>
+</ul></li>
+<li><h3 id="异常处理">11.2 <a
+href="../../../../../../2021/12/18/Java/入门阶段/11%20%E5%BC%82%E5%B8%B8/#11-2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">异常处理</a></h3>
+<ul>
+<li><h4 id="try---catch-异常处理">11.2.1 try - catch 异常处理</h4>
+<ul>
+<li><h5 id="使用细节-27">11.2.1.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="throws-异常处理">11.2.2 throws 异常处理</h4>
+<ul>
+<li><h5 id="使用细节-28">11.2.2.1 使用细节</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="自定义异常">11.3 <a
+href="../../../../../../2021/12/18/Java/入门阶段/11%20%E5%BC%82%E5%B8%B8/#11-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8">自定义异常</a></h3>
+<ul>
+<li><h4 id="throw-和-throws">11.3.1 throw 和 throws</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="常用类">12 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/">常用类</a></h2>
+<ul>
+<li><h3 id="包装类">12.1 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-1-%E5%8C%85%E8%A3%85%E7%B1%BB">包装类</a></h3>
+<ul>
+<li><h4 id="装箱和拆箱">12.1.1 装箱和拆箱</h4></li>
+<li><h4 id="包装类和-string-的相互转换">12.1.2 包装类和 String
+的相互转换</h4></li>
+<li><h4 id="包装类的常用方法">12.1.3 包装类的常用方法</h4></li>
+<li><h4 id="strictfp-关键字">12.1.4 strictfp 关键字</h4></li>
+</ul></li>
+<li><h3 id="string-类">12.2 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-2-String-%E7%B1%BB">String
+类</a></h3>
+<ul>
+<li><h4 id="string-构造方法">12.2.1 String 构造方法</h4></li>
+<li><h4 id="字符串的特性">12.2.2 字符串的特性</h4></li>
+<li><h4 id="string-的常用方法">12.2.3 String 的常用方法</h4></li>
+</ul></li>
+<li><h3 id="stringbuffer-类">12.3 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-3-StringBuffer-%E7%B1%BB">StringBuffer
+类</a></h3>
+<ul>
+<li><h4 id="stringbuffer-构造方法">12.3.1 StringBuffer
+构造方法</h4></li>
+<li><h4 id="string-和-stringbuffer-的转换">12.3.2 String 和 StringBuffer
+的转换</h4></li>
+<li><h4 id="stringbuffer-的常用方法">12.3.3 StringBuffer
+的常用方法</h4></li>
+</ul></li>
+<li><h3 id="stringbuilder-类">12.4 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-4-StringBuilder-%E7%B1%BB">StringBuilder
+类</a></h3>
+<ul>
+<li><h4 id="stringstringbufferstringbuilder-的对比">12.4.1
+String、StringBuffer、StringBuilder 的对比</h4></li>
+</ul></li>
+<li><h3 id="math-类">12.5 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-5-Math-%E7%B1%BB">Math
+类</a></h3></li>
+<li><h3 id="arrays-类">12.6 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-6-Arrays-%E7%B1%BB">Arrays
+类</a></h3></li>
+<li><h3 id="system-类">12.7 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-7-System-%E7%B1%BB">System
+类</a></h3></li>
+<li><h3 id="biginteger-和-bigdecimal-类">12.8 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-8-BigInteger-%E5%92%8C-BigDecimal-%E7%B1%BB">BigInteger
+和 BigDecimal 类</a></h3></li>
+<li><h3 id="日期类">12.9 <a
+href="../../../../../../2021/12/19/Java/入门阶段/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-9-%E6%97%A5%E6%9C%9F%E7%B1%BB">日期类</a></h3>
+<ul>
+<li><h4 id="第一代日期类">12.9.1 第一代日期类</h4></li>
+<li><h4 id="第二代日期类">12.9.2 第二代日期类</h4></li>
+<li><h4 id="第三代日期类">12.9.3 第三代日期类</h4></li>
+</ul></li>
+<li><h3 id="泛型">12.10 <a
+href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-10-%E6%B3%9B%E5%9E%8B">泛型</a></h3></li>
+</ul>
+<hr />
+<h2 id="java-数据结构">13 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Java
+数据结构</a></h2>
+<ul>
+<li><h3 id="集合的框架体系">13.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-1-%E9%9B%86%E5%90%88%E7%9A%84%E6%A1%86%E6%9E%B6%E4%BD%93%E7%B3%BB">集合的框架体系</a></h3></li>
+<li><h3 id="单列集合接口-collection">13.2 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-2-%E5%8D%95%E5%88%97%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Collection">单列集合接口
+Collection</a></h3>
+<ul>
+<li><h4 id="迭代器-iterator">13.2.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-2-1-%E8%BF%AD%E4%BB%A3%E5%99%A8-Iterator">迭代器
+Iterator</a></h4></li>
+</ul></li>
+<li><h3 id="有序集合接口-list">13.3 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-List">有序集合接口
+List</a></h3>
+<ul>
+<li><h4 id="可变数组-arraylist">13.3.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-1-%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84-ArrayList">可变数组
+ArrayList</a></h4></li>
+<li><h4 id="可变数组-vector">13.3.2 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-2-%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84-Vector">可变数组
+Vector</a></h4></li>
+<li><h4 id="链表-linkedlist">13.3.3 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-3-%E9%93%BE%E8%A1%A8-LinkedList">链表
+LinkedList</a></h4></li>
+<li><h4 id="稀疏数组">13.3.4 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-4-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84">稀疏数组</a></h4></li>
+<li><h4 id="栈-stack">13.3.5 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-5-%E6%A0%88-Stack">栈
+Stack</a></h4>
+<ul>
+<li><h5 id="栈模拟计算器">13.3.5.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-5-1-%E6%A0%88%E6%A8%A1%E6%8B%9F%E8%AE%A1%E7%AE%97%E5%99%A8">栈模拟计算器</a></h5></li>
+</ul></li>
+<li><h4 id="跳表-skiplist">13.3.6 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-3-6-跳表-SkipList">跳表
+SkipList</a></h4></li>
+</ul></li>
+<li><h3 id="队列接口-queue">13.4 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-%E9%98%9F%E5%88%97%E6%8E%A5%E5%8F%A3-Queue">队列接口
+Queue</a></h3>
+<ul>
+<li><h4 id="优先级队列-priorityqueue">13.4.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-1-%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97-PriorityQueue">优先级队列
+PriorityQueue</a></h4></li>
+<li><h4 id="阻塞队列接口-blockingqueue">13.4.2 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-4-2-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%8E%A5%E5%8F%A3-BlockingQueue">阻塞队列接口
+BlockingQueue</a></h4></li>
+</ul></li>
+<li><h3 id="双列集合接口-map">13.5 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Map">双列集合接口
+Map</a></h3>
+<ul>
+<li><h4 id="散列表-hashmap">13.5.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-1-%E6%95%A3%E5%88%97%E8%A1%A8-HashMap">散列表
+HashMap</a></h4></li>
+<li><h4 id="散列表-hashtable">13.5.2 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-2-%E6%95%A3%E5%88%97%E8%A1%A8-Hashtable">散列表
+Hashtable</a></h4></li>
+<li><h4 id="红黑树-treemap">13.5.3 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-3-%E7%BA%A2%E9%BB%91%E6%A0%91-TreeMap">红黑树
+TreeMap</a></h4>
+<ul>
+<li><h5 id="二叉树">13.5.3.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-3-1-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9A">二叉树</a></h5></li>
+</ul></li>
+<li><h4 id="properties">13.5.4 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-5-4-Properties">Properties</a></h4></li>
+</ul></li>
+<li><h3 id="无序集合接口-set">13.6 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-%E6%97%A0%E5%BA%8F%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3-Set">无序集合接口
+Set</a></h3>
+<ul>
+<li><h4 id="hashset">13.6.1 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-1-HashSet">HashSet</a></h4></li>
+<li><h4 id="linkedhashset">13.6.2 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-2-LinkedHashSet">LinkedHashSet</a></h4></li>
+<li><h4 id="treeset">13.6.3 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-6-3-TreeSet">TreeSet</a></h4></li>
+</ul></li>
+<li><h3 id="集合的选择">13.7 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-7-%E9%9B%86%E5%90%88%E7%9A%84%E9%80%89%E6%8B%A9">集合的选择</a></h3></li>
+<li><h3 id="工具类-collections">13.8 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-8-%E5%B7%A5%E5%85%B7%E7%B1%BB-Collections">工具类
+Collections</a></h3></li>
+<li><h3 id="junit">13.9 <a
+href="../../../../../../2022/05/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20Java%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#13-9-JUnit">JUnit</a></h3></li>
+</ul>
+<hr />
+<h2 id="树">14 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/">树</a></h2>
+<ul>
+<li><h3 id="二叉树-1">14.1 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9A">二叉树</a></h3>
+<ul>
+<li><h4 id="顺序存储二叉树">14.1.1 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-1-%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91">顺序存储二叉树</a></h4></li>
+<li><h4 id="线索化二叉树">14.1.2 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-2-%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91">线索化二叉树</a></h4></li>
+<li><h4 id="赫夫曼树">14.1.3 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-3-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91">赫夫曼树</a></h4></li>
+<li><h4 id="二叉排序树">14.1.4 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91">二叉排序树</a></h4>
+<ul>
+<li><h5 id="平衡二叉树">14.1.4.1 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-1-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91">平衡二叉树</a></h5></li>
+</ul></li>
+<li><h4 id="线段树">14.1.5 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-4-线段树">线段树</a></h4></li>
+</ul></li>
+<li><h3 id="多路查找树">14.2 <a href="">多路查找树</a></h3>
+<ul>
+<li><h4 id="树-1">14.2.1 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-2-1-2-3-%E6%A0%91">2-3
+树</a></h4></li>
+<li><h4 id="b-树">14.2.2 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-2-2-B-%E6%A0%91">B
+树</a></h4></li>
+</ul></li>
+<li><h3 id="图">14.3 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-%E5%9B%BE">图</a></h3>
+<ul>
+<li><h4 id="深度优先搜索-dfs">14.3.1 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-1-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS">深度优先搜索
+DFS</a></h4></li>
+<li><h4 id="广度优先搜索-bfs">14.3.2 <a
+href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-3-2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS">广度优先搜索
+BFS</a></h4></li>
+</ul></li>
+<li><h3 id="附录-4">附录</h3>
+<ul>
+<li><h4 id="f1-实现赫夫曼编码解码">F1 实现赫夫曼编码/解码</h4></li>
+<li><h4 id="f2-实现平衡二叉树">F2 实现平衡二叉树</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="图形界面设计">15 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/">图形界面设计</a></h2>
+<ul>
+<li><h3 id="容器">15.1 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-1-%E5%AE%B9%E5%99%A8">容器</a></h3>
+<ul>
+<li><h4 id="顶层容器">15.1.1 顶层容器</h4></li>
+<li><h4 id="内容窗格">15.1.2 内容窗格</h4></li>
+<li><h4 id="面板">15.1.3 面板</h4>
+<ul>
+<li><h5 id="jpanel">15.1.3.1 JPanel</h5></li>
+<li><h5 id="jscrollpanel">15.1.3.2 JScrollPanel</h5></li>
+<li><h5 id="scrollbar">15.1.3.3 Scrollbar</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="标签和按钮">15.2 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-2-%E6%A0%87%E7%AD%BE%E5%92%8C%E6%8C%89%E9%92%AE">标签和按钮</a></h3>
+<ul>
+<li><h4 id="标签-1">15.2.1 标签</h4></li>
+<li><h4 id="按钮">15.2.2 按钮</h4>
+<ul>
+<li><h5 id="jbutton">15.2.2.1 JButton</h5></li>
+<li><h5 id="jtogglebuttonjcheckbuttonjradiobutton">15.2.2.2
+JToggleButton、JCheckButton、JRadioButton</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="布局管理器">15.3 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-3-%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8">布局管理器</a></h3>
+<ul>
+<li><h4 id="flowlayout-流布局管理器">15.3.1 FlowLayout
+流布局管理器</h4></li>
+<li><h4 id="borderlayout-边界布局管理器">15.3.2 BorderLayout
+边界布局管理器</h4></li>
+<li><h4 id="gridlayout-网格布局管理器">15.3.3 GridLayout
+网格布局管理器</h4></li>
+<li><h4 id="cardlayout-卡片式布局管理器">15.3.4 CardLayout
+卡片式布局管理器</h4></li>
+<li><h4 id="boxlayout-方框布局管理器">15.3.5 BoxLayout
+方框布局管理器</h4></li>
+<li><h4 id="空布局">15.3.6 空布局</h4></li>
+</ul></li>
+<li><h3 id="事件处理">15.4 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-4-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">事件处理</a></h3>
+<ul>
+<li><h4 id="事件处理模型">15.4.1 事件处理模型</h4></li>
+<li><h4 id="事件的种类">15.4.2 事件的种类</h4></li>
+<li><h4 id="事件适配器">15.4.3 事件适配器</h4></li>
+</ul></li>
+<li><h3 id="java-绘图技术">15.5 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-5-Java-%E7%BB%98%E5%9B%BE%E6%8A%80%E6%9C%AF">Java
+绘图技术</a></h3>
+<ul>
+<li><h4 id="颜色">15.5.1 颜色</h4></li>
+<li><h4 id="字体">15.5.2 字体</h4></li>
+<li><h4 id="graphics-类">15.5.3 Graphics 类</h4>
+<ul>
+<li><h5 id="polygon-类">15.5.3.1 Polygon 类</h5></li>
+</ul></li>
+<li><h4 id="graphics2d-类">15.5.4 Graphics2D 类</h4>
+<ul>
+<li><h5 id="图形状态属性">15.5.4.1 图形状态属性</h5></li>
+<li><h5 id="graphics2d-的绘图方法">15.5.4.2 Graphics2D
+的绘图方法</h5></li>
+<li><h5 id="graphics2d-中的几何图形类">15.5.4.3 Graphics2D
+中的几何图形类</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="组合框与列表">15.6 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-6-%E7%BB%84%E5%90%88%E6%A1%86%E4%B8%8E%E5%88%97%E8%A1%A8">组合框与列表</a></h3>
+<ul>
+<li><h4 id="jcombobox-组合框">15.6.1 JComboBox 组合框</h4></li>
+<li><h4 id="jlist-列表">15.6.2 JList 列表</h4></li>
+</ul></li>
+<li><h3 id="文本组件">15.7 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-7-%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6">文本组件</a></h3>
+<ul>
+<li><h4 id="jtextfield-文本域">15.7.1 JTextField 文本域</h4></li>
+<li><h4 id="jtextarea-文本区">15.7.2 JTextArea 文本区</h4></li>
+</ul></li>
+<li><h3 id="菜单组件">15.8 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-8-%E8%8F%9C%E5%8D%95%E7%BB%84%E4%BB%B6">菜单组件</a></h3>
+<ul>
+<li><h4 id="菜单栏及菜单">15.8.1 菜单栏及菜单</h4></li>
+<li><h4 id="jmenuitem-菜单项">15.8.2 JMenuItem 菜单项</h4></li>
+<li><h4 id="复选菜单项和单选菜单项">15.8.3
+复选菜单项和单选菜单项</h4></li>
+</ul></li>
+<li><h3 id="对话框">15.9 <a
+href="../../../../../../2022/04/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/15%20%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#15-9-%E5%AF%B9%E8%AF%9D%E6%A1%86">对话框</a></h3>
+<ul>
+<li><h4 id="jdialog-自定义对话框">15.9.1 JDialog 自定义对话框</h4></li>
+<li><h4 id="joptionalpane-标准对话框">15.9.2 JOptionalPane
+标准对话框</h4></li>
+<li><h4 id="jfilechooser-文件对话框">15.9.3 JFileChooser
+文件对话框</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="多线程">16 <a
+href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></h2>
+<ul>
+<li><h3 id="线程的概念">16.1 <a
+href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5">线程的概念</a></h3>
+<ul>
+<li><h4 id="线程的结构">16.1.1 线程的结构</h4></li>
+<li><h4 id="线程的状态">16.1.2 线程的状态</h4></li>
+</ul></li>
+<li><h3 id="线程的使用">16.2 <a
+href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-2-%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8">线程的使用</a></h3>
+<ul>
+<li><h4 id="继承-thread-类">16.2.1 继承 Thread 类</h4></li>
+<li><h4 id="实现-runable-接口">16.2.2 实现 Runable 接口</h4></li>
+<li><h4 id="继承-thread-和-实现-runable-的区别">16.2.3 继承 Thread 和
+实现 Runable 的区别</h4></li>
+<li><h4 id="线程中止">16.2.4 线程中止</h4></li>
+<li><h4 id="线程常用方法">16.2.5 线程常用方法</h4></li>
+<li><h4 id="用户线程和守护线程">16.2.6 用户线程和守护线程</h4></li>
+<li><h4 id="线程的生命周期">16.2.7 线程的生命周期</h4></li>
+</ul></li>
+<li><h3 id="线程的互斥">16.3 <a
+href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-3-%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%92%E6%96%A5">线程的互斥</a></h3>
+<ul>
+<li><h4 id="互斥锁">16.3.1 互斥锁</h4></li>
+<li><h4 id="线程死锁">16.3.2 线程死锁</h4></li>
+</ul></li>
+<li><h3 id="线程的同步">16.4 <a
+href="../../../../../../2022/01/01/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/16%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/#16-4-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5">线程的同步</a></h3></li>
+</ul>
+<hr />
+<h2 id="io-流">17 <a
+href="../../../../../../2022/01/06/Java/入门阶段/17%20IO%E6%B5%81/">IO
+流</a></h2>
+<ul>
+<li><h3 id="文件">17.1 <a
+href="../../../../../../2022/01/06/Java/入门阶段/17%20IO%E6%B5%81/#17-1-%E6%96%87%E4%BB%B6">文件</a></h3>
+<ul>
+<li><h4 id="常用的文件操作">17.1.1 常用的文件操作</h4></li>
+</ul></li>
+<li><h3 id="io流">17.2 <a
+href="../../../../../../2022/01/06/Java/入门阶段/17%20IO%E6%B5%81/#17-2-IO%E6%B5%81">IO流</a></h3>
+<ul>
+<li><h4 id="io流的分类">17.2.1 IO流的分类</h4></li>
+<li><h4 id="io流-常用类">17.2.2 IO流 常用类</h4>
+<ul>
+<li><h5 id="fileinputstream文件字节输入流">17.2.2.1
+FileInputStream：文件字节输入流</h5></li>
+<li><h5 id="fileoutputstream文件字节输出流">17.2.2.2
+FileOutputStream：文件字节输出流</h5></li>
+<li><h5 id="filereader文件字符输入流">17.2.2.3
+FileReader：文件字符输入流</h5></li>
+<li><h5 id="filewriter文件字符输出流">17.2.2.3
+FileWriter：文件字符输出流</h5></li>
+<li><h5 id="转换流-inputstreamreader-和-outputstreamwriter">17.2.3.4
+转换流 InputStreamReader 和 OutputStreamWriter</h5></li>
+</ul></li>
+<li><h4 id="节点流和处理流">17.2.3 节点流和处理流</h4>
+<ul>
+<li><h5 id="缓冲区流">17.2.3.1 缓冲区流</h5></li>
+<li><h5 id="数据数据流">17.2.3.2 数据数据流</h5></li>
+<li><h5 id="对象流">17.2.3.3 对象流</h5></li>
+<li><h5 id="标准输入-输出流">17.2.3.4 标准输入 / 输出流</h5></li>
+<li><h5 id="打印流-paintstream-和-paintwriter">17.2.3.5 打印流
+PaintStream 和 PaintWriter</h5></li>
+<li><h5 id="properties-类">17.2.3.6 Properties 类</h5></li>
+<li><h5 id="随机访问文件">17.2.3.7 随机访问文件</h5></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="项目坦克大战-完结">18 <a
+href="../../../../../../2022/01/11/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/18%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/">项目：坦克大战
+[完结]</a></h2>
+<p>2022.1.12 01:57 第二阶段完成</p>
+<hr />
+<h2 id="网络编程">19 <a
+href="../../../../../../2022/01/12/Java/入门阶段/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></h2>
+<ul>
+<li><h3 id="网络的相关概念">19.1 <a
+href="../../../../../../2022/01/12/Java/入门阶段/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-1-%E7%BD%91%E7%BB%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">网络的相关概念</a></h3>
+<ul>
+<li><h4 id="tcp-和-udp">19.1.1 TCP 和 UDP</h4></li>
+</ul></li>
+<li><h3 id="inetaddress-类">19.2 <a
+href="../../../../../../2022/01/12/Java/入门阶段/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-2-InetAddress-%E7%B1%BB">InetAddress
+类</a></h3></li>
+<li><h3 id="socket">19.3 <a
+href="../../../../../../2022/01/12/Java/入门阶段/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/#19-3-Socket">Socket</a></h3>
+<ul>
+<li><h4 id="tcp-网络通信编程">19.3.1 TCP 网络通信编程</h4>
+<ul>
+<li><h5 id="netstat-指令">19.3.1.1 netstat 指令</h5></li>
+<li><h5 id="tcp-连接秘密">19.3.1.2 TCP 连接秘密</h5></li>
+</ul></li>
+<li><h4 id="udp-网络通信编程">19.3.2 UDP 网络通信编程</h4></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="项目多用户通讯系统">20 <a
+href="../../../../../../2022/01/16/Java/入门阶段/20%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/">项目：多用户通讯系统</a></h2>
+<ul>
+<li><h3 id="需求分析">20.1 需求分析</h3></li>
+</ul>
+<hr />
+<h2 id="反射">21 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/">反射</a></h2>
+<ul>
+<li><h3 id="反射相关的常用类">21.1 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-1-%E5%8F%8D%E5%B0%84%E7%9B%B8%E5%85%B3%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB">反射相关的常用类</a></h3></li>
+<li><h3 id="class-类">21.2 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-2-Class-%E7%B1%BB">Class
+类</a></h3>
+<ul>
+<li><h4 id="class-类的常用方法">21.2.1 Class 类的常用方法</h4></li>
+<li><h4 id="获取-class-对象">21.2.2 获取 Class 对象</h4></li>
+<li><h4 id="哪些类有-class-对象">21.2.3 哪些类有 Class 对象</h4></li>
+</ul></li>
+<li><h3 id="类的加载">21.3 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-3-%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD">类的加载</a></h3>
+<ul>
+<li><h4 id="类加载的五个阶段">21.3.1 类加载的五个阶段</h4></li>
+</ul></li>
+<li><h3 id="通过反射获取类的结构信息">21.4 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-4-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E7%BB%93%E6%9E%84%E4%BF%A1%E6%81%AF">通过反射获取类的结构信息</a></h3></li>
+<li><h3 id="通过反射创建对象">21.5 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-5-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">通过反射创建对象</a></h3></li>
+<li><h3 id="通过反射访问成员">21.6 <a
+href="../../../../../../2022/01/20/Java/入门阶段/21%20%E5%8F%8D%E5%B0%84/#21-6-%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98">通过反射访问成员</a></h3></li>
+</ul>
+<hr />
+<h2 id="mysql">22 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/">MySQL</a></h2>
+<ul>
+<li><h3 id="数据库">22.1 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-1-%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a></h3>
+<ul>
+<li><h4 id="创建数据库">22.1.1 创建数据库</h4></li>
+<li><h4 id="查看-删除数据库">22.1.2 查看 · 删除数据库</h4></li>
+<li><h4 id="备份-恢复数据库">22.1.3 备份 · 恢复数据库</h4></li>
+</ul></li>
+<li><h3 id="mysql-常用数据类型列类型">22.2 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-2-MySQL-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%88%97%E7%B1%BB%E5%9E%8B%EF%BC%89">MySQL
+常用数据类型（列类型）</a></h3>
+<ul>
+<li><h4 id="数组类型">22.2.1 数组类型</h4>
+<ul>
+<li><h5 id="整形">22.2.1.1 整形</h5></li>
+<li><h5 id="bit位类型">22.2.1.2 bit（位类型）</h5></li>
+<li><h5 id="小数类型">22.2.1.3 小数类型</h5></li>
+</ul></li>
+<li><h4 id="文本类型">22.2.2 文本类型</h4></li>
+<li><h4 id="时间日期类型">22.2.3 时间日期类型</h4></li>
+</ul></li>
+<li><h3 id="表">22.3 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-3-%E8%A1%A8">表</a></h3>
+<ul>
+<li><h4 id="创建表">22.2.1 创建表</h4></li>
+<li><h4 id="删除-修改表">22.2.2 删除 · 修改表</h4></li>
+</ul></li>
+<li><h3 id="数据库的增删改查">22.4 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">数据库的增删改查</a></h3>
+<ul>
+<li><h4 id="insert-语句">22.4.1 INSERT 语句</h4></li>
+<li><h4 id="update-语句">22.4.2 UPDATE 语句</h4></li>
+<li><h4 id="delete-语句">22.4.3 DELETE 语句</h4></li>
+<li><h4 id="select-语句单表">22.4.4 SELECT 语句（单表）</h4></li>
+<li><h4 id="常用的运算符">22.4.5 常用的运算符</h4></li>
+</ul></li>
+<li><h3 id="函数">22.5 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-5-%E5%87%BD%E6%95%B0">函数</a></h3>
+<ul>
+<li><h4 id="统计函数">22.5.1 统计函数</h4></li>
+<li><h4 id="字符串函数">22.5.2 字符串函数</h4></li>
+<li><h4 id="数学函数">22.5.3 数学函数</h4></li>
+<li><h4 id="时间和日期函数">22.5.4 时间和日期函数</h4></li>
+<li><h4 id="加密和系统函数">22.5.5 加密和系统函数</h4></li>
+<li><h4 id="流程控制函数">22.5.6 流程控制函数</h4></li>
+</ul></li>
+<li><h3 id="mysql-多表查询">22.6 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-6-MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2">MySQL
+多表查询</a></h3>
+<ul>
+<li><h4 id="自连接">22.6.1 自连接</h4></li>
+<li><h4 id="子查询">22.6.2 子查询</h4></li>
+</ul></li>
+<li><h3 id="外连接">22.7 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-7-%E5%A4%96%E8%BF%9E%E6%8E%A5">外连接</a></h3></li>
+<li><h3 id="约束">22.8 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-8-%E7%BA%A6%E6%9D%9F">约束</a></h3>
+<ul>
+<li><h4 id="primary-key主键">22.8.1 primary key（主键）</h4>
+<ul>
+<li><h5 id="使用细节-29">22.8.1.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="not-null非空">22.8.2 not null（非空）</h4></li>
+<li><h4 id="unique唯一">22.8.3 unique（唯一）</h4></li>
+<li><h4 id="foreign-key外键">22.8.4 foreign key（外键）</h4>
+<ul>
+<li><h5 id="使用细节-30">22.8.4.1 使用细节</h5></li>
+</ul></li>
+<li><h4 id="check">22.8.5 check</h4></li>
+<li><h4 id="自增长">22.8.6 自增长</h4>
+<ul>
+<li><h5 id="使用细节-31">22.8.6.1 使用细节</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="索引">22.9 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-9-%E7%B4%A2%E5%BC%95">索引</a></h3>
+<ul>
+<li><h4 id="索引的操作">22.9.1 索引的操作</h4></li>
+<li><h4 id="创建规则">22.9.2 创建规则</h4></li>
+</ul></li>
+<li><h3 id="事务">22.10 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-10-%E4%BA%8B%E5%8A%A1">事务</a></h3>
+<ul>
+<li><h4 id="事务的操作">22.10.1 事务的操作</h4></li>
+<li><h4 id="使用细节-32">22.10.2 使用细节</h4></li>
+<li><h4 id="隔离级别">22.10.3 隔离级别</h4>
+<ul>
+<li><h5 id="隔离级别的操作">22.10.3.1 隔离级别的操作</h5></li>
+</ul></li>
+<li><h4 id="事务的-acid-特性">22.10.4 事务的 ACID 特性</h4></li>
+</ul></li>
+<li><h3 id="mysql-表类型和存储引擎">22.11 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-11-MySQL-%E8%A1%A8%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">MySQL
+表类型和存储引擎</a></h3>
+<ul>
+<li><h4 id="如何选择存储引擎">22.11.1 如何选择存储引擎</h4></li>
+</ul></li>
+<li><h3 id="视图">22.12 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-12-%E8%A7%86%E5%9B%BE">视图</a></h3>
+<ul>
+<li><h4 id="基本使用">22.12.1 基本使用</h4></li>
+<li><h4 id="使用细节-33">22.12.2 使用细节</h4></li>
+<li><h4 id="视图最佳实践">22.12.3 视图最佳实践</h4></li>
+</ul></li>
+<li><h3 id="mysql-管理">22.13 <a
+href="../../../../../../2022/01/22/Java/入门阶段/22%20MySQL/#22-13-MySQL-%E7%AE%A1%E7%90%86">MySQL
+管理</a></h3>
+<ul>
+<li><h4 id="用户管理">22.13.1 用户管理</h4></li>
+<li><h4 id="权限管理">22.13.2 权限管理</h4></li>
+</ul></li>
+<li><h3 id="附录数据库">附录：数据库</h3></li>
+</ul>
+<hr />
+<h2 id="jdbc-和数据库连接池">23 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-JDBC-%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">JDBC
+和数据库连接池</a></h2>
+<ul>
+<li><h3 id="连接数据库的-5-种方式">23.1 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-1-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84-5-%E7%A7%8D%E6%96%B9%E5%BC%8F">连接数据库的
+5 种方式</a></h3></li>
+<li><h3 id="reaultset-结果集">23.2 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-2-ReaultSet-%E7%BB%93%E6%9E%9C%E9%9B%86">ReaultSet
+结果集</a></h3></li>
+<li><h3 id="statement">23.3 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-3-Statement">Statement</a></h3>
+<ul>
+<li><h4 id="preparedstatement-预处理">23.3.1 PreparedStatement
+预处理</h4></li>
+</ul></li>
+<li><h3 id="jdbcutils">23.4 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-4-JDBCUtils">JDBCUtils</a></h3></li>
+<li><h3 id="事务-1">23.5 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-5-%E4%BA%8B%E5%8A%A1">事务</a></h3></li>
+<li><h3 id="批处理">23.6 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-6-%E6%89%B9%E5%A4%84%E7%90%86">批处理</a></h3>
+<ul>
+<li><h4 id="说明">23.6.1 说明</h4></li>
+</ul></li>
+<li><h3 id="数据库连接池">23.7 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-7-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">数据库连接池</a></h3>
+<ul>
+<li><h4 id="c3p0">23.7.1 C3P0</h4></li>
+<li><h4 id="druid德鲁伊连接池">23.7.2 Druid（德鲁伊）连接池</h4></li>
+</ul></li>
+<li><h3 id="apache---dbutils">23.8 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-8-Apache-DbUtils">Apache
+- DbUtils</a></h3>
+<ul>
+<li><h4 id="apache-dbutils-常用方法">23.8.1 Apache-DbUtils
+常用方法</h4></li>
+</ul></li>
+<li><h3 id="basicdao">23.9 <a
+href="../../../../../../2022/02/20/Java/入门阶段/23%20JDBC%20%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/#23-9-BasicDAO">BasicDAO</a></h3></li>
+</ul>
+<hr />
+<h2 id="项目满汉楼">24 <a
+href="../../../../../../2022/02/26/Java/入门阶段/24%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%BB%A1%E6%B1%89%E6%A5%BC/">项目：满汉楼</a></h2>
+<hr />
+<h2 id="正则表达式">25 <a
+href="../../../../../../2022/03/02/Java/入门阶段/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></h2>
+<ul>
+<li><h3 id="语法">25.1 <a
+href="../../../../../../2022/03/02/Java/入门阶段/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-1-%E8%AF%AD%E6%B3%95">语法</a></h3>
+<ul>
+<li><h4 id="转义符号">25.1.1 转义符号 <code>\</code></h4></li>
+<li><h4 id="字符匹配符">25.1.2 字符匹配符</h4></li>
+<li><h4 id="选择匹配符">25.1.3 选择匹配符 <code>|</code></h4></li>
+<li><h4 id="限定符">25.1.4 限定符</h4></li>
+<li><h4 id="定位符">25.1.5 定位符</h4></li>
+<li><h4 id="分组">25.1.6 分组</h4></li>
+<li><h4 id="非捕获分组">25.1.7 非捕获分组</h4></li>
+</ul></li>
+<li><h3 id="常用类-1">25.2 <a
+href="../../../../../../2022/03/02/Java/入门阶段/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-2-%E5%B8%B8%E7%94%A8%E7%B1%BB">常用类</a></h3></li>
+<li><h3 id="分组捕获反向引用">25.3 <a
+href="../../../../../../2022/03/02/Java/入门阶段/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-3-%E5%88%86%E7%BB%84%E3%80%81%E6%8D%95%E8%8E%B7%E3%80%81%E5%8F%8D%E5%90%91%E5%BC%95%E7%94%A8">分组、捕获、反向引用</a></h3></li>
+<li><h3 id="在-string-中使用正则表达式">25.4 <a
+href="../../../../../../2022/03/02/Java/入门阶段/25%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#25-4-%E5%9C%A8-String-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">在
+String 中使用正则表达式</a></h3></li>
+</ul>
+<hr />
+<h2 id="算法入门">26 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/">算法入门</a></h2>
+<ul>
+<li><h3 id="算法的执行时间">26.1 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-1-%E7%AE%97%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4">算法的执行时间</a></h3>
+<ul>
+<li><h4 id="时间复杂度">26.1.1 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-1-1-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">时间复杂度</a></h4></li>
+</ul></li>
+<li><h3 id="常用的算法">26.2 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E7%AE%97%E6%B3%95">常用的算法</a></h3>
+<ul>
+<li><h4 id="二分查找算法">26.2.1 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-1-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95">二分查找算法</a></h4></li>
+<li><h4 id="分治算法">26.2.2 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-2-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95">分治算法</a></h4></li>
+<li><h4 id="动态规划">26.2.3 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></h4></li>
+<li><h4 id="kmp-算法">26.2.4 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-4-KMP-%E7%AE%97%E6%B3%95">KMP
+算法</a></h4></li>
+<li><h4 id="贪心算法">26.2.5 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-5-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95">贪心算法</a></h4></li>
+<li><h4 id="普里姆算法">26.2.6 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-6-%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95">普里姆算法</a></h4></li>
+<li><h4 id="克鲁斯卡尔算法">26.2.7 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-7-%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E7%AE%97%E6%B3%95">克鲁斯卡尔算法</a></h4></li>
+<li><h4 id="迪杰斯特拉算法">26.2.8 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-8-%E8%BF%AA%E6%9D%B0%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95">迪杰斯特拉算法</a></h4></li>
+<li><h4 id="弗洛伊德算法">26.2.9 <a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#26-2-9-%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%AE%97%E6%B3%95">弗洛伊德算法</a></h4></li>
+</ul></li>
+<li><h3 id="附录骑士周游问题">附录：<a
+href="../../../../../../2022/06/03/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/26%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/#%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98">骑士周游问题</a></h3></li>
+</ul>
+<hr />
 <p>Java 入门部分 结束</p>
 <p>—— Melody 2021.11.22 5:13 ~ 2022.3.7 19:34</p>
-<h2 id="27-Java-8-新特性"><a href="#27-Java-8-新特性" class="headerlink" title="27 Java 8 新特性"></a>27 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/">Java 8 新特性</a></h2><ul>
-<li><h3 id="27-1-Lambda-表达式"><a href="#27-1-Lambda-表达式" class="headerlink" title="27.1 Lambda 表达式"></a>27.1 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-1-Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F">Lambda 表达式</a></h3><ul>
-<li><h4 id="27-1-1-Lambda-表达式的使用"><a href="#27-1-1-Lambda-表达式的使用" class="headerlink" title="27.1.1 Lambda 表达式的使用"></a>27.1.1 Lambda 表达式的使用</h4></li>
+<h2 id="java-8-新特性">27 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/">Java
+8 新特性</a></h2>
+<ul>
+<li><h3 id="lambda-表达式">27.1 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-1-Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F">Lambda
+表达式</a></h3>
+<ul>
+<li><h4 id="lambda-表达式的使用">27.1.1 Lambda 表达式的使用</h4></li>
+</ul></li>
+<li><h3 id="函数式接口">27.2 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-2-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">函数式接口</a></h3>
+<ul>
+<li><h4 id="java-内置的函数式接口">27.2.1 Java
+内置的函数式接口</h4></li>
+</ul></li>
+<li><h3 id="方法引用和构造器引用">27.3 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-3-%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8%E5%BC%95%E7%94%A8">方法引用和构造器引用</a></h3>
+<ul>
+<li><h4 id="方法引用">27.3.1 方法引用</h4></li>
+<li><h4 id="构造器引用">27.3.2 构造器引用</h4></li>
+<li><h4 id="数组引用">27.3.3 数组引用</h4></li>
+</ul></li>
+<li><h3 id="stream-api">27.4 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-4-Stream-API">Stream
+API</a></h3>
+<ul>
+<li><h4 id="什么是-stream">27.4.1 什么是 Stream</h4></li>
+<li><h4 id="stream-操作步骤">27.4.2 Stream 操作步骤</h4>
+<ul>
+<li><h5 id="创建-stream">27.4.2.1 创建 Stream</h5></li>
+<li><h5 id="中间操作">27.4.2.2 中间操作</h5></li>
+<li><h5 id="终止操作">27.4.2.3 终止操作</h5></li>
+</ul></li>
+</ul></li>
+<li><h3 id="optional-类">27.5 <a
+href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-5-Optional-%E7%B1%BB">Optional
+类</a></h3></li>
 </ul>
-</li>
-<li><h3 id="27-2-函数式接口"><a href="#27-2-函数式接口" class="headerlink" title="27.2 函数式接口"></a>27.2 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-2-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">函数式接口</a></h3><ul>
-<li><h4 id="27-2-1-Java-内置的函数式接口"><a href="#27-2-1-Java-内置的函数式接口" class="headerlink" title="27.2.1 Java 内置的函数式接口"></a>27.2.1 Java 内置的函数式接口</h4></li>
-</ul>
-</li>
-<li><h3 id="27-3-方法引用和构造器引用"><a href="#27-3-方法引用和构造器引用" class="headerlink" title="27.3 方法引用和构造器引用"></a>27.3 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-3-%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8%E5%BC%95%E7%94%A8">方法引用和构造器引用</a></h3><ul>
-<li><h4 id="27-3-1-方法引用"><a href="#27-3-1-方法引用" class="headerlink" title="27.3.1 方法引用"></a>27.3.1 方法引用</h4></li>
-<li><h4 id="27-3-2-构造器引用"><a href="#27-3-2-构造器引用" class="headerlink" title="27.3.2 构造器引用"></a>27.3.2 构造器引用</h4></li>
-<li><h4 id="27-3-3-数组引用"><a href="#27-3-3-数组引用" class="headerlink" title="27.3.3 数组引用"></a>27.3.3 数组引用</h4></li>
-</ul>
-</li>
-<li><h3 id="27-4-Stream-API"><a href="#27-4-Stream-API" class="headerlink" title="27.4 Stream API"></a>27.4 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-4-Stream-API">Stream API</a></h3><ul>
-<li><h4 id="27-4-1-什么是-Stream"><a href="#27-4-1-什么是-Stream" class="headerlink" title="27.4.1 什么是 Stream"></a>27.4.1 什么是 Stream</h4></li>
-<li><h4 id="27-4-2-Stream-操作步骤"><a href="#27-4-2-Stream-操作步骤" class="headerlink" title="27.4.2 Stream 操作步骤"></a>27.4.2 Stream 操作步骤</h4><ul>
-<li><h5 id="27-4-2-1-创建-Stream"><a href="#27-4-2-1-创建-Stream" class="headerlink" title="27.4.2.1 创建 Stream"></a>27.4.2.1 创建 Stream</h5></li>
-<li><h5 id="27-4-2-2-中间操作"><a href="#27-4-2-2-中间操作" class="headerlink" title="27.4.2.2 中间操作"></a>27.4.2.2 中间操作</h5></li>
-<li><h5 id="27-4-2-3-终止操作"><a href="#27-4-2-3-终止操作" class="headerlink" title="27.4.2.3 终止操作"></a>27.4.2.3 终止操作</h5></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h3 id="27-5-Optional-类"><a href="#27-5-Optional-类" class="headerlink" title="27.5 Optional 类"></a>27.5 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-5-Optional-%E7%B1%BB">Optional 类</a></h3></li>
-</ul>
-<hr>
+<hr />
 
               
             </div>

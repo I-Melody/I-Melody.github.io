@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="22 MySQL22.1 数据库 安装数据库，就是在主机安装一个数据库管理系统。该系统可以管理多个数据库。 一个数据库中可以拥有多张表，以保存数据（信息）。这些表的本质仍是文件 表的一行称为一条记录。在 Java 中，一行记录往往用对象表示 下载地址 安装方法  可视化 MySQL 管理软件：**Navicat** 连接到 MySQL 服务的指令：mysql -h 主机名 -P 端口 -u 用户名">
+    <meta name="description" content="22 MySQL 22.1 数据库  安装数据库，就是在主机安装一个数据库管理系统。该系统可以管理多个数据库。 一个数据库中可以拥有多张表，以保存数据（信息）。这些表的本质仍是文件 表的一行称为一条记录。在 Java 中，一行记录往往用对象表示 下载地址 安装方法  可视化 MySQL 管理软件：Navicat 连接到 MySQL 服务的指令：mysql -h 主机名 -P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;22 MySQL">
 <meta property="og:url" content="https://i-melody.github.io/2022/01/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/22%20MySQL/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="22 MySQL22.1 数据库 安装数据库，就是在主机安装一个数据库管理系统。该系统可以管理多个数据库。 一个数据库中可以拥有多张表，以保存数据（信息）。这些表的本质仍是文件 表的一行称为一条记录。在 Java 中，一行记录往往用对象表示 下载地址 安装方法  可视化 MySQL 管理软件：**Navicat** 连接到 MySQL 服务的指令：mysql -h 主机名 -P 端口 -u 用户名">
+<meta property="og:description" content="22 MySQL 22.1 数据库  安装数据库，就是在主机安装一个数据库管理系统。该系统可以管理多个数据库。 一个数据库中可以拥有多张表，以保存数据（信息）。这些表的本质仍是文件 表的一行称为一条记录。在 Java 中，一行记录往往用对象表示 下载地址 安装方法  可视化 MySQL 管理软件：Navicat 连接到 MySQL 服务的指令：mysql -h 主机名 -P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-09T08:12:02.371Z">
@@ -293,89 +293,96 @@
             
             <div class="markdown-body">
               
-              <h1 id="22-MySQL"><a href="#22-MySQL" class="headerlink" title="22 MySQL"></a>22 MySQL</h1><h2 id="22-1-数据库"><a href="#22-1-数据库" class="headerlink" title="22.1 数据库"></a>22.1 数据库</h2><blockquote>
+              <h1 id="mysql">22 MySQL</h1>
+<h2 id="数据库">22.1 数据库</h2>
+<blockquote>
 <p>安装数据库，就是在主机安装一个数据库管理系统。该系统可以管理多个数据库。</p>
 <p>一个数据库中可以拥有多张表，以保存数据（信息）。这些表的本质仍是文件</p>
 <p>表的一行称为一条记录。在 Java 中，一行记录往往用对象表示</p>
-<p><a target="_blank" rel="noopener" href="http://dev.mysql.com/get/Downloads/MySQL-5.7.19-winx64.zip">下载地址</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=732&t=0.5">安装方法</a></p>
+<p><a
+target="_blank" rel="noopener" href="http://dev.mysql.com/get/Downloads/MySQL-5.7.19-winx64.zip">下载地址</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fh411y7R8?p=732&amp;t=0.5">安装方法</a></p>
 </blockquote>
-<p>可视化 MySQL 管理软件：**<a target="_blank" rel="noopener" href="http://www.navicat.com.cn/products">Navicat</a>**</p>
-<p>连接到 MySQL 服务的指令：<code>mysql -h 主机名 -P 端口 -u 用户名 -p密码</code></p>
-<ol>
+<p>可视化 MySQL 管理软件：<strong><a
+target="_blank" rel="noopener" href="http://www.navicat.com.cn/products">Navicat</a></strong></p>
+<p>连接到 MySQL
+服务的指令：<code>mysql -h 主机名 -P 端口 -u 用户名 -p密码</code></p>
+<ol type="1">
 <li>-p密码 不要有空格</li>
-<li>-p 后面不写密码，回车会要求输入密码 </li>
+<li>-p 后面不写密码，回车会要求输入密码</li>
 <li>如果不写 -h 默认是本机</li>
 <li>如果不写 -p 默认是 3306</li>
 </ol>
 <p>SQL 语句分类</p>
 <ul>
 <li>DDL（数据定义语句）：[create 表，库]</li>
-<li>DML（数据操作语句）：[增加 insert]、[修改 update]、[删除 delete]</li>
+<li>DML（数据操作语句）：[增加 insert]、[修改 update]、[删除
+delete]</li>
 <li>DQL（数据查询语句）：[select]</li>
 <li>DCL（数据控制语句）：[管理数据库：如用户权限 revoke grant]</li>
 </ul>
-<p><em><strong>关于数据库的详细说明，见本章附录</strong></em></p>
-<h3 id="22-1-1-创建数据库"><a href="#22-1-1-创建数据库" class="headerlink" title="22.1.1 创建数据库"></a>22.1.1 创建数据库</h3><div class="code-wrapper"><pre><code class="hljs mysql">CREATE DATABASE IF NOT EXISTS `Melody` CHARACTER SET &#x27;utf8&#x27; COLLATE &#x27;utf8_bin&#x27;;</code></pre></div>
-
-<ol>
+<p><strong><em>关于数据库的详细说明，见本章附录</em></strong></p>
+<h3 id="创建数据库">22.1.1 创建数据库</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE DATABASE IF NOT EXISTS `Melody` CHARACTER SET &#x27;utf8&#x27; COLLATE &#x27;utf8_bin&#x27;;</code></pre></div>
+<ol type="1">
 <li><p><code>CHARACTER SET</code>：指定数据库采用的字符集。</p>
-<p>不指定的场合，默认 UTF-8</p>
-</li>
+<p>不指定的场合，默认 UTF-8</p></li>
 <li><p><code>COLLATE</code>：指定数据库字符集校对规则</p>
 <ul>
 <li><code>utf8_bin</code> [区分大小写]（常用）</li>
 <li><code>utf8_general_ci</code> [不区分大小写]（默认）</li>
-</ul>
-</li>
-<li><p>在创建数据库 · 表时，为了规避关键字，可以使用反引号 &#96;&#96;&#96; &#96;</p>
-</li>
-<li><p>创建表时，不指定字符集 · 校对规则的场合，默认和数据库相同</p>
-</li>
+</ul></li>
+<li><p>在创建数据库 · 表时，为了规避关键字，可以使用反引号
+``<code></code></p></li>
+<li><p>创建表时，不指定字符集 ·
+校对规则的场合，默认和数据库相同</p></li>
 </ol>
-<h3 id="22-1-2-查看-·-删除数据库"><a href="#22-1-2-查看-·-删除数据库" class="headerlink" title="22.1.2 查看 · 删除数据库"></a>22.1.2 查看 · 删除数据库</h3><div class="code-wrapper"><pre><code class="hljs mysql">SHOW DATABASES;										#1
+<h3 id="查看-删除数据库">22.1.2 查看 · 删除数据库</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">SHOW DATABASES;										#1
 SHOW CREATE DATABASE `Melody`;						#2
 DROP DATABASE [IF EXISTS] `Melody`;					#3
 USE `sys`											#4</code></pre></div>
-
-<ol>
+<ol type="1">
 <li>显示数据库语句</li>
 <li>显示数据库创建语句（当初创建时的语句）</li>
 <li>数据库删除语句（必须慎用）</li>
 <li>切换数据库</li>
 </ol>
-<h3 id="22-1-3-备份-·-恢复数据库"><a href="#22-1-3-备份-·-恢复数据库" class="headerlink" title="22.1.3 备份 · 恢复数据库"></a>22.1.3 备份 · 恢复数据库</h3><p>备份（DOS）：<code>mysqldump -u 用户名 -p -B 数据库1 数据库2 &gt; 路径\文件名.sql</code></p>
+<h3 id="备份-恢复数据库">22.1.3 备份 · 恢复数据库</h3>
+<p>备份（DOS）：<code>mysqldump -u 用户名 -p -B 数据库1 数据库2 &gt; 路径\文件名.sql</code></p>
 <p>恢复（DOS，进入mysql）：<code>Source 文件名.sql;</code></p>
 <p>备份库的表：<code>mysqldunp -u 用户名 -p 数据库 表1 表2 &gt; 路径\文件名.sql</code></p>
-<h2 id="22-2-MySQL-常用数据类型（列类型）"><a href="#22-2-MySQL-常用数据类型（列类型）" class="headerlink" title="22.2 MySQL 常用数据类型（列类型）"></a>22.2 MySQL 常用数据类型（列类型）</h2><p><strong>数值类型</strong></p>
+<h2 id="mysql-常用数据类型列类型">22.2 MySQL 常用数据类型（列类型）</h2>
+<p><strong>数值类型</strong></p>
 <ul>
-<li>整形<ul>
+<li>整形
+<ul>
 <li>bit(M) [M 指定位数，默认1，范围 1 ~ 64]</li>
 <li>tinyint [1 byte]</li>
 <li>smallint [2 byte]</li>
 <li>mediumint [3 byte]</li>
 <li>int [4 byte]（常用）</li>
 <li>bigint [8 byte]</li>
-</ul>
-</li>
-<li>小数类型<ul>
+</ul></li>
+<li>小数类型
+<ul>
 <li>float [4 byte 单精度]</li>
 <li>double [8 byte 双精度]（常用）</li>
 <li>decimal(M,D) [大小不确定]（常用）</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>文本类型（字符串）</strong></p>
 <ul>
 <li>char [0 ~ 255]（常用）</li>
 <li>carchar [0 ~ 65535]（常用）</li>
-<li>text [0 ~ 2^16^ - 1]（常用）</li>
-<li>longtext [ 0 ~ 2^32^ - 1]</li>
+<li>text [0 ~ 2<sup>16</sup> - 1]（常用）</li>
+<li>longtext [ 0 ~ 2<sup>32</sup> - 1]</li>
 </ul>
 <p><strong>二进制数据类型</strong></p>
 <ul>
-<li>blob [0 ~ 2^16^ - 1]</li>
-<li>longblob [0 ~ 2^32^ - 1]</li>
+<li>blob [0 ~ 2<sup>16</sup> - 1]</li>
+<li>longblob [0 ~ 2<sup>32</sup> - 1]</li>
 </ul>
 <p><strong>时间日期类型</strong></p>
 <ul>
@@ -385,125 +392,135 @@ USE `sys`											#4</code></pre></div>
 <li>timestamp [时间戳]（常用）</li>
 <li>year [年]</li>
 </ul>
-<h3 id="22-2-1-数组类型"><a href="#22-2-1-数组类型" class="headerlink" title="22.2.1 数组类型"></a>22.2.1 数组类型</h3><h4 id="22-2-1-1-整形"><a href="#22-2-1-1-整形" class="headerlink" title="22.2.1.1 整形"></a>22.2.1.1 整形</h4><ol>
-<li><p>使用规范：在满足需求的情况下，尽量使用占用空间小的类型</p>
-</li>
+<h3 id="数组类型">22.2.1 数组类型</h3>
+<h4 id="整形">22.2.1.1 整形</h4>
+<ol type="1">
+<li><p>使用规范：在满足需求的情况下，尽量使用占用空间小的类型</p></li>
 <li><p>如何定义一个无符号整数：在后面加入 <code>unsigned</code></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `T1` (`ID` INT UNSIGNED);</code></pre></div>
-
-<p>无符号是咋呢？以 tinyint 为例，有符号的范围是 [-128, 127]，无符号范围是 [0, 255]</p>
-</li>
+<p>无符号是咋呢？以 tinyint 为例，有符号的范围是 [-128,
+127]，无符号范围是 [0, 255]</p></li>
 </ol>
-<h4 id="22-2-1-2-bit（位类型）"><a href="#22-2-1-2-bit（位类型）" class="headerlink" title="22.2.1.2 bit（位类型）"></a>22.2.1.2 bit（位类型）</h4><ol>
+<h4 id="bit位类型">22.2.1.2 bit（位类型）</h4>
+<ol type="1">
 <li><code>bit(m)</code> 中 m 的范围在 [1, 64]</li>
-<li>添加数据的范围按照给定的位数（m）来确定。m &#x3D; 8 的场合表示一个字节，范围是 255</li>
-<li>显示时，按照 bit 格式（<code>bit(8)</code> 的场合 <code>7</code> 就显示为 <code>00000111</code>）</li>
+<li>添加数据的范围按照给定的位数（m）来确定。m = 8
+的场合表示一个字节，范围是 255</li>
+<li>显示时，按照 bit 格式（<code>bit(8)</code> 的场合 <code>7</code>
+就显示为 <code>00000111</code>）</li>
 <li>查询时，仍能按照十进制数查询</li>
 </ol>
-<h4 id="22-2-1-3-小数类型"><a href="#22-2-1-3-小数类型" class="headerlink" title="22.2.1.3 小数类型"></a>22.2.1.3 小数类型</h4><ol>
-<li><p><code>float</code> 单精度，<code>double</code> 双精度</p>
-</li>
-<li><p><code>decimal(M,D)</code> 可以支持更加精确的小数位。其中 M 是小数位数的总数（精度），D 是小数点后的位数（标度）。</p>
-<p>D &#x3D; 0 的场合，值没有小数部分。M 最大值是 65，D 最大值是 30</p>
+<h4 id="小数类型">22.2.1.3 小数类型</h4>
+<ol type="1">
+<li><p><code>float</code> 单精度，<code>double</code> 双精度</p></li>
+<li><p><code>decimal(M,D)</code> 可以支持更加精确的小数位。其中 M
+是小数位数的总数（精度），D 是小数点后的位数（标度）。</p>
+<p>D = 0 的场合，值没有小数部分。M 最大值是 65，D 最大值是 30</p>
 <p>D 省略的场合，默认为 0；M 省略的场合，默认为 10</p>
-<p>希望小数精度高的场合，推荐使用 <code>decimal(M,D)</code></p>
-</li>
+<p>希望小数精度高的场合，推荐使用 <code>decimal(M,D)</code></p></li>
 </ol>
-<h3 id="22-2-2-文本类型"><a href="#22-2-2-文本类型" class="headerlink" title="22.2.2 文本类型"></a>22.2.2 文本类型</h3><ol>
-<li><p><code>char(size)</code>：固定长度字符串，size 范围 [0, 255]，最大 255 <strong>字符</strong>。</p>
-</li>
-<li><p><code>varchar(size)</code>：可变长度字符串，（UTF-8）size 范围 [0, 21844]，最大 65532 <strong>字节</strong>（1 ~ 3 字节要用于记录大小；UTF8 最大为 (65535 - 3) &#x2F; 3 &#x3D; 21844 <strong>字符</strong>）</p>
-</li>
-<li><p>size 表示字符数，不是字节数。无论中文英文，都最多存放 size 个字符</p>
-</li>
-<li><p><code>char(4)</code> 是定长。这个场合，不管输入什么（如 ‘a’）都会占用 4 个字符的空间</p>
-<p>相对的，<code>varchar(4)</code> 是变长。实际占用空间取决于输入的字符（实际数据大小 + 额外的 1 ~ 3 字节）</p>
-</li>
-<li><p>存放文本时，也可以使用 <code>text</code> 数据类型。可以把 <code>text</code> 列视为 <code>varchar</code> 列。<code>text</code> 不能有默认值，最大 2^16^ 字节</p>
-<p>希望存放更多字符，还能选择 <code>mediumtext</code>（最大 2^24^ 字节）或 <code>longtext</code>（最大 2^32^ 字节）</p>
-</li>
+<h3 id="文本类型">22.2.2 文本类型</h3>
+<ol type="1">
+<li><p><code>char(size)</code>：固定长度字符串，size 范围 [0, 255]，最大
+255 <strong>字符</strong>。</p></li>
+<li><p><code>varchar(size)</code>：可变长度字符串，（UTF-8）size 范围
+[0, 21844]，最大 65532 <strong>字节</strong>（1 ~ 3
+字节要用于记录大小；UTF8 最大为 (65535 - 3) / 3 = 21844
+<strong>字符</strong>）</p></li>
+<li><p>size 表示字符数，不是字节数。无论中文英文，都最多存放 size
+个字符</p></li>
+<li><p><code>char(4)</code> 是定长。这个场合，不管输入什么（如
+'a'）都会占用 4 个字符的空间</p>
+<p>相对的，<code>varchar(4)</code>
+是变长。实际占用空间取决于输入的字符（实际数据大小 + 额外的 1 ~ 3
+字节）</p></li>
+<li><p>存放文本时，也可以使用 <code>text</code> 数据类型。可以把
+<code>text</code> 列视为 <code>varchar</code> 列。<code>text</code>
+不能有默认值，最大 2<sup>16</sup> 字节</p>
+<p>希望存放更多字符，还能选择 <code>mediumtext</code>（最大
+2<sup>24</sup> 字节）或 <code>longtext</code>（最大 2<sup>32</sup>
+字节）</p></li>
 </ol>
-<h3 id="22-2-3-时间日期类型"><a href="#22-2-3-时间日期类型" class="headerlink" title="22.2.3 时间日期类型"></a>22.2.3 时间日期类型</h3><div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `T2` 
+<h3 id="时间日期类型">22.2.3 时间日期类型</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `T2` 
 		(T1 DATETIME, 
   	    T2 TIMESTAMP 
       		NOT NULL DEFAULT CURRENT_TIMESTAMP 
       		ON UPDATE CURRENT_TIMESTAMP);</code></pre></div>
-
 <p>后面一坨意为：默认时间戳为当前时间戳</p>
-<h2 id="22-3-表"><a href="#22-3-表" class="headerlink" title="22.3 表"></a>22.3 表</h2><h3 id="22-2-1-创建表"><a href="#22-2-1-创建表" class="headerlink" title="22.2.1 创建表"></a>22.2.1 创建表</h3><div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `table_yuheng` (`name` VARCHAR(255), `id` INT, `age` INT) CHARACTER SET &#x27;utf8&#x27; COLLATE &#x27;utf8_bin&#x27; ENGINE INNODB;</code></pre></div>
-
+<h2 id="表">22.3 表</h2>
+<h3 id="创建表">22.2.1 创建表</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `table_yuheng` (`name` VARCHAR(255), `id` INT, `age` INT) CHARACTER SET &#x27;utf8&#x27; COLLATE &#x27;utf8_bin&#x27; ENGINE INNODB;</code></pre></div>
 <p>field：指定列名</p>
 <p>datatype：指定列类型</p>
 <p>character set：字符集</p>
 <p>collate：校对规则</p>
 <p>engine：引擎</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE genshin2 LIKE genshin;</code></pre></div>
-
 <p>这个意思是：以 genshin 的结构创建一个表 genshin2</p>
-<h3 id="22-2-2-删除-·-修改表"><a href="#22-2-2-删除-·-修改表" class="headerlink" title="22.2.2 删除 · 修改表"></a>22.2.2 删除 · 修改表</h3><ul>
+<h3 id="删除-修改表">22.2.2 删除 · 修改表</h3>
+<ul>
 <li><p><strong>添加列</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` ADD `列名` NOT NULL 列类型 DEFAULT 默认值 AFTER 某列名;</code></pre></div>
-
-<p>在 <code>表名</code> 的 <code>某列名</code> 后面加入一个 <code>列名</code> 列，类型是 <code>列类型</code> 默认值为 <code>默认值</code></p>
-</li>
+<p>在 <code>表名</code> 的 <code>某列名</code> 后面加入一个
+<code>列名</code> 列，类型是 <code>列类型</code> 默认值为
+<code>默认值</code></p></li>
 <li><p><strong>修改列</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` MODIFY `列名` 列类型 NOT NULL DEFAULT 默认值;</code></pre></div>
-
 <blockquote>
-<p>把 <code>表名</code> 的 <code>列名</code> 列修改为 <code>列类型</code> ，默认值改为 <code>默认值</code></p>
+<p>把 <code>表名</code> 的 <code>列名</code> 列修改为
+<code>列类型</code> ，默认值改为 <code>默认值</code></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` CHANGE `列名` `新列名` 列类型 NOT NULL DEFAULT 默认值;</code></pre></div>
-
-<p>把 <code>表名</code> 的 <code>列名</code> 列修改为 <code>新列名</code> ，类型是 <code>列类型</code> 默认值为 <code>默认值</code></p>
-</li>
+<p>把 <code>表名</code> 的 <code>列名</code> 列修改为
+<code>新列名</code> ，类型是 <code>列类型</code> 默认值为
+<code>默认值</code></p></li>
 <li><p><strong>删除列</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` DROP `列名`;</code></pre></div>
-
-<p>删除 <code>表名</code> 的 <code>列名</code> 列</p>
-</li>
+<p>删除 <code>表名</code> 的 <code>列名</code> 列</p></li>
 <li><p><strong>查看表的结构</strong></p>
-<div class="code-wrapper"><pre><code class="hljs mysql">DESC `表名`;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">DESC `表名`;</code></pre></div></li>
 <li><p><strong>修改表名</strong></p>
-<div class="code-wrapper"><pre><code class="hljs mysql">RENAME TABLE `表名` TO `新表名`;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">RENAME TABLE `表名` TO `新表名`;</code></pre></div></li>
 <li><p><strong>修改表字符集</strong></p>
-<div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` CHARACTER SET &#x27;字符集&#x27;;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` CHARACTER SET &#x27;字符集&#x27;;</code></pre></div></li>
 <li><p><strong>修改存储引擎</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE `表名` ENGINE = 引擎;</code></pre></div></li>
 </ul>
-<h2 id="22-4-数据库的增删改查"><a href="#22-4-数据库的增删改查" class="headerlink" title="22.4 数据库的增删改查"></a>22.4 数据库的增删改查</h2><blockquote>
+<h2 id="数据库的增删改查">22.4 数据库的增删改查</h2>
+<blockquote>
 <p>C（create 创建）R（read 查找）U（update 修改）D（delete 删除）</p>
 </blockquote>
-<h3 id="22-4-1-INSERT-语句"><a href="#22-4-1-INSERT-语句" class="headerlink" title="22.4.1 INSERT 语句"></a>22.4.1 INSERT 语句</h3><div class="code-wrapper"><pre><code class="hljs mysql">INSERT INTO `表名` (列名1, 列名2, 列名3)
+<h3 id="insert-语句">22.4.1 INSERT 语句</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">INSERT INTO `表名` (列名1, 列名2, 列名3)
 VALUES (值1, 值2, 值3), (值1a, 值2a, 值3a);</code></pre></div>
-
-<ol>
-<li><p>当不给某个字段值时，如有默认值会添加默认值，否则会报错。</p>
-</li>
+<ol type="1">
+<li><p>当不给某个字段值时，如有默认值会添加默认值，否则会报错。</p></li>
 <li><p>另外，给表中 所有字段 添加数据的场合，也能不写列名：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">INSERT INTO `表名` VALUES (值1, 值2, 值3);</code></pre></div></li>
 </ol>
-<h3 id="22-4-2-UPDATE-语句"><a href="#22-4-2-UPDATE-语句" class="headerlink" title="22.4.2 UPDATE 语句"></a>22.4.2 UPDATE 语句</h3><div class="code-wrapper"><pre><code class="hljs mysql">UPDATE `表名` SET `列名` = 值, `列名2` = 值2 WHERE `条件列` = 条件值;</code></pre></div>
-
-<ol>
-<li>对于所有 <code>条件列</code> &#x3D; <code>条件值</code> 的记录，将 <code>列名</code> 列改为 <code>值</code></li>
+<h3 id="update-语句">22.4.2 UPDATE 语句</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">UPDATE `表名` SET `列名` = 值, `列名2` = 值2 WHERE `条件列` = 条件值;</code></pre></div>
+<ol type="1">
+<li>对于所有 <code>条件列</code> = <code>条件值</code> 的记录，将
+<code>列名</code> 列改为 <code>值</code></li>
 <li>SET 子句指示要修改哪些列和给予哪些值</li>
 <li><strong>如果不带 where 条件，会修改所有记录</strong></li>
 </ol>
-<h3 id="22-4-3-DELETE-语句"><a href="#22-4-3-DELETE-语句" class="headerlink" title="22.4.3 DELETE 语句"></a>22.4.3 DELETE 语句</h3><div class="code-wrapper"><pre><code class="hljs mysql">DELETE FROM `表名` WHERE `条件列` = 条件值;</code></pre></div>
-
-<ol>
+<h3 id="delete-语句">22.4.3 DELETE 语句</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">DELETE FROM `表名` WHERE `条件列` = 条件值;</code></pre></div>
+<ol type="1">
 <li>不能删除一列的值。若要如此做，可以使用 update 语句将一列置空</li>
-<li>delete 语句仅能删除记录，不能删除表本身。要如此做，可以使用 [22.2.2] 中的 drop 语句</li>
+<li>delete 语句仅能删除记录，不能删除表本身。要如此做，可以使用 [22.2.2]
+中的 drop 语句</li>
 <li><strong>如果不带 where 条件，会删除所有记录</strong></li>
 </ol>
-<h3 id="22-4-4-SELECT-语句（单表）"><a href="#22-4-4-SELECT-语句（单表）" class="headerlink" title="22.4.4 SELECT 语句（单表）"></a>22.4.4 SELECT 语句（单表）</h3><div class="code-wrapper"><pre><code class="hljs mysql">SELECT DISTINCT `列1`, `列2` FROM `表名` WHERE 条件;
+<h3 id="select-语句单表">22.4.4 SELECT 语句（单表）</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">SELECT DISTINCT `列1`, `列2` FROM `表名` WHERE 条件;
 SELECT * FROM `表名2`;</code></pre></div>
-
-<ol>
-<li>DISTINCT 是可选的。表示显示结果时，是否去掉重复数据（查询记录的所有字段都相同才会去重）</li>
+<ol type="1">
+<li>DISTINCT
+是可选的。表示显示结果时，是否去掉重复数据（查询记录的所有字段都相同才会去重）</li>
 <li>SELECT 指定查询哪些列的数据。</li>
 <li>SELECT * 的场合代表查询所有列</li>
 <li>FROM 指定查询哪张表</li>
@@ -511,74 +528,54 @@ SELECT * FROM `表名2`;</code></pre></div>
 <ul>
 <li><p><strong>使用表达式对查询的列进行运算</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT `name`, (chinese + math + english) FROM `student`;</code></pre></div>
-
-<p>这个场合，显示的时候是 <code>name</code> 和 <code>chinese + math + english</code> 两列</p>
-</li>
+<p>这个场合，显示的时候是 <code>name</code> 和
+<code>chinese + math + english</code> 两列</p></li>
 <li><p><strong><code>AS</code> 语句</strong></p>
 <p>可以用 AS 语句起个别名</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT `name`, (chinese + math + english) AS `all` FROM `student`;</code></pre></div>
-
-<p>这个场合，显示的时候是 <code>name</code> 和 <code>all</code> 两列</p>
-</li>
+<p>这个场合，显示的时候是 <code>name</code> 和 <code>all</code>
+两列</p></li>
 <li><p><strong>用 <code>ORDER BY</code> 语句排序查询结果</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `student` ORDER BY `math` DESC;</code></pre></div>
-
 <p>以 <code>math</code> 降序排列</p>
 <ul>
 <li>降序：DESC</li>
 <li>升序：ASC（不写也是默认升序）</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `genshin` ORDER BY `age` ASC, `salary` DESC;</code></pre></div>
-
-<p>以 <code>age</code> 升序并以 <code>salary</code> 降序排列</p>
-</li>
+<p>以 <code>age</code> 升序并以 <code>salary</code> 降序排列</p></li>
 <li><p><strong>统计函数 <code>COUNT</code></strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(*) FROM `student`;</code></pre></div>
-
 <p>统计表中有多少记录</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(*) FROM `student` WHERE `math` &gt; 60;</code></pre></div>
-
 <p>统计表中 <code>math &gt; 60</code> 的数目</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(`name`) FROM `student`;</code></pre></div>
-
 <p>统计表中有多少记录，排除 <code>name</code> 为空的数目</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(name), sum(`age`), sum(`salary`) / COUNT(*) 
 		FROM `genshin`;</code></pre></div>
-
 <p>这样也是可以的</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(IF (`name` IS NULL, 1, NULL)) FROM `genshin`;
 SELECT COUNT(DISTINCT `name`) FROM `genshin`;</code></pre></div>
-
-<p>还有很多方式</p>
-</li>
+<p>还有很多方式</p></li>
 <li><p><strong>分组语句 <code>GROUP BY</code></strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT AVG(`salary`), `age` FROM `genshin` group by `age`;</code></pre></div>
-
 <p>按 <code>age</code> 分组统计</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT MAX(`salary`) FROM `genshin` group by `age`, `name`;</code></pre></div>
-
-<p>按 <code>age</code> 和 <code>name</code> 分组统计</p>
-</li>
+<p>按 <code>age</code> 和 <code>name</code> 分组统计</p></li>
 <li><p><strong>用 <code>HAVING</code> 语句过滤</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT AVG(salary) FROM genshin GROUP BY country HAVING AVG(age) &gt; 18;</code></pre></div>
-
-<p>按 <code>country</code> 分组统计，显示其中 <code>AVG(age) &gt; 18</code> 的组</p>
-</li>
+<p>按 <code>country</code> 分组统计，显示其中
+<code>AVG(age) &gt; 18</code> 的组</p></li>
 <li><p><strong><code>WHERE</code> 语句</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `genshin` WHERE `create_time` &gt; &#x27;2011-01-01&#x27;;</code></pre></div>
-
 <p>日期可以直接比较</p>
-<p>比起 <code>HAVING</code>，<code>WHERE</code> 是在分组前过滤</p>
-</li>
+<p>比起 <code>HAVING</code>，<code>WHERE</code> 是在分组前过滤</p></li>
 <li><p><strong><code>LIKE</code> 字符</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `genshin` WHERE `name` LIKE &#x27;_E%&#x27;;</code></pre></div>
-
 <p>下划线 <code>_</code> 代表一个任意字符</p>
-<p>百分号 <code>%</code> 代表任意个任意字符</p>
-</li>
+<p>百分号 <code>%</code> 代表任意个任意字符</p></li>
 <li><p><strong>分页查询</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `genshin` LIMIT num, rows;</code></pre></div>
-
 <p>从 num + 1 行开始取，取出 rows 行。num 从 0 开始计数</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `genshin` LIMIT 0, 3;
 SELECT * FROM `genshin` LIMIT 3, 3;
@@ -586,67 +583,77 @@ SELECT * FROM `genshin` LIMIT 6, 3;
 ...</code></pre></div></li>
 </ul>
 <p><strong>总结：</strong></p>
-<p><code>SELECT</code> 语句顺序是 <code>GROUP BY</code> &gt;&gt; <code>HAVING</code> &gt;&gt; <code>ORDER BY</code> &gt;&gt; <code>LIMIT</code></p>
-<h3 id="22-4-5-常用的运算符"><a href="#22-4-5-常用的运算符" class="headerlink" title="22.4.5 常用的运算符"></a>22.4.5 常用的运算符</h3><table>
+<p><code>SELECT</code> 语句顺序是 <code>GROUP BY</code> &gt;&gt;
+<code>HAVING</code> &gt;&gt; <code>ORDER BY</code> &gt;&gt;
+<code>LIMIT</code></p>
+<h3 id="常用的运算符">22.4.5 常用的运算符</h3>
+<table style="width:100%;">
+
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>运算符</th>
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>比较运算符</td>
-<td><code>&gt;</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;=</code> <code>=</code> <code>!=</code> <code>&lt;&gt;</code></td>
+<td><code>&gt;</code> <code>&lt;</code> <code>&lt;=</code>
+<code>&gt;=</code> <code>=</code> <code>!=</code>
+<code>&lt;&gt;</code></td>
 <td>大于、小于、大于等于、不等于</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td><code>BETWWEEN ... AND ...</code></td>
 <td>显示某一区间的值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td><code>IN(值1, 值2, 值3)</code></td>
 <td>显示在 <code>IN</code> 列表中的值</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
-<td><code>LIKE &#39;值&#39;</code> <code>NOT LIKE &#39;值&#39;</code></td>
-<td>模糊查询（<code>LIKE &#39;A%&#39;</code> 即 A 开头就行）</td>
+<td><code>LIKE '值'</code> <code>NOT LIKE '值'</code></td>
+<td>模糊查询（<code>LIKE 'A%'</code> 即 A 开头就行）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td><code>IS NULL</code></td>
 <td>判断是否为空</td>
 </tr>
-<tr>
+<tr class="even">
 <td>逻辑运算符</td>
 <td><code>AND</code></td>
 <td>多个条件同时成立</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td><code>OR</code></td>
 <td>多个条件任一成立</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td><code>NOT</code></td>
 <td>不成立</td>
 </tr>
-</tbody></table>
-<h2 id="22-5-函数"><a href="#22-5-函数" class="headerlink" title="22.5 函数"></a>22.5 函数</h2><h3 id="22-5-1-统计函数"><a href="#22-5-1-统计函数" class="headerlink" title="22.5.1 统计函数"></a>22.5.1 统计函数</h3><ul>
+</tbody>
+</table>
+<h2 id="函数">22.5 函数</h2>
+<h3 id="统计函数">22.5.1 统计函数</h3>
+<ul>
 <li>计数：<code>COUNT(列)</code></li>
 <li>平均值：<code>AVG(列)</code></li>
 <li>合计值：<code>SUM(列)</code></li>
 <li>最大 · 最小值：<code>MAX(列)</code> <code>MIN(列)</code></li>
 </ul>
-<h3 id="22-5-2-字符串函数"><a href="#22-5-2-字符串函数" class="headerlink" title="22.5.2 字符串函数"></a>22.5.2 字符串函数</h3><ul>
+<h3 id="字符串函数">22.5.2 字符串函数</h3>
+<ul>
 <li><p><code>CHARSET(str)</code>：返回字串字符集</p>
 <p>举个栗子：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">select charset(name) from genshin;</code></pre></div>
-
 <p>输出这个：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">+---------------+
 | charset(name) |
@@ -654,12 +661,10 @@ SELECT * FROM `genshin` LIMIT 6, 3;
 | utf8          |
 | utf8          |
 | utf8          |
-+---------------+</code></pre></div>
-</li>
++---------------+</code></pre></div></li>
 <li><p><code>CONCAT(str1, str2, ...)</code>：连接字串</p>
 <p>举个花生：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">select concat (&#x27;我是 &#x27;, name, &#x27; 我来自 &#x27;, country) from genshin;</code></pre></div>
-
 <p>输出这个：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">+-------------------------------------------+
 | concat (&#x27;我是 &#x27;, name, &#x27; 我来自 &#x27;, country) |
@@ -667,130 +672,103 @@ SELECT * FROM `genshin` LIMIT 6, 3;
 | 我是 Amber 我来自 蒙德                      |
 | 我是 QiQi 我来自 保底                       |
 | 我是 KeQing 我来自 璃月                     |
-+-------------------------------------------+</code></pre></div>
-</li>
-<li><p><code>UCASE(str)</code>：转成大写</p>
-</li>
-<li><p><code>LCASE(str)</code>：转成小写</p>
-</li>
++-------------------------------------------+</code></pre></div></li>
+<li><p><code>UCASE(str)</code>：转成大写</p></li>
+<li><p><code>LCASE(str)</code>：转成小写</p></li>
 <li><p><code>LENGTH(str)</code>：字符串长度</p>
-<p>返回时是按<strong>字节</strong>返回</p>
-</li>
-<li><p><code>REPLACE(str, str1, str2)</code>：在 str 中用 str2 替换 str1</p>
-</li>
-<li><p><code>SUBSTRING(str, po, len)</code>：从 str 的 po 位取 len 个字符</p>
-<p>这里 po 是从 1 开始计数的</p>
-</li>
+<p>返回时是按<strong>字节</strong>返回</p></li>
+<li><p><code>REPLACE(str, str1, str2)</code>：在 str 中用 str2 替换
+str1</p></li>
+<li><p><code>SUBSTRING(str, po, len)</code>：从 str 的 po 位取 len
+个字符</p>
+<p>这里 po 是从 1 开始计数的</p></li>
 <li><p><code>LEFT(str, len)</code>：从 str 左边取 len 个字符</p>
-<p><code>RIGHT(str, len)</code>：从 str 右边取 len 个字符</p>
-</li>
-<li><p><code>INSTR(str, sub)</code>：返回 sub 在 str 出现的位置（没有就返回 0）</p>
-</li>
-<li><p><code>STRCMP(str1, str2)</code>：逐字符比较两字串大小</p>
-</li>
+<p><code>RIGHT(str, len)</code>：从 str 右边取 len 个字符</p></li>
+<li><p><code>INSTR(str, sub)</code>：返回 sub 在 str
+出现的位置（没有就返回 0）</p></li>
+<li><p><code>STRCMP(str1, str2)</code>：逐字符比较两字串大小</p></li>
 <li><p><code>LTRIM(str)</code>：去除前端空格</p>
 <p><code>RTRIM(str)</code>：去除后端空格</p>
-<p><code>TRIM(str)</code>：去除左右空格</p>
-</li>
+<p><code>TRIM(str)</code>：去除左右空格</p></li>
 </ul>
-<h3 id="22-5-3-数学函数"><a href="#22-5-3-数学函数" class="headerlink" title="22.5.3 数学函数"></a>22.5.3 数学函数</h3><ul>
-<li><p><code>ABS(num)</code>：绝对值</p>
-</li>
-<li><p><code>BIN(num)</code>：十进制转为二进制</p>
-</li>
-<li><p><code>CEILING(num)</code>：向上取整</p>
-</li>
+<h3 id="数学函数">22.5.3 数学函数</h3>
+<ul>
+<li><p><code>ABS(num)</code>：绝对值</p></li>
+<li><p><code>BIN(num)</code>：十进制转为二进制</p></li>
+<li><p><code>CEILING(num)</code>：向上取整</p></li>
 <li><p><code>CONV(num, from_base, to_base)</code>：进制转换</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT CONV(5, 10, 2) FROM genshin;</code></pre></div>
-
-<p>把 5 从（当作） 10 进制转换成 2 进制</p>
-</li>
-<li><p><code>FLOOR(num)</code>：向下取整</p>
-</li>
+<p>把 5 从（当作） 10 进制转换成 2 进制</p></li>
+<li><p><code>FLOOR(num)</code>：向下取整</p></li>
 <li><p><code>FORMAT(num, decimal_places)</code>：保留小数位数</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT FORMAT(3.1415926535897932384626, 2) FROM genshin;</code></pre></div>
-
-<p>这个数字四舍五入保留 2 位</p>
-</li>
-<li><p><code>HEX(num)</code>：转十六进制</p>
-</li>
-<li><p><code>LEAST(num1, num2, num3, ...)</code>：最小值</p>
-</li>
-<li><p><code>MOD(num, num2)</code>：求余</p>
-</li>
-<li><p><code>RAND([seed])</code>：返回随机数（范围 [0, 1]）。如果 seed 不变，返回的随机数也不变</p>
-<p><code>RAND()</code>：每次返回不同随机数</p>
-</li>
+<p>这个数字四舍五入保留 2 位</p></li>
+<li><p><code>HEX(num)</code>：转十六进制</p></li>
+<li><p><code>LEAST(num1, num2, num3, ...)</code>：最小值</p></li>
+<li><p><code>MOD(num, num2)</code>：求余</p></li>
+<li><p><code>RAND([seed])</code>：返回随机数（范围 [0, 1]）。如果 seed
+不变，返回的随机数也不变</p>
+<p><code>RAND()</code>：每次返回不同随机数</p></li>
 </ul>
-<h3 id="22-5-4-时间和日期函数"><a href="#22-5-4-时间和日期函数" class="headerlink" title="22.5.4 时间和日期函数"></a>22.5.4 时间和日期函数</h3><ul>
-<li><p><code>CURRENT_DATE()</code>：当前日期</p>
-</li>
-<li><p><code>CURRENT_TIME()</code>：当前时间</p>
-</li>
+<h3 id="时间和日期函数">22.5.4 时间和日期函数</h3>
+<ul>
+<li><p><code>CURRENT_DATE()</code>：当前日期</p></li>
+<li><p><code>CURRENT_TIME()</code>：当前时间</p></li>
 <li><p><code>CURRENT_TIMESTAMP()</code>：当前时间戳</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `T1` (&#x27;date&#x27; TIMESTAMP 
               NOT NULL DEFAULT CURRENT_TIMESTAMP 
               ON UPDATE CURRENT_TIMESTAMP);</code></pre></div>
-
-<p>这一列内容是自动更新的时间戳</p>
-</li>
-<li><p><code>DATE(datetime)</code>：返回 datetime 的日期部分</p>
-</li>
-<li><p><code>DATE_ADD(date, INTERVAL D_VALUE D_TYPE)</code>：在 date 中加上日期或时间</p>
+<p>这一列内容是自动更新的时间戳</p></li>
+<li><p><code>DATE(datetime)</code>：返回 datetime 的日期部分</p></li>
+<li><p><code>DATE_ADD(date, INTERVAL D_VALUE D_TYPE)</code>：在 date
+中加上日期或时间</p>
 <p><code>D_VALUE</code>：时间的数值</p>
-<p><code>D_TYPE</code>：时间类型。可以是 YEAR、MINUTE、HOUR、DAY、SECOND 等</p>
+<p><code>D_TYPE</code>：时间类型。可以是 YEAR、MINUTE、HOUR、DAY、SECOND
+等</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin 
 WHERE DATE_ADD(`date`, INTERVAL 10 MINUTE) &gt;= NOW();</code></pre></div>
-
-<p>显示那些 date 列加上 10 分钟，比现在时间大的记录</p>
-</li>
-<li><p><code>DATE_SUB(date, INTERVAL D_VALUE D_TYPE)</code>：在 date 上减去一个时间</p>
+<p>显示那些 date 列加上 10 分钟，比现在时间大的记录</p></li>
+<li><p><code>DATE_SUB(date, INTERVAL D_VALUE D_TYPE)</code>：在 date
+上减去一个时间</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin 
 WHERE `date` &gt;= DATE_SUB(NOW(), interval 10 minute);</code></pre></div>
-
-<p>显示那些现在时间减去 10 分钟，比 date 小的记录</p>
-</li>
+<p>显示那些现在时间减去 10 分钟，比 date 小的记录</p></li>
 <li><p><code>DATEDIFF(date1, date2)</code>：两个日期差（天数）</p>
-<p>是 date1 - date2 的结果，因此结果可能是负数</p>
-</li>
-<li><p><code>TIMEDIFF(date1, date2)</code>：两个时间差（多少小时、分钟、秒）</p>
-</li>
-<li><p><code>NOW()</code>：当前日期 + 时间</p>
-</li>
+<p>是 date1 - date2 的结果，因此结果可能是负数</p></li>
+<li><p><code>TIMEDIFF(date1, date2)</code>：两个时间差（多少小时、分钟、秒）</p></li>
+<li><p><code>NOW()</code>：当前日期 + 时间</p></li>
 <li><p><code>YEAR(datetime)</code>：返回日期的年份</p>
 <p><code>MONTH(datetime)</code>：返回日期的月份</p>
-<p><code>DAY(datetime)</code>：返回日期的日数</p>
-</li>
-<li><p><code>UNIX_TIMESTAMP()</code>：返回 1970-1-1 到现在的毫秒数</p>
-</li>
-<li><p><code>FROM_UNIXTIME(num)</code>：把一个 UNIX_TIMESTAMP 转换为时间</p>
+<p><code>DAY(datetime)</code>：返回日期的日数</p></li>
+<li><p><code>UNIX_TIMESTAMP()</code>：返回 1970-1-1
+到现在的毫秒数</p></li>
+<li><p><code>FROM_UNIXTIME(num)</code>：把一个 UNIX_TIMESTAMP
+转换为时间</p>
 <p><code>FROM_UNIXTIME(num, format)</code>：含有格式</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">select distinct from_unixtime(100, &#x27;%Y-%m-%d %H:%i:%s&#x27;) from genshin;</code></pre></div>
-
 <p>这个会输出 1970-01-01 08:01:40</p>
-<p>在实际开发中，经常使用 int 保留一个 UNIX_TMIESTAMP。使用时转换为时间</p>
-</li>
-<li><p><code>LAST_DAY(date)</code>：返回该日期所在月份的最后一天的日期</p>
-</li>
+<p>在实际开发中，经常使用 int 保留一个
+UNIX_TMIESTAMP。使用时转换为时间</p></li>
+<li><p><code>LAST_DAY(date)</code>：返回该日期所在月份的最后一天的日期</p></li>
 </ul>
-<h3 id="22-5-5-加密和系统函数"><a href="#22-5-5-加密和系统函数" class="headerlink" title="22.5.5 加密和系统函数"></a>22.5.5 加密和系统函数</h3><ul>
+<h3 id="加密和系统函数">22.5.5 加密和系统函数</h3>
+<ul>
 <li><p><code>USER()</code>：查看用户</p>
-<p>可以查看登录到 MySQL 的右哪些用户，及其 IP</p>
-</li>
-<li><p><code>DATABASE()</code>：查询当前使用的数据库名称</p>
-</li>
-<li><p><code>MD5(str)</code>：为字符串计算出一个 MD5 32 的字符串</p>
-</li>
-<li><p><code>PASSWORD(str)</code>：（另一个）加密函数，常用于对 MySQL 数据库的用户密码加密</p>
-</li>
+<p>可以查看登录到 MySQL 的右哪些用户，及其 IP</p></li>
+<li><p><code>DATABASE()</code>：查询当前使用的数据库名称</p></li>
+<li><p><code>MD5(str)</code>：为字符串计算出一个 MD5 32
+的字符串</p></li>
+<li><p><code>PASSWORD(str)</code>：（另一个）加密函数，常用于对 MySQL
+数据库的用户密码加密</p></li>
 </ul>
-<h3 id="22-5-6-流程控制函数"><a href="#22-5-6-流程控制函数" class="headerlink" title="22.5.6 流程控制函数"></a>22.5.6 流程控制函数</h3><ul>
-<li><p><code>IF(expr1, expr2, expr3)</code>：如果 expr1 为 true 则返回 expr2，否则返回 expr3</p>
-</li>
-<li><p><code>IFNULL(expr1, expr2)</code>：如果 expr1 为 NULL 则返回 expr2，否则返回 expr1</p>
-</li>
-<li><p>&#96;&#96;&#96;mysql<br>…<br>SELECT CASE<br>    WHEN expr1 THEN expr2<br>    WHEN expr3 THEN expr4<br>    ELSE expr5 END<br>…</p>
-<div class="code-wrapper"><pre><code class="hljs n1ql">
+<h3 id="流程控制函数">22.5.6 流程控制函数</h3>
+<ul>
+<li><p><code>IF(expr1, expr2, expr3)</code>：如果 expr1 为 true 则返回
+expr2，否则返回 expr3</p></li>
+<li><p><code>IFNULL(expr1, expr2)</code>：如果 expr1 为 NULL 则返回
+expr2，否则返回 expr1</p></li>
+<li><p>```mysql ... SELECT CASE WHEN expr1 THEN expr2 WHEN expr3 THEN
+expr4 ELSE expr5 END ... <div class="code-wrapper"><pre><code class="hljs n1ql">
 多重分支。若 expr1 则 expr2，否则若 expr3 则 expr4，否则 expr5
 
 举个蚕豆：
@@ -800,8 +778,7 @@ WHERE `date` &gt;= DATE_SUB(NOW(), interval 10 minute);</code></pre></div>
              <span class="hljs-keyword">WHEN</span> <span class="hljs-symbol">`age`</span> &gt; <span class="hljs-number">100</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;?&#x27;</span>
              <span class="hljs-keyword">WHEN</span> <span class="hljs-symbol">`age`</span> &lt; <span class="hljs-number">18</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;!&#x27;</span>
              <span class="hljs-keyword">ELSE</span> <span class="hljs-symbol">`age`</span> <span class="hljs-keyword">END</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-symbol">`country`</span>, <span class="hljs-symbol">`sex`</span> 
-		<span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`genshin`</span>;</code></pre></div>
-
+		<span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`genshin`</span>;</code></pre></div></p>
 <p>输出这个</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">+------+-----+---------+-----+
 | name | age | country | sex |
@@ -818,83 +795,74 @@ WHERE `date` &gt;= DATE_SUB(NOW(), interval 10 minute);</code></pre></div>
 | 可莉 | !   | 蒙德    | 女  |
 +------+-----+---------+-----+</code></pre></div></li>
 </ul>
-<h2 id="22-6-MySQL-多表查询"><a href="#22-6-MySQL-多表查询" class="headerlink" title="22.6 MySQL 多表查询"></a>22.6 MySQL 多表查询</h2><p>多表查询是基于两个和两个以上的表查询。</p>
+<h2 id="mysql-多表查询">22.6 MySQL 多表查询</h2>
+<p>多表查询是基于两个和两个以上的表查询。</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `honkai3`, `genshin`;</code></pre></div>
-
 <p>这个场合，输出的是两个表相乘（即：取出第一张表的每一行，与第二张表的每一行进行组合）</p>
 <p>……这样，就需要加入筛选条件，比如</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM `honkai3`, `genshin` 
 		WHERE honkai3.group = genshin.country;</code></pre></div>
-
-<p><strong>多表查询的条件不能少于 表的个数 - 1，否则会出现笛卡尔集</strong></p>
-<h3 id="22-6-1-自连接"><a href="#22-6-1-自连接" class="headerlink" title="22.6.1 自连接"></a>22.6.1 自连接</h3><p>自连接：指在同一张表连接查询（将同一表视为两张表）</p>
+<p><strong>多表查询的条件不能少于 表的个数 -
+1，否则会出现笛卡尔集</strong></p>
+<h3 id="自连接">22.6.1 自连接</h3>
+<p>自连接：指在同一张表连接查询（将同一表视为两张表）</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * 
 		FROM genshin g1, genshin g2
 		WHERE g1.name = g2.name;</code></pre></div>
-
 <p>这样，表 genshin 获得了 g1、g2 的别名，就能自连接了</p>
-<p>这里取别名，也可以加上 <code>AS</code>。另外，列名不明确的场合，也也要特别指定</p>
-<h3 id="22-6-2-子查询"><a href="#22-6-2-子查询" class="headerlink" title="22.6.2 子查询"></a>22.6.2 子查询</h3><p>子查询：指嵌入在其他 SQL 语句中的 select 语句。也叫嵌套查询</p>
+<p>这里取别名，也可以加上
+<code>AS</code>。另外，列名不明确的场合，也也要特别指定</p>
+<h3 id="子查询">22.6.2 子查询</h3>
+<p>子查询：指嵌入在其他 SQL 语句中的 select 语句。也叫嵌套查询</p>
 <ul>
 <li><p><strong>单行子查询</strong>：指只返回一行数据的子查询语句</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE age &gt; (
 	SELECT age FROM genshin WHERE name = &#x27;可莉&#x27;
-);</code></pre></div>
-</li>
-<li><p><strong>多行子查询</strong>：返回多行数据的子查询语句。使用关键字 <code>IN</code></p>
+);</code></pre></div></li>
+<li><p><strong>多行子查询</strong>：返回多行数据的子查询语句。使用关键字
+<code>IN</code></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE country IN (
 	SELECT DISTINCT country FROM genshin WHERE age &lt; 30
 );</code></pre></div>
-
-<p>子查询也可以当作临时表使用。</p>
-</li>
+<p>子查询也可以当作临时表使用。</p></li>
 <li><p><strong><code>ALL</code> 操作符</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE age &gt; ALL(
 	SELECT age FROM genshin WHERE country = &#x27;蒙德&#x27;
 );</code></pre></div>
-
 <p>上面的代码相当于这个：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE age &gt; (
 	SELECT MAX(age) FROM genshin WHERE country = &#x27;蒙德&#x27;
-);</code></pre></div>
-</li>
+);</code></pre></div></li>
 <li><p><strong><code>ANY</code> 操作符</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE age &gt; ANY(
 	SELECT age FROM genshin WHERE country = &#x27;蒙德&#x27;
 );</code></pre></div>
-
 <p>上面的代码相当于这个：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin WHERE age &gt; (
 	SELECT MIN(age) FROM genshin WHERE country = &#x27;蒙德&#x27;
-);</code></pre></div>
-</li>
+);</code></pre></div></li>
 <li><p><strong>多列子查询</strong>：指返回多个列数据的子查询语句</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM honkai3 WHERE (age, sex) = (
 	SELECT age, sex 
 	FROM genshin 
 	WHERE name = &#x27;凝光&#x27;
 );</code></pre></div>
-
-<p>子查询列数要和条件列数相等，顺序对应</p>
-</li>
+<p>子查询列数要和条件列数相等，顺序对应</p></li>
 <li><p><strong>表的复制</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">INSERT INTO genshin_copy (name, age, sex, country)
-	SELECT name, age, sex, country FROM genshin;</code></pre></div>
-</li>
+	SELECT name, age, sex, country FROM genshin;</code></pre></div></li>
 <li><p><strong>合并查询</strong>：把两个（结构相同的）查询结果合并。</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin
 UNION ALL
 SELECT * FROM genshin2;</code></pre></div>
-
 <p>这个方法（<code>UINON ALL</code>）不会去重</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT * FROM genshin
 UNION
 SELECT * FROM genshin2;</code></pre></div>
-
-<p>这个方法（<code>UINON</code>）会去重</p>
-</li>
+<p>这个方法（<code>UINON</code>）会去重</p></li>
 </ul>
-<h2 id="22-7-外连接"><a href="#22-7-外连接" class="headerlink" title="22.7 外连接"></a>22.7 外连接</h2><blockquote>
+<h2 id="外连接">22.7 外连接</h2>
+<blockquote>
 <p>左外连接：左侧的表完全显示（即使没有匹配的记录，也会把左侧表完全显示）</p>
 <p>右外连接：右侧的表完全显示</p>
 </blockquote>
@@ -902,21 +870,19 @@ SELECT * FROM genshin2;</code></pre></div>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT genshin.name, genshin.age, honkai3.name
 	FROM genshin, honkai3 
 	WHERE genshin.age = honkai3.age;</code></pre></div>
-
 <p>无匹配记录的项不会显示。</p>
 <p><strong>左外连接：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT genshin.name, genshin.age, honkai3.name
 	FROM genshin LEFT JOIN honkai3 
 	ON genshin.age = honkai3.age;</code></pre></div>
-
 <p>这个场合，genshin 中无匹配记录的项也会显示</p>
 <p><strong>右外连接：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SELECT genshin.name, honkai3.age, honkai3.name
 	FROM genshin RIGHT JOIN honkai3 
 	ON genshin.age = honkai3.age;</code></pre></div>
-
 <p>这个场合，honkai3 中无匹配记录的项也会显示</p>
-<h2 id="22-8-约束"><a href="#22-8-约束" class="headerlink" title="22.8 约束"></a>22.8 约束</h2><blockquote>
+<h2 id="约束">22.8 约束</h2>
+<blockquote>
 <p>约束：用于确保数据库的数据满足特定的商业规则</p>
 <p>约束包括：</p>
 <ul>
@@ -927,191 +893,168 @@ SELECT * FROM genshin2;</code></pre></div>
 <li>check</li>
 </ul>
 </blockquote>
-<h3 id="22-8-1-primary-key（主键）"><a href="#22-8-1-primary-key（主键）" class="headerlink" title="22.8.1 primary key（主键）"></a>22.8.1 primary key（主键）</h3><div class="code-wrapper"><pre><code class="hljs mysql">...
+<h3 id="primary-key主键">22.8.1 primary key（主键）</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">...
 字段名 字段类型 primary key
 ...</code></pre></div>
-
 <p><strong>主键</strong>：用于唯一的表示表行的数据。当定义主键约束后，<strong>该列不能重复</strong></p>
-<h4 id="22-8-1-1-使用细节"><a href="#22-8-1-1-使用细节" class="headerlink" title="22.8.1.1 使用细节"></a>22.8.1.1 使用细节</h4><ol>
-<li><p>主键不能重复，也不能为 NULL</p>
-</li>
+<h4 id="使用细节">22.8.1.1 使用细节</h4>
+<ol type="1">
+<li><p>主键不能重复，也不能为 NULL</p></li>
 <li><p>一张表只能有一个主键。但，可以是复合主键</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE TABLE `temp1` 
 	(`id` INT,
  `name` CHAR(5),
  `location` varchar(32),
  PRIMARY KEY(`id`, `name`));</code></pre></div>
-
-<p>这里，<code>(id, name)</code> 构成复合主键。id 和 name 都相同的，不能重复</p>
-</li>
+<p>这里，<code>(id, name)</code> 构成复合主键。id 和 name
+都相同的，不能重复</p></li>
 <li><p>主键的指定方式有两种：</p>
 <ul>
 <li><code>字段名 字段类型 primary key</code></li>
 <li>（在表定义的最后写）<code>PRIMARY KEY(列名)</code></li>
-</ul>
-</li>
-<li><p>在实际开发中，每个表往往都会设置一个主键</p>
-</li>
+</ul></li>
+<li><p>在实际开发中，每个表往往都会设置一个主键</p></li>
 </ol>
-<h3 id="22-8-2-not-null（非空）"><a href="#22-8-2-not-null（非空）" class="headerlink" title="22.8.2 not null（非空）"></a>22.8.2 not null（非空）</h3><p><strong>非空</strong>：定义非空约束后，插入数据时，必须为该列提供数据。</p>
-<h3 id="22-8-3-unique（唯一）"><a href="#22-8-3-unique（唯一）" class="headerlink" title="22.8.3 unique（唯一）"></a>22.8.3 unique（唯一）</h3><div class="code-wrapper"><pre><code class="hljs mysql">...
+<h3 id="not-null非空">22.8.2 not null（非空）</h3>
+<p><strong>非空</strong>：定义非空约束后，插入数据时，必须为该列提供数据。</p>
+<h3 id="unique唯一">22.8.3 unique（唯一）</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">...
 字段名 字段类型 unique
 ...</code></pre></div>
-
 <p><strong>唯一</strong>：定义了唯一约束后，该列值是不能重复的。</p>
 <p>……但是如果没有 not null 约束，则可以有多个 null 值</p>
-<h3 id="22-8-4-foreign-key（外键）"><a href="#22-8-4-foreign-key（外键）" class="headerlink" title="22.8.4 foreign key（外键）"></a>22.8.4 foreign key（外键）</h3><div class="code-wrapper"><pre><code class="hljs mysql"># 从表
+<h3 id="foreign-key外键">22.8.4 foreign key（外键）</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql"># 从表
 ...
 foreign key (从表列名) references 主表名(列名)
 ...</code></pre></div>
-
-<p><strong>外键</strong>：用于定义主表和从表间的关系。外键约束要定义在从表上，主表必须有主键或唯一约束。定义外键约束后，要求外键列数据必须在主表的主键列存在或为 null</p>
-<h4 id="22-8-4-1-使用细节"><a href="#22-8-4-1-使用细节" class="headerlink" title="22.8.4.1 使用细节"></a>22.8.4.1 使用细节</h4><ol>
-<li><p>外键指向的表的字段，要求是 primary key 或 unique</p>
-</li>
-<li><p>表的类型是 innodb，这样的表才支持外键</p>
-</li>
-<li><p>外键字段的类型要和主子段类型一致（可以长度不同）</p>
-</li>
-<li><p>外键字段的值，必须在主键字段中出现过，或（在外键字段允许的情况下）为 null</p>
-</li>
-<li><p>一旦确立主外键关系，数据就不能随意删除了（有任意记录指向主表某记录，该主表记录就不能删除）</p>
-</li>
+<p><strong>外键</strong>：用于定义主表和从表间的关系。外键约束要定义在从表上，主表必须有主键或唯一约束。定义外键约束后，要求外键列数据必须在主表的主键列存在或为
+null</p>
+<h4 id="使用细节-1">22.8.4.1 使用细节</h4>
+<ol type="1">
+<li><p>外键指向的表的字段，要求是 primary key 或 unique</p></li>
+<li><p>表的类型是 innodb，这样的表才支持外键</p></li>
+<li><p>外键字段的类型要和主子段类型一致（可以长度不同）</p></li>
+<li><p>外键字段的值，必须在主键字段中出现过，或（在外键字段允许的情况下）为
+null</p></li>
+<li><p>一旦确立主外键关系，数据就不能随意删除了（有任意记录指向主表某记录，该主表记录就不能删除）</p></li>
 <li><p>如何删除外键：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SHOW CREATE TABLE 表名;							#1
 ALTER TABLE 表名 DROP FOREIGN KEY 外键名;		#2</code></pre></div>
-
-<ol>
+<ol type="1">
 <li>查看该表创建语句，获取外键名称</li>
 <li>删除外键</li>
+</ol></li>
 </ol>
-</li>
-</ol>
-<h3 id="22-8-5-check"><a href="#22-8-5-check" class="headerlink" title="22.8.5 check"></a>22.8.5 check</h3><div class="code-wrapper"><pre><code class="hljs mysql">...
+<h3 id="check">22.8.5 check</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">...
 字段名 字段类型 check (条件)
 ...</code></pre></div>
-
-<p><strong>check</strong>：用于强制行数据必须满足的条件。（特别的，MySQL 5.7 中有 check 语法校验，但实际不生效）</p>
-<h3 id="22-8-6-自增长"><a href="#22-8-6-自增长" class="headerlink" title="22.8.6 自增长"></a>22.8.6 自增长</h3><div class="code-wrapper"><pre><code class="hljs mysql">...
+<p><strong>check</strong>：用于强制行数据必须满足的条件。（特别的，MySQL
+5.7 中有 check 语法校验，但实际不生效）</p>
+<h3 id="自增长">22.8.6 自增长</h3>
+<div class="code-wrapper"><pre><code class="hljs mysql">...
 字段名 字段类型 primary key auto_increment
 ...</code></pre></div>
-
-<h4 id="22-8-6-1-使用细节"><a href="#22-8-6-1-使用细节" class="headerlink" title="22.8.6.1 使用细节"></a>22.8.6.1 使用细节</h4><ol>
-<li><p>如果希望自增长，插入数据时该列插入 null</p>
-</li>
-<li><p>一般来说自增长是配合 primary key 使用的</p>
-</li>
-<li><p>自增长也能（配合 unique）单独使用</p>
-</li>
-<li><p>自增长修饰的字段是整数型的（小数类型也可以，但很少这样用）</p>
-</li>
+<h4 id="使用细节-2">22.8.6.1 使用细节</h4>
+<ol type="1">
+<li><p>如果希望自增长，插入数据时该列插入 null</p></li>
+<li><p>一般来说自增长是配合 primary key 使用的</p></li>
+<li><p>自增长也能（配合 unique）单独使用</p></li>
+<li><p>自增长修饰的字段是整数型的（小数类型也可以，但很少这样用）</p></li>
 <li><p>自增长从 1 开始。</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">alter table 表名 auto_increment = 新的开始值;</code></pre></div>
-
-<p>这样，能修改这个自增长的默认值</p>
-</li>
+<p>这样，能修改这个自增长的默认值</p></li>
 <li><p>如果添加数据时，给自增长字段指定了具体的值，则以指定的值为准</p>
-<p>一般来说，指定了自增长，就按自增长的规则添加顺序</p>
-</li>
+<p>一般来说，指定了自增长，就按自增长的规则添加顺序</p></li>
 </ol>
-<h2 id="22-9-索引"><a href="#22-9-索引" class="headerlink" title="22.9 索引"></a>22.9 索引</h2><p>索引：提高数据库性能，增加查询速度</p>
+<h2 id="索引">22.9 索引</h2>
+<p>索引：提高数据库性能，增加查询速度</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE INDEX 索引名 ON 表名 (列名);</code></pre></div>
-
 <ul>
 <li><p>没有索引时：</p>
-<p>查询的场合总是会进行全表扫描</p>
-</li>
+<p>查询的场合总是会进行全表扫描</p></li>
 <li><p>有索引时：</p>
 <p>形成一个索引的数据结构（如二叉树），根据该结构进行查找</p>
-<p>会造成磁盘的占用，且对 update delete insert 语句的效率产生影响</p>
-</li>
+<p>会造成磁盘的占用，且对 update delete insert
+语句的效率产生影响</p></li>
 </ul>
 <p><strong>索引的类型</strong></p>
-<ol>
-<li><p>主键索引：primary key。主键自动为主索引</p>
-</li>
-<li><p>唯一索引：unique</p>
-</li>
-<li><p>普通索引：index</p>
-</li>
+<ol type="1">
+<li><p>主键索引：primary key。主键自动为主索引</p></li>
+<li><p>唯一索引：unique</p></li>
+<li><p>普通索引：index</p></li>
 <li><p>全文索引：fulltext</p>
-<p>一般开发不用 MySQL 自带的全文索引，而是使用全文搜索（Solr）和ElasticSearch（ES）</p>
-</li>
+<p>一般开发不用 MySQL
+自带的全文索引，而是使用全文搜索（Solr）和ElasticSearch（ES）</p></li>
 </ol>
-<h3 id="22-9-1-索引的操作"><a href="#22-9-1-索引的操作" class="headerlink" title="22.9.1 索引的操作"></a>22.9.1 索引的操作</h3><ol>
+<h3 id="索引的操作">22.9.1 索引的操作</h3>
+<ol type="1">
 <li><p>查询索引：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SHOW INDEXES FROM 表名;
 SHOW INDEX FROM 表名;
-SHOW KEYS FROM 表名;</code></pre></div>
-</li>
+SHOW KEYS FROM 表名;</code></pre></div></li>
 <li><p>添加唯一索引：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">CREATE UNIQUE INDEX 索引名 ON 表名(列名);</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE UNIQUE INDEX 索引名 ON 表名(列名);</code></pre></div></li>
 <li><p>添加普通索引：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE INDEX 索引名 ON 表名(列名);
 ALTER TABLE 表名 ADD INDEX 索引名(列名);</code></pre></div>
-
 <blockquote>
 <p>如果某列的值是不会重复的，则优先考虑唯一索引。否则用普通索引。</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>添加主键索引（添加主键）：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE 表名 ADD PRIMARY KEY (列名);</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE 表名 ADD PRIMARY KEY (列名);</code></pre></div></li>
 <li><p>删除索引：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">DROP INDEX 索引名 ON 表名;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">DROP INDEX 索引名 ON 表名;</code></pre></div></li>
 <li><p>删除主键索引：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">ALTER TABLE 表名 DROP PRIMARY KEY;</code></pre></div>
-
 <blockquote>
 <p>因为主键索引只有一个，所以不用指定列名</p>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>修改索引：</p>
-<p>先删除，再添加新的索引 <code>(●&#39;◡&#39;●)</code></p>
-</li>
+<p>先删除，再添加新的索引 <code>(●'◡'●)</code></p></li>
 </ol>
-<h3 id="22-9-2-创建规则"><a href="#22-9-2-创建规则" class="headerlink" title="22.9.2 创建规则"></a>22.9.2 创建规则</h3><ol>
+<h3 id="创建规则">22.9.2 创建规则</h3>
+<ol type="1">
 <li>较频繁地作为查询条件字段 <strong>适合</strong> 作为索引</li>
-<li>唯一性太差的字段（即使频繁作为查询条件）<strong>不适合</strong> 单独创建索引</li>
+<li>唯一性太差的字段（即使频繁作为查询条件）<strong>不适合</strong>
+单独创建索引</li>
 <li>更新非常频繁的字段 <strong>不适合</strong> 创建索引</li>
 <li>不会出现在 WHERE 子句的字段 <strong>不应该</strong> 创建索引</li>
 </ol>
-<h2 id="22-10-事务"><a href="#22-10-事务" class="headerlink" title="22.10 事务"></a>22.10 事务</h2><blockquote>
-<p>事务：用于保证数据的一致性，由一组相关的 dml 语句（update、insert、delete 语句）组成。该组 dml 语句要么全部成功，要么全部失败。比如转账就要用事务处理，以保证数据的一致性。</p>
-<p>锁：执行事务操作时，MySQL 会在表上加锁，防止其他用户修改表的数据。这对用户来讲是非常重要的。</p>
+<h2 id="事务">22.10 事务</h2>
+<blockquote>
+<p>事务：用于保证数据的一致性，由一组相关的 dml
+语句（update、insert、delete 语句）组成。该组 dml
+语句要么全部成功，要么全部失败。比如转账就要用事务处理，以保证数据的一致性。</p>
+<p>锁：执行事务操作时，MySQL
+会在表上加锁，防止其他用户修改表的数据。这对用户来讲是非常重要的。</p>
 </blockquote>
-<h3 id="22-10-1-事务的操作"><a href="#22-10-1-事务的操作" class="headerlink" title="22.10.1 事务的操作"></a>22.10.1 事务的操作</h3><ul>
-<li><p><code>start transaction</code>：开始一个事务</p>
-</li>
-<li><p><code>savepoint 保存点名</code>：设置保存点</p>
-</li>
-<li><p><code>rollback to 保存点名</code>：回退事务到特定保存点</p>
-</li>
-<li><p><code>rollback</code>：回退所有事务</p>
-</li>
+<h3 id="事务的操作">22.10.1 事务的操作</h3>
+<ul>
+<li><p><code>start transaction</code>：开始一个事务</p></li>
+<li><p><code>savepoint 保存点名</code>：设置保存点</p></li>
+<li><p><code>rollback to 保存点名</code>：回退事务到特定保存点</p></li>
+<li><p><code>rollback</code>：回退所有事务</p></li>
 <li><p><code>commit</code>：提交事务，让所有操作生效。</p>
 <p>执行该语句后，会确认事务的变化、删除保存点、释放锁，并让数据生效。</p>
-<p>该语句不能回退。使用该语句后，其它会话（其他连接）将可以查看到事务变化后的新数据。</p>
-</li>
+<p>该语句不能回退。使用该语句后，其它会话（其他连接）将可以查看到事务变化后的新数据。</p></li>
 </ul>
-<h3 id="22-10-2-使用细节"><a href="#22-10-2-使用细节" class="headerlink" title="22.10.2 使用细节"></a>22.10.2 使用细节</h3><ol>
-<li><p>如果不提交事务，默认情况下，dml 操作是自动提交的，不能回滚。</p>
-</li>
-<li><p>开始一个事务，没有创建保存点的场合，可以执行 rollback，默认回退到事务开始时的状态</p>
-</li>
-<li><p>可以在这个事务中创建多个保存点</p>
-</li>
-<li><p>可以在事务没有提交前选择回退到哪个保存点</p>
-</li>
-<li><p>MySQL 需要 innoDB 的存储引擎才可以使用。MyISAM 不行</p>
-</li>
+<h3 id="使用细节-3">22.10.2 使用细节</h3>
+<ol type="1">
+<li><p>如果不提交事务，默认情况下，dml
+操作是自动提交的，不能回滚。</p></li>
+<li><p>开始一个事务，没有创建保存点的场合，可以执行
+rollback，默认回退到事务开始时的状态</p></li>
+<li><p>可以在这个事务中创建多个保存点</p></li>
+<li><p>可以在事务没有提交前选择回退到哪个保存点</p></li>
+<li><p>MySQL 需要 innoDB 的存储引擎才可以使用。MyISAM 不行</p></li>
 <li><p>开始事务：<code>start transaction</code></p>
-<p>关闭默认自动提交事务：<code>set autocommit = off;</code></p>
-</li>
+<p>关闭默认自动提交事务：<code>set autocommit = off;</code></p></li>
 </ol>
-<h3 id="22-10-3-隔离级别"><a href="#22-10-3-隔离级别" class="headerlink" title="22.10.3 隔离级别"></a>22.10.3 隔离级别</h3><blockquote>
+<h3 id="隔离级别">22.10.3 隔离级别</h3>
+<blockquote>
 <p>隔离：多个连接开启各自事务操作数据库中数据时，数据库系统要负责隔离操作，以保证各个连接在获取数据时的准确性</p>
 <p>隔离级别：定义了事务与事务之间的隔离程度。隔离级别是和事务相关的。</p>
 <p>查看当前会话隔离级别：<code>select @@tx_isolation;</code></p>
@@ -1119,18 +1062,15 @@ ALTER TABLE 表名 ADD INDEX 索引名(列名);</code></pre></div>
 <p>如果不考虑隔离性，可能引发问题，如：</p>
 <ul>
 <li><p><strong>脏读（dirty read）</strong>：</p>
-<p>当一个事务读取另一个事务尚未提交的修改时，产生脏读</p>
-</li>
+<p>当一个事务读取另一个事务尚未提交的修改时，产生脏读</p></li>
 <li><p><strong>不可重复读（nonreapeatable read）</strong>：</p>
-<p>同一查询在同一事务中多次进行，由于其他提交事务所做的修改或删除，每次返回不同的结果集，此时发生不可重复读</p>
-</li>
+<p>同一查询在同一事务中多次进行，由于其他提交事务所做的修改或删除，每次返回不同的结果集，此时发生不可重复读</p></li>
 <li><p><strong>幻读（phantom read）</strong>：</p>
-<p>同一查询在同一事务中多次进行，由于其他提交事务所做的插入操作，每次返回不同的结果集，此时发生幻读</p>
-</li>
+<p>同一查询在同一事务中多次进行，由于其他提交事务所做的插入操作，每次返回不同的结果集，此时发生幻读</p></li>
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>MySQL 隔离级别（4种）</th>
 <th>脏读</th>
 <th>不可重复读</th>
@@ -1138,72 +1078,68 @@ ALTER TABLE 表名 ADD INDEX 索引名(列名);</code></pre></div>
 <th>加锁读</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>读未提交（Read uncommitted）</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>不加锁</td>
 </tr>
-<tr>
+<tr class="even">
 <td>读已提交（Read committed）</td>
 <td>×</td>
 <td>√</td>
 <td>√</td>
 <td>不加锁</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>可重复读（Reapeatable read）</td>
 <td>×</td>
 <td>×</td>
 <td>×</td>
 <td>不加锁</td>
 </tr>
-<tr>
+<tr class="even">
 <td>可串行化（Serializable）</td>
 <td>×</td>
 <td>×</td>
 <td>×</td>
 <td>加锁</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>MySQL 的默认隔离级别是 Reapeatable read，一般情况下不需要修改</p>
-<h4 id="22-10-3-1-隔离级别的操作"><a href="#22-10-3-1-隔离级别的操作" class="headerlink" title="22.10.3.1 隔离级别的操作"></a>22.10.3.1 隔离级别的操作</h4><ol>
+<h4 id="隔离级别的操作">22.10.3.1 隔离级别的操作</h4>
+<ol type="1">
 <li><p>查看当前会话隔离级别：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">select @@tx_isolation;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">select @@tx_isolation;</code></pre></div></li>
 <li><p>查看系统隔离级别：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">select @@global.tx_isolation;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">select @@global.tx_isolation;</code></pre></div></li>
 <li><p>设置当前会话隔离级别：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">set session transaction isolation level 隔离级别</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">set session transaction isolation level 隔离级别</code></pre></div></li>
 <li><p>设置系统隔离级别：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">set global transacion isolation level 隔离级别</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">set global transacion isolation level 隔离级别</code></pre></div></li>
 <li><p>全局修改：修改 mysql.ini 配置文件。</p>
 <p>在 mysql.ini 文件的末尾加上：</p>
 <div class="code-wrapper"><pre><code class="hljs pgsql">#设置默认隔离级别
 <span class="hljs-keyword">transaction</span>-<span class="hljs-keyword">isolation</span> = <span class="hljs-keyword">REPEATABLE</span>-<span class="hljs-keyword">READ</span></code></pre></div>
-
-<p>可选参数有：<code>READ-UNCOMMITTED</code>、<code>READ-COMMITTED</code>、<code>REPEATABLE-READ</code>、<code>SERIALIZABLE</code></p>
-</li>
+<p>可选参数有：<code>READ-UNCOMMITTED</code>、<code>READ-COMMITTED</code>、<code>REPEATABLE-READ</code>、<code>SERIALIZABLE</code></p></li>
 </ol>
-<h3 id="22-10-4-事务的-ACID-特性"><a href="#22-10-4-事务的-ACID-特性" class="headerlink" title="22.10.4 事务的 ACID 特性"></a>22.10.4 事务的 ACID 特性</h3><ol>
+<h3 id="事务的-acid-特性">22.10.4 事务的 ACID 特性</h3>
+<ol type="1">
 <li><p><strong>原子性（Atomicity）</strong>：</p>
-<p>事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生</p>
-</li>
+<p>事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生</p></li>
 <li><p><strong>一致性（Consistency）</strong>：</p>
-<p>事务必须使数据库从一个一致性状态变换到另外一个一致性状态</p>
-</li>
+<p>事务必须使数据库从一个一致性状态变换到另外一个一致性状态</p></li>
 <li><p><strong>隔离性（Isolation）</strong>：</p>
-<p>多个用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰。多个并发事务之间相互隔离</p>
-</li>
+<p>多个用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰。多个并发事务之间相互隔离</p></li>
 <li><p><strong>持久性（Durability）</strong>：</p>
-<p>一个事务一旦被提交，它对数据库中数据的改变就是永久性的。接下来即使数据库发生故障也不应该对其有任何影响。</p>
-</li>
+<p>一个事务一旦被提交，它对数据库中数据的改变就是永久性的。接下来即使数据库发生故障也不应该对其有任何影响。</p></li>
 </ol>
-<h2 id="22-11-MySQL-表类型和存储引擎"><a href="#22-11-MySQL-表类型和存储引擎" class="headerlink" title="22.11 MySQL 表类型和存储引擎"></a>22.11 MySQL 表类型和存储引擎</h2><p>MySQL 的表类型由存储引擎（Storage Engines）决定，主要支持六种类型：CSV、Memory（常用）、ARCHIVE、MRG_MYISAM、MyISAM（常用）、InnoDB（常用）</p>
+<h2 id="mysql-表类型和存储引擎">22.11 MySQL 表类型和存储引擎</h2>
+<p>MySQL 的表类型由存储引擎（Storage
+Engines）决定，主要支持六种类型：CSV、Memory（常用）、ARCHIVE、MRG_MYISAM、MyISAM（常用）、InnoDB（常用）</p>
 <p>这六类又分为两类：</p>
 <ul>
 <li>事务安全型（transaction-safe）：InnoDB</li>
@@ -1211,7 +1147,7 @@ ALTER TABLE 表名 ADD INDEX 索引名(列名);</code></pre></div>
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>特点</th>
 <th>MyISAM</th>
 <th>InnoDB</th>
@@ -1219,352 +1155,374 @@ ALTER TABLE 表名 ADD INDEX 索引名(列名);</code></pre></div>
 <th>Archive</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>批量插入速度</td>
 <td>高</td>
 <td>低</td>
 <td>高</td>
 <td>非常高</td>
 </tr>
-<tr>
+<tr class="even">
 <td>事务安全</td>
 <td></td>
 <td>支持</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>全文索引</td>
 <td>支持</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>锁机制</td>
 <td>表锁</td>
 <td>行锁</td>
 <td>表锁</td>
 <td>行锁</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>存储限制</td>
 <td>无</td>
 <td>64TB</td>
 <td>有（内存）</td>
 <td>无</td>
 </tr>
-<tr>
+<tr class="even">
 <td>B树索引</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>哈希索引</td>
 <td></td>
 <td>支持</td>
 <td>支持</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>集群索引</td>
 <td></td>
 <td>支持</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>数据缓存</td>
 <td></td>
 <td>支持</td>
 <td>支持</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>索引缓存</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>数据可压缩</td>
 <td>支持</td>
 <td></td>
 <td></td>
 <td>支持</td>
 </tr>
-<tr>
+<tr class="even">
 <td>空间使用</td>
 <td>低</td>
 <td>高</td>
 <td>无</td>
 <td>非常低</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>内存使用</td>
 <td>低</td>
 <td>高</td>
 <td>中等</td>
 <td>低</td>
 </tr>
-<tr>
+<tr class="even">
 <td>支持外键</td>
 <td></td>
 <td>支持</td>
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<ol>
-<li>MyISAM 存储引擎不支持事务，也不支持外键。但其访问速度快，对事务完整性没有要求</li>
-<li>InnoDB 存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但比起 MyISAM，InnoDB 写入的处理效率差一些，并且会占用更多磁盘空间以保留数据和索引。</li>
-<li>Memory 存储引擎使用存在内存中的内容来创建表。每个 Memory 表只实际对应一个磁盘文件。Memory 类型的表访问得非常快，因为它的数据是放在内存中的，并且默认使用 HASH 索引。但是一旦 MySQL 服务关闭，表中的数据就会丢掉（表的结构还在）。</li>
+</tbody>
+</table>
+<ol type="1">
+<li>MyISAM
+存储引擎不支持事务，也不支持外键。但其访问速度快，对事务完整性没有要求</li>
+<li>InnoDB 存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但比起
+MyISAM，InnoDB
+写入的处理效率差一些，并且会占用更多磁盘空间以保留数据和索引。</li>
+<li>Memory 存储引擎使用存在内存中的内容来创建表。每个 Memory
+表只实际对应一个磁盘文件。Memory
+类型的表访问得非常快，因为它的数据是放在内存中的，并且默认使用 HASH
+索引。但是一旦 MySQL 服务关闭，表中的数据就会丢掉（表的结构还在）。</li>
 </ol>
-<h3 id="22-11-1-如何选择存储引擎"><a href="#22-11-1-如何选择存储引擎" class="headerlink" title="22.11.1 如何选择存储引擎"></a>22.11.1 如何选择存储引擎</h3><blockquote>
+<h3 id="如何选择存储引擎">22.11.1 如何选择存储引擎</h3>
+<blockquote>
 <ul>
 <li>InnoDB：支持事务、支持外键、支持行级锁</li>
 <li>MyISAM：添加速度快、不支持事务和外键、支持表级锁</li>
 <li>Memory：数据存储在内存中、执行速度很快、默认支持索引（HASH 表）</li>
 </ul>
 </blockquote>
-<ol>
-<li>如果你的应用不需要事务，处理的只是基本的 CRUD 操作，那么 MyISAM 速度最快</li>
+<ol type="1">
+<li>如果你的应用不需要事务，处理的只是基本的 CRUD 操作，那么 MyISAM
+速度最快</li>
 <li>如果需要支持事务，选择 InnoDB</li>
-<li>Memory 数据存储在内存中，没有 I&#x2F;O 操作故而速度极快。但内存存储使得其任何修改都会在服务器重启后消失</li>
+<li>Memory 数据存储在内存中，没有 I/O
+操作故而速度极快。但内存存储使得其任何修改都会在服务器重启后消失</li>
 </ol>
-<h2 id="22-12-视图"><a href="#22-12-视图" class="headerlink" title="22.12 视图"></a>22.12 视图</h2><blockquote>
+<h2 id="视图">22.12 视图</h2>
+<blockquote>
 <p>视图：一个虚拟表。其内容由查询定义。和其他表一样，视图含有列，其数据来源于真实的表（基表）</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>视图是根据基表来创建的。视图是虚拟的表</li>
 <li>视图也有列，其中数据来自基表</li>
 <li>通过视图可以改变基表的数据，基表的改变也会影响视图数据。</li>
 </ol>
-<h3 id="22-12-1-基本使用"><a href="#22-12-1-基本使用" class="headerlink" title="22.12.1 基本使用"></a>22.12.1 基本使用</h3><ul>
+<h3 id="基本使用">22.12.1 基本使用</h3>
+<ul>
 <li><p>创建视图：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">CREATE VIEW 视图名 AS SELECT语句;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">CREATE VIEW 视图名 AS SELECT语句;</code></pre></div></li>
 <li><p>修改视图：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">ALTER VIEW 视图名 AS SELECT语句;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">ALTER VIEW 视图名 AS SELECT语句;</code></pre></div></li>
 <li><p>显示创建视图的指令：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">SHOW CREATE VIEW 视图名;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">SHOW CREATE VIEW 视图名;</code></pre></div></li>
 <li><p>删除视图：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">DROP VIEW  视图名1,视图名2;</code></pre></div></li>
 </ul>
-<h3 id="22-12-2-使用细节"><a href="#22-12-2-使用细节" class="headerlink" title="22.12.2 使用细节"></a>22.12.2 使用细节</h3><ol>
+<h3 id="使用细节-4">22.12.2 使用细节</h3>
+<ol type="1">
 <li>创建视图后，数据库中只有一个视图结构文件，没有视图数据</li>
 <li>视图的数据变化会影响基表，基表数据变化也会影响视图</li>
 <li>视图中可以再使用视图</li>
 </ol>
-<h3 id="22-12-3-视图最佳实践"><a href="#22-12-3-视图最佳实践" class="headerlink" title="22.12.3 视图最佳实践"></a>22.12.3 视图最佳实践</h3><ul>
+<h3 id="视图最佳实践">22.12.3 视图最佳实践</h3>
+<ul>
 <li><p><strong>安全</strong>：</p>
-<p>一些数据有不能让用户看到的重要信息。藉由建立一个视图，用户可以查询自己需要的字段，而不能查看保密的字段。</p>
-</li>
+<p>一些数据有不能让用户看到的重要信息。藉由建立一个视图，用户可以查询自己需要的字段，而不能查看保密的字段。</p></li>
 <li><p><strong>性能</strong>：</p>
-<p>关系数据库的数据常常分表存储，通过外键建立这些表之间的联系。此时，查询数据库会使用低效的连接（JOIN）。藉由建立一个视图，可以避免使用 JOIN 查询数据。</p>
-</li>
+<p>关系数据库的数据常常分表存储，通过外键建立这些表之间的联系。此时，查询数据库会使用低效的连接（JOIN）。藉由建立一个视图，可以避免使用
+JOIN 查询数据。</p></li>
 <li><p><strong>灵活</strong>：</p>
-<p>系统中有一张采用过时设计，即将废弃的旧表，但这张旧表不能轻易修改。藉由建立一个视图，把数据映射到新表，少做很多改动的同时达到了升级数据表的目的。</p>
-</li>
+<p>系统中有一张采用过时设计，即将废弃的旧表，但这张旧表不能轻易修改。藉由建立一个视图，把数据映射到新表，少做很多改动的同时达到了升级数据表的目的。</p></li>
 </ul>
-<h2 id="22-13-MySQL-管理"><a href="#22-13-MySQL-管理" class="headerlink" title="22.13 MySQL 管理"></a>22.13 MySQL 管理</h2><h3 id="22-13-1-用户管理"><a href="#22-13-1-用户管理" class="headerlink" title="22.13.1 用户管理"></a>22.13.1 用户管理</h3><blockquote>
-<p>MySQL 的用户数据都储存在系统数据库 <code>mysql</code> 的表 <code>user</code> 中</p>
-<p>不同的数据库用户登录到 DBMS 后，根据相应权限，可以操作的数据库和数据对象各不相同</p>
+<h2 id="mysql-管理">22.13 MySQL 管理</h2>
+<h3 id="用户管理">22.13.1 用户管理</h3>
+<blockquote>
+<p>MySQL 的用户数据都储存在系统数据库 <code>mysql</code> 的表
+<code>user</code> 中</p>
+<p>不同的数据库用户登录到 DBMS
+后，根据相应权限，可以操作的数据库和数据对象各不相同</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p><code>user</code> 表的重要字段：</p>
 <ul>
-<li><p><code>host</code>：允许登录的位置。<code>localhost</code> 的场合表示该用户只允许本机登录。</p>
-<p>也可以指定 ip 地址，如 <code>912.168.3.16</code></p>
-</li>
-<li><p><code>user</code>：用户名</p>
-</li>
-<li><p><code>authentication_string</code>：（通过 <code>password()</code> 函数加密后的）密码</p>
-</li>
-</ul>
-</li>
+<li><p><code>host</code>：允许登录的位置。<code>localhost</code>
+的场合表示该用户只允许本机登录。</p>
+<p>也可以指定 ip 地址，如 <code>912.168.3.16</code></p></li>
+<li><p><code>user</code>：用户名</p></li>
+<li><p><code>authentication_string</code>：（通过
+<code>password()</code> 函数加密后的）密码</p></li>
+</ul></li>
 <li><p>创建用户：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE USER &#x27;用户名&#x27;@&#x27;允许登录位置&#x27; identified by &#x27;密码&#x27;;</code></pre></div>
-
 <p>创建用户，同时指定密码。</p>
 <ul>
-<li><p><code>@</code> 后面不能加空格</p>
-</li>
+<li><p><code>@</code> 后面不能加空格</p></li>
 <li><p>创建用户时，如果不指定 Host，默认为 <code>%</code>。</p>
-<p><code>%</code> 表示所有 IP 都有连接权限</p>
-</li>
+<p><code>%</code> 表示所有 IP 都有连接权限</p></li>
 <li><p>创建用户也可以这样：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">CREATE USER &#x27;puppet&#x27;@&#x27;192.168.3.%&#x27;</code></pre></div>
-
-<p>表示 192.168.3.* 的 IP 都可以登录用户</p>
-</li>
-</ul>
-</li>
+<p>表示 192.168.3.* 的 IP 都可以登录用户</p></li>
+</ul></li>
 <li><p>删除用户：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">DROP USER &#x27;用户名&#x27;@&#x27;允许登录位置&#x27;;</code></pre></div>
-
-<p>删除用户时，如果 host 不是 <code>%</code>，需要明确指定 <code>&#39;用户&#39;@&#39;host&#39;</code></p>
-</li>
+<p>删除用户时，如果 host 不是 <code>%</code>，需要明确指定
+<code>'用户'@'host'</code></p></li>
 <li><p>用户修改密码：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">SET PASSWORD = PASSWORD(&#x27;密码&#x27;);							#修改自己密码
 SET PASSWORD FOR &#x27;用户名&#x27;@&#x27;登录位置&#x27; = PASSWORD(&#x27;密码&#x27;);		#修改任意用户密码</code></pre></div>
-
-<p>修改其他用户密码，需要拥有相应权限</p>
-</li>
+<p>修改其他用户密码，需要拥有相应权限</p></li>
 </ol>
-<h3 id="22-13-2-权限管理"><a href="#22-13-2-权限管理" class="headerlink" title="22.13.2 权限管理"></a>22.13.2 权限管理</h3><ol>
+<h3 id="权限管理">22.13.2 权限管理</h3>
+<ol type="1">
 <li><p>授予权限</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">GRANT 权限列表 ON 库.对象名 TO &#x27;用户名&#x27;@&#x27;登录位置&#x27; identified by &#x27;密码&#x27;;</code></pre></div>
-
-<p><code>库.对象名</code> 是 <code>*.*</code> 的场合，代表本系统所有库的所有对象</p>
-<p><code>identified by &#39;密码&#39;</code> 可省略。若写出，则用户存在即修改密码，不存在即创建用户。</p>
-</li>
+<p><code>库.对象名</code> 是 <code>*.*</code>
+的场合，代表本系统所有库的所有对象</p>
+<p><code>identified by '密码'</code>
+可省略。若写出，则用户存在即修改密码，不存在即创建用户。</p></li>
 <li><p>回收用户权限：</p>
-<div class="code-wrapper"><pre><code class="hljs mysql">REVOKE 权限列表 ON 库.对象名 FROM &#x27;用户名&#x27;@&#x27;登录位置&#x27;;</code></pre></div>
-</li>
+<div class="code-wrapper"><pre><code class="hljs mysql">REVOKE 权限列表 ON 库.对象名 FROM &#x27;用户名&#x27;@&#x27;登录位置&#x27;;</code></pre></div></li>
 <li><p>权限生效指令：</p>
 <div class="code-wrapper"><pre><code class="hljs mysql">FLUSH PRIVILEGES;</code></pre></div>
-
-<p>如果权限没有生效，执行这个指令。</p>
-</li>
+<p>如果权限没有生效，执行这个指令。</p></li>
 </ol>
 <p><strong>权限列表：</strong></p>
 <table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>权限</th>
 <th>意义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>ALL</td>
 <td>设置除 GRANT OPTION 外所有权限</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ALTER</td>
 <td>允许使用 <code>ALTER TABLE</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ALTER ROUTINE</td>
 <td>更改或取消已存储的子程序</td>
 </tr>
-<tr>
+<tr class="even">
 <td>CREATE</td>
 <td>允许使用 <code>CREATE TABLE</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>CREATE ROUTINE</td>
 <td>创建已存储的子程序</td>
 </tr>
-<tr>
+<tr class="even">
 <td>CREATE TEMPORARY TABLES</td>
 <td>允许使用 <code>CREATE TEMPORARY TABLE</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>CREATE USER</td>
-<td>允许使用 <code>CREATE USER</code>、<code>DROP USER</code>、<code>RENAME USER</code>、<code>REVOKE ALL PRIVILEGES</code></td>
+<td>允许使用
+<code>CREATE USER</code>、<code>DROP USER</code>、<code>RENAME USER</code>、<code>REVOKE ALL PRIVILEGES</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>CREATE VIEW</td>
 <td>允许使用 <code>CREATE VIEW</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>DELETE</td>
 <td>允许使用 <code>DELETE</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>DROP</td>
 <td>允许使用 <code>DROP TABLE</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>EXECUTE</td>
 <td>允许用户运行已存储的子程序</td>
 </tr>
-<tr>
+<tr class="even">
 <td>FILE</td>
-<td>允许使用 <code>SELECT…INTO OUTFILE</code>、<code>LOAD DATA INFILE</code></td>
+<td>允许使用
+<code>SELECT…INTO OUTFILE</code>、<code>LOAD DATA INFILE</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>INDEX</td>
 <td>允许使用 <code>CREATE INDEX</code>、<code>DROP INDEX</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>INSERT</td>
 <td>允许使用 <code>INSERT</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>LOCK TABLES</td>
 <td>允许对拥有 SELECT 权限的表使用 <code>LOCK TABLES</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>PROCESS</td>
 <td>允许使用 <code>SHOW FULL PROCESSLIST</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>REFERENCES</td>
 <td>-</td>
 </tr>
-<tr>
+<tr class="even">
 <td>RELOAD</td>
 <td>允许使用 <code>FLUSH</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>REPLICATION CLIENT</td>
 <td>允许用户询问从属服务器或主服务器的地址</td>
 </tr>
-<tr>
+<tr class="even">
 <td>REPLICATION SLAVE</td>
 <td>用于复制星从属服务器（从主服务器中读取二进制日志事件）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>SHOW DATABASE</td>
 <td>允许使用 <code>SHOW DATABASE</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>SHOW VIEW</td>
 <td>允许使用 <code>SHOW CREATE VIEW</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>SHUTDOWN</td>
-<td>允许使用  <code>mysqladmin shutdown</code></td>
+<td>允许使用 <code>mysqladmin shutdown</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>SUPER</td>
-<td>允许使用 <code>CHANGE MASTER</code>、<code>KILL</code>、<code>PURGE MASTER LOGS</code>、<code>SET GLOBAL</code> 语句，<code>mysqladmin debug</code> 命令。允许连接（一次），即使达到 max_connetions</td>
+<td>允许使用
+<code>CHANGE MASTER</code>、<code>KILL</code>、<code>PURGE MASTER LOGS</code>、<code>SET GLOBAL</code>
+语句，<code>mysqladmin debug</code> 命令。允许连接（一次），即使达到
+max_connetions</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>UPDATE</td>
 <td>允许使用 <code>UPDATE</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>USAGE</td>
 <td>无权限</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>GRANT OPTION</td>
 <td>允许授予权限</td>
 </tr>
-</tbody></table>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="F1-数据库"><a href="#F1-数据库" class="headerlink" title="F1 数据库"></a>F1 数据库</h2><p>数据、数据库、数据库管理系统、数据库系统 是数据库中最常用的 4 个基本概念。</p>
+</tbody>
+</table>
+<h1 id="附录">附录</h1>
+<h2 id="f1-数据库">F1 数据库</h2>
+<p>数据、数据库、数据库管理系统、数据库系统 是数据库中最常用的 4
+个基本概念。</p>
 <p><strong>数据（Data）</strong>：数据是描述事物的符号记录，是信息存在的一种形式。只有通过解释或处理的数据才能称为有用的信息。</p>
-<p><strong>数据库（Database）</strong>：数据按照一定格式存储在数据库内。数据库中存储的数据具有永久存储、有组织、可共享 这 3 个基本特点。</p>
-<p><strong>数据库管理系统（Database Manage System，DBMS）</strong>：专门用于建立和管理数据库的一套软件。实现对数据有效的管理和维护。其主要功能包括：</p>
+<p><strong>数据库（Database）</strong>：数据按照一定格式存储在数据库内。数据库中存储的数据具有永久存储、有组织、可共享
+这 3 个基本特点。</p>
+<p><strong>数据库管理系统（Database Manage
+System，DBMS）</strong>：专门用于建立和管理数据库的一套软件。实现对数据有效的管理和维护。其主要功能包括：</p>
 <ul>
-<li>数据定义功能：通过数据库管理系统提供的数据定义语言（Data Definition Language，DDL）定义数据库中的数据对象（表、视图、存储过程、触发器等）。</li>
-<li>数据操作功能：通过数据库管理系统提供的数据操作语言（Data Manipulation Language，DML）实现对数据的增删改查</li>
-<li>数据库的运行管理功能：数据库的数据是可供多个用户同时使用的共享数据。DBMS 提供了统一的控制管理机制，保证并发使用的安全性，并在发生故障时能对数据库进行正确的恢复</li>
+<li>数据定义功能：通过数据库管理系统提供的数据定义语言（Data Definition
+Language，DDL）定义数据库中的数据对象（表、视图、存储过程、触发器等）。</li>
+<li>数据操作功能：通过数据库管理系统提供的数据操作语言（Data
+Manipulation Language，DML）实现对数据的增删改查</li>
+<li>数据库的运行管理功能：数据库的数据是可供多个用户同时使用的共享数据。DBMS
+提供了统一的控制管理机制，保证并发使用的安全性，并在发生故障时能对数据库进行正确的恢复</li>
 <li>数据库的建立维护功能：数据空间的维护、数据库的备份与恢复功能、数据库的重组织功能、性能监视、分析等</li>
 <li>数据组织、存储、管理功能：数据库能对数据进行分类存储和管理以提高存取效率。例如索引查找、顺序查找等</li>
 <li>其他功能：主要包括与其他软件的网络通信功能、不同数据库管理系统之间的数据传输及互相访问功能等</li>
 </ul>
-<p><strong>数据库系统（Database System）</strong>：在计算机中引入数据库技术之后的系统。一个完整的数据库系统包括数据库、数据库管理系统、相关实用工具、应用程序、数据库管理员和用户。其中数据库管理员最终通过 DBMS 维护数据库，用户（程序员和数据库终端用户）则是数据库的服务对象。</p>
-<h3 id="F1-1-数据库的三级模式结构"><a href="#F1-1-数据库的三级模式结构" class="headerlink" title="F1.1 数据库的三级模式结构"></a>F1.1 数据库的三级模式结构</h3><p>不同的数据库管理系统基本上都遵循三级模式结构，即：用户级、概念级、物理级</p>
-<p>具体而言，数据库系统的三级模式是指数据库系统是由：概念模式（Schema）、外模式（Exterrnal Schema）、内模式（Internal Schema）三级构成的</p>
+<p><strong>数据库系统（Database
+System）</strong>：在计算机中引入数据库技术之后的系统。一个完整的数据库系统包括数据库、数据库管理系统、相关实用工具、应用程序、数据库管理员和用户。其中数据库管理员最终通过
+DBMS
+维护数据库，用户（程序员和数据库终端用户）则是数据库的服务对象。</p>
+<h3 id="f1.1-数据库的三级模式结构">F1.1 数据库的三级模式结构</h3>
+<p>不同的数据库管理系统基本上都遵循三级模式结构，即：用户级、概念级、物理级</p>
+<p>具体而言，数据库系统的三级模式是指数据库系统是由：概念模式（Schema）、外模式（Exterrnal
+Schema）、内模式（Internal Schema）三级构成的</p>
 <pre><code class=" mermaid">graph BT
 A(数据库) --- B[内模式] --模式/内模式映像--- C[概念模式]
 C --外模式/模式映像--- C1[外模式1]
@@ -1575,62 +1533,77 @@ C1 --- C1B[应用B]
 C2 --- C2C[应用C]
 C3 --- C3D[应用D]
 C3 --- C3E[应用E]</code></pre>
-
-<h4 id="概念模式"><a href="#概念模式" class="headerlink" title="概念模式"></a>概念模式</h4><p>模式也称为概念模式或逻辑模式，它是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图</p>
+<h4 id="概念模式">概念模式</h4>
+<p>模式也称为概念模式或逻辑模式，它是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图</p>
 <p>模式实际上是数据库数据在逻辑级上的视图，即概念视图。其形式比数据的物理存储方式更为抽象。它不包含数据库的实现细节，仅定义数据的逻辑结构、数据间关系，以及数据相关的安全性、完整性等要求。</p>
 <p>数据库按外模式的描述向用户提供数据，按内模式的描述存储数据。而模式是这两者的中间层。</p>
 <p>模式不涉及物理存储细节和硬件环境，也无关于具体应用程序和开发语言。</p>
-<p>一个数据库只有一个模式，且相对稳定。数据库管理系统提供了模式描述语言（Schema DDL），以严格定义模式。</p>
-<h4 id="外模式"><a href="#外模式" class="headerlink" title="外模式"></a>外模式</h4><p>外模式也称为子模式或用户模式，它是数据库用户能看见和使用的局部数据的逻辑结构和特征的描述。</p>
+<p>一个数据库只有一个模式，且相对稳定。数据库管理系统提供了模式描述语言（Schema
+DDL），以严格定义模式。</p>
+<h4 id="外模式">外模式</h4>
+<p>外模式也称为子模式或用户模式，它是数据库用户能看见和使用的局部数据的逻辑结构和特征的描述。</p>
 <p>外模式是用户视图，通常是模式的子集，是对数据库整体数据结构的局部重构。如果不同用户在应用需求、看待数据的方式、对数据保密的要求方面存在差异，则外模式描述就不相同。模式中同样的数据，在外模式的表现可以不同。</p>
 <p>一个数据库可以有多个不同外模式，且允许彼此间有重叠。一个外模式也可以被多个应用程序共享。</p>
 <p>外模式简化了数据库系统的用户接口，便于用户使用，并有效支持了数据独立性和共享性。</p>
-<p>数据库管理系统提供了子模式描述语言（Subschema DDL），以严格定义子模式。</p>
-<h4 id="内模式"><a href="#内模式" class="headerlink" title="内模式"></a>内模式</h4><p>内模式也称为存储模式，是对数据库中数据物理结构和存储方式的描述，是数据库在内部的表示形式。</p>
+<p>数据库管理系统提供了子模式描述语言（Subschema
+DDL），以严格定义子模式。</p>
+<h4 id="内模式">内模式</h4>
+<p>内模式也称为存储模式，是对数据库中数据物理结构和存储方式的描述，是数据库在内部的表示形式。</p>
 <p>内模式是整个数据库的最底层表示。不同于物理层，是数据库管理员看到的，特定数据库管理系统所处理的数据库的内部结构，即内部视图或存储视图</p>
 <p>一个数据库只有一个内模式。内模式不是最底层的物理层。数据库管理系统提供了内模式描述语言，以严格定义内模式。</p>
-<h3 id="F1-2-映像与数据独立性"><a href="#F1-2-映像与数据独立性" class="headerlink" title="F1.2 映像与数据独立性"></a>F1.2 映像与数据独立性</h3><p>构成数据库系统的三级模式分别是对数据的三级抽象。它们彼此间具有以下特点</p>
+<h3 id="f1.2-映像与数据独立性">F1.2 映像与数据独立性</h3>
+<p>构成数据库系统的三级模式分别是对数据的三级抽象。它们彼此间具有以下特点</p>
 <ul>
-<li>一个数据库的整体逻辑结构和特征的描述（概念模式）独立于数据库其他层次结构（内&#x2F;外模式）。概念模式是数据库的核心，也是数据库设计的关键</li>
+<li>一个数据库的整体逻辑结构和特征的描述（概念模式）独立于数据库其他层次结构（内/外模式）。概念模式是数据库的核心，也是数据库设计的关键</li>
 <li>一个数据库的内部存储模式依赖于概念模式，但独立于外模式，也独立于具体的存储设备。</li>
 <li>外模式是在全局逻辑结构基础上定义的，其面向具体的应用程序，特定的应用程序依赖于特定的外模式。外模式独立于概念模式和内模式。</li>
 </ul>
 <p>数据库管理系统通过在内部提供三级模式间的两层映像，实现三级抽象和它们间的联系与转换。</p>
-<p>这两层映像是：外模式&#x2F;模式映像、模式&#x2F;内模式映像</p>
-<p>由于这两层映像的存在，使得数据库系统中的数据能具有较高 <strong>逻辑独立性</strong> 和 <strong>物理独立性</strong>。数据的定义和描述从应用程序中分离，从而简化了程序开发，也降低了维护难度。</p>
-<h4 id="外模式-x2F-模式映像"><a href="#外模式-x2F-模式映像" class="headerlink" title="外模式&#x2F;模式映像"></a>外模式&#x2F;模式映像</h4><p>所谓映像，即是一种对应规则。外模式&#x2F;模式映像 定义了各个外模式和概念模式间的关系，这些映像通常在各自的外模式中加以描述。对于每个外模式，都会有一个 外模式&#x2F;模式映像</p>
-<p>数据库系统的概念模式改变时，外模式&#x2F;模式映像 都要相应改变，以使外模式保持不变。由于 外模式&#x2F;模式映像 的存在，数据库管理员不必修改依赖外模式的应用程序本身。这样，就实现了外模式不受概念模式变化的影响，也保证了数据与程序的逻辑独立性。</p>
-<h4 id="模式-x2F-内模式映像"><a href="#模式-x2F-内模式映像" class="headerlink" title="模式&#x2F;内模式映像"></a>模式&#x2F;内模式映像</h4><p>模式&#x2F;内模式映像 定义了数据库全局逻辑结构和物理存储间的关系。这种映像定义通常是在概念模式中加以描述的。数据库只有一个概念模式，也就只有一个 模式&#x2F;内模式映像。</p>
-<p>数据库系统的物理存储改变时，数据库管理员要对 模式&#x2F;内模式映像 进行调整，以使概念模式保持不变。如此也实现了概念模式不受内模式变化的影响，并保证了数据与程序的物理独立性。</p>
-<h3 id="F1-3-数据模型"><a href="#F1-3-数据模型" class="headerlink" title="F1.3 数据模型"></a>F1.3 数据模型</h3><p>一般而言，数据具有动态、静态两种特征。</p>
+<p>这两层映像是：外模式/模式映像、模式/内模式映像</p>
+<p>由于这两层映像的存在，使得数据库系统中的数据能具有较高
+<strong>逻辑独立性</strong> 和
+<strong>物理独立性</strong>。数据的定义和描述从应用程序中分离，从而简化了程序开发，也降低了维护难度。</p>
+<h4 id="外模式模式映像">外模式/模式映像</h4>
+<p>所谓映像，即是一种对应规则。外模式/模式映像
+定义了各个外模式和概念模式间的关系，这些映像通常在各自的外模式中加以描述。对于每个外模式，都会有一个
+外模式/模式映像</p>
+<p>数据库系统的概念模式改变时，外模式/模式映像
+都要相应改变，以使外模式保持不变。由于 外模式/模式映像
+的存在，数据库管理员不必修改依赖外模式的应用程序本身。这样，就实现了外模式不受概念模式变化的影响，也保证了数据与程序的逻辑独立性。</p>
+<h4 id="模式内模式映像">模式/内模式映像</h4>
+<p>模式/内模式映像
+定义了数据库全局逻辑结构和物理存储间的关系。这种映像定义通常是在概念模式中加以描述的。数据库只有一个概念模式，也就只有一个
+模式/内模式映像。</p>
+<p>数据库系统的物理存储改变时，数据库管理员要对 模式/内模式映像
+进行调整，以使概念模式保持不变。如此也实现了概念模式不受内模式变化的影响，并保证了数据与程序的物理独立性。</p>
+<h3 id="f1.3-数据模型">F1.3 数据模型</h3>
+<p>一般而言，数据具有动态、静态两种特征。</p>
 <ul>
 <li>数据的静态特征：数据的基本结构、数据间的联系、对数据取值范围的约束</li>
 <li>数据的动态特征：对数据可以进行符合一定规则的操作</li>
 </ul>
 <p>数据模型是一组概念和定义，用来描述数据的结构、定义、在结构上的操纵以及数据间的约束</p>
-<h4 id="数据模型的三个要素"><a href="#数据模型的三个要素" class="headerlink" title="数据模型的三个要素"></a>数据模型的三个要素</h4><p>数据模型通常有三个要素：数据结构、数据操作、数据约束</p>
+<h4 id="数据模型的三个要素">数据模型的三个要素</h4>
+<p>数据模型通常有三个要素：数据结构、数据操作、数据约束</p>
 <ul>
 <li><p>数据结构</p>
 <p>数据结构描述系统的静态特性。其反映了数据模型最基本的特征。</p>
-<p>常按照数据结构类型来命名数据模型。如：层次模型、网状模型、关系模型、面向对象模型</p>
-</li>
+<p>常按照数据结构类型来命名数据模型。如：层次模型、网状模型、关系模型、面向对象模型</p></li>
 <li><p>数据操作</p>
 <p>数据操作描述系统的动态特性，是对对象实例允许执行的操作的集合。</p>
-<p>数据操作分为两类：更新（插入、删除、修改）、检索</p>
-</li>
+<p>数据操作分为两类：更新（插入、删除、修改）、检索</p></li>
 <li><p>数据约束</p>
 <p>数据约束描述数据结构中数据间的语法和语义关联，以保证数据的正确性、有效性和相容性</p>
-<p>数据约束包括：完整性约束、数据安全性约束、并发控制约束</p>
-</li>
+<p>数据约束包括：完整性约束、数据安全性约束、并发控制约束</p></li>
 </ul>
-<h4 id="数据模型的分类"><a href="#数据模型的分类" class="headerlink" title="数据模型的分类"></a>数据模型的分类</h4><pre><code class=" mermaid">graph LR
+<h4 id="数据模型的分类">数据模型的分类</h4>
+<pre><code class=" mermaid">graph LR
 A(现实世界) --抽象--&gt; B(概念模型) --转换/组织--&gt; C(逻辑模型/物理模型)</code></pre>
-
 <ul>
 <li><p>概念层数据模型</p>
-<p>概念层是数据抽象级别的最高层。概念层数据模型也称 概念模型 或 信息模型。</p>
-<p>概念模型描述现实世界的事物，而与具体计算机系统无关。</p>
-</li>
+<p>概念层是数据抽象级别的最高层。概念层数据模型也称 概念模型 或
+信息模型。</p>
+<p>概念模型描述现实世界的事物，而与具体计算机系统无关。</p></li>
 <li><p>逻辑层数据模型</p>
 <p>逻辑层是数据抽象的中间层，也称为数据的逻辑模型</p>
 <p>逻辑模型描述数据整体的逻辑结构，既要考虑用户理解，也要照顾具体实现</p>
@@ -1638,27 +1611,21 @@ A(现实世界) --抽象--&gt; B(概念模型) --转换/组织--&gt; C(逻辑模
 <ul>
 <li><p>层次模型</p>
 <p>是数据库最早使用的一种类型。其数据结构是一棵有向树，每个结点对应一个记录集。</p>
-<p>现实中的组织结构就是层次结构。但层次模型难以表达现实中实体间的复杂联系。</p>
-</li>
+<p>现实中的组织结构就是层次结构。但层次模型难以表达现实中实体间的复杂联系。</p></li>
 <li><p>网状模型</p>
 <p>是层次模型的扩展，以网状结构表示实体间的联系。</p>
-<p>网状模型可以方便地表示实体间的联系，但结构复杂，难以规范化地实现。</p>
-</li>
+<p>网状模型可以方便地表示实体间的联系，但结构复杂，难以规范化地实现。</p></li>
 <li><p>关系模型</p>
 <p>是层次模型的扩展，用二维表来表示实体及实体间联系。</p>
-<p>关系模型建立在严格的数学概念之上。其概念单一，数据结构简单，便于理解。而且，关系模型的存取路径对用户透明，具有更高的数据独立性和安全性，也便于程序员开发和管理。</p>
-</li>
+<p>关系模型建立在严格的数学概念之上。其概念单一，数据结构简单，便于理解。而且，关系模型的存取路径对用户透明，具有更高的数据独立性和安全性，也便于程序员开发和管理。</p></li>
 <li><p>面向对象模型</p>
 <p>面向对象方法与数据库结合所构成的数据模型称为面向对象模型。</p>
-<p>面向对象模型既是概念模型又是逻辑模型。其表达能力丰富，对象复用性强，维护方便，是数据库的发展方向之一。</p>
-</li>
-</ul>
-</li>
+<p>面向对象模型既是概念模型又是逻辑模型。其表达能力丰富，对象复用性强，维护方便，是数据库的发展方向之一。</p></li>
+</ul></li>
 <li><p>物理层数据模型</p>
 <p>也称为数据的物理模型。</p>
 <p>物理模型描述数据在存储介质上的组织结构，是逻辑模型的物理实现。每种逻辑模型都有对应的物理模型。</p>
-<p>物理模型的设计目标是提高数据库性能和有效利用空间。其不仅由数据库设计决定，也与操作系统、计算机硬件密切相关。</p>
-</li>
+<p>物理模型的设计目标是提高数据库性能和有效利用空间。其不仅由数据库设计决定，也与操作系统、计算机硬件密切相关。</p></li>
 </ul>
 
               
