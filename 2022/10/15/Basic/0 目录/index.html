@@ -1,0 +1,1447 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="目录 DM1 逻辑关系  DM1.1 联结词 DM1.2 命题公式 DM1.3 等值式 DM1.4 命题逻辑推理 DM1.5 谓词   DM2 集合论  DM2.1 集合 DM2.2 集合的基本恒等式 DM2.3 有序对和笛卡尔积 DM2.4 二元关系 DM2.5 关系的表示 DM2.6 关系的性质 DM2.7 关系的幂运算和闭包 DM2.8 等价关系和划分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;离散数学&gt;目录、用语表">
+<meta property="og:url" content="https://i-melody.github.io/2022/10/15/Basic/0%20%E7%9B%AE%E5%BD%95/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="目录 DM1 逻辑关系  DM1.1 联结词 DM1.2 命题公式 DM1.3 等值式 DM1.4 命题逻辑推理 DM1.5 谓词   DM2 集合论  DM2.1 集合 DM2.2 集合的基本恒等式 DM2.3 有序对和笛卡尔积 DM2.4 二元关系 DM2.5 关系的表示 DM2.6 关系的性质 DM2.7 关系的幂运算和闭包 DM2.8 等价关系和划分">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-16T13:56:43.688Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="离散数学">
+<meta property="article:tag" content="目录">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;离散数学&gt;目录、用语表 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;离散数学&gt;目录、用语表"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-15 00:00" pubdate>
+          2022年10月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;离散数学&gt;目录、用语表</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年10月16日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="目录">目录</h1>
+<h2 id="dm1-逻辑关系">DM1 逻辑关系</h2>
+<ul>
+<li><h3 id="dm1.1-联结词">DM1.1 联结词</h3></li>
+<li><h3 id="dm1.2-命题公式">DM1.2 命题公式</h3></li>
+<li><h3 id="dm1.3-等值式">DM1.3 等值式</h3></li>
+<li><h3 id="dm1.4-命题逻辑推理">DM1.4 命题逻辑推理</h3></li>
+<li><h3 id="dm1.5-谓词">DM1.5 谓词</h3></li>
+</ul>
+<hr />
+<h2 id="dm2-集合论">DM2 集合论</h2>
+<ul>
+<li><h3 id="dm2.1-集合">DM2.1 集合</h3></li>
+<li><h3 id="dm2.2-集合的基本恒等式">DM2.2 集合的基本恒等式</h3></li>
+<li><h3 id="dm2.3-有序对和笛卡尔积">DM2.3 有序对和笛卡尔积</h3></li>
+<li><h3 id="dm2.4-二元关系">DM2.4 二元关系</h3></li>
+<li><h3 id="dm2.5-关系的表示">DM2.5 关系的表示</h3></li>
+<li><h3 id="dm2.6-关系的性质">DM2.6 关系的性质</h3></li>
+<li><h3 id="dm2.7-关系的幂运算和闭包">DM2.7 关系的幂运算和闭包</h3></li>
+<li><h3 id="dm2.8-等价关系和划分">DM2.8 等价关系和划分</h3></li>
+<li><h3 id="dm2.9-序关系">DM2.9 序关系</h3></li>
+<li><h3 id="dm2.10-函数">DM2.10 函数</h3></li>
+<li><h3 id="dm2.11-自然数">DM2.11 自然数</h3></li>
+<li><h3 id="dm2.12-等势有穷集无穷集">DM2.12
+等势、有穷集、无穷集</h3></li>
+<li><h3 id="dm2.13-基数">DM2.13 基数</h3></li>
+<li><h3 id="dm2.14-公理化集合论">DM2.14 公理化集合论</h3></li>
+</ul>
+<hr />
+<h2 id="dm3-图论">DM3 图论</h2>
+<ul>
+<li><h3 id="dm3.1-图">DM3.1 图</h3></li>
+<li><h3 id="dm3.2-通路回路">DM3.2 通路、回路</h3></li>
+<li><h3 id="dm3.3-连通度">DM3.3 连通度</h3></li>
+<li><h3 id="dm3.4-欧拉图哈密顿图">DM3.4 欧拉图、哈密顿图</h3></li>
+<li><h3 id="dm3.5-树">DM3.5 树</h3></li>
+<li><h3 id="dm3.6-图的矩阵表示">DM3.6 图的矩阵表示</h3></li>
+<li><h3 id="dm3.7-平面图">DM3.7 平面图</h3></li>
+<li><h3 id="dm3.8-着色">DM3.8 着色</h3></li>
+<li><h3 id="dm3.9-支配集点覆盖集点独立集">DM3.9
+支配集、点覆盖集、点独立集</h3></li>
+<li><h3 id="dm3.10-边覆盖匹配">DM3.10 边覆盖、匹配</h3></li>
+<li><h3 id="dm3.11-带权图">DM3.11 带权图</h3></li>
+</ul>
+<hr />
+<h1 id="附录">附录</h1>
+<h2 id="符号表运算符">符号表（运算符）</h2>
+<table>
+
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(p\and
+q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\)</span>
+且 <span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\or
+q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\)</span>
+或 <span class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\rarr
+q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\)</span>
+是 <span class="math inline">\(q\)</span> 的充分条件</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(p\harr
+q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\)</span>
+是 <span class="math inline">\(q\)</span> 的充要条件</td>
+<td style="text-align: center;"><span class="math inline">\(p\Harr
+q\)</span></td>
+<td style="text-align: center;">命题公式 <span
+class="math inline">\(p\)</span> 等价于 <span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p\Rarr
+q\)</span></td>
+<td style="text-align: center;">命题公式 <span
+class="math inline">\(p\)</span> 能推理出 <span
+class="math inline">\(q\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\forall
+a\)</span></td>
+<td style="text-align: center;">任意 <span
+class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\exist
+a\)</span></td>
+<td style="text-align: center;">存在 <span
+class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a\in
+A\)</span></td>
+<td style="text-align: center;">元素 <span
+class="math inline">\(a\)</span> 属于集合 <span
+class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\subseteq
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+是 <span class="math inline">\(B\)</span> 的子集</td>
+<td style="text-align: center;"><span class="math inline">\(A\subset
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+是 <span class="math inline">\(B\)</span> 的真子集</td>
+<td style="text-align: center;"><span
+class="math inline">\(\empty\)</span></td>
+<td style="text-align: center;">空集</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(A\cup
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+与 <span class="math inline">\(B\)</span> 的并集</td>
+<td style="text-align: center;"><span class="math inline">\(A\cap
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+与 <span class="math inline">\(B\)</span> 的交集</td>
+<td style="text-align: center;"><span
+class="math inline">\(|A|\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+中元素的个数（基数）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(A-B\)</span></td>
+<td style="text-align: center;">属于 <span
+class="math inline">\(A\)</span> 但不属于 <span
+class="math inline">\(B\)</span> 的元素集合</td>
+<td style="text-align: center;"><span class="math inline">\(A\oplus
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((A\cup
+B)-(A\cap B)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\tilde{}A\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(E-A\)</span>（<span
+class="math inline">\(E\)</span> 是全集）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\({\bigcup}{\mathcal A}\)</span></td>
+<td style="text-align: center;">集族 <span
+class="math inline">\(\mathcal A\)</span> 所有元素的并集</td>
+<td style="text-align: center;"><span
+class="math inline">\({\bigcap}{\mathcal A}\)</span></td>
+<td style="text-align: center;">集族 <span
+class="math inline">\(\mathcal A\)</span> 所有元素的交集</td>
+<td style="text-align: center;"><span class="math inline">\(\lang
+a,b\rang\)</span></td>
+<td style="text-align: center;">有序对，即：<span
+class="math inline">\(\{\{a\},\{a,b\}\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\lang
+a,b,c\rang\)</span></td>
+<td style="text-align: center;">有序三元组，即：<span
+class="math inline">\(\lang \lang a,b\rang, c\rang\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\times
+B\)</span></td>
+<td style="text-align: center;">笛卡尔积。<span
+class="math inline">\(A\)</span> 元素与 <span
+class="math inline">\(B\)</span> 元素形成有序对的集合</td>
+<td style="text-align: center;"><span
+class="math inline">\(A^n\)</span></td>
+<td style="text-align: center;">n 维笛卡尔积</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(F\circ
+G\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(F,G\)</span> 的逆序合成</td>
+<td style="text-align: center;"><span
+class="math inline">\(F\restriction A\)</span></td>
+<td style="text-align: center;">限制：<span
+class="math inline">\(\{\lang x,y\rang|xFy\and x\in A\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F[A]\)</span></td>
+<td style="text-align: center;">象：<span
+class="math inline">\(\operatorname{ran}(F\restriction A)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(F^{-1}\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(F\)</span> 的逆</td>
+<td style="text-align: center;"><span
+class="math inline">\((M(R))^T\)</span></td>
+<td style="text-align: center;">矩阵 <span
+class="math inline">\(M(R)\)</span> 的转置。即：<span
+class="math inline">\(M(R^{-1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(M(R_2)\bull
+M(R_1)\)</span></td>
+<td style="text-align: center;">矩阵的逻辑乘，即：<span
+class="math inline">\(M(R_1\circ R_2)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\([x]\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+的等价类</td>
+<td style="text-align: center;"><span
+class="math inline">\(A/R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+的商集。<span class="math inline">\(A\)</span> 中元素的等价类的集合</td>
+<td style="text-align: center;"><span
+class="math inline">\(\preccurlyeq\)</span></td>
+<td
+style="text-align: center;">偏序关系：自反、反对称、传递的关系。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\prec\)</span></td>
+<td style="text-align: center;">拟序关系：反自反、传递的关系</td>
+<td style="text-align: center;"><span class="math inline">\(F:A\rarr
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span>
+是 <span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的偏函数</td>
+<td style="text-align: center;"><span
+class="math inline">\(F:A\shortparallel\!\!\!→ B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span>
+是 <span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的真偏函数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(F:A\shortmid\!\!\!→ B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span>
+是 <span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的全函数</td>
+<td style="text-align: center;"><span
+class="math inline">\(f(A&#39;)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(A&#39;\)</span> 的象</td>
+<td style="text-align: center;"><span
+class="math inline">\(f^{-1}(B&#39;)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(B&#39;\)</span> 的原像</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(A^+\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 的后继。即：<span
+class="math inline">\(A\cup\{A\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\approx
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+与 <span class="math inline">\(B\)</span> 等势（存在双射）</td>
+<td style="text-align: center;"><span
+class="math inline">\(A\preccurlyeq• B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+较 <span class="math inline">\(B\)</span> 优势（存在单射）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(B\succcurlyeq• A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span>
+较 <span class="math inline">\(A\)</span> 劣势</td>
+<td style="text-align: center;"><span class="math inline">\(A\prec•
+B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span>
+较 <span class="math inline">\(B\)</span> 绝对优势</td>
+<td style="text-align: center;"><span class="math inline">\(B\succ•
+A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span>
+较 <span class="math inline">\(A\)</span> 绝对劣势</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(A\&amp;B\)</span></td>
+<td style="text-align: center;">无序积。<span
+class="math inline">\(A\)</span> 元素与 <span
+class="math inline">\(B\)</span> 元素各一个组成的集合的集合</td>
+<td style="text-align: center;"><span
+class="math inline">\((x,y)\)</span></td>
+<td style="text-align: center;">在无序积中表示 <span
+class="math inline">\(\{x,y\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(G_1\cong
+G_2\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G_1,G_2\)</span> 同构</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(G&#39;\subseteq G\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(G&#39;\)</span> 是 <span
+class="math inline">\(G\)</span> 的子图</td>
+<td style="text-align: center;"><span
+class="math inline">\(G&#39;\subset G\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(G&#39;\)</span> 是 <span
+class="math inline">\(G\)</span> 的真子图</td>
+<td style="text-align: center;"><span
+class="math inline">\(G[V_1]\)</span></td>
+<td style="text-align: center;">由点集 <span
+class="math inline">\(V_1\)</span> 导出的子图</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(G[E_1]\)</span></td>
+<td style="text-align: center;">由边集 <span
+class="math inline">\(E_1\)</span> 导出的子图</td>
+<td style="text-align: center;"><span class="math inline">\(\overline
+G\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的补图</td>
+<td style="text-align: center;"><span
+class="math inline">\(G-e\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 删除边 <span
+class="math inline">\(e\)</span> 的图</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(G-v\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 删除顶点 <span
+class="math inline">\(v\)</span>（及关联边）的图</td>
+<td style="text-align: center;"><span
+class="math inline">\(G{\setminus}e\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 收缩 <span
+class="math inline">\(e\)</span> 边（删边，合并两侧顶点）</td>
+<td style="text-align: center;"><span
+class="math inline">\(G\cup(u,v)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 增加新边</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(u\sim
+v\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(u,v\)</span> 连通</td>
+<td style="text-align: center;"><span
+class="math inline">\(G[v_i]\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(v_i\)</span> 所在的连通分支</td>
+<td style="text-align: center;"><span class="math inline">\(u\rarr
+v\)</span></td>
+<td style="text-align: center;">顶点 <span
+class="math inline">\(u\)</span> 可达顶点 <span
+class="math inline">\(v\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(u\harr
+v\)</span></td>
+<td style="text-align: center;">顶点 <span
+class="math inline">\(u,v\)</span> 双向可达</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="符号表字符">符号表（字符）</h2>
+<table>
+
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(P(A)\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 的幂集</td>
+<td style="text-align: center;"><span
+class="math inline">\(I_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的恒等关系</td>
+<td style="text-align: center;"><span
+class="math inline">\(E_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的全域关系</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(D_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的整除关系</td>
+<td style="text-align: center;"><span
+class="math inline">\(LE_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的小于等于关系</td>
+<td style="text-align: center;"><span
+class="math inline">\(L_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的小于关系</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(GE_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的大于等于关系</td>
+<td style="text-align: center;"><span
+class="math inline">\(G_A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 上的大于关系</td>
+<td style="text-align: center;"><span
+class="math inline">\(\operatorname{dom}R\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的定义域</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\operatorname{ran}R\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的值域</td>
+<td style="text-align: center;"><span
+class="math inline">\(\operatorname{fld}R\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的域：<span
+class="math inline">\(\operatorname{dom}A\cup\operatorname{ran}A\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(G(R)\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的关系图</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(r(R)\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的自反闭包</td>
+<td style="text-align: center;"><span
+class="math inline">\(s(R)\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的对称闭包</td>
+<td style="text-align: center;"><span
+class="math inline">\(t(R)\)</span></td>
+<td style="text-align: center;">二元关系 <span
+class="math inline">\(R\)</span> 的传递闭包</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\operatorname{card}A\)</span></td>
+<td style="text-align: center;">集合 <span
+class="math inline">\(A\)</span> 的基数</td>
+<td style="text-align: center;"><span
+class="math inline">\(\aleph_0\)</span></td>
+<td style="text-align: center;">无穷集的基数</td>
+<td style="text-align: center;"><span
+class="math inline">\(\aleph\)</span></td>
+<td style="text-align: center;">实数集的基数。即 <span
+class="math inline">\(\aleph_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(K_\kappa\)</span></td>
+<td style="text-align: center;">所有基数为 <span
+class="math inline">\(\kappa\)</span> 的集合的集合（类）</td>
+<td style="text-align: center;"><span
+class="math inline">\(V(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的顶点集</td>
+<td style="text-align: center;"><span
+class="math inline">\(E(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的边集</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(G\)</span></td>
+<td style="text-align: center;">图论中表示无向图</td>
+<td style="text-align: center;"><span
+class="math inline">\(D\)</span></td>
+<td style="text-align: center;">图论中表示有向图</td>
+<td style="text-align: center;"><span
+class="math inline">\(N_n\)</span></td>
+<td style="text-align: center;">n 阶平凡图（零图）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(K_n\)</span></td>
+<td style="text-align: center;">n 阶完全图</td>
+<td style="text-align: center;"><span
+class="math inline">\(N_G(v)\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(v\)</span> 的邻域（相邻点的集合）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\overline{N_G(v)}\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(v\)</span> 的闭邻域</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(I_G(v)\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(v\)</span> 的关联集（关联边的集合）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\Gamma_D^+(v)\)</span></td>
+<td style="text-align: center;">有向图中点 <span
+class="math inline">\(v\)</span> 的后继</td>
+<td style="text-align: center;"><span
+class="math inline">\(\Gamma_D^-(v)\)</span></td>
+<td style="text-align: center;">有向图中点 <span
+class="math inline">\(v\)</span> 的前驱</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(N_D(v)\)</span></td>
+<td style="text-align: center;">有向图的开邻域（后继和前驱）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\overline{N_D(v)}\)</span></td>
+<td style="text-align: center;">有向图的闭邻域</td>
+<td style="text-align: center;"><span
+class="math inline">\(d_G(v)\)</span></td>
+<td style="text-align: center;">顶点 <span
+class="math inline">\(v\)</span> 的度</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(d_G^+(v)\)</span></td>
+<td style="text-align: center;">顶点 <span
+class="math inline">\(v\)</span> 的出度</td>
+<td style="text-align: center;"><span
+class="math inline">\(d_G^-{v}\)</span></td>
+<td style="text-align: center;">顶点 <span
+class="math inline">\(v\)</span> 的入度</td>
+<td style="text-align: center;"><span
+class="math inline">\(\Delta(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的最大度</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\delta(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的最小度</td>
+<td style="text-align: center;"><span
+class="math inline">\(p(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 中的连通分支数</td>
+<td style="text-align: center;"><span
+class="math inline">\(d_G(u,v)\)</span></td>
+<td style="text-align: center;">点 <span
+class="math inline">\(u,v\)</span> 间的距离</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\kappa_{G}\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的点连通度</td>
+<td style="text-align: center;"><span
+class="math inline">\(\lambda_G\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的边连通度</td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;">树</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(t_n\)</span></td>
+<td style="text-align: center;">n 阶非同构无向树的个数</td>
+<td style="text-align: center;"><span
+class="math inline">\(S_n\)</span></td>
+<td style="text-align: center;">星（仅一个顶点不是树叶的树）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\overline{T}\)</span></td>
+<td style="text-align: center;">余树（<span
+class="math inline">\(T\)</span> 的弦构成的图）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(C_r\)</span></td>
+<td style="text-align: center;">基本回路（树与一条弦构成的回路）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\xi(G)\)</span></td>
+<td style="text-align: center;">圈秩（基本回路系统的圈数）</td>
+<td style="text-align: center;"><span
+class="math inline">\(S_r\)</span></td>
+<td style="text-align: center;">基本割集</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\eta(G)\)</span></td>
+<td style="text-align: center;">割集的秩</td>
+<td style="text-align: center;"><span
+class="math inline">\(\tau(G)\)</span></td>
+<td style="text-align: center;">生成树的计数</td>
+<td style="text-align: center;"><span
+class="math inline">\(M(G)\)</span></td>
+<td style="text-align: center;">无向图的关联矩阵</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(M(D)\)</span></td>
+<td style="text-align: center;">有向图的关联矩阵</td>
+<td style="text-align: center;"><span
+class="math inline">\(A(D)\)</span></td>
+<td style="text-align: center;">有向图邻接矩阵</td>
+<td style="text-align: center;"><span
+class="math inline">\(M_f(G)\)</span></td>
+<td
+style="text-align: center;">基本关联矩阵。关联矩阵删除任意参考点形成的满秩矩阵</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(P(D)\)</span></td>
+<td style="text-align: center;">有向图可达矩阵</td>
+<td style="text-align: center;"><span
+class="math inline">\(A(G)\)</span></td>
+<td style="text-align: center;">无向图相邻矩阵</td>
+<td style="text-align: center;"><span
+class="math inline">\(P(G)\)</span></td>
+<td style="text-align: center;">无向图连通矩阵</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R\)</span></td>
+<td style="text-align: center;">平面图中的区域</td>
+<td style="text-align: center;"><span
+class="math inline">\(\deg(R)\)</span></td>
+<td style="text-align: center;">平面图的面的次数</td>
+<td style="text-align: center;"><span
+class="math inline">\(\chi(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的点色数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\chi&#39;(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的边色数</td>
+<td style="text-align: center;"><span
+class="math inline">\(\chi^*(G)\)</span></td>
+<td style="text-align: center;">图 <span
+class="math inline">\(G\)</span> 的面色数</td>
+<td style="text-align: center;"><span
+class="math inline">\(f(G,k)\)</span></td>
+<td style="text-align: center;">色多项式（不同 k-着色的总数）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\Pi\)</span></td>
+<td style="text-align: center;">着色的同色点集的集合</td>
+<td style="text-align: center;"><span
+class="math inline">\(\gamma_0(G)\)</span></td>
+<td style="text-align: center;">支配数（最小支配集顶点数）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\beta_0(G)\)</span></td>
+<td style="text-align: center;">点独立数（最大独立集顶点数）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\nu_0(G)\)</span></td>
+<td style="text-align: center;">团数（最大团顶点数）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\alpha_0(G)\)</span></td>
+<td style="text-align: center;">点覆盖数（最小点覆盖顶点数）</td>
+<td style="text-align: center;"><span
+class="math inline">\(\alpha_1(G)\)</span></td>
+<td style="text-align: center;">边覆盖数（最小边覆盖边数）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\beta_1(G)\)</span></td>
+<td style="text-align: center;">匹配数（最大匹配边数）</td>
+<td style="text-align: center;"><span
+class="math inline">\(W(e)\)</span></td>
+<td style="text-align: center;">带权图的权</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
+      
+        <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">#离散数学</a>
+      
+        <a href="/tags/%E7%9B%AE%E5%BD%95/">#目录</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;离散数学&gt;目录、用语表</div>
+      <div>https://i-melody.github.io/2022/10/15/Basic/0 目录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

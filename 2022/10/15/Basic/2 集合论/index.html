@@ -1,0 +1,2121 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="DM2 集合论 DM2.1 集合 集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。 通常用大写英文字母表示集合（\(A\)、\(A_1\)），用小写字母表示元素（\(a\)、\(a_1\)） 常用集合：  \(N\)：自然数集，也就是全体非负整数集 \(Z\)：整数集 \(Q\)：有理数集 \(R\)：实数集  如何描">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学（2）">
+<meta property="og:url" content="https://i-melody.github.io/2022/10/15/Basic/2%20%E9%9B%86%E5%90%88%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="DM2 集合论 DM2.1 集合 集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。 通常用大写英文字母表示集合（\(A\)、\(A_1\)），用小写字母表示元素（\(a\)、\(a_1\)） 常用集合：  \(N\)：自然数集，也就是全体非负整数集 \(Z\)：整数集 \(Q\)：有理数集 \(R\)：实数集  如何描">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-16T13:44:18.171Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="离散数学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>离散数学（2） ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="离散数学（2）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-15 00:00" pubdate>
+          2022年10月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          25k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          71 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">离散数学（2）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年10月16日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="dm2-集合论">DM2 集合论</h1>
+<h2 id="dm2.1-集合">DM2.1 集合</h2>
+<p>集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。</p>
+<p>通常用大写英文字母表示集合（<span
+class="math inline">\(A\)</span>、<span
+class="math inline">\(A_1\)</span>），用小写字母表示元素（<span
+class="math inline">\(a\)</span>、<span
+class="math inline">\(a_1\)</span>）</p>
+<p>常用集合：</p>
+<ul>
+<li><span
+class="math inline">\(N\)</span>：自然数集，也就是全体非负整数集</li>
+<li><span class="math inline">\(Z\)</span>：整数集</li>
+<li><span class="math inline">\(Q\)</span>：有理数集</li>
+<li><span class="math inline">\(R\)</span>：实数集</li>
+</ul>
+<p><strong>如何描述一个集合</strong></p>
+<ul>
+<li><p>枚举法</p>
+<p>列举出集合中的全部或部分元素，其余元素使用省略号表示</p>
+<p>如：<span class="math inline">\(A =
+\lbrace1,2,3,4\rbrace\)</span>、<span class="math inline">\(B = \lbrace
+a,b,c,d,\ldots\rbrace\)</span></p></li>
+<li><p>叙述法</p>
+<p>通过刻画集合中元素具有的某种性质来表示一个集合</p>
+<p>如：<span class="math inline">\(P=\lbrace
+x|P(x)\rbrace\)</span>、<span class="math inline">\(L=\lbrace
+x|x是英文字母中的所有元音字母\rbrace\)</span></p></li>
+<li><p>文氏图</p>
+<p>利用平面上的点来做成对集合的图解方法。一般用平面上的方形或圆形表示集合，用平面上的圆点来表示元素</p></li>
+</ul>
+<p><strong>集合的基本概念</strong></p>
+<ul>
+<li><p><strong>属于</strong></p>
+<p>若 <span class="math inline">\(a\)</span> 是 <span
+class="math inline">\(A\)</span> 中的元素，则称 <span
+class="math inline">\(a\)</span> 属于 <span
+class="math inline">\(A\)</span>。记为 <span class="math inline">\(a\in
+A\)</span>。否则，称 a 不属于 A，记为 <span
+class="math inline">\(a\notin A\)</span></p></li>
+<li><p><strong>子集</strong></p>
+<p>如果一个集合中的所有元素都是另一集合的元素，这种关系称为包含关系。记为
+<span class="math inline">\(A \subseteq B\)</span>。否则记为 <span
+class="math inline">\(A \not\subseteq B\)</span>。</p>
+<p>符号化形式：</p>
+<p><span class="math inline">\(\quad B\subseteq A⇔∀x(x\in B → x\in
+A)\)</span></p>
+<p><span class="math inline">\(\quad B\not\subseteq A⇔∃x(x\in B ⋀
+x\not\in A)\)</span></p></li>
+<li><p><strong>相等</strong></p>
+<p>当且仅当两个集合的元素完全相同时，称两个集合相等。记为 <span
+class="math inline">\(A = B\)</span>。否则，称两个集合不相等，记为 <span
+class="math inline">\(A\neq B\)</span>。</p>
+<p>符号化形式：</p>
+<p><span class="math inline">\(\quad A=B ⇔ (A \subseteq B)⋀ (B \subseteq
+A)\)</span></p>
+<p><span class="math inline">\(\quad A=B ⇔∀x(x\in B ⋀ x\in
+A)\)</span></p></li>
+<li><p><strong>真子集</strong></p>
+<p>如果 <span class="math inline">\(A \subseteq B\)</span> 并且 <span
+class="math inline">\(A \neq B\)</span> 则称 A 是 B 的真子集，记为 <span
+class="math inline">\(A \subset B\)</span>。否则记为 <span
+class="math inline">\(A \not\subset B\)</span></p>
+<p>符号化形式：</p>
+<p><span class="math inline">\(\quad B\subset A⇔A\subseteq B ⋀ A \neq
+B\)</span></p>
+<p><span class="math inline">\(\quad B\not\subset A⇔∃x(x\in A⋀ x\not\in
+B)⋀ A \neq B\)</span></p></li>
+<li><p><strong>基数</strong></p>
+<p>集合中的元素个数称为集合的基数。A 的基数记为 <span
+class="math inline">\(|A|\)</span></p>
+<p><span class="math inline">\(\emptyset\)</span> 是 0
+元集，只含一个元素的集合是 1 元集，以此类推。</p>
+<p>若一个集合的基数是有限的，称该集合为有限集。否则为无限集。</p></li>
+<li><p><strong>空集</strong></p>
+<p>不含任何元素的集合称为空集，记为 <span
+class="math inline">\(\emptyset\)</span>。空集是最小的集合</p>
+<p>空集是唯一的（<span class="math inline">\(\emptyset _1=\emptyset
+_2\)</span>）</p>
+<p>空集是一切集合的子集（<span class="math inline">\(\emptyset\subseteq
+A\)</span>）</p></li>
+<li><p><strong>全集</strong></p>
+<p>针对一个具体范围，我们考虑的所有对象的集合叫做全集，记为 <span
+class="math inline">\(U\)</span> 或 <span
+class="math inline">\(E\)</span>。全集是相对的。</p></li>
+<li><p><strong>幂集</strong></p>
+<p>由一个集合的所有子集组成的集合称为其幂集。记为 <span
+class="math inline">\(P(A)\)</span>。用描述法表示为 <span
+class="math inline">\(P(A)=\lbrace x|x\subseteq
+A\rbrace\)</span></p></li>
+<li><p><strong>集族</strong></p>
+<p>除幂集外，其他形式的由集合构成的集合称为集族</p></li>
+<li><p><strong>多重集</strong></p>
+<p>设全集为 <span class="math inline">\(E\)</span>，<span
+class="math inline">\(E\)</span> 中元素可以多次出现的集合 <span
+class="math inline">\(A\)</span> 称为多重集。那个出现次数称为 <span
+class="math inline">\(A\)</span> 的重复度。</p>
+<p>集合可以视为是重复度为 1 的多重集</p></li>
+<li><p><strong>并集</strong></p>
+<p>由两个集合 <span class="math inline">\(A,B\)</span>
+所有元素构成的集合为其并集，记作 <span class="math inline">\(A\cup
+B\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cup B=\lbrace x|x\in A⋁
+x\in B\rbrace\)</span></p>
+<p>并运算可以推广到有限个或可数个集合（初级并）</p>
+<p><span class="math inline">\(\quad
+A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n={\lbrace}x|∃i(1{\le}i{\le}n{⋀}x{\in}A_i){\rbrace}\)</span></p>
+<p><span class="math inline">\(\quad
+{\bigcup_{i=1}^{n}\\}{A_i=A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n}\)</span></p></li>
+<li><p><strong>交集</strong></p>
+<p>由两个集合 <span class="math inline">\(A,B\)</span>
+共有的元素构成的集合为其交集，记作 <span class="math inline">\(A\cap
+B\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cap B=\lbrace x|x\in A⋀
+x\in B\rbrace\)</span></p>
+<p>交运算可以推广到有限个或可数个集合（初级交）</p>
+<p><span class="math inline">\(\quad
+A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n={\lbrace}x|∀i(1{\le}i{\le}n{→}x{\in}A_i){\rbrace}\)</span></p>
+<p><span class="math inline">\(\quad
+{\bigcap_{i=1}^{n}\\}A_i=A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n\)</span></p></li>
+<li><p><strong>不相交</strong></p>
+<p>如果 <span class="math inline">\(A{\cap}B=Ø\)</span>，则称 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是不相交的</p></li>
+<li><p><strong>相对补</strong></p>
+<p>对于集合 <span class="math inline">\(A,B\)</span>，由属于 <span
+class="math inline">\(A\)</span> 但不属于 <span
+class="math inline">\(B\)</span> 的元素组成的集合称为 <span
+class="math inline">\(B\)</span> 对 <span
+class="math inline">\(A\)</span> 的相对补集。记作 <span
+class="math inline">\(A-B\)</span></p>
+<p>描述法表示为：<span
+class="math inline">\(A-B={\lbrace}x|x{\in}A{⋀}x{\not\in}B{\rbrace}\)</span></p></li>
+<li><p><strong>对称差</strong></p>
+<p>由属于 <span class="math inline">\(A\)</span> 但不属于 <span
+class="math inline">\(B\)</span>，或属于 <span
+class="math inline">\(B\)</span> 却不属于 <span
+class="math inline">\(A\)</span> 的元素组成的集合称为 <span
+class="math inline">\(B\)</span> 对 <span
+class="math inline">\(A\)</span> 的对称差。记为 <span
+class="math inline">\(A{\oplus}B\)</span></p>
+<p>描述法表示为：<span
+class="math inline">\(A{\oplus}B={\lbrace}x|(x{\in}A{⋀}x{\not\in}B){⋁}(x{\in}B{⋀}x{\not\in}A){\rbrace}\)</span></p>
+<p><span
+class="math inline">\(A{\oplus}B=(A-B){\cup}(B-A)=(A{\cup}B)-(A{\cap}B)\)</span></p></li>
+<li><p><strong>绝对补集</strong></p>
+<p>设 <span class="math inline">\(E\)</span> 为全集，<span
+class="math inline">\(A{\subseteq}E\)</span>，称 <span
+class="math inline">\(A\)</span> 对 <span
+class="math inline">\(E\)</span> 的相对补集为 <span
+class="math inline">\(A\)</span> 的绝对补集。记为 <span
+class="math inline">\(\tilde\ {A}\)</span></p>
+<p>描述法表示为：<span class="math inline">\(\tilde\
+{A}={\lbrace}x|x{\in}E{⋀}x{\notin}A{\rbrace}\)</span>，由于 <span
+class="math inline">\(x{\in}E=1\)</span> 又有 <span
+class="math inline">\(\tilde\ A
+={\lbrace}x|x{\notin}A{\rbrace}\)</span></p></li>
+<li><p><strong>广义并集</strong></p>
+<p>由一个集族 <span class="math inline">\({\mathcal A}\)</span>
+中全体元素的元素组成的集合为其广义并，记为 <span
+class="math inline">\({\bigcup}{\mathcal A}\)</span>（大并 <span
+class="math inline">\({\mathcal A}\)</span>）</p>
+<p>描述法表示为：<span class="math inline">\({\bigcup}{\mathcal
+A}={\lbrace}x|{∃}z(x{\in}z{⋀}z{\in}{\mathcal
+A}){\rbrace}\)</span></p></li>
+<li><p><strong>广义交集</strong></p>
+<p>由一个集族 <span class="math inline">\({\mathcal A}\)</span>
+中全体元素的共有元素组成的集合为其广义交，记为 <span
+class="math inline">\({\bigcap}{\mathcal A}\)</span>（大交 <span
+class="math inline">\({\mathcal A}\)</span>）</p>
+<p>描述法表示为：<span class="math inline">\({\bigcap}{\mathcal
+A}={\lbrace}x|{∀}z(x{\in}{\mathcal A}{→}z{\in}z){\rbrace}\)</span></p>
+<p>空集不能求广义交。即 <span class="math inline">\({\cap}{Ø}\)</span>
+无意义</p></li>
+</ul>
+<p><strong>集合运算的优先级</strong></p>
+<table>
+<tr>
+<th>
+优先级
+</th>
+<th>
+运算
+</th>
+<th>
+类型
+</th>
+<th>
+顺序
+</th>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+绝对补、幂集、广义交、广义并
+</td>
+<td>
+一元运算
+</td>
+<td>
+从右向左
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+初级并、初级交、相对补、对称差等
+</td>
+<td>
+二元运算
+</td>
+<td>
+从左向右
+</td>
+</tr>
+</table>
+<p><strong>容斥原理</strong></p>
+<p>设 <span class="math inline">\(A_1,A_2,{\dots},A_n\)</span> 为 n
+个集合，则有</p>
+<p><span
+class="math inline">\(\quad|{\bigcup_{i=1}^{n}\\}A_i|={\sum_{i=1}^{n}\\}|A_i|-{\sum_{i&lt;
+j}\\}|A_i{\cap}A_j|+{\sum_{i&lt;j&lt;k}\\}|A_i{\cap}A_j{\cap}A_k|-{\ldots}+(-1)^{n-1}|A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n|\)</span></p>
+<h2 id="dm2.2-基本的集合恒等式">DM2.2 基本的集合恒等式</h2>
+<p>设 <span class="math inline">\(E\)</span> 为全集，<span
+class="math inline">\(A,B,C\)</span> 是 <span
+class="math inline">\(E\)</span> 的任意子集。则有：</p>
+<ul>
+<li><p>幂等律：<span
+class="math inline">\(A{\cup}A=A{\qquad}A{\cap}A=A\)</span></p></li>
+<li><p>交换律：<span
+class="math inline">\(A{\cup}B=B{\cup}A{\qquad}A{\cap}B=B{\cap}A\)</span></p></li>
+<li><p>结合律：<span
+class="math inline">\(A{\cup}(B{\cup}C)=(A{\cup}B){\cup}C{\qquad}A{\cap}(B{\cap}C)=(A{\cap}B){\cap}C\)</span></p></li>
+<li><p>分配律：<span
+class="math inline">\(A{\cup}(B{\cap}C)=(A{\cup}B){\cap}(A{\cup}C){\qquad}A{\cap}(B{\cup}C)=(A{\cap}B){\cup}(A{\cap}C)\)</span></p></li>
+<li><p>德·摩根定律：<span class="math inline">\(\tilde\
+(A{\cup}B)=\tilde\ A{\cap}\tilde\ B{\qquad}\tilde\ (A{\cap}B)=\tilde\
+A{\cup}\tilde\ B\)</span></p>
+<p><span
+class="math inline">\(E-(A{\cup}B)=(E-A){\cap}(E-B){\qquad}E-(A{\cap}B)=(E-A){\cup}(E-B)\)</span></p>
+<p><span class="math inline">\(\tilde\
+(A_1{\cup}A_2{\cup\ldots\cup}A_n)=\tilde\ A_1{\cap}\tilde\
+A_2{\cap\ldots\cap}\tilde\ A_n{\qquad}\tilde\
+(A_1{\cap}A_2{\cap\ldots\cap}A_n)=\tilde\ A_1{\cup}\tilde\
+A_2{\cup\ldots\cup}\tilde\ A_n\)</span></p></li>
+<li><p>吸收律：<span
+class="math inline">\(A{\cup}(A{\cap}B)=A{\qquad}A{\cap}(A{\cup}B)=A\)</span></p></li>
+<li><p>零律：<span
+class="math inline">\(A{\cup}E=E{\qquad}A{\capØ}={Ø}\)</span></p></li>
+<li><p>同一律：<span
+class="math inline">\(A{\cap}E=A{\qquad}A{\cupØ}=A\)</span></p></li>
+<li><p>排中律：<span class="math inline">\(A{\cup}\tilde\
+A=E\)</span></p></li>
+<li><p>矛盾律：<span class="math inline">\(A{\cap}\tilde\
+A={Ø}\)</span></p></li>
+<li><p>余补律：<span class="math inline">\({\tilde\
+E}={Ø}{\qquad}{\tilde\ Ø}=E\)</span></p></li>
+<li><p>双重否定律：<span class="math inline">\({\tilde\ \tilde\
+A}=A\)</span></p></li>
+<li><p>补交转换律：<span class="math inline">\(A-B=A{\cap}{\tilde\
+B}\)</span></p></li>
+</ul>
+<p>设 <span
+class="math inline">\({\lbrace}A_{\alpha}{\rbrace}_{\alpha\in
+S}\)</span> 为集族，<span class="math inline">\(B\)</span>
+为一集合。则有：</p>
+<ul>
+<li><p>分配律：<span
+class="math inline">\(B{\cup}(\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S})={\bigcap_{\alpha\in
+S}\\}(B{\cup}A_{\alpha}){\qquad}B{\cap}(\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S})={\bigcup_{\alpha\in S}\\}(B{\cap}A_{\alpha})\)</span></p></li>
+<li><p>德·摩根律：<span
+class="math inline">\({\tilde\\}(\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S})={\bigcap_{\alpha\in
+S}\\}{\tilde\\A_{\alpha}}{\qquad}{\tilde\\}(\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S})={\bigcup_{\alpha\in S}\\}{\tilde\\A_{\alpha}}\)</span></p>
+<p><span class="math inline">\(\quad
+B-({\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S}})={\bigcap_{\alpha\in
+S}\\}(B-A_{\alpha}){\qquad}B-({\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
+S}})={\bigcup_{\alpha\in S}\\}(B-A_{\alpha})\)</span></p></li>
+<li><p>幂集：<span
+class="math inline">\(A{\subseteq}B{⇔}P(A){\subseteq}P(B){\qquad}P(A-B){\subseteq}(P(A)-P(B)){\cup}{\lbraceØ\rbrace}\)</span></p></li>
+</ul>
+<h2 id="dm2.3-有序对和笛卡尔积">DM2.3 有序对和笛卡尔积</h2>
+<ul>
+<li><p><strong>有序对</strong></p>
+<p><span class="math inline">\(\quad
+{⟨}a,b{⟩}={\lbrace}{\lbrace}a{\rbrace},{\lbrace}a,b{\rbrace}{\rbrace}\)</span></p>
+<p>其中 <span class="math inline">\(a\)</span> 为第一元素，<span
+class="math inline">\(b\)</span> 为第二元素。<span
+class="math inline">\({⟨}a,b{⟩}\)</span> 也记作 <span
+class="math inline">\((a,b)\)</span></p>
+<p>有定理：<span
+class="math inline">\({⟨}a,b{⟩}={⟨}c,d{⟩}{⇔}(a=c){⋀}(b=d)\)</span></p></li>
+<li><p><strong>有序三元组</strong></p>
+<p><span class="math inline">\(\quad
+{⟨}a,b,c{⟩}={⟨}{⟨}a,b{⟩},c{⟩}\)</span></p></li>
+<li><p><strong>有序 n 元组</strong></p>
+<p><span class="math inline">\(\quad
+{⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}{⟨}a_1,a_2,{\ldots},a_{n-1}{⟩},a_n{⟩}\)</span></p>
+<p>有定理：<span
+class="math inline">\({⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}b_1,b_2,{\ldots},b_n{⟩}{⇔}a_i=b_i,i=1,2,{\ldots},n\)</span></p></li>
+<li><p><strong>笛卡尔积</strong></p>
+<p>有集合 <span class="math inline">\(A,B\)</span>，由 <span
+class="math inline">\(A\)</span> 中的每个元素（做第一元素）与 <span
+class="math inline">\(B\)</span>
+中的每个元素（做第二元素）组合，形成的所有有序对的集合称为笛卡尔积（卡式积），记为
+<span class="math inline">\(A{\times}B\)</span></p>
+<p>笛卡尔积的性质：</p>
+<ul>
+<li><p>非交换性：<span
+class="math inline">\((A{\not=}B{⋀}A{\not=Ø⋀}B{\not=Ø}){⇔}(A{\times}B{\not
+=}B{\times}A)\)</span></p></li>
+<li><p>非结合性：<span
+class="math inline">\((A{\not=Ø⋀}B{\not=Ø⋀}C{\not=Ø}){⇔}((A{\times}B){\times}C{\not
+=}A{\times}(B{\times}C))\)</span></p></li>
+<li><p>分配律：<span class="math inline">\(A\times (B\cup C)=(A\times
+B)\cup(A\times C)\quad\)</span> 等</p></li>
+<li><p>其他：<span
+class="math inline">\(A{\times}B={Ø}{⇔}A={Ø⋁}B={Ø}\qquad A\not=Ø⋀
+A\times B\subseteq A\times C⇔ B\subseteq C\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq C⋀ B\subseteq D⇒ A\times
+B\subseteq C\times D\)</span></p></li>
+</ul></li>
+<li><p><strong>n 维笛卡尔积</strong></p>
+<p><span class="math inline">\(\quad A_1\times A_2\times\ldots\times
+A_n=\lbrace⟨ x_1,x_2,\ldots,x_n⟩|x_1\in A_1⋀ x_2\in A_2⋀\ldots⋀ x_n\in
+A_n\rbrace\)</span></p>
+<p><span class="math inline">\(\quad A^n=A\times A\times A\ldots\times
+A\)</span></p>
+<p><span class="math inline">\(\quad |A_i|=n_i,i=1,2,\ldots,n⇒|A_1\times
+A_2\times\ldots\times A_n|=n_1\times n_2\times\ldots\times
+n_n\)</span></p>
+<p>n 维卡式积的性质与二维卡式积相似</p></li>
+</ul>
+<h2 id="dm2.4-二元关系">DM2.4 二元关系</h2>
+<ul>
+<li><p><strong>n 元关系</strong></p>
+<p>元素全是有序 n 元组的集合称为 n 元关系。</p>
+<p>对于二元关系，有几种表示方法。设 <span
+class="math inline">\(F\)</span> 是二元关系，有：</p>
+<ul>
+<li>中缀记法：<span class="math inline">\(xFy\qquad\)</span>如 <span
+class="math inline">\(2&lt;15\)</span></li>
+<li>前缀记法：<span class="math inline">\(F(x,y)\quad
+Fxy\qquad\)</span>如 <span
+class="math inline">\(&lt;(2,15)\)</span></li>
+<li>后缀记法：<span class="math inline">\(⟨ x,y⟩\in F\quad
+xyF\qquad\)</span>如 <span class="math inline">\(⟨ 2,15⟩\in
+&lt;\)</span></li>
+</ul></li>
+<li><p>任何 <span class="math inline">\(A\times B\)</span> 的子集就是
+<span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的<strong>二元关系</strong>。</p>
+<p><span class="math inline">\(\quad R\,是\,A\,到\,B\,的二元关系⇔
+R\subseteq A\times B⇔ R\in P(A\times B)\)</span></p>
+<p>若 <span class="math inline">\(|A|=m,|B|=n,|A\times
+B|=mn\)</span>，故 <span class="math inline">\(|P(A\times
+B)|=2^{mn}\)</span>，即 <span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的不同二元关系有 <span
+class="math inline">\(2^{mn}\)</span> 个</p></li>
+<li><p>任何 <span class="math inline">\(A\times A\)</span> 的子集就是
+<span class="math inline">\(A\)</span> 上的二元关系。</p>
+<p><span class="math inline">\(\quad R\,是\,A\,上的二元关系⇔ R\subseteq
+A\times A⇔ R\in P(A\times A)\)</span></p>
+<p>若 <span class="math inline">\(|A|=m,|A\times A|=m^2\)</span>，故
+<span class="math inline">\(|P(A\times A)|=2^{m^2}\)</span>，即不同的
+<span class="math inline">\(A\)</span> 上二元关系有 <span
+class="math inline">\(2^{m^2}\)</span> 个</p></li>
+<li><p><strong>一些特殊关系</strong></p>
+<p>设 <span class="math inline">\(A\)</span> 是集合，则可定义 <span
+class="math inline">\(A\)</span> 上的：</p>
+<ul>
+<li>空关系：<span class="math inline">\(Ø\)</span></li>
+<li>恒等关系：<span class="math inline">\(I_A=\lbrace⟨ x,x⟩|x\in
+A\rbrace\)</span></li>
+<li>全域关系：<span class="math inline">\(E_A=A\times A=\lbrace⟨
+x,y⟩|x\in A⋀ y\in A\rbrace\)</span></li>
+</ul>
+<p>设 <span class="math inline">\(A\subseteq Z\)</span>，则可定义 <span
+class="math inline">\(A\)</span> 上的：</p>
+<ul>
+<li><p>整除关系：<span class="math inline">\(D_A=\lbrace⟨ x,y⟩|x\in A⋀
+y\in A⋀ x|y\rbrace\)</span></p></li>
+<li><p>小于等于关系：<span class="math inline">\({LE}_A\)</span></p>
+<p>小于关系：<span class="math inline">\(L_A\)</span></p>
+<p>大于等于关系：<span class="math inline">\({GE}_A\)</span></p>
+<p>大于关系：<span class="math inline">\(G_A\)</span></p></li>
+</ul>
+<p>设 <span class="math inline">\(A\)</span> 是集合，则可定义 <span
+class="math inline">\(P(A)\)</span> 上的：</p>
+<ul>
+<li>包含关系</li>
+<li>真包含关系</li>
+</ul></li>
+<li><p><strong>定义域、值域、域</strong></p>
+<p>对于任意集合 <span class="math inline">\(R\)</span>，可以定义</p>
+<p>其定义域：<span class="math inline">\(\operatorname{dom}R=\lbrace x|∃
+y(xRy)\rbrace\)</span></p>
+<p>其值域：<span class="math inline">\(\operatorname{ran}R=\lbrace y|∃
+y(xRy)\rbrace\)</span></p>
+<p>其域：<span
+class="math inline">\(\operatorname{fld}R=\operatorname{dom}R\cup\operatorname{ran}R\)</span></p>
+<p>如：集合 <span class="math inline">\(R_1=\lbrace
+a,b\rbrace,R_2=\lbrace a,b,⟨ c,d⟩,⟨ e,f⟩\rbrace\)</span>，当 <span
+class="math inline">\(a,b\)</span> 不是有序对时，<span
+class="math inline">\(R_1,R_2\)</span> 不是关系。</p>
+<p><span
+class="math inline">\(\quad\operatorname{dom}R_1=Ø\qquad\operatorname{ran}R_1=Ø\qquad\operatorname{fld}R_1=Ø\)</span></p>
+<p><span class="math inline">\(\quad\operatorname{dom}R_2=\lbrace
+c,e\rbrace\qquad\operatorname{ran}R_2=\lbrace
+d,f\rbrace\qquad\operatorname{fld}R_2=\lbrace
+c,d,e,f\rbrace\)</span></p></li>
+<li><p><strong>逆、合成</strong></p>
+<p>对于任意集合 <span class="math inline">\(F,G\)</span> 可以定义</p>
+<p>逆：<span class="math inline">\(F^{-1}=\lbrace⟨
+x,y⟩|yFx\rbrace\)</span></p>
+<p>合成（逆序合成、左合成）：<span class="math inline">\(F\circ
+G=\lbrace⟨ x,y⟩|∃ z(xGz⋀ zFy)\rbrace\)</span></p>
+<p>有以下定理：</p>
+<ul>
+<li><span class="math inline">\((R_1\circ R_2)\circ R_3=R_1\circ
+(R_2\circ R_3)\)</span></li>
+<li><span class="math inline">\((F\circ G)^{-1}=F^{-1}\circ
+G^{-1}\)</span></li>
+</ul></li>
+<li><p><strong>限制、象</strong></p>
+<p>对于任意集合 <span class="math inline">\(F,A\)</span> 可以定义</p>
+<p>限制：<span class="math inline">\(F\restriction A=\lbrace⟨ x,y⟩|xFy⋀
+x\in A\rbrace\)</span></p>
+<p>象：<span class="math inline">\(F[A]=\operatorname{ran}(F\restriction
+A)\)</span></p></li>
+<li><p><strong>单根</strong></p>
+<p>对于集合 <span class="math inline">\(F\)</span> 可以定义单根</p>
+<p><span class="math inline">\(\quad F\,是单根的⇔∀
+y(y\in\operatorname{ran}F→ ∃!x(x\in\operatorname{dom}F⋀ xFy))⇔(∀
+y\in\operatorname{ran}F)(∃!x\in\operatorname{dom}F)(xFy)\)</span></p>
+<p>上面的 <span class="math inline">\(∃!\)</span> 表示：存在唯一的</p>
+<p><span class="math inline">\(∀ x(x\in A→ B(x))\)</span> 缩写为 <span
+class="math inline">\((∀ x\in A)B(x)\)</span></p>
+<p><span class="math inline">\(∃ x(x\in A⋀ B(x))\)</span> 缩写为 <span
+class="math inline">\((∃ x\in A)B(x)\)</span></p></li>
+<li><p><strong>单值</strong></p>
+<p>对于集合 <span class="math inline">\(F\)</span> 可以定义单根</p>
+<p><span class="math inline">\(\quad F\,是单值的⇔∀
+x(x\in\operatorname{dom}F→ ∃!y(y\in\operatorname{ran}F⋀ xFy))⇔(∀
+x\in\operatorname{dom}F)(∃!y\in\operatorname{ran}F)(xFy)\)</span></p>
+<p>函数就可以被视作单值的二元关系</p></li>
+</ul>
+<h2 id="dm2.5-关系的表示">DM2.5 关系的表示</h2>
+<p>关系的表示有三种方法</p>
+<ul>
+<li>集合</li>
+<li>关系矩阵</li>
+<li>关系图</li>
+</ul>
+<h4 id="关系矩阵">关系矩阵</h4>
+<p><span class="math inline">\(\quad A=\lbrace
+a_1,a_2,\ldots,a_n\rbrace,\,B=\lbrace
+b_1,b_2,\ldots,b_m\rbrace,\,R=A\times B\)</span></p>
+<p>则 <span class="math inline">\(R\)</span> 的关系矩阵有</p>
+<p><span class="math inline">\(\quad M(R)=(r_{ij})_{n\times m}\qquad
+M(R)(i,j)=r_{ij}=\begin{cases}1,\quad a_iRb_j\\0,\quad
+否则\end{cases}\)</span></p>
+<blockquote>
+<p>如，<span class="math inline">\(A=\lbrace a,b,c\rbrace,\,B=\lbrace
+d,e,f\rbrace,\,R=\lbrace⟨ a,d⟩,⟨ a,f⟩,⟨ b,f⟩,⟨ c,e⟩\rbrace\)</span></p>
+<p>则 <span class="math inline">\(M(R)=\left[ \begin{matrix}1\quad
+0\quad 1\\0\quad 0\quad 1\\0\quad 1\quad
+0\end{matrix}\right]\)</span></p>
+</blockquote>
+<p>集合表达式与关系矩阵可以唯一相互确定</p>
+<ul>
+<li><p><strong>矩阵转置</strong>：<span
+class="math inline">\(M(R^{-1})=(M(R))^{T}\)</span></p></li>
+<li><p><strong>逻辑乘</strong>：<span class="math inline">\(M(R_1\circ
+R_2)=M(R_2)• M(R_1)\)</span>，其中乘法对应逻辑的 <span
+class="math inline">\(⋀\)</span>，加法对应逻辑的 <span
+class="math inline">\(⋁\)</span></p>
+<blockquote>
+<p><strong><em>有关矩阵的乘法</em></strong></p>
+<p>设 <span class="math inline">\(A\)</span> 为 <span
+class="math inline">\(m\times p\)</span> 的矩阵，<span
+class="math inline">\(B\)</span> 为 <span class="math inline">\(p\times
+n\)</span> 的矩阵，那么称 <span class="math inline">\(m\times n\)</span>
+的矩阵 <span class="math inline">\(C\)</span> 为矩阵 <span
+class="math inline">\(A\)</span> 与 <span
+class="math inline">\(B\)</span> 的乘积，记作 <span
+class="math inline">\(C=AB\)</span> 或 <span
+class="math inline">\(C=A\times B\)</span></p>
+<p>此时，矩阵 <span class="math inline">\(C\)</span> 中第 <span
+class="math inline">\(i\)</span> 行 <span
+class="math inline">\(j\)</span> 列的元素有：<span
+class="math inline">\(\quad c_{ij}={\sum_{k=1}^{p}\\}(a_{ik}\times
+b_{kj})=a_{i1}\times b_{1j}+a_{i2}\times b_{2j}+\ldots+a_{ip}\times
+b_{pj}\)</span></p>
+<p>对于矩阵 <span class="math inline">\(A,B\)</span> 仅当 <span
+class="math inline">\(A\,的行数\,=\,B\,的列数\)</span>
+时才能进行矩阵相乘。</p>
+<p>如存在矩阵 <span class="math inline">\(A=\left[\begin{matrix}a_1\quad
+a_2\quad
+a_3\end{matrix}\right],\,B=\left[\begin{matrix}b_1\\b_2\\b_3\end{matrix}\right]\)</span></p>
+<p>则 <span class="math inline">\(A\times B
+=\left[\begin{matrix}a_1\times b_1\quad a_1\times b_2\quad a_1\times
+b_3\\a_2\times b_1\quad a_2\times b_2\quad a_2\times b_3\\a_3\times
+b_1\quad a_3\times b_2\quad a_3\times
+b_3\end{matrix}\right]\)</span></p>
+</blockquote></li>
+</ul>
+<h4 id="关系图">关系图</h4>
+<p><span class="math inline">\(\quad A=\lbrace
+a_1,a_2,\ldots,a_n\rbrace,\,B=\lbrace
+b_1,b_2,\ldots,b_m\rbrace,\,R=A\times B\)</span></p>
+<p>则 <span class="math inline">\(R\)</span> 的关系图 <span
+class="math inline">\(G(R)\)</span>：</p>
+<ul>
+<li>以 <span class="math inline">\(∘\)</span> 表示 <span
+class="math inline">\(A,B\)</span> 中元素（称为顶点），以 <span
+class="math inline">\(→\)</span> 表示 <span
+class="math inline">\(R\)</span> 中元素</li>
+<li>若 <span class="math inline">\(a_iRb_j\)</span> 则从顶点 <span
+class="math inline">\(a_i\)</span> 向顶点 <span
+class="math inline">\(b_j\)</span> 引有向边 <span
+class="math inline">\(⟨ a_i,b_j⟩\)</span></li>
+</ul>
+<p>下面是 <span class="math inline">\(A=\lbrace
+a,b,c\rbrace,\,R=\lbrace{⟨ a,a⟩},{⟨ a,b⟩},{⟨ b,a⟩},{⟨
+b,c⟩}\rbrace\)</span> 的关系图 <span
+class="math inline">\(G(R)\)</span>（我尽力了）</p>
+<pre><code class=" mermaid">graph LR
+a((a)) --&gt; b((b)) --&gt; c((c))
+b --&gt; a
+a --&gt; a</code></pre>
+<p>关系图、关系矩阵、关系表达式间都能相互确定。</p>
+<p>对于 <span class="math inline">\(G(A\times
+B)\)</span>，关系图中的边都是由 <span class="math inline">\(A\)</span>
+中元素指向 <span class="math inline">\(B\)</span> 的</p>
+<h2 id="dm2.6-关系的性质">DM2.6 关系的性质</h2>
+<ul>
+<li><p><strong>自反性</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times
+A\)</span>，其自反性有：</p>
+<p><span class="math inline">\(\quad R\,是自反的⇔∀ x(x\in A→ xRx)⇔(∀
+x\in A)xRx\)</span></p>
+<p>相反地有</p>
+<p><span class="math inline">\(\quad R\,是非自反的⇔∃ x(x\in A⋀\neg
+xRx)\)</span></p>
+<p>关于自反性有如下定理：</p>
+<p><span class="math inline">\(\quad\begin{align}
+&amp;R\,是自反的\\⇔\,&amp;I_A\subseteq
+R\\⇔\,&amp;R^{-1}\,是自反的\\⇔\,&amp;M(R)\,主对角线上的元素全是\,1\\⇔\,&amp;G(R)的每个顶点处都有环\end{align}\)</span></p></li>
+<li><p><strong>反自反性</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times
+A\)</span>，其反自反性有：</p>
+<p><span class="math inline">\(\quad R\,是反自反的⇔∀ x(x\in A→ \neg
+xRx)⇔(∀ x\in A)\neg xRx\)</span></p>
+<p>相反地有</p>
+<p><span class="math inline">\(\quad R\,是非反自反的⇔∃ x(x\in A⋀
+xRx)\)</span></p>
+<p>可以想见，对于 <span class="math inline">\(R\subseteq A\times
+A,\,Q=(A\times A)-R\)</span>，如果 <span
+class="math inline">\(R\)</span> 是反自反的，那么 <span
+class="math inline">\(Q\)</span> 就是自反的</p>
+<p>关于反自反性有如下定理：</p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;R\,是反自反的\\⇔\,&amp;I_A\cap
+R=Ø\\⇔\,&amp;R^{-1}\,是反自反的\\⇔\,&amp;M(R)\,主对角线上的元素全是\,0\\⇔\,&amp;G(R)的每个顶点处都无环\end{align}\)</span></p></li>
+<li><p><strong>对称性</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times
+A\)</span>，其对称性有：</p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;R\,是对称的\\⇔\,&amp;∀ x∀
+y(x\in A⋀ y\in A⋀ xRy→ yRx)⇔(∀ x\in A)(∀ y\in A)[xRy→
+yRx]\end{align}\)</span></p>
+<p>相反地有</p>
+<p><span class="math inline">\(\quad R\,是非对称的⇔∃ x∃ y(x\in A⋀ y\in
+A⋀ xRy⋀\neg yRx)\)</span></p>
+<p>关于对称性有如下定理：</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;
+R\,是对称的\\⇔\,&amp;R^{-1}=R\\⇔\,&amp;R^{-1}\,是对称的\\⇔\,&amp;M(R)\,是对称的\\⇔\,&amp;G(R)\,的所有边都有反向边\end{align}\)</span></p></li>
+<li><p><strong>反对称性</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times
+A\)</span>，其反对称性有：</p>
+<p><span class="math inline">\(\quad
+\begin{align}&amp;R\,是反对称的\\⇔\,&amp;∀ x∀ y(x\in A⋀ y\in A⋀ xRy⋀
+yRx→ A=B)\\⇔\,&amp;(∀ x\in A)(∀ y\in A)[xRy⋀ yRx→
+A=B]\end{align}\)</span></p>
+<p>相反地有</p>
+<p><span class="math inline">\(\quad R\,是非反对称的⇔∃ x∃ y(x\in A⋀ y\in
+A⋀ xRy⋀ yRx ⋀ A\not=B)\)</span></p>
+<p>可见，反对称性可能与对称性同时存在</p>
+<p>关于非反对称性有如下定理：</p>
+<p><span class="math inline">\(\quad
+\begin{align}&amp;R\,是反对称的\\⇔\,&amp;R^{-1}\cap R\subseteq
+I_A\\⇔\,&amp;R^{-1}\,是反对称的\\⇔\,&amp;在\,M(R)\,中，∀ i∀ j(i\not=j⋀
+r_{ij}=1→
+r_{ji}=0)\\⇔\,&amp;G(R)\,的所有不同点间有不多于\,1\,条边\end{align}\)</span></p></li>
+<li><p><strong>传递性</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times
+A\)</span>，其传递性有：</p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;∀ x∀
+y∀ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz→ xRz)\\⇔\,&amp;(∀ x\in A)(∀ y\in
+A)(∀ z\in A)[xRy⋀ yRz→ xRz]\end{align}\)</span></p>
+<p>相反地有</p>
+<p><span class="math inline">\(\begin{align}\quad&amp;R\,是非传递的⇔∃ x∃
+y∃ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz⋀ \neg xRz)\end{align}\)</span></p>
+<p>关于传递性有如下定理：</p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;R\circ
+R\subseteq R\\⇔\,&amp;R^{-1}\,是传递的\\⇔\,&amp;∀ i∀ j,M(R\circ
+R)(i,j)\le M(R)(i,j)\\⇔\,&amp;在\,G(R)\,中，∀ a_i∀ a_j∀
+a_k，若有有向边\,⟨ a_i,a_j⟩\,和\,⟨ a_j,a_k⟩ ，则必有有向边\,⟨
+a_i,a_k⟩\end{align}\)</span></p></li>
+</ul>
+<h2 id="dm2.7-关系的幂运算和闭包">DM2.7 关系的幂运算和闭包</h2>
+<ul>
+<li><p><strong>关系的 n 次幂</strong></p>
+<p>对于关系 <span class="math inline">\(R\subseteq A\times A,n\in
+N\)</span>，有 <span
+class="math inline">\(\begin{cases}R^0=I_A\\R^{n+1}=R^n\circ
+R(n\ge0)\end{cases}\)</span></p>
+<p>显然 <span class="math inline">\(R^n\subseteq A\times A,n\in
+N\)</span></p>
+<p>对于 <span class="math inline">\(R\subseteq A\times A,\, m,n\in
+N\)</span>，有如下定理：</p>
+<p><span class="math inline">\(\quad R^m\circ R^n=R^{m+n}\qquad
+(R^m)^n=R^{mn}\)</span></p></li>
+<li><p><strong>闭包</strong></p>
+<p>包含给定元素，并具有指定性质的最小集合称为闭包</p>
+<p>闭包是任何 <span class="math inline">\(包含\,R\,的某种集合\)</span>
+的子集合，或者所有 <span
+class="math inline">\(包含\,R\,的某种集合\)</span> 的交集。</p>
+<ul>
+<li><p>自反闭包：<span class="math inline">\(r(R)\)</span>，包含 <span
+class="math inline">\(R\)</span> 的具有自反性的闭包</p>
+<p><span class="math inline">\(\quad R\subseteq r(R)\qquad
+r(R)是自反的\qquad ∀ S((R\subseteq S⋀ S 自反)→ r(r)\subseteq
+S)\)</span></p>
+<p><span class="math inline">\(\quad r(R)=R\cup I_A\)</span></p></li>
+<li><p>对称闭包：<span class="math inline">\(s(R)\)</span>，包含 <span
+class="math inline">\(R\)</span> 的具有对称性的闭包</p>
+<p><span class="math inline">\(\quad R\subseteq s(R)\qquad
+s(R)是对称的\qquad ∀ S((R\subseteq S⋀ S 对称)→ s(r)\subseteq
+S)\)</span></p>
+<p><span class="math inline">\(\quad s(R)=R\cup R^{-1}\)</span></p>
+<p>传递关系的对称闭包不一定是传递的</p></li>
+<li><p>传递闭包：<span class="math inline">\(t(R)\)</span>，包含 <span
+class="math inline">\(R\)</span> 的具有传递性的闭包</p>
+<p><span class="math inline">\(\quad R\subseteq t(R)\qquad
+t(R)是传递的\qquad ∀ S((R\subseteq S⋀ S 传递)→ t(r)\subseteq
+S)\)</span></p>
+<p><span class="math inline">\(\quad t(R)=R\cup R^2\cup
+R^3\cup\dots\)</span></p></li>
+</ul>
+<p>闭包有如下定理：</p>
+<p><span class="math inline">\(\quad R\,是自反的⇔ r(R)=R\quad
+R\,是对称的⇔ s(R)=R\quad R\,是传递的⇔ t(R)=R\)</span></p>
+<p><span class="math inline">\(\quad R_1\subseteq R_2\subseteq A\times
+A⇒\quad r(R_1)\subseteq r(R_2)\quad s(R_1)\subseteq s(R_2)\quad
+t(R_1)\subseteq t(R_2)\)</span></p>
+<p><span class="math inline">\(\quad r(R_1\cup R_2)=r(R_1)\cup
+r(R_2);\quad s(R_1\cup R_2)=s(R_1)\cup s(R_2)\quad t(R_1\cup
+R_2){\color{Red}{\supseteq}}t(R_1)\cup t(R_2)\)</span></p></li>
+</ul>
+<h2 id="dm2.8-等价关系和划分">DM2.8 等价关系和划分</h2>
+<ul>
+<li><p><strong>等价关系</strong></p>
+<p>有 <span class="math inline">\(A\not=Ø\quad R\subseteq A\times
+A\)</span>，若 <span class="math inline">\(R\)</span>
+是自反、对称、传递的，则称 <span class="math inline">\(R\)</span>
+是等价关系</p>
+<p>由于 <span class="math inline">\(st(R)\subseteq ts(R)\)</span>，对
+<span class="math inline">\(R\)</span> 依次求闭包只有 <span
+class="math inline">\(tsr(R)=trs(R)=rts(R)\)</span> 是等价闭包</p></li>
+<li><p><strong>等价类</strong></p>
+<p>设 <span class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
+class="math inline">\(x\in A\)</span>，则 <span
+class="math inline">\(x\)</span> 关于 <span
+class="math inline">\(R\)</span> 的等价类是 <span
+class="math inline">\([x]_R=\lbrace y|y\in A⋀ xRy\rbrace\)</span></p>
+<p>简称 <span class="math inline">\(x\)</span> 的等价类，记为 <span
+class="math inline">\([x]\)</span></p>
+<p>设 <span class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
+class="math inline">\(∀ x,y\in A\)</span>，有以下定理</p>
+<p><span class="math inline">\(\quad [x]_R\not=Ø\)</span></p>
+<p><span class="math inline">\(\quad xRy⇒[x]_R=[y]_R\)</span></p>
+<p><span class="math inline">\(\quad\neg
+xRy⇒[x]_R\cap[y]_R=Ø\)</span></p>
+<p><span class="math inline">\(\quad\bigcup\lbrace[x]_R|x\in A\rbrace
+=A\)</span></p></li>
+<li><p><strong>商集</strong></p>
+<p>设 <span class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
+class="math inline">\(A\)</span> 关于 <span
+class="math inline">\(R\)</span> 的商集是 <span
+class="math inline">\(A/R=\lbrace[x]_R|x\in A\rbrace\)</span></p>
+<p>若 <span class="math inline">\(A=\lbrace
+a_1,a_2,\ldots,a_n\rbrace\)</span> 上有等价关系 <span
+class="math inline">\(I_A,E_A,R_{ij}=I_A\cup\lbrace⟨ a_i,a_j⟩,⟨
+a_j,a_i⟩\rbrace,a_i,a_j\in A,i\not=j\)</span></p>
+<p><span class="math inline">\(\quad A/I_A=\lbrace\lbrace
+a_1\rbrace,\lbrace a_2\rbrace,\ldots,\lbrace
+a_n\rbrace\rbrace\)</span></p>
+<p><span class="math inline">\(\quad A/E_A=\lbrace\lbrace
+a_1,a_2,\ldots,a_n\rbrace\rbrace\)</span></p>
+<p><span class="math inline">\(\quad A/R_{ij}=A/I_A\cup\lbrace\lbrace
+a_i,a_j\rbrace\rbrace-\lbrace\lbrace a_i\rbrace,\lbrace
+a_j\rbrace\rbrace\)</span></p></li>
+<li><p><strong>划分</strong></p>
+<p><span class="math inline">\(A\not=Ø\)</span> 的一个划分是 <span
+class="math inline">\({\mathcal A}\subseteq P(A)\)</span> 满足</p>
+<ol type="1">
+<li><span class="math inline">\(Ø\not\in\mathcal A\)</span></li>
+<li><span class="math inline">\(∀ x,y(x,y\in\mathcal A⋀ x\not= y⇒ x\cap
+y=Ø)\)</span></li>
+<li><span class="math inline">\(\bigcup\mathcal A=A\)</span></li>
+</ol>
+<p><span class="math inline">\(\mathcal A\)</span>
+中的元素称为划分块</p>
+<p>若 <span class="math inline">\(A\not=Ø\)</span> 则有以下定理</p>
+<p><span class="math inline">\(\quad R\,是\,A\,上的等价关系⇒
+A/R\,是\,A\,的划分\)</span></p>
+<p><span class="math inline">\(\quad\mathcal A\,是\,A\,的划分⇒
+同块关系\,R_{\mathcal A}\,是\,A上的等价关系\quad xR_{\mathcal A}y⇔∃
+z(z\in\mathcal A⋀ x\in z⋀ y\in z)\)</span>，此时 <span
+class="math inline">\(R_{\mathcal A}\)</span> 称为 <span
+class="math inline">\(\mathcal A\)</span> 所定义的等价关系</p></li>
+<li><p><strong>Stirling 子集数</strong></p>
+<p>把 n 个编号的球放到 k 个相同的箱子里，不同放法的总数 <span
+class="math inline">\(\begin{Bmatrix}n\\k\end{Bmatrix}\)</span> 称为
+Stirling 子集数</p>
+<p>Srirling 子集数也是将 n 元集分成 k 个非空子集的分法总数</p>
+<p>递推公式有 <span
+class="math inline">\(\begin{Bmatrix}n\\k\end{Bmatrix}=\begin{cases}\begin{align}&amp;0\quad
+&amp;k=0\\&amp;1\quad &amp;n=k⋁ k=1\\&amp;2^{n-1}-1\quad
+&amp;k=2\\&amp;C_n^2\quad
+&amp;n=k+1\\&amp;k\begin{Bmatrix}n-1\\k\end{Bmatrix}+\begin{Bmatrix}n-1\\k-1\end{Bmatrix}\quad
+&amp;k &gt; 1\end{align}\end{cases}\)</span></p>
+<p>k&gt;1 时，可以让 n-1 个元素分成 k 个子集后，加入第 n 个元素。或者让
+n-1 个元素分成 k 个子集后，让第 n 个元素自成一个子集。</p></li>
+<li><p><strong>加细</strong></p>
+<p>有 <span class="math inline">\(\mathcal{A,B}\)</span> 是 <span
+class="math inline">\(A\)</span> 的划分。若 <span
+class="math inline">\(\mathcal A\)</span> 的划分块都含于 <span
+class="math inline">\(\mathcal B\)</span> 的某个划分块中，则称 <span
+class="math inline">\(\mathcal A\)</span> 是 <span
+class="math inline">\(\mathcal B\)</span> 的加细</p></li>
+</ul>
+<h2 id="dm2.9-序关系">DM2.9 序关系</h2>
+<ul>
+<li><p><strong>偏序关系、偏序集</strong></p>
+<p>设 <span class="math inline">\(A\not=Ø,\,R\subseteq A\times
+A\)</span>，若 <span class="math inline">\(R\)</span> 是
+<strong>自反、反对称、传递的</strong>，则称 <span
+class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\)</span> 上的偏序关系。用 <span
+class="math inline">\(\preccurlyeq\)</span> 表示偏序关系，读作
+“小于等于”</p>
+<p><span class="math inline">\(\quad⟨ x,y⟩\in R⇔ xRy⇔ x\preccurlyeq
+y\)</span></p>
+<p>设 <span class="math inline">\(\preccurlyeq\)</span> 是 <span
+class="math inline">\(A\)</span> 上的偏序关系，则称 <span
+class="math inline">\(⟨ A,\preccurlyeq⟩\)</span> 为偏序集</p></li>
+<li><p><strong>可比、严格小于、覆盖</strong></p>
+<p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
+A\)</span>，存在 <span class="math inline">\(x\preccurlyeq y⋁
+y\preccurlyeq x\)</span>，则称 <span class="math inline">\(x\)</span> 和
+<span class="math inline">\(y\)</span> 可比</p>
+<p>若 <span class="math inline">\(x\not= y\)</span>，则称 <span
+class="math inline">\(x\)</span> 严格小于 <span
+class="math inline">\(y\)</span>，即 <span
+class="math inline">\(x\preccurlyeq y⋀ x\not=y⇔ x\prec y\)</span></p>
+<p>若不存在 <span class="math inline">\(z\)</span> 使 <span
+class="math inline">\(x\prec z\)</span> 且 <span
+class="math inline">\(z\prec y\)</span>，则称 <span
+class="math inline">\(y\)</span> 覆盖 <span
+class="math inline">\(x\)</span>，即 <span class="math inline">\(x\prec
+y⋀\neg∃ z(z\in A⋀ x\prec z\prec y)\)</span></p></li>
+<li><p><strong>哈斯图</strong></p>
+<p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
+A\)</span></p>
+<p>用顶点表示 <span class="math inline">\(A\)</span> 中元素，当且仅当
+<span class="math inline">\(y\)</span> 覆盖 <span
+class="math inline">\(x\)</span> 时，<span
+class="math inline">\(y\)</span> 在 <span
+class="math inline">\(x\)</span> 上方，在 <span
+class="math inline">\(x,y\)</span> 间画无向边，即形成哈斯图</p></li>
+<li><p><strong>全序关系（线序关系）</strong></p>
+<p>对于偏序集 <span class="math inline">\(⟨
+A,\preccurlyeq⟩\)</span>，若其中任意元素 <span
+class="math inline">\(x,y\)</span> 都可比，则称 <span
+class="math inline">\(\preccurlyeq\)</span> 是 <span
+class="math inline">\(A\)</span> 上从全序关系，称 <span
+class="math inline">\(⟨ A,\preccurlyeq⟩\)</span> 为全序集</p>
+<p><span class="math inline">\(\quad ⟨ A,\preccurlyeq⟩\,是全序集⇔
+哈斯图是一条直线\)</span></p></li>
+<li><p><strong>拟序关系</strong></p>
+<p>有 <span class="math inline">\(A\not=Ø,\,R\subseteq A\times
+A\)</span>，若 <span class="math inline">\(R\)</span> 是
+<strong>反自反、传递的（反自反性与传递性蕴含反对称性）</strong>，则称
+<span class="math inline">\(R\)</span> 为 <span
+class="math inline">\(A\)</span> 上的拟序关系。用 <span
+class="math inline">\(\prec\)</span> 表示拟序关系，称 <span
+class="math inline">\(⟨ A,\prec⟩\)</span> 为拟序集</p>
+<p>若 <span class="math inline">\(\preccurlyeq\)</span> 是 <span
+class="math inline">\(A\)</span> 上的偏序关系，<span
+class="math inline">\(\prec\)</span> 是 <span
+class="math inline">\(A\)</span> 上的拟序关系，则</p>
+<ul>
+<li><span class="math inline">\(\prec\)</span> 是反对称的</li>
+<li><span class="math inline">\(\preccurlyeq-I_A\)</span> 是 <span
+class="math inline">\(A\)</span> 上的拟序关系</li>
+<li><span class="math inline">\(\prec\cup I_A\)</span> 是 <span
+class="math inline">\(A\)</span> 上的偏序关系</li>
+</ul>
+<p>若 <span class="math inline">\(\prec\)</span> 是 <span
+class="math inline">\(A\)</span> 上的拟序关系，则</p>
+<ul>
+<li><span class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span>
+中最多只有一个式子成立</li>
+<li><span class="math inline">\((x\prec y⋁ x=y)⋀(y\prec x⋁ x=y)⇒
+x=y\)</span></li>
+</ul></li>
+<li><p><strong>三歧性、拟线序</strong></p>
+<p>有 <span class="math inline">\(A\not=Ø\)</span>，<span
+class="math inline">\(\prec\)</span> 是 <span
+class="math inline">\(A\)</span> 上的拟序关系，若 <span
+class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span> 中
+<strong>有且仅有</strong> 一式成立，则称 <span
+class="math inline">\(\prec\)</span> 具有三歧性。同时称 <span
+class="math inline">\(\prec\)</span> 为 <span
+class="math inline">\(A\)</span> 上的拟线序关系，称 <span
+class="math inline">\(⟨ A,\prec⟩\)</span> 为拟线序集</p></li>
+<li><p><strong>最大（小）元、极大（小）元、上（下）界</strong></p>
+<p>对于偏序集 <span class="math inline">\(⟨ A,\preccurlyeq⟩,B\subseteq
+A,y\in B\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的最大元⇔∀ x(x\in B→
+x\preccurlyeq y)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的最小元⇔∀ x(x\in B→
+y\preccurlyeq x)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的极小元⇔∀ x(x\in B⋀
+y\preccurlyeq x→ x= y)\)</span></p>
+<p><span class="math inline">\(\quad y\,是\,B\,的极大元⇔∀ x(x\in B⋀
+x\preccurlyeq y→ x= y)\)</span></p>
+<p>对于 <span class="math inline">\(z\in A\)</span></p>
+<p><span class="math inline">\(\quad z\,是\,A\,的上界⇔∀ x(x\in B→
+x\preccurlyeq z)\)</span></p>
+<p><span class="math inline">\(\quad z\,是\,A\,的下界⇔∀ x(x\in B→
+z\preccurlyeq x)\)</span></p></li>
+<li><p><strong>良序</strong></p>
+<p>任何非空子集都有最小元的偏序关系</p>
+<p>公理：任何集合都能被赋予一个良序</p>
+<p>良序中的序数分为三类</p>
+<ul>
+<li><span class="math inline">\(0\)</span></li>
+<li>后继序数（有头有尾）：<span
+class="math inline">\(1,2,\dots,\omega+1,\omega+2,\dots\)</span></li>
+<li>极限序数（有头无尾）：<span
+class="math inline">\(\omega,2\omega,\omega^2,\omega^\omega,\dots\)</span></li>
+</ul></li>
+<li><p><strong>链、反链</strong></p>
+<p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
+为偏序集，<span class="math inline">\(B\subseteq A\)</span></p>
+<p><span class="math inline">\(\quad B\,是\,A\,中的链⇔∀ x∀ y(x\in B⋀
+y\in B→ x\,与\,y\,可比)\)</span></p>
+<p><span class="math inline">\(\quad B\,是\,A\,中的反链⇔∀ x∀ y(x\in B⋀
+y\in B⋀ x\not= y→ x\,与\,y\,不可比)\)</span></p>
+<p><span class="math inline">\(\quad|B|\)</span> 称为（反）链的长度</p>
+<p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
+为偏序集，<span class="math inline">\(A\)</span> 中最长链长度为 <span
+class="math inline">\(n\)</span>，则</p>
+<ul>
+<li><span class="math inline">\(A\)</span> 中存在极大元</li>
+<li><span class="math inline">\(A\)</span> 存在 <span
+class="math inline">\(n\)</span>
+个划分块的划分，使每个划分块都是反链</li>
+<li>若 <span class="math inline">\(|A|=mn+1\)</span>，则 <span
+class="math inline">\(A\)</span> 中要么有长度为 <span
+class="math inline">\(m+1\)</span> 的反链，要么有长度为 <span
+class="math inline">\(n+1\)</span> 的链</li>
+</ul></li>
+</ul>
+<h2 id="dm2.10-函数">DM2.10 函数</h2>
+<p>函数：也称映射。单值的二元关系。<span class="math inline">\(∀
+x\in\operatorname{dom}F,\,∀ y,z\in\operatorname{ran}F,\,xFy⋀ xFz→
+y=z\)</span></p>
+<p>函数的记号：<span class="math inline">\(F(x)=y⇔ ⟨ x,y⟩\in F⇔
+xFy\)</span></p>
+<ul>
+<li><p><strong>偏函数</strong></p>
+<p>设 <span class="math inline">\(F\)</span> 是函数，<span
+class="math inline">\(\operatorname{dom}F\subseteq
+A⋀\operatorname{ran}F\subseteq B\)</span> 则称之为 <span
+class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的偏函数。记作 <span
+class="math inline">\(F:A→ B\)</span></p>
+<p>其中 <span class="math inline">\(A\)</span> 称为 <span
+class="math inline">\(F\)</span> 的前域。</p>
+<p><span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的全体偏函数记为 <span
+class="math inline">\(A→ B=\lbrace F|F:A→ B\rbrace\)</span></p>
+<p>显然 <span class="math inline">\(A→ B\subseteq P(A\times
+B)\)</span></p></li>
+<li><p><strong>真偏函数</strong></p>
+<p><span class="math inline">\({dom\,}F\subset A\)</span>，记作 <span
+class="math inline">\(F:A\shortparallel\!\!\!→ B\)</span>。<span
+class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的全体真偏函数记为 <span
+class="math inline">\(A\shortparallel\!\!\!→ B=\lbrace
+F|F:A\shortparallel\!\!\!→ B\rbrace\)</span></p>
+<p>所以，就有 <span class="math inline">\(A\shortmid\!\!\!→ B=A→ B\cup
+A\shortparallel\!\!\!→ B\qquad F:A\shortmid\!\!\!→ B⇒
+F:\operatorname{dom}F→ B\)</span></p></li>
+<li><p><strong>全函数</strong></p>
+<p><span class="math inline">\(\operatorname{dom}F=A\)</span>，记作
+<span class="math inline">\(F:A\shortmid\!\!\!→ B\)</span>。<span
+class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的全体全函数记为 <span
+class="math inline">\(B^A=A→ B=\lbrace F|F:A\shortmid\!\!\!→
+B\rbrace\)</span></p>
+<p><span class="math inline">\(A,B\)</span> 中存在空集 <span
+class="math inline">\(Ø\)</span> 时，<span
+class="math inline">\(B^A\)</span> 分为以下几种情况</p>
+<ul>
+<li><span class="math inline">\(A,B\)</span> 是空集：<span
+class="math inline">\(B^A=Ø^{Ø}=\lbraceØ\rbrace\)</span></li>
+<li>仅 <span class="math inline">\(A\)</span> 是空集：<span
+class="math inline">\(B^A=B^{Ø}=\lbraceØ\rbrace\)</span></li>
+<li>仅 <span class="math inline">\(B\)</span> 是空集：<span
+class="math inline">\(B^A=Ø^{A}=Ø\)</span></li>
+</ul>
+<p>其余时候，<span
+class="math inline">\(|B^A|=|B|^{|A|}\)</span></p></li>
+<li><p><strong>全函数的性质</strong></p>
+<ul>
+<li>单射：<span class="math inline">\(F\)</span> 是单根的。</li>
+<li>满射：<span
+class="math inline">\(\operatorname{ran}F=B\)</span></li>
+<li>双射：<span class="math inline">\(F\)</span> 即是单射也是满射。</li>
+</ul>
+<p>若有 <span class="math inline">\(F:A→
+B,\,|A|=n,\,|B|=m\)</span>，则</p>
+<ul>
+<li><span class="math inline">\(n&lt;m\)</span> 时，<span
+class="math inline">\(A→ B\)</span> 中无满射、双射。单射数量是 <span
+class="math inline">\(m(m-1)\ldots(m-n+1)\)</span></li>
+<li><span class="math inline">\(n&gt;m\)</span> 时，<span
+class="math inline">\(A→ B\)</span> 中无单射、双射。满射数量是 <span
+class="math inline">\(m!\begin{Bmatrix}n\\m\end{Bmatrix}\)</span></li>
+<li><span class="math inline">\(n=m\)</span> 时，<span
+class="math inline">\(A→ B\)</span> 中双射个数为 <span
+class="math inline">\(n!\)</span></li>
+</ul></li>
+<li><p><strong>象、原象</strong></p>
+<p>给定映射 <span class="math inline">\(f:A→ B,\,A&#39;\subseteq
+A,\,B&#39;\subseteq B\)</span></p>
+<p>则 <span class="math inline">\(A&#39;\)</span> 的像 <span
+class="math inline">\(f(A&#39;)=\lbrace y|x\in
+A&#39;,xfy\rbrace\)</span></p>
+<p><span class="math inline">\(B&#39;\)</span> 的原像
+$f^{-1}(B')=x|yB',xfy$</p>
+<p>有 <span class="math inline">\(f(A)=\operatorname{ran}f\quad
+f^{-1}(B)=\operatorname{dom}f=A\)</span></p></li>
+<li><p><strong>特殊函数</strong></p>
+<ul>
+<li><p>常数函数：<span class="math inline">\(f:A→ B,\,∃ b\in B,\,∀ x\in
+A,\,f(x)=b\)</span></p></li>
+<li><p>恒等函数：<span class="math inline">\(I_A:A→
+A,\,I_A(x)=x\)</span></p></li>
+<li><p>特征函数：<span
+class="math inline">\(\chi_A:E→\lbrace0,1\rbrace,\,\chi_A(x)=1⇔ x\in
+A\)</span></p>
+<p>此时当 <span class="math inline">\(Ø\subset A\subset E\)</span>
+时，<span class="math inline">\(\chi_A\)</span> 是满射</p></li>
+</ul></li>
+<li><p><strong>单调函数</strong></p>
+<p>设 <span class="math inline">\(f:A→ B\)</span> 且 <span
+class="math inline">\(⟨ A,\le_A⟩,⟨ B,\le_B⟩\)</span> 是偏序集</p>
+<p>单调增：<span class="math inline">\(∀ x,y\in A,\,x\le_Ay⇒
+f(x)\le_Bf(y)\)</span></p>
+<p>单调减：<span class="math inline">\(∀ x,y\in A,\,x\le_Ay⇒
+f(y)\le_Bf(x)\)</span></p>
+<p>严格单调：将上面的 <span class="math inline">\(\le\)</span> 换为
+<span class="math inline">\(&lt;\)</span>。此时是单射</p></li>
+<li><p><strong>自然映射</strong></p>
+<p>设 <span class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\)</span> 上的等价关系</p>
+<p>自然映射（典型映射）：<span class="math inline">\(f:A→
+A/R,\,f(x)=[x]_R\)</span></p>
+<p>当 <span class="math inline">\(R=I_A\)</span> 时，<span
+class="math inline">\(f\)</span> 是单射</p>
+<p>又有 <span class="math inline">\(f:A→ B,\,g:B→ C\)</span> 则 <span
+class="math inline">\(f\circ g:A→ C,\,F\circ g(x)=f(g(x))\)</span></p>
+<p>若 <span class="math inline">\(f:A→ B\)</span> 是双射，则 <span
+class="math inline">\(f^{-1}=B→ A\)</span> 也是双射。此时称 <span
+class="math inline">\(f^{-1}\)</span> 为 <span
+class="math inline">\(f\)</span> 的 <strong>反函数</strong></p></li>
+<li><p><strong>单边逆</strong></p>
+<p>若 <span class="math inline">\(f:A→ B,\,g:B→ A\)</span></p>
+<p>左逆：<span class="math inline">\(g\,是\,f\,的左逆⇔ g\circ
+f=I_A\)</span></p>
+<p>右逆：<span class="math inline">\(g\,是\,f\,的右逆⇔ f\circ
+g=I_B\)</span></p>
+<p><span class="math inline">\(\quad f\,存在左逆⇔ f\,是单射\)</span></p>
+<p><span class="math inline">\(\quad f\,存在右逆⇔ f\,是满射\)</span></p>
+<p><span class="math inline">\(\quad f\,存在左逆、右逆⇔ f\,是双射⇔
+f\,的左逆、右逆相等\)</span></p></li>
+</ul>
+<h2 id="dm2.11-自然数">DM2.11 自然数</h2>
+<ul>
+<li><p><strong>封闭</strong></p>
+<p>有函数 <span class="math inline">\(F\)</span>，<span
+class="math inline">\(A\subseteq\operatorname{dom}F\)</span></p>
+<p>则有：<span class="math inline">\(A\,在函数\,F\,下封闭⇔ F(A)\subseteq
+A⇔ F:A→ A⇔ F\,是\,A\,上一元运算\)</span></p></li>
+<li><p><strong>皮亚诺公理</strong></p>
+<p>皮亚诺公理定义了自然数的集合。</p>
+<p>对于三元组 <span class="math inline">\(⟨ M,F,e⟩,\,F:M→ M\)</span></p>
+<ul>
+<li><p><span class="math inline">\(e\in M\)</span></p></li>
+<li><p><span class="math inline">\(M\)</span> 在 <span
+class="math inline">\(F\)</span> 下封闭</p></li>
+<li><p><span class="math inline">\(e\notin
+\operatorname{ran}F\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> 是单射</p></li>
+<li><p><span class="math inline">\(A\subseteq M⋀ e\in A⋀
+A\,在\,F\,下封闭⇒ A=M\)</span></p>
+<p>（极小性公理/数学归纳法原理。即 <span
+class="math inline">\(M\)</span> 是满足条件的最小集合）</p></li>
+</ul></li>
+<li><p><strong>后继</strong></p>
+<p>对于集合 <span class="math inline">\(A\)</span>，其后继 <span
+class="math inline">\(A^+=A\cup\lbrace A\rbrace\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq A^+⋀ A\in
+A^+\)</span></p></li>
+<li><p><strong>归纳集</strong></p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;A\,是归纳集\\⇔\,&amp;Ø\in
+A⋀∀ x(x\in A→ x^+\in
+A)\\⇔\,&amp;A\,含有\,Ø\,且对后继封闭\end{align}\)</span></p></li>
+<li><p><strong>后继函数</strong></p>
+<p><span class="math inline">\(\quad\sigma:N→ N,\,∀ n\in
+N,\,\sigma(n)=n^+\)</span></p></li>
+<li><p><strong>传递集</strong></p>
+<p>对于集合 <span class="math inline">\(A\)</span>，<span
+class="math inline">\(∀ x\in a\in A⇒ x\in A\)</span>，则称 <span
+class="math inline">\(A\)</span> 为传递集</p>
+<p><span class="math display">\[\quad\begin{align}
+&amp;A\,是传递集\\
+⇔\,&amp;{\bigcup\\}A\subseteq A\\
+⇔\,&amp;∀ a(a\in A→ a\subseteq A)\\
+⇔\,&amp;A\subseteq P(A)\\
+⇔\,&amp;P(A)\,是传递集
+\end{align}\]</span></p>
+<p>另外，<span
+class="math inline">\(A\,是传递集⇒{\bigcup\\}(A^+)=A\)</span></p></li>
+</ul>
+<h4 id="集合论中的数学归纳法">集合论中的数学归纳法</h4>
+<p>目标：证明 <span class="math inline">\(∀ n\in N\)</span>，<span
+class="math inline">\(P(n)\)</span> 为真</p>
+<ol type="1">
+<li><p>构造 <span class="math inline">\(S=\lbrace n|n\in N⋀
+P(n)\rbrace\)</span></p></li>
+<li><p>证明 <span class="math inline">\(S\)</span> 是归纳集</p>
+<p><span class="math display">\[\quad\begin{align}&amp;Ø\in S\\&amp;∀
+n(n\in s→ n^+\in S)\\∴\quad&amp;S=N\end{align}\]</span></p></li>
+</ol>
+<h4 id="使用集合来构造-peano-系统">使用集合来构造 Peano 系统</h4>
+<p><strong>自然数</strong>：属于每个归纳集的集合。</p>
+<p><strong>自然数集（<span
+class="math inline">\(N\)</span>）</strong>：包含于每个归纳集的集合。</p>
+<p><span class="math display">\[\quad\begin{align}
+&amp;0=Ø\\
+&amp;1=Ø^+=\lbraceØ\rbrace=\lbrace 0\rbrace\\
+&amp;2=Ø^{++}=\lbraceØ,\lbraceØ\rbrace\rbrace=\lbrace0,1\rbrace\\
+&amp;\dots\\
+&amp;n=(n-1)^+=\lbrace0,1,2,\ldots,n-1\rbrace
+\end{align}\]</span></p>
+<p>如此一来，让自然数作为集合，可以进行运算</p>
+<p><span class="math display">\[\quad\begin{align}
+&amp;2\cap3=\lbrace0,1\rbrace\cap\lbrace0,1,2\rbrace=\lbrace0,1\rbrace=2=\operatorname{min}(2,3)\\
+&amp;2\cup3=\lbrace0,1\rbrace\cup\lbrace0,1,2\rbrace=\lbrace0,1,2\rbrace=3=\operatorname{max}(2,3)\\
+&amp;3-2=\lbrace0,1,2\rbrace-\lbrace0,1\rbrace=\lbrace2\rbrace\\
+&amp;2-3=\lbrace0,1\rbrace-\lbrace0,1,2\rbrace=Ø\\
+&amp;\bigcup
+n=\bigcup\lbrace0,1,\dots,n-1\rbrace=n-1=\operatorname{max}(0,1,\dots,n-1)\\
+&amp;\bigcap
+n=\bigcap\lbrace0,1,\dots,n-1\rbrace=0=\operatorname{min}(0,1,\dots,n-1)\\
+&amp;0\in1\in2\in3\in\dots\qquad0\subseteq1\subseteq2\subseteq3\subseteq\dots
+\end{align}\]</span></p>
+<p>于是有以下定理：</p>
+<ul>
+<li><p>自然数集是归纳集，且是最小的归纳集</p>
+<p>自然数是传递集，自然数集也是传递集</p></li>
+<li><p><span class="math inline">\(⟨ N,\sigma,0⟩\)</span> 是 Peano
+系统</p></li>
+<li><p><span class="math inline">\(∀ m,n\in N,m^+\in n^+⇔ m\in
+n\)</span></p></li>
+<li><p>任何自然数都不是自己的元素。</p></li>
+<li><p><span class="math inline">\(Ø\)</span> 属于 <span
+class="math inline">\(0\)</span> 以外的任意自然数</p></li>
+<li><p>任何自然数的元素都是其子集</p>
+<p><span class="math inline">\(\quad n\in N⇒∀ x(x\in n→ x\subseteq
+n)\)</span></p></li>
+<li><p>三歧性</p>
+<p>对于 <span class="math inline">\(∀ m,n\in
+N\)</span>，以下三式恰有一式成立</p>
+<p><span class="math inline">\(\quad m\in n,\quad m=n,\quad n\in
+m\)</span></p></li>
+<li><p><span class="math inline">\(N\)</span> 上的递归定理</p>
+<p>设 <span class="math inline">\(A\)</span> 为集合，<span
+class="math inline">\(a\in A,\,F:A→ A\)</span></p>
+<p>则存在唯一的函数 <span class="math inline">\(h:N→ A\)</span>，使得
+<span class="math inline">\(h(0)=a\)</span>，且 <span
+class="math inline">\(∀ n\in N,\,h(n^+)=F((h(n)))\)</span></p>
+<p>如此一来，就可以递归地定义函数。如</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;a\in A,\,F:A→
+A\\&amp;\begin{cases}h(0)=a\\h(n+1)=F(h(n)),\,∀ n\in
+N\end{cases}\end{align}\)</span></p></li>
+</ul>
+<p>定义自然数集上的二元运算：</p>
+<ul>
+<li><p><strong>加法</strong></p>
+<p><span class="math inline">\(\quad +:N\times N→ N\)</span></p>
+<p><span class="math inline">\(\quad+(⟨ 2,3⟩)=5,\quad2+3=5\)</span></p>
+<p>将 <span class="math inline">\(m\)</span>
+看成固定值，就能定义一元函数 <span
+class="math inline">\(+m\)</span>。再将 <span
+class="math inline">\(m\)</span> 扩展到每个自然数，就有了所有的 <span
+class="math inline">\(+m\)</span></p>
+<p><span class="math inline">\(\quad\begin{align}&amp;m\in N,\,A_m:N→
+N\\&amp;\begin{cases}A_m(0)=m\\A_m(n^+)=(A_m(n))^+\end{cases}\end{align}\)</span></p>
+<p>加法有以下性质</p>
+<ul>
+<li><span class="math inline">\(m+0=m\)</span></li>
+<li><span class="math inline">\(m+n^+=(m+n)^+\qquad
+m^++n=(m+n)^+\)</span></li>
+<li><span class="math inline">\(m+n=n+m\)</span></li>
+</ul></li>
+<li><p><strong>乘法</strong></p>
+<p><span class="math inline">\(\quad•:N\times N→ N\)</span></p>
+<p><span class="math inline">\(\quad•(⟨ 2,3⟩)=6,\quad2•3=6\)</span></p>
+<p>可以定义 $• m $ 函数</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;m\in N,\,M_m:N→
+N\\&amp;\begin{cases}M_m(0)=0\\M_m(n^+)=M_m(n)+m\end{cases}\end{align}\)</span></p>
+<p>乘法有如下性质</p>
+<ul>
+<li><span class="math inline">\(1• n=n• 1=n\)</span></li>
+<li><span class="math inline">\(n• m=m• n\)</span></li>
+<li><span class="math inline">\((m• n)• k=m• (n• k)\)</span></li>
+<li><span class="math inline">\(k\not=0⋀ m• k=n• k⇒ m=n\)</span></li>
+<li><span class="math inline">\(m• (n+k)=(m• n)+(m• k)\)</span></li>
+</ul></li>
+</ul>
+<p>自然数有两个基本性质</p>
+<ul>
+<li><p><strong>匹配</strong></p>
+<p>在自然数集合与另一集合间建立双射，可以统计集合的大小</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;\lbrace
+a\rbrace→\lbrace 0\rbrace=1\\&amp;\lbrace a,b\rbrace→\lbrace
+0,1\rbrace=2\\&amp;\lbrace a,b,c\rbrace→\lbrace
+0,1,2\rbrace=3\\&amp;\ldots\end{align}\)</span></p></li>
+<li><p><strong>计数</strong></p>
+<p>任意自然数集合都有最小元素，任意自然数间可以比较大小</p>
+<p><span
+class="math inline">\(\quad\begin{align}&amp;0→1→2→3→\ldots\\&amp;a→
+b\\&amp;a→ b→ c\\&amp;\ldots\end{align}\)</span></p></li>
+</ul>
+<h2 id="dm2.12-等势有穷集无穷集">DM2.12 等势、有穷集、无穷集</h2>
+<ul>
+<li><p><strong>等势</strong></p>
+<p><span class="math inline">\(\quad A\,与\,B\,等势⇔∃ 双射\,f:A→
+B\)</span></p>
+<p>记作 <span class="math inline">\(A\approx B\)</span></p>
+<p>则有：</p>
+<p><span class="math inline">\(\quad\begin{align}&amp;Z\approx N\qquad
+N\times N\approx N\qquad N\approx Q\qquad (0,1)\approx
+R\qquad[0,1]\approx(0,1)\\&amp;P(A)\approx 2^A=A→ 2\\&amp;A\approx
+A\qquad A\approx B⇒ B\approx A\qquad A\approx B⋀ B\approx C⇒ A\approx
+C\\&amp;N\not\approx R\qquad A\not\approx
+P(A)\end{align}\)</span></p></li>
+<li><p><strong>有穷集</strong></p>
+<p>与某一自然数 <span class="math inline">\(n\)</span>
+等势的集合称为有穷集。</p>
+<p><span class="math inline">\(\quad A\,是有穷集⇔ ∃ n(A\approx n⋀ n\in
+N)⇔ B\subset A→ A\not\approx B\)</span></p>
+<p>不存在与自身真子集等势的自然数，也不存在与自身真子集等势的有穷集</p></li>
+<li><p><strong>无穷集</strong></p>
+<p>不能与任何自然数 <span class="math inline">\(n\)</span>
+等势的集合</p>
+<p><span class="math inline">\(\quad A\,是无穷集⇔ n\in N→ A\not\approx
+n⇔ B\subset A→ B\approx A\)</span></p>
+<p>与自身真子集等势的集合是无穷集，自然数集也是无穷集</p></li>
+</ul>
+<h2 id="dm2.13-基数">DM2.13 基数</h2>
+<ul>
+<li><p><strong>基数</strong></p>
+<p>对每个集合 <span class="math inline">\(A\)</span>，定义 <span
+class="math inline">\(\operatorname{card}A\)</span></p>
+<ul>
+<li><span
+class="math inline">\(\operatorname{card}A=\operatorname{card}B⇔
+A\approx B\)</span></li>
+<li>对于有穷集：<span class="math inline">\(\operatorname{card}A=n⇔
+A\approx n\)</span></li>
+<li>对于无穷集：<span
+class="math inline">\(\operatorname{card}N=\aleph_0\)</span></li>
+<li>对于实数集：<span
+class="math inline">\(\operatorname{card}R=\aleph_1=\aleph\)</span></li>
+</ul>
+<p><span class="math inline">\(0,1,2,\dots,\aleph_0,\aleph\)</span>
+都称作基数</p>
+<p>其中 <span class="math inline">\(0,1,2,\ldots\)</span>
+称为有穷基数；<span class="math inline">\(\aleph_0,\aleph\)</span>
+称为无穷基数</p>
+<p>若 <span class="math inline">\({card\,}A=\aleph_i\)</span> 则 <span
+class="math inline">\(\operatorname{card}P(A)=\aleph_{i+1}\)</span></p>
+<p>可以用希腊字符 <span
+class="math inline">\(\kappa,\lambda,\mu\)</span> 等表示任意基数。<span
+class="math inline">\(\operatorname{card}A\)</span> 是对 <span
+class="math inline">\(|A|\)</span> 的推广</p>
+<p>有穷基数小于任何无穷基数，<span class="math inline">\(0\)</span>
+是有穷基数的最小值。<span
+class="math inline">\(\operatorname{rand}A&lt;\operatorname{rand}P(A)\)</span></p></li>
+<li><p><span class="math inline">\(K_\kappa\)</span></p>
+<p>设 <span class="math inline">\(\kappa\)</span> 是任意基数，令 <span
+class="math inline">\(K_\kappa=\lbrace
+x|x\,是集合且\,\operatorname{card}x=\kappa\rbrace\)</span></p>
+<ul>
+<li><span class="math inline">\(\kappa=0\)</span> 时，<span
+class="math inline">\(K_\kappa=\lbraceØ\rbrace\)</span> 是集合</li>
+<li><span class="math inline">\(\kappa\not=0\)</span> 时，<span
+class="math inline">\(K_\kappa\)</span> 不是集合，而是类</li>
+</ul></li>
+<li><p><strong>优势、劣势</strong></p>
+<p>如果存在 <span class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的单射，则必然有 <span
+class="math inline">\(\operatorname{rand}A\le
+\operatorname{rand}B\)</span></p>
+<p>则称 <span class="math inline">\(A\)</span> 较 <span
+class="math inline">\(B\)</span> 劣势（<span
+class="math inline">\(B\)</span> 较 <span
+class="math inline">\(A\)</span> 优势），记为 <span
+class="math inline">\(A\preccurlyeq• B\)</span> 或 <span
+class="math inline">\(B\succcurlyeq• A\)</span></p>
+<p>若有 <span
+class="math inline">\(\operatorname{rand}A&lt;\operatorname{rand}B\)</span>
+则称为绝对劣势（绝对优势），记为 <span class="math inline">\(A\prec•
+B\)</span> 或 <span class="math inline">\(B\succ• A\)</span></p>
+<p>显然 <span class="math inline">\(A\subseteq B⇒ A\preccurlyeq• B\quad
+A\subset B⇒ A\succcurlyeq• B\)</span></p>
+<p><span class="math inline">\(\quad A\preccurlyeq\bull B⋀
+B\preccurlyeq\bull A⇒ A\approx B\)</span></p>
+<p><span class="math inline">\(\quad
+\kappa\le\lambda⋀\lambda\le\kappa⇒\kappa=\lambda\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq B\subseteq C⋀ A\approx
+C⇒ A\approx B\approx C\)</span></p>
+<p><span class="math inline">\(\quad R\approx(N→2)=2^N\)</span></p></li>
+<li><p><strong>可数集（可列集）</strong></p>
+<p>基数不超过 <span class="math inline">\(\aleph_0\)</span>
+的集合称为可数集。<span class="math inline">\(n\in N\)</span>
+称为有穷可数集，<span class="math inline">\(N\)</span>
+称为无穷可数集</p>
+<p>倘若 <span class="math inline">\(A\)</span>
+是有穷可数集，则其可以表示成 <span class="math inline">\(A=\lbrace
+a_1,a_2,\dots,a_n\}\)</span></p></li>
+<li><p><strong>基数运算</strong></p>
+<p>基数间也能进行运算</p>
+<p>有集合 <span class="math inline">\(K,L\)</span> 且 <span
+class="math inline">\(K\cap L=Ø\)</span>，基数 <span
+class="math inline">\(\kappa =
+\operatorname{rand}K,\lambda=\operatorname{rand}L\)</span></p>
+<p>则 <span
+class="math inline">\(\kappa+\lambda=\operatorname{rand}(K\cup
+L)\qquad\kappa\bull\lambda=\operatorname{rand}(K\times
+L)\qquad\kappa^\lambda=\operatorname{rand}\lbrace A|A:K→
+L\}\)</span></p>
+<p>有 <span
+class="math inline">\(rand\,P(K)=2^\kappa\qquad\aleph=2^{\aleph_0}\)</span></p>
+<p>基数运算的性质</p>
+<ul>
+<li><p><span
+class="math inline">\(\kappa+\lambda=\lambda+\kappa\qquad(\kappa+\lambda)+\mu=\kappa+(\lambda+\mu)\qquad\kappa\le\lambda⇒\kappa-\mu\le\lambda-\mu\)</span></p>
+<p><span
+class="math inline">\(\kappa\bull(\lambda+\mu)=\kappa\bull\lambda+\kappa\bull\mu\qquad\kappa^\lambda\bull\kappa^\mu=\kappa^{\lambda+\mu}\)</span></p>
+<p><span
+class="math inline">\((\kappa\not=0⋁\mu\not=0)⋀\kappa\le\lambda⇒\mu^\kappa\le\mu^\lambda\)</span></p></li>
+<li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数则有
+<span class="math inline">\(\kappa\bull\kappa=\kappa\)</span></p>
+<p>即，对于任意无穷集都能和自身的二元关系建立双射</p></li>
+<li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，<span
+class="math inline">\(\lambda\)</span> 是基数，则有 <span
+class="math inline">\(\kappa+\lambda=\kappa•\lambda=max\lbrace
+\kappa,\lambda\}\)</span></p></li>
+<li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，则
+<span class="math inline">\(\kappa^\kappa=2^\kappa\)</span></p></li>
+</ul></li>
+</ul>
+<h2 id="dm2.14-公理化集合论">DM2.14 公理化集合论</h2>
+<blockquote>
+<p>罗素悖论：罗素悖论是由罗素发现的一个集合论悖论。若有 <span
+class="math inline">\(A=\lbrace x|x\not\in x\rbrace\)</span>，则无法判断
+<span class="math inline">\(A\in A\)</span> 的真假。</p>
+<p>罗素悖论的提出引发了第三次数学危机。为了尝试解决该危机，提出了公理化集合论。ZF
+公理系统是其中的一种。</p>
+</blockquote>
+<h4 id="zf-公理系统">ZF 公理系统</h4>
+<ul>
+<li><p>空集公理：<span class="math inline">\(Ø\,是集合\)</span></p></li>
+<li><p>外延公理：所含元素相同的两个集合相等</p>
+<p><span class="math inline">\(\quad A=B⇔∀ x(x\in A↔ x\in
+B)\)</span></p></li>
+<li><p>无序对公理：<span class="math inline">\(a,b\,是集合⇒\lbrace
+a,b\rbrace\,是集合\)</span></p></li>
+<li><p>子集公理：<span class="math inline">\(A\,是集合⇒\lbrace x\in
+A|P(x)\rbrace\,是集合\)</span></p></li>
+<li><p>并集公理：<span class="math inline">\({\mathcal
+A}\,是集族⇒{\bigcup\\}{\mathcal A}\,是集合\)</span></p></li>
+<li><p>幂集公理：<span class="math inline">\(A\,是集合⇒
+P(A)\,是集合\)</span></p></li>
+<li><p>替换公理：<span class="math inline">\(F\,是\,A\,上的函数⇒ \lbrace
+f(x)|x\in A\}\,是集合\)</span></p></li>
+<li><p>正则公理：<span class="math inline">\(A\not=Ø⇒∃ B(B\in A⋀ B\cap
+A=Ø)\)</span></p></li>
+<li><p>无限公理：存在归纳集。</p>
+<p><span class="math inline">\(\quad A\,是归纳集⇔(Ø\in A)⋀(a\in A→
+a\cup\lbrace a\rbrace\in A)\)</span></p></li>
+</ul>
+<p>以上公理组成了 ZF 公理系统。加上下面的选择公理（策梅洛公理）即构成
+ZFC 公理系统</p>
+<ul>
+<li><p>选择公理：<span class="math inline">\(\mathcal A\)</span>
+是元素互不相交的非空集族。从该集族每个元素中选择一个元素，那些选择的元素构成一个集合</p>
+<p><span class="math inline">\(\quad∀ a,b\in{\mathcal A}(a\cap b\not=Ø→
+a=b)⇒∃ C(∀ x\in{\mathcal A}→ |x\cap C|=1)\)</span></p>
+<p>以下公理都是该公理的等价形式：</p>
+<ul>
+<li>广义选择公理：对于任何非空集族都有选择函数 <span
+class="math inline">\(f:\mathcal{A→\bigcup A},\,f(x)\in x\in\mathcal
+A\)</span></li>
+<li>良序原理：任何集合都可以良序化</li>
+<li>Zorn 原理：链总有上界的非空偏序集存在极大元</li>
+<li>Hausdorff 极大原理：任何链都包含于极大链</li>
+<li>三歧性原理：<span
+class="math inline">\(A,B\,是集合⇒|A|\le|B|⋁|B|\le|A|\)</span></li>
+</ul></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
+      
+        <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">#离散数学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>离散数学（2）</div>
+      <div>https://i-melody.github.io/2022/10/15/Basic/2 集合论/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
