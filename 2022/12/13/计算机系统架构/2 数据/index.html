@@ -1,0 +1,1154 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，其在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;计算机系统结构&gt;CA2 数据">
+<meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/2%20%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，其在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%20浮点数结构图.png">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3_1%20单精度浮点数图.png">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_4%20ASCII%20码表.png">
+<meta property="article:published_time" content="2022-12-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-13T12:42:14.768Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="计算机系统结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%20浮点数结构图.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;计算机系统结构&gt;CA2 数据 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;计算机系统结构&gt;CA2 数据"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-13 00:00" pubdate>
+          2022年12月13日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;计算机系统结构&gt;CA2 数据</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年12月13日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="数据">2 数据</h1>
+<p>机器级数据分为两类：</p>
+<ul>
+<li>数值数据：无符号整数、带符号整数、浮点数</li>
+<li>非数值数据：逻辑数（包括位串）、西文字符和汉字</li>
+</ul>
+<p>计算机内部所有信息都用二进制进行编码。</p>
+<ul>
+<li>使用二进制码的原因：制造两个稳定态的物理器件容易</li>
+<li>二进制编码、计数、运算规则简单</li>
+<li>1/0 正好与逻辑命题中的 真/假 对应，便于逻辑运算</li>
+<li>可以方便地用逻辑电路实现算术运算</li>
+</ul>
+<p>现实中真正的值称为
+<strong>真值</strong>，其在计算机内部的二进制数列称为
+<strong>机器数</strong></p>
+<h2 id="二进制">2.1 二进制</h2>
+<p>数值数据的表示有三要素：进位计数制、定/浮点表示、二进制编码</p>
+<p><strong>进位计数制</strong></p>
+<p>二进制、八进制（Octal，用后缀 O
+表示）、十进制、十六进制（Hexadecimal，用后缀 H 或前缀 0x 表示）</p>
+<p>日常生活中使用十进制，计算机中使用二进制。八进制与十六进制主要是二进制的简便表示。</p>
+<p>对于 <span class="math inline">\(R\)</span> 进制数（<span
+class="math inline">\(R\)</span> 是基数，可以是 <span
+class="math inline">\(2、8、10、16\)</span> 等），该数的右起第 <span
+class="math inline">\(n\)</span> 位的数值 <span
+class="math inline">\(v\)</span> 代表 <span
+class="math inline">\(v\times
+R^{n-1}\)</span>。将数值的各位累加即该值的十进制表示。</p>
+<p><strong>定/浮点表示</strong></p>
+<p>定点整数、定点小数、浮点数</p>
+<p>计算机中只能通过约定小数点的位置来表示小数。其中：</p>
+<ul>
+<li><p><strong>定点数</strong></p>
+<p>小数点在固定位置的数。</p>
+<p>定点小数通常用来表示浮点数的尾数部分。定点整数分为带符号整数或无符号整数</p></li>
+<li><p><strong>浮点数</strong></p>
+<p>小数点位置可浮动的数。</p>
+<p>任何实数 <span class="math inline">\(X\)</span> 都能写成 <span
+class="math inline">\(X=(-1)^S\times M\times R^E\)</span> 的形式。</p>
+<p>其中 <span class="math inline">\((-1)^S\)</span>
+决定该数的符号（正负）、<span class="math inline">\(M\)</span>
+是一个二进制的定点小数（尾数）、<span class="math inline">\(R\)</span>
+是基数、<span class="math inline">\(E\)</span>
+是一个二进制定点整数（阶、指数）</p>
+<p>计算机中只要确定 <span class="math inline">\(S,M,E\)</span>
+这三个信息，就能确定 <span class="math inline">\(X\)</span>
+的值。这就是浮点数</p></li>
+</ul>
+<p><strong>二进制编码</strong></p>
+<p>分为原码、补码、反码、移码</p>
+<ul>
+<li><p><strong>原码</strong></p>
+<p>正/负号用最左端的 0/1 表示，数值部分不变。</p>
+<p>如：3（<font color="red">0</font>011）、-3（<font color="red">1</font>011）</p>
+<p>原码有一些缺点：0
+的表示不唯一、加减运算方式不统一、要额外对符号位进行处理等</p>
+<p>所以，从 50
+年代开始，整数都采用补码表示。但浮点数的尾数仍用原码定点小数表示</p></li>
+<li><p><strong>移码</strong></p>
+<p>将每个数值加上一个偏置常数。编码位数为 <span
+class="math inline">\(n\)</span> 时，偏置常数取 <span
+class="math inline">\(2^{n-1}\)</span> 或 <span
+class="math inline">\(2^{n-1}-1\)</span>。</p>
+<p>如：<span class="math inline">\(n=4\)</span> 时，偏置常数取
+8。此时，-8（-8+8：0000B）、+6（+6+8：1110B）</p>
+<p>此时，0 的移码表示唯一，且移码与补码仅第一位不同</p></li>
+<li><p><strong>补码</strong></p>
+<blockquote>
+<p>在模运算系统中，一个数与其取模的结果等价（时钟就是模 12
+系统）。等价的数称为补码。</p>
+<p>如：<span class="math inline">\(-4\equiv8\quad(\operatorname{mod}
+12)\)</span>，称：8 是 -4 对模 12 的补码</p>
+<p>有以下结论：</p>
+<ul>
+<li><p>一个负数的补码等于模减该负数的绝对值：</p>
+<p>对于某一确定的模 <span class="math inline">\(M\)</span>，数值 <span
+class="math inline">\(x(x&lt;0)\)</span>，有 <span
+class="math inline">\(x\equiv
+M-|x|\quad(\operatorname{mod}M)\)</span></p></li>
+<li><p>对于某一确定的模 <span class="math inline">\(M\)</span>，数值
+<span class="math inline">\(x,y\,(y&lt;M)\)</span>，有 <span
+class="math inline">\(x-y\equiv
+x+(M-y)\quad(\operatorname{mod}M)\)</span></p></li>
+</ul>
+</blockquote>
+<p>于是，对于机器数 <span class="math inline">\([X]_补\)</span> 和真值
+<span class="math inline">\(X\)</span>，有 <span
+class="math inline">\([X]_补\equiv 2^n+X\quad(-2^n\le
+X&lt;2^n,\operatorname{mod}2^n)\)</span></p>
+<p>正数：符号位为 0，数值部分不变</p>
+<p>负数：符号位为 1，数值部分按位取反，之后加 1</p>
+<p>变形补码：符号位为 2 位，用于存放可能溢出的中间结果。</p>
+<p>如：8（补码：<font color="red">1</font>000、变形补码：<font color="red">01</font>000）；-8（补码：<font color="red">1</font>000、变形补码：<font color="red">11</font>000）</p></li>
+</ul>
+<h2 id="c-语言中的整数">2.2 C 语言中的整数</h2>
+<p>机器中字的位排列顺序有两种方式，即高到低位可以是从右到左，也可能是从左到右。一般多采用从左往右排列方式。</p>
+<p>为避免表达歧义，用 <strong>LSB</strong>（Least Significant
+Bit）来表示最低有效位，<strong>MSB</strong> 来表示最高有效位。</p>
+<p><strong>无符号整数</strong>：在全部是正数运算且不会出现负值的情况下，可以使用无符号数。如：地址运算、编号表示等。无符号整数的编码没有符号位。常在一个数后面加一个
+U 或 u 表示无符号数</p>
+<p><strong>带符号整数</strong>：用 MSB 表示数字的符号（0 正数、1
+负数）。通常使用补码表示带符号整数</p>
+<p>若同时有无符号数和带符号数，C
+语言会将带符号数强制转换成无符号数。</p>
+<p>所以在 C 语言中，一些表达式会产生以下结果</p>
+<table>
+
+<thead>
+<tr class="header">
+<th style="text-align: left;">关系表达式</th>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">结果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>0 == 0U</code></td>
+<td style="text-align: center;">无符号</td>
+<td style="text-align: center;">True</td>
+<td><span class="math inline">\(00\dots 0B（0）= 00\dots
+0B（0）\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>-1 &lt; 0</code></td>
+<td style="text-align: center;">带符号</td>
+<td style="text-align: center;">True</td>
+<td><span class="math inline">\(11\dots 1B（-1）&lt; 00\dots
+0B（0）\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>-1 &lt; 0U</code></td>
+<td style="text-align: center;">无符号</td>
+<td style="text-align: center;"><font color="RED">False</font></td>
+<td><span class="math inline">\(11\dots 1B（2^{32}-1）&gt; 00\dots
+0B（0）\)</span></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>2147483647 &gt; -2147483647-1</code></td>
+<td style="text-align: center;">带符号</td>
+<td style="text-align: center;">True</td>
+<td><span class="math inline">\(011\dots 1B（2^{31}-1）&gt; 100\dots
+0B（-2^{31}）\)</span></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>2147483647U &gt; -2147483647-1</code></td>
+<td style="text-align: center;">无符号</td>
+<td style="text-align: center;"><font color="RED">False</font></td>
+<td><span class="math inline">\(011\dots 1B（2^{31}-1）&lt; 100\dots
+0B（2^{31}）\)</span></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>2147483647 &gt; (int)2147483648U</code></td>
+<td style="text-align: center;">带符号</td>
+<td style="text-align: center;"><font color="RED">True</font></td>
+<td><span class="math inline">\(011\dots 1B（2^{31}-1）&gt; 100\dots
+0B（-2^{31}）\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>编译器处理常量时默认的类型</strong></p>
+<ul>
+<li><p><strong>C90</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">范围</th>
+<th style="text-align: center;">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0 ~ 2<sup>31</sup>-1</td>
+<td style="text-align: center;">int</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2<sup>31</sup> ~ 2<sup>32</sup>-1</td>
+<td style="text-align: center;">unsigned int</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2<sup>32</sup> ~ 2<sup>63</sup>-1</td>
+<td style="text-align: center;">long long</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2<sup>63</sup> ~ 2<sup>64</sup>-1</td>
+<td style="text-align: center;">unsigned long long</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>C99</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">范围</th>
+<th style="text-align: center;">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0 ~ 2<sup>31</sup>-1</td>
+<td style="text-align: center;">int</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2<sup>31</sup> ~ 2<sup>63</sup>-1</td>
+<td style="text-align: center;">long long</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2<sup>63</sup> ~ 2<sup>64</sup>-1</td>
+<td style="text-align: center;">unsigned long long</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h2 id="浮点数">2.3 浮点数</h2>
+<p>在科学计数法中，任何数都能表示为类似 <span
+class="math inline">\(2.022\times10^{3}\)</span> 的格式。</p>
+<p>一个数有多种表示形式，但规格化形式（小数点前只有一位非 0
+数）是唯一的。</p>
+<p>在二进制中，也能将数字表示为 <span
+class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
+的形式</p>
+<p>32 位浮点数 <b><font color="#D05000">(-1)<sup>S</sup></font> ×
+1.<font color="#6060CF">xxxx</font>
+× <font color="#B01010">2<sup>E</sup></font></b>
+的规格化数如下所示：</p>
+<p><img src="/img/CA_InputImage/CA2_3%20浮点数结构图.png" srcset="/img/loading.gif" lazyload /></p>
+<p><em>（CA2_3 浮点数结构图）</em></p>
+<ul>
+<li><font color="#D05000"><strong>S</strong></font>：符号（正/负）</li>
+<li><font color="#B01010"><strong>Exponent</strong></font>：阶码。</li>
+<li><font color="#6060CF"><strong>significant</strong></font>：有效数</li>
+</ul>
+<p>早期各计算机内部浮点数的表示格式还不统一，因而互不兼容。</p>
+<h4 id="ieee-754">IEEE 754</h4>
+<p>1985 年，IEEE 754 标准制定。现在所有通用计算机都采用 IEEE 754
+来表示浮点数</p>
+<p>单精度（SP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1
++ <font color="#6060CF">Significant</font>) ×
+2<sup>(<font color="#30A060">Exponent</font> - 127)</sup></b></p>
+<p>双精度（DP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1 +
+<font color="#6060CF">Significant</font>) ×
+2<sup>(<font color="#30A060">Exponent</font> - 1223)</sup></b></p>
+<p><img src="/img/CA_InputImage/CA2_3_1%20单精度浮点数图.png" srcset="/img/loading.gif" lazyload /></p>
+<p><em>（CA2_3_1 单精度浮点数图）</em></p>
+<ul>
+<li><p><font color="#D05000"><strong>S</strong></font>：符号，1 位。1
+表示负值，0 表示正值</p></li>
+<li><p><font color="#30A060"><strong>Exponent</strong></font>：阶码。用移码表示。全
+0 和全 1 表示特殊值</p>
+<p>单精度 8 位。偏置常数为 127。范围为 -126（0000 0001）~ 127（1111
+1110）</p>
+<p>双精度时 11 位，偏置常数为 1023。</p></li>
+<li><p><font color="#6060CF"><strong>significant</strong></font>：有效数（尾数的小数点后部分）</p>
+<p>规格化尾数的小数点后第一位总是 1，所以此处省略第一位</p>
+<p>单精度时为 23 位。能用 23 位尾数表示 24 位数。</p>
+<p>双精度时为 52 位。</p></li>
+</ul>
+<p>特殊值的表示如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">阶码（E）</th>
+<th style="text-align: center;">有效数（M）</th>
+<th style="text-align: center;">特殊值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">全 1（255）</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">正负无穷大（取决于符号）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">全 1（255）</td>
+<td style="text-align: center;">非 0</td>
+<td style="text-align: center;">非数（NaN）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">正负零（取决于符号）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">非 0</td>
+<td style="text-align: center;">非规格化数（阶码视为 1，尾数第一位为
+0）</td>
+</tr>
+</tbody>
+</table>
+<p>当数据是一个不可表示数时，机器将其转换为最近的可表示数。</p>
+<h2 id="非数值数据">2.4 非数值数据</h2>
+<p><strong>逻辑数据</strong></p>
+<p>逻辑数据用于表示表达式中的逻辑值（真/假）</p>
+<ul>
+<li>表示：用 1 位表示。N 位二进制数可以表示 N 个逻辑数据</li>
+<li>运算：按位进行。如按位与/或 等。</li>
+<li>识别：逻辑数据和数值数据在形式上无差别。计算机依靠指令来识别</li>
+</ul>
+<p><strong>西文字符</strong></p>
+<p>西文字符是拼音文字，用有限字母就能拼出所有单词。字符总数不超过 256
+个，可以使用 7-8 位二进制表示</p>
+<ul>
+<li>表示：常用编码为 7 位 ASCII 码</li>
+<li>操作：字符串操作。如传送、比较等</li>
+</ul>
+<p>ASCII 码表如下：</p>
+<p><img src="/img/CA_InputImage/CA2_4%20ASCII%20码表.png" srcset="/img/loading.gif" lazyload /></p>
+<p><em>（CA2_4 ASCII 码表）</em></p>
+<p>如，空格（SP）的 ASCII 码为（0010 0000），字母 M 的 ASCII 码为（0100
+1101）</p>
+<p><strong>汉字</strong></p>
+<p>汉字数量巨大，总数超过 6 万字。</p>
+<ul>
+<li><p>编码形式：有几种不同的编码形式</p>
+<ul>
+<li>输入码：对汉字用相应按键进行编码表示。用于输入</li>
+<li>内码：用于在系统中进行存储、查找、传送等处理</li>
+<li>字模点阵或轮廓描述：描述汉字字模点阵或轮廓，用于显示/打印</li>
+</ul></li>
+<li><p>GB2312-80 字符集</p>
+<ul>
+<li><p>组成</p>
+<p>字母、数字和符号。包括英文、俄文、日文平假名与片假名、罗马字母、汉语拼音等共
+687 个</p>
+<p>一级常用汉字，共 3755 个。按汉语拼音排列</p>
+<p>二级常用汉字，共 3008 个。按偏旁部首排列</p></li>
+<li><p>区位码</p>
+<p>码表由 94 行，94 列组成。行号为区号，列号为位号。各占 7 位</p></li>
+<li><p>国标码</p>
+<p>每个汉字的区号、位号各自加上 32 就得到了国标码。</p>
+<p>国标码的区号和位号各占 7 位，在前方添 1（为与 ASCII
+码区别）构成字节。一个汉字占 2 字节</p></li>
+</ul></li>
+</ul>
+<p><strong>多媒体信息的表示</strong></p>
+<p>图形、图像、音频、视频 等信息</p>
+<ul>
+<li>图形：用构建图形的直线或曲线的坐标点及控制点来描述。这些坐标点或控制点用数值数据描述</li>
+<li>图像：用构成图像的点（像素）的亮度、颜色、灰度等信息描述。亮度等值用数值数据描述</li>
+<li>音频：音频信息对模拟声音进行采样、量化（二进制编码）来获得。因此量化后得到的是一个数值数据序列</li>
+<li>视频：随时间变化的图像（每幅图像称为一帧）</li>
+<li>音乐：通过对演奏的乐器、乐谱等相关各类信息用 0、1 编码来描述</li>
+</ul>
+<h2 id="数据的存储">2.5 数据的存储</h2>
+<h4 id="数据的宽度">数据的宽度</h4>
+<ul>
+<li><p><strong>比特</strong>（bit，位）：是计算机中处理、存储、传输信息的最小单位。一位是就一个
+0 或 1</p></li>
+<li><p><strong>字节</strong>（Byte，B）：二进制信息的基本计量单位。多数情况下，一个字节长
+8 位。</p>
+<p>现代计算机中，存储器按照 字节 编址。字节是最小可寻址单位</p>
+<p>若以字节为一个排列单位，则 <strong>LSB</strong>
+表示最低有效字节，<strong>MSB</strong> 表示最高有效字节</p></li>
+<li><p><strong>字</strong>（word）：用于表示其自然的数据单位的术语。字与字长的宽度可能相同或不同。</p>
+<p>对于 x86 体系结构，不论字长多少，字都是 16 位。</p>
+<p>对于 MIPS 32 体系结构，字和字长都是 32 位</p></li>
+<li><p><strong>字长</strong>：数据通路的宽度，CPU
+一次能并行处理的二进制位数。</p>
+<p>字长是 8 的倍数。常见有 16位、32位、64位。</p>
+<p>数据通路是 CPU
+内部数据运算、存储、传送的部件。这些部件需要宽度一致。</p></li>
+<li><p><strong>容量常用的单位</strong></p>
+<p>千字节（KB，1 KB = 2<sup>10</sup> B = 1204 B）</p>
+<p>兆字节（MB，1 MB = 2<sup>20</sup> B = 1204 KB）</p>
+<p>千兆字节（GB，1 GB = 2<sup>30</sup> B = 1204 MB）</p>
+<p>兆兆字节（TB，1 TB = 2<sup>40</sup> B = 1204 GB）</p></li>
+<li><p><strong>带宽常用的单位</strong></p>
+<p>千<font color="#E05030">比特</font>每秒（kb/s，1kbps = 10<sup>3</sup>
+b/s = 1000 bps）</p>
+<p>兆<font color="#E05030">比特</font>每秒（Mb/s，1Mbps = 10<sup>6</sup>
+b/s = 1000 kbps）</p>
+<p>千兆<font color="#E05030">比特</font>每秒（Gb/s，1Gbps =
+10<sup>9</sup> b/s = 1000 Mbps）</p>
+<p>兆兆<font color="#E05030">比特</font>每秒（Tb/s，1Tbps =
+10<sup>12</sup> b/s = 1000 Gbps）</p>
+<p>把上述 b 换为 B 才表示字节，如 10 MBps 表示 10 兆字节/秒</p></li>
+</ul>
+<p>高级语言支持多种不同的类型和长度的数据。</p>
+<p>不同机器上表示同一种类型的数据分配的宽度，可能随
+ISA、机器字长和编译器不同而不同。</p>
+<h4 id="数据的存储-1">数据的存储</h4>
+<p>从 80 年代起，几乎所有通用计算机采用 <strong>字节编址</strong></p>
+<p>在高级语言中声明的基本数据类型有各种不同长度的数据，一个基本数据可能占用多个存储单元。存放方式有两种</p>
+<ul>
+<li><p><strong>大端方式</strong>：MSB 所在地址是数的地址</p></li>
+<li><p><strong>小端方式</strong>：LSB 所在地址是数的地址</p></li>
+</ul>
+<p>有的机器支持两种存放方式，通过特定控制位来设定具体采用的方式。</p>
+<p>C 语言的 union 的存放顺序是所有成员从低地址开始。可以以此测试 CPU
+的大/小 端方式</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">#计算机系统结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;计算机系统结构&gt;CA2 数据</div>
+      <div>https://i-melody.github.io/2022/12/13/计算机系统架构/2 数据/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-05T08:30:00.784Z">
+<meta property="article:modified_time" content="2022-12-07T07:59:05.762Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.5k 字
+          10k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          27 分钟
+          28 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月5日 下午
+                    本文最后更新于：2022年12月7日 下午
                   
                 
               </p>
@@ -309,11 +309,13 @@ reflect.Value 结构体</p>
 v := reflect.ValueOf(i)</code></pre></div></li>
 <li><p><code>(v Value) Elem() Value</code>：返回该指针对象指向的对象的
 reflect.Value 结构体</p></li>
-<li><p><code>(v Value) Int() int</code>：获取该对象包含的 int 值。</p>
-<p>对象本身不是 int、int 64... 时，会产生 panic</p>
+<li><p><code>(v Value) Index(i int) Value</code>：返回该切片的指定下标元素的
+reflect.Value 结构体。必须是切片或数组</p></li>
+<li><p><code>(v Value) Int() int64</code>：获取该有符号数对象包含的值。</p>
+<p>对象本身不是 int、int 64... 等有符号数时，会产生 panic</p>
 <p>其余类型也有对应方法，如：<code>Bool() bool</code> 等</p></li>
-<li><p><code>(v Value) SetInt(i int)</code>：将对象包含的 int
-值改为指定的值</p>
+<li><p><code>(v Value) SetInt(i int64)</code>：将对象包含的有符号数值改为指定的值。适用所有
+int、int16... 等有符号数</p>
 <p>其余类型也有对应方法，如：<code>SetBool(b bool)</code> 等</p>
 <p>通用方法
 <code>(v Value) Set(i Value)</code>：将对象包含的值改为指定的值</p>
@@ -378,10 +380,27 @@ t := reflect.TypeOf(i)</code></pre></div></li>
 	t := reflect.TypeOf(a)
 	fmt.Println(t.Field(<span class="hljs-number">0</span>).Tag.Get(<span class="hljs-string">&quot;json&quot;</span>))		<span class="hljs-comment">// tag_of_A_I</span>
 &#125;</code></pre></div></li>
+<li><p><code>(t Type) NumIn() int</code>：获取指定 func
+的参数个数。对象必须是 func</p>
+<p><code>(t Type) NumOut() int</code>：获取指定 func
+的返回值个数</p></li>
+<li><p><code>(t Type) In(i int) Type</code>：获取指定 func 的第 i
+个参数的类型。对象必须是 func</p>
+<p><code>(t Type) Out(i int) Type</code>：获取指定 func 的第 i
+个返回值的类型</p></li>
 <li><p><code>New (t Type) Value</code>：这是 reflect
 包下的一个函数。</p>
 <p>创建一个指定类型的变量，其值为 <strong>该类型的零值</strong> 的
 <strong>指针</strong>。</p></li>
+<li><p><code>MakeSlice(t Type, len int, cap int)</code>：这是 reflect
+包下的一个函数。</p>
+<p>创建一个指定类型的切片，其大小、容量是指定的值。</p>
+<p>同样还有
+<code>MakeChan(t Type, buffer int)</code>、<code>MakeMap(t Type)</code>、<code>MakeFunc(t Type, func(args []Value) (results []Value)) Value</code></p>
+<p>另外，值得一提的是，<strong>要想获取一个切片的元素的类型，可以用以下方式</strong>（不知道有没有更好方法）：</p>
+<div class="code-wrapper"><pre><code class="hljs go">sli := reflect.TypeOf([]<span class="hljs-type">int</span>&#123;&#125;)     <span class="hljs-comment">//  &lt;---- sli 是一个任意的切片的 Type 接口</span>
+ele := reflect.MakeSlice(sli, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>).Index(<span class="hljs-number">0</span>).Type()
+									<span class="hljs-comment">// 创建了一个切片示例，之后取其第一个元素的类型</span></code></pre></div></li>
 </ul>
 <h3 id="reflect.kind">reflect.Kind</h3>
 <p>reflect.Kind 是一组常量，其指示了一些类别。</p>
@@ -603,8 +622,8 @@ Conn。没有连接请求时会阻塞。</p></li>
 <li><p><code>func (c *Conn) Close() error</code></p>
 <p>通讯结束后，应关闭连接</p></li>
 </ol>
-<h3 id="附录">附录</h3>
-<h4 id="力扣测试用例解析代码">力扣测试用例解析代码</h4>
+<h2 id="附录">附录</h2>
+<h3 id="力扣测试用例解析代码">力扣测试用例解析代码</h3>
 <blockquote>
 <p>该代码模拟力扣题目的 ”运行“
 模块。虽然不会给出正确答案，但是可以通过控制台追踪代码的运行情况。</p>
@@ -626,8 +645,8 @@ Conn。没有连接请求时会阻塞。</p></li>
 &#125;
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
-	testingFunc(sum, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;[1,2,3,4]&quot;</span>))
-	testingFunc(Max, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;1,900&quot;</span>))
+	TestFunc(sum, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;[1,2,3,4]&quot;</span>))
+	TestFunc(Max, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;1,900&quot;</span>))
 &#125;
 
 
@@ -638,7 +657,7 @@ Conn。没有连接请求时会阻塞。</p></li>
 <span class="hljs-comment">   参数（functionName）：测试代码的对象（函数名），要求是一个无隐参的函数</span>
 <span class="hljs-comment">   参数（str）：测试用例字符串。不同元素间由逗号分隔，不能有多余的空格（除非是带有空格的字符串参数）</span>
 <span class="hljs-comment">   */</span>
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testingFunc</span><span class="hljs-params">(functionName <span class="hljs-keyword">interface</span>&#123;&#125;, str []<span class="hljs-type">byte</span>)</span></span> &#123;
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TestFunc</span><span class="hljs-params">(functionName <span class="hljs-keyword">interface</span>&#123;&#125;, str []<span class="hljs-type">byte</span>)</span></span> &#123;
 	fun := reflect.ValueOf(functionName)
     
     <span class="hljs-comment">// 检查是不是一个函数</span>
@@ -711,7 +730,7 @@ Conn。没有连接请求时会阻塞。</p></li>
 	<span class="hljs-keyword">return</span> res
 &#125;
 
-<span class="hljs-comment">/* 这个方法确认一个元素的</span>
+<span class="hljs-comment">/* 这个方法确认一个元素的值</span>
 <span class="hljs-comment">   参数（str）：待解析的字符串。仅包含该项元素对应的部分字符串。</span>
 <span class="hljs-comment">   参数（oriVal）：仅提示该元素的正确类型</span>
 <span class="hljs-comment">   */</span>
