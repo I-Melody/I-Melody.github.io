@@ -16,30 +16,25 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1 概论 1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数">
+    <meta name="description" content="目录 OS1 概述  OS1.1 操作系统的作用 OS1.2 操作系统的特征 OS1.3 操作系统的发展与分类 OS1.4 操作系统的内核 OS1.5 系统中断和异常 OS1.6 系统调用   OS2 进程  OS2.1 进程的组成 OS2.2 进程的状态 OS2.3 进程控制  进程创建 进程终止 进程阻塞 进程唤醒 进程切换  O">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;计算机系统结构&gt;CA1 概论">
-<meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/1%20%E6%A6%82%E8%AE%BA/index.html">
+<meta property="og:title" content="&lt;操作系统&gt;目录">
+<meta property="og:url" content="https://i-melody.github.io/2022/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/0%20%E7%9B%AE%E5%BD%95/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="1 概论 1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数">
+<meta property="og:description" content="目录 OS1 概述  OS1.1 操作系统的作用 OS1.2 操作系统的特征 OS1.3 操作系统的发展与分类 OS1.4 操作系统的内核 OS1.5 系统中断和异常 OS1.6 系统调用   OS2 进程  OS2.1 进程的组成 OS2.2 进程的状态 OS2.3 进程控制  进程创建 进程终止 进程阻塞 进程唤醒 进程切换  O">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA1%20冯诺依曼结构图.png">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA1%20现代计算机结构图.png">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA1_3%20计算机系统层次图.png">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA1_3%20计算机用户层次图.png">
-<meta property="article:published_time" content="2022-12-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-13T12:39:08.264Z">
+<meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-22T15:37:27.384Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
-<meta property="article:tag" content="计算机系统结构">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/CA_InputImage/CA1%20冯诺依曼结构图.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>&lt;计算机系统结构&gt;CA1 概论 ★ Melody 的小纸箱</title>
+  <title>&lt;操作系统&gt;目录 ★ Melody 的小纸箱</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="&lt;计算机系统结构&gt;CA1 概论"></span>
+            <span id="subtitle" data-typed-text="&lt;操作系统&gt;目录"></span>
           
         </div>
 
@@ -213,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-13 00:00" pubdate>
-          2022年12月13日 凌晨
+        <time datetime="2022-12-22 00:00" pubdate>
+          2022年12月22日 凌晨
         </time>
       </span>
     
@@ -225,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          275 字
         
       </span>
     
@@ -236,7 +231,7 @@
         
         
         
-          7 分钟
+          1 分钟
         
       </span>
     
@@ -286,158 +281,100 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">&lt;计算机系统结构&gt;CA1 概论</h1>
+            <h1 style="display: none">&lt;操作系统&gt;目录</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月13日 晚上
+                    本文最后更新于：2022年12月22日 晚上
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="概论">1 概论</h1>
-<h2 id="计算机的结构">1.1 计算机的结构</h2>
-<blockquote>
-<p>1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机
-ENIAC（Electronic Numerical Integrator And
-Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。</p>
-<p>冯·诺依曼提出了 IAS 计算机的结构，这就是
-<strong>冯·诺依曼结构</strong>。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数据送入主存并执行。一旦程序启动，计算机就能在不需要操作人员干预的情况下自动完成逐条取出指令和执行指令的认为。“存储程序”
-是冯·诺依曼机器的最重要思想。现在，几乎所有通用计算机都采用冯·诺依曼结构</p>
-</blockquote>
-<h4 id="冯诺依曼结构">冯·诺依曼结构</h4>
-<p>冯·诺依曼结构的主要思想：</p>
+              <h1 id="目录">目录</h1>
+<h2 id="os1-概述"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述">OS1 概述</a></h2>
 <ul>
-<li><p>计算机应该由五个基本部件组成</p>
-<p><strong>存储器</strong>：能存放数据和指令。数据和指令在形式上没有区别（0、1
-的序列），但计算机能区分数据和指令</p>
-<p><strong>控制器</strong>：能自动取出指令并执行</p>
-<p><strong>运算器</strong>：能进行加减乘除四种基本算术运算，以及一些逻辑运算和附加运算</p>
-<p><strong>输入设备、输出设备</strong>：操作人员通过输入、输出设备和主机进行通信</p>
-<p><img src="/img/CA_InputImage/CA1%20冯诺依曼结构图.png" srcset="/img/loading.gif" lazyload /></p>
-<p><em>（CA1 冯诺依曼结构图）</em></p></li>
-<li><p>计算机内部以 <strong>二进制形式</strong>
-表示指令和数据。每条指令分为两部分：</p>
-<p><strong>操作码部分</strong>：指出操作类型</p>
-<p><strong>地址吗部分</strong>：指出操作数的地址</p></li>
-<li><p>一串指令组成了程序。计算机采用 <strong>存储程序</strong>
-的工作方式</p></li>
+<li><h3 id="os1.1-操作系统的作用"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.1-操作系统的作用">OS1.1
+操作系统的作用</a></h3></li>
+<li><h3 id="os1.2-操作系统的特征"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.2-操作系统的特征">OS1.2
+操作系统的特征</a></h3></li>
+<li><h3 id="os1.3-操作系统的发展与分类"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.3-操作系统的发展与分类">OS1.3
+操作系统的发展与分类</a></h3></li>
+<li><h3 id="os1.4-操作系统的内核"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.4-操作系统的内核">OS1.4
+操作系统的内核</a></h3></li>
+<li><h3 id="os1.5-系统中断和异常"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.5-系统中断和异常">OS1.5
+系统中断和异常</a></h3></li>
+<li><h3 id="os1.6-系统调用"><a
+href="../../../../../../2022/12/22/操作系统/1%20概述/#os1.6-系统调用">OS1.6
+系统调用</a></h3></li>
 </ul>
-<h4 id="现代计算机结构模型">现代计算机结构模型</h4>
-<p><img src="/img/CA_InputImage/CA1%20现代计算机结构图.png" srcset="/img/loading.gif" lazyload /></p>
-<p><em>（CA1 现代计算机结构图）</em></p>
-<p>现代计算机的基本部件：</p>
+<hr />
+<h2 id="os2-进程"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程">OS2 进程</a></h2>
 <ul>
-<li>CPU：中央处理器</li>
-<li>PC：程序计数器</li>
-<li>MAR：储存器地址寄存器</li>
-<li>ALU：算术逻辑部件</li>
-<li>IR：指令寄存器</li>
-<li>MDR：存储器数据寄存器</li>
-<li>GPRs：通用寄存器组（由若干寄存器组成，早期是累加器）</li>
-</ul>
-<p>现代计算机的工作过程</p>
+<li><h3 id="os2.1-进程的组成"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.1-进程的组成">OS2.1
+进程的组成</a></h3></li>
+<li><h3 id="os2.2-进程的状态"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.2-进程的状态">OS2.2
+进程的状态</a></h3></li>
+<li><h3 id="os2.3-进程控制"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.3-进程控制">OS2.3
+进程控制</a></h3>
 <ul>
-<li><p>数据和指令按顺序放在储存器中，各自对应一个存储单元地址。指令由
-OP、ADDR 字段组成，程序起始地址置 PC</p></li>
-<li><p>开始执行程序后，先根据 PC
-读取指令并将其译码，再根据指令读操作数，执行指令后回写结果，最后修改 PC
-的值。之后会循环继续执行下一道指令</p></li>
-<li><p>计算机的指令包含以下信息：</p>
-<p>操作性质（操作码）</p>
-<p>源操作数1 和/或 源操作数2（立即数、寄存器编号、存储地址）</p>
-<p>目的操作数地址（寄存器编号、存储地址）</p></li>
-</ul>
-<h2 id="程序开发过程">1.2 程序开发过程</h2>
-<blockquote>
-<p>最早的程序开发是使用机器语言编写程序，并记录在纸带或卡片上，这是第一代程序设计语言。这样的编程方式不够灵活，书写、阅读也很困难。</p>
-</blockquote>
-<h4 id="汇编语言">汇编语言</h4>
-<p>以助记符表示操作码和寄存器，以标号表示位置，就形成了
-<strong>汇编语言</strong>。汇编语言称为第二代程序设计语言</p>
-<p>汇编语言需要借助汇编程序转换才能被机器识别。</p>
-<p>汇编语言程序由汇编指令构成。汇编指令是用助记符和标号表示的，和机器指令一一对应。</p>
-<p>指令包含操作码、操作数或其地址码。机器指令用二进制表示，汇编指令用符号表示。</p>
-<p>指令只能包含最简单的数据的存取，简单计算。使用汇编语言编写复杂程序要描述的细节太多，而且在不同结构机器上无法运行。</p>
-<h4 id="高级语言">高级语言</h4>
-<p>随着技术发展，出现了很多
-<strong>高级编程语言</strong>。这些语言和具体机器结构无关。它们面向算法描述，比机器语言描述能力强得多。</p>
-<p>第三代程序设计语言是过程式语言，描述
-“怎么做”，编码时需要描述实现过程。第四代程序设计语言是非过程式语言，编码时只需说明
-“做什么”，而不需描述具体的算法实现细节。</p>
-<p>高级语言是高度抽象的，其一条语句可能对应几十或几百条语句。</p>
-<p>高级语言分为 “面向过程” 和 “面向对象” 两种。</p>
-<p>现在，程序员几乎都使用高级语言来编写程序，但最终都要将其转换成机器语言来执行。转换方式有两种：</p>
-<ul>
-<li><strong>编译</strong>（complier）：将高级语言程序转换成机器级目标程序。执行时启动目标程序即可。</li>
-<li><strong>解释</strong>（interpreter）：将高级语言语句逐条翻译成机器指令并立刻执行，不生成目标文件。</li>
-</ul>
-<p>用高级语言开发程序需要复杂的支撑环境。包括：</p>
-<ul>
-<li><strong>语言处理系统</strong>
-<ul>
-<li>语言处理程序（包括编写源程序的编译器，及处理源程序的翻译转换软件）</li>
-<li>语言的运行时系统</li>
+<li><h4 id="进程创建">进程创建</h4></li>
+<li><h4 id="进程终止">进程终止</h4></li>
+<li><h4 id="进程阻塞">进程阻塞</h4></li>
+<li><h4 id="进程唤醒">进程唤醒</h4></li>
+<li><h4 id="进程切换">进程切换</h4></li>
 </ul></li>
-<li><strong>操作系统</strong>
+<li><h3 id="os2.4-进程通信"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.4-进程通信">OS2.4
+进程通信</a></h3></li>
+<li><h3 id="os2.5-线程"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.5-线程">OS2.5
+线程</a></h3>
 <ul>
-<li>人机接口：GUI 方式（图形用户界面）或 CUI 方式（命令行用户界面）</li>
-<li>操作系统内核</li>
+<li><h4 id="线程的实现方式">线程的实现方式</h4></li>
+<li><h4 id="多线程模型">多线程模型</h4></li>
 </ul></li>
-<li>指令集体系结构：计算机硬件的抽象</li>
-</ul>
-<h2 id="计算机系统的层次结构">1.3 计算机系统的层次结构</h2>
-<h4 id="计算机系统抽象层的转换">计算机系统抽象层的转换</h4>
-<p>用户提出的 <strong>问题</strong> 要转化成
-<strong>算法</strong>，通过高级语言程序实现后得到
-<strong>高级语言源程序</strong>。</p>
-<p>高级语言源程序借由 <strong>操作系统</strong> 的支持被翻译成
-<strong>指令集体系结构</strong>（ISA）规定的机器指令。</p>
-<p>指令集体系结构是硬件层面的抽象，其具体实现实际上是
-<strong>微体系结构</strong> 的实现。</p>
-<p><img src="/img/CA_InputImage/CA1_3%20计算机系统层次图.png" srcset="/img/loading.gif" lazyload /></p>
-<p><em>（CA1_3 计算机系统层次图）</em></p>
-<p>计算机抽象层间，上层是下层的抽象，下层是上层的实现，底层为上层提供支撑环境</p>
-<p>程序的执行结果，不仅取决于算法和编程，也取决于语言处理系统、操作系统、ISA、微体系结构。</p>
-<p>计算机学科主要研究计算机系统各个不同抽象层的实现及其相互转换的机制。所有计算机专业课程基本上是围绕其中一个或多个抽象层开展的教学。</p>
-<h4 id="计算机系统的不同用户">计算机系统的不同用户</h4>
-<p><strong>最终用户</strong>：工作在由应用程序提供的最上层的抽象层</p>
-<p><strong>系统管理员</strong>：工作在由操作系统提供的抽象层</p>
-<p><strong>应用程序员</strong>：工作在语言处理系统（主要是编译器和汇编器）的抽象层。语言处理系统建立在操作系统之上。编译器、汇编器的目标程序由机器级代码组成，操作系统指令直接对硬件进行编程控制</p>
-<p><strong>系统程序员</strong>：工作在 ISA 层次，必须对 ISA
-非常了解。ISA
-处于软件和硬件的交界面，是对硬件的抽象。软件的所有功能都建立在 ISA
-的基础上。ISA 是最重要的层次</p>
-<p><img src="/img/CA_InputImage/CA1_3%20计算机用户层次图.png" srcset="/img/loading.gif" lazyload /></p>
-<p><em>（CA1_3 计算机用户层次图）</em></p>
-<h4 id="指令集体系结构-isa">指令集体系结构 ISA</h4>
-<blockquote>
-<p>指令集体系结构（ISA，Instruction Set Architecture），简称指令系统</p>
-</blockquote>
-<p>ISA 是一种规约，规定了如何使用硬件：</p>
+<li><h3 id="os2.6-处理机的调度"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.6-处理机的调度">OS2.6
+处理机的调度</a></h3>
 <ul>
-<li>可执行的指令和集合，包括
-<strong>指令格式</strong>、<strong>操作种类</strong> 以及每种操作对应的
-<strong>操作数的规定</strong></li>
-<li>指令可以接受的 <strong>操作数的类型</strong></li>
-<li>操作数能存放的寄存器组的结构，包括
-<strong>每个寄存器的名称、编号、长度、用途</strong></li>
-<li>操作数能存放的 <strong>存储空间的大小</strong> 和
-<strong>编址方式</strong></li>
-<li>操作数在存储空间存放时
-<strong>按照大端还是小端方式存放</strong></li>
-<li>指令获取操作数的方式，即 <strong>寻址方式</strong></li>
-<li>指令执行过程的控制方式，包括
-<strong>程序计数器</strong>（PC）、<strong>条件码定义</strong> 等</li>
+<li><h4 id="作业调度高级调度">作业调度（高级调度）</h4></li>
+<li><h4 id="内存调度中级调度">内存调度（中级调度）</h4></li>
+<li><h4 id="进程调度低级调度">进程调度（低级调度）</h4></li>
+<li><h4 id="调度算法">调度算法</h4></li>
+</ul></li>
+<li><h3 id="os2.7-进程的同步与互斥"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.7-进程的同步与互斥">OS2.7
+进程的同步与互斥</a></h3>
+<ul>
+<li><h4 id="进程互斥的软件实现方法">进程互斥的软件实现方法</h4></li>
+<li><h4 id="进程互斥的硬件实现方法">进程互斥的硬件实现方法</h4></li>
+<li><h4 id="信号量机制">信号量机制</h4></li>
+<li><h4 id="管程">管程</h4></li>
+</ul></li>
+<li><h3 id="os2.8-死锁"><a
+href="../../../../../../2022/12/22/操作系统/2%20进程/#os2.8-死锁">OS2.8
+死锁</a></h3>
+<ul>
+<li><h4 id="预防死锁">预防死锁</h4></li>
+<li><h4 id="避免死锁">避免死锁</h4></li>
+<li><h4 id="检测和解除死锁">检测和解除死锁</h4></li>
+</ul></li>
 </ul>
-<p>ISA 在通用计算机系统中是必不可少的一个抽象层。</p>
-<p>不同的 ISA 规定的指令集不同，如 IA-32、MIPS、ARM 等。</p>
-<p>计算机的硬件组成称为
-<strong>微体系结构</strong>。计算机组成必须能实现 ISA 规定的功能，同一种
-ISA 可以由不同计算机组成。</p>
+<hr />
+<h2 id="os3-内存">OS3 内存</h2>
 
               
             </div>
@@ -445,34 +382,13 @@ ISA 可以由不同计算机组成。</p>
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
         <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">#计算机系统结构</a>
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
       
     </div>
   
@@ -484,8 +400,8 @@ ISA 可以由不同计算机组成。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>&lt;计算机系统结构&gt;CA1 概论</div>
-      <div>https://i-melody.github.io/2022/12/13/计算机系统架构/1 概论/</div>
+      <div>&lt;操作系统&gt;目录</div>
+      <div>https://i-melody.github.io/2022/12/22/操作系统/0 目录/</div>
     </div>
     <div class="license-meta">
       
@@ -497,7 +413,7 @@ ISA 可以由不同计算机组成。</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月13日</div>
+          <div>2022年12月22日</div>
         </div>
       
       
