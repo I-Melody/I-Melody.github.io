@@ -1,0 +1,1451 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="DM4 代数结构 DM4.1 代数系统的构成 代数系统的构成：构成成分（载体、运算）和 构成公理（运算性质） n 元运算 设 A 为集合，函数 f:A×A→A 称为 A 上的二元运算。也能表示为 f(⟨a1,a2⟩)&#x3D;a3 对于 n 元运算 f:An→A：  若 n&#x3D;0 则为 0 元运算，f:→A 若 n&#x3D;1 则为 1 元运算，f:A→A  若 domf&#x3D;An 且 ranf⊆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;离散数学&gt; DM4 代数结构">
+<meta property="og:url" content="https://i-melody.github.io/2023/01/20/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/4%20%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="DM4 代数结构 DM4.1 代数系统的构成 代数系统的构成：构成成分（载体、运算）和 构成公理（运算性质） n 元运算 设 A 为集合，函数 f:A×A→A 称为 A 上的二元运算。也能表示为 f(⟨a1,a2⟩)&#x3D;a3 对于 n 元运算 f:An→A：  若 n&#x3D;0 则为 0 元运算，f:→A 若 n&#x3D;1 则为 1 元运算，f:A→A  若 domf&#x3D;An 且 ranf⊆">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-20T08:53:57.274Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="离散数学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;离散数学&gt; DM4 代数结构 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="&lt;离散数学&gt; DM4 代数结构"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-20 00:00" pubdate>
+          2023年1月20日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;离散数学&gt; DM4 代数结构</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年1月20日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="dm4-代数结构">DM4 代数结构</h1>
+<h2 id="dm4.1-代数系统的构成">DM4.1 代数系统的构成</h2>
+<p>代数系统的构成：构成成分（载体、运算）和 构成公理（运算性质）</p>
+<h4 id="n-元运算">n 元运算</h4>
+<p>设 A 为集合，函数 f:A×A→A 称为 A 上的二元运算。也能表示为
+f(⟨a1,a2⟩)=a3</p>
+<p>对于 n 元运算 f:An→A：</p>
+<ul>
+<li>若 n=0 则为 0 元运算，f:→A</li>
+<li>若 n=1 则为 1 元运算，f:A→A</li>
+</ul>
+<p>若 domf=An 且 ranf⊆A 则称 A 在运算 f 下封闭。</p>
+<p>运算的算符记号可以是：∘,∗,∙,◻,⋄,△ 等</p>
+<p>表达式的表示方法：</p>
+<ul>
+<li>解析表达式：∘(x1,x2,…,xn)=yx1∘x2=y△x=y 等</li>
+<li>运算表：有穷集上的一元、二元计算可用运算表。</li>
+</ul>
+<h4 id="二元运算的算律">二元运算的算律</h4>
+<p>对于二元运算，算律有：</p>
+<ul>
+<li><p><strong>交换律</strong>：∀a,b∈A,a∘b=b∘a</p></li>
+<li><p><strong>结合律</strong>：∀a,b,c∈A,(a∘b)∘c=a∘(b∘c)</p></li>
+<li><p><strong>幂等律</strong>：∀a∈A,a∘a=a</p></li>
+<li><p><strong>消去律</strong>：∀a,b,c∈A,a∘b=a∘c∧a≠0⇒b=c,b∘a=c∘a∧a≠0⇒b=c</p></li>
+<li><p><strong>分配律</strong>（涉及两个不同二元运算）：</p>
+<p>∀a,b,c∈A,a∘(b∗c)=(a∘b)∗(a∘c),a∗(b∘c)=(a∗b)∘(a∗c)</p></li>
+<li><p><strong>吸收律</strong>（涉及两个不同二元运算）：</p>
+<p>设 ∘,∗ 可交换，则 ∀a,b∈A,a∘(a∗b)=a,a∗(a∘b)=a</p></li>
+</ul>
+<p>其中 结合律、幂等律、分配律 能拓展到有限项。</p>
+<h4 id="二元运算的特异元素">二元运算的特异元素</h4>
+<p>二元运算中可能存在以下特异元素：</p>
+<ul>
+<li><p><strong>单位元</strong>（幺元）e：∀a∈A,e∘a=a∘e=a</p></li>
+<li><p><strong>零元</strong> 0：∀a∈A,0∘a=a∘0=0</p></li>
+<li><p><strong>幂等元</strong> a：a∈A,a∘a=a</p></li>
+<li><p><strong>可逆元</strong> x、<strong>逆元</strong>
+y：x∈A,∃y∈A,x∘y=e</p>
+<p>在可结合运算中，可逆元 x 对应的逆元 y 是唯一的</p></li>
+</ul>
+<p>存在特异元素也能作为算律。如：同一律（存在单位元）、零律（存在零元）</p>
+<p>单位元与零元有唯一性：若存在单位元/零元，则存在唯一的单位元/零元</p>
+<p>另若 |A|&gt;1，则必有 e≠0</p>
+<h2 id="dm4.2-代数系统">DM4.2 代数系统</h2>
+<p>代数系统的几种记法：</p>
+<ul>
+<li><p>V=⟨A,Ω,K⟩</p>
+<p>A 是非空载体</p>
+<p>Ω 是运算集，有 是上的元运算Ω=⋃j=1∞Ωj,Ωj={oj|oj是A上的j元运算}</p>
+<p>K 是代数常数集（0 元运算）且 ∅⊆K⊆A</p></li>
+<li><p>V=⟨A,Ω⟩</p>
+<p>此时是将 K 视为 Ω 中的 0 元运算，故
+是上的元运算Ω=⋃j=0∞Ωj,Ωj={oj|oj是A上的j元运算}</p></li>
+<li><p>V=⟨A,o1,o2,…,or⟩</p>
+<p>运算数量有限的场合也能这样记</p></li>
+</ul>
+<p>所有构成成分（运算个数、对应运算的元数）相同的代数系统称为
+<strong>同类型的</strong></p>
+<p>同类型且公理相同的代数系统称为 <strong>同种的</strong></p>
+<h4 id="子代数">子代数</h4>
+<p>设有代数系统 V=⟨A,o1,o2,…,or⟩，集合 B⊆A,B≠∅</p>
+<p>若 B 对 V 中所有运算（含 0 元运算）封闭，则称 V′=⟨B,o1,o2,…,or⟩ 为 V
+的 <strong>子代数</strong></p>
+<p>若还有 B⊂A 则 V′ 是 V 的 <strong>真子代数</strong></p>
+<p>此外，若 V 的代数常数集合为 K 对 V 中所有运算封闭，则 ⟨K,o1,o2,…,or⟩
+是 V 的 <strong>平凡子代数</strong></p>
+<p>要指出的是，V 亦是其自身的平凡子代数（也是最大的子代数）</p>
+<p>若公理是二元运算的性质，则子代数必定与原代数
+<strong>同种</strong>。</p>
+<h4 id="积代数">积代数</h4>
+<p>设有同类型代数系统 V1=⟨A,o11,o12,…,o1r⟩ 和 V2=⟨A,o21,o22,…,o2r⟩，其中
+o1i 与 o2i 是 ki 元运算。</p>
+<p>则 V1 与 V2 的 <strong>积代数</strong>：V1×V2=⟨A×B,o1,o2,…,or⟩</p>
+<p>其中 oi 是 ki 元运算，且对于任意的 ⟨x1,y1⟩,⟨x2,y2⟩,…,⟨xki,yki⟩∈A×B
+有</p>
+<p>oi(⟨x1,y1⟩,⟨x2,y2⟩,…,⟨xki,yki⟩)=⟨o1i(x1,x2,…,xki),o2i(y1,y2,…,yki)⟩</p>
+<p>积代数有以下性质：</p>
+<ul>
+<li>若 o1i 与 o2i 分别在 V1 与 V2 中可
+<strong>交换/结合/幂等</strong>，则 oi 在积代数中也可交换/结合/幂等</li>
+<li>若 o1i 对 o1j、o2i 对 o2j 在 V1 与 V2 中分别适用
+<strong>分配律</strong>，则 oi 对 oj 在积代数中也适用分配律</li>
+<li>若 o1i 与 o1j、o2i 与 o2j 在 V1 与 V2 中分别适用
+<strong>吸收律</strong>，则 oi 与 oj 在积代数中也适用吸收律</li>
+<li>积代数必定与因子代数
+<strong>同类型</strong>。若系统公理不含消去律则同种，否则不保证同种。</li>
+<li>积代数能推广到有限多个同类型的代数系统</li>
+<li>直积分解是研究代数结构的有效手段</li>
+</ul>
+<h4 id="同态同构">同态、同构</h4>
+<p>设有同类型代数系统 V1=⟨A,o11,o12,…,o1r⟩ 和 V2=⟨B,o21,o22,…,o2r⟩，其中
+o1i 与 o2i 是 ki 元运算</p>
+<p>若函数 f:A→B 对于所有运算 o1i,o2i 满足：</p>
+<p>∀x1,x2,…,xki∈A 都有 f(o1i(x1,x2,…,xki))=o2i(f(x1),f(x1),…,f(xji))</p>
+<p>则称 f 是函数系统 V1 到 V2 的 <strong>同态映射</strong>，简称
+<strong>同态</strong>。同态运算必须保持零元运算在内的所有运算。</p>
+<p>简言之，对于二元运算有 f(x∘y)=f(x)∘′f(y)；一元运算有
+f(Δx)=Δ′f(x)；零元运算有 f(k)=k′</p>
+<p>同态可以按照映射性质分类：</p>
+<ul>
+<li>满足单射的同态称为 <strong>单同态</strong></li>
+<li>满足漫射的同态称为 <strong>满同态</strong>。记为 V1∼V2</li>
+<li>既是单同态也是满同态的，称为 <strong>同构</strong>，记为 V1≅V2</li>
+</ul>
+<p>此外，载体是 A→A 形式的，称为 <strong>自同态</strong></p>
+<p>同态有以下性质：</p>
+<ul>
+<li><p>同态的合成仍是同态：若 f:V1→V2 同态，g:V2→V3 同态，则 g∘f:V1→V3
+同态</p></li>
+<li><p>同态像是映射到的代数系统的子代数</p></li>
+<li><p>满同态映射（在同态像中）保持原系统的很多性质。</p>
+<p>如：<strong>交换律</strong>、<strong>结合律</strong>、<strong>幂等律</strong>、<strong>分配律</strong>、<strong>吸收律</strong>、<strong>单位元</strong>、<strong>零元</strong>、<strong>逆元</strong></p>
+<p>但，<strong>消去律不一定保持</strong></p></li>
+</ul>
+<h4 id="同余关系同余类商集">同余关系、同余类、商集</h4>
+<p>设有代数系统 V=⟨A,o1,o2,…,or⟩，其中 oi 是 ki 元运算，关系 ∼ 是 A
+上等价关系。</p>
+<p>任取 2ki 个元数 a1,a2,…,aki,b1,b2,…,bki</p>
+<p>若对于所有 j=1,2,…,ki 有 aj∼bj，就有
+oi(a1,a2,…,aki)∼oi(b1,b2,…,bki)。这样就称等价关系 ∼ 对于运算 oi 具有
+<strong>置换性质</strong>。</p>
+<p>若等价关系 ∼ 对 V 中所有运算都具有置换性质，则称 ∼ 是 V 上的
+<strong>同余关系</strong>，A 中相关等价类称为
+<strong>同余类</strong></p>
+<p>A 关于等价关系 ∼ 的所有同余类的集合称为 <strong>商集</strong></p>
+<ul>
+<li><p>由同态映射能导出同余关系</p>
+<p>若函数 f:A→B 为同类型代数系统 V1 到 V2 的同态映射，则：</p>
+<p>由 f 导出的等价关系为 V1 上的同余关系</p>
+<p>每个同态能导出一个同余关系。相同的同态像能导出相同的同余关系。</p></li>
+</ul>
+<h4 id="商代数">商代数</h4>
+<p>设有代数系统 V=⟨A,o1,o2,…,or⟩，其中 oi 是 ki 元运算。关系 R 是 V
+上的同余关系。</p>
+<p>则 V 关于 R 的商代数记为：V/R=⟨A/R,o1―,o2―,…,,or―⟩。</p>
+<p>其中 A/R 是关于同余关系的商集。运算 oi―
+定义为：oi―([a1],[a2],…,[aki])=[oi(a1,a2,…,aki)]</p>
+<ul>
+<li><p>对于商代数，应保证其
+<strong>良定义</strong>，即运算结果与运算元素的表示无关。</p>
+<p>也就是说，对于任意 ki 元运算 oi，都要有：</p>
+<p>oi―([a1],[a2],…,[aki])=[oi(a1,a2,…,aki)]=[oi(b1,b2,…,bki)]=oi―([b1],[b2],…,[bki])</p></li>
+</ul>
+<p>商代数有以下性质：</p>
+<ul>
+<li><p>商代数 V/R 保持 V 的以下性质：</p>
+<p><strong>交换律</strong>、<strong>结合律</strong>、<strong>幂等律</strong>、<strong>分配律</strong>、<strong>吸收律</strong>。</p>
+<p>消去律不一定能保持。</p></li>
+<li><p>商代数 V/R 保持 V 的特异元素：</p>
+<p>[e] 是商代数的 <strong>单位元</strong>、[0] 是商代数的
+<strong>零元</strong>、[a−1]=[a]−1 是其
+<strong>逆元/可逆元</strong></p></li>
+<li><p>商代数是原代数的同态像。</p>
+<p>设有代数系统 V=⟨A,o1,o2,…,or⟩，其中 oi 是 ki 元运算。关系 R 是 V
+上的同余关系。</p>
+<p>则 <strong>自然映射</strong> g:A→A/R,g(a)=[a],∀a∈A 是 V 到 V/R
+的同态映射。</p></li>
+<li><p><strong>同态基本定理</strong>：代数系统的同态像与商代数同构。任何同态像都同构于一个商代数。</p>
+<p>代数系统 V1=⟨A,o1,o2,…,or⟩ 和 V2=⟨B,o1′,o2′,…,or′⟩ 同类型，其中 o1i
+与 o2i 是 ki 元运算。f:A→B 是 V1 到 V2 的同态映射，R 是 f 导出的 V1
+上的同余关系。</p>
+<p>则有 V1/R≅⟨f(A),o1′,o2′,…,or′⟩</p></li>
+</ul>
+<h2 id="dm4.3-群半群置换群">DM4.3 群、半群、置换群</h2>
+<h4 id="半群独异点">半群、独异点</h4>
+<p>代数系统 V=⟨S,∘⟩，其中 S 在二元运算下 ∘ 封闭即构成
+<strong>广群</strong>。</p>
+<p>此外，∘ 满足 <strong>结合律</strong>，则构成
+<strong>半群</strong>。</p>
+<p>此外，半群中含单位元 e 则构成
+<strong>独异点</strong>（含幺半群）。独异点可表示为 V=⟨S,∘,e⟩</p>
+<p>由于仅有一个二元运算，所以 a∘b 可以简写为 ab</p>
+<p>若有集合 B⊆S 非空，且 B 对 V 中运算封闭，则 ⟨B,∘⟩ 为
+<strong>子半群</strong>。子半群有如下性质：</p>
+<ul>
+<li><p>若干子半群的 <em>非空</em> 交集仍是子半群。</p></li>
+<li><p>若干子独异点的交集仍为子独异点。（子独异点的交集必然非空，因为有
+e∈S）</p></li>
+<li><p>若有集合 B⊆S，则子半群 是的子半群⟨B⟩=⋂{A|A是S的子半群,B⊆A}
+即由子集合 B <strong>生成的子半群</strong></p>
+<p>换言之，⟨B⟩=⋃n∈Z+Bn,Bn={b1∘b2∘…∘bn|bi∈B,i=1,2,…,n}</p></li>
+<li><p>有集合 ∑ 表示有穷字母表，∑+ 为非空字的集合，∑∗ 为字的集合。</p>
+<p>则每个字可唯一分解为 ∑ 中元素之积，∑+ 上的运算满足结合律。</p>
+<p>故 V=⟨∑+,∘⟩ 构成半群，称之为 ∑ 上的 <strong>自由半群</strong>。∑
+为该自由半群的 <strong>生成元集</strong></p>
+<p>如果包含空串则 V=⟨∑∗,∘⟩ 构成 <strong>自由独异点</strong></p></li>
+</ul>
+<p>半群有如下性质：</p>
+<ul>
+<li><p>半群的直积仍是半群，独异点的直积仍是独异点</p></li>
+<li><p>能定义半群（独异点）中的幂运算：a1=a,an∘am=an+m（独异点有
+a0=e）</p></li>
+<li><p>任何半群都能通过 增加单位元 e 并定义与 e 的运算
+而扩张为独异点。</p></li>
+<li><p><strong>半群同态定理</strong></p>
+<p>若有半群 V={S,∗}，则 V′={SS,∘} 也是半群，且存在 V 到 V′
+的同态映射。</p>
+<p>其中 SS={f|f:S→S}，∘ 为合成。</p></li>
+<li><p><strong>独异点表示定理</strong></p>
+<p>对于独异点 V=⟨S,∗,e⟩，必存在 T⊆S 使得 V 与 ⟨T,∘,IS⟩ 同构</p></li>
+</ul>
+<h4 id="群">群</h4>
+<p>在独异点 V=⟨S,∘,e⟩ 中，加入一元运算逆元 −1 即构成 <strong>群</strong>
+V=⟨S,∘,−1,e⟩</p>
+<p>即，在群中，S 在 ∘ 上封闭，∘ 满足结合律，有单位元
+∃e∈S，且存在逆元运算 ∀x∈S,x−1∈S</p>
+<p>群有如下性质：</p>
+<ul>
+<li><p><strong>群的等价定义</strong></p>
+<p>⟨G,∘⟩ 中，∘ 可结合，并存在 <em>右单位元</em> e（只需 a∘e=e）</p>
+<p>若每个元素对于 e 存在 <em>右逆元</em> a−1（只需 a∘a−1=e），则 G
+是群。此时能证明 右单位元/右逆 即 单位元/逆元。</p>
+<p>仅满足 左单位元+左逆元 时仍成立。</p></li>
+<li><p><strong>群方程有唯一解</strong></p>
+<p>对于已知数 a,b∈S，未知数 x,y∈S 在方程 a∘x=b 或 y∘a=b
+有且仅有唯一解</p>
+<p>该解即 x=a−1∘b（y=b∘a−1）</p>
+<p>由该定理引申出群的 <strong>另一个等价定义</strong>：若 G
+是半群，且对任意 ∀a,b∈G，ax=b 与 ya=b 在 G 中有解，则 G 是群。</p></li>
+<li><p><strong>群都满足消去律</strong></p>
+<p>由该定理引申出群的 <strong>另一个等价定义</strong>：若 G
+是不含零元的有限半群，且 G 中消去律成立，则 G 是群。</p></li>
+<li><p>有限群的运算表的每行/列都是群中元素的置换（载体中每个元素在每行/列恰出现一次）</p>
+<p>即：∀a∈G 有 aG=G 和 Ga=G</p>
+<p>但运算表的行列都构成置换的，不一定是群。</p></li>
+</ul>
+<p>群的相关术语：</p>
+<ul>
+<li><p><strong>平凡群</strong>：只含单位元的群 ⟨{e},∘,−1,e⟩，可简记为
+{e}</p></li>
+<li><p><strong>交换群</strong>：也称 <strong>Abel
+群</strong>（阿贝尔群）。满足 ∀a,b∈G,a∘b=b∘a</p></li>
+<li><p><strong>有限群、无限群</strong>：群的基数为有限或无限</p></li>
+<li><p><strong>Klein 四元群</strong>：其运算表如下</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>e</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>e</td>
+<td>e</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+</tr>
+<tr class="even">
+<td>a</td>
+<td>a</td>
+<td>e</td>
+<td>c</td>
+<td>b</td>
+</tr>
+<tr class="odd">
+<td>b</td>
+<td>b</td>
+<td>c</td>
+<td>e</td>
+<td>a</td>
+</tr>
+<tr class="even">
+<td>c</td>
+<td>c</td>
+<td>b</td>
+<td>a</td>
+<td>e</td>
+</tr>
+</tbody>
+</table>
+<p>Klein 四元群是最小的循环群。</p></li>
+<li><p><strong>群的阶</strong>：群的基数。有限群的阶记为 |G|</p></li>
+<li><p><strong>幂运算</strong>：an={en=0an−1∘an&gt;0(a−1)mm=−n,n&lt;0</p>
+<p>幂运算有如下规则：(a−1)−1=a,(ab)−1=b−1a−1,anam=an+m,(an)m=anm</p>
+<p>此外，对于 Abel 群还有 (ab)n=anbn</p>
+<p>以及，推广到有限多元素之积时有 (a1a2…an)−1=a−1n…a−12a−11</p></li>
+<li><p><strong>元素 a 的阶</strong>：使 ak=e 成立的最小正整数 k，记为
+|a|。无限群中，元素的阶可能不存在。</p>
+<p>有限群的元素都是有限阶，且都是群的阶的因子。但元素都是有限阶的群，不一定是有限群。</p>
+<p>此外，必定有 ak=e⇔kmod|a|=0，以及 |a|=|a−1|</p>
+<p>有限群的元素阶都是 群阶 的因子，可见 质数阶 群的元素阶是 1
+或群阶，也就是说质数阶群是循环群。</p></li>
+</ul>
+<h4 id="子群">子群</h4>
+<p>设 G 为群，H 为 G 的非空子集。若 H 关于 G 中的运算构成群，则 H 是 G
+的 <strong>子群</strong>，记为 H≤G</p>
+<p>若 H 为 G 的真子集，称 H 是 G 的 <strong>真子群</strong>，记作
+H&lt;G。可见，子群 H 就是 G 的子代数。</p>
+<p>群有消去律，由此可证 H 的零元 e′=e</p>
+<p>设 G 为群，H 为 G 的非空子集。则判定子群的 <strong>判定定理</strong>
+有：</p>
+<ul>
+<li>H≤G⇔∀a,b∈H(ab∈H∧b−1∈H)</li>
+<li>H≤G⇔∀a,b∈H(ab−1∈H)</li>
+<li>H 有限，则：H≤G⇔∀a,b∈H(ab∈H)</li>
+</ul>
+<p>一部分重要的子群：</p>
+<ul>
+<li><p><strong>a 生成子群</strong>：⟨a⟩={ak|k∈Z},a∈G</p></li>
+<li><p><strong>B 生成子群</strong>：⟨B⟩=⋂{H|H≤G,B⊆H},B⊆G</p>
+<p>即 ⟨B⟩={b1e1∘b2e2∘…∘bnen|bi∈B,ei=±1,i=1,2,…,n,n∈Z+}</p></li>
+<li><p><strong>中心</strong>：C={a|a∈G,∀x∈G(a∘x=x∘a)}，即所有可交换元素的集合。</p>
+<p>必有 {e}⊆C⊆G。可见 C=G 时即 Abel 群。</p></li>
+<li><p><strong>a 的正规化子</strong>：N(a)={x|x∈G,x∘a=a∘x},a∈G，即所有与
+a 可交换的元素的集合</p>
+<p>可见，a 的正规化子也是 G 的子群。</p></li>
+<li><p><strong>H 的正规化子</strong>：N(H)={x|x∈G,xHx−1=H},H≤G</p>
+<p>其中
+xHx−1={xhx−1|h∈H}={xex−1,xh1x−1,…,xhix−1},H={e,h1,h2,…,hi}</p></li>
+<li><p><strong>共轭子群</strong>：xHx−1={xhx−1|h∈H}，其中 H≤G,x∈G</p>
+<p>虽然定有 |xHx−1|=|H|，但两者不一定相等</p></li>
+<li><p><strong>子群的交、并</strong>：若 H,K≤G，则</p>
+<p>H∩K≤G</p>
+<p>H∪K≤G⇔H⊆K∨K⊆H</p></li>
+<li><p><strong>子群格</strong>：若 G 为群，S={H|H≤G}，则偏序集 ⟨S,⊆⟩
+构成
+<strong>格</strong>（偏序集中任何二元子集都有最小上界和最大下界），称为
+G 的 <strong>子群格</strong>。</p></li>
+<li><p><strong>循环群</strong></p>
+<p>群 G=⟨a⟩={ak|k∈Z},a∈G，则称 G 为 <strong>循环群</strong>。其中 a 为 G
+的生成元。</p>
+<p>若生成原的阶无限，则称 G 是无限循环群。若生成元是 n 阶元，则 G 为 n
+阶循环群。</p>
+<p>循环群 G=⟨a⟩ 的生成元有以下情况：</p>
+<ul>
+<li><p>若 G 是无限循环群，则生成元为 a 和 a−1</p></li>
+<li><p>若 G 是 n 阶循环群，且 n=1，则 G=⟨e⟩ 的生成元是 e</p></li>
+<li><p>若 G 是 n 阶循环群，且 n&gt;1，则有 ϕ(n) 个生成元（ϕ(n) 表示小于
+n 且与 n 互质的正整数的个数）</p>
+<p>即：是的生成元ar是G的生成元⇔gcd(n,r)=1</p></li>
+</ul>
+<p>有如下 <strong>定理</strong>：</p>
+<ul>
+<li><p>若 G=⟨a⟩ 是循环群，则其子群也是循环群。</p></li>
+<li><p>若 G=⟨a⟩ 是无限循环群，则其子群除 {e} 外都是无限循环群。</p></li>
+<li><p>若 G=⟨a⟩ 是 n 阶循环群，则其子群的阶数为 n 的因子。</p>
+<p>对于 n 的每个正因子 d，在 G 中有且仅有一个 d 阶子群。</p></li>
+</ul></li>
+</ul>
+<h4 id="变换群置换群">变换群、置换群</h4>
+<p>f:A→A 为 A 上的变换。若其双射，则称为 A 上的
+<strong>一一变换</strong>。</p>
+<p>定义 A 上的 <strong>一一变换群</strong>：由
+为双射E(A)={f|f:A→A为双射} 为基数，关于函数合成运算而构成的群</p>
+<p>若有 G⊆E(A) 为群，则称这样的子群为 A 上的
+<strong>变换群</strong>。</p>
+<p>若有穷集 A 有 |A|=n，则 A 上的一一变换称为 A 上的 <strong>n
+元置换</strong></p>
+<p>n 元置换的表示方法有：</p>
+<ul>
+<li><p><strong>置换的表示法</strong></p>
+<p>若令 A={1,2,…,n}，则置换 σ=(12…nσ(1)σ(2)…σ(n))</p></li>
+<li><p><strong>n 元置换的轮换表示</strong></p>
+<p>任何置换都能表达成 不交的 <strong>轮换</strong> 之积，且表法唯一</p>
+<p>若有
+、、、、σ(i1)=i2、σ(i2)=i3、…、σ(in−1)=in、σ(i)=i1，则构成轮换</p>
+<p>该不交轮换可表示为 τ=(i1,i2,…,in)</p>
+<p>置换可表示为不交轮换之积，即 σ=τ1τ2…τn</p>
+<p>写成该表达式时，那些一阶的轮换可以省略。如
+(124)(36)(5)(7)=(124)(36)</p>
+<p><strong>轮换指数</strong></p>
+<p>n 元置换的 轮换指数 是该轮换中，对应阶轮换的个数的表示。</p>
+<p>其表示为 1C1(σ)2C2(σ)…nCn(σ)，其中 Ck(σ) 表示 k 轮换的个数。</p>
+<p>如轮换 (157)(48)(2)(3)(6) 的指数为 132131</p>
+<p>可见，不同指数的个数是方程 x1+2x2+…+nxn=n
+的非负整数解的个数。</p></li>
+<li><p><strong>n 元置换的对换表示</strong></p>
+<p>所有轮换可被表示成 <strong>对换</strong>（2 阶轮换）之积</p>
+<p>轮换转化为对换的方法：τ=(i1,i2,…,in)=(i1i2)(i1i3)…(i1in)</p>
+<p>将轮换表示中的轮换转化为对换积，就形成了对换表示。对换间可以相交。</p>
+<p>n
+元置换的对换表示不唯一，但分解的对换数量的奇偶性（等于置换中逆序的个数）不变。</p>
+<p>奇置换/偶置换：表成奇数/偶数个对换之积。</p>
+<p>奇置换与偶置换间存在一一对应，因此各有 n!2
+个。可见恒等置换是偶置换。</p></li>
+</ul>
+<p><strong>置换的乘法</strong> 即函数的合成。</p>
+<p>例如有 8 元置换 σ=(132)(5648)(7),τ=(18246573)，则
+στ=(15728)(3)(4)(6)。</p>
+<p>这其中有 στ(1)=σ(τ(1))=σ(8)=5，以及 στ(3)=σ(τ(3))=σ(1)=3 等等。</p>
+<p><strong>置换的逆</strong> 是置换的反函数。</p>
+<p>比如置换 σ=(132)(5648)，则 σ−1=(8465)(231)</p>
+<p>若 Sn 为 A={1,2,…,n} 上的所有置换的集合，则 Sn
+关于置换乘法构成群，称为 <strong>n 元对称群</strong></p>
+<p>其子群称为 <strong>n 元置换群</strong>。n
+元对称群中所有偶置换构成的子群称为 <strong>n 元交代群</strong>。</p>
+<p><strong>置换的阶</strong>
+是其不交轮换分解式中，各轮换阶的最小公倍数。</p>
+<p>有 <strong>Cayley
+定理</strong>：每个群都与一个变换群同构。推论：每个有限群都与一置换群同构。</p>
+<p><strong>置换的逆序序列</strong> (b1,b2,…,bn)，其中 bi 代表 i 后面比 i
+小的数的个数，有 0≤bi&lt;i。</p>
+<p>置换与其逆序序列一一对应。</p>
+<h2 id="dm4.4-群的分解">DM4.4 群的分解</h2>
+<h4 id="陪集">陪集</h4>
+<p>若 G 为群，H≤G,a∈G，则 <strong>右陪集</strong> Ha={ha|h∈H,a∈G}。其中
+a 称为该陪集的 <strong>代表元素</strong></p>
+<p>有如下性质：</p>
+<ul>
+<li><p>He=H</p></li>
+<li><p>a∈Ha</p></li>
+<li><p>Ha 与 H 等势（存在双射），即 Ha≈H</p></li>
+<li><p>a∈Hb⇔Ha=Hb⇔ab−1∈H</p></li>
+<li><p>在 G 上定义二元关系 R，aRb⇒ab−1∈H，则 R 为等价关系，且
+[a]R=Ha</p></li>
+<li><p>a,b∈G，定有 Ha∩Hb=∅ 或 Ha=Hb。此外，⋃Ha=G</p></li>
+<li><p><strong>指数</strong>：H 的左陪集和右陪集数量相等。陪集的总数称为
+H 在 G 中的 <strong>指数</strong>，记为 [G:H]</p></li>
+<li><p><strong>拉格朗日定理</strong>：|G|=|H|[G:H]</p>
+<p>推论：群的元素的阶定是群阶的因子。也因此，素数阶的群一定是循环群。</p></li>
+</ul>
+<h4 id="共轭">共轭</h4>
+<p>若 G 为群，G 上二元关系 R 有 aRb⇔∃x(x∈G,a=xbx−1)，则 R 为 G 上的
+<strong>共轭关系</strong>。</p>
+<p>共轭关系是 G 上等价关系，其等价类为 <strong>共轭类</strong>。与 a
+共轭的等价类记为 a―</p>
+<p>共轭类有如下性质：</p>
+<ul>
+<li><p>群的中心元素的共轭类仅包含该元素自身：a∈C⇔a―={a}</p></li>
+<li><p>|a―|=|G:N(a)|，其中 N(a) 是与 a 的可交换元素子群，即
+N(a)={x|x∈G,xa=ax}</p></li>
+<li><p>共轭类中置换的轮换结构相同</p></li>
+<li><p><strong>群的分类方程</strong>：|G|=|C|+[G:N(a1)]+[G:N(a2)]+…+[G:N(ak)]</p>
+<p>其中 G 为群，C 为中心，G 中含 2 元素以上的共轭类为 k 个</p></li>
+</ul>
+<h4 id="正规子群">正规子群</h4>
+<p>若 H≤G 且 ∀a∈G(aH=Ha)，则称 H 为 G 的 <strong>正规子群</strong>，记为
+H⊴G</p>
+<p>对于任意 N≤G，判定正规子群的方法如下：</p>
+<ul>
+<li>N⊴G⇔∀g∈G(gNg−1=N)⇔∀g∈G(∀n∈N(gng−1∈N))</li>
+<li>|N|=t 且 N 是 G 的唯一的 t 阶子群，则其为正规子群</li>
+<li>N 是指数为 2 的子群（陪集数量为 2），则其为正规子群</li>
+</ul>
+<h4 id="商群">商群</h4>
+<p>若有 H⊴G，则可定义 <strong>商群</strong>：G/H={Ha|a∈G}</p>
+<p>则可定义运算 Ha∘Hb=Hab</p>
+<p>商群有以下性质：</p>
+<ul>
+<li>|G/H|=[G:H]，因而商群的阶也是 |G| 的因子。</li>
+<li>商群保持 G 中的性质。如交换性、循环性等。</li>
+</ul>
+<h4 id="群的同态">群的同态</h4>
+<p>若有 f:G1→G2，当且仅当 ∀x,y∈G1(f(xy)=f(x)f(y))，此时 f 是 G1 到 G2
+的同态映射。</p>
+<p>群的同态映射有如下性质：</p>
+<ul>
+<li><p><strong>同态保持元素的性质</strong></p>
+<p>有 f(e1)=e2,f(x−1)=f(x)−1</p>
+<p>此外，满同态 f 也能把循环群生成元映射到生成元</p>
+<p>另外，必有 |f(a)| 整除
+|a|（映射到的元素阶是原元素阶的因子）。同构时额外有 |f(a)|=|a|</p></li>
+<li><p><strong>同态保持子代数的性质</strong></p>
+<p>H≤G1⇒f(H)≤G2</p>
+<p>若 H⊴G1 且 f 是满同态，则有 f(H)⊴G2</p></li>
+<li><p><strong>同态核的性质</strong></p>
+<p><strong>核</strong>：ker⁡f={x|x∈G,f(x)=e2}</p>
+<p>有 是单同态ker⁡f={e1}⇔f是单同态</p>
+<p>有 ker⁡f⊴G1，此外，∀a,b∈G1(f(a)=f(b))⇔aker⁡f=bker⁡f</p></li>
+<li><p><strong>同态基本定理</strong></p>
+<p>若 H⊴G，则 G/H 是 G 的同态像</p>
+<p>若 G′ 是 G 的同态像（即 f(G)=G′），则 G/ker⁡f≅G′</p></li>
+</ul>
+<p>一些特殊的自同态/自同构：</p>
+<ul>
+<li><p>EndG：G 的自同态的集合</p></li>
+<li><p>AutG：G 的自同构的集合</p></li>
+<li><p>InnG：G 的内自同构的集合。内自同构即：fx:G→G,fx(a)=xax−1</p>
+<p>可见必有 InnG⊆AutG⊆EndG</p>
+<p>EndG 是独异点；AutG 是群；InnG 是 AutG 的正规子群</p></li>
+</ul>
+<h2 id="dm4.5-环和域">DM4.5 环和域</h2>
+<h4 id="环">环</h4>
+<p>若代数系统 ⟨R,+,∙⟩ 满足以下条件，则构成 <strong>环</strong>：</p>
+<ul>
+<li>⟨R,+⟩ 构成 Abel
+群（封闭、有单位元、有逆元、满足交换律、结合律）</li>
+<li>⟨R,∙⟩ 构成半群（封闭、满足结合律）</li>
+<li>∙ 运算对 + 运算满足分配律</li>
+</ul>
+<p>环中的一些 <strong>符号说明</strong>：</p>
+<ul>
+<li><p>对于 + 运算：</p>
+<p>0（单位元）、−x（逆元）、nx（幂运算）、x−y（即 x+(−y)）</p></li>
+<li><p>对于 ∙ 运算：</p>
+<p>1（单位元）、x−1（逆元）、xn（幂运算）</p></li>
+</ul>
+<p>环的 <strong>性质</strong>：</p>
+<ul>
+<li>a∙0=0∙a=0，其中 0 是 + 运算的单位元</li>
+<li>(−a)∙b=a∙(−b)=−(a∙b)</li>
+<li>(−a)∙(−b)=a∙b</li>
+<li>a∙(b−c)=a∙b−a∙c(b−c)∙a=b∙a−c∙a</li>
+<li>(∑i=1nai)∙(∑j=1mbj)=∑i=1n∑j=1m(ai∙bj)</li>
+<li>(na)∙b=a∙(nb)=n(a∙b)</li>
+</ul>
+<p>一些特殊的环：</p>
+<ul>
+<li><p><strong>交换环</strong>（∙
+满足交换律）、<strong>含幺环</strong>（∙ 运算有单位元）</p></li>
+<li><p><strong>无零因子环</strong>：a∙b=0⇒a=0∨b=0</p>
+<p>（零因子即 a≠0∧b≠0 且 a∙b=0，此时 a 为左零因子，b 为右零因子）</p>
+<p>若 R
+为环，则有定理：是无零因子环中的运算满足消去律R是无零因子环⇔R中的∙运算满足消去律</p></li>
+<li><p><strong>整环</strong>：交换、含幺的无零因子环</p></li>
+<li><p><strong>除环</strong>：|R|&gt;1，且 ⟨R∗,∙⟩ 构成群，则 R 为
+除环。其中 R∗=R−{0}</p></li>
+</ul>
+<h4 id="域">域</h4>
+<p>|R|&gt;1 时的，具有交换律的除环（或 R∗ 元素有逆元的整环）称为
+<strong>域</strong>。</p>
+<p>可见对于域 F，有 ⟨F,+⟩ 和 ⟨F−{0},∙⟩ 都是 Abel 群</p>
+<p>对于有限的整环 R，必有 R∗ 为群（无零元、有消去律的有限半群），故
+<strong>有限的整环都是域</strong></p>
+<p>若域 F 中，|F| 有限，则称为 <strong>有限域</strong>。</p>
+<p>有限域 ⟨F,+⟩ 中，若 x1=0（即 + 运算中，1 的阶为 x），则 x
+称为有限域的 <strong>特征</strong>。</p>
+<p>有限域有如下性质：若 F 为有限域，则存在素数 p 使得 |F|=pn</p>
+<blockquote>
+<p><strong>验证素数的方法（Miller-Rabin 算法）</strong></p>
+<p>Fermat 小定理：是素数n是素数⇒∀a∈Z+(a≠0(modn)→an−1≡1(modn))</p>
+<p>另（因为域是无零因子环）有：是素数方程的根只有n是素数⇒方程x2≡1(modn)的根只有{x=1x=n−1</p>
+<p>可见对于任意奇素数 n，必存在q,m 使得 n−1=2qm</p>
+<p>此时对于序列 am(modn), a2m(modn),a22m(modn),…,a2qm(modn)</p>
+<p>序列最后一项必为为 1，且前面的项都是 1 或 n−1。</p>
+<p>该验证方法的准确率约为一半。多次验证可提高准确率。</p>
+</blockquote>
+<h4 id="子环">子环</h4>
+<p>环 R 的非空子集 A 关于环中运算 +,∙ 构成环，则称 A 是 R 的
+<strong>子环</strong>。</p>
+<p>子环就是子代数。存在平凡子环。</p>
+<p>判别子环时，判断其对于 + 运算构成子群，且对于 ∙ 运算构成子半群。</p>
+<p>相似的，有
+<strong>子整环</strong>、<strong>子除环</strong>、<strong>子域</strong>
+的概念。</p>
+<h4 id="理想">理想</h4>
+<p>若 D 是环 R 的非空子集，⟨D,+⟩ 构成 Abel 群，且 ∀r∈R, rD⊆D, Dr⊆D，则称
+D 是 R 的 <strong>理想</strong>。</p>
+<p>只满足 ∀r∈R, rD⊆D 的称为 <strong>左理想</strong>，同理也有
+<strong>右理想</strong>。</p>
+<p>理想是 R 的子环，但子环不一定是理想。</p>
+<p>任何环都有平凡理想：{0} 与 R 自身。</p>
+<h4 id="商环">商环</h4>
+<p>若 D 为 R 的理想，称 ⟨R/D,+,∙⟩ 构成的环为 R 关于 D 的
+<strong>商环</strong></p>
+<p>其中 R/D={x―|x∈R}，而 x―=D+x={d+x|d∈D}。</p>
+<p>并定义：x―+y―=x+y―, x―∙y―=x∙y―</p>
+<h4 id="环同态">环同态</h4>
+<p>若映射 f:R1→R2 满足 f(x+y)=f(x)+f(y) 且 f(xy)=f(x)f(y)
+则其为环的同态映射。</p>
+<p>同态的核是 ker⁡f={x|x∈R1,f(x)=0}</p>
+<p>环同态有如下性质：</p>
+<ul>
+<li><p>f(0)=0,f(1)=1, f(−x)=−f(x), f(x−1)=f(x)−1</p></li>
+<li><p>S 是 R1 的子环，则 f(S) 是 R2 的子环</p>
+<p>T 是 R2 的子环，则 f−1(T) 是 R1 的子环</p>
+<p>D 是 R1 的理想，则 f(D) 是 f(R1) 的理想</p>
+<p>I 是 R2 的理想，则 f−1(I) 是 R1 的理想</p></li>
+<li><p>ker⁡f={x|x∈R1, f(x)=0} 是 R1 的理想</p></li>
+<li><p>同态基本定理：环 R 的任何商环 R/D 是 R 的同态像。若 R∼R′ 则
+R′≅R/ker⁡f</p></li>
+</ul>
+<h2 id="dm4.6-格">DM4.6 格</h2>
+<h4 id="格">格</h4>
+<p>格也是一种具有两个二元运算的代数系统。</p>
+<p>偏序集 ⟨S,≼⟩ 中，若 S 的任意二元子集都有 <strong>最大上界</strong> 和
+<strong>最小下界</strong>，则称之为 格（格的
+<strong>偏序集定义</strong>）。</p>
+<p>可见，所有的 全序集 或 链 都是格。</p>
+<p>运算 ∧（求最大上界）、∨（求最小下界）称为格 ⟨L,≼⟩ 的
+<strong>自然运算</strong>（也称保交/保联运算）</p>
+<p>格的性质：</p>
+<ul>
+<li><p><strong>对偶原理</strong></p>
+<p>若 P 是由格中元素与 ≼,≽,=,∧,∨ 等表示的命题，则将 P 中符号 ≼,≽,∧,∨
+分别替换为 ≽,≼,∨,∧ 而得到的命题 P∗ 称为
+<strong>对偶命题</strong>。显然有 (P∗)∗=P</p>
+<p>若 P 对于一切格为真，则其对偶命题 P∗ 也对一切格为真。</p></li>
+<li><p>a≼a（自反）</p>
+<p>a≼b, b≼c⇒a≼c（传递）</p>
+<p>a≼b, b≼a⇒a=b（反对称）</p>
+<p>a∧b≼a, a∧b≼b（下界）</p>
+<p>a≼a∨b, b≼a∨b（上界）</p>
+<p>a≼b, a≼c⇒a≼b∧c（最大下界）</p>
+<p>b≼a, c≼a⇒b∨c≼a（最小上界）</p></li>
+<li><p><strong>格中的等价条件</strong>：a≼b⇔a∧b=a⇔a∨b=b</p></li>
+<li><p><strong>保序不等式</strong>：a≼b, c≼d⇒a∧c≼b∧d, a∨c≼b∨d</p>
+<p><strong>分配不等式</strong>：a∨(b∧c)≼(a∨b)∧(a∨c)a∧(b∨c)≽(a∧b)∨(a∧c)</p>
+<p><strong>模不等式</strong>：a≼b⇔a∨(c∧b)≼(a∨c)∧b</p></li>
+<li><p><strong>交换律</strong>：a∧b=b∧aa∨b=b∨a</p>
+<p><strong>结合律</strong>：(a∧b)∧c=a∧(b∧c)(a∨b)∨c=a∨(b∨c)</p>
+<p><strong>幂等律</strong>：a∧a=aa∨a=a</p>
+<p><strong>吸收律</strong>：a∧(a∨b)=aa∨(a∧b)=a</p></li>
+</ul>
+<p><strong>引理</strong>：代数系统 ⟨S,∗,∘⟩ 中，二元运算 ∗,∘
+满足交换、结合、吸收律，则定有 ∗,∘ 满足幂等律，且 a∗b=a⇔a∘b=b</p>
+<p>由此引理给出了格的等价定义：</p>
+<p>代数系统 ⟨S,∧,∨⟩ 中，二元运算 ∧,∨ 满足交换、结合、吸收律，则 ⟨S,∧,∨⟩
+是格（格的 <strong>代数系统定义</strong>）</p>
+<h4 id="子格格同态">子格、格同态</h4>
+<p>格 L 的非空子集 S 关于 ∧,∨ 运算封闭，则 S 是 L 的子格。</p>
+<p><strong>注意</strong>：子格中的 ∧,∨ 运算要
+<strong>放在原格中计算</strong>。</p>
+<p>若格 L1, L2 和映射 f:L1→L2 对于 ∀x,y∈L1 有 f(x∧y)=f(x)∧f(y),
+f(x∨y)=f(x)∨f(y)，则 f 为同态映射。</p>
+<p>格同态有如下性质：</p>
+<ul>
+<li>保序性：a≼b⇒f(a)≼f(b)</li>
+<li>若 f 为双射，则：当且仅当 a≼b⇔f(a)≼f(b) 时，f 为同构映射。</li>
+</ul>
+<h4 id="完备格理想格">完备格、理想格</h4>
+<p>若格 L 的任何子集 S，S 的最大下界 ∧S 和最小上界 ∨S 都存在，则 L 是
+<strong>完备格</strong>。有限格一定是完备格。</p>
+<p><strong>注意</strong>：S 也可能是空集。取 L 中最大元为 ∧∅，最小元为
+∨∅。可见完备格必有最大/最小元素。</p>
+<p>若格 L 的非空子集 I 满足 ∀a,b∈I, a∨b∈I（上界）且 ∀a∈I,∀x∈L,
+x≼a⇒x∈I（下界），则 I 是 L 的
+<strong>理想</strong>。可见理想一定是子格。</p>
+<p>L 的所有理想的集合关于 包含关系 可构成 <strong>理想格</strong>。记为
+I(L)。</p>
+<p>理想格不一定完备，但 I0(L)=I(L)∪{∅} 必定是完备格。</p>
+<h2 id="dm4.7-特殊的格">DM4.7 特殊的格</h2>
+<h4 id="模格">模格</h4>
+<p>对于格 L，若 ∀a,b,c∈L, a≼b⇒a∨(c∧b)=(a∨c)∧b（模律），则 L 为
+<strong>模格</strong>。</p>
+<p>格 L 为模格的 <strong>判别条件</strong>：</p>
+<ul>
+<li>当且仅当其不含与五角格同构的子格时，L 为模格。</li>
+<li>当且仅当其满足 ∀a,b,c∈L(a≼b, a∨c=b∨c, a∧c=b∧c⇒a=b) 时，L
+为模格。</li>
+</ul>
+<h4 id="分配格">分配格</h4>
+<p>若格 L 对于 ∀a,b,c∈L，满足 a∧(b∨c)=(a∧b)∨(a∧c) 或
+a∨(b∧c)=(a∨b)∧(a∨c)，则 L 为 <strong>分配格</strong>。</p>
+<p>在任何格中，两个分配式都是等价的。即
+a∧(b∨c)=(a∧b)∨(a∧c)⇔a∨(b∧c)=(a∨b)∧(a∨c)</p>
+<p>模格 L 为分配格的 <strong>判别条件</strong>：</p>
+<ul>
+<li>当且仅当其不含与钻石格同构的子格时，L 为分配格。</li>
+<li>当且仅当对于 ∀a,b,c,∈L 有 (a∧b)∨(b∧c)∨(c∧a)=(a∨b)∧(b∨c)∧(c∨a) 时，L
+为分配格。</li>
+</ul>
+<h4 id="有界格有补格">有界格、有补格</h4>
+<p>格的最大元 1 为 <strong>全上界</strong>，格的最小元 0 为
+<strong>全下界</strong>。存在全上界与全下界的格 ⟨L,∧,∨,0,1⟩ 称为
+<strong>有界格</strong>。</p>
+<p>有限格必定有界，无限格有可能无界。</p>
+<p>显然有 a∧1=a, a∨0=a, a∨1=1, a∧0=0</p>
+<p>对于有界格，其对偶命题除运算符互换外，0,1 也要互换。</p>
+<p>在有界格中，若 a∧b=0, a∨b=1，则称 a,b 互为 <strong>补元</strong>。在
+<strong>有界分配格</strong> 中，若元素存在补元，其补元唯一。</p>
+<p>若有界格 L 的所有元素都存在补元，则其为 <strong>有补格</strong>。</p>
+<h4 id="布尔代数">布尔代数</h4>
+<p>有补分配格称为
+<strong>布尔格</strong>。此时求补运算构成布尔格中的一元运算。</p>
+<p>若 ⟨B,∗,∘,△,a,b⟩ 是代数系统，其中 ∗,∘ 是二元运算，△ 是一元运算，a,b
+是零元运算。若其满足如下性质则构成布尔格：</p>
+<ul>
+<li><strong>交换律</strong>：x∗y=y∗xx∘y=y∘x</li>
+<li><strong>分配律</strong>：x∗(y∘z)=(x∗y)∘(x∗z)x∘(y∗z)=(x∘y)∗(x∘z)</li>
+<li><strong>同一律</strong>：x∗b=xx∘a=x</li>
+<li><strong>补元律</strong>：x∗△x=ax∘△x=b</li>
+</ul>
+<p>布尔格有以下性质：</p>
+<ul>
+<li><strong>双重否定率</strong>：a≼b⇔a∧b=a⇔a∨b=b⇔a∧b―=0⇔a―∧b=1</li>
+<li><strong>德摩根率</strong>：a≼b⇔b―≼a―</li>
+</ul>
+<p>布尔代数的同态映射 f:B1→B2 需满足下列条件中的 2 个：</p>
+<ul>
+<li>f(x∧y)=f(x)∧f(y)</li>
+<li>f(x∨y)=f(x)∨f(y)</li>
+<li>f(x―)=f(x)―</li>
+</ul>
+<p>在布尔代数中，若对元素 a∈B 有 ∀x∈B, x≼a→(x=a)∨(x=0) 则称 a 是 B 中的
+<strong>原子</strong>。</p>
+<p>若 B 是 <strong>有限布尔代数</strong>，A 是 B 中所有 原子
+的集合，则必有 P(A)≅B。</p>
+<p>可见任何有限布尔代数元素数都是 2n，任何有限布尔代数都同构于
+{0,1}n</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
+      
+        <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">#离散数学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;离散数学&gt; DM4 代数结构</div>
+      <div>https://i-melody.github.io/2023/01/20/离散数学/4 代数结构/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
