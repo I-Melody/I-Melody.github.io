@@ -19,12 +19,12 @@
     <meta name="description" content="DM2 集合论 DM2.1 集合 集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。 通常用大写英文字母表示集合（\(A\)、\(A_1\)），用小写字母表示元素（\(a\)、\(a_1\)） 常用集合：  \(N\)：自然数集，也就是全体非负整数集 \(Z\)：整数集 \(Q\)：有理数集 \(R\)：实数集  如何描">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;离散数学&gt; DM2 集合论">
-<meta property="og:url" content="https://i-melody.github.io/2022/10/15/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/2%20%E9%9B%86%E5%90%88%E8%AE%BA/index.html">
+<meta property="og:url" content="https://i-melody.github.ioeeeeee/2022/10/15/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/2%20%E9%9B%86%E5%90%88%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
 <meta property="og:description" content="DM2 集合论 DM2.1 集合 集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。 通常用大写英文字母表示集合（\(A\)、\(A_1\)），用小写字母表示元素（\(a\)、\(a_1\)） 常用集合：  \(N\)：自然数集，也就是全体非负整数集 \(Z\)：整数集 \(Q\)：有理数集 \(R\)：实数集  如何描">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-31T02:34:29.635Z">
+<meta property="article:modified_time" content="2023-01-31T17:39:22.679Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="数学">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"i-melody.github.ioeeeeee","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月31日 上午
+                    本文最后更新于：2023年2月1日 凌晨
                   
                 
               </p>
@@ -970,8 +970,10 @@ R_2){\color{Red}{\supseteq}}t(R_1)\cup t(R_2)\)</span></p></li>
 <li><p><strong>等价关系</strong></p>
 <p>有 <span class="math inline">\(A\not=Ø\quad R\subseteq A\times
 A\)</span>，若 <span class="math inline">\(R\)</span>
-是自反、对称、传递的，则称 <span class="math inline">\(R\)</span>
-是等价关系</p>
+是自反、对称的，则称 <span class="math inline">\(R\)</span>
+是相容关系</p>
+<p>若 <span class="math inline">\(R\)</span> 是自反、对称、传递的，则称
+<span class="math inline">\(R\)</span> 是等价关系</p>
 <p>由于 <span class="math inline">\(st(R)\subseteq ts(R)\)</span>，对
 <span class="math inline">\(R\)</span> 依次求闭包只有 <span
 class="math inline">\(tsr(R)=trs(R)=rts(R)\)</span> 是等价闭包</p></li>
@@ -1238,7 +1240,8 @@ class="math inline">\(B^A=Ø^{A}=Ø\)</span></li>
 class="math inline">\(|B^A|=|B|^{|A|}\)</span></p></li>
 <li><p><strong>全函数的性质</strong></p>
 <ul>
-<li>单射：<span class="math inline">\(F\)</span> 是单根的。</li>
+<li>单射：<span class="math inline">\(F\)</span> 是单根的。即 <span
+class="math inline">\(f(x)=f(y)→ x=y\)</span></li>
 <li>满射：<span
 class="math inline">\(\operatorname{ran}F=B\)</span></li>
 <li>双射：<span class="math inline">\(F\)</span> 即是单射也是满射。</li>
@@ -1699,7 +1702,7 @@ class="math inline">\(A,B\,是集合⇒|A|\le|B|⋁|B|\le|A|\)</span></li>
   <div class="license-box my-3">
     <div class="license-title">
       <div>&lt;离散数学&gt; DM2 集合论</div>
-      <div>https://i-melody.github.io/2022/10/15/离散数学/2 集合论/</div>
+      <div>https://i-melody.github.ioeeeeee/2022/10/15/离散数学/2 集合论/</div>
     </div>
     <div class="license-meta">
       
