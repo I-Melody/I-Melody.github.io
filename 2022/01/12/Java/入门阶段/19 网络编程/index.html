@@ -19,20 +19,20 @@
     <meta name="description" content="19 网络编程 网络通信：两台设备之间通过网络实现数据传输。 java.net 包下提供了一系列类或接口，供程序员使用，完成网络通信 19.1 网络的相关概念 网络 网络：两台或多台设备通过一定物理设备连接起来构成了网络 根据网络覆盖范围的不同，对网络进行分类：  局域网：覆盖范围最小，仅覆盖一个教室·机房 城域网：覆盖范围较大，可覆盖一个城市 广域网：覆盖范围最大，可以覆盖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;19 网络编程">
-<meta property="og:url" content="https://i-melody.github.ioeeeeee/2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:url" content="https://i-melody.github.io/2022/01/12/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/19%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
 <meta property="og:description" content="19 网络编程 网络通信：两台设备之间通过网络实现数据传输。 java.net 包下提供了一系列类或接口，供程序员使用，完成网络通信 19.1 网络的相关概念 网络 网络：两台或多台设备通过一定物理设备连接起来构成了网络 根据网络覆盖范围的不同，对网络进行分类：  局域网：覆盖范围最小，仅覆盖一个教室·机房 城域网：覆盖范围较大，可覆盖一个城市 广域网：覆盖范围最大，可以覆盖">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.ioeeeeee/img/Java_InputImage/子网掩码图_19.1.png">
-<meta property="og:image" content="https://i-melody.github.ioeeeeee/img/Java_InputImage/子网图_19.1.png">
-<meta property="og:image" content="https://i-melody.github.ioeeeeee/img/Java_InputImage/数据封装图_19.1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/子网掩码图_19.1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/子网图_19.1.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Java_InputImage/数据封装图_19.1.png">
 <meta property="article:published_time" content="2022-01-11T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-10-31T03:13:07.482Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.ioeeeeee/img/Java_InputImage/子网掩码图_19.1.png">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Java_InputImage/子网掩码图_19.1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"i-melody.github.ioeeeeee","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -768,7 +768,7 @@ ds.close();														<span class="hljs-comment">//[4]</span></code></pre></d
   <div class="license-box my-3">
     <div class="license-title">
       <div>&lt;Java&gt;19 网络编程</div>
-      <div>https://i-melody.github.ioeeeeee/2022/01/12/Java/入门阶段/19 网络编程/</div>
+      <div>https://i-melody.github.io/2022/01/12/Java/入门阶段/19 网络编程/</div>
     </div>
     <div class="license-meta">
       

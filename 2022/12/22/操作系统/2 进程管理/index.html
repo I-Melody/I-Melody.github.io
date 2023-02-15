@@ -19,18 +19,18 @@
     <meta name="description" content="OS2 进程管理 程序 就是一个指令的序列。为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 相比于程序，进程拥有以下特征：  动态性：进程是程序的一次执行过程，是动态产生、变化、消亡的 并发性：内存中有多个进程实">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;操作系统&gt;OS2 进程管理">
-<meta property="og:url" content="https://i-melody.github.ioeeeeee/2022/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:url" content="https://i-melody.github.io/2022/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
 <meta property="og:description" content="OS2 进程管理 程序 就是一个指令的序列。为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位 相比于程序，进程拥有以下特征：  动态性：进程是程序的一次执行过程，是动态产生、变化、消亡的 并发性：内存中有多个进程实">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.ioeeeeee/img/OS_InputImage/OS2_6%20七状态模型图.png">
+<meta property="og:image" content="https://i-melody.github.io/img/OS_InputImage/OS2_6%20七状态模型图.png">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-01-26T09:35:19.889Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.ioeeeeee/img/OS_InputImage/OS2_6%20七状态模型图.png">
+<meta name="twitter:image" content="https://i-melody.github.io/img/OS_InputImage/OS2_6%20七状态模型图.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"i-melody.github.ioeeeeee","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -932,7 +932,7 @@ CPU）。反复申请和释放资源增加了系统开销，降低系统吞吐�
   <div class="license-box my-3">
     <div class="license-title">
       <div>&lt;操作系统&gt;OS2 进程管理</div>
-      <div>https://i-melody.github.ioeeeeee/2022/12/22/操作系统/2 进程管理/</div>
+      <div>https://i-melody.github.io/2022/12/22/操作系统/2 进程管理/</div>
     </div>
     <div class="license-meta">
       
