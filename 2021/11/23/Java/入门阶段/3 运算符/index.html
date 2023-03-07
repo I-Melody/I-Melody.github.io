@@ -24,7 +24,7 @@
 <meta property="og:description" content="3 运算符  运算符：一种特殊的符号，用于表示数据的运算、赋值和比较等。  3.1 算数运算符  算术运算符是对数值类型的变量进行运算的运算符，在 Java 程序中使用得非常多。其运算结果是一个数值量。   + ; - ; * ; &#x2F; ：加（正）、减（负）、乘、除  5 &#x2F; 2 &#x3D; 2; 因为是 int。同理 5.0 &#x2F; 2 &#x3D; 2.5  % ：取模（求余数），结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-02T14:09:00.068Z">
+<meta property="article:modified_time" content="2023-03-04T07:59:26.776Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月2日 晚上
+                    本文最后更新于：2023年3月4日 下午
                   
                 
               </p>
@@ -558,14 +558,14 @@ title="直接百度也行">Java 编码规范</a></li>
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Code3_8_1</span>&#123;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;
-    <span class="hljs-type">Scanner</span> <span class="hljs-variable">aScannerName</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);	<span class="hljs-comment">//[2] 创建 Scanner 对象</span>
-    System.out.println(<span class="hljs-string">&quot;\n输入点什么吧！&quot;</span>);
-    <span class="hljs-type">String</span> <span class="hljs-variable">pointSomething</span> <span class="hljs-operator">=</span> aScannerName.next();	<span class="hljs-comment">//[3] 接收用户输入</span>
-    System.out.println(<span class="hljs-string">&quot;\n接下来，输入一个数字吧！&quot;</span>);
-    <span class="hljs-type">double</span> <span class="hljs-variable">aNumber</span> <span class="hljs-operator">=</span> aScannerName.nextDouble();		<span class="hljs-comment">//[3] 接收用户输入</span>
-    System.out.println(<span class="hljs-string">&quot;\n你输入的\&quot;点什么\&quot;是:\&quot;&quot;</span> 
-    + pointSomething + <span class="hljs-string">&quot;\&quot;\n你输入的\&quot;一个数字\&quot;是：\&quot;&quot;</span> 
-    + aNumber + <span class="hljs-string">&quot;\&quot;&quot;</span>);
+        <span class="hljs-type">Scanner</span> <span class="hljs-variable">aScannerName</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);	<span class="hljs-comment">//[2] 创建 Scanner 对象</span>
+        System.out.println(<span class="hljs-string">&quot;\n输入点什么吧！&quot;</span>);
+        <span class="hljs-type">String</span> <span class="hljs-variable">pointSomething</span> <span class="hljs-operator">=</span> aScannerName.next();	<span class="hljs-comment">//[3] 接收用户输入</span>
+        System.out.println(<span class="hljs-string">&quot;\n接下来，输入一个数字吧！&quot;</span>);
+        <span class="hljs-type">double</span> <span class="hljs-variable">aNumber</span> <span class="hljs-operator">=</span> aScannerName.nextDouble();		<span class="hljs-comment">//[3] 接收用户输入</span>
+        System.out.println(<span class="hljs-string">&quot;\n你输入的\&quot;点什么\&quot;是:\&quot;&quot;</span> 
+        	+ pointSomething + <span class="hljs-string">&quot;\&quot;\n你输入的\&quot;一个数字\&quot;是：\&quot;&quot;</span> 
+        	+ aNumber + <span class="hljs-string">&quot;\&quot;&quot;</span>);
     &#125;
 &#125;</code></pre></div>
 <blockquote>

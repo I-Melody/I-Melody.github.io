@@ -24,7 +24,7 @@
 <meta property="og:description" content="4 程序控制结构  程序运行的流程控制决定程序是如何执行的，是我们必须掌握的。主要分为：顺序控制、分支控制、循环控制。  4.1 顺序控制  程序从上到下逐行执行，中间没有任何判断和跳转（默认的控制顺序） 比如：Java 定义变量时采用合法的前向引用。  graph LR A(A语句)--&gt;B(B语句)--&gt;C(C语句)--&gt;D(D语句)--&gt;E(...)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-02T14:04:03.612Z">
+<meta property="article:modified_time" content="2023-03-04T08:03:43.848Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月2日 晚上
+                    本文最后更新于：2023年3月4日 下午
                   
                 
               </p>
@@ -522,29 +522,22 @@ href="../../../../../../2021/12/22/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%
 <blockquote>
 <p>以下是一个示例（乘法口诀）</p>
 <div class="code-wrapper"><pre><code class="hljs java">&gt;<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Code4_7</span>&#123;
-
    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;
-
-       <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;	<span class="hljs-comment">//声明第一个乘数</span>
-       <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;	<span class="hljs-comment">//声明第二个乘数</span>
-
-       <span class="hljs-keyword">do</span>&#123;
-           <span class="hljs-comment">//直到 a &gt; b 为止，a 不断增长，并让两数相乘，输出公式</span>
+          <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;	<span class="hljs-comment">//声明第一个乘数</span>
+      <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;	<span class="hljs-comment">//声明第二个乘数</span>
            <span class="hljs-keyword">do</span>&#123;
-               System.out.print(a + <span class="hljs-string">&quot; * &quot;</span> + b + <span class="hljs-string">&quot; = &quot;</span> + a * b 
-               				+ <span class="hljs-string">&quot;\t&quot;</span>);
-               a++;
-           &#125;<span class="hljs-keyword">while</span>(a &lt;= b);
-
-       <span class="hljs-comment">//把 a 重置为 1，让 b 增长，然后循环</span>
-       a = <span class="hljs-number">1</span>;
-       System.out.println();
-       b++;
-
-       &#125;<span class="hljs-keyword">while</span>(b &lt;= <span class="hljs-number">9</span>);
-
+               <span class="hljs-comment">//直到 a &gt; b 为止，a 不断增长，并让两数相乘，输出公式</span>
+          <span class="hljs-keyword">do</span>&#123;
+                   System.out.print(a + <span class="hljs-string">&quot; * &quot;</span> + b + <span class="hljs-string">&quot; = &quot;</span> + a * b + <span class="hljs-string">&quot;\t&quot;</span>);
+                   a++;
+               &#125; <span class="hljs-keyword">while</span> (a &lt;= b);
+               <span class="hljs-comment">//把 a 重置为 1，让 b 增长，然后循环</span>
+           a = <span class="hljs-number">1</span>;
+           System.out.println();
+           b++;
+      &#125; <span class="hljs-keyword">while</span> (b &lt;= <span class="hljs-number">9</span>);
    &#125;
-&gt;&#125;</code></pre></div>
+&#125;</code></pre></div>
 </blockquote>
 <h2 id="跳转控制语句">4.8 跳转控制语句</h2>
 <blockquote>
