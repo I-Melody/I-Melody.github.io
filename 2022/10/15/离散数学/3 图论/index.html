@@ -16,15 +16,15 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DM3 图论 DM3.1 图  无序积 \(\quad A\&amp;B&#x3D;\lbrace\lbrace x,y\}|x\in A⋀ y\in B\}\) 其中，记 \(\lbrace x,y\}&#x3D;(x,y)\)，允许 \(x&#x3D;y\)，且 \((x,y)&#x3D;(y,x)\) 无向图 \(V(G)\) 是顶点集，\(E(G)\) 是边集，且 \(V\not&#x3D;Ø\)、\(E\subset">
+    <meta name="description" content="DM3 图论 DM3.1 图  无序积 \(\quad A\&amp;B&#x3D;\lbrace\lbrace x,y\}|x\in A∧ y\in B\}\) 其中，记 \(\lbrace x,y\}&#x3D;(x,y)\)，允许 \(x&#x3D;y\)，且 \((x,y)&#x3D;(y,x)\) 无向图 \(V(G)\) 是顶点集，\(E(G)\) 是边集，且 \(V\not&#x3D;Ø\)、\(E\subset">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;离散数学&gt; DM3 图论">
 <meta property="og:url" content="https://i-melody.github.io/2022/10/15/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/3%20%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="DM3 图论 DM3.1 图  无序积 \(\quad A\&amp;B&#x3D;\lbrace\lbrace x,y\}|x\in A⋀ y\in B\}\) 其中，记 \(\lbrace x,y\}&#x3D;(x,y)\)，允许 \(x&#x3D;y\)，且 \((x,y)&#x3D;(y,x)\) 无向图 \(V(G)\) 是顶点集，\(E(G)\) 是边集，且 \(V\not&#x3D;Ø\)、\(E\subset">
+<meta property="og:description" content="DM3 图论 DM3.1 图  无序积 \(\quad A\&amp;B&#x3D;\lbrace\lbrace x,y\}|x\in A∧ y\in B\}\) 其中，记 \(\lbrace x,y\}&#x3D;(x,y)\)，允许 \(x&#x3D;y\)，且 \((x,y)&#x3D;(y,x)\) 无向图 \(V(G)\) 是顶点集，\(E(G)\) 是边集，且 \(V\not&#x3D;Ø\)、\(E\subset">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-26T12:26:15.234Z">
+<meta property="article:modified_time" content="2023-03-30T07:24:56.267Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="数学">
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年2月26日 晚上
+                    本文最后更新于：2023年3月30日 下午
                   
                 
               </p>
@@ -299,7 +299,7 @@
 <ul>
 <li><p><strong>无序积</strong></p>
 <p><span class="math inline">\(\quad A\&amp;B=\lbrace\lbrace x,y\}|x\in
-A⋀ y\in B\}\)</span></p>
+A∧ y\in B\}\)</span></p>
 <p>其中，记 <span class="math inline">\(\lbrace
 x,y\}=(x,y)\)</span>，允许 <span class="math inline">\(x=y\)</span>，且
 <span class="math inline">\((x,y)=(y,x)\)</span></p></li>
@@ -385,7 +385,7 @@ D1((?))--无法表示--&gt;D1</code></pre></li>
 <p>邻域：一个点的相邻点构成的集合称为
 <strong>邻域（开邻域）</strong></p>
 <p><span class="math inline">\(\quad N_G(v)=\lbrace u\in V(G)|(u,v)\in
-E(G)⋀ u\not=v\}\)</span></p>
+E(G)∧ u\not=v\}\)</span></p>
 <p>闭邻域：一个点及其相邻点构成的集合称为 <strong>闭邻域</strong></p>
 <p><span class="math inline">\(\quad\overline{N_G(v)}=N_G(v)\cup\lbrace
 v\}\)</span></p>
@@ -394,10 +394,10 @@ v\}\)</span></p>
 e|e\,与\,v\,关联\}\)</span></p>
 <p>后继：在有向图中，一个点的后继点构成的集合</p>
 <p><span class="math inline">\(\quad{\Gamma_D}^+(v)=\lbrace u\in V(D)|⟨
-v,u⟩\in E(D)⋀ u\not= v\}\)</span></p>
+v,u⟩\in E(D)∧ u\not= v\}\)</span></p>
 <p>前驱：在有向图中，一个点的前驱点构成的集合</p>
 <p><span class="math inline">\(\quad{\Gamma_D}^-(v)=\lbrace u\in V(D)|⟨
-u,v⟩\in E(D)⋀ u\not= v\}\)</span></p>
+u,v⟩\in E(D)∧ u\not= v\}\)</span></p>
 <p>有向图的开邻域：<span
 class="math inline">\(N_D(v)={\Gamma_D}^+(v)\cup{\Gamma_D}^-(v)\)</span></p>
 <p>有向图的闭邻域：<span
@@ -446,7 +446,7 @@ class="math inline">\(G\)</span> 的度数列是 <span
 class="math inline">\(d\)</span>，则称 <span
 class="math inline">\(d\)</span> 是 <strong>可简单图化</strong> 的</p>
 <p><span class="math inline">\(\quad\begin{align} &amp;d\,可简单图化\\⇔
-&amp;d&#39;=(d_2-1,d_3-1,\dots,d_n-1)\,可简单图化\\⇔&amp;∀ r(r\ge1⋀ r\le
+&amp;d&#39;=(d_2-1,d_3-1,\dots,d_n-1)\,可简单图化\\⇔&amp;∀ r(r\ge1∧ r\le
 n-1)→ d_1+d_2+\dots+d_r\le r(r-1)+\min \lbrace r,d_{r+1}\}+\min \lbrace
 r,d_{r+2}\}+\dots+\min \lbrace r,d_{n}\}\\⇔&amp;n-1\ge d_1\ge
 d_2\ge\dots\ge d_n\ge 0⇒ d_1+d_2+\dots+d_n\le
@@ -481,16 +481,16 @@ class="math inline">\(K_n\)</span></p>
 组，每条边的两个端点位于不同的组</p></li>
 <li><p><strong>子图、生成子图</strong></p>
 <p>对于图 <span class="math inline">\(G,G&#39;\)</span>，若有 <span
-class="math inline">\(V&#39;\subseteq V⋀ E&#39;\subseteq E\)</span>，则
+class="math inline">\(V&#39;\subseteq V∧ E&#39;\subseteq E\)</span>，则
 <span class="math inline">\(G&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的<strong>子图</strong>，记为 <span
 class="math inline">\(G&#39;\subseteq G\)</span></p>
-<p>若 <span class="math inline">\(G&#39;\subseteq G⋀(V&#39;\subset V⋀
+<p>若 <span class="math inline">\(G&#39;\subseteq G∧(V&#39;\subset V∧
 E&#39;\subset E)\)</span>，则 <span
 class="math inline">\(G&#39;\)</span> 是 <span
 class="math inline">\(G\)</span> 的<strong>真子图</strong>，记为 <span
 class="math inline">\(G&#39;\subset G\)</span></p>
-<p>若 <span class="math inline">\(G&#39;\subseteq G⋀
+<p>若 <span class="math inline">\(G&#39;\subseteq G∧
 V&#39;=V\)</span>，则 <span class="math inline">\(G&#39;\)</span> 是
 <span class="math inline">\(G\)</span>
 的<strong>生成子图</strong></p></li>
@@ -627,7 +627,7 @@ i&gt;1\end{cases}\)</span></p></li>
 <li><p><strong>距离函数</strong></p>
 <p>距离函数具有三个特征</p>
 <ul>
-<li>非负性：<span class="math inline">\(d(u,v)\ge0⋀ d(u,v)=0⇔
+<li>非负性：<span class="math inline">\(d(u,v)\ge0∧ d(u,v)=0⇔
 u=v\)</span></li>
 <li>对称性：<span class="math inline">\(d(u,v)=d(v,u)\)</span></li>
 <li><span class="math inline">\(\Delta\)</span>不等式：<span
@@ -643,7 +643,7 @@ class="math inline">\(v\)</span>，记作 <span class="math inline">\(u→
 v\)</span></p>
 <p>规定 <span class="math inline">\(u→ u\)</span>。可达关系是
 自反、传递的。可达关系的导出子图是 <strong>单向连通分支</strong></p>
-<p>若 <span class="math inline">\(u→ v⋀ v→ u\)</span> 则称 <span
+<p>若 <span class="math inline">\(u→ v∧ v→ u\)</span> 则称 <span
 class="math inline">\(u,v\)</span> <strong>双向可达</strong>，记作 <span
 class="math inline">\(u↔ v\)</span></p>
 <p>双向可达关系是等价关系。其等价类的导出子图称为
@@ -850,12 +850,12 @@ class="math inline">\(0\le\kappa\le\lambda\le\delta&lt;n/2\)</span></li>
 <li><p><strong>无向哈密顿图</strong>
 的<font color="#AE20A0">必要条件</font>（不是充分条件）</p>
 <p>设无向哈密顿图图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，则有
-<span class="math inline">\(∀ V_1(V_1\not=Ø⋀ V_1\subset V)→
+<span class="math inline">\(∀ V_1(V_1\not=Ø∧ V_1\subset V)→
 p(G-V_1)\le|V_1|\)</span></p></li>
 <li><p><strong>无向半哈密顿图</strong>
 的<font color="#AE20A0">必要条件</font>（不是充分条件）</p>
 <p>设无向半哈密顿图 <span class="math inline">\(G=⟨ V,E⟩\)</span>，则有
-<span class="math inline">\(∀ V_1(V_1\not=Ø⋀ V_1\subset V)→
+<span class="math inline">\(∀ V_1(V_1\not=Ø∧ V_1\subset V)→
 p(G-V_1)\le|V_1|+1\)</span></p></li>
 <li><p><strong>无向哈密顿图</strong>
 的<font color="#EEA000">充分条件</font>（不是必要条件）</p>
@@ -907,8 +907,8 @@ class="math inline">\(T\)</span></p>
 class="math inline">\(m\)</span> 边无向图 <span
 class="math inline">\(G\)</span>，树的等价定义：</p>
 <p><span class="math inline">\(\quad\begin{align} &amp;G\,是树\\
-⇔&amp;G\,中任何两个顶点间有唯一的路径\\ ⇔&amp;G\,无圈⋀ m=n-1\\
-⇔&amp;G\,连通⋀ m=n-1\\ ⇔&amp;G\,极小连通\\ ⇔&amp;G\,极大无回
+⇔&amp;G\,中任何两个顶点间有唯一的路径\\ ⇔&amp;G\,无圈∧ m=n-1\\
+⇔&amp;G\,连通∧ m=n-1\\ ⇔&amp;G\,极小连通\\ ⇔&amp;G\,极大无回
 \end{align}\)</span></p>
 <p><strong>极小连通</strong>：连通且所有边都是桥</p>
 <p><strong>极大无回</strong>：无圈且新增任何边都会产生唯一的圈</p></li>
@@ -1393,7 +1393,7 @@ class="math inline">\(\quad\sum^n_{i=3}(i-2)(r_i&#39;-r_i&#39;&#39;)=0\)</span><
 <p>给无环图的每个顶点指定一种颜色，使得所有相邻顶点拥有不同颜色。</p>
 <p>颜色集记为 <span class="math inline">\(C=\lbrace
 1,2\dots,k\}\)</span>，则着色 <span class="math inline">\(f:V→ C,\,∀ u∀
-v(u,v\in V⋀ u\,与\,v\,相邻→ f(u)\not= f(v))\)</span></p>
+v(u,v\in V∧ u\,与\,v\,相邻→ f(u)\not= f(v))\)</span></p>
 <p>颜色集的大小 <span class="math inline">\(|C|=k\)</span> 则称为
 <strong>k-着色</strong></p>
 <p>可以 k-着色 但不能 k-1着色的图称为
@@ -1421,13 +1421,13 @@ class="math inline">\(\chi(G)\le\Delta(G)+1\)</span></p></li>
 <li><p><span
 class="math inline">\(n(n\ge3)阶非完全图\,G\,非奇圈⇒\chi(G)\le\Delta(G)\)</span></p></li>
 <li><p>对图 <span class="math inline">\(G\)</span> 进行着色，设 <span
-class="math inline">\(V_i=\lbrace v|v\in V(G)⋀
+class="math inline">\(V_i=\lbrace v|v\in V(G)∧
 v\,着同色\,i\},\,i=1,2,\dots,\chi(G)\)</span></p>
 <p>则 <span class="math inline">\(\Pi=\lbrace
 V_1\,V_2\,\dots\,V_{\chi(G)}\}\)</span> 是 <span
 class="math inline">\(V(G)\)</span> 的划分。<span
 class="math inline">\(V_i\)</span> 中的点构成独立集</p>
-<p>设 <span class="math inline">\(R=\lbrace (u,v)|u,v\in V(G)⋀
+<p>设 <span class="math inline">\(R=\lbrace (u,v)|u,v\in V(G)∧
 u,v\,着同色\}\)</span>，则 <span class="math inline">\(R\)</span> 是
 <span class="math inline">\(V(G)\)</span> 上的等价关系</p></li>
 </ul></li>

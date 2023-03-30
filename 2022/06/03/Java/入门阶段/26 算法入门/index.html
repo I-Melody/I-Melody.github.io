@@ -24,7 +24,7 @@
 <meta property="og:description" content="26 算法初级 26.1 算法的执行时间  度量一个算法执行时间的方法：  事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。 事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优   时间频度 算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-24T10:21:23.655Z">
+<meta property="article:modified_time" content="2023-03-19T14:11:05.463Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="程序">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          12k 字
         
       </span>
     
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年8月24日 晚上
+                    本文最后更新于：2023年3月19日 晚上
                   
                 
               </p>
@@ -799,12 +799,13 @@ D[n]) 的较小一方数值</p>
 <p>将一枚骑士棋子放在国际象棋棋盘上。使骑士按照行棋规则移动，要求每个方格只能进入一次，最终走遍棋盘上所有方格。</p>
 <p>穷举法效率较低，可以利用贪心算法进行优化。</p>
 <p>每次行棋前，计算那些目标点位上包含的行棋方法的数量。行棋时，从最低数量的点位开始尝试。</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Chess</span> &#123;
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings(&quot;ALL&quot;)</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Chess</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[][] chess = <span class="hljs-literal">null</span>;		<span class="hljs-comment">// 棋盘。chess[y][x] == 0 表示该格未被走过，否则是已被走过</span>
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[][] inner = <span class="hljs-literal">null</span>;		<span class="hljs-comment">// 数据棋盘。inner[y][x] 是 (x, y) 该格能通向几个未被走过的格子</span>
     <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">goal</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;				<span class="hljs-comment">// 本局游戏中，需要走过多少格子</span>
     
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Comparator&lt;<span class="hljs-type">int</span>[]&gt; c = Comparator.comparing(o-&gt;inner[o[<span class="hljs-number">1</span>]][o[<span class="hljs-number">0</span>]]);
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Comparator&lt;<span class="hljs-type">int</span>[]&gt; c = Comparator.comparing(o-&gt;inner[o[<span class="hljs-number">1</span>]][o[<span class="hljs-number">0</span>]]);
     									<span class="hljs-comment">// 比较器，期待传入的是数组形式的点位：int[] o</span>
     									<span class="hljs-comment">// 其中 o.length == 2，o[0] 为横坐标 x，o[1] 为纵坐标 y</span>
     									<span class="hljs-comment">// 该比较器比较该 o 点位的 inner 值，即 inner[o[1]][o[0]]</span>
@@ -812,7 +813,7 @@ D[n]) 的较小一方数值</p>
     <span class="hljs-comment">/* 进行一次马踏棋盘游戏 */</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">chess</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
         <span class="hljs-comment">/* 对初始的参数进行检查 */</span>
-        <span class="hljs-keyword">if</span> (width &lt; <span class="hljs-number">4</span> || width &gt; <span class="hljs-number">53</span> || height &lt; <span class="hljs-number">4</span> || height &gt; <span class="hljs-number">53</span> || x &lt; <span class="hljs-number">0</span> || x &gt; width || y &lt; <span class="hljs-number">0</span> || y &gt; height)
+        <span class="hljs-keyword">if</span> (width &lt; <span class="hljs-number">4</span> || width &gt; <span class="hljs-number">50</span> || height &lt; <span class="hljs-number">4</span> || height &gt; <span class="hljs-number">50</span> || x &lt; <span class="hljs-number">0</span> || x &gt; width || y &lt; <span class="hljs-number">0</span> || y &gt; height)
             <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;Illegal Chess Game&quot;</span>);
 
         <span class="hljs-comment">/* 初始化参数 */</span>
@@ -855,26 +856,24 @@ D[n]) 的较小一方数值</p>
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     &#125;
 	
-    <span class="hljs-comment">/* 初始化那个数据棋盘。该方法仅在进入游戏时调用一次 */</span>
+    <span class="hljs-comment">/* 初始化那个数据棋盘。该方法仅在进入游戏时调用一次</span>
+<span class="hljs-comment">    	这个方法不具有推广性。条件变化时（如棋盘变成六角形，或行棋规则变化），该方法应当重写 */</span>
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] initialInner(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height) &#123;
         <span class="hljs-type">int</span>[][] inner = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[height][width];
         <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; height; i++) &#123;
-            <span class="hljs-type">int</span> <span class="hljs-variable">red</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
-            <span class="hljs-type">int</span> <span class="hljs-variable">div</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
-            <span class="hljs-keyword">if</span> (i == <span class="hljs-number">1</span> || i == height - <span class="hljs-number">2</span>) red = <span class="hljs-number">2</span>;
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> || i == height - <span class="hljs-number">1</span>) div = <span class="hljs-number">1</span>;
+            <span class="hljs-type">int</span> <span class="hljs-variable">red</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">1</span> || i == height - <span class="hljs-number">2</span>) ? <span class="hljs-number">2</span> : <span class="hljs-number">0</span>;
+            <span class="hljs-type">int</span> <span class="hljs-variable">div</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">0</span> || i == height - <span class="hljs-number">1</span>) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
             <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; width; j++) &#123;
-                <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> red;
-                <span class="hljs-type">int</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> div;
-                <span class="hljs-keyword">if</span> (j == <span class="hljs-number">1</span> || j == width - <span class="hljs-number">2</span>) r += <span class="hljs-number">2</span>;
-                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span> || j == width - <span class="hljs-number">1</span>) d += <span class="hljs-number">1</span>;
+                <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> (j == <span class="hljs-number">1</span> || j == width - <span class="hljs-number">2</span>) ? red + <span class="hljs-number">2</span> : red;
+                <span class="hljs-type">int</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> (j == <span class="hljs-number">0</span> || j == width - <span class="hljs-number">1</span>) ? div + <span class="hljs-number">1</span> : div;
                 inner[i][j] = (<span class="hljs-number">8</span> - r) &gt;&gt; (d);
             &#125;
         &#125;
         <span class="hljs-keyword">return</span> inner;
     &#125;
 	
-    <span class="hljs-comment">/* 返回从 (x, y) 点位能到达的所有点位构成的数组，但不保证数组中每个点位都有效 */</span>
+    <span class="hljs-comment">/* 返回从 (x, y) 点位能到达的所有点位构成的数组，但不保证数组中每个点位都有效</span>
+<span class="hljs-comment">    	这个方法也不具有推广性。条件变化时（如棋盘变成六角形，或行棋规则变化），该方法应当重写 */</span>
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] aims(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) &#123;
         <span class="hljs-type">int</span>[][] ret = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">8</span>][<span class="hljs-number">2</span>];
         <span class="hljs-type">boolean</span> <span class="hljs-variable">rx</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
@@ -890,7 +889,7 @@ D[n]) 的较小一方数值</p>
     <span class="hljs-comment">/* 检查该点位是否有效 */</span>
     <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">check</span><span class="hljs-params">(<span class="hljs-type">int</span>[] i)</span> &#123;
         <span class="hljs-keyword">if</span> (i[<span class="hljs-number">0</span>] &lt; <span class="hljs-number">0</span> || i[<span class="hljs-number">1</span>] &lt; <span class="hljs-number">0</span> || i[<span class="hljs-number">1</span>] &gt;= inner.length || i[<span class="hljs-number">0</span>] &gt;= inner[i[<span class="hljs-number">1</span>]].length) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> chess[i[<span class="hljs-number">1</span>]][i[<span class="hljs-number">0</span>]] == <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> chess[i[<span class="hljs-number">1</span>]][i[<span class="hljs-number">0</span>]] == <span class="hljs-number">0</span>;
     &#125;
 
 	<span class="hljs-comment">/* 输出一个棋盘的信息 */</span>

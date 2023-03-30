@@ -24,7 +24,7 @@
 <meta property="og:description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：  管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能 给出用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-22T14:46:48.057Z">
+<meta property="article:modified_time" content="2023-03-22T05:11:43.586Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          3k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          7 分钟
+          9 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月22日 晚上
+                    本文最后更新于：2023年3月22日 下午
                   
                 
               </p>
@@ -314,6 +314,7 @@ Interface），又称图形用户接口</p></li>
 <li><p>实现对硬件机器的拓展。</p>
 <p>没有任何软件支持的计算机称为裸机。覆盖了软件的机器称为扩充机器（虚拟机）</p></li>
 </ul>
+<p>操作系统结构研究的目标是：系统模块化、模块标准化、通信规范化</p>
 <h2 id="os1.2-操作系统的特征">OS1.2 操作系统的特征</h2>
 <p>操作系统有几个特征：</p>
 <ul>
@@ -327,9 +328,48 @@ Interface），又称图形用户接口</p></li>
 <p>物理实体是实际存在的。而逻辑上的对应物是用户感受到的。</p>
 <p>虚拟技术有两种：空分复用技术（如虚拟存储器技术）、时分复用技术（如虚拟处理器技术）</p></li>
 <li><p><strong>异步</strong>：多道程序环境下，允许多个程序并发。但进程的执行是以不可预知的速度推进的。</p></li>
+<li><p><strong>随机</strong>：操作系统在随机的环境下运行。其运行的程序的行为、硬件设备情况是不可预知的。</p></li>
 </ul>
 <p>并发与共享互为存在条件，是操作系统的两个最基本特征。</p>
 <h2 id="os1.3-操作系统的发展与分类">OS1.3 操作系统的发展与分类</h2>
+<p>目前流行的操作系统有 Windows、UNIX、Linux、Android 等</p>
+<ul>
+<li><p><strong>Windows</strong>
+的体系结构是分层的模块系统。主要层次有</p>
+<ol type="1">
+<li>内核。内核执行 Windows 系统中最基本的操作，始终运行在核心态。</li>
+<li>硬件抽象层（HAL）。HAL
+是一个可加载的核心态模块，为硬件平台提供低级接口，实现其可移植性</li>
+<li>执行体。其从用户态导出并能调用函数</li>
+<li>子系统。</li>
+</ol></li>
+<li><p><strong>UNIX</strong> 的系统结构从内层到外层是</p>
+<ol type="1">
+<li><p>内核层。操作系统管理和控制中心，常驻内存。具有与硬件的接口和与
+Shell（命令语言解释程序）的接口。</p>
+<p>内核本身分为 进程控制子系统 和 文件子系统 两大部分</p></li>
+<li><p>系统调用层。介于内核层与应用层间，供程序员设计、开发应用程序时调用。</p></li>
+<li><p>应用层。所有应用层程序都是在 Shell
+管控下为用户服务的，是面向用户操作的界面</p></li>
+</ol></li>
+<li><p><strong>Linux</strong> 系统有四个主要部分：</p>
+<ol type="1">
+<li>Linux
+内核。操作系统的核心。由系统调用、内存管理、进程管理、设备驱动、文件系统、网络管理等组成</li>
+<li>Linux Shell。系统的用户界面。提供用户与内核进行交互操作的接口。</li>
+<li>Linux 文件系统。Linux 系统支持多种目前流行的文件系统，如
+EXT2、EXT3、FAT、FAT32、VFAT、ISO9660</li>
+<li>Linux 用户应用程序。包括文本编辑器、编程语言、X
+Window、办公套件、Internet 工具、数据库等</li>
+</ol></li>
+<li><p><strong>Android</strong> 系统从高到低是：</p>
+<ol type="1">
+<li>Android 应用程序。所有应用程序都由 Java 编写</li>
+<li>Android 应用框架。为开发者提供了用以访问核心功能的 API 框架</li>
+<li>C++ 本地库和 Android 运行环境</li>
+<li>Linux 内核</li>
+</ol></li>
+</ul>
 <p>根据操作系统的发展过程，将其分为几个阶段：</p>
 <ul>
 <li><p><strong>手工操作阶段</strong>（手工打印纸带等）：输入、输出的速度很慢</p></li>
@@ -413,12 +453,39 @@ PSW、程序计数器 PC、通用寄存器）</li>
 <li>在核心态 <strong>处理系统调用</strong>，执行相应服务程序。</li>
 <li>返回用户程序。</li>
 </ol>
+<p>系统调用中，实现用户程序与系统程序间参数传递的方法有：</p>
+<ul>
+<li>由陷入指令自带参数</li>
+<li>通过有关的通用寄存器传递参数</li>
+<li>在内存中开辟专用堆栈区传递参数</li>
+</ul>
 
               
             </div>
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">

@@ -24,7 +24,7 @@
 <meta property="og:description" content="DM2 集合论 DM2.1 集合 集合：指定范围内所有满足给定条件的对象的聚集。其中的每个对象称为该集合的元素。集合中的元素是无序且不同的。 通常用大写英文字母表示集合（\(A\)、\(A_1\)），用小写字母表示元素（\(a\)、\(a_1\)） 常用集合：  \(N\)：自然数集，也就是全体非负整数集 \(Z\)：整数集 \(Q\)：有理数集 \(R\)：实数集  如何描">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-20T06:50:20.150Z">
+<meta property="article:modified_time" content="2023-03-30T07:23:13.077Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="数学">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          25k 字
+          24k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          71 分钟
+          68 分钟
         
       </span>
     
@@ -287,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年2月20日 下午
+                    本文最后更新于：2023年3月30日 下午
                   
                 
               </p>
@@ -314,14 +314,13 @@ class="math inline">\(N\)</span>：自然数集，也就是全体非负整数集
 <ul>
 <li><p>枚举法</p>
 <p>列举出集合中的全部或部分元素，其余元素使用省略号表示</p>
-<p>如：<span class="math inline">\(A =
-\lbrace1,2,3,4\rbrace\)</span>、<span class="math inline">\(B = \lbrace
-a,b,c,d,\ldots\rbrace\)</span></p></li>
+<p>如：<span class="math inline">\(A = \{1,2,3,4\}\)</span>、<span
+class="math inline">\(B = \{ a,b,c,d,…\}\)</span></p></li>
 <li><p>叙述法</p>
 <p>通过刻画集合中元素具有的某种性质来表示一个集合</p>
-<p>如：<span class="math inline">\(P=\lbrace
-x|P(x)\rbrace\)</span>、<span class="math inline">\(L=\lbrace
-x|x是英文字母中的所有元音字母\rbrace\)</span></p></li>
+<p>如：<span class="math inline">\(P=\{ x|P(x)\}\)</span>、<span
+class="math inline">\(L=\{
+x|x是英文字母中的所有元音字母\}\)</span></p></li>
 <li><p>文氏图</p>
 <p>利用平面上的点来做成对集合的图解方法。一般用平面上的方形或圆形表示集合，用平面上的圆点来表示元素</p></li>
 </ul>
@@ -341,16 +340,16 @@ class="math inline">\(A \not\subseteq B\)</span>。</p>
 <p>符号化形式：</p>
 <p><span class="math inline">\(\quad B\subseteq A⇔∀x(x\in B → x\in
 A)\)</span></p>
-<p><span class="math inline">\(\quad B\not\subseteq A⇔∃x(x\in B ⋀
+<p><span class="math inline">\(\quad B\not\subseteq A⇔∃x(x\in B ∧
 x\not\in A)\)</span></p></li>
 <li><p><strong>相等</strong></p>
 <p>当且仅当两个集合的元素完全相同时，称两个集合相等。记为 <span
 class="math inline">\(A = B\)</span>。否则，称两个集合不相等，记为 <span
 class="math inline">\(A\neq B\)</span>。</p>
 <p>符号化形式：</p>
-<p><span class="math inline">\(\quad A=B ⇔ (A \subseteq B)⋀ (B \subseteq
+<p><span class="math inline">\(\quad A=B ⇔ (A \subseteq B)∧ (B \subseteq
 A)\)</span></p>
-<p><span class="math inline">\(\quad A=B ⇔∀x(x\in B ⋀ x\in
+<p><span class="math inline">\(\quad A=B ⇔∀x(x\in B ∧ x\in
 A)\)</span></p></li>
 <li><p><strong>真子集</strong></p>
 <p>如果 <span class="math inline">\(A \subseteq B\)</span> 并且 <span
@@ -358,10 +357,10 @@ class="math inline">\(A \neq B\)</span> 则称 A 是 B 的真子集，记为 <sp
 class="math inline">\(A \subset B\)</span>。否则记为 <span
 class="math inline">\(A \not\subset B\)</span></p>
 <p>符号化形式：</p>
-<p><span class="math inline">\(\quad B\subset A⇔A\subseteq B ⋀ A \neq
+<p><span class="math inline">\(\quad B\subset A⇔A\subseteq B ∧ A \neq
 B\)</span></p>
-<p><span class="math inline">\(\quad B\not\subset A⇔∃x(x\in A⋀ x\not\in
-B)⋀ A \neq B\)</span></p></li>
+<p><span class="math inline">\(\quad B\not\subset A⇔∃x(x\in A∧ x\not\in
+B)∧ A \neq B\)</span></p></li>
 <li><p><strong>基数</strong></p>
 <p>集合中的元素个数称为集合的基数。A 的基数记为 <span
 class="math inline">\(|A|\)</span></p>
@@ -382,8 +381,7 @@ class="math inline">\(E\)</span>。全集是相对的。</p></li>
 <li><p><strong>幂集</strong></p>
 <p>由一个集合的所有子集组成的集合称为其幂集。记为 <span
 class="math inline">\(P(A)\)</span>。用描述法表示为 <span
-class="math inline">\(P(A)=\lbrace x|x\subseteq
-A\rbrace\)</span></p></li>
+class="math inline">\(P(A)=\{ x|x\subseteq A\}\)</span></p></li>
 <li><p><strong>集族</strong></p>
 <p>除幂集外，其他形式的由集合构成的集合称为集族</p></li>
 <li><p><strong>多重集</strong></p>
@@ -396,24 +394,26 @@ class="math inline">\(A\)</span> 的重复度。</p>
 <p>由两个集合 <span class="math inline">\(A,B\)</span>
 所有元素构成的集合为其并集，记作 <span class="math inline">\(A\cup
 B\)</span></p>
-<p>其描述法表示为：<span class="math inline">\(A\cup B=\lbrace x|x\in A⋁
-x\in B\rbrace\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cup B=\{ x|x\in A∨ x\in
+B\}\)</span></p>
 <p>并运算可以推广到有限个或可数个集合（初级并）</p>
 <p><span class="math inline">\(\quad
-A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n={\lbrace}x|∃i(1{\le}i{\le}n{⋀}x{\in}A_i){\rbrace}\)</span></p>
+A_1{\cup}A_2{\cup}{…}{\cup}A_n={\{}x|∃i(1{\le}i{\le}n{∧}x{\in}A_i){\}
+}\)</span></p>
 <p><span class="math inline">\(\quad
-{\bigcup_{i=1}^{n}\\}{A_i=A_1{\cup}A_2{\cup}{\ldots}{\cup}A_n}\)</span></p></li>
+{\bigcup_{i=1}^{n}\\}{A_i=A_1{\cup}A_2{\cup}{…}{\cup}A_n}\)</span></p></li>
 <li><p><strong>交集</strong></p>
 <p>由两个集合 <span class="math inline">\(A,B\)</span>
 共有的元素构成的集合为其交集，记作 <span class="math inline">\(A\cap
 B\)</span></p>
-<p>其描述法表示为：<span class="math inline">\(A\cap B=\lbrace x|x\in A⋀
-x\in B\rbrace\)</span></p>
+<p>其描述法表示为：<span class="math inline">\(A\cap B=\{ x|x\in A∧ x\in
+B\}\)</span></p>
 <p>交运算可以推广到有限个或可数个集合（初级交）</p>
 <p><span class="math inline">\(\quad
-A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n={\lbrace}x|∀i(1{\le}i{\le}n{→}x{\in}A_i){\rbrace}\)</span></p>
+A_1{\cap}A_2{\cap}{…}{\cap}A_n={\{}x|∀i(1{\le}i{\le}n{→}x{\in}A_i){\}
+}\)</span></p>
 <p><span class="math inline">\(\quad
-{\bigcap_{i=1}^{n}\\}A_i=A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n\)</span></p></li>
+{\bigcap_{i=1}^{n}\\}A_i=A_1{\cap}A_2{\cap}{…}{\cap}A_n\)</span></p></li>
 <li><p><strong>不相交</strong></p>
 <p>如果 <span class="math inline">\(A{\cap}B=Ø\)</span>，则称 <span
 class="math inline">\(A\)</span> 和 <span
@@ -426,7 +426,8 @@ class="math inline">\(B\)</span> 对 <span
 class="math inline">\(A\)</span> 的相对补集。记作 <span
 class="math inline">\(A-B\)</span></p>
 <p>描述法表示为：<span
-class="math inline">\(A-B={\lbrace}x|x{\in}A{⋀}x{\not\in}B{\rbrace}\)</span></p></li>
+class="math inline">\(A-B={\{}x|x{\in}A{∧}x{\not\in}B{\}
+}\)</span></p></li>
 <li><p><strong>对称差</strong></p>
 <p>由属于 <span class="math inline">\(A\)</span> 但不属于 <span
 class="math inline">\(B\)</span>，或属于 <span
@@ -436,7 +437,8 @@ class="math inline">\(B\)</span> 对 <span
 class="math inline">\(A\)</span> 的对称差。记为 <span
 class="math inline">\(A{\oplus}B\)</span></p>
 <p>描述法表示为：<span
-class="math inline">\(A{\oplus}B={\lbrace}x|(x{\in}A{⋀}x{\not\in}B){⋁}(x{\in}B{⋀}x{\not\in}A){\rbrace}\)</span></p>
+class="math inline">\(A{\oplus}B={\{}x|(x{\in}A{∧}x{\not\in}B){∨}(x{\in}B{∧}x{\not\in}A){\}
+}\)</span></p>
 <p><span
 class="math inline">\(A{\oplus}B=(A-B){\cup}(B-A)=(A{\cup}B)-(A{\cap}B)\)</span></p></li>
 <li><p><strong>绝对补集</strong></p>
@@ -447,25 +449,23 @@ class="math inline">\(E\)</span> 的相对补集为 <span
 class="math inline">\(A\)</span> 的绝对补集。记为 <span
 class="math inline">\(\tilde\ {A}\)</span></p>
 <p>描述法表示为：<span class="math inline">\(\tilde\
-{A}={\lbrace}x|x{\in}E{⋀}x{\notin}A{\rbrace}\)</span>，由于 <span
+{A}={\{}x|x{\in}E{∧}x{\notin}A{\} }\)</span>，由于 <span
 class="math inline">\(x{\in}E=1\)</span> 又有 <span
-class="math inline">\(\tilde\ A
-={\lbrace}x|x{\notin}A{\rbrace}\)</span></p></li>
+class="math inline">\(\tilde\ A ={\{}x|x{\notin}A{\} }\)</span></p></li>
 <li><p><strong>广义并集</strong></p>
 <p>由一个集族 <span class="math inline">\({\mathcal A}\)</span>
 中全体元素的元素组成的集合为其广义并，记为 <span
 class="math inline">\({\bigcup}{\mathcal A}\)</span>（大并 <span
 class="math inline">\({\mathcal A}\)</span>）</p>
 <p>描述法表示为：<span class="math inline">\({\bigcup}{\mathcal
-A}={\lbrace}x|{∃}z(x{\in}z{⋀}z{\in}{\mathcal
-A}){\rbrace}\)</span></p></li>
+A}={\{}x|{∃}z(x{\in}z{∧}z{\in}{\mathcal A}){\} }\)</span></p></li>
 <li><p><strong>广义交集</strong></p>
 <p>由一个集族 <span class="math inline">\({\mathcal A}\)</span>
 中全体元素的共有元素组成的集合为其广义交，记为 <span
 class="math inline">\({\bigcap}{\mathcal A}\)</span>（大交 <span
 class="math inline">\({\mathcal A}\)</span>）</p>
 <p>描述法表示为：<span class="math inline">\({\bigcap}{\mathcal
-A}={\lbrace}x|{∀}z(x{\in}{\mathcal A}{→}z{\in}z){\rbrace}\)</span></p>
+A}={\{}x|{∀}z(x{\in}{\mathcal A}{→}z{\in}z){\} }\)</span></p>
 <p>空集不能求广义交。即 <span class="math inline">\({\cap}{Ø}\)</span>
 无意义</p></li>
 </ul>
@@ -519,7 +519,7 @@ A}={\lbrace}x|{∀}z(x{\in}{\mathcal A}{→}z{\in}z){\rbrace}\)</span></p>
 个集合，则有</p>
 <p><span
 class="math inline">\(\quad|{\bigcup_{i=1}^{n}\\}A_i|={\sum_{i=1}^{n}\\}|A_i|-{\sum_{i&lt;
-j}\\}|A_i{\cap}A_j|+{\sum_{i&lt;j&lt;k}\\}|A_i{\cap}A_j{\cap}A_k|-{\ldots}+(-1)^{n-1}|A_1{\cap}A_2{\cap}{\ldots}{\cap}A_n|\)</span></p>
+j}\\}|A_i{\cap}A_j|+{\sum_{i&lt;j&lt;k}\\}|A_i{\cap}A_j{\cap}A_k|-{…}+(-1)^{n-1}|A_1{\cap}A_2{\cap}{…}{\cap}A_n|\)</span></p>
 <h2 id="dm2.2-基本的集合恒等式">DM2.2 基本的集合恒等式</h2>
 <p>设 <span class="math inline">\(E\)</span> 为全集，<span
 class="math inline">\(A,B,C\)</span> 是 <span
@@ -539,10 +539,10 @@ A{\cup}\tilde\ B\)</span></p>
 <p><span
 class="math inline">\(E-(A{\cup}B)=(E-A){\cap}(E-B){\qquad}E-(A{\cap}B)=(E-A){\cup}(E-B)\)</span></p>
 <p><span class="math inline">\(\tilde\
-(A_1{\cup}A_2{\cup\ldots\cup}A_n)=\tilde\ A_1{\cap}\tilde\
-A_2{\cap\ldots\cap}\tilde\ A_n{\qquad}\tilde\
-(A_1{\cap}A_2{\cap\ldots\cap}A_n)=\tilde\ A_1{\cup}\tilde\
-A_2{\cup\ldots\cup}\tilde\ A_n\)</span></p></li>
+(A_1{\cup}A_2{\cup…\cup}A_n)=\tilde\ A_1{\cap}\tilde\
+A_2{\cap…\cap}\tilde\ A_n{\qquad}\tilde\
+(A_1{\cap}A_2{\cap…\cap}A_n)=\tilde\ A_1{\cup}\tilde\
+A_2{\cup…\cup}\tilde\ A_n\)</span></p></li>
 <li><p>吸收律：<span
 class="math inline">\(A{\cup}(A{\cap}B)=A{\qquad}A{\cap}(A{\cup}B)=A\)</span></p></li>
 <li><p>零律：<span
@@ -560,48 +560,47 @@ A}=A\)</span></p></li>
 <li><p>补交转换律：<span class="math inline">\(A-B=A{\cap}{\tilde\
 B}\)</span></p></li>
 </ul>
-<p>设 <span
-class="math inline">\({\lbrace}A_{\alpha}{\rbrace}_{\alpha\in
+<p>设 <span class="math inline">\({\{}A_{\alpha}{\} }_{\alpha\in
 S}\)</span> 为集族，<span class="math inline">\(B\)</span>
 为一集合。则有：</p>
 <ul>
-<li><p>分配律：<span
-class="math inline">\(B{\cup}(\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S})={\bigcap_{\alpha\in
-S}\\}(B{\cup}A_{\alpha}){\qquad}B{\cap}(\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S})={\bigcup_{\alpha\in S}\\}(B{\cap}A_{\alpha})\)</span></p></li>
-<li><p>德·摩根律：<span
-class="math inline">\({\tilde\\}(\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S})={\bigcap_{\alpha\in
-S}\\}{\tilde\\A_{\alpha}}{\qquad}{\tilde\\}(\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S})={\bigcup_{\alpha\in S}\\}{\tilde\\A_{\alpha}}\)</span></p>
-<p><span class="math inline">\(\quad
-B-({\bigcup{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S}})={\bigcap_{\alpha\in
-S}\\}(B-A_{\alpha}){\qquad}B-({\bigcap{\lbrace{A_{\alpha}}\rbrace}_{\alpha\in
-S}})={\bigcup_{\alpha\in S}\\}(B-A_{\alpha})\)</span></p></li>
+<li><p>分配律：<span class="math inline">\(B{\cup}(\bigcap{\{
+{A_{\alpha} }\} }_{\alpha\in S})={\bigcap_{\alpha\in
+S}\\}(B{\cup}A_{\alpha}){\qquad}B{\cap}(\bigcup{\{ {A_{\alpha} }\}
+}_{\alpha\in S})={\bigcup_{\alpha\in
+S}\\}(B{\cap}A_{\alpha})\)</span></p></li>
+<li><p>德·摩根律：<span class="math inline">\({\tilde\\}(\bigcup{\{
+{A_{\alpha} }\} }_{\alpha\in S})={\bigcap_{\alpha\in
+S}\\}{\tilde\\A_{\alpha} }{\qquad}{\tilde\\}(\bigcap{\{ {A_{\alpha} }\}
+}_{\alpha\in S})={\bigcup_{\alpha\in S}\\}{\tilde\\A_{\alpha}
+}\)</span></p>
+<p><span class="math inline">\(\quad B-({\bigcup{\{ {A_{\alpha} }\}
+}_{\alpha\in S} })={\bigcap_{\alpha\in
+S}\\}(B-A_{\alpha}){\qquad}B-({\bigcap{\{ {A_{\alpha} }\} }_{\alpha\in
+S} })={\bigcup_{\alpha\in S}\\}(B-A_{\alpha})\)</span></p></li>
 <li><p>幂集：<span
-class="math inline">\(A{\subseteq}B{⇔}P(A){\subseteq}P(B){\qquad}P(A-B){\subseteq}(P(A)-P(B)){\cup}{\lbraceØ\rbrace}\)</span></p></li>
+class="math inline">\(A{\subseteq}B{⇔}P(A){\subseteq}P(B){\qquad}P(A-B){\subseteq}(P(A)-P(B)){\cup}{\{Ø\}
+}\)</span></p></li>
 </ul>
 <h2 id="dm2.3-有序对和笛卡尔积">DM2.3 有序对和笛卡尔积</h2>
 <ul>
 <li><p><strong>有序对</strong></p>
-<p><span class="math inline">\(\quad
-{⟨}a,b{⟩}={\lbrace}{\lbrace}a{\rbrace},{\lbrace}a,b{\rbrace}{\rbrace}\)</span></p>
+<p><span class="math inline">\(\quad {⟨}a,b{⟩}={\{}{\{}a{\} },{\{}a,b{\}
+}{\} }\)</span></p>
 <p>其中 <span class="math inline">\(a\)</span> 为第一元素，<span
 class="math inline">\(b\)</span> 为第二元素。<span
 class="math inline">\({⟨}a,b{⟩}\)</span> 也记作 <span
 class="math inline">\((a,b)\)</span></p>
 <p>有定理：<span
-class="math inline">\({⟨}a,b{⟩}={⟨}c,d{⟩}{⇔}(a=c){⋀}(b=d)\)</span></p></li>
+class="math inline">\({⟨}a,b{⟩}={⟨}c,d{⟩}{⇔}(a=c){∧}(b=d)\)</span></p></li>
 <li><p><strong>有序三元组</strong></p>
 <p><span class="math inline">\(\quad
 {⟨}a,b,c{⟩}={⟨}{⟨}a,b{⟩},c{⟩}\)</span></p></li>
 <li><p><strong>有序 n 元组</strong></p>
 <p><span class="math inline">\(\quad
-{⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}{⟨}a_1,a_2,{\ldots},a_{n-1}{⟩},a_n{⟩}\)</span></p>
+{⟨}a_1,a_2,{…},a_n{⟩}={⟨}{⟨}a_1,a_2,{…},a_{n-1}{⟩},a_n{⟩}\)</span></p>
 <p>有定理：<span
-class="math inline">\({⟨}a_1,a_2,{\ldots},a_n{⟩}={⟨}b_1,b_2,{\ldots},b_n{⟩}{⇔}a_i=b_i,i=1,2,{\ldots},n\)</span></p></li>
+class="math inline">\({⟨}a_1,a_2,{…},a_n{⟩}={⟨}b_1,b_2,{…},b_n{⟩}{⇔}a_i=b_i,i=1,2,{…},n\)</span></p></li>
 <li><p><strong>笛卡尔积</strong></p>
 <p>有集合 <span class="math inline">\(A,B\)</span>，由 <span
 class="math inline">\(A\)</span> 中的每个元素（做第一元素）与 <span
@@ -611,28 +610,26 @@ class="math inline">\(B\)</span>
 <p>笛卡尔积的性质：</p>
 <ul>
 <li><p>非交换性：<span
-class="math inline">\((A{\not=}B{⋀}A{\not=Ø⋀}B{\not=Ø}){⇔}(A{\times}B{\not
+class="math inline">\((A{\not=}B{∧}A{\not=Ø∧}B{\not=Ø}){⇔}(A{\times}B{\not
 =}B{\times}A)\)</span></p></li>
 <li><p>非结合性：<span
-class="math inline">\((A{\not=Ø⋀}B{\not=Ø⋀}C{\not=Ø}){⇔}((A{\times}B){\times}C{\not
+class="math inline">\((A{\not=Ø∧}B{\not=Ø∧}C{\not=Ø}){⇔}((A{\times}B){\times}C{\not
 =}A{\times}(B{\times}C))\)</span></p></li>
 <li><p>分配律：<span class="math inline">\(A\times (B\cup C)=(A\times
 B)\cup(A\times C)\quad\)</span> 等</p></li>
 <li><p>其他：<span
-class="math inline">\(A{\times}B={Ø}{⇔}A={Ø⋁}B={Ø}\qquad A\not=Ø⋀
+class="math inline">\(A{\times}B={Ø}{⇔}A={Ø∨}B={Ø}\qquad A\not=Ø∧
 A\times B\subseteq A\times C⇔ B\subseteq C\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq C⋀ B\subseteq D⇒ A\times
+<p><span class="math inline">\(\quad A\subseteq C∧ B\subseteq D⇒ A\times
 B\subseteq C\times D\)</span></p></li>
 </ul></li>
 <li><p><strong>n 维笛卡尔积</strong></p>
-<p><span class="math inline">\(\quad A_1\times A_2\times\ldots\times
-A_n=\lbrace⟨ x_1,x_2,\ldots,x_n⟩|x_1\in A_1⋀ x_2\in A_2⋀\ldots⋀ x_n\in
-A_n\rbrace\)</span></p>
-<p><span class="math inline">\(\quad A^n=A\times A\times A\ldots\times
+<p><span class="math inline">\(\quad A_1\times A_2\times…\times A_n=\{⟨
+x_1,x_2,…,x_n⟩|x_1\in A_1∧ x_2\in A_2∧…∧ x_n\in A_n\}\)</span></p>
+<p><span class="math inline">\(\quad A^n=A\times A\times A…\times
 A\)</span></p>
-<p><span class="math inline">\(\quad |A_i|=n_i,i=1,2,\ldots,n⇒|A_1\times
-A_2\times\ldots\times A_n|=n_1\times n_2\times\ldots\times
-n_n\)</span></p>
+<p><span class="math inline">\(\quad |A_i|=n_i,i=1,2,…,n⇒|A_1\times
+A_2\times…\times A_n|=n_1\times n_2\times…\times n_n\)</span></p>
 <p>n 维卡式积的性质与二维卡式积相似</p></li>
 </ul>
 <h2 id="dm2.4-二元关系">DM2.4 二元关系</h2>
@@ -674,16 +671,16 @@ class="math inline">\(2^{m^2}\)</span> 个</p></li>
 class="math inline">\(A\)</span> 上的：</p>
 <ul>
 <li>空关系：<span class="math inline">\(Ø\)</span></li>
-<li>恒等关系：<span class="math inline">\(I_A=\lbrace⟨ x,x⟩|x\in
-A\rbrace\)</span></li>
-<li>全域关系：<span class="math inline">\(E_A=A\times A=\lbrace⟨
-x,y⟩|x\in A⋀ y\in A\rbrace\)</span></li>
+<li>恒等关系：<span class="math inline">\(I_A=\{⟨ x,x⟩|x\in
+A\}\)</span></li>
+<li>全域关系：<span class="math inline">\(E_A=A\times A=\{⟨ x,y⟩|x\in A∧
+y\in A\}\)</span></li>
 </ul>
 <p>设 <span class="math inline">\(A\subseteq Z\)</span>，则可定义 <span
 class="math inline">\(A\)</span> 上的：</p>
 <ul>
-<li><p>整除关系：<span class="math inline">\(D_A=\lbrace⟨ x,y⟩|x\in A⋀
-y\in A⋀ x|y\rbrace\)</span></p></li>
+<li><p>整除关系：<span class="math inline">\(D_A=\{⟨ x,y⟩|x\in A∧ y\in
+A∧ x|y\}\)</span></p></li>
 <li><p>小于等于关系：<span class="math inline">\({LE}_A\)</span></p>
 <p>小于关系：<span class="math inline">\(L_A\)</span></p>
 <p>大于等于关系：<span class="math inline">\({GE}_A\)</span></p>
@@ -697,28 +694,29 @@ class="math inline">\(P(A)\)</span> 上的：</p>
 </ul></li>
 <li><p><strong>定义域、值域、域</strong></p>
 <p>对于任意集合 <span class="math inline">\(R\)</span>，可以定义</p>
-<p>其定义域：<span class="math inline">\(\operatorname{dom}R=\lbrace x|∃
-y(xRy)\rbrace\)</span></p>
-<p>其值域：<span class="math inline">\(\operatorname{ran}R=\lbrace y|∃
-y(xRy)\rbrace\)</span></p>
+<p>其定义域：<span class="math inline">\(\operatorname{dom}R=\{ x|∃
+y(xRy)\}\)</span></p>
+<p>其值域：<span class="math inline">\(\operatorname{ran}R=\{ y|∃
+y(xRy)\}\)</span></p>
 <p>其域：<span
 class="math inline">\(\operatorname{fld}R=\operatorname{dom}R\cup\operatorname{ran}R\)</span></p>
-<p>如：集合 <span class="math inline">\(R_1=\lbrace
-a,b\rbrace,R_2=\lbrace a,b,⟨ c,d⟩,⟨ e,f⟩\rbrace\)</span>，当 <span
-class="math inline">\(a,b\)</span> 不是有序对时，<span
-class="math inline">\(R_1,R_2\)</span> 不是关系。</p>
+<p>如：集合 <span class="math inline">\(R_1=\{ a,b\},R_2=\{ a,b,⟨ c,d⟩,⟨
+e,f⟩\}\)</span>，当 <span class="math inline">\(a,b\)</span>
+不是有序对时，<span class="math inline">\(R_1,R_2\)</span>
+不是关系。</p>
 <p><span
 class="math inline">\(\quad\operatorname{dom}R_1=Ø\qquad\operatorname{ran}R_1=Ø\qquad\operatorname{fld}R_1=Ø\)</span></p>
-<p><span class="math inline">\(\quad\operatorname{dom}R_2=\lbrace
-c,e\rbrace\qquad\operatorname{ran}R_2=\lbrace
-d,f\rbrace\qquad\operatorname{fld}R_2=\lbrace
-c,d,e,f\rbrace\)</span></p></li>
+<p><span class="math inline">\(\quad\operatorname{dom}R_2=\{
+c,e\}\qquad\operatorname{ran}R_2=\{ d,f\}\qquad\operatorname{fld}R_2=\{
+c,d,e,f\}\)</span></p></li>
 <li><p><strong>逆、合成</strong></p>
 <p>对于任意集合 <span class="math inline">\(F,G\)</span> 可以定义</p>
-<p>逆：<span class="math inline">\(F^{-1}=\lbrace⟨
-x,y⟩|yFx\rbrace\)</span></p>
-<p>合成（逆序合成、左合成）：<span class="math inline">\(F\circ
-G=\lbrace⟨ x,y⟩|∃ z(xGz⋀ zFy)\rbrace\)</span></p>
+<p>逆：<span class="math inline">\(F^{-1}=\{⟨ x,y⟩|yFx\}\)</span></p>
+<p>合成（逆序合成、左合成）：<span class="math inline">\(F\circ G=\{⟨
+x,y⟩|∃ z(xGz∧ zFy)\}\)</span></p>
+<p>也能定义右合成：<span class="math inline">\(F\circ G=\{⟨ x,y⟩|∃
+z(xGz∧ zFy)\}\)</span></p>
+<p>一般情况下，合成指的是 右合成</p>
 <p>有以下定理：</p>
 <ul>
 <li><span class="math inline">\((R_1\circ R_2)\circ R_3=R_1\circ
@@ -728,24 +726,24 @@ G^{-1}\)</span></li>
 </ul></li>
 <li><p><strong>限制、象</strong></p>
 <p>对于任意集合 <span class="math inline">\(F,A\)</span> 可以定义</p>
-<p>限制：<span class="math inline">\(F\restriction A=\lbrace⟨ x,y⟩|xFy⋀
-x\in A\rbrace\)</span></p>
+<p>限制：<span class="math inline">\(F\restriction A=\{⟨ x,y⟩|xFy∧ x\in
+A\}\)</span></p>
 <p>象：<span class="math inline">\(F[A]=\operatorname{ran}(F\restriction
 A)\)</span></p></li>
 <li><p><strong>单根</strong></p>
 <p>对于集合 <span class="math inline">\(F\)</span> 可以定义单根</p>
 <p><span class="math inline">\(\quad F\,是单根的⇔∀
-y(y\in\operatorname{ran}F→ ∃!x(x\in\operatorname{dom}F⋀ xFy))⇔(∀
+y(y\in\operatorname{ran}F→ ∃!x(x\in\operatorname{dom}F∧ xFy))⇔(∀
 y\in\operatorname{ran}F)(∃!x\in\operatorname{dom}F)(xFy)\)</span></p>
 <p>上面的 <span class="math inline">\(∃!\)</span> 表示：存在唯一的</p>
 <p><span class="math inline">\(∀ x(x\in A→ B(x))\)</span> 缩写为 <span
 class="math inline">\((∀ x\in A)B(x)\)</span></p>
-<p><span class="math inline">\(∃ x(x\in A⋀ B(x))\)</span> 缩写为 <span
+<p><span class="math inline">\(∃ x(x\in A∧ B(x))\)</span> 缩写为 <span
 class="math inline">\((∃ x\in A)B(x)\)</span></p></li>
 <li><p><strong>单值</strong></p>
 <p>对于集合 <span class="math inline">\(F\)</span> 可以定义单值</p>
 <p><span class="math inline">\(\quad F\,是单值的⇔∀
-x(x\in\operatorname{dom}F→ ∃!y(y\in\operatorname{ran}F⋀ xFy))⇔(∀
+x(x\in\operatorname{dom}F→ ∃!y(y\in\operatorname{ran}F∧ xFy))⇔(∀
 x\in\operatorname{dom}F)(∃!y\in\operatorname{ran}F)(xFy)\)</span></p>
 <p>函数就可以被视作单值的二元关系</p></li>
 </ul>
@@ -757,16 +755,15 @@ x\in\operatorname{dom}F)(∃!y\in\operatorname{ran}F)(xFy)\)</span></p>
 <li>关系图</li>
 </ul>
 <h4 id="关系矩阵">关系矩阵</h4>
-<p><span class="math inline">\(\quad A=\lbrace
-a_1,a_2,\ldots,a_n\rbrace,\,B=\lbrace
-b_1,b_2,\ldots,b_m\rbrace,\,R=A\times B\)</span></p>
+<p><span class="math inline">\(\quad A=\{ a_1,a_2,…,a_n\},\,B=\{
+b_1,b_2,…,b_m\},\,R=A\times B\)</span></p>
 <p>则 <span class="math inline">\(R\)</span> 的关系矩阵有</p>
 <p><span class="math inline">\(\quad M(R)=(r_{ij})_{n\times m}\qquad
 M(R)(i,j)=r_{ij}=\begin{cases}1,\quad a_iRb_j\\0,\quad
 否则\end{cases}\)</span></p>
 <blockquote>
-<p>如，<span class="math inline">\(A=\lbrace a,b,c\rbrace,\,B=\lbrace
-d,e,f\rbrace,\,R=\lbrace⟨ a,d⟩,⟨ a,f⟩,⟨ b,f⟩,⟨ c,e⟩\rbrace\)</span></p>
+<p>如，<span class="math inline">\(A=\{ a,b,c\},\,B=\{ d,e,f\},\,R=\{⟨
+a,d⟩,⟨ a,f⟩,⟨ b,f⟩,⟨ c,e⟩\}\)</span></p>
 <p>则 <span class="math inline">\(M(R)=\left[ \begin{matrix}1\quad
 0\quad 1\\0\quad 0\quad 1\\0\quad 1\quad
 0\end{matrix}\right]\)</span></p>
@@ -777,8 +774,8 @@ d,e,f\rbrace,\,R=\lbrace⟨ a,d⟩,⟨ a,f⟩,⟨ b,f⟩,⟨ c,e⟩\rbrace\)</sp
 class="math inline">\(M(R^{-1})=(M(R))^{T}\)</span></p></li>
 <li><p><strong>逻辑乘</strong>：<span class="math inline">\(M(R_1\circ
 R_2)=M(R_2)• M(R_1)\)</span>，其中乘法对应逻辑的 <span
-class="math inline">\(⋀\)</span>，加法对应逻辑的 <span
-class="math inline">\(⋁\)</span></p>
+class="math inline">\(∧\)</span>，加法对应逻辑的 <span
+class="math inline">\(∨\)</span></p>
 <blockquote>
 <p><strong><em>有关矩阵的乘法</em></strong></p>
 <p>设 <span class="math inline">\(A\)</span> 为 <span
@@ -794,7 +791,7 @@ class="math inline">\(C=A\times B\)</span></p>
 class="math inline">\(i\)</span> 行 <span
 class="math inline">\(j\)</span> 列的元素有：<span
 class="math inline">\(\quad c_{ij}={\sum_{k=1}^{p}\\}(a_{ik}\times
-b_{kj})=a_{i1}\times b_{1j}+a_{i2}\times b_{2j}+\ldots+a_{ip}\times
+b_{kj})=a_{i1}\times b_{1j}+a_{i2}\times b_{2j}+…+a_{ip}\times
 b_{pj}\)</span></p>
 <p>对于矩阵 <span class="math inline">\(A,B\)</span> 仅当 <span
 class="math inline">\(A\,的行数\,=\,B\,的列数\)</span>
@@ -810,9 +807,8 @@ b_3\end{matrix}\right]\)</span></p>
 </blockquote></li>
 </ul>
 <h4 id="关系图">关系图</h4>
-<p><span class="math inline">\(\quad A=\lbrace
-a_1,a_2,\ldots,a_n\rbrace,\,B=\lbrace
-b_1,b_2,\ldots,b_m\rbrace,\,R=A\times B\)</span></p>
+<p><span class="math inline">\(\quad A=\{ a_1,a_2,…,a_n\},\,B=\{
+b_1,b_2,…,b_m\},\,R=A\times B\)</span></p>
 <p>则 <span class="math inline">\(R\)</span> 的关系图 <span
 class="math inline">\(G(R)\)</span>：</p>
 <ul>
@@ -825,9 +821,8 @@ class="math inline">\(a_i\)</span> 向顶点 <span
 class="math inline">\(b_j\)</span> 引有向边 <span
 class="math inline">\(⟨ a_i,b_j⟩\)</span></li>
 </ul>
-<p>下面是 <span class="math inline">\(A=\lbrace
-a,b,c\rbrace,\,R=\lbrace{⟨ a,a⟩},{⟨ a,b⟩},{⟨ b,a⟩},{⟨
-b,c⟩}\rbrace\)</span> 的关系图 <span
+<p>下面是 <span class="math inline">\(A=\{ a,b,c\},\,R=\{ {⟨ a,a⟩},{⟨
+a,b⟩},{⟨ b,a⟩},{⟨ b,c⟩}\}\)</span> 的关系图 <span
 class="math inline">\(G(R)\)</span>（我尽力了）</p>
 <pre><code class=" mermaid">graph LR
 a((a)) --&gt; b((b)) --&gt; c((c))
@@ -845,7 +840,7 @@ A\)</span>，其自反性有：</p>
 <p><span class="math inline">\(\quad R\,是自反的⇔∀ x(x\in A→ xRx)⇔(∀
 x\in A)xRx\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非自反的⇔∃ x(x\in A⋀\neg
+<p><span class="math inline">\(\quad R\,是非自反的⇔∃ x(x\in A∧\neg
 xRx)\)</span></p>
 <p>关于自反性有如下定理：</p>
 <p><span class="math inline">\(\quad\begin{align}
@@ -857,7 +852,7 @@ A\)</span>，其反自反性有：</p>
 <p><span class="math inline">\(\quad R\,是反自反的⇔∀ x(x\in A→ \neg
 xRx)⇔(∀ x\in A)\neg xRx\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非反自反的⇔∃ x(x\in A⋀
+<p><span class="math inline">\(\quad R\,是非反自反的⇔∃ x(x\in A∧
 xRx)\)</span></p>
 <p>可以想见，对于 <span class="math inline">\(R\subseteq A\times
 A,\,Q=(A\times A)-R\)</span>，如果 <span
@@ -872,11 +867,11 @@ R=Ø\\⇔\,&amp;R^{-1}\,是反自反的\\⇔\,&amp;M(R)\,主对角线上的元�
 A\)</span>，其对称性有：</p>
 <p><span
 class="math inline">\(\quad\begin{align}&amp;R\,是对称的\\⇔\,&amp;∀ x∀
-y(x\in A⋀ y\in A⋀ xRy→ yRx)⇔(∀ x\in A)(∀ y\in A)[xRy→
+y(x\in A∧ y\in A∧ xRy→ yRx)⇔(∀ x\in A)(∀ y\in A)[xRy→
 yRx]\end{align}\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非对称的⇔∃ x∃ y(x\in A⋀ y\in
-A⋀ xRy⋀\neg yRx)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非对称的⇔∃ x∃ y(x\in A∧ y\in
+A∧ xRy∧\neg yRx)\)</span></p>
 <p>关于对称性有如下定理：</p>
 <p><span class="math inline">\(\quad\begin{align}&amp;
 R\,是对称的\\⇔\,&amp;R^{-1}=R\\⇔\,&amp;R^{-1}\,是对称的\\⇔\,&amp;M(R)\,是对称的\\⇔\,&amp;G(R)\,的所有边都有反向边\end{align}\)</span></p></li>
@@ -884,17 +879,17 @@ R\,是对称的\\⇔\,&amp;R^{-1}=R\\⇔\,&amp;R^{-1}\,是对称的\\⇔\,&amp;M
 <p>对于关系 <span class="math inline">\(R\subseteq A\times
 A\)</span>，其反对称性有：</p>
 <p><span class="math inline">\(\quad
-\begin{align}&amp;R\,是反对称的\\⇔\,&amp;∀ x∀ y(x\in A⋀ y\in A⋀ xRy⋀
-yRx→ A=B)\\⇔\,&amp;(∀ x\in A)(∀ y\in A)[xRy⋀ yRx→
+\begin{align}&amp;R\,是反对称的\\⇔\,&amp;∀ x∀ y(x\in A∧ y\in A∧ xRy∧
+yRx→ A=B)\\⇔\,&amp;(∀ x\in A)(∀ y\in A)[xRy∧ yRx→
 A=B]\end{align}\)</span></p>
 <p>相反地有</p>
-<p><span class="math inline">\(\quad R\,是非反对称的⇔∃ x∃ y(x\in A⋀ y\in
-A⋀ xRy⋀ yRx ⋀ A\not=B)\)</span></p>
+<p><span class="math inline">\(\quad R\,是非反对称的⇔∃ x∃ y(x\in A∧ y\in
+A∧ xRy∧ yRx ∧ A\not=B)\)</span></p>
 <p>可见，反对称性可能与对称性同时存在</p>
 <p>关于非反对称性有如下定理：</p>
 <p><span class="math inline">\(\quad
 \begin{align}&amp;R\,是反对称的\\⇔\,&amp;R^{-1}\cap R\subseteq
-I_A\\⇔\,&amp;R^{-1}\,是反对称的\\⇔\,&amp;在\,M(R)\,中，∀ i∀ j(i\not=j⋀
+I_A\\⇔\,&amp;R^{-1}\,是反对称的\\⇔\,&amp;在\,M(R)\,中，∀ i∀ j(i\not=j∧
 r_{ij}=1→
 r_{ji}=0)\\⇔\,&amp;G(R)\,的所有不同点间有不多于\,1\,条边\end{align}\)</span></p></li>
 <li><p><strong>传递性</strong>（transtivity）</p>
@@ -902,11 +897,11 @@ r_{ji}=0)\\⇔\,&amp;G(R)\,的所有不同点间有不多于\,1\,条边\end{alig
 A\)</span>，其传递性有：</p>
 <p><span
 class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;∀ x∀
-y∀ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz→ xRz)\\⇔\,&amp;(∀ x\in A)(∀ y\in
-A)(∀ z\in A)[xRy⋀ yRz→ xRz]\end{align}\)</span></p>
+y∀ z(x\in A∧ y\in A∧ z\in A∧ xRy∧ yRz→ xRz)\\⇔\,&amp;(∀ x\in A)(∀ y\in
+A)(∀ z\in A)[xRy∧ yRz→ xRz]\end{align}\)</span></p>
 <p>相反地有</p>
 <p><span class="math inline">\(\begin{align}\quad&amp;R\,是非传递的⇔∃ x∃
-y∃ z(x\in A⋀ y\in A⋀ z\in A⋀ xRy⋀ yRz⋀ \neg xRz)\end{align}\)</span></p>
+y∃ z(x\in A∧ y\in A∧ z\in A∧ xRy∧ yRz∧ \neg xRz)\end{align}\)</span></p>
 <p>关于传递性有如下定理：</p>
 <p><span
 class="math inline">\(\quad\begin{align}&amp;R\,是传递的\\⇔\,&amp;R\circ
@@ -937,20 +932,20 @@ class="math inline">\(包含\,R\,的某种集合\)</span> 的交集。</p>
 <li><p>自反闭包：<span class="math inline">\(r(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有自反性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq r(R)\qquad
-r(R)是自反的\qquad ∀ S((R\subseteq S⋀ S 自反)→ r(r)\subseteq
+r(R)是自反的\qquad ∀ S((R\subseteq S∧ S 自反)→ r(r)\subseteq
 S)\)</span></p>
 <p><span class="math inline">\(\quad r(R)=R\cup I_A\)</span></p></li>
 <li><p>对称闭包：<span class="math inline">\(s(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有对称性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq s(R)\qquad
-s(R)是对称的\qquad ∀ S((R\subseteq S⋀ S 对称)→ s(r)\subseteq
+s(R)是对称的\qquad ∀ S((R\subseteq S∧ S 对称)→ s(r)\subseteq
 S)\)</span></p>
 <p><span class="math inline">\(\quad s(R)=R\cup R^{-1}\)</span></p>
 <p>传递关系的对称闭包不一定是传递的</p></li>
 <li><p>传递闭包：<span class="math inline">\(t(R)\)</span>，包含 <span
 class="math inline">\(R\)</span> 的具有传递性的闭包</p>
 <p><span class="math inline">\(\quad R\subseteq t(R)\qquad
-t(R)是传递的\qquad ∀ S((R\subseteq S⋀ S 传递)→ t(r)\subseteq
+t(R)是传递的\qquad ∀ S((R\subseteq S∧ S 传递)→ t(r)\subseteq
 S)\)</span></p>
 <p><span class="math inline">\(\quad t(R)=R\cup R^2\cup
 R^3\cup\dots\)</span></p></li>
@@ -963,7 +958,7 @@ A⇒\quad r(R_1)\subseteq r(R_2)\quad s(R_1)\subseteq s(R_2)\quad
 t(R_1)\subseteq t(R_2)\)</span></p>
 <p><span class="math inline">\(\quad r(R_1\cup R_2)=r(R_1)\cup
 r(R_2);\quad s(R_1\cup R_2)=s(R_1)\cup s(R_2)\quad t(R_1\cup
-R_2){\color{Red}{\supseteq}}t(R_1)\cup t(R_2)\)</span></p></li>
+R_2){\color{Red}{\supseteq} }t(R_1)\cup t(R_2)\)</span></p></li>
 </ul>
 <h2 id="dm2.8-等价关系和划分">DM2.8 等价关系和划分</h2>
 <ul>
@@ -983,7 +978,7 @@ class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
 class="math inline">\(x\in A\)</span>，则 <span
 class="math inline">\(x\)</span> 关于 <span
 class="math inline">\(R\)</span> 的等价类是 <span
-class="math inline">\([x]_R=\lbrace y|y\in A⋀ xRy\rbrace\)</span></p>
+class="math inline">\([x]_R=\{ y|y\in A∧ xRy\}\)</span></p>
 <p>简称 <span class="math inline">\(x\)</span> 的等价类，记为 <span
 class="math inline">\([x]\)</span></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
@@ -993,32 +988,29 @@ class="math inline">\(∀ x,y\in A\)</span>，有以下定理</p>
 <p><span class="math inline">\(\quad xRy⇒[x]_R=[y]_R\)</span></p>
 <p><span class="math inline">\(\quad\neg
 xRy⇒[x]_R\cap[y]_R=Ø\)</span></p>
-<p><span class="math inline">\(\quad\bigcup\lbrace[x]_R|x\in A\rbrace
+<p><span class="math inline">\(\quad\bigcup\{[x]_R|x\in A\}
 =A\)</span></p></li>
 <li><p><strong>商集</strong></p>
 <p>设 <span class="math inline">\(R\)</span> 是 <span
 class="math inline">\(A\not=Ø\)</span> 上的等价关系，<span
 class="math inline">\(A\)</span> 关于 <span
 class="math inline">\(R\)</span> 的商集是 <span
-class="math inline">\(A/R=\lbrace[x]_R|x\in A\rbrace\)</span></p>
-<p>若 <span class="math inline">\(A=\lbrace
-a_1,a_2,\ldots,a_n\rbrace\)</span> 上有等价关系 <span
-class="math inline">\(I_A,E_A,R_{ij}=I_A\cup\lbrace⟨ a_i,a_j⟩,⟨
-a_j,a_i⟩\rbrace,a_i,a_j\in A,i\not=j\)</span></p>
-<p><span class="math inline">\(\quad A/I_A=\lbrace\lbrace
-a_1\rbrace,\lbrace a_2\rbrace,\ldots,\lbrace
-a_n\rbrace\rbrace\)</span></p>
-<p><span class="math inline">\(\quad A/E_A=\lbrace\lbrace
-a_1,a_2,\ldots,a_n\rbrace\rbrace\)</span></p>
-<p><span class="math inline">\(\quad A/R_{ij}=A/I_A\cup\lbrace\lbrace
-a_i,a_j\rbrace\rbrace-\lbrace\lbrace a_i\rbrace,\lbrace
-a_j\rbrace\rbrace\)</span></p></li>
+class="math inline">\(A/R=\{[x]_R|x\in A\}\)</span></p>
+<p>若 <span class="math inline">\(A=\{ a_1,a_2,…,a_n\}\)</span>
+上有等价关系 <span class="math inline">\(I_A,E_A,R_{ij}=I_A\cup\{⟨
+a_i,a_j⟩,⟨ a_j,a_i⟩\},a_i,a_j\in A,i\not=j\)</span></p>
+<p><span class="math inline">\(\quad A/I_A=\{\{ a_1\},\{ a_2\},…,\{
+a_n\}\}\)</span></p>
+<p><span class="math inline">\(\quad A/E_A=\{\{
+a_1,a_2,…,a_n\}\}\)</span></p>
+<p><span class="math inline">\(\quad A/R_{ij}=A/I_A\cup\{\{
+a_i,a_j\}\}-\{\{ a_i\},\{ a_j\}\}\)</span></p></li>
 <li><p><strong>划分</strong></p>
 <p><span class="math inline">\(A\not=Ø\)</span> 的一个划分是 <span
 class="math inline">\({\mathcal A}\subseteq P(A)\)</span> 满足</p>
 <ol type="1">
 <li><span class="math inline">\(Ø\not\in\mathcal A\)</span></li>
-<li><span class="math inline">\(∀ x,y(x,y\in\mathcal A⋀ x\not= y⇒ x\cap
+<li><span class="math inline">\(∀ x,y(x,y\in\mathcal A∧ x\not= y⇒ x\cap
 y=Ø)\)</span></li>
 <li><span class="math inline">\(\bigcup\mathcal A=A\)</span></li>
 </ol>
@@ -1029,7 +1021,7 @@ y=Ø)\)</span></li>
 A/R\,是\,A\,的划分\)</span></p>
 <p><span class="math inline">\(\quad\mathcal A\,是\,A\,的划分⇒
 同块关系\,R_{\mathcal A}\,是\,A上的等价关系\quad xR_{\mathcal A}y⇔∃
-z(z\in\mathcal A⋀ x\in z⋀ y\in z)\)</span>，此时 <span
+z(z\in\mathcal A∧ x\in z∧ y\in z)\)</span>，此时 <span
 class="math inline">\(R_{\mathcal A}\)</span> 称为 <span
 class="math inline">\(\mathcal A\)</span> 所定义的等价关系</p></li>
 <li><p><strong>Stirling 子集数</strong></p>
@@ -1039,7 +1031,7 @@ Stirling 子集数</p>
 <p>Srirling 子集数也是将 n 元集分成 k 个非空子集的分法总数</p>
 <p>递推公式有 <span
 class="math inline">\(\begin{Bmatrix}n\\k\end{Bmatrix}=\begin{cases}\begin{align}&amp;0\quad
-&amp;k=0\\&amp;1\quad &amp;n=k⋁ k=1\\&amp;2^{n-1}-1\quad
+&amp;k=0\\&amp;1\quad &amp;n=k∨ k=1\\&amp;2^{n-1}-1\quad
 &amp;k=2\\&amp;C_n^2\quad
 &amp;n=k+1\\&amp;k\begin{Bmatrix}n-1\\k\end{Bmatrix}+\begin{Bmatrix}n-1\\k-1\end{Bmatrix}\quad
 &amp;k &gt; 1\end{align}\end{cases}\)</span></p>
@@ -1070,19 +1062,19 @@ class="math inline">\(A\)</span> 上的偏序关系，则称 <span
 class="math inline">\(⟨ A,\preccurlyeq⟩\)</span> 为偏序集</p></li>
 <li><p><strong>可比、严格小于、覆盖</strong></p>
 <p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
-A\)</span>，存在 <span class="math inline">\(x\preccurlyeq y⋁
+A\)</span>，存在 <span class="math inline">\(x\preccurlyeq y∨
 y\preccurlyeq x\)</span>，则称 <span class="math inline">\(x\)</span> 和
 <span class="math inline">\(y\)</span> 可比</p>
 <p>若 <span class="math inline">\(x\not= y\)</span>，则称 <span
 class="math inline">\(x\)</span> 严格小于 <span
 class="math inline">\(y\)</span>，即 <span
-class="math inline">\(x\preccurlyeq y⋀ x\not=y⇔ x\prec y\)</span></p>
+class="math inline">\(x\preccurlyeq y∧ x\not=y⇔ x\prec y\)</span></p>
 <p>若不存在 <span class="math inline">\(z\)</span> 使 <span
 class="math inline">\(x\prec z\)</span> 且 <span
 class="math inline">\(z\prec y\)</span>，则称 <span
 class="math inline">\(y\)</span> 覆盖 <span
 class="math inline">\(x\)</span>，即 <span class="math inline">\(x\prec
-y⋀\neg∃ z(z\in A⋀ x\prec z\prec y)\)</span></p></li>
+y∧\neg∃ z(z\in A∧ x\prec z\prec y)\)</span></p></li>
 <li><p><strong>哈斯图</strong></p>
 <p>对于 <span class="math inline">\(⟨ A,\preccurlyeq⟩,\,x,y\in
 A\)</span></p>
@@ -1125,7 +1117,7 @@ class="math inline">\(A\)</span> 上的拟序关系，则</p>
 <ul>
 <li><span class="math inline">\(x\prec y,\,x=y,\,y\prec x\)</span>
 中最多只有一个式子成立</li>
-<li><span class="math inline">\((x\prec y⋁ x=y)⋀(y\prec x⋁ x=y)⇒
+<li><span class="math inline">\((x\prec y∨ x=y)∧(y\prec x∨ x=y)⇒
 x=y\)</span></li>
 </ul></li>
 <li><p><strong>三歧性、拟线序</strong></p>
@@ -1145,9 +1137,9 @@ A,y\in B\)</span></p>
 x\preccurlyeq y)\)</span></p>
 <p><span class="math inline">\(\quad y\,是\,B\,的最小元⇔∀ x(x\in B→
 y\preccurlyeq x)\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的极小元⇔∀ x(x\in B⋀
+<p><span class="math inline">\(\quad y\,是\,B\,的极小元⇔∀ x(x\in B∧
 y\preccurlyeq x→ x= y)\)</span></p>
-<p><span class="math inline">\(\quad y\,是\,B\,的极大元⇔∀ x(x\in B⋀
+<p><span class="math inline">\(\quad y\,是\,B\,的极大元⇔∀ x(x\in B∧
 x\preccurlyeq y→ x= y)\)</span></p>
 <p>对于 <span class="math inline">\(z\in A\)</span></p>
 <p><span class="math inline">\(\quad z\,是\,A\,的上界⇔∀ x(x\in B→
@@ -1168,10 +1160,10 @@ class="math inline">\(\omega,2\omega,\omega^2,\omega^\omega,\dots\)</span></li>
 <li><p><strong>链、反链</strong></p>
 <p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
 为偏序集，<span class="math inline">\(B\subseteq A\)</span></p>
-<p><span class="math inline">\(\quad B\,是\,A\,中的链⇔∀ x∀ y(x\in B⋀
+<p><span class="math inline">\(\quad B\,是\,A\,中的链⇔∀ x∀ y(x\in B∧
 y\in B→ x\,与\,y\,可比)\)</span></p>
-<p><span class="math inline">\(\quad B\,是\,A\,中的反链⇔∀ x∀ y(x\in B⋀
-y\in B⋀ x\not= y→ x\,与\,y\,不可比)\)</span></p>
+<p><span class="math inline">\(\quad B\,是\,A\,中的反链⇔∀ x∀ y(x\in B∧
+y\in B∧ x\not= y→ x\,与\,y\,不可比)\)</span></p>
 <p><span class="math inline">\(\quad|B|\)</span> 称为（反）链的长度</p>
 <p>设 <span class="math inline">\(⟨ A,\preccurlyeq⟩\)</span>
 为偏序集，<span class="math inline">\(A\)</span> 中最长链长度为 <span
@@ -1189,7 +1181,7 @@ class="math inline">\(n+1\)</span> 的链</li>
 </ul>
 <h2 id="dm2.10-函数">DM2.10 函数</h2>
 <p>函数：也称映射。单值的二元关系。<span class="math inline">\(∀
-x\in\operatorname{dom}F,\,∀ y,z\in\operatorname{ran}F,\,xFy⋀ xFz→
+x\in\operatorname{dom}F,\,∀ y,z\in\operatorname{ran}F,\,xFy∧ xFz→
 y=z\)</span></p>
 <p>函数的记号：<span class="math inline">\(F(x)=y⇔ ⟨ x,y⟩\in F⇔
 xFy\)</span></p>
@@ -1197,7 +1189,7 @@ xFy\)</span></p>
 <li><p><strong>偏函数</strong></p>
 <p>设 <span class="math inline">\(F\)</span> 是函数，<span
 class="math inline">\(\operatorname{dom}F\subseteq
-A⋀\operatorname{ran}F\subseteq B\)</span> 则称之为 <span
+A∧\operatorname{ran}F\subseteq B\)</span> 则称之为 <span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的偏函数。记作 <span
 class="math inline">\(F:A→ B\)</span></p>
@@ -1205,7 +1197,7 @@ class="math inline">\(F:A→ B\)</span></p>
 class="math inline">\(F\)</span> 的前域。</p>
 <p><span class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体偏函数记为 <span
-class="math inline">\(A→ B=\lbrace F|F:A→ B\rbrace\)</span></p>
+class="math inline">\(A→ B=\{ F|F:A→ B\}\)</span></p>
 <p>显然 <span class="math inline">\(A→ B\subseteq P(A\times
 B)\)</span></p></li>
 <li><p><strong>真偏函数</strong></p>
@@ -1213,8 +1205,8 @@ B)\)</span></p></li>
 class="math inline">\(F:A\shortparallel\!\!\!→ B\)</span>。<span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体真偏函数记为 <span
-class="math inline">\(A\shortparallel\!\!\!→ B=\lbrace
-F|F:A\shortparallel\!\!\!→ B\rbrace\)</span></p>
+class="math inline">\(A\shortparallel\!\!\!→ B=\{
+F|F:A\shortparallel\!\!\!→ B\}\)</span></p>
 <p>所以，就有 <span class="math inline">\(A\shortmid\!\!\!→ B=A→ B\cup
 A\shortparallel\!\!\!→ B\qquad F:A\shortmid\!\!\!→ B⇒
 F:\operatorname{dom}F→ B\)</span></p></li>
@@ -1223,16 +1215,15 @@ F:\operatorname{dom}F→ B\)</span></p></li>
 <span class="math inline">\(F:A\shortmid\!\!\!→ B\)</span>。<span
 class="math inline">\(A\)</span> 到 <span
 class="math inline">\(B\)</span> 的全体全函数记为 <span
-class="math inline">\(B^A=A→ B=\lbrace F|F:A\shortmid\!\!\!→
-B\rbrace\)</span></p>
+class="math inline">\(B^A=A→ B=\{ F|F:A\shortmid\!\!\!→ B\}\)</span></p>
 <p><span class="math inline">\(A,B\)</span> 中存在空集 <span
 class="math inline">\(Ø\)</span> 时，<span
 class="math inline">\(B^A\)</span> 分为以下几种情况</p>
 <ul>
 <li><span class="math inline">\(A,B\)</span> 是空集：<span
-class="math inline">\(B^A=Ø^{Ø}=\lbraceØ\rbrace\)</span></li>
+class="math inline">\(B^A=Ø^{Ø}=\{Ø\}\)</span></li>
 <li>仅 <span class="math inline">\(A\)</span> 是空集：<span
-class="math inline">\(B^A=B^{Ø}=\lbraceØ\rbrace\)</span></li>
+class="math inline">\(B^A=B^{Ø}=\{Ø\}\)</span></li>
 <li>仅 <span class="math inline">\(B\)</span> 是空集：<span
 class="math inline">\(B^A=Ø^{A}=Ø\)</span></li>
 </ul>
@@ -1251,7 +1242,7 @@ B,\,|A|=n,\,|B|=m\)</span>，则</p>
 <ul>
 <li><span class="math inline">\(n&lt;m\)</span> 时，<span
 class="math inline">\(A→ B\)</span> 中无满射、双射。单射数量是 <span
-class="math inline">\(m(m-1)\ldots(m-n+1)\)</span></li>
+class="math inline">\(m(m-1)…(m-n+1)\)</span></li>
 <li><span class="math inline">\(n&gt;m\)</span> 时，<span
 class="math inline">\(A→ B\)</span> 中无单射、双射。满射数量是 <span
 class="math inline">\(m!\begin{Bmatrix}n\\m\end{Bmatrix}\)</span></li>
@@ -1263,10 +1254,9 @@ class="math inline">\(n!\)</span></li>
 <p>给定映射 <span class="math inline">\(f:A→ B,\,A&#39;\subseteq
 A,\,B&#39;\subseteq B\)</span></p>
 <p>则 <span class="math inline">\(A&#39;\)</span> 的像 <span
-class="math inline">\(f(A&#39;)=\lbrace y|x\in
-A&#39;,xfy\rbrace\)</span></p>
-<p><span class="math inline">\(B&#39;\)</span> 的原像
-$f^{-1}(B')=x|yB',xfy$</p>
+class="math inline">\(f(A&#39;)=\{ y|x\in A&#39;,xfy\}\)</span></p>
+<p><span class="math inline">\(B&#39;\)</span> 的原像 $f^{-1}(B')={
+x|yB',xfy} $</p>
 <p>有 <span class="math inline">\(f(A)=\operatorname{ran}f\quad
 f^{-1}(B)=\operatorname{dom}f=A\)</span></p></li>
 <li><p><strong>特殊函数</strong></p>
@@ -1276,7 +1266,7 @@ A,\,f(x)=b\)</span></p></li>
 <li><p>恒等函数：<span class="math inline">\(I_A:A→
 A,\,I_A(x)=x\)</span></p></li>
 <li><p>特征函数：<span
-class="math inline">\(\chi_A:E→\lbrace0,1\rbrace,\,\chi_A(x)=1⇔ x\in
+class="math inline">\(\chi_A:E→\{0,1\},\,\chi_A(x)=1⇔ x\in
 A\)</span></p>
 <p>此时当 <span class="math inline">\(Ø\subset A\subset E\)</span>
 时，<span class="math inline">\(\chi_A\)</span> 是满射</p></li>
@@ -1331,20 +1321,20 @@ class="math inline">\(F\)</span> 下封闭</p></li>
 <li><p><span class="math inline">\(e\notin
 \operatorname{ran}F\)</span></p></li>
 <li><p><span class="math inline">\(F\)</span> 是单射</p></li>
-<li><p><span class="math inline">\(A\subseteq M⋀ e\in A⋀
+<li><p><span class="math inline">\(A\subseteq M∧ e\in A∧
 A\,在\,F\,下封闭⇒ A=M\)</span></p>
 <p>（极小性公理/数学归纳法原理。即 <span
 class="math inline">\(M\)</span> 是满足条件的最小集合）</p></li>
 </ul></li>
 <li><p><strong>后继</strong></p>
 <p>对于集合 <span class="math inline">\(A\)</span>，其后继 <span
-class="math inline">\(A^+=A\cup\lbrace A\rbrace\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq A^+⋀ A\in
+class="math inline">\(A^+=A\cup\{ A\}\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq A^+∧ A\in
 A^+\)</span></p></li>
 <li><p><strong>归纳集</strong></p>
 <p><span
 class="math inline">\(\quad\begin{align}&amp;A\,是归纳集\\⇔\,&amp;Ø\in
-A⋀∀ x(x\in A→ x^+\in
+A∧∀ x(x\in A→ x^+\in
 A)\\⇔\,&amp;A\,含有\,Ø\,且对后继封闭\end{align}\)</span></p></li>
 <li><p><strong>后继函数</strong></p>
 <p><span class="math inline">\(\quad\sigma:N→ N,\,∀ n\in
@@ -1367,8 +1357,8 @@ class="math inline">\(A\,是传递集⇒{\bigcup\\}(A^+)=A\)</span></p></li>
 <p>目标：证明 <span class="math inline">\(∀ n\in N\)</span>，<span
 class="math inline">\(P(n)\)</span> 为真</p>
 <ol type="1">
-<li><p>构造 <span class="math inline">\(S=\lbrace n|n\in N⋀
-P(n)\rbrace\)</span></p></li>
+<li><p>构造 <span class="math inline">\(S=\{ n|n\in N∧
+P(n)\}\)</span></p></li>
 <li><p>证明 <span class="math inline">\(S\)</span> 是归纳集</p>
 <p><span class="math display">\[\quad\begin{align}&amp;Ø\in S\\&amp;∀
 n(n\in s→ n^+\in S)\\∴\quad&amp;S=N\end{align}\]</span></p></li>
@@ -1379,21 +1369,21 @@ n(n\in s→ n^+\in S)\\∴\quad&amp;S=N\end{align}\]</span></p></li>
 class="math inline">\(N\)</span>）</strong>：包含于每个归纳集的集合。</p>
 <p><span class="math display">\[\quad\begin{align}
 &amp;0=Ø\\
-&amp;1=Ø^+=\lbraceØ\rbrace=\lbrace 0\rbrace\\
-&amp;2=Ø^{++}=\lbraceØ,\lbraceØ\rbrace\rbrace=\lbrace0,1\rbrace\\
+&amp;1=Ø^+=\{Ø\}=\{ 0\}\\
+&amp;2=Ø^{++}=\{Ø,\{Ø\}\}=\{0,1\}\\
 &amp;\dots\\
-&amp;n=(n-1)^+=\lbrace0,1,2,\ldots,n-1\rbrace
+&amp;n=(n-1)^+=\{0,1,2,…,n-1\}
 \end{align}\]</span></p>
 <p>如此一来，让自然数作为集合，可以进行运算</p>
 <p><span class="math display">\[\quad\begin{align}
-&amp;2\cap3=\lbrace0,1\rbrace\cap\lbrace0,1,2\rbrace=\lbrace0,1\rbrace=2=\operatorname{min}(2,3)\\
-&amp;2\cup3=\lbrace0,1\rbrace\cup\lbrace0,1,2\rbrace=\lbrace0,1,2\rbrace=3=\operatorname{max}(2,3)\\
-&amp;3-2=\lbrace0,1,2\rbrace-\lbrace0,1\rbrace=\lbrace2\rbrace\\
-&amp;2-3=\lbrace0,1\rbrace-\lbrace0,1,2\rbrace=Ø\\
+&amp;2\cap3=\{0,1\}\cap\{0,1,2\}=\{0,1\}=2=\operatorname{min}(2,3)\\
+&amp;2\cup3=\{0,1\}\cup\{0,1,2\}=\{0,1,2\}=3=\operatorname{max}(2,3)\\
+&amp;3-2=\{0,1,2\}-\{0,1\}=\{2\}\\
+&amp;2-3=\{0,1\}-\{0,1,2\}=Ø\\
 &amp;\bigcup
-n=\bigcup\lbrace0,1,\dots,n-1\rbrace=n-1=\operatorname{max}(0,1,\dots,n-1)\\
+n=\bigcup\{0,1,\dots,n-1\}=n-1=\operatorname{max}(0,1,\dots,n-1)\\
 &amp;\bigcap
-n=\bigcap\lbrace0,1,\dots,n-1\rbrace=0=\operatorname{min}(0,1,\dots,n-1)\\
+n=\bigcap\{0,1,\dots,n-1\}=0=\operatorname{min}(0,1,\dots,n-1)\\
 &amp;0\in1\in2\in3\in\dots\qquad0\subseteq1\subseteq2\subseteq3\subseteq\dots
 \end{align}\]</span></p>
 <p>于是有以下定理：</p>
@@ -1456,7 +1446,7 @@ N\\&amp;\begin{cases}M_m(0)=0\\M_m(n^+)=M_m(n)+m\end{cases}\end{align}\)</span><
 <li><span class="math inline">\(1• n=n• 1=n\)</span></li>
 <li><span class="math inline">\(n• m=m• n\)</span></li>
 <li><span class="math inline">\((m• n)• k=m• (n• k)\)</span></li>
-<li><span class="math inline">\(k\not=0⋀ m• k=n• k⇒ m=n\)</span></li>
+<li><span class="math inline">\(k\not=0∧ m• k=n• k⇒ m=n\)</span></li>
 <li><span class="math inline">\(m• (n+k)=(m• n)+(m• k)\)</span></li>
 </ul></li>
 </ul>
@@ -1464,15 +1454,13 @@ N\\&amp;\begin{cases}M_m(0)=0\\M_m(n^+)=M_m(n)+m\end{cases}\end{align}\)</span><
 <ul>
 <li><p><strong>匹配</strong></p>
 <p>在自然数集合与另一集合间建立双射，可以统计集合的大小</p>
-<p><span class="math inline">\(\quad\begin{align}&amp;\lbrace
-a\rbrace→\lbrace 0\rbrace=1\\&amp;\lbrace a,b\rbrace→\lbrace
-0,1\rbrace=2\\&amp;\lbrace a,b,c\rbrace→\lbrace
-0,1,2\rbrace=3\\&amp;\ldots\end{align}\)</span></p></li>
+<p><span class="math inline">\(\quad\begin{align}&amp;\{ a\}→\{
+0\}=1\\&amp;\{ a,b\}→\{ 0,1\}=2\\&amp;\{ a,b,c\}→\{
+0,1,2\}=3\\&amp;…\end{align}\)</span></p></li>
 <li><p><strong>计数</strong></p>
 <p>任意自然数集合都有最小元素，任意自然数间可以比较大小</p>
-<p><span
-class="math inline">\(\quad\begin{align}&amp;0→1→2→3→\ldots\\&amp;a→
-b\\&amp;a→ b→ c\\&amp;\ldots\end{align}\)</span></p></li>
+<p><span class="math inline">\(\quad\begin{align}&amp;0→1→2→3→…\\&amp;a→
+b\\&amp;a→ b→ c\\&amp;…\end{align}\)</span></p></li>
 </ul>
 <h2 id="dm2.12-等势有穷集无穷集">DM2.12 等势、有穷集、无穷集</h2>
 <ul>
@@ -1484,13 +1472,13 @@ B\)</span></p>
 <p><span class="math inline">\(\quad\begin{align}&amp;Z\approx N\qquad
 N\times N\approx N\qquad N\approx Q\qquad (0,1)\approx
 R\qquad[0,1]\approx(0,1)\\&amp;P(A)\approx 2^A=A→ 2\\&amp;A\approx
-A\qquad A\approx B⇒ B\approx A\qquad A\approx B⋀ B\approx C⇒ A\approx
+A\qquad A\approx B⇒ B\approx A\qquad A\approx B∧ B\approx C⇒ A\approx
 C\\&amp;N\not\approx R\qquad A\not\approx
 P(A)\end{align}\)</span></p></li>
 <li><p><strong>有穷集</strong></p>
 <p>与某一自然数 <span class="math inline">\(n\)</span>
 等势的集合称为有穷集。</p>
-<p><span class="math inline">\(\quad A\,是有穷集⇔ ∃ n(A\approx n⋀ n\in
+<p><span class="math inline">\(\quad A\,是有穷集⇔ ∃ n(A\approx n∧ n\in
 N)⇔ B\subset A→ A\not\approx B\)</span></p>
 <p>不存在与自身真子集等势的自然数，也不存在与自身真子集等势的有穷集</p></li>
 <li><p><strong>无穷集</strong></p>
@@ -1518,9 +1506,8 @@ class="math inline">\(\operatorname{card}R=\aleph_1=\aleph\)</span></li>
 </ul>
 <p><span class="math inline">\(0,1,2,\dots,\aleph_0,\aleph\)</span>
 都称作基数</p>
-<p>其中 <span class="math inline">\(0,1,2,\ldots\)</span>
-称为有穷基数；<span class="math inline">\(\aleph_0,\aleph\)</span>
-称为无穷基数</p>
+<p>其中 <span class="math inline">\(0,1,2,…\)</span> 称为有穷基数；<span
+class="math inline">\(\aleph_0,\aleph\)</span> 称为无穷基数</p>
 <p>若 <span class="math inline">\({card\,}A=\aleph_i\)</span> 则 <span
 class="math inline">\(\operatorname{card}P(A)=\aleph_{i+1}\)</span></p>
 <p>可以用希腊字符 <span
@@ -1532,11 +1519,11 @@ class="math inline">\(|A|\)</span> 的推广</p>
 class="math inline">\(\operatorname{rand}A&lt;\operatorname{rand}P(A)\)</span></p></li>
 <li><p><span class="math inline">\(K_\kappa\)</span></p>
 <p>设 <span class="math inline">\(\kappa\)</span> 是任意基数，令 <span
-class="math inline">\(K_\kappa=\lbrace
-x|x\,是集合且\,\operatorname{card}x=\kappa\rbrace\)</span></p>
+class="math inline">\(K_\kappa=\{
+x|x\,是集合且\,\operatorname{card}x=\kappa\}\)</span></p>
 <ul>
 <li><span class="math inline">\(\kappa=0\)</span> 时，<span
-class="math inline">\(K_\kappa=\lbraceØ\rbrace\)</span> 是集合</li>
+class="math inline">\(K_\kappa=\{Ø\}\)</span> 是集合</li>
 <li><span class="math inline">\(\kappa\not=0\)</span> 时，<span
 class="math inline">\(K_\kappa\)</span> 不是集合，而是类</li>
 </ul></li>
@@ -1557,11 +1544,11 @@ class="math inline">\(\operatorname{rand}A&lt;\operatorname{rand}B\)</span>
 B\)</span> 或 <span class="math inline">\(B\succ• A\)</span></p>
 <p>显然 <span class="math inline">\(A\subseteq B⇒ A\preccurlyeq• B\quad
 A\subset B⇒ A\succcurlyeq• B\)</span></p>
-<p><span class="math inline">\(\quad A\preccurlyeq\bull B⋀
+<p><span class="math inline">\(\quad A\preccurlyeq\bull B∧
 B\preccurlyeq\bull A⇒ A\approx B\)</span></p>
 <p><span class="math inline">\(\quad
-\kappa\le\lambda⋀\lambda\le\kappa⇒\kappa=\lambda\)</span></p>
-<p><span class="math inline">\(\quad A\subseteq B\subseteq C⋀ A\approx
+\kappa\le\lambda∧\lambda\le\kappa⇒\kappa=\lambda\)</span></p>
+<p><span class="math inline">\(\quad A\subseteq B\subseteq C∧ A\approx
 C⇒ A\approx B\approx C\)</span></p>
 <p><span class="math inline">\(\quad R\approx(N→2)=2^N\)</span></p></li>
 <li><p><strong>可数集（可列集）</strong></p>
@@ -1570,7 +1557,7 @@ C⇒ A\approx B\approx C\)</span></p>
 称为有穷可数集，<span class="math inline">\(N\)</span>
 称为无穷可数集</p>
 <p>倘若 <span class="math inline">\(A\)</span>
-是有穷可数集，则其可以表示成 <span class="math inline">\(A=\lbrace
+是有穷可数集，则其可以表示成 <span class="math inline">\(A=\{
 a_1,a_2,\dots,a_n\}\)</span></p></li>
 <li><p><strong>基数运算</strong></p>
 <p>基数间也能进行运算</p>
@@ -1581,8 +1568,7 @@ class="math inline">\(\kappa =
 <p>则 <span
 class="math inline">\(\kappa+\lambda=\operatorname{rand}(K\cup
 L)\qquad\kappa\bull\lambda=\operatorname{rand}(K\times
-L)\qquad\kappa^\lambda=\operatorname{rand}\lbrace A|A:K→
-L\}\)</span></p>
+L)\qquad\kappa^\lambda=\operatorname{rand}\{ A|A:K→ L\}\)</span></p>
 <p>有 <span
 class="math inline">\(rand\,P(K)=2^\kappa\qquad\aleph=2^{\aleph_0}\)</span></p>
 <p>基数运算的性质</p>
@@ -1592,13 +1578,13 @@ class="math inline">\(\kappa+\lambda=\lambda+\kappa\qquad(\kappa+\lambda)+\mu=\k
 <p><span
 class="math inline">\(\kappa\bull(\lambda+\mu)=\kappa\bull\lambda+\kappa\bull\mu\qquad\kappa^\lambda\bull\kappa^\mu=\kappa^{\lambda+\mu}\)</span></p>
 <p><span
-class="math inline">\((\kappa\not=0⋁\mu\not=0)⋀\kappa\le\lambda⇒\mu^\kappa\le\mu^\lambda\)</span></p></li>
+class="math inline">\((\kappa\not=0∨\mu\not=0)∧\kappa\le\lambda⇒\mu^\kappa\le\mu^\lambda\)</span></p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数则有
 <span class="math inline">\(\kappa\bull\kappa=\kappa\)</span></p>
 <p>即，对于任意无穷集都能和自身的二元关系建立双射</p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，<span
 class="math inline">\(\lambda\)</span> 是基数，则有 <span
-class="math inline">\(\kappa+\lambda=\kappa•\lambda=max\lbrace
+class="math inline">\(\kappa+\lambda=\kappa•\lambda=max\{
 \kappa,\lambda\}\)</span></p></li>
 <li><p>若 <span class="math inline">\(\kappa\)</span> 是无穷基数，则
 <span class="math inline">\(\kappa^\kappa=2^\kappa\)</span></p></li>
@@ -1607,8 +1593,8 @@ class="math inline">\(\kappa+\lambda=\kappa•\lambda=max\lbrace
 <h2 id="dm2.14-公理化集合论">DM2.14 公理化集合论</h2>
 <blockquote>
 <p>罗素悖论：罗素悖论是由罗素发现的一个集合论悖论。若有 <span
-class="math inline">\(A=\lbrace x|x\not\in x\rbrace\)</span>，则无法判断
-<span class="math inline">\(A\in A\)</span> 的真假。</p>
+class="math inline">\(A=\{ x|x\not\in x\}\)</span>，则无法判断 <span
+class="math inline">\(A\in A\)</span> 的真假。</p>
 <p>罗素悖论的提出引发了第三次数学危机。为了尝试解决该危机，提出了公理化集合论。ZF
 公理系统是其中的一种。</p>
 </blockquote>
@@ -1618,21 +1604,21 @@ class="math inline">\(A=\lbrace x|x\not\in x\rbrace\)</span>，则无法判断
 <li><p>外延公理：所含元素相同的两个集合相等</p>
 <p><span class="math inline">\(\quad A=B⇔∀ x(x\in A↔ x\in
 B)\)</span></p></li>
-<li><p>无序对公理：<span class="math inline">\(a,b\,是集合⇒\lbrace
-a,b\rbrace\,是集合\)</span></p></li>
-<li><p>子集公理：<span class="math inline">\(A\,是集合⇒\lbrace x\in
-A|P(x)\rbrace\,是集合\)</span></p></li>
+<li><p>无序对公理：<span class="math inline">\(a,b\,是集合⇒\{
+a,b\}\,是集合\)</span></p></li>
+<li><p>子集公理：<span class="math inline">\(A\,是集合⇒\{ x\in
+A|P(x)\}\,是集合\)</span></p></li>
 <li><p>并集公理：<span class="math inline">\({\mathcal
 A}\,是集族⇒{\bigcup\\}{\mathcal A}\,是集合\)</span></p></li>
 <li><p>幂集公理：<span class="math inline">\(A\,是集合⇒
 P(A)\,是集合\)</span></p></li>
-<li><p>替换公理：<span class="math inline">\(F\,是\,A\,上的函数⇒ \lbrace
+<li><p>替换公理：<span class="math inline">\(F\,是\,A\,上的函数⇒ \{
 f(x)|x\in A\}\,是集合\)</span></p></li>
-<li><p>正则公理：<span class="math inline">\(A\not=Ø⇒∃ B(B\in A⋀ B\cap
+<li><p>正则公理：<span class="math inline">\(A\not=Ø⇒∃ B(B\in A∧ B\cap
 A=Ø)\)</span></p></li>
 <li><p>无限公理：存在归纳集。</p>
-<p><span class="math inline">\(\quad A\,是归纳集⇔(Ø\in A)⋀(a\in A→
-a\cup\lbrace a\rbrace\in A)\)</span></p></li>
+<p><span class="math inline">\(\quad A\,是归纳集⇔(Ø\in A)∧(a\in A→
+a\cup\{ a\}\in A)\)</span></p></li>
 </ul>
 <p>以上公理组成了 ZF 公理系统。加上下面的选择公理（策梅洛公理）即构成
 ZFC 公理系统</p>
@@ -1650,7 +1636,7 @@ A\)</span></li>
 <li>Zorn 原理：链总有上界的非空偏序集存在极大元</li>
 <li>Hausdorff 极大原理：任何链都包含于极大链</li>
 <li>三歧性原理：<span
-class="math inline">\(A,B\,是集合⇒|A|\le|B|⋁|B|\le|A|\)</span></li>
+class="math inline">\(A,B\,是集合⇒|A|\le|B|∨|B|\le|A|\)</span></li>
 </ul></li>
 </ul>
 
