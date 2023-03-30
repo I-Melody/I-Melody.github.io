@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Melody 的小纸箱">
 <meta property="og:description" content="OS4 文件管理 文件：一组有意义数据的集合 文件的属性：  文件名：同一目录不允许重名文件 标识符：操作系统用于区分各文件的内部名称 文件类型：指明文件的类型 位置：包括文件的存放路径（用户使用）、在外存中的地址（操作系统使用，用户不可见） 大小：指明文件大小 创建时间、上次修改时间、所有者信息 保护信息：对文件进行保护的访问控制信息  此外，操作系统还要实现 文件共享">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.png">
+<meta property="og:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.webp">
 <meta property="article:published_time" content="2023-01-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-15T10:06:06.328Z">
+<meta property="article:modified_time" content="2023-03-30T08:32:56.411Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.png">
+<meta name="twitter:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -193,7 +193,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/post.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -288,7 +288,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月15日 晚上
+                    本文最后更新于：2023年3月30日 下午
                   
                 
               </p>
@@ -499,7 +499,7 @@ Table）</strong>中。文件分配表在开机后常驻内存。</p>
 <strong>超级块</strong>。操作系统启动时将超级块读入内存，并要保证内存与外存中的超级块数据一致。</p>
 <p>超级块中记录三部分信息：下一组空闲块数、该组第一个空闲盘块号、该组其他空闲盘块号。</p>
 <p>每组的第一个磁盘块中也会记录下一组盘块的信息，最后一组的第一个盘块号为空值以作区分。每组的空闲盘块间不一定连续，每组的空闲块数量有上限。</p>
-<p><img src="/img/OS_InputImage/OS4_2%20成组链接法图.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="/img/OS_InputImage/OS4_2%20成组链接法图.webp" srcset="/img/loading.gif" lazyload /></p>
 <p><em>（OS4_2 成组链接法图）</em></p>
 <p>每次分配空闲块时，检查超级块组内是否有足够的空闲磁盘块。磁盘块一经分配，即让记录的组内块数减少。超级块组内无空闲块后，将下一组的信息复制到超级块中。可见超级块即充当了链头作用。</p>
 <blockquote>
