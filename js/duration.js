@@ -23,7 +23,7 @@
       snum = "0" + snum;
     }
     document.getElementById("timeDate").innerHTML = "&nbsp"+dnum+"&nbsp天";
-    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒之前，Melody&nbsp把这个小纸箱放在了这里";
+    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒之前，Melody&nbsp把一个小纸箱放在了这里……";
   }
 
   update();
