@@ -24,7 +24,7 @@
 <meta property="og:description" content="15 图形界面设计  图形用户界面（Graphical User Interface，简称 GUI）是大多数程序不可缺少的部分。 Java 的图形界面由各种组件组成。在 java.awt 和 java.swing 包中定义了多种用于创建图形用户界面的组件类。 Swing 组件和 AWT 组件最大的不同是 Swing 组件实现时不包含任何本地代码，因此不受硬件平台的限制，而具有更多的功">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-05T15:37:32.286Z">
+<meta property="article:modified_time" content="2023-04-05T08:01:10.495Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="&lt;Java&gt;15 图形界面设计"></span>
+            <span id="subtitle"><Java>15 图形界面设计</span>
           
         </div>
 
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月5日 晚上
+                    本文最后更新于：2023年4月5日 下午
                   
                 
               </p>
@@ -665,8 +665,8 @@ BoxLayout 的 Box</p></li>
 </blockquote>
 <ol type="1">
 <li>调用容器的 <code>setLayout(null)</code> 将容器的布局管理器置空</li>
-<li>=调用组件的 <code>setBounds(x, y, w, h)</code>
-方法设置其位=置和大小。<sub>老东西，你的布局管理器最没用啦！</sub></li>
+<li>调用组件的 <code>setBounds(x, y, w, h)</code>
+方法设置其位置和大小。<sub>老东西，你的布局管理器最没用啦！</sub></li>
 </ol>
 <h2 id="事件处理">15.4 事件处理</h2>
 <blockquote>
@@ -714,7 +714,7 @@ BoxLayout 的 Box</p></li>
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyButton</span><span class="hljs-params">()</span> &#123;
         addActionListener(<span class="hljs-built_in">this</span>);
     &#125;
-	                           
+	                              
     <span class="hljs-meta">@Override</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> &#123;
         System.out.println(<span class="hljs-string">&quot;Pressed&quot;</span>);
@@ -1812,21 +1812,6 @@ initialValue</font>：初始选项或输入值</p></li>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
 
