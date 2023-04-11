@@ -24,7 +24,7 @@
 <meta property="og:description" content="OS3 内存管理 内存 是存放数据的硬件。程序执行前要先放到内存中才能被 CPU 处理。 为对并发执行的程序进行区分，需要给内存的 存储单元 编址。 按字节编址 的计算机，每个存储单元大小为 1 字节。按字编址 的计算机，存储单元的大小取决于其字长。 在一个指令中，要给出操作码和变量的 物理地址（实际存放地址）。但在生成机器指令时不知道该进程数据的地址，因此汇编时使用的是 逻辑">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-15T10:06:00.333Z">
+<meta property="article:modified_time" content="2023-04-11T04:56:23.086Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月15日 晚上
+                    本文最后更新于：2023年4月11日 下午
                   
                 
               </p>
@@ -344,11 +344,14 @@
 <p>内存保护，就是要确保各进程在各自存储空间内互不干扰</p>
 <p>内存保护有两种方法：</p>
 <ul>
-<li>在 CPU 中设置一对 上/下限寄存器，存放进程的
-上/下限地址。访问地址前检查是否越界。</li>
-<li>采用
+<li><p>在 CPU 中设置一对 上/下限寄存器，存放进程的
+上/下限地址。访问地址前检查是否越界。</p>
+<p>比如，采用
 <strong>重定位寄存器</strong>（又称基址寄存器，存放起始物理地址）和
-<strong>界地址寄存器</strong>（又称限长寄存器，存放最大逻辑地址）进行越界检查。</li>
+<strong>界地址寄存器</strong>（又称限长寄存器，存放最大逻辑地址）进行越界检查。合法的地址应满足
+<span class="math inline">\(基址寄存器\le 地址\le
+限长寄存器\)</span></p></li>
+<li><p>权限保护</p></li>
 </ul>
 <h2 id="os3.2-内存空间扩充">OS3.2 内存空间扩充</h2>
 <p>内存空间的扩充有三种技术：<strong>覆盖技术</strong>、<strong>交换技术</strong>、<strong>虚拟内存技术</strong></p>
