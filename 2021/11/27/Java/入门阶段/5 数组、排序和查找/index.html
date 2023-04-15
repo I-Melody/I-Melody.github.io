@@ -24,7 +24,7 @@
 <meta property="og:description" content="5 数组、排序和查找  数组：可以存放多个同一类型的数据。数组也是一种数据，是引用类型。 即：数组就是一组数据。  5.1 一维数组  数组可以是多个相同类型数据的组合，实现对这些数据的统一管理。 数组中的元素可以是任何数据类型。包括基本类型和引用类型。 数组的下标从 0 开始。且必须在指定范围内使用，否则报错。 数组属于 引用类型，数组型数据是 对象（Object） 数组创">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-04T08:14:12.055Z">
+<meta property="article:modified_time" content="2023-04-11T10:14:47.811Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k 字
+          15k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          40 分钟
+          41 分钟
         
       </span>
     
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月4日 下午
+                    本文最后更新于：2023年4月11日 晚上
                   
                 
               </p>
@@ -450,7 +450,7 @@ a、这是二维数组：int[][] b。好了，现在来写一个堆排序吧
 &#125;</code></pre></div>
 <h3 id="二分查找">5.3.2 二分查找</h3>
 <p>二分查找要求数组必须是有序数组。</p>
-<p>每次取出那个中位数。目标值大于中位数的场合，则在较小一侧的范围内继续二分查找。否则在那个较大一侧查找。</p>
+<p>每次取出那个中位数。目标值小于中位数的场合，则在较小一侧的范围内继续二分查找。否则在那个较大一侧查找。</p>
 <p>递归方式二分查找：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array, <span class="hljs-type">int</span> target)</span> &#123;
     <span class="hljs-keyword">return</span> binarySearch(array, target, <span class="hljs-number">0</span>, array.length);
@@ -478,11 +478,14 @@ a、这是二维数组：int[][] b。好了，现在来写一个堆排序吧
 &#125;</code></pre></div>
 <h3 id="插值查找">5.3.3 插值查找</h3>
 <p>插值查找类似于二分查找，但其不是取出中位数，而是从自适应的位置取出一个元素</p>
-<p>那个自适应的取出位置 mid = low + (target - arr[low]) ×
-<font color="#00C0FF">(</font>high - low<font color="#00C0FF">)</font> /
-<font color="FFC000">(</font>arr[high] -
-arr[low]<font color="FFC000">)</font></p>
-<p>如若那个目标值更靠近某一端，这个自适应的取出位置也会更接近那一端</p>
+<p>那个自适应的取出位置 <span
+class="math inline">\(pos=low+(high-low)\times\dfrac{target-arr[low]}{arr[high]-arr[low]}\)</span></p>
+<p>上面的 <span class="math inline">\(low\)</span>
+是查找范围的下界，<span class="math inline">\(high\)</span>
+是查找范围的上界，<span class="math inline">\(target\)</span>
+是目标值，<span class="math inline">\(arr[i]\)</span> 是数组第 <span
+class="math inline">\(i\)</span> 个元素的值</p>
+<p>可见，如若那个目标值更靠近某一端，这个自适应的取出位置也会更接近那一端</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">insertSearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array, <span class="hljs-type">int</span> target)</span> &#123;
     <span class="hljs-keyword">if</span> (target &gt; array[array.length - <span class="hljs-number">1</span>]) <span class="hljs-keyword">return</span> -array.length;
     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (target &lt; array[<span class="hljs-number">0</span>]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -519,7 +522,7 @@ arr[low]<font color="FFC000">)</font></p>
 <li><p>外部排序：数据量庞大，无法全部加载到内存中，需要借助外部存储进行排序</p>
 <p>如：合并排序法、直接合并排序法</p></li>
 </ul>
-<h4 id="排序算法的时间复杂度">排序算法的时间复杂度：</h4>
+<h4 id="排序算法的时间复杂度">排序算法的时间复杂度</h4>
 <table>
 <tr>
 <th>
@@ -757,8 +760,12 @@ B--&gt;F(有序序列)</code></pre>
         <span class="hljs-keyword">if</span> (non_exchange) <span class="hljs-keyword">break</span>;
     &#125;
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 n - 1 轮排序，第 k 轮排序比较 n - k
-个元素，并进行最多 n - k 次交换。时间复杂度为 O(n<sup>2</sup>)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，就进行 <span
+class="math inline">\(n - 1\)</span> 轮比较，第 <span
+class="math inline">\(k\)</span> 轮排序比较 <span
+class="math inline">\(n - k\)</span> 个元素，并进行最多 <span
+class="math inline">\(n - k\)</span> 次交换。时间复杂度为 <span
+class="math inline">\(O(n^2)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行冒泡排序。<br/>那个统计时间是：6416 ms
@@ -792,8 +799,12 @@ o(剩余序列)--不为空--&gt;S</code></pre>
         &#125;
     &#125;
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 n - 1 轮排序，第 k 轮排序比较 n - k
-个元素，并进行 1 次交换。时间复杂度为 O(n<sup>2</sup>)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，就进行 <span
+class="math inline">\(n - 1\)</span> 轮选择，第 <span
+class="math inline">\(k\)</span> 轮选择要比较 <span
+class="math inline">\(n - k\)</span> 个元素，并进行 <span
+class="math inline">\(1\)</span> 次交换。时间复杂度为 <span
+class="math inline">\(O(n^2)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行选择排序。<br/>那个统计时间是：1616 ms
@@ -835,8 +846,12 @@ i-.无序表不为空.-&gt;N</code></pre>
         array[insertPos] = temp;
     &#125;
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 n - 1 轮排序，第 k 轮排序需要进行 k
-次比较、移动或插入。时间复杂度为 O(n<sup>2</sup>)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，就进行 <span
+class="math inline">\(n - 1\)</span> 轮插入，第 <span
+class="math inline">\(k\)</span> 轮插入需要进行 <span
+class="math inline">\(k\)</span> 次比较、移动和交换，平均每轮需要 <span
+class="math inline">\(\dfrac{n}{2}\)</span> 次操作。时间复杂度为 <span
+class="math inline">\(O(n^2)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行插入排序。<br/>那个统计时间是：423 ms
@@ -897,8 +912,10 @@ D--&gt;d4((...))--&gt;d141[插入排序]--&gt;T(序列)</code></pre>
         step /= <span class="hljs-number">2</span>;
     &#125;
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 ㏒<sub>2</sub>n 次排序。每轮排序最多进行 k*n
-次比较、移动或插入。因此，时间复杂度为 O(n㏒<sub>2</sub>n)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，就进行 <span
+class="math inline">\(\log_2 n\)</span> 轮排序。每轮排序最多进行 <span
+class="math inline">\(n\)</span> 次比较。因此，时间复杂度为 <span
+class="math inline">\(O(n\log n)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行<font color="#0000FF">希儿</font>排序。<br/>那个统计时间是：11
@@ -960,10 +977,14 @@ k8.-&gt;K</code></pre>
     quick_sort(array, start, l);		<span class="hljs-comment">// 对那个较小侧区间再进行快速排序</span>
     quick_sort(array, r, end);			<span class="hljs-comment">// 对那个较大测区间再进行快速排序</span>
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 ㏒<sub>2</sub>n ~ n 次排序。第 k
-轮排序最多进行 2n - 2<sup>k - 1</sup>
-次比较、交换或插入。因此，时间复杂度为 O(n㏒<sub>2</sub>n)，最差情况为
-O(n<sup>2</sup>)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，则最多进行
+<span class="math inline">\(\log_2 n\)</span>（每轮都选到中位数时）至
+<span
+class="math inline">\(n\)</span>（每轮都选到极值时）轮分组。任意一轮分组中最多有
+<span class="math inline">\(n\)</span> 次比较、<span
+class="math inline">\(n\)</span> 次交换。因此，时间复杂度为 <span
+class="math inline">\(O(n\log n)\)</span>，最差情况为 <span
+class="math inline">\(O(n^2)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行快速排序。<br/>那个统计时间是：16 ms
@@ -1044,8 +1065,11 @@ B--&gt;b8((元素8))--&gt;ba4</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div>
-<p>如果有 n 个元素，就进行 ㏒<sub>2</sub>n ~ n 次排序。每轮排序最多进行
-2n 次比较或插入。因此，时间复杂度为 O(n㏒<sub>2</sub>n)</p>
+<p>如果有 <span class="math inline">\(n\)</span> 个元素，则发生 <span
+class="math inline">\(\log_2 n\)</span> 轮合并。每轮排序最多进行 <span
+class="math inline">\(n\)</span> 次比较与 <span
+class="math inline">\(n\)</span> 次插入。因此，时间复杂度为 <span
+class="math inline">\(O(n\log n)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行归并排序。<br/>那个统计时间是：15 ms
@@ -1102,8 +1126,11 @@ F --大于等于 10&lt;sup&gt;k&lt;/sup&gt;--&gt; B</code></pre>
         <span class="hljs-keyword">if</span> (noMore) <span class="hljs-keyword">break</span>;
     &#125;
 &#125;</code></pre></div>
-<p>根据那个最大数值的不同，需要进行 r 轮排序。每轮排序进行 3n
-次计算、插入。因此，时间复杂度是 O(n㏒<sub>R</sub>B)</p>
+<p>若桶数为 <span class="math inline">\(R\)</span>，最大值为 <span
+class="math inline">\(B\)</span>，则需要进行 <span
+class="math inline">\(\log_R B\)</span> 轮排序。每轮排序进行 <span
+class="math inline">\(n\)</span> 次计算、插入。因此，时间复杂度是 <span
+class="math inline">\(O(n\log _RB)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行基数排序。<br/>那个统计时间是：15 ms
@@ -1114,11 +1141,13 @@ F --大于等于 10&lt;sup&gt;k&lt;/sup&gt;--&gt; B</code></pre>
 <p><strong>堆</strong> 是具有以下性质的二叉树：</p>
 <ul>
 <li><p>大顶堆：每个节点的值都大于等于其子节点的值</p>
-<p>即，对于任意节点 arr[i] 都有 arr[i] &gt;= arr[2 * i + 1] 并且 arr[i]
-&gt;= arr[2 * i + 2]</p></li>
+<p>即，对于任意节点 <span class="math inline">\(arr[i]\)</span> 都有$
+arr[i] arr[2i + 1]$ 并且 <span class="math inline">\(arr[i] \ge arr[2i +
+2]\)</span></p></li>
 <li><p>小顶堆：每个节点的值都小于等于其子节点的值</p>
-<p>即，对于任意节点 arr[i] 都有 arr[i] &lt;= arr[2 * i + 1] 并且 arr[i]
-&lt;= arr[2 * i + 2]</p>
+<p>即，对于任意节点 <span class="math inline">\(arr[i]\)</span> 都有
+<span class="math inline">\(arr[i] \le arr[2i + 1]\)</span> 并且 <span
+class="math inline">\(arr[i] \le arr[2i + 2]\)</span></p>
 <p><strong><em>——见 <a
 href="../../../../../../2022/06/02/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/14%20%E6%A0%91/#14-1-1-%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91">[14.1.1
 顺序存储二叉树]</a></em></strong></p></li>
@@ -1211,6 +1240,11 @@ end</code></pre>
     array[<span class="hljs-number">0</span>] = array[index];
     array[index] = temp;
 &#125;</code></pre></div>
+<p>构建堆时，若有 <span class="math inline">\(n\)</span> 个元素，即进行
+<span class="math inline">\(n\)</span> 次整理。每次整理最多进行 <span
+class="math inline">\(\log_2n\)</span> 次比较
+。之后，每次取出堆顶元素后，需进行一次整理。故时间复杂度是 <span
+class="math inline">\(O(n\log n)\)</span></p>
 <p class="note note-info">
 对随机数组 int[] array（array.length = 80000；array[i] ∊ [0,
 10<sup>7</sup>)）进行堆排序。<br/>那个统计时间是：16 ms
@@ -1353,6 +1387,12 @@ end</code></pre>
 
 
 
+  
+
+
+
+
+  
   
 
 
@@ -1602,6 +1642,44 @@ end</code></pre>
   });
 </script>
 
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
