@@ -1,0 +1,1103 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CA6 标量处理机、向量处理机 CA6.1 重叠方式 一条指令的执行分为三个阶段：取出指令、分析指令、执行指令 执行时有三种执行方式：  顺序执行方式：完全顺序地执行所有指令 gantt  dateFormat x axisFormat  %Q  section 取指令 指令 A: 0, 1 指令 B: 3, 4 指令 c: 6, 7 section 分析指令 指令 A: 1, 2 指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;计算机系统结构&gt;CA6 标量处理机、向量处理机">
+<meta property="og:url" content="https://i-melody.github.io/2023/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/6%20%E6%A0%87%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E3%80%81%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="CA6 标量处理机、向量处理机 CA6.1 重叠方式 一条指令的执行分为三个阶段：取出指令、分析指令、执行指令 执行时有三种执行方式：  顺序执行方式：完全顺序地执行所有指令 gantt  dateFormat x axisFormat  %Q  section 取指令 指令 A: 0, 1 指令 B: 3, 4 指令 c: 6, 7 section 分析指令 指令 A: 1, 2 指">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-17T04:15:55.775Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="计算机系统结构">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;计算机系统结构&gt;CA6 标量处理机、向量处理机 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><计算机系统结构>CA6 标量处理机、向量处理机</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-17 00:00" pubdate>
+          2023年4月17日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;计算机系统结构&gt;CA6 标量处理机、向量处理机</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年4月17日 中午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="ca6-标量处理机向量处理机">CA6 标量处理机、向量处理机</h1>
+<h2 id="ca6.1-重叠方式">CA6.1 重叠方式</h2>
+<p>一条指令的执行分为三个阶段：取出指令、分析指令、执行指令</p>
+<p>执行时有三种执行方式：</p>
+<ul>
+<li><p>顺序执行方式：完全顺序地执行所有指令</p>
+<pre><code class=" mermaid">gantt
+
+dateFormat x
+axisFormat  %Q
+
+section 取指令
+指令 A: 0, 1
+指令 B: 3, 4
+指令 c: 6, 7
+section 分析指令
+指令 A: 1, 2
+指令 B: 4, 5
+指令 c: 7, 8
+section 执行指令
+指令 A: 2, 3
+指令 B: 5, 6
+指令 c: 8, 9</code></pre>
+<p>其花费时间（假设取指令、分析、执行指令时间相等）有：<span
+class="math inline">\(T={\sum^n_{i=1}\\}(t_取+t_析+t_执)\approx
+3nt\)</span></p>
+<p>虽然控制简单，但处理机执行指令速度慢，功能部件利用率低</p></li>
+<li><p>一次重叠执行方式：执行指令时，即取出下一指令</p>
+<pre><code class=" mermaid">gantt
+
+dateFormat x
+axisFormat %Q
+
+section 取指令
+指令 A: 0, 1
+指令 B: 2, 3
+指令 C: 4, 5
+section 分析指令
+指令 A: 1, 2
+指令 B: 3, 4
+指令 C: 5, 6
+section 执行指令
+指令 A: 2, 3
+指令 B: 4, 5
+指令 C: 6, 7</code></pre>
+<p>可见此时 <span
+class="math inline">\(T=t_取+{\sum^n_{i=1}\\}(t_析+t_执)\approx
+(1+2n)t\)</span></p>
+<p>需要增加一些硬件，控制电路更加复杂</p></li>
+<li><p>二次重叠执行方式：分析指令时，即取出下一指令</p>
+<pre><code class=" mermaid">gantt
+
+dateFormat x
+axisFormat  %Q
+
+section 取指令
+指令 A: 0, 1
+指令 B: 1, 2
+指令 C: 2, 3
+section 分析指令
+指令 A: 1, 2
+指令 B: 2, 3
+指令 C: 3, 4
+section 执行指令
+指令 A: 2, 3
+指令 B: 3, 4
+指令 B: 4, 5</code></pre>
+<p>可见此时 <span
+class="math inline">\(T=t_取+t_析+{\sum^n_{i=1}\\}t_执\approx
+(2+n)t\)</span></p></li>
+</ul>
+<h2 id="ca6.2-流水方式">CA6.2 流水方式</h2>
+<p>计算机中的流水线是将一个重复过程分解为若干子过程。每个子过程与其他子过程并行执行。</p>
+<p>描述流水线的方法是
+<strong>时空图</strong>。时空图又有两种描述方法。</p>
+<ul>
+<li><p>时间 - 过程 方式：</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA6_2%20时空图1.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA6_2 时空图1）</em></p>
+<p>横坐标：表示时间。即各个任务在流水线经过的时间。图中红框、蓝框是两个任务。</p>
+<p>纵坐标：表示空间。即流水线各个子过程。也称级、段、流水线深度。</p></li>
+<li><p>时间 - 任务 方式：</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA6_2%20时空图2.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA6_2 时空图2）</em></p>
+<p>横坐标：表示时间。即各个任务或指令在流水线在该时刻对应的子过程。<em>（CA1.5
+时空图1）</em>中的红框任务大致对应<em>（CA1.5 时空图2）</em>中的指令 i
+一行。</p>
+<p>在经典的 MIPS
+五级流水线中：IF（取指）、ID（译码）、EX（执行）、MEM（存储器）、WB（写回）</p>
+<p>纵坐标：可以表示 某个任务 或
+某条指令。即流水线依次处理的任务或指令</p></li>
+</ul>
+<p>流水线的特点：</p>
+<ul>
+<li>基本组成采取 <strong>功能部件+锁存器</strong> 的模式。</li>
+<li>各子功能部件都能独立工作，且各部件处理时间尽可能相等。</li>
+<li>解决同步问题，保证以相同速度处理</li>
+<li>解决访存冲突，允许不同指令同时读、写</li>
+</ul>
+<p>流水线的不同分类方式：</p>
+<ul>
+<li><p>按照流水线处理级别：<strong>部件级</strong>、<strong>处理机级</strong>、<strong>系统级</strong>。当一级流水线上的某过程不能在一个周期内完成时，可以将该过程其细分为下一级流水线。</p></li>
+<li><p>按照流水线的功能多少：<strong>单功能</strong>（只能固定完成一种功能）、<strong>多功能</strong>（不同链接方式可完成不同功能）。</p>
+<p>其中，多功能流水线又可按同一时间内各段间连接状态分为：<strong>静态多功能流水线</strong>（同一时间内，多功能结构只能按一种功能的连接方式工作）、<strong>动态多功能流水线</strong>（同一时间内，多功能结构可以按不同功能的连接方式工作）。</p></li>
+<li><p>根据流水线的结构：<strong>线性流水线</strong>（无反馈回路）、<strong>非线性流水线</strong>（有反馈回路）</p></li>
+<li><p>按照流水线控制方式：<strong>同步流水线</strong>（以共同的时钟控制周期）、<strong>异步流水线</strong></p></li>
+<li><p>按照流水线的数据类型：<strong>标量流水线</strong>、<strong>向量流水线</strong></p></li>
+<li><p>按照任务从输出端的流出顺序：<strong>顺序流水方式</strong>（先进先出）、<strong>乱序流水方式</strong></p></li>
+</ul>
+<p>描述流水线性能的一些指标：</p>
+<ul>
+<li><p><strong>吞吐率</strong>：单位时间流水线 完成的任务/输出结果
+的数量</p>
+<p>若 <span class="math inline">\(n\)</span> 为任务数，<span
+class="math inline">\(k\)</span> 为流水线段数，<span
+class="math inline">\(\Delta t\)</span> 为时钟周期，则完成 <span
+class="math inline">\(n\)</span> 个任务的时间 <span
+class="math inline">\(T_k=(k+n-1)\Delta t\)</span></p>
+<p>流水线吞吐率 <span
+class="math inline">\(TP=\dfrac{n}{T_k}=\dfrac{n}{(k+n-1)\Delta
+t}\)</span></p>
+<p>最大吞吐率 <span class="math inline">\(TP_{max}={\lim_{n\rarr
+\infin}\\}\dfrac{n}{(k+n-1)\Delta t}=\dfrac{1}{\Delta t}\)</span></p>
+<p>各段时间不等时，实际吞吐率 <span class="math inline">\(TP=\dfrac{n}{
+{ \sum^{k}_{i=1} } \Delta t_i+(n-1)max(\Delta t)}\)</span>，最大吞吐率
+<span class="math inline">\(TP_{max}=\dfrac{1}{max(\Delta
+t)}\)</span></p></li>
+<li><p><strong>加速比</strong>：完成一批任务的时间，与使用非流水线方式完成任务的时间，两者的比值</p>
+<p>可见加速比 <span class="math inline">\(S=\dfrac{kn\Delta
+t}{(k+n-1)\Delta t}=\dfrac{kn}{k+n-1}\)</span></p>
+<p>最大加速比 <span
+class="math inline">\(S_{max}={\lim_{n\rarr\infin}\\}\dfrac{kn}{k+n-1}=k\)</span></p>
+<p>各段时间不等时，实际加速比 <span
+class="math inline">\(S=\dfrac{n{\sum^{k}_{i=1} } \Delta t_i}{ {
+\sum^{k}_{i=1} } \Delta t_i+(n-1)\max(\Delta t)}\)</span>，最大加速比
+<span class="math inline">\(S_{max}=\dfrac{ { \sum^{k}_{i=1} } \Delta
+t_i}{max(\Delta t)}\)</span></p></li>
+<li><p><strong>效率</strong>：流水线的设备利用率</p>
+<p>可见效率 <span class="math inline">\(E=\dfrac{n\
+个任务占用的时空区}{k\ 个流水段的总时空区}=\dfrac{nk\Delta
+t}{k(k+n-1)\Delta t}=\dfrac{n}{k+n-1}\)</span></p>
+<p>最高效率 <span class="math inline">\(E_{max}={\lim_{m\rarr
+\infin}\\}\dfrac{n}{k+n-1}=1\)</span></p>
+<p>各段时间不等时，实际效率 <span
+class="math inline">\(E=\dfrac{n{\sum^{k}_{i=1} } \Delta
+t_i}{k[{\sum^{k}_{i=1} } \Delta t_i+(n-1)max(\Delta
+t)]}\)</span>，最大效率 <span class="math inline">\(E_{max}=\dfrac{ {
+\sum^{k}_{i=1} } \Delta t_i}{k\max(\Delta t)}\)</span></p></li>
+</ul>
+<p>流水线各段执行时间不同时，可以将瓶颈段
+<strong>进一步细分</strong>，也能 <strong>设置重复瓶颈段</strong>。</p>
+<p>流水线存在
+<strong>相关（冲突，Hazard）</strong>，使得指令流中的下一指令不能在指定的时钟周期内执行。为解决问题，约定了流水线
+<strong>停顿</strong>：发生冲突后，流水线所有其他指令暂停。</p>
+<p>这些相关有几种类型：</p>
+<ul>
+<li><p><strong>结构冲突</strong>：硬件资源不能满足指令重叠进行的需要而发生的停顿</p>
+<p>解决方法
+1：插入暂停周期（流水线气泡、气泡。所有后续流水线操作延后</p>
+<p>解决方法 2：设置独立的 <strong>指令存储器</strong> 和
+<strong>数据存储器</strong>，或设置独立的 指令 Cache 和 数据
+Cache。</p></li>
+<li><p><strong>数据冲突</strong>：指令在流水线中重叠进行时，下一指令需要前面指令的结果而发生的停顿</p>
+<p>两条指令的关系有：写后读、写后写、读后写、读后读。顺序情况下，写后读会产生数据冲突。</p>
+<p>解决方法
+1：由于寄存器的读写速度很快，可以约定：在时钟周期的上半周期写入数据，下半周期读出数据。这样只能解决同周期的读写先后问题。</p>
+<p>解决方法 2：引入
+<strong>旁路方式（定向技术、Bypass）</strong>。将某指令的计算结果从产生位置直接送到其他指令需要的位置，以避免停顿</p></li>
+<li><p><strong>控制冲突（全局性相关）</strong>：已进入流水线的转移指令（分支指令或其他改变
+PC 值的指令）与后续指令间的相关。</p>
+<p>解决方法
+1：加快和提前形成条件码。增加一些额外电路，使得各种分支的判断时间提前。</p>
+<p>解决方法 2：猜测法。猜测后续分支，直接装入。在执行前可以验证。</p>
+<p>解决方法 3：引入
+<strong>延迟槽技术</strong>。更改指令的执行顺序，从其他地方调度代码（从前调度、从目标处调度、从失败处调度），在原本的停顿周期中执行这些调度代码。</p>
+<p>解决方法 4：加快短循环程序的处理。</p></li>
+</ul>
+<h2 id="ca6.3-指令级高度并行的超级处理机">CA6.3
+指令级高度并行的超级处理机</h2>
+<p>指令级并行（ILP，Instruction-Lecel
+Parallelism）：使指令重叠以提高性能</p>
+<p>有各种指令级并行技术：</p>
+<ul>
+<li><strong>超标量处理机</strong>：（硬件）具有多条流水线，因而能并发执行多个指令。</li>
+<li><strong>超长指令字</strong>：依靠编译器，把多条指令合并为一条指令。</li>
+<li><strong>超级流水线</strong>：将每个流水线段进一步细分。如此，在一个时钟周期内能分时流出多条指令。</li>
+</ul>
+<h2 id="ca6.4-向量流水处理机">CA6.4 向量流水处理机</h2>
+<p>向量处理机是有向量数据表示的处理机。</p>
+<p>由于向量内部的元素很少相关，且一般执行同一操作，容易发挥流水线效能。故向量数据适宜使用流水线处理</p>
+<p>向量的处理有几种方式，以计算 <span class="math inline">\(D=A\times
+(B+C)\)</span> 为例（<span class="math inline">\(A,B,C,D\)</span> 是
+<span class="math inline">\(n\)</span> 元向量）：</p>
+<ul>
+<li><p><strong>横向（水平）处理方式</strong>：对于所有 <span
+class="math inline">\(d_i\in D\)</span>，计算 <span
+class="math inline">\(d_i=a_i\times(b_i+c_i)\)</span></p></li>
+<li><p><strong>纵向（垂直）处理方式</strong>：先计算 <span
+class="math inline">\(E=B+C\)</span>，再计算 <span
+class="math inline">\(D=A\times E\)</span>。一般采用
+垂直处理方式。</p></li>
+<li><p><strong>分组纵横处理方式</strong></p>
+<p>若向量的长度 <span class="math inline">\(n\)</span>
+太大，向量寄存器组无法容纳，则将向量分成多组。</p>
+<p>每组内按 纵向处理方式，组间采用 横向处理方式。</p></li>
+</ul>
+<p>向量处理中也可能发生冲突：</p>
+<ul>
+<li><strong>V
+冲突</strong>：并行工作的各向量指令的源向量或结果向量使用了相同的 <span
+class="math inline">\(v_i\)</span></li>
+<li><strong>功能冲突</strong>：同一功能部件被多个并行工作的向量指令使用</li>
+</ul>
+<p>可以采取 <strong>链接</strong>
+技术，对向量流水处理机进行优化：当两条指令出现 "写后读"
+相关时，把其所用功能部件头尾相接，形成链接流水线，进行流水处理。</p>
+<h2 id="ca6.5-阵列处理机">CA6.5 阵列处理机</h2>
+<p>阵列处理机是一种单指令流多数据流计算机。阵列处理机有两种构型：</p>
+<ul>
+<li><strong>分布式存储器</strong></li>
+<li><strong>集中式共享存储器</strong></li>
+</ul>
+<p>阵列处理机的特点：</p>
+<ul>
+<li>基于 有限差分、矩阵、信号处理、线性规划等问题
+为背景。这些问题的共同特点是可以将其转化为对 数组 或 向量 的处理</li>
+<li>单指令流多数据流</li>
+<li>资源重复，而非时间重叠</li>
+<li>利用并行性中的同时性</li>
+<li>主要靠增大处理单元个数来提升运行速度，可扩展性更好</li>
+</ul>
+<p>阵列处理机的 处理单元间、处理单元与处理分体间 都要通过
+<strong>互连网络</strong> 进行通信。对互连网络的设计目标为：</p>
+<ul>
+<li>不过分复杂，以降低成本</li>
+<li>互连灵活，满足算法与应用需求</li>
+<li>处理单元间信息交换步数尽可能少，以提高速度性能</li>
+<li>可使用基本构件组合而成，使其模块性好</li>
+</ul>
+<p>互连网络的操作方法有三种：同步、异步、同步异步组合。</p>
+<p>互连网络的交换方式有三种：</p>
+<ul>
+<li>线路交换：在源和目的地间建立直接通路。适用于大量数据传输。</li>
+<li>包交换：将数据封装为数据包传送，不必建立实际的连接通路。适用于短数据信息传输</li>
+<li>线路与包交换</li>
+</ul>
+<p>为反映互联特性，每种互连网络 出端号 与
+入端号（以二进制表示）的关系可用一组 <strong>互联函数</strong>
+定义。</p>
+<p>基本的 <strong>单级互连网络</strong> 有：</p>
+<ul>
+<li><p>立方体：对于 <span class="math inline">\(n\)</span>
+个节点的立方体单级互连网络有 <span
+class="math inline">\(\log_2n\)</span> 种互联函数。其中第 <span
+class="math inline">\(i\)</span> 个（<span class="math inline">\(i\le
+\log_2n\)</span>） 是</p>
+<p><span class="math inline">\(\operatorname{Cube}_i(P_{n-1}\ldots
+P_i\ldots P_1P_0)=P_{n-1}\ldots \overline{P_i}\ldots
+P_1P_0\)</span></p></li>
+<li><p>PM2I：<span
+class="math inline">\(\operatorname{PM2}_{+i}=(j+2^i)\operatorname{mod}
+N\qquad \operatorname{PM2}_{-i}=(j-2^i)\operatorname{mod}
+N\)</span></p></li>
+<li><p>混洗交换：包含 全混 和 交换 两个互连函数。</p>
+<p>交换函数是 <span
+class="math inline">\(\operatorname{Cube}_0(P_{n-1}\ldots P_i\ldots
+P_1P_0)=P_{n-1}\ldots P_1\overline{P_0}\)</span></p>
+<p>全混函数是 <span
+class="math inline">\(\operatorname{Shuffle}(P_{n-1}P_{n-2}\ldots
+P_1P_0)=P_{n-2}\ldots P_1P_0P_{n-1}\)</span></p></li>
+<li><p>蝶形单机网络</p></li>
+</ul>
+<p>在多级互连网络中的 <strong>交换开关</strong> 具有两个入端（上方 <span
+class="math inline">\(i_入\)</span>，下方 <span
+class="math inline">\(j_入\)</span>）和两个出端（上方 <span
+class="math inline">\(i_出\)</span>，下方 <span
+class="math inline">\(j_出\)</span>）。其四种状态（连接方式）为：</p>
+<ul>
+<li><p><strong>直连</strong>：<span class="math inline">\(i_入\)</span>
+连接 <span class="math inline">\(i_出\)</span>，同时 <span
+class="math inline">\(j_入\)</span> 连接 <span
+class="math inline">\(j_出\)</span></p></li>
+<li><p><strong>交换</strong>：<span class="math inline">\(i_入\)</span>
+连接 <span class="math inline">\(j_出\)</span>，同时 <span
+class="math inline">\(j_入\)</span> 连接 <span
+class="math inline">\(i_出\)</span></p>
+<p>只具备 直连、交换 功能的交换开关称为
+<strong>二功能交换单元</strong></p></li>
+<li><p><strong>上播</strong>：<span class="math inline">\(i_入\)</span>
+连接 <span class="math inline">\(i_出,j_出\)</span>，同时 <span
+class="math inline">\(j_入\)</span> 悬空</p></li>
+<li><p><strong>下播</strong>：<span class="math inline">\(j_入\)</span>
+连接 <span class="math inline">\(i_出,j_出\)</span>，同时 <span
+class="math inline">\(i_入\)</span> 悬空</p>
+<p>具备 直连、交换、上播、下播 功能的交换开关称为
+<strong>四功能交换单元</strong></p></li>
+</ul>
+<p>在单级互连网络上进一步扩展就形成了
+<strong>多级互连网络</strong>。包括：</p>
+<ul>
+<li><p><strong>多级立方体网络</strong>。包括使用 级控制 和 部分级控制 的
+STARAN 网络、使用 单元控制 的 间接二进制网络 等</p>
+<p>级控制：同一级所有开关使用一个控制信号控制，同级同一时刻只有一种状态</p>
+<p>单元控制：所有开关都由独立信号控制，可以各自处于不同状态</p>
+<p>部分级控制：第 <span class="math inline">\(i\)</span> 级开关分别用
+<span class="math inline">\(i+1\)</span> 个信号控制。其中 <span
+class="math inline">\(0\le i\le n-1\)</span>，<span
+class="math inline">\(n\)</span> 是级数</p>
+<p>多级立方体网络使用 二功能交换单元。第 <span
+class="math inline">\(i\)</span> 级互联开关为交换状态时，实现 <span
+class="math inline">\(\operatorname{Cube}_i\)</span> 互连函数</p></li>
+<li><p><strong>多级混洗交换网络</strong>。又称 omega
+网络。采用单元控制方式，每级含一个全混拓扑和随后的一列 <span
+class="math inline">\(2^{i-1}\)</span> 个四功能交换单元。</p></li>
+<li><p>多级 PM2I
+网络、基准网络、多级交叉开关网络、多级蝶式网络等</p></li>
+</ul>
+<p>在 <strong>共享主存构型的阵列处理机</strong>
+中，存储器频宽匹配多个处理单元的速率，存储器就必须采用多体并行方式。必须保证各种访问模式下，存储器都能实现无冲突访问：</p>
+<ul>
+<li>一维数组情况：并行存储区分体数为质数，就能尽量避免存储器访问冲突</li>
+<li>二维数组情况：错位存放，且在多维数组行、列上采取不同错位方式。</li>
+<li>二维数组大小不固定情况：将其转化为一维数组再存放</li>
+</ul>
+<p><strong>脉动阵列</strong> 也是一种阵列结构。数据按预先确定的 "流水
+"方式在阵列的处理单元间有节奏地
+"流动"。在数据流动的过程中，所有的处理单元同时并行地对流经它的数据进行处理，因而它可以达到很高的并行处理速度。脉动阵列有如下特点：</p>
+<ul>
+<li>结构简单、规整，模块化强</li>
+<li>数据流和控制流设计简单规整</li>
+<li>具有极高的计算并行性</li>
+<li>脉动阵列结构的构形与特定计算任务与算法密切相关</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" class="category-chain-item">计算机系统结构</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/">#计算机系统结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;计算机系统结构&gt;CA6 标量处理机、向量处理机</div>
+      <div>https://i-melody.github.io/2023/04/17/计算机系统结构/6 标量处理机、向量处理机/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月17日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

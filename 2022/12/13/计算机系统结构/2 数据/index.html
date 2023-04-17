@@ -19,20 +19,19 @@
     <meta name="description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;计算机系统结构&gt;CA2 数据">
-<meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/2%20%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/2%20%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
 <meta property="og:description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%20浮点数结构图.webp">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3_1%20单精度浮点数图.webp">
-<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_4%20ASCII%20码表.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA2_6%20基本逻辑电路图1.webp">
 <meta property="article:published_time" content="2022-12-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-30T08:33:23.831Z">
+<meta property="article:modified_time" content="2023-04-17T04:17:19.010Z">
 <meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="计算机系统结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%20浮点数结构图.webp">
+<meta name="twitter:image" content="https://i-melody.github.io/img/CA2_6%20基本逻辑电路图1.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -229,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          10k 字
         
       </span>
     
@@ -240,7 +239,7 @@
         
         
         
-          13 分钟
+          29 分钟
         
       </span>
     
@@ -295,7 +294,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月30日 下午
+                    本文最后更新于：2023年4月17日 中午
                   
                 
               </p>
@@ -318,10 +317,13 @@
 <p>现实中真正的值称为
 <strong>真值</strong>，其在计算机内部的二进制数列称为
 <strong>机器数</strong></p>
+<p><strong>数据表示</strong>：计算机硬件能直接识别、指令可直接调用的数据类型。数据表示表现在其有对计算机硬件识别和引用的数据类型进行操作的指令和运算部件。</p>
+<p>引入数据表示（添加硬件支持）取决于：系统效率（包括实现时间与存储空间）是否提高、数据通用性与利用率是否提高</p>
+<p><strong>数据结构</strong>：由软件进行处理和实现的各种数据类型。</p>
 <h2 id="ca2.1-二进制">CA2.1 二进制</h2>
 <p>数值数据的表示有三要素：进位计数制、定/浮点表示、二进制编码</p>
-<p><strong>进位计数制</strong></p>
-<p>二进制、八进制（Octal，用后缀 O
+<h4 id="进位计数制">进位计数制</h4>
+<p>二进制（Binary，用后缀 0b 表示）、八进制（Octal，用后缀 O
 表示）、十进制、十六进制（Hexadecimal，用后缀 H 或前缀 0x 表示）</p>
 <p>日常生活中使用十进制，计算机中使用二进制。八进制与十六进制主要是二进制的简便表示。</p>
 <p>对于 <span class="math inline">\(R\)</span> 进制数（<span
@@ -331,7 +333,12 @@ class="math inline">\(n\)</span> 位的数值 <span
 class="math inline">\(v\)</span> 代表 <span
 class="math inline">\(v\times
 R^{n-1}\)</span>。将数值的各位累加即该值的十进制表示。</p>
-<p><strong>定/浮点表示</strong></p>
+<p>对于 <span class="math inline">\(R\)</span> 进制浮点数，其尾数左起第
+<span class="math inline">\(n\)</span> 位的数值 <span
+class="math inline">\(v\)</span> 代表 <span
+class="math inline">\(v\times
+R^{-n}\)</span>，将尾数值的各位累加即该尾数的十进制表示。</p>
+<h4 id="定浮点表示">定/浮点表示</h4>
 <p>定点整数、定点小数、浮点数</p>
 <p>计算机中只能通过约定小数点的位置来表示小数。其中：</p>
 <ul>
@@ -351,7 +358,7 @@ class="math inline">\(X=(-1)^S\times M\times R^E\)</span> 的形式。</p>
 这三个信息，就能确定 <span class="math inline">\(X\)</span>
 的值。这就是浮点数</p></li>
 </ul>
-<p><strong>二进制编码</strong></p>
+<h4 id="二进制编码">二进制编码</h4>
 <p>分为原码、补码、反码、移码</p>
 <ul>
 <li><p><strong>原码</strong></p>
@@ -397,7 +404,7 @@ X&lt;2^n,\operatorname{mod}2^n)\)</span></p>
 <p>变形补码：符号位为 2 位，用于存放可能溢出的中间结果。</p>
 <p>如：8（补码：<font color="red">1</font>000、变形补码：<font color="red">01</font>000）；-8（补码：<font color="red">1</font>000、变形补码：<font color="red">11</font>000）</p></li>
 </ul>
-<h2 id="ca2.2-c-语言中的整数">CA2.2 C 语言中的整数</h2>
+<h2 id="ca2.2-定点数">CA2.2 定点数</h2>
 <p>机器中字的位排列顺序有两种方式，即高到低位可以是从右到左，也可能是从左到右。一般多采用从左往右排列方式。</p>
 <p>为避免表达歧义，用 <strong>LSB</strong>（Least Significant
 Bit）来表示最低有效位，<strong>MSB</strong> 来表示最高有效位。</p>
@@ -466,60 +473,26 @@ style="text-align: left;"><code>2147483647 &gt; (int)2147483648U</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>编译器处理常量时默认的类型</strong></p>
+<h2 id="ca2.3-高级数据表示">CA2.3 高级数据表示</h2>
+<h4 id="自定义数据表示">自定义数据表示</h4>
+<p>包含 标识符的数据表示 和 数据描述符 两类</p>
 <ul>
-<li><p><strong>C90</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">范围</th>
-<th style="text-align: center;">类型</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0 ~ 2<sup>31</sup>-1</td>
-<td style="text-align: center;">int</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2<sup>31</sup> ~ 2<sup>32</sup>-1</td>
-<td style="text-align: center;">unsigned int</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2<sup>32</sup> ~ 2<sup>63</sup>-1</td>
-<td style="text-align: center;">long long</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2<sup>63</sup> ~ 2<sup>64</sup>-1</td>
-<td style="text-align: center;">unsigned long long</td>
-</tr>
-</tbody>
-</table></li>
-<li><p><strong>C99</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">范围</th>
-<th style="text-align: center;">类型</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0 ~ 2<sup>31</sup>-1</td>
-<td style="text-align: center;">int</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2<sup>31</sup> ~ 2<sup>63</sup>-1</td>
-<td style="text-align: center;">long long</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2<sup>63</sup> ~ 2<sup>64</sup>-1</td>
-<td style="text-align: center;">unsigned long long</td>
-</tr>
-</tbody>
-</table></li>
+<li><p><strong>标识符的数据表示</strong></p>
+<p>在计算机中的数据左侧添加标志位，以识别不同类型的数据</p>
+<p>其优点是：简化了指令系统和程序设计、简化了编译程序、便于实现一致性校验、能由硬件自动变换数据类型、支持数据库系统的实现与数据类型无关的要求、为软件测试和应用开发提供支持</p>
+<p>缺点是：每个数据字增设标识符，可能占用更多空间、采用标识符降低了指令执行速度</p></li>
+<li><p><strong>数据描述符</strong></p>
+<p>描述符与数据分开存放，用于描述要访问的数据的信息。</p></li>
 </ul>
-<h2 id="ca2.3-浮点数">CA2.3 浮点数</h2>
+<h4 id="向量数组数据表示">向量、数组数据表示</h4>
+<p>增设向量、数组数据表示、硬件支持，做称向量机</p>
+<p>引入向量、数组数据表示不只是能加快形成元素地址，还便于实现把向量各元素成块预取到中央处理机。</p>
+<h4 id="堆栈数据表示">堆栈数据表示</h4>
+<p>有堆栈数据表示的计算机称为堆栈计算机。</p>
+<p>堆栈计算机有若干高寄存器组成的硬件堆栈，并附加控制电路，使其在主存中的堆栈区在逻辑上形成主体，使堆栈的访问速度是寄存器的，容量是主存的。</p>
+<p>堆栈计算机有丰富的堆栈操作指令且功能强大，可直接对堆栈数据进行各种运算和处理</p>
+<p>堆栈计算机有力支持了高级语言程序的编译。且有力支持了子程序的嵌套和递归调用。</p>
+<h4 id="浮点数">浮点数</h4>
 <p>在科学计数法中，任何数都能表示为类似 <span
 class="math inline">\(2.022\times10^{3}\)</span> 的格式。</p>
 <p>一个数有多种表示形式，但规格化形式（小数点前只有一位非 0
@@ -531,7 +504,8 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 1.<font color="#6060CF">xxxx</font>
 × <font color="#B01010">2<sup>E</sup></font></b>
 的规格化数如下所示：</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/CA_InputImage/CA2_3%20浮点数结构图.webp" /></p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E7%25BB%2593%25E6%259E%2584%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
 <p><em>（CA2_3 浮点数结构图）</em></p>
 <ul>
 <li><font color="#D05000"><strong>S</strong></font>：符号（正/负）</li>
@@ -539,7 +513,11 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 <li><font color="#6060CF"><strong>significant</strong></font>：有效数</li>
 </ul>
 <p>早期各计算机内部浮点数的表示格式还不统一，因而互不兼容。</p>
-<h4 id="ieee-754">IEEE 754</h4>
+<p>浮点数尾数的基值可表示数的范围、个数，随进制增大而增大。其精度随之减小，精度损失可能性也减少。</p>
+<p>浮点数尾数下溢时，处理方法有：截断法、舍入法、恒置 1
+法、查表舍入法。</p>
+<ul>
+<li><p><strong>IEEE 754</strong></p>
 <p>1985 年，IEEE 754 标准制定。现在所有通用计算机都采用 IEEE 754
 来表示浮点数</p>
 <p>单精度（SP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1
@@ -548,7 +526,8 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 <p>双精度（DP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1 +
 <font color="#6060CF">Significant</font>) ×
 2<sup>(<font color="#30A060">Exponent</font> - 1223)</sup></b></p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/CA_InputImage/CA2_3_1%20单精度浮点数图.webp" /></p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_3_1%2520%25E5%258D%2595%25E7%25B2%25BE%25E5%25BA%25A6%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
 <p><em>（CA2_3_1 单精度浮点数图）</em></p>
 <ul>
 <li><p><font color="#D05000"><strong>S</strong></font>：符号，1 位。1
@@ -596,16 +575,17 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 </tr>
 </tbody>
 </table>
-<p>当数据是一个不可表示数时，机器将其转换为最近的可表示数。</p>
+<p>当数据是一个不可表示数时，机器将其转换为最近的可表示数。</p></li>
+</ul>
 <h2 id="ca2.4-非数值数据">CA2.4 非数值数据</h2>
-<p><strong>逻辑数据</strong></p>
+<h4 id="逻辑数据">逻辑数据</h4>
 <p>逻辑数据用于表示表达式中的逻辑值（真/假）</p>
 <ul>
 <li>表示：用 1 位表示。N 位二进制数可以表示 N 个逻辑数据</li>
 <li>运算：按位进行。如按位与/或 等。</li>
 <li>识别：逻辑数据和数值数据在形式上无差别。计算机依靠指令来识别</li>
 </ul>
-<p><strong>西文字符</strong></p>
+<h4 id="西文字符">西文字符</h4>
 <p>西文字符是拼音文字，用有限字母就能拼出所有单词。字符总数不超过 256
 个，可以使用 7-8 位二进制表示</p>
 <ul>
@@ -613,11 +593,12 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 <li>操作：字符串操作。如传送、比较等</li>
 </ul>
 <p>ASCII 码表如下：</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/CA_InputImage/CA2_4%20ASCII%20码表.webp" /></p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_4%2520ASCII%2520%25E7%25A0%2581%25E8%25A1%25A8.webp" srcset="/img/loading.webp" lazyload /></p>
 <p><em>（CA2_4 ASCII 码表）</em></p>
 <p>如，空格（SP）的 ASCII 码为（0010 0000），字母 M 的 ASCII 码为（0100
 1101）</p>
-<p><strong>汉字</strong></p>
+<h4 id="汉字">汉字</h4>
 <p>汉字数量巨大，总数超过 6 万字。</p>
 <ul>
 <li><p>编码形式：有几种不同的编码形式</p>
@@ -641,7 +622,7 @@ class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
 码区别）构成字节。一个汉字占 2 字节</p></li>
 </ul></li>
 </ul>
-<p><strong>多媒体信息的表示</strong></p>
+<h4 id="多媒体信息的表示">多媒体信息的表示</h4>
 <p>图形、图像、音频、视频 等信息</p>
 <ul>
 <li>图形：用构建图形的直线或曲线的坐标点及控制点来描述。这些坐标点或控制点用数值数据描述</li>
@@ -697,6 +678,312 @@ ISA、机器字长和编译器不同而不同。</p>
 <p>有的机器支持两种存放方式，通过特定控制位来设定具体采用的方式。</p>
 <p>C 语言的 union 的存放顺序是所有成员从低地址开始。可以以此测试 CPU
 的大/小 端方式</p>
+<h4 id="寻址方式">寻址方式</h4>
+<p>通常要在指令中为每个操作数设置一个地址字段，以表示数据来源或去向的地址。指令中给出的是
+<strong>形式地址</strong>，要用其计算出 <strong>实际地址</strong>。</p>
+<p>寻址对象有以下几种：</p>
+<ul>
+<li><strong>面向寄存器</strong>：操作数可以取自寄存器或主存。结果多保存在寄存器中，少量送入主存。</li>
+<li><strong>面向堆栈</strong>：主要访问堆栈，少量访问主存或寄存器</li>
+<li><strong>面向主存</strong>：主要访问主存，少量访问寄存器</li>
+<li><strong>面向 I/O</strong></li>
+</ul>
+<p>寻址方式有以下几种：</p>
+<ul>
+<li><strong>立即数寻址</strong>：直接给出地址</li>
+<li><strong>直接寻址 /
+绝对寻址</strong>：给出存放在主存中的地址位置的地址</li>
+<li><strong>寄存器直接寻址</strong>：给出寄存器地址，该寄存器中存放地址</li>
+<li><strong>寄存器间接寻址</strong>：给出寄存器地址，该寄存器中存放主存中地址位置的地址</li>
+<li><strong>存储器间接寻址</strong>：给出主存地址，该地址下保存地址位置</li>
+<li><strong>变址寻址</strong>：指令中给出地址码，并从指定寄存器中找到基址。用于数组</li>
+<li><strong>相对寻址</strong>：相对于当前 PC
+寄存器的地址进行加减。用于分支跳转</li>
+<li><strong>基址寻址</strong>：指令中给出地址吗，并从基地址寄存器中取出基址。用于虚拟存储</li>
+<li><strong>堆栈寻址</strong>：堆栈是一个先进后出队列，不给出地址，而是操作指针</li>
+</ul>
+<p>为指明寻址方式，可以占用操作码的某些位进行说明，也能在地址码部分专设寻址方式字段来指明。</p>
+<p>程序在主存中的定位技术有：</p>
+<ul>
+<li><strong>静态重定位</strong>：目的程序装入主存时，通过软件（编译器）将逻辑地址转换为物理地址</li>
+<li><strong>动态重定位</strong>：指令不修改，通过基址寻址法来解决。要注意进行越界分析</li>
+<li><strong>虚实地址映像表</strong>：建立虚实地址映像表，通过查表获得物理地址</li>
+</ul>
+<h2 id="ca2.6-数据的运算">CA2.6 数据的运算</h2>
+<p>关于 0 和 1 的一套数学运算体系称为 <strong>布尔代数</strong>。</p>
+<p>0 和 1 分别代表逻辑的 “假” 和 “真”。通过逻辑关系可以构建基于 0 和 1
+的布尔代数运算。</p>
+<p>基本的逻辑运算有：与（AND，<span
+class="math inline">\(\bull\)</span>）、或（OR，<span
+class="math inline">\(+\)</span>）、非（NOT，<span
+class="math inline">\(\overline{ }\)</span>）</p>
+<p><strong><em>——见离散数学 [DM1 逻辑关系]、[DM4.7.4
+布尔代数]</em></strong></p>
+<p>任何表达逻辑都能写成这三种运算的组合。</p>
+<p>如 异或（XOR，<span
+class="math inline">\(\oplus\)</span>）逻辑表达式为：<span
+class="math inline">\(A\oplus B=\overline{A}\bull B+A\bull
+\overline{B}\)</span></p>
+<h4 id="基本逻辑门电路">基本逻辑门电路</h4>
+<p>可以通过逻辑门电路来实现逻辑运算。</p>
+<p>有三种基本门电路：与门、或门、非门</p>
+<p>用这三种基本门电路就能组成其他门电路</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA2_6%20基本逻辑电路图1.webp" /></p>
+<p><em>（CA2_6 基本逻辑电路图1）</em></p>
+<p>对于 n 位的逻辑运算，只要重复使用 n 个相同的门电路即可。</p>
+<p>对于 n 位的逻辑值，那些逻辑符号如下所示</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%20基本逻辑电路图2.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 基本逻辑电路图2）</em></p>
+<h4 id="逻辑组合部件功能部件">逻辑组合部件（功能部件）</h4>
+<p>根据电路是否有存储功能，将逻辑电路划分为以下两种</p>
+<ul>
+<li><strong>逻辑组合电路</strong>：没有存储功能，其输出仅依赖当前输入</li>
+<li><strong>时序逻辑电路</strong>：具有存储功能，其输出不仅依赖当前输入，还依赖存储单元的当前状态</li>
+</ul>
+<p>可以利用基本逻辑门电路构成一些具有特定功能的
+<strong>组合逻辑部件</strong>（功能部件）。如
+译码器、编码器、多路选择器、加法器 等。</p>
+<p>实现功能部件的过程：使用 真值表
+描述功能部件输入与输出间的关系。再根据真值表确定逻辑表达式根据逻辑表达式实现逻辑电路</p>
+<ul>
+<li><p><strong>多路选择器（MUX）</strong></p>
+<p><strong>二路选择器</strong></p>
+<p>最简单的多路选择器。有输入端 <span
+class="math inline">\(A,B\)</span>，控制端 <span
+class="math inline">\(S\)</span>。输出端 <span
+class="math inline">\(F=\begin{cases}A,&amp;S=0\\B,&amp;S=1
+\end{cases}\)</span></p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520%25E4%25BA%258C%25E8%25B7%25AF%25E9%2580%2589%25E6%258B%25A9%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 二路选择器图）</em></p>
+<p><strong>k 路选择器</strong></p>
+<p>有 k 路输入，其控制端位数应是 <span class="math inline">\(\log_2
+k\)</span></p></li>
+<li><p><strong>加法器</strong></p>
+<p>一位加法器称为 全加器：有输入端 <span
+class="math inline">\(A,B\)</span>，低位进位 <span
+class="math inline">\({Cin}\)</span>，和为 <span
+class="math inline">\(F\)</span>，向高位进位为 <span
+class="math inline">\({Cout}\)</span></p>
+<p>有 <span class="math inline">\(F=A\oplus B\oplus {Cin},\quad
+{Cout}=A\bull B+A\bull{Cin}+B\bull{Cin}\)</span></p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%2585%25A8%25E5%258A%25A0%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 全加器图)</em></p>
+<p>使用 n 个全加器就能实现 n 位加法器</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 加法器图)</em></p></li>
+<li><p><strong>带标志加法器</strong></p>
+<p>n
+位加法器无法用于两个带符号整数（补码）加法，无法判断溢出。在程序中常要比较大小，这些可以通过减法得到的标志信息判断。<strong>带标志加法器</strong>
+如下所示</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%25B8%25A6%25E6%25A0%2587%25E5%25BF%2597%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 带标志加法器图)</em></p>
+<p>其中标志：</p>
+<ul>
+<li><p><strong>OF</strong>（溢出标志）：<span
+class="math inline">\({OF}=C_n\oplus C_{n-1}\)</span>。</p>
+<p>同符号数相加后，结果不同号，则为 1。异号数相加必定为 0</p></li>
+<li><p><strong>SF</strong>（符号标志）：<span
+class="math inline">\({SF}=F_{n-1}\)</span></p>
+<p>结果的第一位作为符号位</p></li>
+<li><p><strong>ZF</strong>（零标志）：<span
+class="math inline">\({ZF}=1\oplus(F_0+F_1+\ldots+F_{n-1})\)</span></p>
+<p>结果为 0 时为 1</p></li>
+<li><p><strong>CF</strong>（进/错位标志）：<span
+class="math inline">\({CF}={Cout}\oplus{Cin}\)</span></p>
+<p>当 <span class="math inline">\(Cin=1\)</span>
+时，代表减运算的借位。<span class="math inline">\(Cin=0\)</span>
+时，代表加运算的进位</p></li>
+</ul>
+<p>进行补码运算有 <span
+class="math inline">\([A+B]_补=[A]_补+[B]_补,\quad
+[A-B]_补=[A]_补+[-B]_补\)</span></p>
+<p>又因为 <span
+class="math inline">\([-B]_补=\overline{[B]_补}+1\)</span>，于是
+<strong>整数加/减法运算器</strong> 就如下所示</p>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520%25E6%2595%25B4%25E6%2595%25B0%25E5%258A%25A0%25E5%2587%258F%25E8%25BF%2590%25E7%25AE%2597%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>（CA2_6 整数加减运算器图)</em></p>
+<p>当 Sub 为 1 时进行减法，Sub 为 1 时进行加法。此时的标志有：</p>
+<p>在整数加/减运算部件基础上，加上寄存器、移位器、控制逻辑等，就能实现
+<strong>ALU</strong>、<strong>乘/除运算</strong>、<strong>浮点运算</strong>
+电路</p></li>
+<li><p><strong>算术逻辑部件（ALU）</strong></p>
+<p>ALU（算术逻辑部件）的核心电路是带标志加法器。可以进行：</p>
+<ul>
+<li>无符号整数加、减</li>
+<li>带符号整数加、减</li>
+<li>与、或、非、异或 等逻辑运算</li>
+</ul>
+<p><img
+src="./../../../../../img/CA_InputImage/CA2_6%2520ALU%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><em>(CA2_6 ALU图)</em></p>
+<p>有一个操作控制端（ALUop）用以决定 ALU 执行的处理功能。ALUop
+的位数决定了操作的种类。</p>
+<p>ALUop 为 3 位时，ALU 最多执行 <span
+class="math inline">\(2^3=8\)</span> 种操作</p></li>
+</ul>
+<h4 id="从表达式到逻辑电路">从表达式到逻辑电路</h4>
+<p>C 语言中的基本数据类型、基本运算类型如下</p>
+<ul>
+<li><strong>基本数据类型</strong>
+<ul>
+<li>无符号数（二进制位串）、带符号整数（补码）</li>
+<li>浮点数（IEEE 754 标准）</li>
+<li>位串、字符（串）</li>
+</ul></li>
+<li><strong>基本运算类型</strong>
+<ul>
+<li>算数（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;=</code>、<code>==</code>、<code>!=</code>）</li>
+<li>位运算（<code>|</code>、<code>&amp;</code>、<code>~</code>、<code>^</code>）</li>
+<li>逻辑运算（<code>||</code>、<code>&amp;&amp;</code>、<code>!</code>）</li>
+<li>移位（<code>&lt;&lt;</code>、<code>&gt;&gt;</code>）</li>
+<li>扩展（无符号数高位加 0，带符号数按符号扩展）和截断（高位丢弃）</li>
+</ul></li>
+</ul>
+<p>在进行运算时，先将表达式转换为指令序列。计算机执行指令，让操作数在运算电路中运算。</p>
+<h4 id="整数加运算">整数加运算</h4>
+<p>整数加运算时，条件标志（零标志ZF、溢出标志OF、进/错位标志CF、符号标志SF）在运算电路中产生，被记录到专门的寄存器中。这些寄存器称为
+<strong>程序/状态字寄存器</strong>（也叫
+标志寄存器）。每个标志对应寄存器中的一个标志位。</p>
+<p>在无符号加法中，判断溢出的条件是 <span
+class="math inline">\(CF=1\)</span>；在带符号加法中，判断溢出的条件是
+<span class="math inline">\(OF=1\)</span></p>
+<p>减法可以用于比较大小。无符号的场合，若 <span
+class="math inline">\(CF=0\)</span> 则被减数大于减数。带符号的场合，如果
+<span class="math inline">\(OF=SF\)</span> 则被减数大于减数</p>
+<p>下面是一个例子，下面的例子中假定 int 是 8 位。</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/* 以下假定 n = 8，即 int 为 8 位 */</span>
+
+<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> x = <span class="hljs-number">134</span>;		<span class="hljs-comment">// x 的机器数  1000 0110，真值为 134</span>
+<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> y = <span class="hljs-number">246</span>;		<span class="hljs-comment">// y 的机器数  1111 0110，真值为 246</span>
+<span class="hljs-type">int</span> m = x;					<span class="hljs-comment">// m 的机器数  1000 0110，真值为 -6</span>
+<span class="hljs-type">int</span> n = y;					<span class="hljs-comment">// n 的机器数  1111 0110，真值为 -118</span>
+
+<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> z1 = x-y;
+<span class="hljs-type">int</span> k1 = m-n;
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">  A         1000 0110</span>
+<span class="hljs-comment">  B       + 0000 1001</span>
+<span class="hljs-comment">  sub     +         1</span>
+<span class="hljs-comment">        ——————————————————</span>
+<span class="hljs-comment">            1001 0000         SF 1   OF 0   CF 1</span>
+<span class="hljs-comment">  SF：符号位，结果为 1</span>
+<span class="hljs-comment">  OF：进位为 0，次高位进位为 0，结果为 0</span>
+<span class="hljs-comment">  CF：sub=1，进位为 0，结果为 1</span>
+<span class="hljs-comment">  无符号数 CF=1 判断溢出，z1 = 144</span>
+<span class="hljs-comment">  带符号数 OF=0 判断没有溢出，k1 = -112</span>
+<span class="hljs-comment">*/</span>
+
+<span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> z2 = x+y;
+<span class="hljs-type">int</span> k2 = m+n;
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">  A         1000 0110</span>
+<span class="hljs-comment">  B       + 1111 0110</span>
+<span class="hljs-comment">  sub     +         0</span>
+<span class="hljs-comment">        ——————————————————</span>
+<span class="hljs-comment">            0111 1100         SF 0   OF 1   CF 1</span>
+<span class="hljs-comment">  无符号数 CF=1 判断溢出，z2 = 124</span>
+<span class="hljs-comment">  带符号数 OF=1 判断溢出，k2 = 124</span>
+<span class="hljs-comment">*/</span></code></pre></div>
+<h4 id="整数乘运算">整数乘运算</h4>
+<p>两个 n 位的二进制无符号数相乘，结果通常是 2n 位。</p>
+<p>高级语言的两个 n 位数相乘，其结果通常只取乘积中的较低 n 位。</p>
+<p>计算机内部，对于浮点数定有 <span class="math inline">\(x^2\ge
+0\)</span>，但带符号整数却不一定。</p>
+<p>对于 <span class="math inline">\(X\times Y\)</span>，取低 n
+位作为结果，若高 n 位全部等于低 n 位的最高位则不溢出，否则溢出。</p>
+<ul>
+<li>硬件不判断溢出。仅保留 2n 位乘积，供软件使用</li>
+<li>如果程序不采用防止溢出的措施，且编译器也不生成处理溢出的代码，就可能出现问题</li>
+<li>指令：分为无符号乘指令，带符号乘指令</li>
+<li>乘法指令的操作数长度为 n，乘积长度为
+2n。乘法指令不生成溢出标志，而以 2n 位乘积判断是否溢出</li>
+<li>整数乘法运算比起位移和加法运算所用时间长得多。通常高级语言编译器处理变量与常数相乘时，会将其转化为移位、加法、减法的组合运算</li>
+<li>不论无符号数还是带符号数的乘法，即使乘积溢出时，利用移位和加减运算组合得到的结果都是一样的</li>
+</ul>
+<p><font size=6>☆</font></p>
+<h4 id="整数除运算">整数除运算</h4>
+<p>对于带符号整数来讲，n 位整数除以 n 位整数，除 <span
+class="math inline">\(-2^{n-1}/{-1}=2^{n-1}\)</span>
+会溢出外，都不会溢出</p>
+<p>整数除法的商也是整数，因此，不能整除时要进行舍入。舍入时会直接丢弃小数点后部分（截断）。</p>
+<p>整数除法不能除以 0，否则会发生异常。</p>
+<p>计算机中的整数除法运算比乘法运算用时更长，也不能通过流水线方式实现。为缩短除法运算时间，编译器处理除数为
+2 的幂次形式时，采用右移运算实现。</p>
+<p>能整除时，右移得到结果，移出为全
+0。不能整除时，对于无符号数低位截断，有符号数加偏移量（<span
+class="math inline">\(2^k-1\)</span>）右移后再低位截断。</p>
+<h4 id="浮点数加减运算">浮点数加减运算</h4>
+<p>若两个浮点数分别为 <span class="math inline">\(A=M_a\times
+2^{E_a}\quad B=M_b\times 2^{E_b}\quad(E_a\ge E_b)\)</span>，则有</p>
+<p><span class="math inline">\(\quad\begin{align}
+&amp;A+B=(M_a+M_b\times2^{R_a-E_b})\times 2^{E_a}\\ &amp;A*B=(M_a \times
+M_b)\times 2^{E_a + E_b}\\ &amp;A/B=(M_a/M_b)\times 2^{E_a - E_b}
+\end{align}\)</span></p>
+<p>上述运算可能出现几种情况</p>
+<ul>
+<li>阶码上溢：一个正指数超过最大允许值（<span
+class="math inline">\(+\infin\)</span>、<span
+class="math inline">\(-\infin\)</span>、溢出）</li>
+<li>阶码下溢：一个负指数超过最小允许值（+0、-0）</li>
+<li>尾数溢出：最高有效位有进位（右规）</li>
+<li>非规格化尾数：数值部分高位为零（左规）</li>
+<li>右规或对阶时，右端有效位丢失（尾数舍入）</li>
+</ul>
+<p>IEEE 建议实现时为每种异常情况提供一个自陷允许位。若某异常对应的位是
+1，则发生相应异常时，调用一个特定的异常处理程序。异常情况有</p>
+<ul>
+<li>无效运算（无意义运算）
+<ul>
+<li>运算时有一个数是非有限数</li>
+<li>结果无效（<span class="math inline">\(NaN\)</span>、<span
+class="math inline">\(0/0\)</span>、<span
+class="math inline">\(x/0\)</span>、<span
+class="math inline">\(\infin/x\)</span>）</li>
+</ul></li>
+<li>除以零（无穷大）</li>
+<li>数太大（阶上溢）：对于 SP（单精度浮点数），指阶码 <span
+class="math inline">\(E&gt;1111\,\,1110\)</span>（指数大于 127）</li>
+<li>数太小（阶下溢）：对于 SP（单精度浮点数），指阶码 <span
+class="math inline">\(E&lt;0000\,\,0001\)</span>（指数小于 -126）</li>
+<li>结果不精确（舍入时引起），如 1/3、1/10 等不能精确表示成浮点数</li>
+</ul>
+<p>进行浮点数加减法的步骤。（<span class="math inline">\(x\pm
+y\)</span>，其中 <span class="math inline">\(M_x,\,E_x\)</span> 是 <span
+class="math inline">\(x\)</span> 的尾数和阶数）</p>
+<ol type="1">
+<li><p>求阶差：<span class="math inline">\(\Delta E= E_y -
+E_x\)</span>（若 <span
+class="math inline">\(E_y&gt;E_x\)</span>，则结果阶码位 <span
+class="math inline">\(E_y\)</span>）</p></li>
+<li><p>对阶：将 <span class="math inline">\(M_x\)</span> 右移 <span
+class="math inline">\(\Delta E\)</span> 位，尾数变为 <span
+class="math inline">\(M_x\times 2^{E_x-E_y}\)</span></p></li>
+<li><p>尾数加减：<span class="math inline">\(M_x\times 2^{E_x-E_y}\pm
+M_y\)</span></p></li>
+<li><p>规格化：</p>
+<p>当尾数高位为 0，则需要左规（尾数左移 1 次，阶码减 1，直到 MSB 为
+1。每次移动后判断阶码是否下溢）</p>
+<p>当尾数高位有进位，则需要右规（尾数右移 1 次，阶码加 1，直到 MSB 为
+1。每次右移判断阶码是否上溢）</p>
+<p>阶码溢出异常处理：上溢则结果溢出，下溢则结果为 0</p></li>
+<li><p>若尾数比规定位数长，则舍入。若运算结果尾数为 0，则阶码也置
+0。</p>
+<p>IEEE754 规定，中间结果必须在右侧加 2
+个有效位（一位保护位，一位舍入位）</p>
+<p>舍入方式有几种</p>
+<ul>
+<li>就近舍入：非中间值时正常舍入；恰为中间值则取最近偶数（其余部分奇数则入，为偶数则舍弃）</li>
+<li>朝 <span class="math inline">\(+\infin\)</span> 舍入</li>
+<li>朝 <span class="math inline">\(-\infin\)</span> 舍入</li>
+<li>朝 0 舍入（直接丢弃）</li>
+</ul></li>
+</ol>
 
               
             </div>
@@ -714,7 +1001,7 @@ ISA、机器字长和编译器不同而不同。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" class="category-chain-item">计算机系统结构</a>
   
   
 
@@ -728,6 +1015,8 @@ ISA、机器字长和编译器不同而不同。</p>
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
       
         <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
       
@@ -744,7 +1033,7 @@ ISA、机器字长和编译器不同而不同。</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>&lt;计算机系统结构&gt;CA2 数据</div>
-      <div>https://i-melody.github.io/2022/12/13/计算机系统基础/2 数据/</div>
+      <div>https://i-melody.github.io/2022/12/13/计算机系统结构/2 数据/</div>
     </div>
     <div class="license-meta">
       
