@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/cover/TOOL1-Point_Picture.webp">
 <meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-17T09:55:21.983Z">
+<meta property="article:modified_time" content="2023-04-17T11:06:23.729Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="程序">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          12k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          30 分钟
+          33 分钟
         
       </span>
     
@@ -292,7 +292,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月17日 下午
+                    本文最后更新于：2023年4月17日 晚上
                   
                 
               </p>
@@ -399,26 +399,32 @@
 </ol>
 <h4 id="方法说明">方法说明</h4>
 <ol type="1">
-<li><p><strong>生成点阵图</strong>：<code>Pic create(String path, boolean anti)</code></p>
+<li><p><strong>生成点阵图</strong>：<code>static Pic create(String path, boolean anti)</code></p>
 <p>用途：根据图片路径，生成该图片的对应点阵图</p>
 <p>参数：<code>path</code> 为图片路径；<code>anti</code> 为 true
 时生成反向点阵图，默认为 false</p>
 <p>返回值：点阵图封装类对象 <code>Pic pic</code>。调用其
 <code>toString()</code> 方法即可输出点阵图字符串。</p></li>
-<li><p><strong>点阵图反转</strong>：<code>String reverse(String picture)</code></p>
+<li><p><strong>点阵图反转</strong>：<code>static String reverse(String picture)</code></p>
 <p>用途：生成传入点阵图的反转点阵图，图中所有黑点与空点互换。若传入安全点阵图，输出时为非安全点阵图，且观感下降。</p>
 <p>参数：<code>picture</code> 为点阵图字符串</p>
 <p>返回值：字符串（内容为反向点阵图）</p></li>
-<li><p><strong>点阵图安全化</strong>：<code>String toSafe(String picutre, char replace)</code></p>
+<li><p><strong>点阵图安全化</strong>：<code>static String toSafe(String picutre)</code></p>
 <p>用途：生成传入点阵图的安全点阵图。安全点阵图是以 <code>⢀</code>
 字符代替原有空格的点阵图，此举可彻底避免不同设备因渲染方法不同而造成的点阵图竖列无法对齐问题，但点阵图整体观感会下降</p>
-<p>参数：<code>picture</code> 为点阵图字符串；<code>replace</code>
-为用以替换的字符，默认为 <code>⢀</code></p>
+<p>参数：<code>picture</code> 为点阵图字符串</p>
 <p>返回值：字符串（内容为安全点阵图）</p></li>
-<li><p><strong>点阵图一般化</strong>：<code>String toNormal(String picture)</code></p>
+<li><p><strong>点阵图一般化</strong>：<code>static String toNormal(String picture)</code></p>
 <p>用途：生成传入点阵图的一般化版本。一般化版本是以一个盲文字符空格代替原有空格的点阵图。此举将造成点阵图竖列无法对齐的问题，但在一些设备上的效果比原始方案好</p>
 <p>参数：<code>picture</code> 为点阵图字符串</p>
 <p>返回值：字符串（内容为一般化点阵图）</p></li>
+<li><p><strong>自定义点阵图安全化</strong>：<code>static String toSafe_D(String picutre, char replace)</code></p>
+<p>用途：生成传入点阵图的安全点阵图。该安全点阵图以传入的 字符/字符串
+代替原有空格。</p>
+<p>参数：<code>picture</code> 为点阵图字符串；<code>replace</code>
+替换后的 字符/字符串，可以传入一个 <code>char</code> 或
+<code>String</code></p>
+<p>返回值：字符串（内容为安全点阵图）</p></li>
 </ol>
 <h4 id="特别说明">特别说明</h4>
 <ol type="1">
@@ -429,8 +435,7 @@
 <li><p>因为本点阵图生成器生成空格的特殊性，普通点阵图及非本生成器生成的点阵图不适用本生成器的
 <code>reverse</code> 方法和 <code>toSafe</code> 方法。</p></li>
 </ol>
-<h4 id="java-代码version-1.4">Java 代码（version 1.4）</h4>
-<p>version 1.1：支持链式调用</p>
+<h4 id="java-代码version-1.7">Java 代码（version 1.7）</h4>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Pic</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String[] C;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;Character, String&gt; RC = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
@@ -438,6 +443,7 @@
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SPACE_6PE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u2006&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SPACE_THIN</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u2009&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SPACE_BRAILLE</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u2800&#x27;</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SPACE_HAIR</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u200a&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SINGLE_BULL_00</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;⠁&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SINGLE_BULL_01</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;⠈&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SINGLE_BULL_10</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;⠂&#x27;</span>;
@@ -448,12 +454,13 @@
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">SINGLE_BULL_31</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;⢀&#x27;</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">FULL_BULL</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;⣿&#x27;</span>;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">TEMP_CHAR</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u0032&#x27;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">default_space</span> <span class="hljs-operator">=</span> String.valueOf(<span class="hljs-keyword">new</span> <span class="hljs-title class_">char</span>[]&#123;SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN&#125;);
 
     <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">currentPicture</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;
 
     <span class="hljs-keyword">static</span> &#123;
         C = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;
-                <span class="hljs-string">&quot;\u2006\u2009\u2006\u2009&quot;</span>, <span class="hljs-string">&quot;⠁&quot;</span>, <span class="hljs-string">&quot;⠂&quot;</span>, <span class="hljs-string">&quot;⠃&quot;</span>, <span class="hljs-string">&quot;⠄&quot;</span>, <span class="hljs-string">&quot;⠅&quot;</span>, <span class="hljs-string">&quot;⠆&quot;</span>, <span class="hljs-string">&quot;⠇&quot;</span>, <span class="hljs-string">&quot;⠈&quot;</span>, <span class="hljs-string">&quot;⠉&quot;</span>, <span class="hljs-string">&quot;⠊&quot;</span>, <span class="hljs-string">&quot;⠋&quot;</span>, <span class="hljs-string">&quot;⠌&quot;</span>, <span class="hljs-string">&quot;⠍&quot;</span>, <span class="hljs-string">&quot;⠎&quot;</span>, <span class="hljs-string">&quot;⠏&quot;</span>,
+                default_space, <span class="hljs-string">&quot;⠁&quot;</span>, <span class="hljs-string">&quot;⠂&quot;</span>, <span class="hljs-string">&quot;⠃&quot;</span>, <span class="hljs-string">&quot;⠄&quot;</span>, <span class="hljs-string">&quot;⠅&quot;</span>, <span class="hljs-string">&quot;⠆&quot;</span>, <span class="hljs-string">&quot;⠇&quot;</span>, <span class="hljs-string">&quot;⠈&quot;</span>, <span class="hljs-string">&quot;⠉&quot;</span>, <span class="hljs-string">&quot;⠊&quot;</span>, <span class="hljs-string">&quot;⠋&quot;</span>, <span class="hljs-string">&quot;⠌&quot;</span>, <span class="hljs-string">&quot;⠍&quot;</span>, <span class="hljs-string">&quot;⠎&quot;</span>, <span class="hljs-string">&quot;⠏&quot;</span>,
                 <span class="hljs-string">&quot;⠐&quot;</span>, <span class="hljs-string">&quot;⠑&quot;</span>, <span class="hljs-string">&quot;⠒&quot;</span>, <span class="hljs-string">&quot;⠓&quot;</span>, <span class="hljs-string">&quot;⠔&quot;</span>, <span class="hljs-string">&quot;⠕&quot;</span>, <span class="hljs-string">&quot;⠖&quot;</span>, <span class="hljs-string">&quot;⠗&quot;</span>, <span class="hljs-string">&quot;⠘&quot;</span>, <span class="hljs-string">&quot;⠙&quot;</span>, <span class="hljs-string">&quot;⠚&quot;</span>, <span class="hljs-string">&quot;⠛&quot;</span>, <span class="hljs-string">&quot;⠜&quot;</span>, <span class="hljs-string">&quot;⠝&quot;</span>, <span class="hljs-string">&quot;⠞&quot;</span>, <span class="hljs-string">&quot;⠟&quot;</span>,
                 <span class="hljs-string">&quot;⠠&quot;</span>, <span class="hljs-string">&quot;⠡&quot;</span>, <span class="hljs-string">&quot;⠢&quot;</span>, <span class="hljs-string">&quot;⠣&quot;</span>, <span class="hljs-string">&quot;⠤&quot;</span>, <span class="hljs-string">&quot;⠥&quot;</span>, <span class="hljs-string">&quot;⠦&quot;</span>, <span class="hljs-string">&quot;⠧&quot;</span>, <span class="hljs-string">&quot;⠨&quot;</span>, <span class="hljs-string">&quot;⠩&quot;</span>, <span class="hljs-string">&quot;⠪&quot;</span>, <span class="hljs-string">&quot;⠫&quot;</span>, <span class="hljs-string">&quot;⠬&quot;</span>, <span class="hljs-string">&quot;⠭&quot;</span>, <span class="hljs-string">&quot;⠮&quot;</span>, <span class="hljs-string">&quot;⠯&quot;</span>,
                 <span class="hljs-string">&quot;⠰&quot;</span>, <span class="hljs-string">&quot;⠱&quot;</span>, <span class="hljs-string">&quot;⠲&quot;</span>, <span class="hljs-string">&quot;⠳&quot;</span>, <span class="hljs-string">&quot;⠴&quot;</span>, <span class="hljs-string">&quot;⠵&quot;</span>, <span class="hljs-string">&quot;⠶&quot;</span>, <span class="hljs-string">&quot;⠷&quot;</span>, <span class="hljs-string">&quot;⠸&quot;</span>, <span class="hljs-string">&quot;⠹&quot;</span>, <span class="hljs-string">&quot;⠺&quot;</span>, <span class="hljs-string">&quot;⠻&quot;</span>, <span class="hljs-string">&quot;⠼&quot;</span>, <span class="hljs-string">&quot;⠽&quot;</span>, <span class="hljs-string">&quot;⠾&quot;</span>, <span class="hljs-string">&quot;⠿&quot;</span>,
@@ -472,6 +479,17 @@
         &#125;;
         <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; C.length; i++) RC.put(C[i].charAt(<span class="hljs-number">0</span>), C[<span class="hljs-number">0B11111111</span> ^ i]);
         RC.put(TEMP_CHAR, <span class="hljs-string">&quot;⣿&quot;</span>);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">changeDefaultSpace</span><span class="hljs-params">(String spaces)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">old</span> <span class="hljs-operator">=</span> default_space;
+        Pic.default_space = spaces;
+        <span class="hljs-keyword">return</span> old;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">changeDefaultSpace</span><span class="hljs-params">(<span class="hljs-type">char</span>... spaces)</span> &#123;
+        <span class="hljs-keyword">if</span> (spaces.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> changeDefaultSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
+        <span class="hljs-keyword">return</span> changeDefaultSpace(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(spaces));
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(String path)</span> &#123;
@@ -494,25 +512,26 @@
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">reverse</span><span class="hljs-params">(String pic)</span> &#123;
         <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : pic.replace(<span class="hljs-string">&quot;\u2006\u2009\u2006\u2009&quot;</span>, String.valueOf(TEMP_CHAR)).replace(<span class="hljs-string">&quot; &quot;</span>, String.valueOf(TEMP_CHAR)).toCharArray())
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : pic.replace(default_space, String.valueOf(TEMP_CHAR)).
+                replaceAll(<span class="hljs-string">&quot;[ \u2800]&quot;</span>, String.valueOf(TEMP_CHAR)).toCharArray())
             sb.append(RC.getOrDefault(c, String.valueOf(c)));
         <span class="hljs-keyword">return</span> sb.toString();
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe</span><span class="hljs-params">(String pic)</span> &#123;
-        <span class="hljs-keyword">return</span> toSafe(pic, String.valueOf(SINGLE_BULL_31));
+        <span class="hljs-keyword">return</span> toSafe_D(pic, String.valueOf(SINGLE_BULL_31));
     &#125;
 
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe</span><span class="hljs-params">(String pic, <span class="hljs-type">char</span> replace)</span> &#123;
-        <span class="hljs-keyword">return</span> toSafe(pic, String.valueOf(replace));
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(String pic, <span class="hljs-type">char</span>... replace)</span> &#123;
+        <span class="hljs-keyword">return</span> toSafe_D(pic, String.valueOf(replace));
     &#125;
 
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe</span><span class="hljs-params">(String pic, String replace)</span> &#123;
-        <span class="hljs-keyword">return</span> pic.replace(<span class="hljs-string">&quot;\u2006\u2009\u2006\u2009&quot;</span>, replace);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(String pic, String replace)</span> &#123;
+        <span class="hljs-keyword">return</span> pic.replace(default_space, replace);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toNormal</span><span class="hljs-params">(String pic)</span> &#123;
-        <span class="hljs-keyword">return</span> toSafe(pic, String.valueOf(SPACE_BRAILLE));
+        <span class="hljs-keyword">return</span> toSafe_D(pic, String.valueOf(SPACE_BRAILLE));
     &#125;
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getVal</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;
@@ -551,16 +570,24 @@
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe(SINGLE_BULL_31);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe_D(String.valueOf(SINGLE_BULL_31));
     &#125;
 
-    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe</span><span class="hljs-params">(<span class="hljs-type">char</span> replace)</span> &#123;
-        <span class="hljs-built_in">this</span>.currentPicture = Pic.toSafe(<span class="hljs-built_in">this</span>.currentPicture, String.valueOf(replace));
+    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">()</span>  &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe_D(String.valueOf(SINGLE_BULL_31));
+    &#125;
+
+    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(<span class="hljs-type">char</span>... replace)</span> &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe_D(String.valueOf(replace));
+    &#125;
+
+    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(String replace)</span> &#123;
+        <span class="hljs-built_in">this</span>.currentPicture = Pic.toSafe_D(<span class="hljs-built_in">this</span>.currentPicture, replace);
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toNormal</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe(SPACE_BRAILLE);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.toSafe_D(String.valueOf(SPACE_BRAILLE));
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">reverse</span><span class="hljs-params">()</span> &#123;
