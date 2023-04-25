@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="11 STL  长久以来，软件界一直希望建立一种可重复利用的东西。C++ 的面向对象和泛型编程的思想，目的就是代码复用性的提升。 多数情况下，数据结构和算法都未能有一套标准，这导致了大量的重复工作。 STL（Standard Template Library）的诞生就是为了建立数据结构和算法的一套标准。  STL 从广义上分为：容器（container）、算法（algorithm">
+    <meta name="description" content="11 STL  长久以来，软件界一直希望建立一种可重复利用的东西。C++ 的面向对象和泛型编程的思想，目的就是代码复用性的提升。 多数情况下，数据结构和算法都未能有一套标准，这导致了大量的重复工作。 STL（Standard Template Library）的诞生就是为了建立数据结构和算法的一套标准。  STL 从广义上分为：容器（container）、算法（algorithm）、迭代器（ite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;11 STL">
 <meta property="og:url" content="https://i-melody.github.io/2022/05/05/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20STL/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="11 STL  长久以来，软件界一直希望建立一种可重复利用的东西。C++ 的面向对象和泛型编程的思想，目的就是代码复用性的提升。 多数情况下，数据结构和算法都未能有一套标准，这导致了大量的重复工作。 STL（Standard Template Library）的诞生就是为了建立数据结构和算法的一套标准。  STL 从广义上分为：容器（container）、算法（algorithm">
+<meta property="og:description" content="11 STL  长久以来，软件界一直希望建立一种可重复利用的东西。C++ 的面向对象和泛型编程的思想，目的就是代码复用性的提升。 多数情况下，数据结构和算法都未能有一套标准，这导致了大量的重复工作。 STL（Standard Template Library）的诞生就是为了建立数据结构和算法的一套标准。  STL 从广义上分为：容器（container）、算法（algorithm）、迭代器（ite">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/C++_InputImage/deque_11.1.3.webp">
 <meta property="og:image" content="https://i-melody.github.io/img/C++_InputImage/stack_11.1.4.webp">
@@ -303,36 +303,35 @@
             
             <div class="markdown-body">
               
-              <h1 id="stl">11 STL</h1>
+              <h1>11 STL</h1>
 <blockquote>
-<p>长久以来，软件界一直希望建立一种可重复利用的东西。C++
-的面向对象和泛型编程的思想，目的就是代码复用性的提升。</p>
+<p>长久以来，软件界一直希望建立一种可重复利用的东西。C++ 的面向对象和泛型编程的思想，目的就是代码复用性的提升。</p>
 <p>多数情况下，数据结构和算法都未能有一套标准，这导致了大量的重复工作。</p>
-<p>STL（Standard Template
-Library）的诞生就是为了建立数据结构和算法的一套标准。</p>
+<p>STL（Standard Template Library）的诞生就是为了建立数据结构和算法的一套标准。</p>
 </blockquote>
-<p>STL
-从广义上分为：<strong>容器（container）</strong>、<strong>算法（algorithm）</strong>、<strong>迭代器（iterator）</strong>。容器和算法间通过迭代器进行无缝连接。STL
-几乎所有代码都采用了模板类或模板函数。</p>
+<p>STL 从广义上分为：<strong>容器（container）</strong>、<strong>算法（algorithm）</strong>、<strong>迭代器（iterator）</strong>。容器和算法间通过迭代器进行无缝连接。STL 几乎所有代码都采用了模板类或模板函数。</p>
 <p>STL 的六大组件是：</p>
 <ul>
-<li><p><strong>容器</strong>：各种数据结构，如
-vector、list、deque、set、map 等，用以存放数据</p>
+<li>
+<p><strong>容器</strong>：各种数据结构，如 vector、list、deque、set、map 等，用以存放数据</p>
 <p>容器就是运用最广泛的一些数据结构（数组、链表、树、栈、队列、集合、映射表等）的实现</p>
 <p>容器分为两种：</p>
 <ul>
 <li>序列式容器：强调值的排序。序列式容器中每个元素都有固定的位置</li>
 <li>关联式容器：二叉树结构，各元素间没有严格的物理上的顺序关系</li>
-</ul></li>
-<li><p><strong>算法</strong>：各种常用算法，如
-sort、find、copy、for_each 等</p>
+</ul>
+</li>
+<li>
+<p><strong>算法</strong>：各种常用算法，如 sort、find、copy、for_each 等</p>
 <p>用有限的步骤，解决逻辑或数学上的问题，这样的学科称为算法</p>
 <p>算法分为两种：</p>
 <ul>
 <li>质变算法：运算过程中会改变区间内元素的内容。如拷贝、替换、删除等</li>
 <li>非质变算法：运算过程不会改变区间内的元素内容。如查找、计数、遍历、寻找极值等</li>
-</ul></li>
-<li><p><strong>迭代器</strong>：扮演了容器和算法间的胶合剂</p>
+</ul>
+</li>
+<li>
+<p><strong>迭代器</strong>：扮演了容器和算法间的胶合剂</p>
 <p>提供一种方法，使之能依序寻访某个容器所含的各个元素，而无需暴露该容器的内部表示方式</p>
 <p>每个容器都有自己的迭代器</p>
 <p>迭代器分为五种：</p>
@@ -340,19 +339,25 @@ sort、find、copy、for_each 等</p>
 <li>输入迭代器：对数据的只读访问。支持 ++、==、!、=</li>
 <li>输出迭代器：对数据的只写访问。支持 ++</li>
 <li>前向迭代器：读写操作，并能向前推进迭代器。支持 ++、==、!、=</li>
-<li>双向迭代器：读写操作，并能向前、后操作。支持 ++、--</li>
-<li>随机访问迭代器：读写操作，可以跳跃访问任意数据。支持
-++、--、[n]、-n、&lt;、&lt;=、&gt;、&gt;=</li>
-</ul></li>
-<li><p><strong>仿函数</strong>：行为类似函数，可以作为算法的某种策略</p></li>
-<li><p><strong>适配器</strong>：一种用来修饰容器或仿函数或迭代器接口的东西</p></li>
-<li><p><strong>空间配置器</strong>：负责空间的配置与管理</p></li>
+<li>双向迭代器：读写操作，并能向前、后操作。支持 ++、–</li>
+<li>随机访问迭代器：读写操作，可以跳跃访问任意数据。支持 ++、–、[n]、-n、&lt;、&lt;=、&gt;、&gt;=</li>
 </ul>
-<h2 id="stl-常用容器">11.1 STL 常用容器</h2>
+</li>
+<li>
+<p><strong>仿函数</strong>：行为类似函数，可以作为算法的某种策略</p>
+</li>
+<li>
+<p><strong>适配器</strong>：一种用来修饰容器或仿函数或迭代器接口的东西</p>
+</li>
+<li>
+<p><strong>空间配置器</strong>：负责空间的配置与管理</p>
+</li>
+</ul>
+<h2 id="11-1-STL-常用容器">11.1 STL 常用容器</h2>
 <blockquote>
 <p>容器就是运用最广泛的一些数据结构（数组、链表、树、栈、队列、集合、映射表等）的实现</p>
 </blockquote>
-<h3 id="string-容器">11.1.1 string 容器</h3>
+<h3 id="11-1-1-string-容器">11.1.1 string 容器</h3>
 <blockquote>
 <p>string 是 C++ 风格的字符串。string 的本质是一个类</p>
 <p>使用前应该包含头文件：<code>#include&lt;string&gt;</code></p>
@@ -360,110 +365,118 @@ sort、find、copy、for_each 等</p>
 <p><b>string 与 char* 的区别：</b></p>
 <ul>
 <li>char* 是一个指针</li>
-<li>string 是一个类，其内部封装了 char*，管理字符串，是一个 char*
-型的容器</li>
+<li>string 是一个类，其内部封装了 char*，管理字符串，是一个 char* 型的容器</li>
 </ul>
 <p><strong>构造方法：</strong></p>
 <ul>
 <li><code>string()</code>：创建空串</li>
 <li><code>string(const char* s)</code>：以指定字符串初始化</li>
-<li><code>string(const string&amp; str)</code>：用另一个 string
-初始化</li>
+<li><code>string(const string&amp; str)</code>：用另一个 string 初始化</li>
 <li><code>string(int n, char c)</code>：用 n 个 c 进行初始化</li>
 </ul>
 <p><strong>string 赋值操作：</strong></p>
 <ul>
-<li><p><code>string&amp; operator=(const char* s)</code>：把 s 赋给当前
-string。重载了 = 操作符</p>
+<li>
+<p><code>string&amp; operator=(const char* s)</code>：把  s 赋给当前 string。重载了 = 操作符</p>
 <p><code>string&amp; operator=(const string&amp; s)</code></p>
-<p><code>string&amp; operator=(char s)</code></p></li>
-<li><p><code>string&amp; assign(const string&amp; s)</code>：把 s
-赋给当前 string。</p>
+<p><code>string&amp; operator=(char s)</code></p>
+</li>
+<li>
+<p><code>string&amp; assign(const string&amp; s)</code>：把  s 赋给当前 string。</p>
 <p><code>string&amp; assign(const char* s)</code></p>
-<p><code>string&amp; assign(const char* s, int n)</code>：把 s 的前 n
-个字符赋给当前 string</p>
-<p><code>string&amp; assign(int n, char c)</code>：把 n 个 c 赋给当前
-string</p></li>
+<p><code>string&amp; assign(const char* s, int n)</code>：把 s 的前 n 个字符赋给当前  string</p>
+<p><code>string&amp; assign(int n, char c)</code>：把 n 个 c 赋给当前 string</p>
+</li>
 </ul>
 <p><strong>string 拼接操作：</strong></p>
 <ul>
-<li><p><code>string&amp; operator+=(const char* s)</code>：在当前 string
-末尾拼接 s。重载了 += 操作符</p>
+<li>
+<p><code>string&amp; operator+=(const char* s)</code>：在当前 string 末尾拼接 s。重载了 += 操作符</p>
 <p><code>string&amp; operator+=(const char c)</code></p>
-<p><code>string&amp; operator+=(const string&amp; s)</code></p></li>
-<li><p><code>string&amp; append(const char* s)</code>：在当前 string
-末尾拼接 s。</p>
+<p><code>string&amp; operator+=(const string&amp; s)</code></p>
+</li>
+<li>
+<p><code>string&amp; append(const char* s)</code>：在当前 string 末尾拼接 s。</p>
 <p><code>string&amp; append(const string&amp; s)</code></p>
-<p><code>string&amp; append(const char* s, int n)</code>：拼接 s 的前 n
-个字符</p>
-<p><code>string&amp; append(const string&amp; s, int pos, int n)</code>：拼接
-s 的 [pos, pos + n) 范围的字符</p></li>
+<p><code>string&amp; append(const char* s, int n)</code>：拼接 s 的前 n 个字符</p>
+<p><code>string&amp; append(const string&amp; s, int pos, int n)</code>：拼接 s 的 [pos, pos + n) 范围的字符</p>
+</li>
 </ul>
 <p><strong>string 查找和替换：</strong></p>
 <ul>
-<li><p><code>int find(const string&amp; s, int pos = 0)</code>：从 pos
-位置开始，查找 s 第一次出现的位置</p>
+<li>
+<p><code>int find(const string&amp; s, int pos = 0)</code>：从 pos 位置开始，查找 s 第一次出现的位置</p>
 <p>返回那个找到位置的起始下标。没有找到的场合，返回 -1</p>
 <p><code>int find(const char* s, int pos = 0)</code></p>
 <p><code>int find(const char c, int pos = 0)</code></p>
-<p><code>int find(const char* s, int pos, int n)</code>：从 pos
-位置开始，查找 s 中前 n 个字符第一次出现的位置</p></li>
-<li><p><code>int rfind(const string&amp; s, int pos = npos)</code>：从
-pos 位置开始，查找 s 最后一次出现的位置</p>
+<p><code>int find(const char* s, int pos, int n)</code>：从 pos 位置开始，查找 s 中前 n 个字符第一次出现的位置</p>
+</li>
+<li>
+<p><code>int rfind(const string&amp; s, int pos = npos)</code>：从 pos 位置开始，查找 s 最后一次出现的位置</p>
 <p><code>int rfind(const char* s, int pos = npos)</code></p>
 <p><code>int rfind(const char c, int pos = npos)</code></p>
-<p><code>int rfind(const char* s, int pos, int n)</code>：从 pos
-位置开始，查找 s 中前 n 个字符最后一次出现的位置</p></li>
-<li><p><code>string&amp; replace(int pos, int n, const string&amp; s)</code>：把
-[pos, pos + n) 处字符串替换为 s</p>
-<p><code>string&amp; replace(int pos, int n, const char* s)</code></p></li>
-<li><p><code>int size()</code>：获取 string 的长度</p></li>
+<p><code>int rfind(const char* s, int pos, int n)</code>：从 pos 位置开始，查找 s 中前 n 个字符最后一次出现的位置</p>
+</li>
+<li>
+<p><code>string&amp; replace(int pos, int n, const string&amp; s)</code>：把 [pos, pos + n) 处字符串替换为 s</p>
+<p><code>string&amp; replace(int pos, int n, const char* s)</code></p>
+</li>
+<li>
+<p><code>int size()</code>：获取 string 的长度</p>
+</li>
 </ul>
 <p><strong>string 的比较：</strong></p>
 <ul>
-<li><p><code>int compare(const string&amp; s)</code>：与字符串进行比较</p>
-<p>相同的场合返回 0。不同的场合，根据 出现的第一处不同的字符的 ASCII
-码的差值 返回 1 或 -1</p>
-<p><code>int compare(const char* s)</code></p></li>
+<li>
+<p><code>int compare(const string&amp; s)</code>：与字符串进行比较</p>
+<p>相同的场合返回 0。不同的场合，根据 出现的第一处不同的字符的 ASCII 码的差值 返回 1 或 -1</p>
+<p><code>int compare(const char* s)</code></p>
+</li>
 </ul>
 <p><strong>string 字符存取：</strong></p>
 <ul>
-<li><p><code>char&amp; operator[](int n)</code>：通过下标获取字符。重载了
-[] 操作符</p>
-<p>因为获取的是 char&amp;，所以获取以后可以修改</p></li>
-<li><p><code>char&amp; at(int n)</code>：通过下标获取字符</p></li>
-<li><p><code>string substr(int pos = 0, int n =npos)</code>：截取 [pos,
-pos + n) 范围的子串，返回其构成的 string</p></li>
+<li>
+<p><code>char&amp; operator[](int n)</code>：通过下标获取字符。重载了 [] 操作符</p>
+<p>因为获取的是 char&amp;，所以获取以后可以修改</p>
+</li>
+<li>
+<p><code>char&amp; at(int n)</code>：通过下标获取字符</p>
+</li>
+<li>
+<p><code>string substr(int pos = 0, int n =npos)</code>：截取 [pos, pos + n) 范围的子串，返回其构成的 string</p>
+</li>
 </ul>
 <p><strong>string 插入和删除</strong></p>
 <ul>
-<li><p><code>string&amp; insert(int pos, const char* s)</code>：在 pos
-位置插入 s</p>
+<li>
+<p><code>string&amp; insert(int pos, const char* s)</code>：在 pos 位置插入 s</p>
 <p><code>string&amp; insert(int pos, const string&amp; s)</code></p>
-<p><code>string&amp; insert(int pos, int n, const char c)</code>：在 pos
-位置插入 n 个 c</p></li>
-<li><p><code>string&amp; erase(int pos, int n = npos)</code>：删除 [pos,
-pos + n) 范围的字符</p></li>
+<p><code>string&amp; insert(int pos, int n, const char c)</code>：在 pos 位置插入 n 个 c</p>
+</li>
+<li>
+<p><code>string&amp; erase(int pos, int n = npos)</code>：删除 [pos, pos + n) 范围的字符</p>
+</li>
 </ul>
-<h3 id="vector-容器">11.1.2 vector 容器</h3>
+<h3 id="11-1-2-vector-容器">11.1.2 vector 容器</h3>
 <blockquote>
 <p>vector 是可变容量的单端数组，能从尾部执行插入和删除元素</p>
 <p>使用前应该包含头文件：<code>#include&lt;vector&gt;</code></p>
 </blockquote>
 <p><strong>vector 与 数组 的区别：</strong></p>
 <ul>
-<li><p>数组是静态空间，其容量大小固定</p></li>
-<li><p>vector 可以动态扩展空间。</p>
-<p>动态扩展是找到一块更大的空间，之后拷贝原数据到新空间，并释放原空间。</p></li>
+<li>
+<p>数组是静态空间，其容量大小固定</p>
+</li>
+<li>
+<p>vector 可以动态扩展空间。</p>
+<p>动态扩展是找到一块更大的空间，之后拷贝原数据到新空间，并释放原空间。</p>
+</li>
 </ul>
 <p><strong>构造函数：</strong></p>
 <ul>
-<li><code>vector&lt;T&gt;()</code>：采用模板实现类实现的空的默认
-vector</li>
-<li><code>vector&lt;T&gt;(iterator begin, iterator end)</code>：初始加入
-由迭代器所指示的 [begin, end) 范围内元素的 vector</li>
-<li><code>vector&lt;T&gt;(int n, T element)</code>：初始加入 n 个
-element 元素的 vector</li>
+<li><code>vector&lt;T&gt;()</code>：采用模板实现类实现的空的默认 vector</li>
+<li><code>vector&lt;T&gt;(iterator begin, iterator end)</code>：初始加入 由迭代器所指示的 [begin, end) 范围内元素的 vector</li>
+<li><code>vector&lt;T&gt;(int n, T element)</code>：初始加入 n 个 element 元素的 vector</li>
 <li><code>vector&lt;T&gt;(const vector&amp; v)</code>：拷贝构造函数</li>
 </ul>
 <p><strong>迭代器：</strong></p>
@@ -478,59 +491,73 @@ element 元素的 vector</li>
 </ul>
 <p><strong>赋值操作：</strong></p>
 <ul>
-<li><p><code>vector&amp; operator=(const vector&amp; v)</code>：用另一个
-vector 赋值。重载了 = 操作符</p></li>
-<li><p><code>assign(iterator begin, iterator end)</code>：用
-由迭代器所指示的 [begin, end) 范围内的元素 赋值</p>
-<p><code>assigne(int n, T element)</code>：用 n 个 element
-元素赋值</p></li>
+<li>
+<p><code>vector&amp; operator=(const vector&amp; v)</code>：用另一个 vector 赋值。重载了 = 操作符</p>
+</li>
+<li>
+<p><code>assign(iterator begin, iterator end)</code>：用 由迭代器所指示的 [begin, end) 范围内的元素 赋值</p>
+<p><code>assigne(int n, T element)</code>：用 n 个 element 元素赋值</p>
+</li>
 </ul>
 <p><strong>容量和大小：</strong></p>
 <ul>
-<li><p><code>bool empty()</code>：判断是否为空</p></li>
-<li><p><code>int capacity()</code>：返回容器的容量</p></li>
-<li><p><code>int size()</code>：返回容器包含的元素数量</p></li>
-<li><p><code>void resize(int num)</code>：重新指定容器容量。</p>
+<li>
+<p><code>bool empty()</code>：判断是否为空</p>
+</li>
+<li>
+<p><code>int capacity()</code>：返回容器的容量</p>
+</li>
+<li>
+<p><code>int size()</code>：返回容器包含的元素数量</p>
+</li>
+<li>
+<p><code>void resize(int num)</code>：重新指定容器容量。</p>
 <p>容量变大的场合，以默认值填充多余位置。变小的场合，末尾的多余元素会被丢弃。</p>
-<p><code>void resize(int num, T element)</code>：重新指定容器容量。如有需要，以
-element 填充多余位置</p></li>
+<p><code>void resize(int num, T element)</code>：重新指定容器容量。如有需要，以 element 填充多余位置</p>
+</li>
 </ul>
 <p><strong>插入和删除：</strong></p>
 <ul>
-<li><p><code>push_back(T element)</code>：尾部插入元素 element</p></li>
-<li><p><code>pop_back()</code>：删除最后一个元素</p></li>
-<li><p><code>const_iterator insert(iterator pos, T element)</code>：在迭代器的指示位置插入
-element</p>
+<li>
+<p><code>push_back(T element)</code>：尾部插入元素 element</p>
+</li>
+<li>
+<p><code>pop_back()</code>：删除最后一个元素</p>
+</li>
+<li>
+<p><code>const_iterator insert(iterator pos, T element)</code>：在迭代器的指示位置插入 element</p>
 <p>返回值是该插入位置（的迭代器）</p>
-<p><code>const_iterator insert(iterator pos, int n, T element)</code>：在迭代器的指示位置插入
-n 个 element</p>
-<p><code>const_iterator insert(iterator pos, iterator start, iterator end)</code>：在迭代器的指示位置插入
-迭代器所指示的 [begin, end) 范围内的元素</p></li>
-<li><p><code>erase(iterator pos)</code>：删除迭代器指示位置的元素</p>
-<p><code>erase(iterator start, iterator end)</code>：删除迭代器所指示的
-[begin, end) 范围内的元素</p></li>
-<li><p><code>clear()</code>：<i>用
-<font color=#FFC000><strong>圣光</strong></font>
-净化这个容器</i></p></li>
+<p><code>const_iterator insert(iterator pos, int n, T element)</code>：在迭代器的指示位置插入 n 个 element</p>
+<p><code>const_iterator insert(iterator pos, iterator start, iterator end)</code>：在迭代器的指示位置插入 迭代器所指示的 [begin, end) 范围内的元素</p>
+</li>
+<li>
+<p><code>erase(iterator pos)</code>：删除迭代器指示位置的元素</p>
+<p><code>erase(iterator start, iterator end)</code>：删除迭代器所指示的 [begin, end) 范围内的元素</p>
+</li>
+<li>
+<p><code>clear()</code>：<i>用 <font color=#FFC000><strong>圣光</strong></font> 净化这个容器</i></p>
+</li>
 </ul>
 <p><strong>数据存取：</strong></p>
 <ul>
-<li><code>T&amp; operator[](index)</code>：获取指定下标位置的元素。重载了
-[] 运算符</li>
+<li><code>T&amp; operator[](index)</code>：获取指定下标位置的元素。重载了 [] 运算符</li>
 <li><code>T&amp; at(int index)</code>：获取指定下标位置的元素。</li>
 <li><code>T&amp; front()</code>：获取容器中第一个元素</li>
 <li><code>T&amp; back()</code>：获取容器中最后一个元素</li>
 </ul>
 <p><strong>互换容器：</strong></p>
 <ul>
-<li><p><code>swap(vector&amp; v)</code>：互换……就是互换。</p>
-<p>巧妙地使用 swap 可以收缩内存空间。哇哦 ~</p></li>
+<li>
+<p><code>swap(vector&amp; v)</code>：互换……就是互换。</p>
+<p>巧妙地使用 swap 可以收缩内存空间。哇哦 ~</p>
+</li>
 </ul>
 <p><strong>预留空间：</strong></p>
 <ul>
-<li><p><code>reserve(int len)</code>：容器预留 len
-个位置。预留位置不初始化，元素不可访问</p>
-<p>这样，能减少 vector 容器动态扩展时的扩展次数</p></li>
+<li>
+<p><code>reserve(int len)</code>：容器预留 len 个位置。预留位置不初始化，元素不可访问</p>
+<p>这样，能减少 vector 容器动态扩展时的扩展次数</p>
+</li>
 </ul>
 <p><strong>遍历 vector：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">int</span>&gt;&amp; v)</span> </span>&#123;
@@ -542,20 +569,17 @@ n 个 element</p>
 <blockquote>
 <p>不难懂吧</p>
 </blockquote>
-<h3 id="deque-容器">11.1.3 deque 容器</h3>
+<h3 id="11-1-3-deque-容器">11.1.3 deque 容器</h3>
 <blockquote>
 <p>双端数组。可以从头端或尾端进行插入删除操作</p>
-<p>deque
-内部有一个中控器，维护每段缓冲区中的内容。缓冲区中存放真实数据</p>
-<p>中控器维护的是每个缓冲区的地址，使得使用 deque
-时貌似是一片连续的内存空间</p>
+<p>deque 内部有一个中控器，维护每段缓冲区中的内容。缓冲区中存放真实数据</p>
+<p>中控器维护的是每个缓冲区的地址，使得使用 deque 时貌似是一片连续的内存空间</p>
 </blockquote>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/deque_11.1.3.webp" /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/deque_11.1.3.webp" alt=""></p>
 <p><em>（deque 中控器图_11.1.3）</em></p>
 <p><strong>deque 与 vector 的区别：</strong></p>
 <ul>
-<li>vector
-从头部插入删除的效率低（需要移动元素）。数据量越大，效率越低</li>
+<li>vector 从头部插入删除的效率低（需要移动元素）。数据量越大，效率越低</li>
 <li>deque 相对而言，对头部插入、删除的速度比 vector 快</li>
 <li>vector 访问元素的速度比 deque 快</li>
 </ul>
@@ -565,23 +589,18 @@ n 个 element</p>
 <p>和 vector 一样，欸嘿 ★~</p>
 <p><strong>常用方法：</strong></p>
 <p>大部分和 vector 一样</p>
-<p>注意 deque 容器 <strong>没有容量</strong>（其容量无限。原因见
-<em>[deque
-中控器图_11.1.3]</em>），所以也不能获取容量。但可以改变容量。效果和
-vector 相似</p>
+<p>注意 deque 容器 <strong>没有容量</strong>（其容量无限。原因见 <em>[deque 中控器图_11.1.3]</em>），所以也不能获取容量。但可以改变容量。效果和 vector 相似</p>
 <p>此外，还有这些额外的方法：</p>
 <ul>
 <li><code>push_front(T element)</code>：头部插入元素 element</li>
 <li><code>pop_front()</code>：删除容器第一个数据</li>
 </ul>
-<h3 id="stack-容器">11.1.4 stack 容器</h3>
+<h3 id="11-1-4-stack-容器">11.1.4 stack 容器</h3>
 <blockquote>
-<p>stack 栈容器是一种 <strong>先进后出</strong>
-的数据结构。它只有一个出口。只有栈顶的数据能被访问。</p>
-<p>栈容器不允许有遍历行为。栈中进入数据称为
-<strong>入栈</strong>，弹出数据称为 <strong>出栈</strong>。</p>
+<p>stack 栈容器是一种 <strong>先进后出</strong> 的数据结构。它只有一个出口。只有栈顶的数据能被访问。</p>
+<p>栈容器不允许有遍历行为。栈中进入数据称为 <strong>入栈</strong>，弹出数据称为 <strong>出栈</strong>。</p>
 </blockquote>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/stack_11.1.4.webp" /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/stack_11.1.4.webp" alt=""></p>
 <p><em>（stack 栈图_11.1.4）</em></p>
 <p><strong>构造函数：</strong></p>
 <ul>
@@ -590,8 +609,7 @@ vector 相似</p>
 </ul>
 <p><strong>赋值操作：</strong></p>
 <ul>
-<li><code>stack&amp; operator=(const stack&amp; s)</code>：重载 =
-操作符</li>
+<li><code>stack&amp; operator=(const stack&amp; s)</code>：重载 = 操作符</li>
 </ul>
 <p><strong>数据存取：</strong></p>
 <ul>
@@ -604,14 +622,12 @@ vector 相似</p>
 <li><code>bool empty()</code>：是否为空</li>
 <li><code>int size()</code>：返回栈的大小</li>
 </ul>
-<h3 id="queue-容器">11.1.5 queue 容器</h3>
+<h3 id="11-1-5-queue-容器">11.1.5 queue 容器</h3>
 <blockquote>
-<p>queue 队列容器是一种 <strong>先进先出</strong>
-的数据结构。有两个出口，只有队首与队尾能被访问。</p>
-<p>队列容器不允许遍历行为。进数据称为 <strong>入队</strong>，出数据称为
-<strong>出队</strong>。</p>
+<p>queue 队列容器是一种 <strong>先进先出</strong> 的数据结构。有两个出口，只有队首与队尾能被访问。</p>
+<p>队列容器不允许遍历行为。进数据称为 <strong>入队</strong>，出数据称为 <strong>出队</strong>。</p>
 </blockquote>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/queue_11.1.5.webp" /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/queue_11.1.5.webp" alt=""></p>
 <p><em>（queue 队列图_11.1.5）</em></p>
 <p><strong>构造函数：</strong></p>
 <ul>
@@ -620,31 +636,36 @@ vector 相似</p>
 </ul>
 <p><strong>赋值操作：</strong></p>
 <ul>
-<li><code>queue&amp; operator=(const queue&amp; q)</code>：重载 =
-操作符</li>
+<li><code>queue&amp; operator=(const queue&amp; q)</code>：重载 = 操作符</li>
 </ul>
 <p><strong>数据存取：</strong></p>
 <ul>
-<li><p><code>push(T ele)</code>：向队尾添加元素</p></li>
-<li><p><code>pop()</code>：从队首移除一个元素</p></li>
-<li><p><code>T&amp; back()</code>：返回最后一个元素。</p>
-<p>既然是先进先出，那么最后显然指的是队尾（后进）元素</p></li>
-<li><p><code>T&amp; front()</code>：返回第一个元素</p></li>
+<li>
+<p><code>push(T ele)</code>：向队尾添加元素</p>
+</li>
+<li>
+<p><code>pop()</code>：从队首移除一个元素</p>
+</li>
+<li>
+<p><code>T&amp; back()</code>：返回最后一个元素。</p>
+<p>既然是先进先出，那么最后显然指的是队尾（后进）元素</p>
+</li>
+<li>
+<p><code>T&amp; front()</code>：返回第一个元素</p>
+</li>
 </ul>
 <p><strong>容量操作：</strong></p>
 <ul>
 <li><code>bool empty()</code>：你猜这个方法是用来干什么的？</li>
 <li><code>int size()</code>：你再猜一个？</li>
 </ul>
-<h3 id="list-容器">11.1.6 list 容器</h3>
+<h3 id="11-1-6-list-容器">11.1.6 list 容器</h3>
 <blockquote>
 <p>list 链表是一种存储单元上非连续的数据结构。</p>
-<p>链表由一系列节点串联组成。每个节点中包含 <strong>数据域</strong> 和
-<strong>指针域</strong>。</p>
-<p>由于存储方式是不连续的内存空间，其迭代器只能前移或后移，属于
-双向迭代器</p>
+<p>链表由一系列节点串联组成。每个节点中包含 <strong>数据域</strong> 和 <strong>指针域</strong>。</p>
+<p>由于存储方式是不连续的内存空间，其迭代器只能前移或后移，属于 双向迭代器</p>
 </blockquote>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/list_11.1.6.webp" /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/C++_InputImage/list_11.1.6.webp" alt=""></p>
 <p><em>（list 链表图_11.1.6）</em></p>
 <p><strong>list 的特点：</strong></p>
 <ul>
@@ -655,26 +676,21 @@ vector 相似</p>
 <p><strong>构造函数：</strong></p>
 <ul>
 <li><code>list&lt;T&gt;()</code>：默认构造</li>
-<li><code>list&lt;T&gt;(iterator start, iterator end)</code>：用
-迭代器指示的 [start, end) 区间的元素 进行初始化</li>
-<li><code>list&lt;T&gt;(int n, T ele)</code>：用 n 个 ele
-进行初始化</li>
+<li><code>list&lt;T&gt;(iterator start, iterator end)</code>：用 迭代器指示的 [start, end) 区间的元素 进行初始化</li>
+<li><code>list&lt;T&gt;(int n, T ele)</code>：用 n 个 ele 进行初始化</li>
 <li><code>list&lt;T&gt;(const list&lt;T&gt;&amp; list)</code>：拷贝构造</li>
 </ul>
 <p><strong>常用方法：</strong></p>
 <p>大部分和 deque 一样。你往上翻翻嘛</p>
-<p>不能用 &lt;、&gt; 来对 list 提供的双向迭代器进行比较，也不能进行 +、-
-操作。但是 ++、-- 操作符是有效的</p>
-<p>list 不支持随机访问。只能通过 front() 或 back()
-访问第一个或最后一个元素。其余时候，使用迭代器遍历元素</p>
+<p>不能用 &lt;、&gt; 来对 list 提供的双向迭代器进行比较，也不能进行 +、- 操作。但是 ++、-- 操作符是有效的</p>
+<p>list 不支持随机访问。只能通过 front() 或 back() 访问第一个或最后一个元素。其余时候，使用迭代器遍历元素</p>
 <p>此外，还有以下方法：</p>
 <ul>
 <li><code>remove(T ele)</code>：删除链表中所有与 ele 匹配的元素</li>
 </ul>
-<h3 id="set-multiset-容器">11.1.7 set / multiset 容器</h3>
+<h3 id="11-1-7-set-multiset-容器">11.1.7 set / multiset 容器</h3>
 <blockquote>
-<p>set 关联式容器（集合容器）底层结构是用 <strong>二叉树</strong>
-实现。所有元素在插入时会被自动排序。</p>
+<p>set 关联式容器（集合容器）底层结构是用 <strong>二叉树</strong> 实现。所有元素在插入时会被自动排序。</p>
 <p>set 不允许重复元素。multiset 允许重复元素</p>
 </blockquote>
 <p><strong>构造函数：</strong></p>
@@ -684,20 +700,20 @@ vector 相似</p>
 </ul>
 <p><strong>常用方法：</strong></p>
 <p>set / multiset 容器没有 push_xxx 方法 或 pop_xxx 方法。</p>
-<p>set / multiset 容器插入元素只能使用 insert 方法，删除元素只能使用
-erase 方法</p>
-<p>set 插入元素时会返回一个 pair&lt;iterator, bool&gt;
-对象，以表示插入成功或失败。multiset 不会有返回值</p>
+<p>set / multiset 容器插入元素只能使用 insert 方法，删除元素只能使用 erase 方法</p>
+<p>set 插入元素时会返回一个 pair&lt;iterator, bool&gt; 对象，以表示插入成功或失败。multiset 不会有返回值</p>
 <p>此外，还有以下方法：</p>
 <ul>
-<li><p><code>iterator&amp; find(T key)</code>：查找 key 是否存在。</p>
-<p>存在的场合，返回指示那个位置的迭代器。不存在的场合，返回那个 end()
-迭代器</p></li>
-<li><p><code>int count(key)</code>：统计 key 的个数</p></li>
+<li>
+<p><code>iterator&amp; find(T key)</code>：查找 key 是否存在。</p>
+<p>存在的场合，返回指示那个位置的迭代器。不存在的场合，返回那个 end() 迭代器</p>
+</li>
+<li>
+<p><code>int count(key)</code>：统计 key 的个数</p>
+</li>
 </ul>
 <p><strong>排序：</strong></p>
-<p>set / multiset
-容器默认排序规则为从小到大。可以利用仿函数改变排序规则。</p>
+<p>set / multiset 容器默认排序规则为从小到大。可以利用仿函数改变排序规则。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">OComparator</span> &#123;
 <span class="hljs-keyword">public</span>:
 	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">int</span> o1, <span class="hljs-type">const</span> <span class="hljs-type">int</span> o2)</span> </span>&#123;	<span class="hljs-comment">// &lt;———— 仿函数</span>
@@ -709,7 +725,7 @@ erase 方法</p>
 	set&lt;<span class="hljs-type">int</span>, OComparator&gt; s;						<span class="hljs-comment">// &lt;———— 这个场合，排序规则变为指定规则</span>
 &#125;</code></pre></div>
 <p>对于自定义的数据类型，往往都会给定排序规则。</p>
-<h3 id="pair-对组">11.1.8 pair 对组</h3>
+<h3 id="11-1-8-pair-对组">11.1.8 pair 对组</h3>
 <blockquote>
 <p>pair 是成对出现的数据。利用对组可以实现返回两个数据</p>
 </blockquote>
@@ -723,14 +739,11 @@ erase 方法</p>
 <li><code>T&amp; first()</code>：访问第一个元素</li>
 <li><code>S&amp; second()</code>：访问第二个元素</li>
 </ul>
-<h3 id="map-multimap-容器">11.1.9 map / multimap 容器</h3>
+<h3 id="11-1-9-map-multimap-容器">11.1.9 map / multimap 容器</h3>
 <blockquote>
-<p>map / multimap
-也属于关联式容器。底层结构用二叉树实现，其中所有元素都是 pair。</p>
-<p>pair 中第一个元素为 key（键），起索引作用。第二个元素为
-value（值）</p>
-<p>map / multimap 容器的所有元素按照键值排序。可以根据键值快速找到 value
-值</p>
+<p>map / multimap 也属于关联式容器。底层结构用二叉树实现，其中所有元素都是 pair。</p>
+<p>pair 中第一个元素为 key（键），起索引作用。第二个元素为 value（值）</p>
+<p>map / multimap 容器的所有元素按照键值排序。可以根据键值快速找到 value 值</p>
 <p>map 不允许重复键值，multimap 允许重复键值</p>
 </blockquote>
 <p><strong>构造函数：</strong></p>
@@ -740,18 +753,14 @@ value（值）</p>
 </ul>
 <p><strong>常用方法：</strong></p>
 <p>和 set 容器差不多</p>
-<p>map / multimap 容器在使用 insert 插入时，插入的是一个 pair
-对象：<code>insert(pair&lt;T, S&gt;(t, s))</code></p>
-<p>使用 erase 删除、find 查找、count
-统计时，按照那个键值确定对象：<code>erase(T&amp; key)</code></p>
+<p>map / multimap 容器在使用 insert 插入时，插入的是一个 pair 对象：<code>insert(pair&lt;T, S&gt;(t, s))</code></p>
+<p>使用 erase 删除、find 查找、count 统计时，按照那个键值确定对象：<code>erase(T&amp; key)</code></p>
 <p><strong>排序：</strong></p>
-<p>和 set
-一样，利用仿函数：<code>map&lt;T, S, OComparator&gt; m;</code></p>
-<h2 id="stl-函数对象">11.2 STL 函数对象</h2>
+<p>和 set 一样，利用仿函数：<code>map&lt;T, S, OComparator&gt; m;</code></p>
+<h2 id="11-2-STL-函数对象">11.2 STL 函数对象</h2>
 <blockquote>
 <p>重载函数调用操作符的类，其对象称为 <strong>函数对象</strong></p>
-<p>函数对象使用重载的 <code>()</code> 时，行为类似函数调用，也叫
-<strong>仿函数</strong></p>
+<p>函数对象使用重载的 <code>()</code> 时，行为类似函数调用，也叫 <strong>仿函数</strong></p>
 <p>函数对象的本质是一个类，不是一个函数。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">AddInt</span>&#123;							<span class="hljs-comment">// &lt;———— 函数对象</span>
@@ -772,12 +781,10 @@ value（值）</p>
 <li>函数对象超出普通函数的概念，可以有自己的状态</li>
 <li>函数对象可以作为参数传递</li>
 </ul>
-<h3 id="谓词">11.2.1 谓词</h3>
+<h3 id="11-2-1-谓词">11.2.1 谓词</h3>
 <blockquote>
 <p>返回 bool 类型的仿函数称为 <strong>谓词</strong></p>
-<p>接受一个参数的仿函数被称为
-<strong>一元谓词</strong>、接受两个参数的仿函数被称为
-<strong>二元谓词</strong></p>
+<p>接受一个参数的仿函数被称为 <strong>一元谓词</strong>、接受两个参数的仿函数被称为 <strong>二元谓词</strong></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">CompareInt</span>&#123;
 <span class="hljs-keyword">public</span>:
@@ -785,7 +792,7 @@ value（值）</p>
         <span class="hljs-keyword">return</span> n1 &gt; n2;
     &#125;
 &#125;;</code></pre></div>
-<h3 id="内建函数对象">11.2.2 内建函数对象</h3>
+<h3 id="11-2-2-内建函数对象">11.2.2 内建函数对象</h3>
 <blockquote>
 <p>STL 内建了一些函数对象。这些函数对象用法和一般函数完全相同。</p>
 <p>要使用这些函数对象，要包含头文件：<code>#include&lt;functional&gt;</code></p>
@@ -801,24 +808,48 @@ value（值）</p>
 <p>主要功能是实现四则运算。</p>
 </blockquote>
 <ul>
-<li><p><code>template&lt;class T&gt; plus&lt;T&gt;</code>：加法仿函数</p>
+<li>
+<p><code>template&lt;class T&gt; plus&lt;T&gt;</code>：加法仿函数</p>
 <div class="code-wrapper"><pre><code class="hljs c++">plus&lt;<span class="hljs-type">int</span>&gt; p;
-cout &lt;&lt; <span class="hljs-built_in">p</span>(<span class="hljs-number">1</span>, <span class="hljs-number">15</span>) &lt;&lt; endl;					<span class="hljs-comment">// &lt;———— 输出 16</span></code></pre></div></li>
-<li><p><code>template&lt;class T&gt; minus&lt;T&gt;</code>：减法仿函数</p></li>
-<li><p><code>template&lt;class T&gt; multiplies&lt;T&gt;</code>：乘法仿函数</p></li>
-<li><p><code>template&lt;class T&gt; divides&lt;T&gt;</code>：除法仿函数</p></li>
-<li><p><code>template&lt;class T&gt; modulus&lt;T&gt;</code>：取模仿函数</p></li>
-<li><p><code>template&lt;class T&gt; negate&lt;T&gt;</code>：取反仿函数（一元运算）</p></li>
+cout &lt;&lt; <span class="hljs-built_in">p</span>(<span class="hljs-number">1</span>, <span class="hljs-number">15</span>) &lt;&lt; endl;					<span class="hljs-comment">// &lt;———— 输出 16</span></code></pre></div>
+</li>
+<li>
+<p><code>template&lt;class T&gt; minus&lt;T&gt;</code>：减法仿函数</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; multiplies&lt;T&gt;</code>：乘法仿函数</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; divides&lt;T&gt;</code>：除法仿函数</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; modulus&lt;T&gt;</code>：取模仿函数</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; negate&lt;T&gt;</code>：取反仿函数（一元运算）</p>
+</li>
 </ul>
 <p><strong>关系仿函数：</strong></p>
 <ul>
-<li><p><code>template&lt;class T&gt; bool equal_to&lt;T&gt;</code>：等于</p></li>
-<li><p><code>template&lt;class T&gt; bool not_equal_to&lt;T&gt;</code>：不等于</p></li>
-<li><p><code>template&lt;class T&gt; bool greater&lt;T&gt;</code>：大于</p>
-<div class="code-wrapper"><pre><code class="hljs c++">set&lt;<span class="hljs-type">int</span>, greater&lt;<span class="hljs-type">int</span>&gt;&gt; s;					<span class="hljs-comment">// &lt;———— 一个降序排序的 set</span></code></pre></div></li>
-<li><p><code>template&lt;class T&gt; bool greater_equal&lt;T&gt;</code>：大于等于</p></li>
-<li><p><code>template&lt;class T&gt; bool less&lt;T&gt;</code>：小于</p></li>
-<li><p><code>template&lt;class T&gt; bool less_equal&lt;T&gt;</code>：小于等于</p></li>
+<li>
+<p><code>template&lt;class T&gt; bool equal_to&lt;T&gt;</code>：等于</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; bool not_equal_to&lt;T&gt;</code>：不等于</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; bool greater&lt;T&gt;</code>：大于</p>
+<div class="code-wrapper"><pre><code class="hljs c++">set&lt;<span class="hljs-type">int</span>, greater&lt;<span class="hljs-type">int</span>&gt;&gt; s;					<span class="hljs-comment">// &lt;———— 一个降序排序的 set</span></code></pre></div>
+</li>
+<li>
+<p><code>template&lt;class T&gt; bool greater_equal&lt;T&gt;</code>：大于等于</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; bool less&lt;T&gt;</code>：小于</p>
+</li>
+<li>
+<p><code>template&lt;class T&gt; bool less_equal&lt;T&gt;</code>：小于等于</p>
+</li>
 </ul>
 <p><strong>逻辑仿函数：</strong></p>
 <ul>
@@ -826,22 +857,19 @@ cout &lt;&lt; <span class="hljs-built_in">p</span>(<span class="hljs-number">1</
 <li><code>template&lt;class T&gt; bool logical_or&lt;T&gt;</code>：逻辑或</li>
 <li><code>template&lt;class T&gt; bool logical_not&lt;T&gt;</code>：逻辑非</li>
 </ul>
-<h2 id="stl-常用算法">11.3 STL 常用算法</h2>
-<p>算法主要由头文件
-<code>&lt;algorithm&gt;</code>、<code>&lt;functional&gt;</code>、<code>&lt;numeric&gt;</code>
-组成：</p>
+<h2 id="11-3-STL-常用算法">11.3 STL 常用算法</h2>
+<p>算法主要由头文件 <code>&lt;algorithm&gt;</code>、<code>&lt;functional&gt;</code>、<code>&lt;numeric&gt;</code> 组成：</p>
 <ul>
-<li><code>&lt;algorithm&gt;</code>：所有 STL
-头文件中最大的一个，涉及比较、交换、查找、遍历、复制、修改等</li>
+<li><code>&lt;algorithm&gt;</code>：所有 STL 头文件中最大的一个，涉及比较、交换、查找、遍历、复制、修改等</li>
 <li><code>&lt;numeric&gt;</code>：体积很小，只包括几个在序列上面进行简单数学运算的模板函数</li>
 <li><code>&lt;functional&gt;</code>：定义了一些模板类，以声明函数对象</li>
 </ul>
 <p>不支持随机访问迭代器的容器，很多算法不支持。那个场合，应该使用那些容器内部内置方法</p>
-<h3 id="常用遍历算法">11.3.1 常用遍历算法</h3>
+<h3 id="11-3-1-常用遍历算法">11.3.1 常用遍历算法</h3>
 <ul>
-<li><p><code>void for_each(iterator start, iterator end, consumer)</code>：遍历。</p>
-<p>把 [start, end) 范围的元素依次进行 consumer
-操作。不会改变原本对象。</p>
+<li>
+<p><code>void for_each(iterator start, iterator end, consumer)</code>：遍历。</p>
+<p>把 [start, end) 范围的元素依次进行 consumer 操作。不会改变原本对象。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;set&gt;</span></span>
 
@@ -863,77 +891,109 @@ cout &lt;&lt; <span class="hljs-built_in">p</span>(<span class="hljs-number">1</
 	for_each(s.<span class="hljs-built_in">begin</span>(), s.<span class="hljs-built_in">end</span>(), printInt);			<span class="hljs-comment">// &lt;———— 传入函数</span>
 	for_each(s.<span class="hljs-built_in">begin</span>(), s.<span class="hljs-built_in">end</span>(), <span class="hljs-built_in">PrintInteger</span>());	<span class="hljs-comment">// &lt;———— 传入函数对象（匿名初始化）</span>
 	for_each(s.<span class="hljs-built_in">begin</span>(), s.<span class="hljs-built_in">end</span>(), p);				<span class="hljs-comment">// &lt;———— 传入函数对象</span>
-&#125;</code></pre></div></li>
-<li><p><code>void transform(iterator beg1, interator end1, iterator beg2, function)</code>：搬运容器内容至另一个容器中</p>
-<p>把源容器的 [beg1, end1) 范围的元素，经过 function
-处理后，添加到新容器的 beg2 位置。</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p><code>void transform(iterator beg1, interator end1, iterator beg2, function)</code>：搬运容器内容至另一个容器中</p>
+<p>把源容器的 [beg1, end1) 范围的元素，经过 function 处理后，添加到新容器的 beg2 位置。</p>
 <p>function 的返回值应该是新容器指定的泛型类型</p>
-<p><strong>注意：新容器必须具备合适的容量，否则会报错</strong></p></li>
+<p><strong>注意：新容器必须具备合适的容量，否则会报错</strong></p>
+</li>
 </ul>
-<h3 id="常用查找算法">11.3.2 常用查找算法</h3>
+<h3 id="11-3-2-常用查找算法">11.3.2 常用查找算法</h3>
 <ul>
-<li><p><code>iterator&amp; find(iterator start, iterator end, T&amp; ele)</code>：查找元素</p>
-<p>在 [start, end) 范围内查找 ele
-元素。找到的场合返回该元素初次出现的位置，否则返回 end</p>
-<p>那个泛型 T 是自定义类型的场合，需要重载运算符 <code>==</code>
-以使算法能够进行对比</p></li>
-<li><p><code>iterator&amp; find_if(iterator start, iterator end, function)</code>：按条件查找元素</p>
-<p>其中的 function 是一个一元谓词</p></li>
-<li><p><code>iterator&amp; adjacent_find(iterator start, iterator end)</code>：查找相邻的重复元素</p>
-<p>找到的场合返回那组相邻元素中靠前元素的位置，否则返回 end</p></li>
-<li><p><code>bool binary_search(iterator start, iterator end, T&amp; ele)</code>：用二分法查找元素是否存在</p>
+<li>
+<p><code>iterator&amp; find(iterator start, iterator end, T&amp; ele)</code>：查找元素</p>
+<p>在 [start, end) 范围内查找 ele 元素。找到的场合返回该元素初次出现的位置，否则返回 end</p>
+<p>那个泛型 T 是自定义类型的场合，需要重载运算符 <code>==</code> 以使算法能够进行对比</p>
+</li>
+<li>
+<p><code>iterator&amp; find_if(iterator start, iterator end, function)</code>：按条件查找元素</p>
+<p>其中的 function 是一个一元谓词</p>
+</li>
+<li>
+<p><code>iterator&amp; adjacent_find(iterator start, iterator end)</code>：查找相邻的重复元素</p>
+<p>找到的场合返回那组相邻元素中靠前元素的位置，否则返回 end</p>
+</li>
+<li>
+<p><code>bool binary_search(iterator start, iterator end, T&amp; ele)</code>：用二分法查找元素是否存在</p>
 <p>找到的场合返回 true，否则返回 false。</p>
-<p><strong>注意：该方法不能在无序序列中使用</strong>。在无序序列查找的场合，结果未知</p></li>
-<li><p><code>int count(iterator start, iterator end, T&amp; ele)</code>：统计元素个数</p></li>
-<li><p><code>int count_if(iterator start, iterator end, function)</code>：按条件统计个数</p>
-<p>其中的 function 是一个一元谓词</p></li>
+<p><strong>注意：该方法不能在无序序列中使用</strong>。在无序序列查找的场合，结果未知</p>
+</li>
+<li>
+<p><code>int count(iterator start, iterator end, T&amp; ele)</code>：统计元素个数</p>
+</li>
+<li>
+<p><code>int count_if(iterator start, iterator end, function)</code>：按条件统计个数</p>
+<p>其中的 function 是一个一元谓词</p>
+</li>
 </ul>
-<h3 id="常用排序算法">11.3.3 常用排序算法</h3>
+<h3 id="11-3-3-常用排序算法">11.3.3 常用排序算法</h3>
 <ul>
-<li><p><code>sort(iterator start, iterator end, consumer)</code>：排序</p>
-<p>其中，consumer
-是一个二元谓词。也可以不写，那个场合，默认使用内建函数的 less
-仿函数</p></li>
-<li><p><code>random_shuffle(iterator start, iterator end)</code>：打乱</p></li>
-<li><p><code>merge(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest)</code>：容器元素合并</p>
+<li>
+<p><code>sort(iterator start, iterator end, consumer)</code>：排序</p>
+<p>其中，consumer 是一个二元谓词。也可以不写，那个场合，默认使用内建函数的 less 仿函数</p>
+</li>
+<li>
+<p><code>random_shuffle(iterator start, iterator end)</code>：打乱</p>
+</li>
+<li>
+<p><code>merge(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest)</code>：容器元素合并</p>
 <p>把 [beg1, end1) 和 [beg2, end2) 的元素合并，并放入 dest 位置</p>
-<p>源容器必须是有序的。</p></li>
-<li><p><code>reserve(iterator start, iterator end)</code>：反转</p></li>
+<p>源容器必须是有序的。</p>
+</li>
+<li>
+<p><code>reserve(iterator start, iterator end)</code>：反转</p>
+</li>
 </ul>
-<h3 id="常用拷贝和替换算法">11.3.4 常用拷贝和替换算法</h3>
+<h3 id="11-3-4-常用拷贝和替换算法">11.3.4 常用拷贝和替换算法</h3>
 <ul>
-<li><p><code>copy(iterator beg1, iterator end1, iterator dest)</code>：拷贝</p></li>
-<li><p><code>replace(iterator beg, iterator end, T&amp; old, T&amp; new)</code>：替换</p>
-<p>将范围内的 old 元素替换为 new</p></li>
-<li><p><code>replace_ifreplace(iterator beg, iterator end, consumer, T&amp; new)</code>：替换满足条件的元素</p>
-<p>其中 consumer 是一个一元谓词</p></li>
-<li><p><code>swap(container c1, container c2)</code>：互换两个容器的元素</p>
-<p>两种容器必须是同一类型</p></li>
+<li>
+<p><code>copy(iterator beg1, iterator end1, iterator dest)</code>：拷贝</p>
+</li>
+<li>
+<p><code>replace(iterator beg, iterator end, T&amp; old, T&amp; new)</code>：替换</p>
+<p>将范围内的 old 元素替换为 new</p>
+</li>
+<li>
+<p><code>replace_ifreplace(iterator beg, iterator end, consumer, T&amp; new)</code>：替换满足条件的元素</p>
+<p>其中 consumer 是一个一元谓词</p>
+</li>
+<li>
+<p><code>swap(container c1, container c2)</code>：互换两个容器的元素</p>
+<p>两种容器必须是同一类型</p>
+</li>
 </ul>
-<h3 id="常用算术生成算法">11.3.5 常用算术生成算法</h3>
+<h3 id="11-3-5-常用算术生成算法">11.3.5 常用算术生成算法</h3>
 <blockquote>
-<p>算术生成算法是小型算法，其头文件为
-<code>include&lt;numeric&gt;</code></p>
+<p>算术生成算法是小型算法，其头文件为 <code>include&lt;numeric&gt;</code></p>
 </blockquote>
 <ul>
-<li><p><code>accumulate(iterator beg, iterator end, value)</code>：计算容器元素累计总和</p>
-<p>计算 [beg, end) 范围的元素累加结果。累加初始值为 value</p></li>
-<li><p><code>fill(iterator beg, iterator end, value)</code>：向容器中填充元素</p>
-<p>[beg, end) 范围的元素变成 value</p></li>
+<li>
+<p><code>accumulate(iterator beg, iterator end, value)</code>：计算容器元素累计总和</p>
+<p>计算 [beg, end) 范围的元素累加结果。累加初始值为 value</p>
+</li>
+<li>
+<p><code>fill(iterator beg, iterator end, value)</code>：向容器中填充元素</p>
+<p>[beg, end) 范围的元素变成 value</p>
+</li>
 </ul>
-<h3 id="常用集合算法">11.3.6 常用集合算法</h3>
+<h3 id="11-3-6-常用集合算法">11.3.6 常用集合算法</h3>
 <ul>
-<li><p><code>set_intersection(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest)</code>：求两个容器的交集</p>
-<p>将在 [beg1, end1) 和 [beg2, end2) 两个范围内都出现过的元素，放入 dest
-位置</p>
+<li>
+<p><code>set_intersection(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest)</code>：求两个容器的交集</p>
+<p>将在 [beg1, end1) 和 [beg2, end2) 两个范围内都出现过的元素，放入 dest 位置</p>
 <p>不会出现多次匹配到另一范围内的某个单一元素。</p>
-<p>两个容器必须是有序排列的</p></li>
-<li><p><code>set_union</code>：求两个容器的并集</p>
-<p>将 [beg1, end1) 和 [beg2, end2) 两个范围内的元素放入 dest
-位置。重复元素只添加一次</p></li>
-<li><p><code>set_difference</code>：求两个容器的差集</p>
-<p>将 [beg1, end1) 和 [beg2, end2) 两个范围内的元素放入 dest
-位置。但是会去除那些重复出现过的元素</p></li>
+<p>两个容器必须是有序排列的</p>
+</li>
+<li>
+<p><code>set_union</code>：求两个容器的并集</p>
+<p>将 [beg1, end1) 和 [beg2, end2) 两个范围内的元素放入 dest 位置。重复元素只添加一次</p>
+</li>
+<li>
+<p><code>set_difference</code>：求两个容器的差集</p>
+<p>将 [beg1, end1) 和 [beg2, end2) 两个范围内的元素放入 dest 位置。但是会去除那些重复出现过的元素</p>
+</li>
 </ul>
 
               

@@ -16,18 +16,18 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="7 文件操作 文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件 在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;*">
+    <meta name="description" content="7 文件操作 文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件 在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;* 打开文件 *&#x2F; i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;7 文件操作">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/22/Go/7%20%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="7 文件操作 文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件 在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;*">
+<meta property="og:description" content="7 文件操作 文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件 在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;* 打开文件 *&#x2F; i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-26T07:32:42.130Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -298,13 +298,13 @@
             
             <div class="markdown-body">
               
-              <h1 id="文件操作">7 文件操作</h1>
+              <h1>7 文件操作</h1>
 <p>文件是……是什么大家都懂的吧。</p>
 <p>在程序中，以流的形式对文件来进行操作</p>
 <p>流：数据在文件和程序间经历的路径</p>
 <p>输入流：数据从数据源（文件）到程序（内存）的路径</p>
 <p>输出流：数据从程序（内存）到数据源（文件）的路径</p>
-<h2 id="打开关闭文件">7.1 打开、关闭文件</h2>
+<h2 id="7-1-打开、关闭文件">7.1 打开、关闭文件</h2>
 <p>在 os 包中，封装了所有文件相关的操作。</p>
 <p>os 包的结构体 File 代表一个打开的文件对象</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> file *os.File
@@ -329,11 +329,13 @@
 </blockquote>
 <p><strong>打开文件</strong></p>
 <ul>
-<li><p><code>func Open(name string) (*File, error)</code>：打开文件</p>
-<p>打开一个文件用于读取。成功时，返回一个文件指针</p></li>
-<li><p><code>OpenFile(name string, flag int, perm FileMode) (file *File, err error)</code></p>
-<p>使用指定的选项打开文件。其中 flag 是文件打开模式（可组合使用），perm
-为权限控制</p>
+<li>
+<p><code>func Open(name string) (*File, error)</code>：打开文件</p>
+<p>打开一个文件用于读取。成功时，返回一个文件指针</p>
+</li>
+<li>
+<p><code>OpenFile(name string, flag int, perm FileMode) (file *File, err error)</code></p>
+<p>使用指定的选项打开文件。其中 flag 是文件打开模式（可组合使用），perm 为权限控制</p>
 <p>flag 有以下选择：</p>
 <ul>
 <li>os.O_RDONLY：以只读模式打开文件</li>
@@ -346,30 +348,32 @@
 <li>os.O_TRUNC：打开时清空文件</li>
 </ul>
 <p>一定要慎重选择 flag 哟~</p>
-<p>另外，perm 权限控制在 Windows 系统下无效。仅 Linux
-系统有效。</p></li>
+<p>另外，perm 权限控制在 Windows 系统下无效。仅 Linux 系统有效。</p>
+</li>
 </ul>
 <p><strong>文件状态</strong></p>
 <ul>
-<li><p><code>Stat(name string) (fi FileInfo, err error)</code>：返回文件状态</p>
-<p>err 为 nil 时，说明文件或文件夹存在。os.IsNotExist(err) 返回 true
-时，说明文件不存在。</p>
+<li>
+<p><code>Stat(name string) (fi FileInfo, err error)</code>：返回文件状态</p>
+<p>err 为 nil 时，说明文件或文件夹存在。os.IsNotExist(err) 返回 true 时，说明文件不存在。</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> _, err := os.Stat(<span class="hljs-string">`d:\1.txt`</span>); err == <span class="hljs-literal">nil</span> &#123;
     fmt.Println(<span class="hljs-string">&quot;文件存在&quot;</span>)
 &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> os.IsNotExist(err) &#123;
     fmt.Println(<span class="hljs-string">&quot;文件不存在&quot;</span>)
 &#125; <span class="hljs-keyword">else</span> &#123;
     fmt.Println(<span class="hljs-string">`优质答案：&quot;我不知道&quot;`</span>)
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
 <p><strong>关闭文件</strong></p>
 <ul>
-<li><p><code>func (f *File) Close() error</code>：关闭文件</p>
-<p><strong>注意：</strong>当函数退出时，要及时关闭
-File，否则会有内存泄漏</p>
-<p>可以使用 defer 进行延迟关闭</p></li>
+<li>
+<p><code>func (f *File) Close() error</code>：关闭文件</p>
+<p>**注意：**当函数退出时，要及时关闭 File，否则会有内存泄漏</p>
+<p>可以使用 defer 进行延迟关闭</p>
+</li>
 </ul>
-<h2 id="读写文件">7.2 读、写文件</h2>
+<h2 id="7-2-读、写文件">7.2 读、写文件</h2>
 <h4 id="读文件">读文件</h4>
 <p><strong>读取文件内容（带缓冲区）：</strong></p>
 <blockquote>
@@ -385,7 +389,7 @@ reader := bufio.NewReader(file)			<span class="hljs-comment">// [1]</span>
     &#125;
 &#125;
 file.Close()</code></pre></div>
-<ol type="1">
+<ol>
 <li>创建一个 *Reader，其缓冲区默认为 4096</li>
 <li>直到遇到指定字符前，读取字符</li>
 <li>EOF 是文件结束标记。err == EOF 时表明文件已经结束</li>
@@ -400,11 +404,13 @@ file.Close()</code></pre></div>
 &#125; <span class="hljs-keyword">else</span> &#123;
     fmt.Println(err)
 &#125;</code></pre></div>
-<ol type="1">
-<li><p><code>ReadFile(filename string) (byte[], error)</code></p>
+<ol>
+<li>
+<p><code>ReadFile(filename string) (byte[], error)</code></p>
 <p>读取文件全部内容，返回字节数组</p>
 <p>这个方法不需要额外对 File 进行打开或关闭</p>
-<p><strong>注意：</strong>该方法仅适用于较小文件</p></li>
+<p>**注意：**该方法仅适用于较小文件</p>
+</li>
 </ol>
 <h4 id="写文件">写文件</h4>
 <p><strong>写入文件内容（带缓冲区）：</strong></p>
@@ -416,7 +422,7 @@ writer := bufio.NewWriter(f)		<span class="hljs-comment">// [1]</span>
 writer.Write([]<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;\n★&quot;</span>))		<span class="hljs-comment">// [2]</span>
 writer.Flush()					<span class="hljs-comment">// [3]</span>
 f.Close()</code></pre></div>
-<ol type="1">
+<ol>
 <li>创建一个 *Writer</li>
 <li>写入字符。此时，字符存在于缓存，还未真正写入文件</li>
 <li>将缓存内容写入文件</li>
@@ -429,24 +435,24 @@ f.Close()</code></pre></div>
 <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
     fmt.Println(err)
 &#125;</code></pre></div>
-<ol type="1">
-<li><p><code>WriteFile(filename string, data []byte, perm FileMode) error</code></p>
+<ol>
+<li>
+<p><code>WriteFile(filename string, data []byte, perm FileMode) error</code></p>
 <p>向文件写入指定全部内容。</p>
-<p>文件存在时，删除原本内容。不存在时，创建该文件。</p></li>
+<p>文件存在时，删除原本内容。不存在时，创建该文件。</p>
+</li>
 </ol>
-<h2 id="命令行参数">7.3 命令行参数</h2>
-<h4 id="os.args-获取命令行参数">os.Args 获取命令行参数</h4>
+<h2 id="7-3-命令行参数">7.3 命令行参数</h2>
+<h4 id="os-Args-获取命令行参数">os.Args 获取命令行参数</h4>
 <p>os.Args 是一个 string 的切片，其存放所有的命令行参数</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe ☆ <span class="hljs-number">123</span></code></pre></div>
 <p>上述指令的命令行参数分别是</p>
 <div class="code-wrapper"><pre><code class="hljs go">fmt.Println(os.Args[<span class="hljs-number">0</span>])		<span class="hljs-comment">// ******\test.exe</span>
 fmt.Println(os.Args[<span class="hljs-number">1</span>])		<span class="hljs-comment">// ☆</span>
 fmt.Println(os.Args[<span class="hljs-number">2</span>])		<span class="hljs-comment">// 123</span></code></pre></div>
-<p>第一个参数是文件名（*
-是我省略的部分），之后以空格为间隔区分其他参数</p>
+<p>第一个参数是文件名（* 是我省略的部分），之后以空格为间隔区分其他参数</p>
 <h4 id="flag-包解析命令行参数">flag 包解析命令行参数</h4>
-<p>os.Args
-必须严格按照输入顺序解析命令行参数。解析参数不方便，也不便于指定参数。</p>
+<p>os.Args 必须严格按照输入顺序解析命令行参数。解析参数不方便，也不便于指定参数。</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe -c ☆ -d <span class="hljs-number">123</span></code></pre></div>
 <p>上述指令的命令行参数分别是</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> i <span class="hljs-type">int</span>
@@ -471,40 +477,36 @@ fmt.Println(i)    <span class="hljs-comment">// 123</span>
 fmt.Println(s)    <span class="hljs-comment">// ☆</span>
 fmt.Println(lack) <span class="hljs-comment">// lack</span></code></pre></div>
 <ul>
-<li><p><code>StringVar(p *string, name string, value string, usage string)</code></p>
-<p>用指定的 名称 name、默认值 value、使用信息 usage 注册一个 string
-类型的 flag，将其值保存到 p 指向的变量。</p>
-<p>在注册时，即向 p 中填充默认值。之后调用 Parse
-方法时，再将解析到的参数填入</p>
+<li>
+<p><code>StringVar(p *string, name string, value string, usage string)</code></p>
+<p>用指定的 名称 name、默认值 value、使用信息 usage 注册一个 string 类型的 flag，将其值保存到 p 指向的变量。</p>
+<p>在注册时，即向 p 中填充默认值。之后调用 Parse 方法时，再将解析到的参数填入</p>
 <p><code>IntVar(p *int, name string, value int, usage string)</code></p>
-<p>注册一个 int类型的 flag，将其值保存到 p 指向的变量。</p></li>
-<li><p><code>Parse()</code>：转换</p>
+<p>注册一个 int类型的 flag，将其值保存到 p 指向的变量。</p>
+</li>
+<li>
+<p><code>Parse()</code>：转换</p>
 <p>从 os.Args[1:] 中解析注册的 flag。未解析到时，不进行任何赋值</p>
-<p>该函数建议在上述注册函数注册完成后，对变量进行调用前调用</p></li>
+<p>该函数建议在上述注册函数注册完成后，对变量进行调用前调用</p>
+</li>
 </ul>
-<h2 id="json">7.4 JSON</h2>
+<h2 id="7-4-JSON">7.4 JSON</h2>
 <p>JSON（JavaScript Object Notation）是一种轻量级数据交换格式。</p>
 <p>JSON 易于阅读和编写，也易于机器解析和生成</p>
 <p>JSON 自 2001 年起推广使用，目前已成为主流的数据格式。</p>
-<p>JSON
-易于机器解析和生成，并能有效地提升网络传输效率。通常程序在网络传输时会先将数据序列化为
-JSON 字符串。接收方得到 JSON
-字符串时，再将其反序列化恢复为原先数据。该方式已然成为各个语言的标准。</p>
+<p>JSON 易于机器解析和生成，并能有效地提升网络传输效率。通常程序在网络传输时会先将数据序列化为 JSON 字符串。接收方得到 JSON 字符串时，再将其反序列化恢复为原先数据。该方式已然成为各个语言的标准。</p>
 <pre><code class=" mermaid">graph LR
 a(Golang) --序列化--&gt; b(JSON 字符串) --网络传输--&gt; c(程序) --反序列化--&gt; d(其他语言)</code></pre>
 <p>在 JS 语言中，一切都是对象。任何数据都能通过 JSON 来表示。</p>
-<p>JSON 是用键值对来保存数据的方式。键名在前，值在后，内容用引号
-<code>" "</code> 包裹。键值间以冒号 <code>:</code>
-间隔。多个值时用方括号 <code>[ ]</code> 包裹。不同项间以逗号
-<code>,</code> 间隔。</p>
+<p>JSON 是用键值对来保存数据的方式。键名在前，值在后，内容用引号 <code>&quot; &quot;</code> 包裹。键值间以冒号 <code>:</code> 间隔。多个值时用方括号 <code>[ ]</code> 包裹。不同项间以逗号 <code>,</code> 间隔。</p>
 <p>比如：</p>
 <div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Heruin&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;H.M.J&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;I.M&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span></code></pre></div>
-<h4 id="json-序列化">JSON 序列化</h4>
-<p>JSON 序列化是指将具有 key-value
-结构的数据类型（如结构体、切片、map）序列化。</p>
+<h4 id="JSON-序列化">JSON 序列化</h4>
+<p>JSON 序列化是指将具有 key-value 结构的数据类型（如结构体、切片、map）序列化。</p>
 <p>在 json 包下提供了序列化方法</p>
 <ul>
-<li><p><code>Marshal(v interface) ([]byte, error)</code>：将给定接口序列化。</p>
+<li>
+<p><code>Marshal(v interface) ([]byte, error)</code>：将给定接口序列化。</p>
 <p>要注意结构体中字段的访问权限（首字母大写）</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;
 	Name <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;A_Name&quot;`</span>
@@ -532,14 +534,15 @@ a(Golang) --序列化--&gt; b(JSON 字符串) --网络传输--&gt; c(程序) --�
 	d := <span class="hljs-number">1000</span>
 	s, _ = json.Marshal(d)
 	fmt.Println(<span class="hljs-type">string</span>(s))			<span class="hljs-comment">// 1000</span>
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
-<h4 id="json-反序列化">JSON 反序列化</h4>
+<h4 id="JSON-反序列化">JSON 反序列化</h4>
 <p>JSON 序列化是指将 JSON 字符串转换成指定的数据类型</p>
 <p>在 json 包下提供了反序列化方法</p>
 <ul>
-<li><p><code>Unmarshal(str []byte, v *interface) error</code>：将字符串反序列化，结果放在
-v 指示的变量中</p>
+<li>
+<p><code>Unmarshal(str []byte, v *interface) error</code>：将字符串反序列化，结果放在 v 指示的变量中</p>
 <p>反序列化时，应确保序列化前后的类型一致</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;
 	Name <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;A_Name&quot;`</span>
@@ -563,7 +566,8 @@ v 指示的变量中</p>
 	s4 := <span class="hljs-string">`1000`</span>
 	<span class="hljs-keyword">var</span> d <span class="hljs-type">int</span>
 	json.Unmarshal([]<span class="hljs-type">byte</span>(s4), &amp;d)		<span class="hljs-comment">// 值等于前面的 d</span>
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
 
               
@@ -597,9 +601,9 @@ v 指示的变量中</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Go/">#Go</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Go/">#Go</a>
       
     </div>
   

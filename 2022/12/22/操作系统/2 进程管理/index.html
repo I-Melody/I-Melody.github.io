@@ -16,21 +16,19 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OS2 进程管理 程序 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 顺序执行。顺序执行有 顺序性、封闭性 的特点。其执行结果有 确定性、可再现性 的特点。 为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统">
+    <meta name="description" content="OS2 进程管理 程序 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 顺序执行。顺序执行有 顺序性、封闭性 的特点。其执行结果有 确定性、可再现性 的特点。 为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统进行资源分配和调度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;操作系统&gt;OS2 进程管理">
 <meta property="og:url" content="https://i-melody.github.io/2022/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="OS2 进程管理 程序 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 顺序执行。顺序执行有 顺序性、封闭性 的特点。其执行结果有 确定性、可再现性 的特点。 为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统">
+<meta property="og:description" content="OS2 进程管理 程序 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 顺序执行。顺序执行有 顺序性、封闭性 的特点。其执行结果有 确定性、可再现性 的特点。 为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统进行资源分配和调度">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/OS_InputImage/OS2_6%20七状态模型图.webp">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-03-31T08:52:35.305Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/OS_InputImage/OS2_6%20七状态模型图.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -47,6 +45,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -238,7 +238,7 @@
         
         
         
-          33 分钟
+          34 分钟
         
       </span>
     
@@ -300,71 +300,69 @@
             
             <div class="markdown-body">
               
-              <h1 id="os2-进程管理">OS2 进程管理</h1>
-<p><strong>程序</strong>
-就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的
-<strong>顺序执行</strong>。顺序执行有
-<strong>顺序性</strong>、<strong>封闭性</strong> 的特点。其执行结果有
-<strong>确定性</strong>、<strong>可再现性</strong> 的特点。</p>
+              <h1>OS2 进程管理</h1>
+<p><strong>程序</strong> 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 <strong>顺序执行</strong>。顺序执行有 <strong>顺序性</strong>、<strong>封闭性</strong> 的特点。其执行结果有 <strong>确定性</strong>、<strong>可再现性</strong> 的特点。</p>
 <p>为实现程序并发执行，引入了进程、进程实体的概念。</p>
-<p><strong>进程实体</strong>（进程映像）：由 PCB、程序段、数据段
-这三部分构成。一般情况下，可以将进程实体称为进程。</p>
+<p><strong>进程实体</strong>（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。</p>
 <p><strong>进程</strong>：进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</p>
-<p>若程序在执行中被改变，则该程序的功能就是变化的，也就不能以同样方式为多个用户服务。能被多个用户同时调用的程序称为
-<strong>可再入</strong>
-程序。可再入程序必须在执行中不会被更改。即，可再入程序必须和有关数据区分离。</p>
+<p>若程序在执行中被改变，则该程序的功能就是变化的，也就不能以同样方式为多个用户服务。能被多个用户同时调用的程序称为 <strong>可再入</strong> 程序。可再入程序必须在执行中不会被更改。即，可再入程序必须和有关数据区分离。</p>
 <p>相比于程序，进程拥有以下特征：</p>
 <ul>
 <li><strong>动态性</strong>：进程是程序的一次执行过程，是动态产生、变化、消亡的</li>
 <li><strong>并发性</strong>：内存中有多个进程实体，能并发执行</li>
 <li><strong>独立性</strong>：进程是能独立运行、独立获得资源、独立接受调度的基本单位</li>
-<li><strong>异步性</strong>：各进程按各自独立的、不可预知的速度推进。操作系统要提供
-“进程同步机制” 以解决异步问题</li>
-<li><strong>结构性</strong>：每个进程会配置一个 PCB。结构上看，进程由
-PCB、程序段、数据段 组成</li>
+<li><strong>异步性</strong>：各进程按各自独立的、不可预知的速度推进。操作系统要提供 “进程同步机制” 以解决异步问题</li>
+<li><strong>结构性</strong>：每个进程会配置一个 PCB。结构上看，进程由 PCB、程序段、数据段 组成</li>
 </ul>
-<h2 id="os2.1-进程的组成">OS2.1 进程的组成</h2>
+<h2 id="OS2-1-进程的组成">OS2.1 进程的组成</h2>
 <p>进程（进程实体）的组成分为三部分：</p>
 <ul>
-<li><p><strong>PCB</strong>（进程控制块）：系统为每个进程配置一个
-PCB，以描述进程信息</p>
-<p>创建进程，实质上是创建进程实体的
-PCB；撤销进程，实质上是撤销进程实体的 PCB。<strong>PCB
-是进程存在的唯一标志</strong>。</p>
+<li>
+<p><strong>PCB</strong>（进程控制块）：系统为每个进程配置一个 PCB，以描述进程信息</p>
+<p>创建进程，实质上是创建进程实体的 PCB；撤销进程，实质上是撤销进程实体的 PCB。<strong>PCB 是进程存在的唯一标志</strong>。</p>
 <p>PCB 的组成分为以下几部分：</p>
 <ul>
 <li>进程描述信息：进程标识符（PID）、用户标识符（UID）</li>
 <li>进程控制和管理信息：进程当前状态、进程优先级</li>
 <li>资源分配清单：程序段指针、数据段指针、键盘、鼠标</li>
 <li>处理机相关信息：各种寄存器值</li>
-</ul></li>
-<li><p><strong>程序段</strong>：存放要执行的代码</p></li>
-<li><p><strong>数据段</strong>：存放程序运行过程中处理的各种数据</p></li>
 </ul>
-<p>一个系统中有许多
-PCB。为了对他们进行有效管理，必须用适当方式对其进行组织。</p>
+</li>
+<li>
+<p><strong>程序段</strong>：存放要执行的代码</p>
+</li>
+<li>
+<p><strong>数据段</strong>：存放程序运行过程中处理的各种数据</p>
+</li>
+</ul>
+<p>一个系统中有许多 PCB。为了对他们进行有效管理，必须用适当方式对其进行组织。</p>
 <p>进程的组织方式有两种：</p>
 <ul>
-<li><strong>链接方式</strong>：按照进程状态将 PCB
-分为多个队列，操作系统持有指向各个队列的指针</li>
+<li><strong>链接方式</strong>：按照进程状态将 PCB 分为多个队列，操作系统持有指向各个队列的指针</li>
 <li><strong>索引方式</strong>：根据进程状态的不同，建立几张索引表。操作系统持有指向各个索引表的指针</li>
 </ul>
-<h2 id="os2.2-进程的状态">OS2.2 进程的状态</h2>
+<h2 id="OS2-2-进程的状态">OS2.2 进程的状态</h2>
 <p>进程有几种状态：</p>
 <ul>
-<li><p><strong>运行态</strong>（Running）：占有 CPU，在 CPU
-上运行</p></li>
-<li><p><strong>就绪态</strong>（Ready）：具备运行条件，但没有空闲
-CPU，所以暂时不能运行</p></li>
-<li><p><strong>阻塞态</strong>（Blocked）：因某一事件而暂时不能运行</p></li>
-<li><p>创建态（New）：进程正被创建，操作系统为其分配资源、初始化
-PCB</p></li>
-<li><p>终止态（Terminated）：进程正从系统中撤销，操作系统回收其拥有的资源、撤销
-PCB</p></li>
-<li><p>挂起（Suspend）：可被进一步分为
-就绪挂起、阻塞挂起。由虚拟内存技术被调到外存等待的状态</p>
-<p><strong><em>——虚拟内存技术，见 [OS2.6 处理机调度 -
-内存调度]</em></strong></p></li>
+<li>
+<p><strong>运行态</strong>（Running）：占有 CPU，在 CPU 上运行</p>
+</li>
+<li>
+<p><strong>就绪态</strong>（Ready）：具备运行条件，但没有空闲 CPU，所以暂时不能运行</p>
+</li>
+<li>
+<p><strong>阻塞态</strong>（Blocked）：因某一事件而暂时不能运行</p>
+</li>
+<li>
+<p>创建态（New）：进程正被创建，操作系统为其分配资源、初始化 PCB</p>
+</li>
+<li>
+<p>终止态（Terminated）：进程正从系统中撤销，操作系统回收其拥有的资源、撤销 PCB</p>
+</li>
+<li>
+<p>挂起（Suspend）：可被进一步分为 就绪挂起、阻塞挂起。由虚拟内存技术被调到外存等待的状态</p>
+<p><em><strong>——虚拟内存技术，见 [OS2.6 处理机调度 - 内存调度]</strong></em></p>
+</li>
 </ul>
 <pre><code class=" mermaid">graph LR
 new(创建态)--系统完成创建工作--&gt;ready(就绪态)--进程被调度--&gt;running(运行态)--运行结束或出错--&gt;terminated&#123;&#123;终止态&#125;&#125;
@@ -376,28 +374,18 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <li>创建态 —&gt; 就绪态：系统完成创建进程相关工作</li>
 <li>运行态 —&gt; 终止态：进程运行结束，或运行中遭遇不可修复的错误</li>
 <li><strong>就绪态 —&gt; 运行态</strong>：进程被调度</li>
-<li><strong>运行态 —&gt; 就绪态</strong>：时间片到，或 CPU
-被其他高优先级进程抢占</li>
-<li><strong>运行态 —&gt; 阻塞态</strong>：通过 “系统调用”
-方式申请某种系统资源，或等待某事件发生。是进程主动做出的行为。</li>
-<li><strong>阻塞态 —&gt;
-就绪态</strong>：系统调用处理完成。是被动行为。</li>
+<li><strong>运行态 —&gt; 就绪态</strong>：时间片到，或 CPU 被其他高优先级进程抢占</li>
+<li><strong>运行态 —&gt; 阻塞态</strong>：通过 “系统调用” 方式申请某种系统资源，或等待某事件发生。是进程主动做出的行为。</li>
+<li><strong>阻塞态 —&gt; 就绪态</strong>：系统调用处理完成。是被动行为。</li>
 </ul>
-<h2 id="os2.3-进程控制">OS2.3 进程控制</h2>
-<p><strong>进程控制</strong> 即实现进程状态的转换。进程控制是通过
-<strong>原语</strong>
-实现的。原语执行期间不允许中断，只能一气呵成。这种不能被中断的操作称为
-<strong>原子操作</strong>。</p>
-<p>原语采用 <strong>开中断指令</strong> 和 <strong>关中断指令</strong>
-实现其原子操作。先发出开中断指令，此时起该进程操作不会中断。之后执行原语代码。执行结束后，发出关中断指令，之后的操作才继续受到外部中断信号影响。</p>
+<h2 id="OS2-3-进程控制">OS2.3 进程控制</h2>
+<p><strong>进程控制</strong> 即实现进程状态的转换。进程控制是通过 <strong>原语</strong> 实现的。原语执行期间不允许中断，只能一气呵成。这种不能被中断的操作称为 <strong>原子操作</strong>。</p>
+<p>原语采用 <strong>开中断指令</strong> 和 <strong>关中断指令</strong> 实现其原子操作。先发出开中断指令，此时起该进程操作不会中断。之后执行原语代码。执行结束后，发出关中断指令，之后的操作才继续受到外部中断信号影响。</p>
 <p>开/关中断指令 的权限非常大，是只能在核心态下执行的特权指令</p>
 <p>不论何种原语，其作用都能归为以下几类：</p>
 <ul>
-<li><strong><font color='#40DF40'>更新 PCB
-信息</font></strong>（如修改进程状态标志、将运行环境保存到 PCB、从 PCB
-恢复运行环境）</li>
-<li><strong><font color='#DF4040'>将 PCB
-插入合适队列</font></strong></li>
+<li><strong><font color='#40DF40'>更新 PCB 信息</font></strong>（如修改进程状态标志、将运行环境保存到 PCB、从 PCB 恢复运行环境）</li>
+<li><strong><font color='#DF4040'>将 PCB 插入合适队列</font></strong></li>
 <li><strong><font color='#4040DF'>分配/回收资源</font></strong></li>
 </ul>
 <h4 id="进程创建">进程创建</h4>
@@ -419,8 +407,7 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <p>进程终止原语：</p>
 <ul>
 <li><font color='#DF4040'>从 PCB 集合中找到终止进程的 PCB</font></li>
-<li><font color='#4040DF'>若进程正在运行，则立即剥夺 CPU，将 CPU
-分配给其他进程</font></li>
+<li><font color='#4040DF'>若进程正在运行，则立即剥夺 CPU，将 CPU 分配给其他进程</font></li>
 <li><font color='#DF4040'>终止该进程的所有子进程</font></li>
 <li><font color='#4040DF'>将该进程拥有的所有资源归还给父进程或操作系统</font></li>
 <li><font color='#40DF40'>删除 PCB</font></li>
@@ -435,10 +422,8 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <p>进程阻塞原语：</p>
 <ul>
 <li><font color='#DF4040'>找到要阻塞的进程对应的 PCB</font></li>
-<li><font color='#40DF40'>保护进程运行现场，将 PCB
-状态设置为阻塞，暂时停止其运行</font></li>
-<li><font color='#DF4040'>最后，将 PCB
-插入相应的阻塞事件的等待序列</font></li>
+<li><font color='#40DF40'>保护进程运行现场，将 PCB 状态设置为阻塞，暂时停止其运行</font></li>
+<li><font color='#DF4040'>最后，将 PCB 插入相应的阻塞事件的等待序列</font></li>
 </ul>
 <p>引起进程阻塞的事件：</p>
 <ul>
@@ -449,8 +434,7 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <p>唤醒进程原语：</p>
 <ul>
 <li><font color='#DF4040'>在事件等待队列中找到对应的 PCB</font></li>
-<li><font color='#DF4040'>将 PCB
-从等待队列移除</font>，<font color='#40DF40'>状态设置为就绪</font></li>
+<li><font color='#DF4040'>将 PCB 从等待队列移除</font>，<font color='#40DF40'>状态设置为就绪</font></li>
 <li><font color='#DF4040'>将 PCB 插入就绪队列，等待被调度</font></li>
 </ul>
 <p>引起进程唤醒的事件：</p>
@@ -462,8 +446,7 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <ul>
 <li><font color='#40DF40'>将运行环境信息存入 PCB</font></li>
 <li><font color='#DF4040'>将 PCB 移入相应队列</font></li>
-<li><font color='#DF4040'>选择另一个进程执行</font>，<font color='#40DF40'>并更新其
-PCB</font></li>
+<li><font color='#DF4040'>选择另一个进程执行</font>，<font color='#40DF40'>并更新其 PCB</font></li>
 <li><font color='#40DF40'>根据 PCB 恢复进程所需的运行环境</font></li>
 </ul>
 <p>引起切换进程的事件：</p>
@@ -473,204 +456,205 @@ PCB</font></li>
 <li>当前进程主动阻塞</li>
 <li>当前进程终止</li>
 </ul>
-<h2 id="os2.4-进程通信">OS2.4 进程通信</h2>
-<p><strong>进程通信</strong>
-即进程间的信息交换。进程是分配系统资源的单位，各进程拥有的内存地址空间相互独立。为保证安全，一个进程不能直接访问另一进程的地址空间。</p>
+<h2 id="OS2-4-进程通信">OS2.4 进程通信</h2>
+<p><strong>进程通信</strong> 即进程间的信息交换。进程是分配系统资源的单位，各进程拥有的内存地址空间相互独立。为保证安全，一个进程不能直接访问另一进程的地址空间。</p>
 <p>为了实现进程间的安全通信，操作系统提供了一系列方法：</p>
 <ul>
-<li><p><strong>共享存储</strong>（基于数据结构的共享、基于存储区的共享）</p>
-<p>两个进程对其共享空间的访问必须是 <strong>互斥</strong>
-的。操作系统只提供共享空间和共享同步互斥工具。</p>
+<li>
+<p><strong>共享存储</strong>（基于数据结构的共享、基于存储区的共享）</p>
+<p>两个进程对其共享空间的访问必须是 <strong>互斥</strong> 的。操作系统只提供共享空间和共享同步互斥工具。</p>
 <ul>
 <li><strong>基于数据结构的共享</strong>：共享空间只能存放特定类型的数据结构。这种共享方式速度慢、限制多，是一种低级通信方式。</li>
 <li><strong>基于存储区的共享</strong>：在内存中划出一块共享存储区，其中数据形式、存放位置由进程控制。这种共享方式速度更快，是一种高级通信方式。</li>
-</ul></li>
-<li><p><strong>消息传递</strong>（直接通信、间接通信）</p>
-<p>进程间数据交换以
-<strong>格式化消息</strong>（Message）为单位。格式化消息含消息头（发送进程
-ID、接受进程 ID、消息类型、消息长度等）和消息尾。进程通过操作系统提供的
-”发送消息“、”接收消息“ 原语进行数据交换。</p>
+</ul>
+</li>
+<li>
+<p><strong>消息传递</strong>（直接通信、间接通信）</p>
+<p>进程间数据交换以 <strong>格式化消息</strong>（Message）为单位。格式化消息含消息头（发送进程 ID、接受进程 ID、消息类型、消息长度等）和消息尾。进程通过操作系统提供的 ”发送消息“、”接收消息“ 原语进行数据交换。</p>
 <ul>
 <li><strong>直接通信方式</strong>：消息直接挂到接受进程的消息缓冲队列上</li>
 <li><strong>间接通信方式</strong>：也称信箱通信方式。消息先发送到中间实体中，接受进程再从中取出消息</li>
-</ul></li>
-<li><p><strong>管道通信</strong></p>
-<p>管道（pipe）是用于连接读写进程的一个共享文件。在内存中开辟一个大小固定的缓冲区，以实现
-<strong>半双工通信</strong>（某一时间段内只能单向传输）。要实现双向同时通信，则需要设置两个管道。</p>
-<p>数据以字符流方式写入管道。管道满时，写入（<code>wirte()</code>）系统调用会阻塞。管道空时，读取（<code>read()</code>）系统调用会被阻塞。</p>
-<p>若未写满，则不允许读。若未读空，则不允许写。数据一经读出即被管道抛弃，因此读进程只能有一个。</p></li>
 </ul>
-<h2 id="os2.5-线程">OS2.5 线程</h2>
-<p>有的进程要同时完成多项任务，为此引入了
-<strong>线程</strong>，以增加并发度。可以把线程理解为
-”轻量级的进程“。线程是一个基本的 CPU
-执行单元，是程序执行流的最小单位。</p>
-<p>线程是处理机调度的单位。多 CPU 计算机中，进程的各个线程可以占用不同
-CPU。</p>
-<p>每个线程都有一个<strong>线程 ID</strong>，及
-<strong>TCB</strong>（线程控制块）。线程也有 就绪、阻塞、运行
-的三种基本状态。</p>
+</li>
+<li>
+<p><strong>管道通信</strong></p>
+<p>管道（pipe）是用于连接读写进程的一个共享文件。在内存中开辟一个大小固定的缓冲区，以实现 <strong>半双工通信</strong>（某一时间段内只能单向传输）。要实现双向同时通信，则需要设置两个管道。</p>
+<p>数据以字符流方式写入管道。管道满时，写入（<code>wirte()</code>）系统调用会阻塞。管道空时，读取（<code>read()</code>）系统调用会被阻塞。</p>
+<p>若未写满，则不允许读。若未读空，则不允许写。数据一经读出即被管道抛弃，因此读进程只能有一个。</p>
+</li>
+</ul>
+<h2 id="OS2-5-线程">OS2.5 线程</h2>
+<p>有的进程要同时完成多项任务，为此引入了 <strong>线程</strong>，以增加并发度。可以把线程理解为 ”轻量级的进程“。线程是一个基本的 CPU 执行单元，是程序执行流的最小单位。</p>
+<p>线程是处理机调度的单位。多 CPU 计算机中，进程的各个线程可以占用不同 CPU。</p>
+<p>每个线程都有一个<strong>线程 ID</strong>，及 <strong>TCB</strong>（线程控制块）。线程也有 就绪、阻塞、运行 的三种基本状态。</p>
 <p>线程几乎不拥有系统资源，同一进程的不同线程间共享进程资源。同一进程的不同线程共享内存地址空间，因而线程间通信也无需操作系统干预。</p>
 <p>统一进程内的不同线程切换，不引起进程切换，其系统开销较少。不同进程间的线程切换会引起进程切换，系统开销较大。</p>
 <p>引入线程后带来的变化：</p>
 <ul>
-<li><p>资源分配的调度</p>
+<li>
+<p>资源分配的调度</p>
 <p>传统进程机制中，进程是资源分配、调度的基本单位。</p>
-<p>引入线程后，进程是资源分配的基本单位，线程是调度的基本单位。</p></li>
-<li><p>并发性</p>
+<p>引入线程后，进程是资源分配的基本单位，线程是调度的基本单位。</p>
+</li>
+<li>
+<p>并发性</p>
 <p>传统进程机制只能进程间并发</p>
-<p>引入线程后，不仅进程间能并发，进程内的线程间也能并发，从而进一步提升了系统的并发度。</p></li>
-<li><p>系统开销</p>
+<p>引入线程后，不仅进程间能并发，进程内的线程间也能并发，从而进一步提升了系统的并发度。</p>
+</li>
+<li>
+<p>系统开销</p>
 <p>传统进程机制，进程间并发需要切换进程的运行环境，系统开销巨大</p>
-<p>引入线程后，若是同一进程内的线程切换则不必切换进程环境，并发带来的系统开销有所减少</p></li>
+<p>引入线程后，若是同一进程内的线程切换则不必切换进程环境，并发带来的系统开销有所减少</p>
+</li>
 </ul>
 <h4 id="线程的实现方式">线程的实现方式</h4>
 <p>线程的实现方式有两种：</p>
 <ul>
-<li><p><strong>用户级线程</strong>（ULT，User-Level Thread）</p>
+<li>
+<p><strong>用户级线程</strong>（ULT，User-Level Thread）</p>
 <p>用户级线程由应用程序通过线程库实现，所有的线程管理工作都由应用程序负责。</p>
-<p>用户级线程中，线程切换可以在 <strong>用户态</strong>
-下完成，无需操作系统干预（用户级线程对用户透明，对操作系统不透明）</p></li>
-<li><p><strong>内核级线程</strong>（KLT，Kernel-Level Thread）</p>
-<p>内核级线程管理工作必须由操作系统内核完成。线程调度、切换等都由操作系统负责，其线程切换必须在
-<strong>核心态</strong> 下才能完成。</p>
-<p>操作系统只能操作内核级线程，因此
-<strong>内核级线程才是处理机分配的单位</strong></p></li>
+<p>用户级线程中，线程切换可以在 <strong>用户态</strong> 下完成，无需操作系统干预（用户级线程对用户透明，对操作系统不透明）</p>
+</li>
+<li>
+<p><strong>内核级线程</strong>（KLT，Kernel-Level Thread）</p>
+<p>内核级线程管理工作必须由操作系统内核完成。线程调度、切换等都由操作系统负责，其线程切换必须在 <strong>核心态</strong> 下才能完成。</p>
+<p>操作系统只能操作内核级线程，因此 <strong>内核级线程才是处理机分配的单位</strong></p>
+</li>
 </ul>
 <h4 id="多线程模型">多线程模型</h4>
 <ul>
-<li><p><strong>多对一模型</strong>：多个用户级线程映射到一个内核级线程。每个用户进程只对应一个内核级线程</p>
+<li>
+<p><strong>多对一模型</strong>：多个用户级线程映射到一个内核级线程。每个用户进程只对应一个内核级线程</p>
 <p>优点：用户级线程的切换在用户态即可完成，不需要切换核心态。系统开销小，效率高。</p>
-<p>缺点：一个用户级线程阻塞会导致整个进程都被阻塞，并发度低。多线程不能在多核处理机上运行</p></li>
-<li><p><strong>一对一模型</strong>：一个用户级线程映射到一个内核级线程。每个用户进程有用户级线程数量的内核级线程。</p>
+<p>缺点：一个用户级线程阻塞会导致整个进程都被阻塞，并发度低。多线程不能在多核处理机上运行</p>
+</li>
+<li>
+<p><strong>一对一模型</strong>：一个用户级线程映射到一个内核级线程。每个用户进程有用户级线程数量的内核级线程。</p>
 <p>优点：一个用户级线程阻塞时，其他线程能继续执行，并发能力强。多线程能在多核处理机上执行</p>
-<p>缺点：一个用户进程会占用多个内核级线程，线程切换由操作系统在核心态完成，管理成本高，开销大</p></li>
-<li><p><strong>多对多模型</strong>：将 n 个用户级线程映射到 m
-个内核级线程（n&gt;=m）。每个用户进程对应 m 个内核级进程</p>
-<p>多对多模型集二者所长，在保留并发能力的同时，也不产生太大系统开销。</p></li>
+<p>缺点：一个用户进程会占用多个内核级线程，线程切换由操作系统在核心态完成，管理成本高，开销大</p>
+</li>
+<li>
+<p><strong>多对多模型</strong>：将 n 个用户级线程映射到 m 个内核级线程（n&gt;=m）。每个用户进程对应 m 个内核级进程</p>
+<p>多对多模型集二者所长，在保留并发能力的同时，也不产生太大系统开销。</p>
+</li>
 </ul>
-<h2 id="os2.6-处理机的调度">OS2.6 处理机的调度</h2>
-<p>在多道程序系统中，进程数量往往多于处理机个数。<strong>处理机调度</strong>
-就是从就绪队列中按照一定算法选择一个进程并将处理机分配给它运行，以实现程序的并发执行。</p>
+<h2 id="OS2-6-处理机的调度">OS2.6 处理机的调度</h2>
+<p>在多道程序系统中，进程数量往往多于处理机个数。<strong>处理机调度</strong> 就是从就绪队列中按照一定算法选择一个进程并将处理机分配给它运行，以实现程序的并发执行。</p>
 <p>处理机调度有三个层次：作业调度、内存调度、进程调度</p>
-<h4 id="作业调度高级调度">作业调度（高级调度）</h4>
-<p>按一定的算法，从外存上处于后备队列的作业中选一个（或多个）作业，为其分配内存等必要资源，并建立相应进程（创建
-PCB），以使其获得竞争处理机的权利</p>
-<p>高级调度是外存与内存间的调度。每个作业只调入一次，调出一次。作业调入时建立相应
-PCB，调出时才撤销 PCB。</p>
+<h4 id="作业调度（高级调度）">作业调度（高级调度）</h4>
+<p>按一定的算法，从外存上处于后备队列的作业中选一个（或多个）作业，为其分配内存等必要资源，并建立相应进程（创建 PCB），以使其获得竞争处理机的权利</p>
+<p>高级调度是外存与内存间的调度。每个作业只调入一次，调出一次。作业调入时建立相应 PCB，调出时才撤销 PCB。</p>
 <p>高级调度主要是指调入问题，因为只有调入时机需要操作系统决定，调出必然是作业运行结束时退出。</p>
-<h4 id="内存调度中级调度">内存调度（中级调度）</h4>
-<p>为提高内存利用率和系统吞吐量，引入了 <strong>虚拟内存</strong>
-技术。暂时不能运行的进程被调至外存等待，直到其重新具备运行条件时，再重新调入内存。</p>
-<p>暂时调到外存的进程进入
-<strong>挂起状态</strong>（Suspend）。在此期间，PCB
-不会被调到外存，而是常驻内存，并进入挂起队列。PCB
-记录进程数据在外存中的存放位置、进程状态等信息。</p>
+<h4 id="内存调度（中级调度）">内存调度（中级调度）</h4>
+<p>为提高内存利用率和系统吞吐量，引入了 <strong>虚拟内存</strong> 技术。暂时不能运行的进程被调至外存等待，直到其重新具备运行条件时，再重新调入内存。</p>
+<p>暂时调到外存的进程进入 <strong>挂起状态</strong>（Suspend）。在此期间，PCB 不会被调到外存，而是常驻内存，并进入挂起队列。PCB 记录进程数据在外存中的存放位置、进程状态等信息。</p>
 <p>中级调度就是决定进程的挂起和激活。一个进程可能会多次调出、调入内存，因此中级调度的发生频率高于高级调度。</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/OS_InputImage/OS2_6%20七状态模型图.webp" /></p>
+<p>![](/img/OS_InputImage/OS2_6 七状态模型图.webp)</p>
 <p><em>（OS2_6 七状态模型图）</em></p>
 <p>有的操作系统会将就绪挂起、阻塞挂起分为两个队列，甚至因挂起原因不同再将阻塞挂起分为多个队列。</p>
-<h4 id="进程调度低级调度">进程调度（低级调度）</h4>
+<h4 id="进程调度（低级调度）">进程调度（低级调度）</h4>
 <p>按一定的算法，从就绪队列中选择一个进程，并为其分配处理机。</p>
 <p>进程调度上述操作系统最基本的一种调度，一般的操作系统都必须配置进程调度。进程调度的频率很高，一般几十毫秒就调度一次。</p>
-<p>当前进程主动放弃处理机，或当前进程
-被动放弃处理机时，需要进程调度。有时不能进行进程调度。</p>
+<p>当前进程主动放弃处理机，或当前进程 被动放弃处理机时，需要进程调度。有时不能进行进程调度。</p>
 <ul>
-<li><p><strong>主动放弃处理机</strong>：程序正常终止、遭遇异常、请求阻塞</p></li>
-<li><p><strong>被动放弃处理机</strong>：分配的时间片用完、高优先级进程插队、有紧急事件需要处理</p></li>
-<li><p><strong>不能进行进程调度</strong>：在处理中断的过程中、进程在操作系统<font color='RED'>内核程序</font>临界区中、在原子操作中</p>
-<p>一段时间内只允许一个进程使用的资源，称为
-<strong>临界资源</strong>。各进程必须互斥地访问临界资源。访问临界资源的代码就是
-<strong>临界区</strong>。</p>
-<p>操作系统<font color='RED'>内核程序</font>临界区，访问的临界资源必须尽快释放，否则会影响操作系统内核的其他管理工作。因此，访问内核程序临界区时不能进行进程调度。但访问普通临界区时是可以进行进程调度的。</p></li>
+<li>
+<p><strong>主动放弃处理机</strong>：程序正常终止、遭遇异常、请求阻塞</p>
+</li>
+<li>
+<p><strong>被动放弃处理机</strong>：分配的时间片用完、高优先级进程插队、有紧急事件需要处理</p>
+</li>
+<li>
+<p><strong>不能进行进程调度</strong>：在处理中断的过程中、进程在操作系统<font color='RED'>内核程序</font>临界区中、在原子操作中</p>
+<p>一段时间内只允许一个进程使用的资源，称为 <strong>临界资源</strong>。各进程必须互斥地访问临界资源。访问临界资源的代码就是 <strong>临界区</strong>。</p>
+<p>操作系统<font color='RED'>内核程序</font>临界区，访问的临界资源必须尽快释放，否则会影响操作系统内核的其他管理工作。因此，访问内核程序临界区时不能进行进程调度。但访问普通临界区时是可以进行进程调度的。</p>
+</li>
 </ul>
 <p>有的操作系统不允许被动放弃处理机。由此，将进程调度方式分为：<strong>非剥夺调度方式</strong>（非抢占方式，不允许进程被动放弃处理机）、<strong>剥夺调度方式</strong>（抢占方式，允许进程被动放弃处理机）</p>
 <h4 id="调度算法">调度算法</h4>
 <p>下面是一些评价调度算法的指标：</p>
 <ul>
-<li><p>CPU 利用率：CPU 忙碌时间占总时间的比例。即：<span
-class="math inline">\(利用率=\dfrac{忙碌的时间}{总时间}\)</span></p></li>
-<li><p>系统吞吐量：单位时间内完成作业的数量。即：<span
-class="math inline">\(系统吞吐量=\dfrac{总共完成了多少作业}{总共花费了多少时间}\)</span></p></li>
-<li><p>周转时间：从作业被提交给系统起，到作业被完成为止的时间。即：<span
-class="math inline">\(周转时间=完成时间-提交时间\)</span></p></li>
-<li><p>平均周转时间：<span
-class="math inline">\(平均周转时间=\dfrac{周转时间之和}{作业数}\)</span></p></li>
-<li><p>带权周转时间：<span
-class="math inline">\(带权周转时间=\dfrac{作业周转时间}{作业实际运行时间}=\dfrac{作业完成时间-作业提交时间}{作业实际运行时间}\)</span></p></li>
-<li><p>等待时间：进程/作业 处于等待处理机状态的时间之和。</p>
-<p>对于进程来说，等待时间是进程建立后，等待被服务的时间之和。等待 I/O
-完成期间也视为被服务。</p>
-<p>对于程序来说，除进程的等待时间外，还要加上作业在外存后备队列中等待的时间</p></li>
-<li><p>响应时间：用户从提出请求，到首次产生响应所用的时间。</p></li>
+<li>
+<p>CPU 利用率：CPU 忙碌时间占总时间的比例。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>利用率</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>忙碌的时间</mtext><mtext>总时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">利用率=\dfrac{忙碌的时间}{总时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">利用率</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">忙碌的时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p>系统吞吐量：单位时间内完成作业的数量。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>系统吞吐量</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>总共完成了多少作业</mtext><mtext>总共花费了多少时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">系统吞吐量=\dfrac{总共完成了多少作业}{总共花费了多少时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">系统吞吐量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总共花费了多少时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总共完成了多少作业</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p>周转时间：从作业被提交给系统起，到作业被完成为止的时间。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>周转时间</mtext><mo>=</mo><mtext>完成时间</mtext><mo>−</mo><mtext>提交时间</mtext></mrow><annotation encoding="application/x-tex">周转时间=完成时间-提交时间</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">完成时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">提交时间</span></span></span></span></p>
+</li>
+<li>
+<p>平均周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>平均周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>周转时间之和</mtext><mtext>作业数</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">平均周转时间=\dfrac{周转时间之和}{作业数}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">平均周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业数</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">周转时间之和</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p>带权周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>带权周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>作业周转时间</mtext><mtext>作业实际运行时间</mtext></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>作业完成时间</mtext><mo>−</mo><mtext>作业提交时间</mtext></mrow><mtext>作业实际运行时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">带权周转时间=\dfrac{作业周转时间}{作业实际运行时间}=\dfrac{作业完成时间-作业提交时间}{作业实际运行时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">带权周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业实际运行时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业周转时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业实际运行时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业完成时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">作业提交时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p>等待时间：进程/作业 处于等待处理机状态的时间之和。</p>
+<p>对于进程来说，等待时间是进程建立后，等待被服务的时间之和。等待 I/O 完成期间也视为被服务。</p>
+<p>对于程序来说，除进程的等待时间外，还要加上作业在外存后备队列中等待的时间</p>
+</li>
+<li>
+<p>响应时间：用户从提出请求，到首次产生响应所用的时间。</p>
+</li>
 </ul>
 <p>早期计算机造价昂贵，早期的批处理系统更注重平均周转时间等指标。早期批处理系统主要有以下几种调度算法：</p>
 <ul>
-<li><p><strong>FCFS（First Come First Serve，先到先得）</strong></p>
+<li>
+<p><strong>FCFS（First Come First Serve，先到先得）</strong></p>
 <p>按照 作业/进程 到达的先后顺序进行服务。</p>
 <p>用于作业调度时，考虑哪个作业先到达后备队列。用于进程调度时，考虑哪个进程先到达就绪队列。</p>
-<p>FCFS
-算法是一种非抢占式算法，不会导致饥饿（特定进程长时间得不到服务）。</p>
-<p>FCFS 算法较公平，但对长作业有利，对短作业不利。</p></li>
-<li><p><strong>SJF（Shortest Job First，短作业优先）</strong></p>
-<p>最短的 作业/进程 优先得到服务，以追求最少的 平均等待时间 和最少的
-平均带权等待时间</p>
-<p>SJF 既可用于作业调度，也能用于进程调度。用于进程调度时称为
-SPF（Shortest Process First，短进程优先）算法</p>
-<p>SJF 和 SPF 是非抢占式算法。但也有抢占式的版本：SRTN（Shortest
-Remaining Time First，最短剩余时间优先）。SJF
-算法可能导致饥饿/饿死。</p>
-<p>SJF 算法对短作业有利，对长作业不利。此外，作业/进程
-的时间是由用户提供的，不一定能做到真正的短作业优先。</p></li>
-<li><p><strong>HRRM（高响应比优先）</strong></p>
-<p>在每次调度时计算各个 作业/进程 的响应比，选择响应比高的 作业/进程
-为其服务。</p>
-<p>响应比的计算方法：<span
-class="math inline">\(响应比=\dfrac{等待时间+要求服务时间}{要求服务时间}\)</span></p>
+<p>FCFS 算法是一种非抢占式算法，不会导致饥饿（特定进程长时间得不到服务）。</p>
+<p>FCFS 算法较公平，但对长作业有利，对短作业不利。</p>
+</li>
+<li>
+<p><strong>SJF（Shortest Job First，短作业优先）</strong></p>
+<p>最短的 作业/进程 优先得到服务，以追求最少的 平均等待时间 和最少的 平均带权等待时间</p>
+<p>SJF 既可用于作业调度，也能用于进程调度。用于进程调度时称为 SPF（Shortest Process First，短进程优先）算法</p>
+<p>SJF 和 SPF 是非抢占式算法。但也有抢占式的版本：SRTN（Shortest Remaining Time First，最短剩余时间优先）。SJF 算法可能导致饥饿/饿死。</p>
+<p>SJF 算法对短作业有利，对长作业不利。此外，作业/进程 的时间是由用户提供的，不一定能做到真正的短作业优先。</p>
+</li>
+<li>
+<p><strong>HRRM（高响应比优先）</strong></p>
+<p>在每次调度时计算各个 作业/进程 的响应比，选择响应比高的 作业/进程 为其服务。</p>
+<p>响应比的计算方法：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>响应比</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>等待时间</mtext><mo>+</mo><mtext>要求服务时间</mtext></mrow><mtext>要求服务时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">响应比=\dfrac{等待时间+要求服务时间}{要求服务时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">响应比</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">要求服务时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">等待时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">要求服务时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <p>HRRM 算法是非抢占式算法。HRRM 算法避免了产生饥饿问题。</p>
-<p>HRRM
-算法是上述两种算法的折中，综合考虑了等待时间和运行时间。</p></li>
+<p>HRRM 算法是上述两种算法的折中，综合考虑了等待时间和运行时间。</p>
+</li>
 </ul>
 <p>由于计算机造价大幅降低，之后出现的交互式系统更注重系统响应时间、公平性、平衡性的指标。对于交互式操作系统，有以下几种调度算法：</p>
 <ul>
-<li><p><strong>时间片轮转调度算法（RR，Round Robin）</strong></p>
+<li>
+<p><strong>时间片轮转调度算法（RR，Round Robin）</strong></p>
 <p>按照各进程到达就绪队列的顺序，轮流让每个进程执行一个时间片。时间片用完后，剥夺处理机，将进程重新放到就绪队列尾排队。</p>
-<p>时间片太大时，算法退化为 FCFS
-算法，会增大进程响应时间。时间片太小时，进程切换过于频繁，系统花费过多时间用于进程切换，会导致进程执行时间比例减少。通常时间片要让切换进程的开销比例不超过
-1%。</p>
-<p>时间片轮转调度算法是抢占式算法，由时钟装置发出时钟中断来提示 CPU
-时间片到。</p>
-<p>时间片轮转算法较为公平，且响应时间快，也不会产生饥饿，适用于分时操作系统。但切换进程会引起开销，也不能区分任务的紧急程度。</p></li>
-<li><p><strong>优先级调度算法</strong></p>
+<p>时间片太大时，算法退化为 FCFS 算法，会增大进程响应时间。时间片太小时，进程切换过于频繁，系统花费过多时间用于进程切换，会导致进程执行时间比例减少。通常时间片要让切换进程的开销比例不超过 1%。</p>
+<p>时间片轮转调度算法是抢占式算法，由时钟装置发出时钟中断来提示 CPU 时间片到。</p>
+<p>时间片轮转算法较为公平，且响应时间快，也不会产生饥饿，适用于分时操作系统。但切换进程会引起开销，也不能区分任务的紧急程度。</p>
+</li>
+<li>
+<p><strong>优先级调度算法</strong></p>
 <p>每个 作业/进程 拥有一个优先级，调度时选择优先级高的执行。</p>
 <p>优先级调度算法有抢占式、非抢占式版本。非抢占式只在进程主动放弃处理及时进行调度，而抢占式版本会额外在就绪队列变化时检测是否要发生抢占。</p>
-<p>根据优先级是否能动态改变，可以将优先级分为
-<strong>静态优先级</strong> 和
-<strong>动态优先级</strong>。通常，系统进程 优先级高于
-用户进程；前台进程 优先级高于 后台进程。</p>
-<p>操作系统更偏好 <strong>I/O 型繁忙型进程</strong>。与 I/O
-繁忙型进程相对的是 <strong>CPU 繁忙型进程</strong>。因为 I/O 设备与 CPU
-能并行工作，I/O 繁忙型进程越优先，I/O
-设备就能越早投入工作，资源利用率、系统吞吐量也能得到提升。</p>
-<p>优先级调度算法能区分紧急程度、重要程度，适用于实时操作系统。但若有源源不断的高优先级进程到来，可能导致饥饿。</p></li>
-<li><p><strong>多级反馈队列调度算法</strong></p>
+<p>根据优先级是否能动态改变，可以将优先级分为 <strong>静态优先级</strong> 和 <strong>动态优先级</strong>。通常，系统进程 优先级高于 用户进程；前台进程 优先级高于 后台进程。</p>
+<p>操作系统更偏好 <strong>I/O 型繁忙型进程</strong>。与 I/O 繁忙型进程相对的是 <strong>CPU 繁忙型进程</strong>。因为 I/O 设备与 CPU 能并行工作，I/O 繁忙型进程越优先，I/O 设备就能越早投入工作，资源利用率、系统吞吐量也能得到提升。</p>
+<p>优先级调度算法能区分紧急程度、重要程度，适用于实时操作系统。但若有源源不断的高优先级进程到来，可能导致饥饿。</p>
+</li>
+<li>
+<p><strong>多级反馈队列调度算法</strong></p>
 <p>多级反馈队列调度算法是对其他调度算法的这种权衡：</p>
-<ol type="1">
+<ol>
 <li>先设置多级就绪队列，各级队列的优先级从高到低，时间片从小到大。</li>
-<li>新进程到达时先进入第一级队列，按照 FCFS
-原则排队等待时间片。时间片用完时，进入下一级队列末尾。已经在最下级队列时，仍回到最下级队尾。</li>
+<li>新进程到达时先进入第一级队列，按照 FCFS 原则排队等待时间片。时间片用完时，进入下一级队列末尾。已经在最下级队列时，仍回到最下级队尾。</li>
 <li>仅当第 k 级队列为空时，才为下一级队列分配时间片。</li>
 </ol>
 <p>多级反馈队列调度算法是抢占式算法。对各类进程相对公平。每个到达的进程都能快速得到响应，短进程也能较快完成。不必估计进程运行时间，也能灵活调整对各类型的偏好程度。</p>
-<p>若有源源不断的高优先级进程到来，仍可能导致饥饿。</p></li>
+<p>若有源源不断的高优先级进程到来，仍可能导致饥饿。</p>
+</li>
 </ul>
-<h2 id="os2.7-进程的同步与互斥">OS2.7 进程的同步与互斥</h2>
-<p><strong>进程同步</strong>
-又称直接制约关系。为了解决并发进程异步问题，使进程间相互制约，从而协调各进程的工作次序。</p>
-<p><strong>进程互斥</strong>
-又称间接制约关系。一个进程访问临界资源时，另一访问该临界资源的进程必须等待。</p>
+<h2 id="OS2-7-进程的同步与互斥">OS2.7 进程的同步与互斥</h2>
+<p><strong>进程同步</strong> 又称直接制约关系。为了解决并发进程异步问题，使进程间相互制约，从而协调各进程的工作次序。</p>
+<p><strong>进程互斥</strong> 又称间接制约关系。一个进程访问临界资源时，另一访问该临界资源的进程必须等待。</p>
 <p>对临界资源的互斥访问，可在逻辑上分为几部分：</p>
-<ol type="1">
+<ol>
 <li><strong>进入区</strong>：检查是否能进入临界区。若能进入，则设置正在访问临界区的标志（如互斥锁）</li>
 <li><strong>临界区</strong>：访问临界资源的代码</li>
 <li><strong>退出区</strong>：解除正在访问临界区的标志</li>
@@ -679,18 +663,23 @@ class="math inline">\(响应比=\dfrac{等待时间+要求服务时间}{要求�
 <p>进程互斥遵循以下原则：<strong>空闲让进</strong>、<strong>忙则等待</strong>、<strong>有限等待</strong>（保证不会发生饥饿）、<strong>让权等待</strong>（不能进入临界区时，释放处理机，防止忙等）</p>
 <h4 id="进程互斥的软件实现方法">进程互斥的软件实现方法</h4>
 <ul>
-<li><p><strong>单标志法</strong></p>
+<li>
+<p><strong>单标志法</strong></p>
 <p>进程访问完临界区后，将临界区权限转移给另一进程。每个进程进入临界区的权限只能被其他进程赋予。</p>
-<p>单标志法的主要问题是，不满足 空闲让进 原则</p></li>
-<li><p><strong>双标志先检查</strong></p>
-<p>设置一个布尔数组以标记每个进程进入临界区的意愿。进程进入临界区前检查是否有其他程序有进入意愿。若都无意愿，则将自身意愿标志标记为
-true，并开始访问临界区。退出时，将自身意愿标志标记为 false。</p>
-<p>双标志先检查法的主要问题是，检查与上锁操作不是同时完成，可能违背
-忙则等待 原则。</p></li>
-<li><p><strong>双标志后检查</strong></p>
+<p>单标志法的主要问题是，不满足 空闲让进 原则</p>
+</li>
+<li>
+<p><strong>双标志先检查</strong></p>
+<p>设置一个布尔数组以标记每个进程进入临界区的意愿。进程进入临界区前检查是否有其他程序有进入意愿。若都无意愿，则将自身意愿标志标记为 true，并开始访问临界区。退出时，将自身意愿标志标记为 false。</p>
+<p>双标志先检查法的主要问题是，检查与上锁操作不是同时完成，可能违背 忙则等待 原则。</p>
+</li>
+<li>
+<p><strong>双标志后检查</strong></p>
 <p>双标志先检查法的改进版。先设置进入意愿，再检查其余进程的进入意愿。</p>
-<p>虽然做到了 ”忙则等待“，但违背了 空闲让进 和 有限等待 原则。</p></li>
-<li><p><strong>Peterson 算法</strong></p>
+<p>虽然做到了 ”忙则等待“，但违背了 空闲让进 和 有限等待 原则。</p>
+</li>
+<li>
+<p><strong>Peterson 算法</strong></p>
 <p>双标志后检查法的改进版。多个进程都想进入临界区时，那些进程会主动让对方使用临界区。</p>
 <p>下面是其中一种情况：</p>
 <pre><code class=" mermaid">sequenceDiagram
@@ -718,21 +707,20 @@ loop
 end
 进程B -&gt;&gt; 临界资源: 临界区
 进程B -&gt;&gt; 临界资源: flag[进程B] = false</code></pre>
-<p>Peterson 算法遵循了 空闲让进、忙则等待、有限等待 的原则。但仍未遵循
-让权等待 的原则。</p></li>
+<p>Peterson 算法遵循了 空闲让进、忙则等待、有限等待 的原则。但仍未遵循 让权等待 的原则。</p>
+</li>
 </ul>
 <h4 id="进程互斥的硬件实现方法">进程互斥的硬件实现方法</h4>
 <ul>
-<li><p><strong>中断屏蔽方法</strong></p>
-<p>利用 <strong>开/关中断指令</strong>
-实现。与原语类似，某进程开始访问临界区起，至访问结束止，期间不允许中断。不允许中断就不能发生进程切换，也就避免了两个进程同时访问临界区。</p>
-<p>中断屏蔽方法简单高效，但不适用于多处理机。且开/关中断指令只能在内核态进行，故只适用于操作系统内核进程，不适用于用户进程。</p></li>
-<li><p><strong>TestAndSet 指令</strong></p>
-<p>简称 TS 指令（也称 TSL 指令、TestAndSetLock
-指令），是用硬件实现的指令。执行过程中不允许中断，只能一气呵成。</p>
-<p>使用布尔型共享变量 lock 记录临界区加锁状态（初始
-false）。检查时返回原先 lock 值，并将 lock 值变为
-true。仅当进程退出临界区时，将 lock 变为 false。</p>
+<li>
+<p><strong>中断屏蔽方法</strong></p>
+<p>利用 <strong>开/关中断指令</strong> 实现。与原语类似，某进程开始访问临界区起，至访问结束止，期间不允许中断。不允许中断就不能发生进程切换，也就避免了两个进程同时访问临界区。</p>
+<p>中断屏蔽方法简单高效，但不适用于多处理机。且开/关中断指令只能在内核态进行，故只适用于操作系统内核进程，不适用于用户进程。</p>
+</li>
+<li>
+<p><strong>TestAndSet 指令</strong></p>
+<p>简称 TS 指令（也称 TSL 指令、TestAndSetLock 指令），是用硬件实现的指令。执行过程中不允许中断，只能一气呵成。</p>
+<p>使用布尔型共享变量 lock 记录临界区加锁状态（初始 false）。检查时返回原先 lock 值，并将 lock 值变为 true。仅当进程退出临界区时，将 lock 变为 false。</p>
 <p>下面是模拟那个实现逻辑的伪代码：</p>
 <div class="code-wrapper"><pre><code class="hljs virtual">static bool lock = false
 
@@ -747,20 +735,14 @@ Process() &#123;
 	CriticalSection()		// &lt;-- 临界区
 	lock = false
 &#125;</code></pre></div>
-<p>TSL 指令实现简单，适用于多处理机环境。由于采用硬件方式，将 上锁 和
-检查 变为了原子操作，TSL
-指令无需像软件实现方法那样严格检查逻辑漏洞。</p>
-<p>暂时进入临界区的进程会占用 CPU 循环执行 TSL 指令，故不满足 让权等待
-原则。</p></li>
-<li><p><strong>Swap 指令</strong></p>
-<p>也称 XCHG 指令或 Exchange
-指令，是用硬件实现的指令。执行过程中不允许中断，只能一气呵成。</p>
-<p>Swap 指令能交换两个变量的值。其逻辑与 TSL
-指令相似，只是硬件实现不同。</p>
-<p>使用布尔型共享变量 lock 记录临界区加锁状态（初始
-false），每个进程再各自持有加锁标记 old（初始 true）。判断时，若 old 为
-true 则持续交换 lock 与 old。仅当进程退出临界区时，将 lock 变为
-false。</p>
+<p>TSL 指令实现简单，适用于多处理机环境。由于采用硬件方式，将 上锁 和 检查 变为了原子操作，TSL 指令无需像软件实现方法那样严格检查逻辑漏洞。</p>
+<p>暂时进入临界区的进程会占用 CPU 循环执行 TSL 指令，故不满足 让权等待 原则。</p>
+</li>
+<li>
+<p><strong>Swap 指令</strong></p>
+<p>也称 XCHG 指令或 Exchange 指令，是用硬件实现的指令。执行过程中不允许中断，只能一气呵成。</p>
+<p>Swap 指令能交换两个变量的值。其逻辑与 TSL 指令相似，只是硬件实现不同。</p>
+<p>使用布尔型共享变量 lock 记录临界区加锁状态（初始 false），每个进程再各自持有加锁标记 old（初始 true）。判断时，若 old 为 true 则持续交换 lock 与 old。仅当进程退出临界区时，将 lock 变为 false。</p>
 <p>下面是模拟那个实现逻辑的伪代码：</p>
 <div class="code-wrapper"><pre><code class="hljs virtual">static bool lock = false
 
@@ -774,21 +756,17 @@ Process() &#123;
 	CriticalSection()		// &lt;-- 临界区
 	lock = false
 &#125;</code></pre></div>
-<p>Swap 指令的优/缺点与 TSL 指令相同。</p></li>
+<p>Swap 指令的优/缺点与 TSL 指令相同。</p>
+</li>
 </ul>
 <h4 id="信号量机制">信号量机制</h4>
 <p>信号量机制是由 Dijkstra 提出的，能遵循进程互斥原则的方法。</p>
-<p><strong>信号量</strong>
-是一个变量，表示系统中某种资源的数量。<strong>信号量机制</strong>
-是用户进程通过使用操作系统提供的
-<strong>一对低级通讯原语</strong>（<code>wait(S)</code> 原语与
-<code>signal(S)</code> 原语。简称为 <code>P(S)</code>、<code>V(S)</code>
-操作）来对 信号量 进行操作，从而实现进程互斥和同步。</p>
+<p><strong>信号量</strong> 是一个变量，表示系统中某种资源的数量。<strong>信号量机制</strong> 是用户进程通过使用操作系统提供的 <strong>一对低级通讯原语</strong>（<code>wait(S)</code> 原语与 <code>signal(S)</code> 原语。简称为 <code>P(S)</code>、<code>V(S)</code> 操作）来对 信号量 进行操作，从而实现进程互斥和同步。</p>
 <ul>
-<li><p><strong>整形信号量</strong></p>
+<li>
+<p><strong>整形信号量</strong></p>
 <p>用整数型变量记录信号量。</p>
-<p>检查时（<code>wait(S)</code>），信号量为 0
-则等待。退出临界区后，设置资源量（<code>signal(S)</code>）</p>
+<p>检查时（<code>wait(S)</code>），信号量为 0 则等待。退出临界区后，设置资源量（<code>signal(S)</code>）</p>
 <p>下面是模拟那个实现逻辑的伪代码：</p>
 <div class="code-wrapper"><pre><code class="hljs virtual">static int S = 1
 
@@ -806,8 +784,10 @@ Process() &#123;
 	CriticalSection()		// &lt;-- 临界区
 	signal(S)
 &#125;</code></pre></div>
-<p>不满足 让权等待 原则，可能发生忙等。</p></li>
-<li><p><strong>记录型信号量</strong></p>
+<p>不满足 让权等待 原则，可能发生忙等。</p>
+</li>
+<li>
+<p><strong>记录型信号量</strong></p>
 <p>用记录型数据结构记录信号量。</p>
 <p>检查时，先设置资源量，之后若无资源则阻塞。退出临界区后，若有其他进程阻塞，则唤起一个进程。</p>
 <p>下面是模拟那个实现逻辑的伪代码：</p>
@@ -842,21 +822,20 @@ Process() &#123;
 	CriticalSection()		// &lt;-- 临界区
 	signal(S)
 &#125;</code></pre></div>
-<p>记录型信号量遵循了 让权等待 原则</p></li>
+<p>记录型信号量遵循了 让权等待 原则</p>
+</li>
 </ul>
 <h4 id="管程">管程</h4>
 <p>用信号量机制实现线程同步、互斥，编写程序困难，也容易出错。为更方便地实现进程同步和互斥，引入了管程。</p>
-<p><strong>管程</strong>
-是一种特殊的软件模块，由几个部分组成：名称、共享数据结构、访问数据结构的函数、初始化语句</p>
+<p><strong>管程</strong> 是一种特殊的软件模块，由几个部分组成：名称、共享数据结构、访问数据结构的函数、初始化语句</p>
 <p>管程有如下特征：</p>
 <ul>
 <li>局部于管程的数据只能被局部于管程的函数访问</li>
 <li>一个进程只有通过调用管程内的函数才能进入管程访问共享数据</li>
 <li>每次仅允许一个进程在管城内执行某个内部过程</li>
 </ul>
-<p>管程被进程的互斥访问特性是由编译器实现的。可以在管程中设置条件变量及等待/唤醒
-操作以解决同步问题</p>
-<h2 id="os2.8-死锁">OS2.8 死锁</h2>
+<p>管程被进程的互斥访问特性是由编译器实现的。可以在管程中设置条件变量及等待/唤醒 操作以解决同步问题</p>
+<h2 id="OS2-8-死锁">OS2.8 死锁</h2>
 <p><strong>死锁</strong>：在并发环境中，各进程互相持有对方需求资源，导致各进程都被阻塞无法推进的现象。</p>
 <p><strong>饥饿</strong>：由于长期得不到资源，某一进程无法向前推进的现象。</p>
 <p><strong>死循环</strong>：某进程执行过程中始终不能跳出某一循环的现象。通常由代码逻辑问题导致。</p>
@@ -872,45 +851,51 @@ Process() &#123;
 <h4 id="预防死锁">预防死锁</h4>
 <p>破坏死锁四个必要条件中的一个或几个</p>
 <ul>
-<li><p>破坏互斥条件</p>
+<li>
+<p>破坏互斥条件</p>
 <p>如果把只能互斥使用的资源改造成能共享使用，系统就不会进入死锁。</p>
-<p><strong>SPOOLing 技术</strong>：操作系统可以采用 SPOOLing
-技术将独占设备在逻辑上改造成共享设备</p>
-<p>缺点：并非所有资源都能被改造成共享资源。而且为了系统安全，很多地方必须保持互斥性。很多时候无法破坏互斥条件。</p></li>
-<li><p>破坏不剥夺条件</p>
+<p><strong>SPOOLing 技术</strong>：操作系统可以采用 SPOOLing 技术将独占设备在逻辑上改造成共享设备</p>
+<p>缺点：并非所有资源都能被改造成共享资源。而且为了系统安全，很多地方必须保持互斥性。很多时候无法破坏互斥条件。</p>
+</li>
+<li>
+<p>破坏不剥夺条件</p>
 <p>有以下几种方案：</p>
 <ul>
 <li>某进程请求资源被阻塞时，其持有的资源必须释放，使用时再重新申请。该方案可能导致饥饿。</li>
 <li>当请求资源被其他进程占有时，由操作系统协助，将请求资源强行剥夺。需考虑进程优先级。</li>
 </ul>
-<p>缺点：实现复杂。剥夺资源可能造成前一阶段工作失效，故只适用于易保存和恢复状态的资源（如
-CPU）。反复申请和释放资源增加了系统开销，降低系统吞吐量。</p></li>
-<li><p>破坏请求和保持条件</p>
+<p>缺点：实现复杂。剥夺资源可能造成前一阶段工作失效，故只适用于易保存和恢复状态的资源（如 CPU）。反复申请和释放资源增加了系统开销，降低系统吞吐量。</p>
+</li>
+<li>
+<p>破坏请求和保持条件</p>
 <p><strong>静态分配方法</strong>：在进程运行前一次性申请所有资源。未满足条件时不许运行。一旦运行，资源就始终被其持有。</p>
-<p>缺点：造成严重资源浪费，资源利用率极低，且可能导致某些进程饥饿。</p></li>
-<li><p>破坏循环等待条件</p>
+<p>缺点：造成严重资源浪费，资源利用率极低，且可能导致某些进程饥饿。</p>
+</li>
+<li>
+<p>破坏循环等待条件</p>
 <p><strong>顺序资源分配法</strong>：给系统资源编号，每个进程必须按照编号递增顺序请求资源。同类资源一次性申请完成。</p>
 <p>持有小编号资源时才能申请大编号资源，大编号资源持有者不会申请小编号资源，也就不会发生循环等待。</p>
-<p>缺点：编程麻烦，也不方便增加新设备。使用资源顺序与编号顺序不一致，会导致资源浪费。</p></li>
+<p>缺点：编程麻烦，也不方便增加新设备。使用资源顺序与编号顺序不一致，会导致资源浪费。</p>
+</li>
 </ul>
 <h4 id="避免死锁">避免死锁</h4>
 <p>用某种算法防止系统进入不安全状态，避免死锁（银行家算法）</p>
-<p><strong>安全序列</strong>：若系统按照该序列分配资源，则每个进程都能顺利完成。安全序列可能有多个，只要找出一个安全序列，系统就是
-<strong>安全状态</strong>。</p>
-<p>若系统处于安全状态，则 <strong>必定不会</strong>
-发生死锁。若系统进入不安全状态，则 <strong>可能</strong> 发生死锁。</p>
-<p>在每次分配资源前判断该分配是否让系统进入不安全状态，以此决定分配方式，这就是
-<strong>银行家算法</strong></p>
+<p><strong>安全序列</strong>：若系统按照该序列分配资源，则每个进程都能顺利完成。安全序列可能有多个，只要找出一个安全序列，系统就是 <strong>安全状态</strong>。</p>
+<p>若系统处于安全状态，则 <strong>必定不会</strong> 发生死锁。若系统进入不安全状态，则 <strong>可能</strong> 发生死锁。</p>
+<p>在每次分配资源前判断该分配是否让系统进入不安全状态，以此决定分配方式，这就是 <strong>银行家算法</strong></p>
 <p><strong>安全性算法</strong>：计算每个进程的剩余需求量。之后，用现有资源量逐一比对。现有资源满足剩余需求时，将该进程加入序列，并让现有资源加上该进程的已分配资源。循环比对后，所有进程进入序列时，该序列为安全序列。</p>
 <h4 id="检测和解除死锁">检测和解除死锁</h4>
 <p>允许死锁发生，但使操作系统检测和处理死锁</p>
 <p><strong>检测死锁</strong>：</p>
 <ul>
-<li><p>使用一种数据结构保存资源的请求与分配信息</p>
-<p>这种数据结构：存在两种节点（资源节点、进程节点）和两种边（进程—&gt;资源，资源—&gt;进程）</p></li>
-<li><p>提供一种算法，利用上述信息检测系统是否进入死锁状态</p>
-<p>死锁检测算法：若进程的资源需求都被满足，则其可以正常执行。其执行完后就能消除进程节点对应的边。那之后，可能激活其他的阻塞进程。上述循环分析后，若能消除所有边，则称该图
-<strong>可简化</strong>，此时必定没有发生死锁。否则，必定是发生了死锁，那些仍有边相连的进程是死锁进程。</p></li>
+<li>
+<p>使用一种数据结构保存资源的请求与分配信息</p>
+<p>这种数据结构：存在两种节点（资源节点、进程节点）和两种边（进程—&gt;资源，资源—&gt;进程）</p>
+</li>
+<li>
+<p>提供一种算法，利用上述信息检测系统是否进入死锁状态</p>
+<p>死锁检测算法：若进程的资源需求都被满足，则其可以正常执行。其执行完后就能消除进程节点对应的边。那之后，可能激活其他的阻塞进程。上述循环分析后，若能消除所有边，则称该图 <strong>可简化</strong>，此时必定没有发生死锁。否则，必定是发生了死锁，那些仍有边相连的进程是死锁进程。</p>
+</li>
 </ul>
 <p><strong>解除死锁</strong>：</p>
 <ul>
@@ -1063,7 +1048,6 @@ CPU）。反复申请和释放资源增加了系统开销，降低系统吞吐�
 
   
   
-
 
 
 
@@ -1311,44 +1295,6 @@ CPU）。反复申请和释放资源增加了系统开销，降低系统吞吐�
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

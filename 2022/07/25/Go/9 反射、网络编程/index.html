@@ -16,18 +16,18 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息">
+    <meta name="description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息 相关函数   V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;9 反射、网络编程">
 <meta property="og:url" content="https://i-melody.github.io/2022/07/25/Go/9%20%E5%8F%8D%E5%B0%84%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息">
+<meta property="og:description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息 相关函数   V">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-12-07T07:59:05.762Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -298,34 +298,37 @@
             
             <div class="markdown-body">
               
-              <h1 id="反射网络编程">9 反射、网络编程</h1>
-<h2 id="反射">9.1 反射</h2>
+              <h1>9 反射、网络编程</h1>
+<h2 id="9-1-反射">9.1 反射</h2>
 <p>反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。</p>
 <p>通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。</p>
 <p>变量相关的内容包含在 reflect 包中</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;reflect&quot;</span></code></pre></div>
-<h3 id="reflect.value">reflect.Value</h3>
+<h3 id="reflect-Value">reflect.Value</h3>
 <p>在 reflect.Value 结构体中，包含了与变量相关的信息</p>
 <p><strong>相关函数</strong></p>
 <ul>
-<li><p><code>ValueOf(i interface&#123;&#125;) Value</code>：返回指定对象的
-reflect.Value 结构体</p>
+<li>
+<p><code>ValueOf(i interface&#123;&#125;) Value</code>：返回指定对象的 reflect.Value 结构体</p>
 <div class="code-wrapper"><pre><code class="hljs go">i := <span class="hljs-number">100</span>
-v := reflect.ValueOf(i)</code></pre></div></li>
-<li><p><code>(v Value) Elem() Value</code>：返回该指针对象指向的对象的
-reflect.Value 结构体</p></li>
-<li><p><code>(v Value) Index(i int) Value</code>：返回该切片的指定下标元素的
-reflect.Value 结构体。必须是切片或数组</p></li>
-<li><p><code>(v Value) Int() int64</code>：获取该有符号数对象包含的值。</p>
-<p>对象本身不是 int、int 64... 等有符号数时，会产生 panic</p>
-<p>其余类型也有对应方法，如：<code>Bool() bool</code> 等</p></li>
-<li><p><code>(v Value) SetInt(i int64)</code>：将对象包含的有符号数值改为指定的值。适用所有
-int、int16... 等有符号数</p>
+v := reflect.ValueOf(i)</code></pre></div>
+</li>
+<li>
+<p><code>(v Value) Elem() Value</code>：返回该指针对象指向的对象的 reflect.Value 结构体</p>
+</li>
+<li>
+<p><code>(v Value) Index(i int) Value</code>：返回该切片的指定下标元素的 reflect.Value 结构体。必须是切片或数组</p>
+</li>
+<li>
+<p><code>(v Value) Int() int64</code>：获取该有符号数对象包含的值。</p>
+<p>对象本身不是 int、int 64… 等有符号数时，会产生 panic</p>
+<p>其余类型也有对应方法，如：<code>Bool() bool</code> 等</p>
+</li>
+<li>
+<p><code>(v Value) SetInt(i int64)</code>：将对象包含的有符号数值改为指定的值。适用所有 int、int16… 等有符号数</p>
 <p>其余类型也有对应方法，如：<code>SetBool(b bool)</code> 等</p>
-<p>通用方法
-<code>(v Value) Set(i Value)</code>：将对象包含的值改为指定的值</p>
-<p><strong>对象必须是一个指针类型的 Value，用 Elem()
-方法获取的值：</strong></p>
+<p>通用方法 <code>(v Value) Set(i Value)</code>：将对象包含的值改为指定的值</p>
+<p><strong>对象必须是一个指针类型的 Value，用 Elem() 方法获取的值：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs go">i := <span class="hljs-number">1</span>
 v := reflect.ValueOf(&amp;i)
 v.Elem().SetInt(<span class="hljs-number">1000</span>)
@@ -336,19 +339,23 @@ a := A&#123;<span class="hljs-number">0</span>&#125;
 b := A&#123;<span class="hljs-number">-100</span>&#125;
 v := reflect.ValueOf(&amp;a)
 v.Elem().Set(reflect.ValueOf(&amp;b).Elem())
-fmt.Println(a)					<span class="hljs-comment">// &#123;-100&#125;</span></code></pre></div></li>
-<li><p><code>(v Value) Method(i int) Value</code>：获得结构体的第 i
-个方法</p>
-<p>方法是依据其方法名字符的 ASCII 码按照
-<strong>字典顺序进行排序</strong> 的。</p>
+fmt.Println(a)					<span class="hljs-comment">// &#123;-100&#125;</span></code></pre></div>
+</li>
+<li>
+<p><code>(v Value) Method(i int) Value</code>：获得结构体的第 i 个方法</p>
+<p>方法是依据其方法名字符的 ASCII 码按照 <strong>字典顺序进行排序</strong> 的。</p>
 <p>只有首字母大写的方法才被计入</p>
 <p><code>(v Value) NumMethod() int</code>：获得该结构体的方法数量</p>
-<p><code>(v Value) MethodByName(name string) Value</code>：按标识符获得结构体的方法</p></li>
-<li><p><code>(v Value) Field(i int) Value</code>：返回结构体的第 i
-个字段。也是字典顺序。</p>
+<p><code>(v Value) MethodByName(name string) Value</code>：按标识符获得结构体的方法</p>
+</li>
+<li>
+<p><code>(v Value) Field(i int) Value</code>：返回结构体的第 i 个字段。也是字典顺序。</p>
 <p><code>(v Value) NumField() int</code>：获得该结构体的字段数量</p>
-<p><code>(v Value) FieldByName(name string) Value</code>：按标识符获得结构体的字段</p></li>
-<li><p><code>(v Value) Call(in []Value) []Value</code>：传入指定参数，并调用这个方法</p></li>
+<p><code>(v Value) FieldByName(name string) Value</code>：按标识符获得结构体的字段</p>
+</li>
+<li>
+<p><code>(v Value) Call(in []Value) []Value</code>：传入指定参数，并调用这个方法</p>
+</li>
 </ul>
 <p><strong>Value 的转换：</strong></p>
 <p>变量、interface{}、reflect.Value 是可以相互转换的：</p>
@@ -363,18 +370,23 @@ iv := reflect.ValueOf(i)		<span class="hljs-comment">// iv 的类型是 reflect.
 ii := iv.Interface()			<span class="hljs-comment">// ii 的类型是 interface&#123;&#125;</span>
 i0 := ii.(<span class="hljs-type">int</span>)					<span class="hljs-comment">// i0 的类型是 int</span>
 fmt.Println(i, iv, ii, i0)		<span class="hljs-comment">// 100 100 100 100</span></code></pre></div>
-<h3 id="reflect.type">reflect.Type</h3>
+<h3 id="reflect-Type">reflect.Type</h3>
 <p>在 reflect.Type 接口中，包含了与类型相关的信息</p>
 <p><strong>相关函数</strong></p>
 <ul>
-<li><p><code>TypeOf(i interface&#123;&#125;) Type</code>：返回指定对象的
-reflect.Type 接口</p>
+<li>
+<p><code>TypeOf(i interface&#123;&#125;) Type</code>：返回指定对象的 reflect.Type 接口</p>
 <div class="code-wrapper"><pre><code class="hljs go">i := <span class="hljs-number">100</span>
-t := reflect.TypeOf(i)</code></pre></div></li>
-<li><p><code>(v Value) Type() Type</code>：返回该 Value 的对象的 Type
-接口</p></li>
-<li><p><code>(t Type) Name() string</code>：返回指定对象的类型</p></li>
-<li><p><code>(t Type) Field(i int)</code>：获取该结构体的第 i 个字段</p>
+t := reflect.TypeOf(i)</code></pre></div>
+</li>
+<li>
+<p><code>(v Value) Type() Type</code>：返回该 Value 的对象的 Type 接口</p>
+</li>
+<li>
+<p><code>(t Type) Name() string</code>：返回指定对象的类型</p>
+</li>
+<li>
+<p><code>(t Type) Field(i int) </code>：获取该结构体的第 i 个字段</p>
 <p>获取这个字段的 tag：</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;
 	I <span class="hljs-type">int</span> <span class="hljs-string">`json:&quot;tag_of_A_I&quot;`</span>
@@ -384,37 +396,38 @@ t := reflect.TypeOf(i)</code></pre></div></li>
 	a := A&#123;<span class="hljs-number">1</span>&#125;
 	t := reflect.TypeOf(a)
 	fmt.Println(t.Field(<span class="hljs-number">0</span>).Tag.Get(<span class="hljs-string">&quot;json&quot;</span>))		<span class="hljs-comment">// tag_of_A_I</span>
-&#125;</code></pre></div></li>
-<li><p><code>(t Type) NumIn() int</code>：获取指定 func
-的参数个数。对象必须是 func</p>
-<p><code>(t Type) NumOut() int</code>：获取指定 func
-的返回值个数</p></li>
-<li><p><code>(t Type) In(i int) Type</code>：获取指定 func 的第 i
-个参数的类型。对象必须是 func</p>
-<p><code>(t Type) Out(i int) Type</code>：获取指定 func 的第 i
-个返回值的类型</p></li>
-<li><p><code>New (t Type) Value</code>：这是 reflect
-包下的一个函数。</p>
-<p>创建一个指定类型的变量，其值为 <strong>该类型的零值</strong> 的
-<strong>指针</strong>。</p></li>
-<li><p><code>MakeSlice(t Type, len int, cap int)</code>：这是 reflect
-包下的一个函数。</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p><code>(t Type) NumIn() int</code>：获取指定 func 的参数个数。对象必须是 func</p>
+<p><code>(t Type) NumOut() int</code>：获取指定 func 的返回值个数</p>
+</li>
+<li>
+<p><code>(t Type) In(i int) Type</code>：获取指定 func 的第 i 个参数的类型。对象必须是 func</p>
+<p><code>(t Type) Out(i int) Type</code>：获取指定 func 的第 i 个返回值的类型</p>
+</li>
+<li>
+<p><code>New (t Type) Value</code>：这是 reflect 包下的一个函数。</p>
+<p>创建一个指定类型的变量，其值为 <strong>该类型的零值</strong> 的 <strong>指针</strong>。</p>
+</li>
+<li>
+<p><code>MakeSlice(t Type, len int, cap int)</code>：这是 reflect 包下的一个函数。</p>
 <p>创建一个指定类型的切片，其大小、容量是指定的值。</p>
-<p>同样还有
-<code>MakeChan(t Type, buffer int)</code>、<code>MakeMap(t Type)</code>、<code>MakeFunc(t Type, func(args []Value) (results []Value)) Value</code></p>
+<p>同样还有 <code>MakeChan(t Type, buffer int)</code>、<code>MakeMap(t Type)</code>、<code>MakeFunc(t Type, func(args []Value) (results []Value)) Value</code></p>
 <p>另外，值得一提的是，<strong>要想获取一个切片的元素的类型，可以用以下方式</strong>（不知道有没有更好方法）：</p>
 <div class="code-wrapper"><pre><code class="hljs go">sli := reflect.TypeOf([]<span class="hljs-type">int</span>&#123;&#125;)     <span class="hljs-comment">//  &lt;---- sli 是一个任意的切片的 Type 接口</span>
 ele := reflect.MakeSlice(sli, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>).Index(<span class="hljs-number">0</span>).Type()
-									<span class="hljs-comment">// 创建了一个切片示例，之后取其第一个元素的类型</span></code></pre></div></li>
+									<span class="hljs-comment">// 创建了一个切片示例，之后取其第一个元素的类型</span></code></pre></div>
+</li>
 </ul>
-<h3 id="reflect.kind">reflect.Kind</h3>
+<h3 id="reflect-Kind">reflect.Kind</h3>
 <p>reflect.Kind 是一组常量，其指示了一些类别。</p>
 <p><strong>相关函数</strong></p>
 <ul>
-<li><p><code>(v Value) Kind() Kind</code>：返回 Value 对象的分类。类别是
-reflect.Kind</p>
-<p><code>(t Type) Kind() Kind</code>：在 Type
-中也实现了这个方法</p></li>
+<li>
+<p><code>(v Value) Kind() Kind</code>：返回 Value 对象的分类。类别是 reflect.Kind</p>
+<p><code>(t Type) Kind() Kind</code>：在 Type 中也实现了这个方法</p>
+</li>
 </ul>
 <p>Kind 是一组常量（一组数字），对 Kind 进行比较的方法：</p>
 <div class="code-wrapper"><pre><code class="hljs go">i := <span class="hljs-number">100</span>
@@ -442,24 +455,26 @@ fmt.Println(reflect.ValueOf(i).Kind())		<span class="hljs-comment">// ptr</span>
 a := A&#123;&#125;
 fmt.Println(reflect.TypeOf(a))         		<span class="hljs-comment">// main.A</span>
 fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</span></code></pre></div>
-<p>Kind 与 Type 可能相同，也可能不同。Type 即变量的类型，而 Kind
-是变量的类别。</p>
-<h2 id="网络编程">9.2 网络编程</h2>
+<p>Kind 与 Type 可能相同，也可能不同。Type 即变量的类型，而 Kind 是变量的类别。</p>
+<h2 id="9-2-网络编程">9.2 网络编程</h2>
 <p>网络编程有两种：</p>
 <ul>
-<li><p>TCP Socket 编程</p>
-<p>是网络编程的主流。底层是 TCP/IP 协议。</p></li>
-<li><p>b/s 结构的 HTTP 编程</p>
-<p>使用浏览器访问服务器时，就是使用 HTTP 协议。HTTP 协议底层仍是 TCP/IP
-协议</p></li>
+<li>
+<p>TCP Socket 编程</p>
+<p>是网络编程的主流。底层是 TCP/IP 协议。</p>
+</li>
+<li>
+<p>b/s 结构的 HTTP 编程</p>
+<p>使用浏览器访问服务器时，就是使用 HTTP 协议。HTTP 协议底层仍是 TCP/IP 协议</p>
+</li>
 </ul>
 <p>net 包中，提供了与网络开发相关的方法</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;net&quot;</span></code></pre></div>
-<p>net 包提供了可移植的网络 I/O 接口，包括 TCP/IP、UDP、域名解析和 Unix
-域 Socket</p>
+<p>net 包提供了可移植的网络 I/O 接口，包括 TCP/IP、UDP、域名解析和 Unix 域 Socket</p>
 <p><strong>相关接口 / 结构体</strong></p>
 <ul>
-<li><p>Listener：网络监听器</p>
+<li>
+<p>Listener：网络监听器</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Listener <span class="hljs-keyword">interface</span> &#123;
     <span class="hljs-comment">// Addr 返回该接口的网络地址</span>
     Addr() Addr
@@ -469,8 +484,10 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
     
     <span class="hljs-comment">// Close 关闭该接口，使任何阻塞的 Accept 操作不再阻塞并返回错误</span>
     Close() <span class="hljs-type">error</span>
-&#125;</code></pre></div></li>
-<li><p>Conn：面向流的网络连接</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>Conn：面向流的网络连接</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Conn <span class="hljs-keyword">interface</span> &#123;
     <span class="hljs-comment">// Read 从连接中读取数据。可能在超时后返回错误，该错误的 Timeout() 返回 true</span>
     Read(b []<span class="hljs-type">byte</span>) (n <span class="hljs-type">int</span>, err <span class="hljs-type">error</span>)
@@ -495,25 +512,28 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
     
     <span class="hljs-comment">// SetWriteDeadline 设定写操作的等待时限</span>
     SetWriteDeadline(t time.Time) <span class="hljs-type">error</span>
-&#125;</code></pre></div></li>
-<li><p>Addr：代表一个网络终端地址</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>Addr：代表一个网络终端地址</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Addr <span class="hljs-keyword">interface</span> &#123;
     <span class="hljs-comment">// Network 返回其网络名</span>
     Network() <span class="hljs-type">string</span>
     
     <span class="hljs-comment">// String 以字符串格式返回地址</span>
     String() <span class="hljs-type">string</span>
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
-<h3 id="服务端">9.2.1 服务端</h3>
+<h3 id="9-2-1-服务端">9.2.1 服务端</h3>
 <p>持续监听一个指定端口。每当端口捕捉到通讯请求时，启动一个协程处理那个通信请求。</p>
 <p><strong>相关函数</strong></p>
 <ul>
-<li><p><code>func Listen(net, laddr string) (Listner, error)</code></p>
-<p>返回一个在本地网络地址 laddr 上监听的
-Listener。未监听到时会持续阻塞</p>
-<p>net
-是网络类型。其可以是："tcp"、"tcp4"、"tcp6"、"unix"、"unixpacket"</p></li>
+<li>
+<p><code>func Listen(net, laddr string) (Listner, error)</code></p>
+<p>返回一个在本地网络地址 laddr 上监听的 Listener。未监听到时会持续阻塞</p>
+<p>net 是网络类型。其可以是：“tcp”、“tcp4”、“tcp6”、“unix”、“unixpacket”</p>
+</li>
 </ul>
 <p><strong>示例</strong></p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">server</span><span class="hljs-params">()</span></span> &#123;
@@ -560,38 +580,48 @@ Listener。未监听到时会持续阻塞</p>
 		&#125;
 	&#125;
 &#125;</code></pre></div>
-<ol type="1">
-<li><p><code>func Listen(net, laddr string) (Listner, error)</code></p>
-<p>指定方式、端口，获得 Listener</p></li>
-<li><p><code>func (l *Listener) Accept() (c Conn, err error)</code></p>
-<p>用指定端口持续监听连接请求，获得
-Conn。没有连接请求时会阻塞。</p></li>
-<li><p><code>func (c *Conn) RemoteAddr() Addr</code></p>
+<ol>
+<li>
+<p><code>func Listen(net, laddr string) (Listner, error)</code></p>
+<p>指定方式、端口，获得 Listener</p>
+</li>
+<li>
+<p><code>func (l *Listener) Accept() (c Conn, err error)</code></p>
+<p>用指定端口持续监听连接请求，获得 Conn。没有连接请求时会阻塞。</p>
+</li>
+<li>
+<p><code>func (c *Conn) RemoteAddr() Addr</code></p>
 <p>获取指定连接中的远端地址</p>
 <p><code>func (a *Addr) String() string</code></p>
-<p>获得表示该地址的字符串</p></li>
-<li><p><code>func (c *Conn) Read(b []byte) (n int, err error)</code></p>
-<p>持续地从连接中读取输入内容。没有输入内容时会阻塞。</p></li>
-<li><p><code>io.EOF</code></p>
-<p>当那个连接中断时，返回该错误信息</p></li>
-<li><p><code>func (c *Conn) Close() error</code></p>
+<p>获得表示该地址的字符串</p>
+</li>
+<li>
+<p><code>func (c *Conn) Read(b []byte) (n int, err error)</code></p>
+<p>持续地从连接中读取输入内容。没有输入内容时会阻塞。</p>
+</li>
+<li>
+<p><code>io.EOF</code></p>
+<p>当那个连接中断时，返回该错误信息</p>
+</li>
+<li>
+<p><code>func (c *Conn) Close() error</code></p>
 <p><code>func (l *Listener) Close() error</code></p>
-<p>通讯结束后，应关闭连接</p></li>
+<p>通讯结束后，应关闭连接</p>
+</li>
 </ol>
-<h3 id="客户端">9.2.2 客户端</h3>
+<h3 id="9-2-2-客户端">9.2.2 客户端</h3>
 <p>向指定地址发送通信请求。</p>
 <p><strong>相关函数</strong></p>
 <ul>
-<li><p><code>func Dial(network, address string) (Conn, error)</code></p>
+<li>
+<p><code>func Dial(network, address string) (Conn, error)</code></p>
 <p>在网络 network 上连接地址 address，返回一个 Conn 接口</p>
-<p>network
-可以是："tcp"、"tcp4"、"tcp6"、"udp"、"udp4"、"udp6、"ip"、"ip4"、"ip6"、"unix"、"unixgram"、"unixpacket"</p>
-<p>对于 TCP 和 UDP 网络，地址格式为 <code>host:port</code> 或
-<code>[host]:port</code>。如：</p>
+<p>network 可以是：“tcp”、“tcp4”、“tcp6”、“udp”、“udp4”、&quot;udp6、“ip”、“ip4”、“ip6”、“unix”、“unixgram”、“unixpacket”</p>
+<p>对于 TCP 和 UDP 网络，地址格式为 <code>host:port</code> 或 <code>[host]:port</code>。如：</p>
 <div class="code-wrapper"><pre><code class="hljs go">net.Dial(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;0.0.0.0:9000&quot;</span>)</code></pre></div>
-<p>对于 IP 网络，器 network 必须是 "ip"、"ip4"、"ip6"
-后跟冒号和协议号或协议名，地址需是 IP 地址字面值。如：</p>
-<div class="code-wrapper"><pre><code class="hljs go">net.Dial(<span class="hljs-string">&quot;ip6:ospf&quot;</span>, <span class="hljs-string">&quot;::1&quot;</span>)</code></pre></div></li>
+<p>对于 IP 网络，器 network 必须是 “ip”、“ip4”、“ip6” 后跟冒号和协议号或协议名，地址需是 IP 地址字面值。如：</p>
+<div class="code-wrapper"><pre><code class="hljs go">net.Dial(<span class="hljs-string">&quot;ip6:ospf&quot;</span>, <span class="hljs-string">&quot;::1&quot;</span>)</code></pre></div>
+</li>
 </ul>
 <p><strong>示例</strong></p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> (
@@ -613,25 +643,34 @@ Conn。没有连接请求时会阻塞。</p></li>
 		fmt.Println(<span class="hljs-string">&quot;前面的区域，以后再探索吧！&quot;</span>)
 	&#125;
 &#125;</code></pre></div>
-<ol type="1">
-<li><p><code>func Dial(network, address string) (Conn, error)</code></p>
-<p>尝试与指定地址进行通讯。己方的端口由系统随机分配</p></li>
-<li><p><code>func NewReader(rd io.Reader) *Reader</code></p>
+<ol>
+<li>
+<p><code>func Dial(network, address string) (Conn, error)</code></p>
+<p>尝试与指定地址进行通讯。己方的端口由系统随机分配</p>
+</li>
+<li>
+<p><code>func NewReader(rd io.Reader) *Reader </code></p>
 <p>获取一个读取键盘输入的输入流</p>
 <p><code>os.Stdin</code></p>
-<p>指向标准输入的文件。标准输入的文件默认是键盘输入</p></li>
-<li><p><code>func (b *Reader) ReadString(delim byte) (line string, err error)</code></p>
-<p>从上述键盘输入流获取输入的字符串</p></li>
-<li><p><code>func (c *Conn) Write(b []byte) (n int, err error)</code></p>
-<p>向连接中写入数据</p></li>
-<li><p><code>func (c *Conn) Close() error</code></p>
-<p>通讯结束后，应关闭连接</p></li>
+<p>指向标准输入的文件。标准输入的文件默认是键盘输入</p>
+</li>
+<li>
+<p><code>func (b *Reader) ReadString(delim byte) (line string, err error)</code></p>
+<p>从上述键盘输入流获取输入的字符串</p>
+</li>
+<li>
+<p><code>func (c *Conn) Write(b []byte) (n int, err error)</code></p>
+<p>向连接中写入数据</p>
+</li>
+<li>
+<p><code>func (c *Conn) Close() error</code></p>
+<p>通讯结束后，应关闭连接</p>
+</li>
 </ol>
 <h2 id="附录">附录</h2>
 <h3 id="力扣测试用例解析代码">力扣测试用例解析代码</h3>
 <blockquote>
-<p>该代码模拟力扣题目的 ”运行“
-模块。虽然不会给出正确答案，但是可以通过控制台追踪代码的运行情况。</p>
+<p>该代码模拟力扣题目的 ”运行“ 模块。虽然不会给出正确答案，但是可以通过控制台追踪代码的运行情况。</p>
 <p>给出节点定义的题目不能使用。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-comment">/* 这是使用方法的举例 */</span>
@@ -810,9 +849,9 @@ Conn。没有连接请求时会阻塞。</p></li>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Go/">#Go</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Go/">#Go</a>
       
     </div>
   

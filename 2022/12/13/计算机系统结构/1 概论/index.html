@@ -16,13 +16,14 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CA1 概论 CA1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序">
+    <meta name="description" content="CA1 概论 CA1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数据送入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;计算机系统结构&gt;CA1 概论">
 <meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/1%20%E6%A6%82%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="CA1 概论 CA1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序">
+<meta property="og:description" content="CA1 概论 CA1.1 计算机的结构  1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。 冯·诺依曼提出了 IAS 计算机的结构，这就是 冯·诺依曼结构。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数据送入">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA1_3%2520%25E8%25AE%25A1%25E7%25AE%2597%25E6%259C%25BA%25E7%2594%25A8%25E6%2588%25B7%25E5%25B1%2582%25E6%25AC%25A1%25E5%259B%25BE.webp">
 <meta property="article:published_time" content="2022-12-12T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-04-17T11:12:22.722Z">
 <meta property="article:author" content="Melody">
@@ -30,6 +31,7 @@
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="计算机系统结构">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/CA_InputImage/CA1_3%2520%25E8%25AE%25A1%25E7%25AE%2597%25E6%259C%25BA%25E7%2594%25A8%25E6%2588%25B7%25E5%25B1%2582%25E6%25AC%25A1%25E5%259B%25BE.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -46,6 +48,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -226,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.5k 字
+          5.8k 字
         
       </span>
     
@@ -237,7 +241,7 @@
         
         
         
-          16 分钟
+          17 分钟
         
       </span>
     
@@ -299,38 +303,35 @@
             
             <div class="markdown-body">
               
-              <h1 id="ca1-概论">CA1 概论</h1>
-<h2 id="ca1.1-计算机的结构">CA1.1 计算机的结构</h2>
+              <h1>CA1 概论</h1>
+<h2 id="CA1-1-计算机的结构">CA1.1 计算机的结构</h2>
 <blockquote>
-<p>1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机
-ENIAC（Electronic Numerical Integrator And
-Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。</p>
-<p>冯·诺依曼提出了 IAS 计算机的结构，这就是
-<strong>冯·诺依曼结构</strong>。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数据送入主存并执行。一旦程序启动，计算机就能在不需要操作人员干预的情况下自动完成逐条取出指令和执行指令的认为。“存储程序”
-是冯·诺依曼机器的最重要思想。现在，几乎所有通用计算机都采用冯·诺依曼结构</p>
+<p>1946 年，美国宾夕法尼亚大学研制了世界第一台通用计算机 ENIAC（Electronic Numerical Integrator And Computer，电子数字积分计算机）。通过手动编程，使用十进制方式表示和计算信息。</p>
+<p>冯·诺依曼提出了 IAS 计算机的结构，这就是 <strong>冯·诺依曼结构</strong>。这种计算机完成的工作要事先被编写为程序，然后将程序和原始数据送入主存并执行。一旦程序启动，计算机就能在不需要操作人员干预的情况下自动完成逐条取出指令和执行指令的认为。“存储程序” 是冯·诺依曼机器的最重要思想。现在，几乎所有通用计算机都采用冯·诺依曼结构</p>
 </blockquote>
-<h4 id="冯诺依曼结构">冯·诺依曼结构</h4>
+<h4 id="冯·诺依曼结构">冯·诺依曼结构</h4>
 <p>冯·诺依曼结构的主要思想：</p>
 <ul>
-<li><p>计算机应该由五个基本部件组成</p>
-<p><strong>存储器</strong>：能存放数据和指令。数据和指令在形式上没有区别（0、1
-的序列），但计算机能区分数据和指令</p>
+<li>
+<p>计算机应该由五个基本部件组成</p>
+<p><strong>存储器</strong>：能存放数据和指令。数据和指令在形式上没有区别（0、1 的序列），但计算机能区分数据和指令</p>
 <p><strong>控制器</strong>：能自动取出指令并执行</p>
 <p><strong>运算器</strong>：能进行加减乘除四种基本算术运算，以及一些逻辑运算和附加运算</p>
 <p><strong>输入设备、输出设备</strong>：操作人员通过输入、输出设备和主机进行通信</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA1%20冯诺依曼结构图.webp" srcset="/img/loading.webp" lazyload /></p>
-<p><em>（CA1 冯诺依曼结构图）</em></p></li>
-<li><p>计算机内部以 <strong>二进制形式</strong>
-表示指令和数据。每条指令分为两部分：</p>
+<p>![](./…/…/…/…/…/img/CA_InputImage/CA1 冯诺依曼结构图.webp)</p>
+<p><em>（CA1 冯诺依曼结构图）</em></p>
+</li>
+<li>
+<p>计算机内部以 <strong>二进制形式</strong> 表示指令和数据。每条指令分为两部分：</p>
 <p><strong>操作码部分</strong>：指出操作类型</p>
-<p><strong>地址吗部分</strong>：指出操作数的地址</p></li>
-<li><p>一串指令组成了程序。计算机采用 <strong>存储程序</strong>
-的工作方式</p></li>
+<p><strong>地址吗部分</strong>：指出操作数的地址</p>
+</li>
+<li>
+<p>一串指令组成了程序。计算机采用 <strong>存储程序</strong> 的工作方式</p>
+</li>
 </ul>
 <h4 id="现代计算机结构模型">现代计算机结构模型</h4>
-<p><img
-src="./../../../../../img/CA_InputImage/CA1%20现代计算机结构图.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>![](./…/…/…/…/…/img/CA_InputImage/CA1 现代计算机结构图.webp)</p>
 <p><em>（CA1 现代计算机结构图）</em></p>
 <p>现代计算机的基本部件：</p>
 <ul>
@@ -344,33 +345,32 @@ src="./../../../../../img/CA_InputImage/CA1%20现代计算机结构图.webp" src
 </ul>
 <p>现代计算机的工作过程</p>
 <ul>
-<li><p>数据和指令按顺序放在储存器中，各自对应一个存储单元地址。指令由
-OP、ADDR 字段组成，程序起始地址置 PC</p></li>
-<li><p>开始执行程序后，先根据 PC
-读取指令并将其译码，再根据指令读操作数，执行指令后回写结果，最后修改 PC
-的值。之后会循环继续执行下一道指令</p></li>
-<li><p>计算机的指令包含以下信息：</p>
+<li>
+<p>数据和指令按顺序放在储存器中，各自对应一个存储单元地址。指令由 OP、ADDR 字段组成，程序起始地址置 PC</p>
+</li>
+<li>
+<p>开始执行程序后，先根据 PC 读取指令并将其译码，再根据指令读操作数，执行指令后回写结果，最后修改 PC 的值。之后会循环继续执行下一道指令</p>
+</li>
+<li>
+<p>计算机的指令包含以下信息：</p>
 <p>操作性质（操作码）</p>
 <p>源操作数1 和/或 源操作数2（立即数、寄存器编号、存储地址）</p>
-<p>目的操作数地址（寄存器编号、存储地址）</p></li>
+<p>目的操作数地址（寄存器编号、存储地址）</p>
+</li>
 </ul>
-<h2 id="ca1.2-程序开发过程">CA1.2 程序开发过程</h2>
+<h2 id="CA1-2-程序开发过程">CA1.2 程序开发过程</h2>
 <blockquote>
 <p>最早的程序开发是使用机器语言编写程序，并记录在纸带或卡片上，这是第一代程序设计语言。这样的编程方式不够灵活，书写、阅读也很困难。</p>
 </blockquote>
 <h4 id="汇编语言">汇编语言</h4>
-<p>以助记符表示操作码和寄存器，以标号表示位置，就形成了
-<strong>汇编语言</strong>。汇编语言称为第二代程序设计语言</p>
+<p>以助记符表示操作码和寄存器，以标号表示位置，就形成了 <strong>汇编语言</strong>。汇编语言称为第二代程序设计语言</p>
 <p>汇编语言需要借助汇编程序转换才能被机器识别。</p>
 <p>汇编语言程序由汇编指令构成。汇编指令是用助记符和标号表示的，和机器指令一一对应。</p>
 <p>指令包含操作码、操作数或其地址码。机器指令用二进制表示，汇编指令用符号表示。</p>
 <p>指令只能包含最简单的数据的存取，简单计算。使用汇编语言编写复杂程序要描述的细节太多，而且在不同结构机器上无法运行。</p>
 <h4 id="高级语言">高级语言</h4>
-<p>随着技术发展，出现了很多
-<strong>高级编程语言</strong>。这些语言和具体机器结构无关。它们面向算法描述，比机器语言描述能力强得多。</p>
-<p>第三代程序设计语言是过程式语言，描述
-“怎么做”，编码时需要描述实现过程。第四代程序设计语言是非过程式语言，编码时只需说明
-“做什么”，而不需描述具体的算法实现细节。</p>
+<p>随着技术发展，出现了很多 <strong>高级编程语言</strong>。这些语言和具体机器结构无关。它们面向算法描述，比机器语言描述能力强得多。</p>
+<p>第三代程序设计语言是过程式语言，描述 “怎么做”，编码时需要描述实现过程。第四代程序设计语言是非过程式语言，编码时只需说明 “做什么”，而不需描述具体的算法实现细节。</p>
 <p>高级语言是高度抽象的，其一条语句可能对应几十或几百条语句。</p>
 <p>高级语言分为 “面向过程” 和 “面向对象” 两种。</p>
 <p>现在，程序员几乎都使用高级语言来编写程序，但最终都要将其转换成机器语言来执行。转换方式有两种：</p>
@@ -385,38 +385,34 @@ OP、ADDR 字段组成，程序起始地址置 PC</p></li>
 <ul>
 <li>语言处理程序（包括编写源程序的编译器，及处理源程序的翻译转换软件）</li>
 <li>语言的运行时系统</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>操作系统</strong>
 <ul>
 <li>人机接口：GUI 方式（图形用户界面）或 CUI 方式（命令行用户界面）</li>
 <li>操作系统内核</li>
-</ul></li>
+</ul>
+</li>
 <li>指令集体系结构：计算机硬件的抽象</li>
 </ul>
-<h2 id="ca1.3-计算机系统的层次结构">CA1.3 计算机系统的层次结构</h2>
-<p>计算机由
-硬件、固件（微程序。放在只读存储器中，几乎不改变的程序）、软件组成。</p>
+<h2 id="CA1-3-计算机系统的层次结构">CA1.3 计算机系统的层次结构</h2>
+<p>计算机由 硬件、固件（微程序。放在只读存储器中，几乎不改变的程序）、软件组成。</p>
 <p>从使用语言的角度，计算机系统可以被看成按功能划分的多层机器级组成的层次结构。</p>
 <h4 id="计算机系统抽象层的转换">计算机系统抽象层的转换</h4>
 <p>计算机抽象层间，上层是下层的抽象，下层是上层的实现，底层为上层提供支撑环境。</p>
-<p>用户提出的 <strong>问题</strong> 要转化成
-<strong>算法</strong>，通过高级语言程序实现后得到
-<strong>高级语言源程序</strong>。</p>
-<p>高级语言源程序借由 <strong>操作系统</strong> 的支持被翻译成
-<strong>指令集体系结构</strong>（ISA）规定的机器指令。</p>
-<p>指令集体系结构是硬件层面的抽象，其具体实现实际上是
-<strong>微体系结构</strong> 的实现。</p>
+<p>用户提出的 <strong>问题</strong> 要转化成 <strong>算法</strong>，通过高级语言程序实现后得到 <strong>高级语言源程序</strong>。</p>
+<p>高级语言源程序借由 <strong>操作系统</strong> 的支持被翻译成 <strong>指令集体系结构</strong>（ISA）规定的机器指令。</p>
+<p>指令集体系结构是硬件层面的抽象，其具体实现实际上是 <strong>微体系结构</strong> 的实现。</p>
 <pre><code class=" mermaid">graph TB
 5[应用语言机器 M5]--&gt;4[高级语言机器 M4]--&gt;3[汇编语言机器 M3]--&gt;2[操作系统机器 M2]--&gt;1[传统机器语言机器 M1]--&gt;0[微程序机器 M0]
 1:::C1
 0:::C2
 classDef C1 fill:#F0C0C0
 classDef C2 fill:#F0F0A0</code></pre>
-<ol start="0" type="1">
+<ol start="0">
 <li>微程序：微程序由硬件直接执行。M0 由硬件实现。</li>
 <li>机器指令：用微指令程序解释机器指令。M1 由微程序（固件）实现。</li>
-<li>操作系统作业控制语言：一般用机器语言程序解释作业控制语句。M2
-以上多由软件实现。</li>
+<li>操作系统作业控制语言：一般用机器语言程序解释作业控制语句。M2 以上多由软件实现。</li>
 <li>汇编语言：汇编语言程序经汇编程序翻译成机器语言程序。</li>
 <li>高级语言：高级语言程序经过编译程序翻译成汇编语言程序，或某种中间语言程序，或机器语言程序。</li>
 <li>应用语言：应用语言程序经过应用程序包翻译成高级语言程序。</li>
@@ -425,67 +421,61 @@ classDef C2 fill:#F0F0A0</code></pre>
 <p><strong>最终用户</strong>：工作在由应用程序提供的最上层的抽象层</p>
 <p><strong>系统管理员</strong>：工作在由操作系统提供的抽象层</p>
 <p><strong>应用程序员</strong>：工作在语言处理系统（主要是编译器和汇编器）的抽象层。语言处理系统建立在操作系统之上。编译器、汇编器的目标程序由机器级代码组成，操作系统指令直接对硬件进行编程控制</p>
-<p><strong>系统程序员</strong>：工作在 ISA 层次，必须对 ISA
-非常了解。ISA
-处于软件和硬件的交界面，是对硬件的抽象。软件的所有功能都建立在 ISA
-的基础上。ISA 是最重要的层次</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA1_3%2520%25E8%25AE%25A1%25E7%25AE%2597%25E6%259C%25BA%25E7%2594%25A8%25E6%2588%25B7%25E5%25B1%2582%25E6%25AC%25A1%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><strong>系统程序员</strong>：工作在 ISA 层次，必须对 ISA 非常了解。ISA 处于软件和硬件的交界面，是对硬件的抽象。软件的所有功能都建立在 ISA 的基础上。ISA 是最重要的层次</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA1_3%2520%25E8%25AE%25A1%25E7%25AE%2597%25E6%259C%25BA%25E7%2594%25A8%25E6%2588%25B7%25E5%25B1%2582%25E6%25AC%25A1%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA1_3 计算机用户层次图）</em></p>
-<h4 id="指令集体系结构-isa">指令集体系结构 ISA</h4>
+<h4 id="指令集体系结构-ISA">指令集体系结构 ISA</h4>
 <blockquote>
 <p>指令集体系结构（ISA，Instruction Set Architecture），简称指令系统</p>
 </blockquote>
 <p>ISA 是一种规约，规定了如何使用硬件：</p>
 <ul>
-<li>可执行的指令和集合，包括
-<strong>指令格式</strong>、<strong>操作种类</strong> 以及每种操作对应的
-<strong>操作数的规定</strong></li>
+<li>可执行的指令和集合，包括 <strong>指令格式</strong>、<strong>操作种类</strong> 以及每种操作对应的 <strong>操作数的规定</strong></li>
 <li>指令可以接受的 <strong>操作数的类型</strong></li>
-<li>操作数能存放的寄存器组的结构，包括
-<strong>每个寄存器的名称、编号、长度、用途</strong></li>
-<li>操作数能存放的 <strong>存储空间的大小</strong> 和
-<strong>编址方式</strong></li>
-<li>操作数在存储空间存放时
-<strong>按照大端还是小端方式存放</strong></li>
+<li>操作数能存放的寄存器组的结构，包括 <strong>每个寄存器的名称、编号、长度、用途</strong></li>
+<li>操作数能存放的 <strong>存储空间的大小</strong> 和 <strong>编址方式</strong></li>
+<li>操作数在存储空间存放时 <strong>按照大端还是小端方式存放</strong></li>
 <li>指令获取操作数的方式，即 <strong>寻址方式</strong></li>
-<li>指令执行过程的控制方式，包括
-<strong>程序计数器</strong>（PC）、<strong>条件码定义</strong> 等</li>
+<li>指令执行过程的控制方式，包括 <strong>程序计数器</strong>（PC）、<strong>条件码定义</strong> 等</li>
 </ul>
 <p>ISA 在通用计算机系统中是必不可少的一个抽象层。</p>
 <p>不同的 ISA 规定的指令集不同，如 IA-32、MIPS、ARM 等。</p>
-<p>计算机的硬件组成称为
-<strong>微体系结构</strong>。计算机组成必须能实现 ISA 规定的功能，同一种
-ISA 可以由不同计算机组成。</p>
-<h2 id="ca1.4-计算机系统结构组成实现">CA1.4
-计算机系统结构、组成、实现</h2>
-<p>计算机系统设计的主要内容就是计算机
-<strong>系统结构</strong>、<strong>组成</strong>、<strong>实现</strong>
-的设计。</p>
+<p>计算机的硬件组成称为 <strong>微体系结构</strong>。计算机组成必须能实现 ISA 规定的功能，同一种 ISA 可以由不同计算机组成。</p>
+<h2 id="CA1-4-计算机系统结构、组成、实现">CA1.4 计算机系统结构、组成、实现</h2>
+<p>计算机系统设计的主要内容就是计算机 <strong>系统结构</strong>、<strong>组成</strong>、<strong>实现</strong> 的设计。</p>
 <p><strong>计算机系统结构</strong>：指是传统机器语言级的体系结构。它是软件与硬件/固件的交界面，是机器语言程序员看到的机器物理系统的抽象。计算机系统结构研究软硬件间的功能分配，确定传统机器级的界面。</p>
 <p><strong>计算机组成</strong>：指计算机系统结构的逻辑实现。包括机器级内部的数据流和控制流的组成，以及逻辑设计等。其着眼于物理机器级内各事件的排序方式与控制方式、各功能部件及部件间的联系。</p>
 <p><strong>计算机实现</strong>：指计算机组成的物理实现，包括处理机、主存等部件的物理结构，部件集成度，模块、插件、底板的划分与连接，信号传输，电源，冷却，整机装配技术等。其着眼于器件技术（主导）、微组装技术。</p>
 <p>相同的系统结构可能有不同的组成，一种计算机组成可以有多种实现。此外，不同的系统架构会让计算机组成产生差异，计算机组成也会对计算机实现产生影响。</p>
-<h2 id="ca1.5-软件发展对系统架构的影响">CA1.5
-软件发展对系统架构的影响</h2>
+<h2 id="CA1-5-软件发展对系统架构的影响">CA1.5 软件发展对系统架构的影响</h2>
 <p><strong>软件的可移植性</strong>：一个软件能不经修改或只需少量修改，即能由一台计算机移植到另一计算机上正确运行。</p>
 <p>软件的兼容性分为四种情况：向上（机器档次更高）兼容、向下（机器档次更低）兼容、向前（发布时间靠前）兼容、向后（发布时间靠后）兼容。向后兼容是程序设计的基本要求。</p>
 <p>实现可移植性的办法有以下几种：</p>
 <ul>
-<li><p><strong>采用系列机</strong></p>
-<p>系列机：由同一厂家生产的，具有相同系统结构，但具有不同组成和实现的一系列不同型号机器。</p></li>
-<li><p><strong>模拟和仿真</strong></p>
+<li>
+<p><strong>采用系列机</strong></p>
+<p>系列机：由同一厂家生产的，具有相同系统结构，但具有不同组成和实现的一系列不同型号机器。</p>
+</li>
+<li>
+<p><strong>模拟和仿真</strong></p>
 <p>模拟：用软件的方法在一台机器（宿主机）上实现另一机器（虚拟机）的指令集</p>
-<p>仿真：用一台机器（宿主机）上的微程序去解释实现另一条机器（虚拟机）的指令集</p></li>
-<li><p><strong>统一高级语言</strong></p></li>
+<p>仿真：用一台机器（宿主机）上的微程序去解释实现另一条机器（虚拟机）的指令集</p>
+</li>
+<li>
+<p><strong>统一高级语言</strong></p>
+</li>
 </ul>
 <p>不同的应用对计算机系统结构设计提出了不同要求。应用需求是促使计算机系统结构发展的根本动力。</p>
 <p>摩尔定律：集成电路芯片上集成的晶体管数目每隔 18 个月就翻一番。</p>
-<h2 id="ca1.6-系统结构的并行性">CA1.6 系统结构的并行性</h2>
+<h2 id="CA1-6-系统结构的并行性">CA1.6 系统结构的并行性</h2>
 <p>并行性包括同时性和并发性两重含义：</p>
 <ul>
-<li><p><strong>同时性</strong>：两个以上事件在同一时刻发生</p></li>
-<li><p><strong>并发性</strong>：两个以上事件在同一时间段内发生</p></li>
+<li>
+<p><strong>同时性</strong>：两个以上事件在同一时刻发生</p>
+</li>
+<li>
+<p><strong>并发性</strong>：两个以上事件在同一时间段内发生</p>
+</li>
 </ul>
 <p>从计算机系统执行程序的角度看，并行性等级由低到高分为几级：</p>
 <ul>
@@ -523,7 +513,7 @@ ISA 可以由不同计算机组成。</p>
 <li>多指令流单数据流（MISD）</li>
 <li>多指令流多数据流（MIMD）</li>
 </ul>
-<h2 id="ca1.7-计算机系统的软硬件取舍">CA1.7 计算机系统的软硬件取舍</h2>
+<h2 id="CA1-7-计算机系统的软硬件取舍">CA1.7 计算机系统的软硬件取舍</h2>
 <p>计算机系统软硬件取舍的基本原则：</p>
 <ul>
 <li>在现有硬件、器件条件下，从实现费用、速度和其他性能要求综合考虑，获取高性价比</li>
@@ -531,53 +521,46 @@ ISA 可以由不同计算机组成。</p>
 <li>不仅从硬件角度考虑如何便于应用组成技术和发挥期间技术的进展，还要从软件角度考虑编译与操作系统的实现，并把对高级语言程序提供更多更好的支持放在首位</li>
 </ul>
 <p>软、硬件的功能分配是计算机系统结构的主要任务。软件与硬件在逻辑功能上是等效的，但他们在性能、价格、实现难易程度上不同。</p>
-<p>硬件与软件的费用都包含 研发费用 与 生产费用。若软、硬件的研发费用记为
-<span class="math inline">\(D_s,\ D_h\)</span>，则 <span
-class="math inline">\(D_h\approx 100D_s\)</span>
-也是可能的。若软、硬件的生产费用记为 <span class="math inline">\(M_s,\
-M_h\)</span>，则 <span class="math inline">\(M_h\approx 100M_s\)</span>
-也是可能的。此外，软件设计成本远高于软件生产成本，<span
-class="math inline">\(D_s\approx 1000M_s\)</span> 也是可能的。</p>
-<p>硬件一般只需一次设计，而软件需要多次设计。若 <span
-class="math inline">\(C\)</span>
-为软件重新的设计次数，则软件实现的设计费用为 <span
-class="math inline">\(C\times D_s\)</span></p>
-<p>同一功能的软件在存储介质上可能多次复制和存储。若出现 <span
-class="math inline">\(R\)</span> 次，则软件实现的生产费用为 <span
-class="math inline">\(R\times M_s\)</span></p>
-<p>若计算机系统共生产 <span class="math inline">\(V\)</span>
-台，则每台计算机用硬件实施该功能的费用为 <span
-class="math inline">\(\dfrac{D_h}{V}+M_h\)</span>，而用软件实现则为
-<span class="math inline">\(C\times \dfrac{D_s}V+R\times
-M_s\)</span></p>
-<p>可见，仅当 <span class="math inline">\(\dfrac{D_h}V+M_h&lt;C\times
-\dfrac{D_s}V+R\times M_s\)</span> 时，用硬件实现功能更好。</p>
-<p>若再将上述比值带入，则有 <span
-class="math inline">\(\dfrac{10^6}V+100&lt;10^4\dfrac{C}V+R\)</span>。<span
-class="math inline">\(C\)</span> 一般小于 100，所以 <span
-class="math inline">\(V\)</span> 越大，该不等式越成立。</p>
+<p>硬件与软件的费用都包含 研发费用 与 生产费用。若软、硬件的研发费用记为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>s</mi></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>D</mi><mi>h</mi></msub></mrow><annotation encoding="application/x-tex">D_s,\ D_h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>h</mi></msub><mo>≈</mo><mn>100</mn><msub><mi>D</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">D_h\approx 100D_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">100</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 也是可能的。若软、硬件的生产费用记为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>s</mi></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>M</mi><mi>h</mi></msub></mrow><annotation encoding="application/x-tex">M_s,\ M_h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>h</mi></msub><mo>≈</mo><mn>100</mn><msub><mi>M</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">M_h\approx 100M_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">100</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 也是可能的。此外，软件设计成本远高于软件生产成本，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>s</mi></msub><mo>≈</mo><mn>1000</mn><msub><mi>M</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">D_s\approx 1000M_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1000</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 也是可能的。</p>
+<p>硬件一般只需一次设计，而软件需要多次设计。若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 为软件重新的设计次数，则软件实现的设计费用为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>×</mo><msub><mi>D</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">C\times D_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>同一功能的软件在存储介质上可能多次复制和存储。若出现 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 次，则软件实现的生产费用为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>×</mo><msub><mi>M</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">R\times M_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>若计算机系统共生产 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 台，则每台计算机用硬件实施该功能的费用为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>D</mi><mi>h</mi></msub><mi>V</mi></mfrac></mstyle><mo>+</mo><msub><mi>M</mi><mi>h</mi></msub></mrow><annotation encoding="application/x-tex">\dfrac{D_h}{V}+M_h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，而用软件实现则为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>×</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>D</mi><mi>s</mi></msub><mi>V</mi></mfrac></mstyle><mo>+</mo><mi>R</mi><mo>×</mo><msub><mi>M</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">C\times \dfrac{D_s}V+R\times M_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>可见，仅当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>D</mi><mi>h</mi></msub><mi>V</mi></mfrac></mstyle><mo>+</mo><msub><mi>M</mi><mi>h</mi></msub><mo>&lt;</mo><mi>C</mi><mo>×</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>D</mi><mi>s</mi></msub><mi>V</mi></mfrac></mstyle><mo>+</mo><mi>R</mi><mo>×</mo><msub><mi>M</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\dfrac{D_h}V+M_h&lt;C\times \dfrac{D_s}V+R\times M_s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 时，用硬件实现功能更好。</p>
+<p>若再将上述比值带入，则有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><mi>V</mi></mfrac></mstyle><mo>+</mo><mn>100</mn><mo>&lt;</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup><mstyle displaystyle="true" scriptlevel="0"><mfrac><mi>C</mi><mi>V</mi></mfrac></mstyle><mo>+</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">\dfrac{10^6}V+100&lt;10^4\dfrac{C}V+R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 一般小于 100，所以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 越大，该不等式越成立。</p>
 <p>可见，只有计算机系统产量大时，增大硬件比例才是合适的。</p>
-<h2 id="ca1.8-定量设计原理">CA1.8 定量设计原理</h2>
+<h2 id="CA1-8-定量设计原理">CA1.8 定量设计原理</h2>
 <p>描述计算机系统性能的指标：</p>
 <ul>
-<li><p>使用者角度：<strong>响应时间</strong>，即从发出指令到指令完成的事件</p></li>
-<li><p>管理员角度：<strong>吞吐量</strong>，即单位时间内完成的总工作量</p></li>
-<li><p><strong>时间频率</strong>（主频、外频、信频）：处理机主频，即工作频率</p>
-<p><strong>MIPS</strong>：每秒百万条指令。有 <span
-class="math inline">\(\operatorname{MIPS}=\dfrac{指令条数}{执行时间\times
-10^6}\)</span></p>
+<li>
+<p>使用者角度：<strong>响应时间</strong>，即从发出指令到指令完成的事件</p>
+</li>
+<li>
+<p>管理员角度：<strong>吞吐量</strong>，即单位时间内完成的总工作量</p>
+</li>
+<li>
+<p><strong>时间频率</strong>（主频、外频、信频）：处理机主频，即工作频率</p>
+<p><strong>MIPS</strong>：每秒百万条指令。有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">MIPS</mi><mo>⁡</mo><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>指令条数</mtext><mrow><mtext>执行时间</mtext><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\operatorname{MIPS}=\dfrac{指令条数}{执行时间\times 10^6}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mop"><span class="mord mathrm">MIPS</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">执行时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">指令条数</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <p><strong>Mflops</strong>：每秒百万条浮点指令</p>
-<p>这些指标都不一定可靠</p></li>
-<li><p><strong>真实程序的运行时间</strong>：计算机性能的唯一可靠测度</p>
-<p>相同的任务，花费的时间越少，速度越快，性能越好</p></li>
+<p>这些指标都不一定可靠</p>
+</li>
+<li>
+<p><strong>真实程序的运行时间</strong>：计算机性能的唯一可靠测度</p>
+<p>相同的任务，花费的时间越少，速度越快，性能越好</p>
+</li>
 </ul>
 <p>下面是一些定量设计原理：</p>
 <ul>
-<li><p><strong>大概率事件优先原则（哈夫曼原理）</strong>：尽可能加速高频发生的事件</p></li>
-<li><p><strong>阿姆达尔定律（Amdahl）</strong>：加快某部件执行速度能获得的系统性能加速比，受限于该部件执行时间占系统总执行时间的百分比</p></li>
-<li><p><strong>局部性原理</strong></p>
+<li>
+<p><strong>大概率事件优先原则（哈夫曼原理）</strong>：尽可能加速高频发生的事件</p>
+</li>
+<li>
+<p><strong>阿姆达尔定律（Amdahl）</strong>：加快某部件执行速度能获得的系统性能加速比，受限于该部件执行时间占系统总执行时间的百分比</p>
+</li>
+<li>
+<p><strong>局部性原理</strong></p>
 <p>时间局部性：（因为程序中存在大量循环操作）如果执行了程序中的某指令，则该指令可能不久后被再次执行。若某数据被访问过，则该数据可能不久后被再次访问。</p>
-<p>空间局部性：（因为很多数据在内存中是连续存放的）若程序访问了某个存储单元，则其附近的存储单元也可能在不久后被访问。</p></li>
+<p>空间局部性：（因为很多数据在内存中是连续存放的）若程序访问了某个存储单元，则其附近的存储单元也可能在不久后被访问。</p>
+</li>
 </ul>
 
               
@@ -726,7 +709,6 @@ class="math inline">\(\operatorname{MIPS}=\dfrac{指令条数}{执行时间\time
 
   
   
-
 
 
 
@@ -974,44 +956,6 @@ class="math inline">\(\operatorname{MIPS}=\dfrac{指令条数}{执行时间\time
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="6 面向对象编程（基础）  面向对象是一种开发软件的方法，使分析、设计和实现一个系统的方法尽可能接近人们认识一个系统的方法。包括三个方面：面向对象分析、面向对象设计、面向对象程序设计。 Java 语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。  6.1 类与对象（OOP）  类 就是数据类型。可以是 int 也可以是 人类 对象 就是其中具体的实">
+    <meta name="description" content="6 面向对象编程（基础）  面向对象是一种开发软件的方法，使分析、设计和实现一个系统的方法尽可能接近人们认识一个系统的方法。包括三个方面：面向对象分析、面向对象设计、面向对象程序设计。 Java 语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。  6.1 类与对象（OOP）  类 就是数据类型。可以是 int 也可以是 人类 对象 就是其中具体的实例。可以是 100">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;6 面向对象编程（基础）">
 <meta property="og:url" content="https://i-melody.github.io/2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="6 面向对象编程（基础）  面向对象是一种开发软件的方法，使分析、设计和实现一个系统的方法尽可能接近人们认识一个系统的方法。包括三个方面：面向对象分析、面向对象设计、面向对象程序设计。 Java 语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。  6.1 类与对象（OOP）  类 就是数据类型。可以是 int 也可以是 人类 对象 就是其中具体的实">
+<meta property="og:description" content="6 面向对象编程（基础）  面向对象是一种开发软件的方法，使分析、设计和实现一个系统的方法尽可能接近人们认识一个系统的方法。包括三个方面：面向对象分析、面向对象设计、面向对象程序设计。 Java 语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。  6.1 类与对象（OOP）  类 就是数据类型。可以是 int 也可以是 人类 对象 就是其中具体的实例。可以是 100">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-14T10:20:05.581Z">
@@ -299,28 +299,23 @@
             
             <div class="markdown-body">
               
-              <h1 id="面向对象编程基础">6 面向对象编程（基础）</h1>
+              <h1>6 面向对象编程（基础）</h1>
 <blockquote>
 <p>面向对象是一种开发软件的方法，使分析、设计和实现一个系统的方法尽可能接近人们认识一个系统的方法。包括三个方面：面向对象分析、面向对象设计、面向对象程序设计。</p>
-<p>Java
-语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。</p>
+<p>Java 语言是纯面向对象的语言。其所有数据类型都有相应的类，程序可以完全基于对象编写。</p>
 </blockquote>
-<h2 id="类与对象oop">6.1 类与对象（OOP）</h2>
+<h2 id="6-1-类与对象（OOP）">6.1 类与对象（OOP）</h2>
 <blockquote>
-<p>类 就是数据类型。可以是 <code>int</code> 也可以是
-<code>人类</code></p>
-<p>对象 就是其中具体的实例。可以是 <code>100</code> 也可以是
-<code>韩顺平</code></p>
-<p>从 类 到 对象，可以称为 创建一个对象，也可以说 实例化一个对象，或者
-把对象实例化</p>
-<ol type="1">
+<p>类 就是数据类型。可以是 <code>int</code> 也可以是 <code>人类</code></p>
+<p>对象 就是其中具体的实例。可以是 <code>100</code> 也可以是 <code>韩顺平</code></p>
+<p>从 类 到 对象，可以称为 创建一个对象，也可以说 实例化一个对象，或者 把对象实例化</p>
+<ol>
 <li>类 是抽象的、概念的，代表一类事物</li>
 <li>对象 是具体的、实际的，代表一个个具体事物</li>
 <li>类 是 对象 的模板，对象 是 类 的一个个体，对应一个实例</li>
 </ol>
 </blockquote>
-<p>下面，我们定义了一个类 <code>Cat</code> 并创建了一些 对象
-<code>cat1</code> <code>cat2</code>：</p>
+<p>下面，我们定义了一个类 <code>Cat</code> 并创建了一些 对象 <code>cat1</code> <code>cat2</code>：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Code6_1</span>&#123;
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;
 
@@ -338,7 +333,7 @@
 	String name;
 	<span class="hljs-type">int</span> age;
 &#125;</code></pre></div>
-<h3 id="属性成员变量">6.1.1 属性/成员变量</h3>
+<h3 id="6-1-1-属性-成员变量">6.1.1 属性/成员变量</h3>
 <blockquote>
 <p>从概念或叫法上看：成员变量 = 属性 = field（字段）</p>
 </blockquote>
@@ -348,90 +343,85 @@
 &#125;</code></pre></div>
 <p>其中，<code>String name;</code> 就是一个成员变量（属性）。</p>
 <p>属性可以是基本数据类型，也可以是引用数据类型。</p>
-<ol type="1">
+<ol>
 <li>属性的定义语法同变量。<code>访问修饰符 属性类型 属性名</code>
 <ul>
-<li>访问修饰符：控制属性的访问范围。有四种：<code>publie</code>
-<code>protected</code> <code>默认(空)</code> <code>private</code></li>
-</ul></li>
+<li>访问修饰符：控制属性的访问范围。有四种：<code>publie</code>  <code>protected</code>  <code>默认(空)</code>  <code>private</code></li>
+</ul>
+</li>
 <li>属性的定义类型可以为任意类型，包含 基本类型 或 引用类型</li>
-<li>属性如果不赋值，有默认值。规则同 <em><a
-href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-1-%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">[5.1.1
-数组 - 使用细节 - 3]</a></em></li>
+<li>属性如果不赋值，有默认值。规则同 <em><a href="../../../../../../2021/11/27/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/5%20%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE/#5-1-1-%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">[5.1.1 数组 - 使用细节 - 3]</a></em></li>
 </ol>
-<h3 id="创建对象">6.1.2 创建对象</h3>
+<h3 id="6-1-2-创建对象">6.1.2 创建对象</h3>
 <ul>
-<li><p>先声明再创建：</p>
+<li>
+<p>先声明再创建：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Cat cat1;  				    <span class="hljs-comment">//声明对象cat1</span>
-cat1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();			<span class="hljs-comment">//创建对象</span></code></pre></div></li>
-<li><p>直接创建：</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Cat</span> <span class="hljs-variable">cat2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();</code></pre></div></li>
+cat1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();			<span class="hljs-comment">//创建对象</span></code></pre></div>
+</li>
+<li>
+<p>直接创建：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Cat</span> <span class="hljs-variable">cat2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();</code></pre></div>
+</li>
 </ul>
 <p>注意事项：</p>
-<ol type="1">
-<li><p>声明对象的场合，只是在内存中建立了一个引用。此时，该地址引用不指向任何内存空间。</p>
-<p>对象的引用，也被称为对象的句柄。</p></li>
-<li><p>使用 new
-运算符创建对象实例时，会为对象分配空间，就会调用类的构造方法。那之后，会将该段内存的首地址赋给刚才建立的引用。</p></li>
+<ol>
+<li>
+<p>声明对象的场合，只是在内存中建立了一个引用。此时，该地址引用不指向任何内存空间。</p>
+<p>对象的引用，也被称为对象的句柄。</p>
+</li>
+<li>
+<p>使用 new 运算符创建对象实例时，会为对象分配空间，就会调用类的构造方法。那之后，会将该段内存的首地址赋给刚才建立的引用。</p>
+</li>
 </ol>
-<h3 id="访问对象">6.1.3 访问对象</h3>
+<h3 id="6-1-3-访问对象">6.1.3 访问对象</h3>
 <p>基本语法：<code>对象名.属性名</code></p>
 <div class="code-wrapper"><pre><code class="hljs java">System.out.println(cat1.name);</code></pre></div>
-<h3 id="类与对象的内存访问机制">6.1.4 类与对象的内存访问机制</h3>
+<h3 id="6-1-4-类与对象的内存访问机制">6.1.4 类与对象的内存访问机制</h3>
 <blockquote>
 <p>栈：一般存放基本数据类型（局部变量）</p>
 <p>堆：存放对象（如<code>Cat cat1 = new Cat()</code>，是在这里开辟的空间）</p>
 <p>方法区：常量池（常量，比如字符串），类加载信息</p>
 </blockquote>
-<ol type="1">
-<li>创建对象时，先加载 类 信息，然后在 堆 中分配空间，栈
-中的对象名被赋予指向那个空间的地址。</li>
-<li>之后进行指定初始化。该对象的 属性 中，是 基本数据类型 的直接记录在
-堆 中；是 字符串 的记录一个地址，该地址指向
-方法区，那里的常量池有该字符串。</li>
+<ol>
+<li>创建对象时，先加载 类 信息，然后在 堆 中分配空间，栈 中的对象名被赋予指向那个空间的地址。</li>
+<li>之后进行指定初始化。该对象的 属性 中，是 基本数据类型 的直接记录在 堆 中；是 字符串 的记录一个地址，该地址指向 方法区，那里的常量池有该字符串。</li>
 </ol>
-<h2 id="成员方法">6.2 成员方法</h2>
-<p>在某些情况下，我们需要定义成员方法。比如 <code>Cat</code>
-除了有属性（<code>name</code>
-<code>age</code>）外，还可以有一些行为比如玩耍。</p>
+<h2 id="6-2-成员方法">6.2 成员方法</h2>
+<p>在某些情况下，我们需要定义成员方法。比如 <code>Cat</code> 除了有属性（<code>name</code> <code>age</code>）外，还可以有一些行为比如玩耍。</p>
 <div class="code-wrapper"><pre><code class="hljs java">修饰符 返回数据类型 方法名(形参列表)&#123;
 	方法体语句;
 	returen 返回值;			<span class="hljs-comment">//返回数据类型是 void 的场合，return语句不是必须的</span>
 &#125;</code></pre></div>
-<ol type="1">
-<li><p>方法名必须是一个合法的标识符</p></li>
-<li><p>返回类型即返回值的类型。如果方法没有返回值，应声明为
-void</p></li>
-<li><p>修饰符段可以有几个不同的修饰符。</p>
+<ol>
+<li>
+<p>方法名必须是一个合法的标识符</p>
+</li>
+<li>
+<p>返回类型即返回值的类型。如果方法没有返回值，应声明为 void</p>
+</li>
+<li>
+<p>修饰符段可以有几个不同的修饰符。</p>
 <p>比如</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">strictfp</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span> &#123;
         System.out.println(<span class="hljs-string">&quot;哎咿呀~ 哎咿呀~&quot;</span>);
     &#125;</code></pre></div>
-<p>其中 public（访问修饰符）、static（static 关键字）、final（final
-关键字）</p>
-<p><strong><em>—— 访问修饰符见 <a
-href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">[7.3
-访问修饰符]</a></em></strong></p>
-<p><strong><em>—— static 关键字见 <a
-href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-1-1-%E7%B1%BB%E5%8F%98%E9%87%8F">[9.1.1
-类变量]</a></em></strong></p>
-<p><strong><em>—— final 关键字见 <a
-href="../../../../../../2021/12/14/Java/入门阶段/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-5-final-%E5%85%B3%E9%94%AE%E5%AD%97">[9.5
-final 关键字]</a></em></strong></p>
-<p><strong><em>—— strictfp 关键字见 <a
-href="../../../../../../2021/12/19/Java/入门阶段/12%20%常用类/#12-1-4-strictfp-关键字">[12.1.4
-strictfp 关键字]</a></em></strong></p></li>
-<li><p>参数列表是传递给方法的参数表。各个元素间以 <code>,</code>
-分隔。每个元素由一个类型和一个标识符表示的参数组成。</p>
+<p>其中 public（访问修饰符）、static（static 关键字）、final（final 关键字）</p>
+<p><em><strong>—— 访问修饰符见 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">[7.3 访问修饰符]</a></strong></em></p>
+<p><em><strong>—— static 关键字见 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-1-1-%E7%B1%BB%E5%8F%98%E9%87%8F">[9.1.1 类变量]</a></strong></em></p>
+<p><em><strong>—— final 关键字见 <a href="../../../../../../2021/12/14/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/9%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89/#9-5-final-%E5%85%B3%E9%94%AE%E5%AD%97">[9.5 final 关键字]</a></strong></em></p>
+<p><em><strong>—— strictfp 关键字见 <a href="../../../../../../2021/12/19/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/12%20%25%E5%B8%B8%E7%94%A8%E7%B1%BB/#12-1-4-strictfp-%E5%85%B3%E9%94%AE%E5%AD%97">[12.1.4 strictfp 关键字]</a></strong></em></p>
+</li>
+<li>
+<p>参数列表是传递给方法的参数表。各个元素间以 <code>,</code> 分隔。每个元素由一个类型和一个标识符表示的参数组成。</p>
 <p>特别地，<code>参数类型... 标识符</code> 这样的参数被称为可变参数</p>
-<p><strong><em>—— 可变参数见 <a
-href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-5-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">[6.5
-可变参数]</a></em></strong></p></li>
-<li><p>方法体是实际要执行的代码块。方法体一般用 return
-作为方法的结束。</p></li>
+<p><em><strong>—— 可变参数见 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-5-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">[6.5 可变参数]</a></strong></em></p>
+</li>
+<li>
+<p>方法体是实际要执行的代码块。方法体一般用 return 作为方法的结束。</p>
+</li>
 </ol>
-<p>使用
-成员方法，能提高代码的复用性。而且能把实现的细节封装起来，供其他用户调用。</p>
+<p>使用 成员方法，能提高代码的复用性。而且能把实现的细节封装起来，供其他用户调用。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span>&#123;
 	String name;				<span class="hljs-comment">//属性 name</span>
 	<span class="hljs-type">int</span> age;					<span class="hljs-comment">//属性 age</span>
@@ -441,7 +431,7 @@ href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%A
 	&#125;
 &#125;</code></pre></div>
 <blockquote>
-<ol type="1">
+<ol>
 <li>方法写好后，不去调用就不会输出</li>
 <li>先创建对象，然后调用方法即可</li>
 </ol>
@@ -466,7 +456,7 @@ href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%A
        <span class="hljs-keyword">return</span> res;						<span class="hljs-comment">//返回 res 的值</span>
     &#125;
 &#125;</code></pre></div>
-<h3 id="方法的调用机制">6.2.1 方法的调用机制</h3>
+<h3 id="6-2-1-方法的调用机制">6.2.1 方法的调用机制</h3>
 <p>以前文代码为例：</p>
 <div class="code-wrapper"><pre><code class="hljs java">...
 		<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> cat1.speak2(<span class="hljs-number">15</span>, <span class="hljs-number">135</span>);		
@@ -476,58 +466,62 @@ href="../../../../../../2021/11/29/Java/入门阶段/6%20%E9%9D%A2%E5%90%91%E5%A
    <span class="hljs-keyword">return</span> res;
 &#125;
 ...</code></pre></div>
-<ol type="1">
-<li>当程序执行到方法时，在 栈 中开辟一个新的 栈空间。该空间里储存
-<code>n1 = 15</code> <code>n2 = 135</code>，之后计算并储存结果
-<code>res = 150</code></li>
+<ol>
+<li>当程序执行到方法时，在 栈 中开辟一个新的 栈空间。该空间里储存 <code>n1 = 15</code>  <code>n2 = 135</code>，之后计算并储存结果 <code>res = 150</code></li>
 <li>当方法执行完毕，或执行到 <code>return</code> 语句时，就会返回</li>
-<li>把 新栈空间 中的 <code>res = 150</code> 返回 main栈
-中调用方法的地方</li>
+<li>把 新栈空间 中的 <code>res = 150</code> 返回 main栈 中调用方法的地方</li>
 <li>返回后，继续执行该方法的后续代码</li>
 </ol>
-<h3 id="使用细节">6.2.2 使用细节</h3>
-<ol type="1">
-<li><p>访问修饰符：作用是控制方法的使用范围。</p>
+<h3 id="6-2-2-使用细节">6.2.2 使用细节</h3>
+<ol>
+<li>
+<p>访问修饰符：作用是控制方法的使用范围。</p>
 <ul>
 <li>不写（默认访问控制范围）</li>
 <li>public：公共</li>
 <li>protected：受保护</li>
 <li>private：私有</li>
 </ul>
-<p><strong><em>—— 访问修饰符见 <a
-href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">[7.3访问修饰符]</a></em></strong></p></li>
-<li><p>返回数据类型：</p>
+<p><em><strong>—— 访问修饰符见 <a href="../../../../../../2021/12/05/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/7%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/#7-3-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">[7.3访问修饰符]</a></strong></em></p>
+</li>
+<li>
+<p>返回数据类型：</p>
 <ul>
 <li>一个方法最多有一个返回值。要返回多个结果可以使用 数组。</li>
 <li>返回类型为任意类型。包括 基本数据类型 和 引用数据类型。</li>
-<li>如果方法要求有返回数据类型，则方法体中最后的执行语句必为
-<code>return 值</code>，且返回类型必须和 return 的值一致。</li>
-<li>如果 返回数据类型 为 <code>void</code>，则可以不写
-<code>return</code> 语句</li>
-</ul></li>
-<li><p>方法名：</p>
+<li>如果方法要求有返回数据类型，则方法体中最后的执行语句必为 <code>return 值</code>，且返回类型必须和 return 的值一致。</li>
+<li>如果 返回数据类型 为 <code>void</code>，则可以不写 <code>return</code> 语句</li>
+</ul>
+</li>
+<li>
+<p>方法名：</p>
 <ul>
 <li>遵循驼峰命名法，最好见名知意，表达出该功能的意思。</li>
-</ul></li>
-<li><p>参数列表（形参列表）：</p>
+</ul>
+</li>
+<li>
+<p>参数列表（形参列表）：</p>
 <ul>
-<li>一个方法可以有 0 个参数，也可以有多个参数。参数间用 <code>,</code>
-间隔。</li>
+<li>一个方法可以有 0 个参数，也可以有多个参数。参数间用 <code>,</code> 间隔。</li>
 <li>参数类型可以为任意类型，包含 基本类型 和 引用类型。</li>
-<li>调用带参数的方法时，一定对应着 参数列表 传入 相同类型 或 兼容类型
-的参数。</li>
-<li>方法定义时的参数称为 形式参数 ，简称
-形参；方法调用时的参数（传入的参数）称为 实际参数，简称 实参。实参 与
-形参 的类型、个数、顺序必须一致。</li>
-</ul></li>
-<li><p>方法体：</p>
+<li>调用带参数的方法时，一定对应着 参数列表 传入 相同类型 或 兼容类型 的参数。</li>
+<li>方法定义时的参数称为 形式参数 ，简称 形参；方法调用时的参数（传入的参数）称为 实际参数，简称 实参。实参 与 形参 的类型、个数、顺序必须一致。</li>
+</ul>
+</li>
+<li>
+<p>方法体：</p>
 <ul>
 <li>写完成功能的具体语句。方法中不能再定义方法。即：方法不能嵌套定义。</li>
-</ul></li>
-<li><p>调用细节：</p>
+</ul>
+</li>
+<li>
+<p>调用细节：</p>
 <ul>
-<li><p>同一个类中的方法调用，可以直接调用。</p></li>
-<li><p>跨类的方法调用，需要创建新对象，然后再调用方法。</p>
+<li>
+<p>同一个类中的方法调用，可以直接调用。</p>
+</li>
+<li>
+<p>跨类的方法调用，需要创建新对象，然后再调用方法。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">C1</span>&#123;
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m1</span><span class="hljs-params">()</span>&#123;
 &#125;
@@ -541,19 +535,24 @@ href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%A
    <span class="hljs-type">C1</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">C1</span>();
    c.m2();					<span class="hljs-comment">//跨类的方法调用，需要创建新对象，然后再调用方法。</span>
 &#125;
-&#125;</code></pre></div></li>
-</ul></li>
-</ol>
-<h3 id="成员方法传参机制">6.2.3 成员方法传参机制</h3>
-<p>Java 语言对对象采用的是
-<strong>值传递</strong>，方法得到的总是那个传入对象的副本。</p>
-<ul>
-<li><p>方法不能修改基本数据类型的参数。基本数据类型传递的是一个值，形参不影响实参。</p></li>
-<li><p>方法可以改变对象参数的状态。</p>
-<p>引用类型传递的是一个地址，形参和实参指向一处，两者总会相关。</p>
-<p>但改变那个形参地址指向的场合，实参的指向不会改变。</p></li>
+&#125;</code></pre></div>
+</li>
 </ul>
-<h2 id="方法递归调用">6.3 方法递归调用</h2>
+</li>
+</ol>
+<h3 id="6-2-3-成员方法传参机制">6.2.3 成员方法传参机制</h3>
+<p>Java 语言对对象采用的是 <strong>值传递</strong>，方法得到的总是那个传入对象的副本。</p>
+<ul>
+<li>
+<p>方法不能修改基本数据类型的参数。基本数据类型传递的是一个值，形参不影响实参。</p>
+</li>
+<li>
+<p>方法可以改变对象参数的状态。</p>
+<p>引用类型传递的是一个地址，形参和实参指向一处，两者总会相关。</p>
+<p>但改变那个形参地址指向的场合，实参的指向不会改变。</p>
+</li>
+</ul>
+<h2 id="6-3-方法递归调用">6.3 方法递归调用</h2>
 <blockquote>
 <p>递归：即方法自己调用自己，每次调用时传入不同变量。递归有助于编程者解决复杂问题，同时可以让代码变得简洁。</p>
 </blockquote>
@@ -569,26 +568,21 @@ href="../../../../../../2021/12/05/Java/入门阶段/7%20%E9%9D%A2%E5%90%91%E5%A
    &#125;
 &gt;&#125;</code></pre></div>
 </blockquote>
-<h3 id="使用细节-1">6.3.1 使用细节</h3>
-<ol type="1">
+<h3 id="6-3-1-使用细节">6.3.1 使用细节</h3>
+<ol>
 <li>执行一个方法时，就创建一个新的受保护的独立 栈空间。</li>
 <li>方法的局部变量是独立的，不会相互影响。</li>
-<li>如果方法中使用的是引用变量，就会共享数据。（因为 <a
-href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-2-3-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E4%BC%A0%E5%8F%82%E6%9C%BA%E5%88%B6">[6.2.3
-成员方法传参机制]</a>）</li>
-<li>递归必须向退出递归的条件逼近，否则就是无限递归，会提示
-<code>StackOverflowError</code> “死龟”</li>
-<li>当一个方法执行完毕，或遇到 <code>return</code>
-就会返回。遵守谁调用就返回给谁。同时当方法执行完毕或返回时，该方法也执行完毕。</li>
+<li>如果方法中使用的是引用变量，就会共享数据。（因为 <a href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/#6-2-3-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E4%BC%A0%E5%8F%82%E6%9C%BA%E5%88%B6">[6.2.3 成员方法传参机制]</a>）</li>
+<li>递归必须向退出递归的条件逼近，否则就是无限递归，会提示 <code>StackOverflowError</code> “死龟”</li>
+<li>当一个方法执行完毕，或遇到 <code>return</code> 就会返回。遵守谁调用就返回给谁。同时当方法执行完毕或返回时，该方法也执行完毕。</li>
 </ol>
-<h2 id="方法重载">6.4 方法重载</h2>
+<h2 id="6-4-方法重载">6.4 方法重载</h2>
 <blockquote>
-<p>方法重载（Overload）：Java 中允许同一类中，多个同名方法的存在，但要求
-形参列表 不一致。</p>
+<p>方法重载（Overload）：Java 中允许同一类中，多个同名方法的存在，但要求 形参列表 不一致。</p>
 <p>这样，减轻了起名和记名的麻烦。</p>
 </blockquote>
 <p><strong>使用细节：</strong></p>
-<ol type="1">
+<ol>
 <li>方法名：必须相同</li>
 <li>形参列表：必须不同（参数的类型、个数、顺序，这其中至少一个不同）</li>
 <li>返回值：无要求</li>
@@ -600,12 +594,10 @@ href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%2
 <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">act</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;
     <span class="hljs-keyword">return</span> n;
 &#125;</code></pre></div>
-<p>两个方法的签名分别是：<code>act()</code> 和
-<code>act(int n)</code></p>
-<h2 id="可变参数">6.5 可变参数</h2>
+<p>两个方法的签名分别是：<code>act()</code> 和 <code>act(int n)</code></p>
+<h2 id="6-5-可变参数">6.5 可变参数</h2>
 <blockquote>
-<p>Java
-允许将同一个类中多个同名同功能但参数个数不同的方法，封装成一个方法。</p>
+<p>Java 允许将同一个类中多个同名同功能但参数个数不同的方法，封装成一个方法。</p>
 </blockquote>
 <p>语法：<code>访问修饰符 返回类型 方法名（数据类型... 形参名）&#123;代码块;&#125;</code></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m</span><span class="hljs-params">(<span class="hljs-type">int</span>... n)</span>&#123;
@@ -613,53 +605,70 @@ href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%2
 	<span class="hljs-type">int</span> <span class="hljs-variable">length</span> <span class="hljs-operator">=</span> n.length;
 	<span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> n[<span class="hljs-number">0</span>];
 &#125;</code></pre></div>
-<h3 id="使用细节-2">6.5.1 使用细节</h3>
-<ol type="1">
-<li><p>可变参数 的实参可以是 0 个，也可以是 任意多 个。</p></li>
-<li><p>可变参数 的实参可以是数组</p></li>
-<li><p>可变参数 本质就是数组</p>
+<h3 id="6-5-1-使用细节">6.5.1 使用细节</h3>
+<ol>
+<li>
+<p>可变参数 的实参可以是 0 个，也可以是 任意多 个。</p>
+</li>
+<li>
+<p>可变参数 的实参可以是数组</p>
+</li>
+<li>
+<p>可变参数 本质就是数组</p>
 <p>因此，出现：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">met</span><span class="hljs-params">(<span class="hljs-type">int</span>... n)</span>&#123;				<span class="hljs-comment">//这个方法与下面的方法不能构成重载</span>
 &#125;</code></pre></div>
 <p>的场合，不能有方法：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">met</span><span class="hljs-params">(<span class="hljs-type">int</span>[] n)</span>&#123;				<span class="hljs-comment">//这个方法与上面的方法不能构成重载</span>
-&#125;</code></pre></div></li>
-<li><p>可变参数 和 普通参数 可以一起放在形参列表，但必须保证 可变参数
-在最后</p>
-<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m</span><span class="hljs-params">(<span class="hljs-type">double</span> dou, <span class="hljs-type">int</span>... n)</span> &#123;&#125;</code></pre></div></li>
-<li><p>一个形参列表最多出现 一个 可变参数。</p></li>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>可变参数 和 普通参数 可以一起放在形参列表，但必须保证 可变参数 在最后</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m</span><span class="hljs-params">(<span class="hljs-type">double</span> dou, <span class="hljs-type">int</span>... n)</span> &#123;&#125;</code></pre></div>
+</li>
+<li>
+<p>一个形参列表最多出现 一个 可变参数。</p>
+</li>
 </ol>
-<h2 id="作用域">6.6 作用域</h2>
-<ol type="1">
+<h2 id="6-6-作用域">6.6 作用域</h2>
+<ol>
 <li>在 Java 编程中，主要的变量就是 属性（成员变量）和 局部变量。</li>
 <li>我们说的 局部变量 一般是指在成员方法中定义的变量。</li>
 <li>作用域的分类
 <ul>
 <li>全局变量：也就是 属性，作用域为整个类体</li>
 <li>局部变量：除了属性外的其他变量。作用域为定义它的代码块中</li>
-</ul></li>
+</ul>
+</li>
 <li>全局变量（属性）可以不赋值直接使用，那个场合有默认值。局部变量必须赋值使用</li>
 </ol>
-<h3 id="使用细节-3">6.6.1 使用细节</h3>
-<ol type="1">
-<li><p>属性 和 局部变量 可以重名，访问时遵循就近原则</p></li>
-<li><p>在同一作用域中，两个局部变量不能重名</p></li>
-<li><p>属性
-的生命周期较长。其伴随对象的创建而创建，伴随对象的销毁而销毁。</p>
-<p>局部变量
-生命周期较短。其伴随代码块的执行而创建，伴随代码块的结束而销毁。</p></li>
-<li><p>全局变量/属性
-可以被本类使用，也可以被其他类（通过对象）使用。</p>
-<p>局部变量 只能被本类的对应方法中调用</p></li>
-<li><p>全局变量/属性 <strong>可以加</strong> 修饰符</p>
-<p>局部变量 <strong>不能加</strong> 修饰符</p></li>
+<h3 id="6-6-1-使用细节">6.6.1 使用细节</h3>
+<ol>
+<li>
+<p>属性 和 局部变量 可以重名，访问时遵循就近原则</p>
+</li>
+<li>
+<p>在同一作用域中，两个局部变量不能重名</p>
+</li>
+<li>
+<p>属性 的生命周期较长。其伴随对象的创建而创建，伴随对象的销毁而销毁。</p>
+<p>局部变量 生命周期较短。其伴随代码块的执行而创建，伴随代码块的结束而销毁。</p>
+</li>
+<li>
+<p>全局变量/属性 可以被本类使用，也可以被其他类（通过对象）使用。</p>
+<p>局部变量 只能被本类的对应方法中调用</p>
+</li>
+<li>
+<p>全局变量/属性 <strong>可以加</strong> 修饰符</p>
+<p>局部变量 <strong>不能加</strong> 修饰符</p>
+</li>
 </ol>
-<h2 id="构造方法构造器">6.7 构造方法、构造器</h2>
+<h2 id="6-7-构造方法、构造器">6.7 构造方法、构造器</h2>
 <blockquote>
 <p>构造方法又叫构造器（constructor），是类的一种特殊的方法。它的主要作用是完成对新对象的初始化。</p>
 </blockquote>
 <p>语法：<code>[修饰符] 方法名(形参列表)&#123;方法体&#125;</code></p>
-<ol type="1">
+<ol>
 <li>构造器的修饰符可以是默认。也可以是别的</li>
 <li>参数列表 规则同 成员方法</li>
 </ol>
@@ -673,17 +682,31 @@ href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%2
 		num = i;
 	&#125;
 &#125;</code></pre></div>
-<h3 id="使用细节-4">6.7.1 使用细节</h3>
-<ol type="1">
-<li><p>构造器本质也是方法。所以，可以 构造器重载。</p></li>
-<li><p>构造器名 和 类名 相同</p></li>
-<li><p>构造器无返回值</p></li>
-<li><p>构造器是完成对象的初始化，而不是创建</p></li>
-<li><p>创建对象时，系统自动调用构造器</p></li>
-<li><p>如果程序员没有定义构造器，系统会自动给类生成一个无参构造器（默认构造器）</p></li>
-<li><p>一旦定义了自己的构造器，就不能用无参构造器了。除非显式的定义一个无参构造器</p></li>
+<h3 id="6-7-1-使用细节">6.7.1 使用细节</h3>
+<ol>
+<li>
+<p>构造器本质也是方法。所以，可以 构造器重载。</p>
+</li>
+<li>
+<p>构造器名 和 类名 相同</p>
+</li>
+<li>
+<p>构造器无返回值</p>
+</li>
+<li>
+<p>构造器是完成对象的初始化，而不是创建</p>
+</li>
+<li>
+<p>创建对象时，系统自动调用构造器</p>
+</li>
+<li>
+<p>如果程序员没有定义构造器，系统会自动给类生成一个无参构造器（默认构造器）</p>
+</li>
+<li>
+<p>一旦定义了自己的构造器，就不能用无参构造器了。除非显式的定义一个无参构造器</p>
+</li>
 </ol>
-<h3 id="流程分析">6.7.2 流程分析</h3>
+<h3 id="6-7-2-流程分析">6.7.2 流程分析</h3>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;Amy&quot;</span>, <span class="hljs-number">10</span>);
 
 ...
@@ -696,26 +719,38 @@ href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%2
 		age = pAge;
 	&#125;
 &#125;</code></pre></div>
-<ol type="1">
-<li><p>加载 类信息（方法区）</p></li>
-<li><p>在 堆 中开辟空间（地址）</p></li>
-<li><p>完成对象初始化</p>
+<ol>
+<li>
+<p>加载 类信息（方法区）</p>
+</li>
+<li>
+<p>在 堆 中开辟空间（地址）</p>
+</li>
+<li>
+<p>完成对象初始化</p>
 <ul>
-<li><p>首先默认初始化。<code>age = 0; name = null</code></p></li>
-<li><p>之后显式初始化。<code>age = 20; name = null</code></p>
-<p>其中，显式初始化和代码块初始化按编写的先后顺序依次进行。</p></li>
-<li><p>之后构造器的初始化。<code>age = 10; name = "Amy"</code></p></li>
-</ul></li>
-<li><p>把对象在 堆 中的 地址，返回给 <code>p1</code></p></li>
+<li>
+<p>首先默认初始化。<code>age = 0; name = null</code></p>
+</li>
+<li>
+<p>之后显式初始化。<code>age = 20; name = null</code></p>
+<p>其中，显式初始化和代码块初始化按编写的先后顺序依次进行。</p>
+</li>
+<li>
+<p>之后构造器的初始化。<code>age = 10; name = &quot;Amy&quot;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>把对象在 堆 中的 地址，返回给 <code>p1</code></p>
+</li>
 </ol>
-<h2 id="this-关键字">6.8 <code>this</code> 关键字</h2>
+<h2 id="6-8-this-关键字">6.8 <code>this</code> 关键字</h2>
 <blockquote>
 <p>JVM 会给每个对象分配 this 代表当前对象。</p>
 <p>相当于在 堆 中，this 指向自己（对象）</p>
-<p>在类定义的方法中，Java 会自动用 this
-关键字把所有变量和方法引用结合在一起。</p>
-<p>遇到有同名的局部变量的场合，需要程序员加入 this
-关键字进行区分。不加入 this 关键字的场合，Java 遵循就近原则。</p>
+<p>在类定义的方法中，Java 会自动用 this 关键字把所有变量和方法引用结合在一起。</p>
+<p>遇到有同名的局部变量的场合，需要程序员加入 this 关键字进行区分。不加入 this 关键字的场合，Java 遵循就近原则。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span>&#123;
     <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
@@ -724,28 +759,33 @@ href="../../../../../../2021/11/29/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%2
 <p>上面这个类的 <code>act()</code> 方法实际有 2 个参数。对其调用：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Example</span> <span class="hljs-variable">e</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Exmaple</span>();
 e.act(<span class="hljs-number">100</span>);</code></pre></div>
-<p>可见，出现在方法名前的参数
-<code>e</code>，以及出现在方法名后的括号中的参数 <code>100</code></p>
-<p>出现在方法名前的参数被称为 <strong>隐式参数</strong>（也称为
-方法调用的 目标 或 接收者）</p>
-<p>出现在方法名后的参数被称为
-<strong>显式参数</strong>，就是所谓的实参</p>
+<p>可见，出现在方法名前的参数 <code>e</code>，以及出现在方法名后的括号中的参数 <code>100</code></p>
+<p>出现在方法名前的参数被称为 <strong>隐式参数</strong>（也称为 方法调用的 目标 或 接收者）</p>
+<p>出现在方法名后的参数被称为 <strong>显式参数</strong>，就是所谓的实参</p>
 <p>在每一个方法中，用 this 指代隐式参数。</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">act</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;
     <span class="hljs-built_in">this</span>.n = n;
 &#125;</code></pre></div>
 <p>此时，再以相同方式调用方法：</p>
 <div class="code-wrapper"><pre><code class="hljs java">e.act(<span class="hljs-number">100</span>);					<span class="hljs-comment">// &lt;———— 相当于 e.n = 100;</span></code></pre></div>
-<h3 id="使用方法">6.8.1 使用方法</h3>
-<ol type="1">
-<li><p><code>this</code>
-关键字可以用来访问本类的属性、方法、构造器</p></li>
-<li><p><code>this</code> 用于区分当前类的 属性 和 局部变量</p></li>
-<li><p>访问本类中成员方法的语法：<code>this.方法名</code></p></li>
-<li><p>访问构造器的语法：<code>this(参数列表);</code></p>
-<p>注意：只能在构造器中访问另一个构造器。而且，如果有这个语法，必须放置在第一条语句。</p></li>
-<li><p><code>this</code> 不能在类定义的 外部 使用，只能在类定义的 方法中
-使用</p></li>
+<h3 id="6-8-1-使用方法">6.8.1 使用方法</h3>
+<ol>
+<li>
+<p><code>this</code> 关键字可以用来访问本类的属性、方法、构造器</p>
+</li>
+<li>
+<p><code>this</code> 用于区分当前类的 属性 和 局部变量</p>
+</li>
+<li>
+<p>访问本类中成员方法的语法：<code>this.方法名</code></p>
+</li>
+<li>
+<p>访问构造器的语法：<code>this(参数列表);</code></p>
+<p>注意：只能在构造器中访问另一个构造器。而且，如果有这个语法，必须放置在第一条语句。</p>
+</li>
+<li>
+<p><code>this</code> 不能在类定义的 外部 使用，只能在类定义的 方法中 使用</p>
+</li>
 </ol>
 <h2 id="附录">附录</h2>
 <h3 id="迷宫游戏代码">迷宫游戏代码</h3>

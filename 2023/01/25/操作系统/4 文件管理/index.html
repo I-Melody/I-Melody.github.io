@@ -16,21 +16,19 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OS4 文件管理 文件：一组有意义数据的集合 文件的属性：  文件名：同一目录不允许重名文件 标识符：操作系统用于区分各文件的内部名称 文件类型：指明文件的类型 位置：包括文件的存放路径（用户使用）、在外存中的地址（操作系统使用，用户不可见） 大小：指明文件大小 创建时间、上次修改时间、所有者信息 保护信息：对文件进行保护的访问控制信息  此外，操作系统还要实现 文件共享">
+    <meta name="description" content="OS4 文件管理 文件：一组有意义数据的集合 文件的属性：  文件名：同一目录不允许重名文件 标识符：操作系统用于区分各文件的内部名称 文件类型：指明文件的类型 位置：包括文件的存放路径（用户使用）、在外存中的地址（操作系统使用，用户不可见） 大小：指明文件大小 创建时间、上次修改时间、所有者信息 保护信息：对文件进行保护的访问控制信息  此外，操作系统还要实现 文件共享 和 文件保护 的功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;操作系统&gt;OS4 文件管理">
 <meta property="og:url" content="https://i-melody.github.io/2023/01/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="OS4 文件管理 文件：一组有意义数据的集合 文件的属性：  文件名：同一目录不允许重名文件 标识符：操作系统用于区分各文件的内部名称 文件类型：指明文件的类型 位置：包括文件的存放路径（用户使用）、在外存中的地址（操作系统使用，用户不可见） 大小：指明文件大小 创建时间、上次修改时间、所有者信息 保护信息：对文件进行保护的访问控制信息  此外，操作系统还要实现 文件共享">
+<meta property="og:description" content="OS4 文件管理 文件：一组有意义数据的集合 文件的属性：  文件名：同一目录不允许重名文件 标识符：操作系统用于区分各文件的内部名称 文件类型：指明文件的类型 位置：包括文件的存放路径（用户使用）、在外存中的地址（操作系统使用，用户不可见） 大小：指明文件大小 创建时间、上次修改时间、所有者信息 保护信息：对文件进行保护的访问控制信息  此外，操作系统还要实现 文件共享 和 文件保护 的功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.webp">
 <meta property="article:published_time" content="2023-01-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-04-14T01:49:46.514Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/OS_InputImage/OS4_2%20成组链接法图.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -47,6 +45,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -300,7 +300,7 @@
             
             <div class="markdown-body">
               
-              <h1 id="os4-文件管理">OS4 文件管理</h1>
+              <h1>OS4 文件管理</h1>
 <p>文件：一组有意义数据的集合</p>
 <p>文件的属性：</p>
 <ul>
@@ -313,421 +313,421 @@
 <li>保护信息：对文件进行保护的访问控制信息</li>
 </ul>
 <p>此外，操作系统还要实现 文件共享 和 文件保护 的功能。</p>
-<h2 id="os4.1-文件系统的层次结构">OS4.1 文件系统的层次结构</h2>
+<h2 id="OS4-1-文件系统的层次结构">OS4.1 文件系统的层次结构</h2>
 <pre><code class=" mermaid">graph TB
 0&#123;&#123;用户/应用程序&#125;&#125;---1[用户接口]---2[文件目录系统]---3[存取控制模块]---4[逻辑文件系统与文件信息缓冲区]---5[物理文件系统]
 5---6a[辅助分配模块]
 5---6b[设备管理模块]---7((设备))</code></pre>
 <ul>
 <li>文件系统：向上层用户提供简单易用的功能接口。本层用于处理用户发出的系统调用请求。</li>
-<li>文件目录系统：根据用户给出的文件路径找到相应
-FCB/索引节点。所有与目录/目录项相关的管理工作在本层完成。</li>
+<li>文件目录系统：根据用户给出的文件路径找到相应 FCB/索引节点。所有与目录/目录项相关的管理工作在本层完成。</li>
 <li>存取控制模块：验证用户是否拥有访问权限。本层完成文件保护相关功能。</li>
 <li>逻辑文件系统与文件信息缓冲区：将用户想要的记录号转换为对应的逻辑地址。</li>
 <li>物理文件系统：把逻辑地址转换为实际的物理地址。</li>
 <li>辅助分配模块：负责文件存储空间的管理。负责分配、回收存储空间。</li>
 <li>设备管理模块：直接与硬件交互，负责硬件直接的管理工作。</li>
 </ul>
-<h2 id="os4.2-文件的结构">OS4.2 文件的结构</h2>
+<h2 id="OS4-2-文件的结构">OS4.2 文件的结构</h2>
 <p>文件操作的具体实现与文件的 物理结构 和 逻辑结构 相关。</p>
 <p><strong>逻辑结构</strong>：对于用户来说，文件内部的数据的组织方式</p>
 <p><strong>物理结构</strong>：对于操作系统而言，文件的数据在外存中的存放方式</p>
 <h4 id="文件的逻辑结构">文件的逻辑结构</h4>
 <p>按文件是否有结构，可分为 有结构文件、无结构文件 两种</p>
 <ul>
-<li><p><strong>无结构文件</strong></p>
-<p>文件内部数据是一系列二进制流或字符流。因而也称为
-<strong>流式文件</strong>。如文本文件。</p>
-<p>无结构文件没有明显结构特性</p></li>
-<li><p><strong>有结构文件</strong></p>
-<p>由一组相似的记录组成。因而也成为
-<strong>记录式文件</strong>。如数据库表文件。</p>
-<p>根据各条记录长度是否相等，也分为
-<strong>定长记录</strong>、<strong>可变长记录</strong> 两种。</p>
+<li>
+<p><strong>无结构文件</strong></p>
+<p>文件内部数据是一系列二进制流或字符流。因而也称为 <strong>流式文件</strong>。如文本文件。</p>
+<p>无结构文件没有明显结构特性</p>
+</li>
+<li>
+<p><strong>有结构文件</strong></p>
+<p>由一组相似的记录组成。因而也成为 <strong>记录式文件</strong>。如数据库表文件。</p>
+<p>根据各条记录长度是否相等，也分为 <strong>定长记录</strong>、<strong>可变长记录</strong> 两种。</p>
 <p>有结构文件的逻辑结构分为三种</p>
 <ul>
-<li><p><strong>顺序文件</strong></p>
+<li>
+<p><strong>顺序文件</strong></p>
 <p>各记录在逻辑上接连顺序排列。</p>
-<p>顺序文件中，记录长度可以是 <strong>定长记录</strong> 或
-<strong>可变长记录</strong>。</p>
-<p>各记录在物理上可
-<strong>顺序存储</strong>（逻辑相邻的记录，其物理上也相邻）或
-<strong>链式存储</strong>（不一定相邻）。</p>
-<p>记录顺序按关键词顺序排列的，称为
-<strong>顺序结构</strong>。记录顺序与关键词无关的，称为
-<strong>串结构</strong>。</p>
-<p>只有 顺序存储、定长记录
-情况下，才能实现随机存取。此时，若保证顺序结构，还能实现关键词查找。</p>
-<p>顺序文件的缺点是 增加/删除 记录较困难。</p></li>
-<li><p><strong>索引文件</strong></p>
+<p>顺序文件中，记录长度可以是 <strong>定长记录</strong> 或 <strong>可变长记录</strong>。</p>
+<p>各记录在物理上可 <strong>顺序存储</strong>（逻辑相邻的记录，其物理上也相邻）或 <strong>链式存储</strong>（不一定相邻）。</p>
+<p>记录顺序按关键词顺序排列的，称为 <strong>顺序结构</strong>。记录顺序与关键词无关的，称为 <strong>串结构</strong>。</p>
+<p>只有 顺序存储、定长记录 情况下，才能实现随机存取。此时，若保证顺序结构，还能实现关键词查找。</p>
+<p>顺序文件的缺点是 增加/删除 记录较困难。</p>
+</li>
+<li>
+<p><strong>索引文件</strong></p>
 <p>在文件中建立 <strong>索引表</strong>，以加快检索速度。</p>
 <p>索引表本身是定长记录的顺序文件，可实现随机访问。索引文件中每条记录对应索引表的一条索引项，各索引项大小相等。</p>
 <p>可将关键字作为索引号内容，此时若按关键字顺序排列，还是实现关键词查找。</p>
 <p>也可以使用不同的数据项建立多个不同索引表。</p>
-<p>索引表的增删开销较大（要修改整个索引表），因此主要用于对信息处理及时性要求高的场合。</p></li>
-<li><p><strong>索引顺序文件</strong></p>
-<p>在文件中建立
-索引表，<strong>一组记录对应一个索引表项</strong>，以增加存储空间利用率。</p>
-<p>此外，可以建立
-<strong>多级索引表</strong>，进一步加快检索速度。</p></li>
-</ul></li>
+<p>索引表的增删开销较大（要修改整个索引表），因此主要用于对信息处理及时性要求高的场合。</p>
+</li>
+<li>
+<p><strong>索引顺序文件</strong></p>
+<p>在文件中建立 索引表，<strong>一组记录对应一个索引表项</strong>，以增加存储空间利用率。</p>
+<p>此外，可以建立 <strong>多级索引表</strong>，进一步加快检索速度。</p>
+</li>
+</ul>
+</li>
 </ul>
 <h4 id="文件目录">文件目录</h4>
-<p>目录本就是一种有结构文件，其由一条条记录组成。每条记录对应一个该目录下的文件。目录文件中的一条记录就是一个
-<strong>文件控制块（FCB）</strong></p>
-<p>FCB 的有序集合称为 <strong>文件目录</strong>，一个 FCB
-即一个文件目录项。</p>
-<p>FCB 中包含了文件的
-<strong>基本信息</strong>（文件名、物理地址、逻辑结构、物理结构等），<strong>存取控制信息</strong>（可读/可写、禁止访问的用户名单等），<strong>使用信息</strong>（文件的建立时间、修改时间等）</p>
+<p>目录本就是一种有结构文件，其由一条条记录组成。每条记录对应一个该目录下的文件。目录文件中的一条记录就是一个 <strong>文件控制块（FCB）</strong></p>
+<p>FCB 的有序集合称为 <strong>文件目录</strong>，一个 FCB 即一个文件目录项。</p>
+<p>FCB 中包含了文件的 <strong>基本信息</strong>（文件名、物理地址、逻辑结构、物理结构等），<strong>存取控制信息</strong>（可读/可写、禁止访问的用户名单等），<strong>使用信息</strong>（文件的建立时间、修改时间等）</p>
 <p>FCB 实现了文件名与文件间的映射，使用户能按名存取。</p>
-<p>由于查找目录时只需查找文件名，因此可以简化目录表以提升效率。可以将文件名以外的信息放入一个
-<strong>索引节点</strong>，这样，目录中就能只包含文件名和索引节点指针。仅当找到目录项时，再将索引节点调入内存。如此一来，就能大大提升文件检索速度。</p>
-<p>存放在外存中的索引节点称为
-<strong>磁盘索引节点</strong>，将其放入内存后称为
-<strong>内存索引节点</strong>。内存索引节点要额外添加一些信息：比如文件是否被修改、正访问文件的进程数等。</p>
+<p>由于查找目录时只需查找文件名，因此可以简化目录表以提升效率。可以将文件名以外的信息放入一个 <strong>索引节点</strong>，这样，目录中就能只包含文件名和索引节点指针。仅当找到目录项时，再将索引节点调入内存。如此一来，就能大大提升文件检索速度。</p>
+<p>存放在外存中的索引节点称为 <strong>磁盘索引节点</strong>，将其放入内存后称为 <strong>内存索引节点</strong>。内存索引节点要额外添加一些信息：比如文件是否被修改、正访问文件的进程数等。</p>
 <p>需要对目录进行的操作有：搜索、创建文件、删除文件、显示目录、修改目录</p>
 <p>目录结构分为以下四种：</p>
 <ul>
-<li><p><strong>单级目录结构</strong></p>
+<li>
+<p><strong>单级目录结构</strong></p>
 <p>早期操作系统的目录结构。整个系统中仅建立一张目录表，每个文件占一个目录项</p>
-<p>支持 “按名存取”，但不允许文件重名。</p></li>
-<li><p><strong>两级目录结构</strong></p>
-<p>早期多用户操作系统采用两级目录结构。分为
-<strong>主文件目录（MFD）</strong>、<strong>用户文件目录（UFD）</strong></p>
-<p>主文件目录记录用户名及用户文件目录的位置。用户文件目录由该用户文件
-FCB 组成。</p>
-<p>允许不同用户的文件重名，此时对应的是不同文件。但不允许同用户的文件重名。</p></li>
-<li><p><strong>多级目录结构（树形目录结构）</strong></p>
-<p>用户访问文件时使用 <strong>文件路径名</strong>
-标识文件。文件路径名是一个字符串，各级目录间以斜线（<code>/</code>）隔开。</p>
-<p>系统根据绝对路径自根目录起，一层一层找到下一级目录。从根目录出发的路径称为
-<strong>绝对路径</strong>。不同目录下的文件可以重名。</p>
-<p>很多时候，用户会连续访问一个目录中的多个文件，因此可以设置一个
-<strong>当前目录</strong>，以提升效率。从当前目录出发的路径称为
-<strong>相对路径</strong>。</p>
-<p>多级目录结构能方便地对文件进行分类，但不便于实现文件共享。</p></li>
-<li><p><strong>无环图目录结构</strong></p>
+<p>支持 “按名存取”，但不允许文件重名。</p>
+</li>
+<li>
+<p><strong>两级目录结构</strong></p>
+<p>早期多用户操作系统采用两级目录结构。分为 <strong>主文件目录（MFD）</strong>、<strong>用户文件目录（UFD）</strong></p>
+<p>主文件目录记录用户名及用户文件目录的位置。用户文件目录由该用户文件 FCB 组成。</p>
+<p>允许不同用户的文件重名，此时对应的是不同文件。但不允许同用户的文件重名。</p>
+</li>
+<li>
+<p><strong>多级目录结构（树形目录结构）</strong></p>
+<p>用户访问文件时使用 <strong>文件路径名</strong> 标识文件。文件路径名是一个字符串，各级目录间以斜线（<code>/</code>）隔开。</p>
+<p>系统根据绝对路径自根目录起，一层一层找到下一级目录。从根目录出发的路径称为 <strong>绝对路径</strong>。不同目录下的文件可以重名。</p>
+<p>很多时候，用户会连续访问一个目录中的多个文件，因此可以设置一个 <strong>当前目录</strong>，以提升效率。从当前目录出发的路径称为 <strong>相对路径</strong>。</p>
+<p>多级目录结构能方便地对文件进行分类，但不便于实现文件共享。</p>
+</li>
+<li>
+<p><strong>无环图目录结构</strong></p>
 <p>在多级目录结构的基础上，增加一些指向同一节点的有向边，使整个目录成为一个有向无环图。</p>
 <p>这样，可以用不同的文件名指向同一文件，甚至指向同一目录。这样，就能实现文件共享。</p>
-<p>要为每个共享节点设置一个
-<strong>共享计数器</strong>，以记录当前有多少地方在共享该节点。提出删除请求时，只删除该用户的
-fcb，并让共享计数器减 1。仅当共享计数器为 0 时才删除节点。</p></li>
+<p>要为每个共享节点设置一个 <strong>共享计数器</strong>，以记录当前有多少地方在共享该节点。提出删除请求时，只删除该用户的 fcb，并让共享计数器减 1。仅当共享计数器为 0 时才删除节点。</p>
+</li>
 </ul>
-<h4 id="文件的物理结构文件分配方式">文件的物理结构（文件分配方式）</h4>
-<p>与内存分页类似，磁盘中的存储单元也被分为一个个
-<strong>磁盘块</strong>（也称：块、物理块）。</p>
+<h4 id="文件的物理结构（文件分配方式）">文件的物理结构（文件分配方式）</h4>
+<p>与内存分页类似，磁盘中的存储单元也被分为一个个 <strong>磁盘块</strong>（也称：块、物理块）。</p>
 <p>在很多操作系统中，磁盘块的大小与内存块、页框的大小相同。这是出于数据交换的便利性的考量。</p>
 <p>文件在外存中的存放方式有以下几种：</p>
 <ul>
-<li><p><strong>连续分配</strong></p>
+<li>
+<p><strong>连续分配</strong></p>
 <p>每个文件在磁盘上占用一组连续的块。</p>
 <p>在文件目录中，记录存放的起始块号和长度。用户访问时，给出逻辑块号和块内地址。操作系统查找时，将逻辑块号转换为物理块号（逻辑块号合法时）即可。</p>
-<p>由于可以直接算出物理块号，因此连续分配支持 <strong>顺序访问</strong>
-和
-<strong>随机访问</strong>（直接访问）。此外，连续分配的文件在顺序读/写时速度最快。</p>
-<p>连续分配方式的缺点是不便进行拓展，且可能产生磁盘碎片。</p></li>
-<li><p><strong>链接分配</strong></p>
-<p>采取离散分配方式，为文件分配离散的磁盘块。分为
-<strong>隐式链接</strong> 与 <strong>显式链接</strong>。</p>
+<p>由于可以直接算出物理块号，因此连续分配支持 <strong>顺序访问</strong> 和 <strong>随机访问</strong>（直接访问）。此外，连续分配的文件在顺序读/写时速度最快。</p>
+<p>连续分配方式的缺点是不便进行拓展，且可能产生磁盘碎片。</p>
+</li>
+<li>
+<p><strong>链接分配</strong></p>
+<p>采取离散分配方式，为文件分配离散的磁盘块。分为 <strong>隐式链接</strong> 与 <strong>显式链接</strong>。</p>
 <ul>
-<li><p><strong>隐式链接</strong></p>
+<li>
+<p><strong>隐式链接</strong></p>
 <p>在文件目录中记录起始块号与结束块号。除结束块外，每个磁盘块中保存指向下一磁盘块的指针。</p>
-<p>用户访问时，给出逻辑块号和块内地址。操作系统查找时，找到并读入起始块（0
-号块），之后读入 1 号块，直至找到目标逻辑块。</p>
-<p>隐式链接方式下能扩展文件，也不会产生磁盘碎片。但只支持顺序访问，不支持随机访问，查找效率低。并且，指向下一盘块的指针也会耗费空间。</p></li>
-<li><p><strong>显式链接</strong></p>
-<p>在文件目录中记录起始块号。此外，把用于链接文件各物理块的指针显式地存放在一张
-<strong>文件分配表（FAT，File Allocation
-Table）</strong>中。文件分配表在开机后常驻内存。</p>
-<p>操作系统查找时，从文件目录中取得起始块号。之后无需读盘，而是在
-文件分配表 中查找目标逻辑块。这样，这个过程就不必进行读盘操作。</p>
-<p>显式链接方式下，文件支持顺序访问和随机访问。同时，访问速度也能得到保证。只是文件分配表也要占用一定的存储空间。</p></li>
-</ul></li>
-<li><p><strong>索引分配</strong></p>
-<p>为每个文件建立
-<strong>索引表</strong>，表中记录文件各个逻辑块对应的物理块。索引表存放的磁盘块称为
-<strong>索引块</strong>。文件数据存放的磁盘块称为
-<strong>数据块</strong>。</p>
+<p>用户访问时，给出逻辑块号和块内地址。操作系统查找时，找到并读入起始块（0 号块），之后读入 1 号块，直至找到目标逻辑块。</p>
+<p>隐式链接方式下能扩展文件，也不会产生磁盘碎片。但只支持顺序访问，不支持随机访问，查找效率低。并且，指向下一盘块的指针也会耗费空间。</p>
+</li>
+<li>
+<p><strong>显式链接</strong></p>
+<p>在文件目录中记录起始块号。此外，把用于链接文件各物理块的指针显式地存放在一张 **文件分配表（FAT，File Allocation Table）**中。文件分配表在开机后常驻内存。</p>
+<p>操作系统查找时，从文件目录中取得起始块号。之后无需读盘，而是在 文件分配表 中查找目标逻辑块。这样，这个过程就不必进行读盘操作。</p>
+<p>显式链接方式下，文件支持顺序访问和随机访问。同时，访问速度也能得到保证。只是文件分配表也要占用一定的存储空间。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>索引分配</strong></p>
+<p>为每个文件建立 <strong>索引表</strong>，表中记录文件各个逻辑块对应的物理块。索引表存放的磁盘块称为 <strong>索引块</strong>。文件数据存放的磁盘块称为 <strong>数据块</strong>。</p>
 <p>可以使用固定长度表示物理块号，这样索引表的逻辑块号就能是隐含的。</p>
 <p>索引分配可以支持随机访问，也能实现文拓展。</p>
 <p>在文件大小太大，单一磁盘块不能包含完整索引表时，有以下几个解决方法：</p>
 <ul>
 <li>链接方案：将多个索引块链接存放。低效的方案。</li>
-<li>多层索引：建立多层索引。若采用 k 层索引结构，则访问数据块需要 k+1
-次磁盘读取。</li>
+<li>多层索引：建立多层索引。若采用 k 层索引结构，则访问数据块需要 k+1 次磁盘读取。</li>
 <li>混合索引：一个文件的顶级索引表中，既包含直接地址索引，也有一级、二级间接索引。</li>
-</ul></li>
 </ul>
-<h2 id="os4.3-文件存储空间管理">OS4.3 文件存储空间管理</h2>
+</li>
+</ul>
+<h2 id="OS4-3-文件存储空间管理">OS4.3 文件存储空间管理</h2>
 <p>操作系统不仅要对非空闲磁盘块进行管理（文件的物理结构），也要对空闲磁盘块进行管理。</p>
-<p>操作系统会将磁盘划分为一个个
-<strong>文件卷</strong>（逻辑卷、逻辑盘）。每个文件卷又被划分为
-<strong>目录区</strong> 与
-<strong>文件区</strong>。在支持超大型文件的系统中，也支持由多个物理磁盘组成一个文件卷。</p>
+<p>操作系统会将磁盘划分为一个个 <strong>文件卷</strong>（逻辑卷、逻辑盘）。每个文件卷又被划分为 <strong>目录区</strong> 与 <strong>文件区</strong>。在支持超大型文件的系统中，也支持由多个物理磁盘组成一个文件卷。</p>
 <p>存储空间的几种管理方法：</p>
 <ul>
-<li><p><strong>空闲表法</strong></p>
-<p>建立一张
-<strong>空闲表</strong>。对于所有的空闲位置，空闲表记录其初始空闲盘块号，以及空闲盘块数。</p>
-<p>空闲表法适用于 <strong>连续分配</strong>
-的物理结构。可以采用首次适应、最佳适应、最坏适应等算法决定要分配的空间。</p>
-<p>回收空间时注意表项的合并问题。</p></li>
-<li><p><strong>空闲链表法</strong></p>
-<p>每个空闲的物理块称为一个
-<strong>空闲盘块</strong>。连续的空闲盘块称为
-<strong>空闲盘区</strong>。</p>
+<li>
+<p><strong>空闲表法</strong></p>
+<p>建立一张 <strong>空闲表</strong>。对于所有的空闲位置，空闲表记录其初始空闲盘块号，以及空闲盘块数。</p>
+<p>空闲表法适用于 <strong>连续分配</strong> 的物理结构。可以采用首次适应、最佳适应、最坏适应等算法决定要分配的空间。</p>
+<p>回收空间时注意表项的合并问题。</p>
+</li>
+<li>
+<p><strong>空闲链表法</strong></p>
+<p>每个空闲的物理块称为一个 <strong>空闲盘块</strong>。连续的空闲盘块称为 <strong>空闲盘区</strong>。</p>
 <p>根据空闲链单位的不同，空闲链表法分为以下两种实现：</p>
 <ul>
-<li><p><strong>空闲盘块链</strong></p>
+<li>
+<p><strong>空闲盘块链</strong></p>
 <p>空闲盘块中存储着指向下一空闲盘块的指针。</p>
 <p>操作系统要保存链头、链尾的指针。</p>
 <p>分配空间时，从链头起摘下需求数量的盘块分配，并修改空闲链链头指针。</p>
-<p>回收空间时，那些回收盘块被挂到链尾，并修改空闲链链尾指针。</p></li>
-<li><p><strong>空闲盘区链</strong></p>
+<p>回收空间时，那些回收盘块被挂到链尾，并修改空闲链链尾指针。</p>
+</li>
+<li>
+<p><strong>空闲盘区链</strong></p>
 <p>空闲盘区的第一个盘块记录盘区长度和指向下一盘区的指针。</p>
 <p>操作系统要保存链头、链尾的指针。</p>
 <p>分配空间时，采用首次适应、最佳适应、最坏适应等算法决定要分配的空间。也能将不同盘区盘块同时分配给同一文件。之后，要修改相应指针、盘区大小的数据。</p>
 <p>回收空间时，与其他盘区相邻的并入那些相邻盘区，其余的作为新的空闲盘区挂到链尾。</p>
-<p>适用于离散分配和连续分配。比起空闲盘块链，其分配多个盘块时效率更高。</p></li>
-</ul></li>
-<li><p><strong>位示图法</strong></p>
+<p>适用于离散分配和连续分配。比起空闲盘块链，其分配多个盘块时效率更高。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>位示图法</strong></p>
 <p>以二进制位代表各个盘块，以 1/0 代表 已分配/未分配。</p>
-<p>位示图通常用连续的 “字” 表示。可以使用 字号-位号（或称 行号-列号）
-来对应一个盘块号。</p>
-<p>分配空间时，顺序扫描位示图，找到指定数量的 0
-位，计算其对应盘块号，并将数位置为 1。</p>
-<p>回收空间时，根据回收盘块号计算字号、位号。再将那些指定数位置为
-0。</p></li>
-<li><p><strong>成组链接法</strong></p>
-<p>成组链接法适用于大型文件系统，UNIX
-即采用该策略。在文件卷目录区划出一个专门的磁盘块作为
-<strong>超级块</strong>。操作系统启动时将超级块读入内存，并要保证内存与外存中的超级块数据一致。</p>
+<p>位示图通常用连续的 “字” 表示。可以使用 字号-位号（或称 行号-列号） 来对应一个盘块号。</p>
+<p>分配空间时，顺序扫描位示图，找到指定数量的 0 位，计算其对应盘块号，并将数位置为 1。</p>
+<p>回收空间时，根据回收盘块号计算字号、位号。再将那些指定数位置为 0。</p>
+</li>
+<li>
+<p><strong>成组链接法</strong></p>
+<p>成组链接法适用于大型文件系统，UNIX 即采用该策略。在文件卷目录区划出一个专门的磁盘块作为 <strong>超级块</strong>。操作系统启动时将超级块读入内存，并要保证内存与外存中的超级块数据一致。</p>
 <p>超级块中记录三部分信息：下一组空闲块数、该组第一个空闲盘块号、该组其他空闲盘块号。</p>
 <p>每组的第一个磁盘块中也会记录下一组盘块的信息，最后一组的第一个盘块号为空值以作区分。每组的空闲盘块间不一定连续，每组的空闲块数量有上限。</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/OS_InputImage/OS4_2%20成组链接法图.webp" /></p>
+<p>![](/img/OS_InputImage/OS4_2 成组链接法图.webp)</p>
 <p><em>（OS4_2 成组链接法图）</em></p>
 <p>每次分配空闲块时，检查超级块组内是否有足够的空闲磁盘块。磁盘块一经分配，即让记录的组内块数减少。超级块组内无空闲块后，将下一组的信息复制到超级块中。可见超级块即充当了链头作用。</p>
 <blockquote>
-<p>在上图（OS4_2 成组链接法图）中，若超级块内 6 个空闲块都被分配，则将
-C1 记录的信息复制到超级块中，此时超级块组内又有 6
-个空闲块，且第一个空闲块指向 C2。</p>
+<p>在上图（OS4_2 成组链接法图）中，若超级块内 6 个空闲块都被分配，则将 C1 记录的信息复制到超级块中，此时超级块组内又有 6 个空闲块，且第一个空闲块指向 C2。</p>
 </blockquote>
-<p>回收空闲块时，将空闲块放入超级块。超级块组内块数达到数量上限时，将超级块数据复制到新回收的块中，并修改超级块内容，使新回收的块成为第一个分组。</p></li>
+<p>回收空闲块时，将空闲块放入超级块。超级块组内块数达到数量上限时，将超级块数据复制到新回收的块中，并修改超级块内容，使新回收的块成为第一个分组。</p>
+</li>
 </ul>
-<h2 id="os4.4-文件的基本操作">OS4.4 文件的基本操作</h2>
-<p>操作系统向上层提供的文件管理功能：创建文件（create
-系统调用）、读文件（read
-系统调用）、写文件（write）、删除文件（delete）、打开文件（open）、关闭文件（close）</p>
+<h2 id="OS4-4-文件的基本操作">OS4.4 文件的基本操作</h2>
+<p>操作系统向上层提供的文件管理功能：创建文件（create 系统调用）、读文件（read 系统调用）、写文件（write）、删除文件（delete）、打开文件（open）、关闭文件（close）</p>
 <p>其他的复杂操作都由上述基本操作派生而来。</p>
 <ul>
-<li><p><strong>创建文件（create 系统调用）</strong></p>
-<p>进行 create
-系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong>、<strong>所需外存空间大小</strong></p>
+<li>
+<p><strong>创建文件（create 系统调用）</strong></p>
+<p>进行 create 系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong>、<strong>所需外存空间大小</strong></p>
 <p>系统处理该调用时，进行了如下操作：</p>
-<ol type="1">
+<ol>
 <li>在外存中找到文件所需空间。</li>
 <li>根据文件路径信息找到相应目录文件，在其中创建该文件对应的目录项。</li>
-</ol></li>
-<li><p><strong>删除文件（delete 系统调用）</strong></p>
-<p>进行 delete
-系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong></p>
+</ol>
+</li>
+<li>
+<p><strong>删除文件（delete 系统调用）</strong></p>
+<p>进行 delete 系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong></p>
 <p>系统处理该调用时，进行了如下操作：</p>
-<ol type="1">
+<ol>
 <li>根据文件路径信息找到相应目录文件，找到目标文件的目录项。</li>
 <li>根据目录项的信息，回收文件占用的磁盘块。</li>
 <li>删除文件对应的目录项。</li>
-</ol></li>
-<li><p><strong>打开文件（open 系统调用）</strong></p>
-<p>进行 open
-系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong>、<strong>操作类型（只读、只写等）</strong></p>
+</ol>
+</li>
+<li>
+<p><strong>打开文件（open 系统调用）</strong></p>
+<p>进行 open 系统调用时，需要提供的参数有：<strong>文件存放路径</strong>、<strong>文件名</strong>、<strong>操作类型（只读、只写等）</strong></p>
 <p>系统处理该调用时，进行了如下操作：</p>
-<ol type="1">
-<li><p>根据文件路径信息找到相应目录文件，找到目标文件的目录项。</p>
-<p>此外，还会检查用户是否拥有指定的操作权限。</p></li>
-<li><p>将目录项复制到内存中的 <strong>打开文件表</strong> 中，并将对应的
-打开文件表项 的 <strong>索引号</strong>（或称
-文件描述符）返回用户。之后，用户使用该编号来指明要操作的文件。</p>
+<ol>
+<li>
+<p>根据文件路径信息找到相应目录文件，找到目标文件的目录项。</p>
+<p>此外，还会检查用户是否拥有指定的操作权限。</p>
+</li>
+<li>
+<p>将目录项复制到内存中的 <strong>打开文件表</strong> 中，并将对应的 打开文件表项 的 <strong>索引号</strong>（或称 文件描述符）返回用户。之后，用户使用该编号来指明要操作的文件。</p>
 <p>通过这种方式，之后用户访问文件时不需要再重新检查目录，因此提高了文件访问速度。</p>
 <p>操作系统会有一张系统的打开文件表。此外，不同进程也持有各自的打开文件表。</p>
-<p><strong>系统的打开文件表</strong>：除基本信息外，还包含
-<strong>打开计数器</strong> 的特殊字段，用以记录打开该文件的进程数。</p>
-<p><strong>进程的打开文件表</strong>：除基本信息外，还记录
-文件在<strong>系统表的索引号</strong>、文件<strong>读写指针</strong>、文件的<strong>访问权限</strong>。</p></li>
-</ol></li>
-<li><p><strong>关闭文件（close 系统调用）</strong></p>
+<p><strong>系统的打开文件表</strong>：除基本信息外，还包含 <strong>打开计数器</strong> 的特殊字段，用以记录打开该文件的进程数。</p>
+<p><strong>进程的打开文件表</strong>：除基本信息外，还记录 文件在<strong>系统表的索引号</strong>、文件<strong>读写指针</strong>、文件的<strong>访问权限</strong>。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>关闭文件（close 系统调用）</strong></p>
 <p>系统处理该调用时，进行了如下操作：</p>
-<ol type="1">
+<ol>
 <li>将 进程的打开文件表 中的相应表项删除。</li>
 <li>回收分配给该文件的内存空间等资源。</li>
-<li>将 系统的打开文件表 的相应表项的 打开计数器
-计数减少。若计数为零则删除表项。</li>
-</ol></li>
-<li><p><strong>读文件（read 系统调用）</strong></p>
-<p>进行 read 系统调用时，要指明：文件（打开文件表的
-<strong>索引号</strong>）、<strong>读入数据量</strong>、<strong>读入数据在内存的存储位置</strong></p>
-<p>系统处理该调用时，即从读指针指向的外存中，将用户指定大小的数据读入用户指定的内存区域。</p></li>
-<li><p><strong>写文件（write 系统调用）</strong></p>
-<p>进行 write 系统调用时，要指明：文件（打开文件表的
-<strong>索引号</strong>）、<strong>写出数据量</strong>、<strong>写出数据在外存的存储位置</strong></p>
-<p>系统处理该调用时，即从读指针指向的外存中，将用户指定大小的数据读入用户指定的内存区域。</p></li>
-<li><p><strong>指针定位（seek 系统调用）</strong></p>
+<li>将 系统的打开文件表 的相应表项的 打开计数器 计数减少。若计数为零则删除表项。</li>
+</ol>
+</li>
+<li>
+<p><strong>读文件（read 系统调用）</strong></p>
+<p>进行 read 系统调用时，要指明：文件（打开文件表的 <strong>索引号</strong>）、<strong>读入数据量</strong>、<strong>读入数据在内存的存储位置</strong></p>
+<p>系统处理该调用时，即从读指针指向的外存中，将用户指定大小的数据读入用户指定的内存区域。</p>
+</li>
+<li>
+<p><strong>写文件（write 系统调用）</strong></p>
+<p>进行 write 系统调用时，要指明：文件（打开文件表的 <strong>索引号</strong>）、<strong>写出数据量</strong>、<strong>写出数据在外存的存储位置</strong></p>
+<p>系统处理该调用时，即从读指针指向的外存中，将用户指定大小的数据读入用户指定的内存区域。</p>
+</li>
+<li>
+<p><strong>指针定位（seek 系统调用）</strong></p>
 <p>系统处理该调用时，进行了如下操作：</p>
-<ol type="1">
+<ol>
 <li>根据给出的文件名，检查用户的打开文件表，找到对应入口</li>
 <li>将该表中的文件读写指针设为指定位置</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-<h2 id="os4.5-文件的共享与保护">OS4.5 文件的共享与保护</h2>
+<h2 id="OS4-5-文件的共享与保护">OS4.5 文件的共享与保护</h2>
 <p>操作系统还要实现 文件共享 和 文件保护 的功能。</p>
 <h4 id="文件共享">文件共享</h4>
 <p>多个系统共享一份文件，这意味着任何用户修改文件数据后，其余用户也能看到文件数据的变化。这也是复制文件与共享文件的不同之处。</p>
 <p>文件共享的实现方式有两种：基于索引节点的共享方式（硬链接）、基于符号链的共享方式（软链接）</p>
 <ul>
-<li><p><strong>基于索引节点的共享方式（硬链接）</strong></p>
+<li>
+<p><strong>基于索引节点的共享方式（硬链接）</strong></p>
 <p>索引节点：文件目录瘦身策略的一种。将文件名外的信息放在索引节点中，这样一来目录项只需包含文件名和索引节点指针。</p>
 <p>各用户目录项指向同一索引节点。在索引节点中设置计数变量，以表示链接到本索引节点上的用户目录项数。</p>
-<p>用户想要删除文件时，之删除用户目录项，并使计数变量减少。直到计数变量归零时，才真正删除文件。</p></li>
-<li><p><strong>基于符号链的共享方式（软链接）</strong></p>
-<p>使用 link 型文件记录共享文件的存放路径。类似于 Windows
-的快捷方式。操作系统根据路径层层查找，直到找到目标文件。</p>
+<p>用户想要删除文件时，之删除用户目录项，并使计数变量减少。直到计数变量归零时，才真正删除文件。</p>
+</li>
+<li>
+<p><strong>基于符号链的共享方式（软链接）</strong></p>
+<p>使用 link 型文件记录共享文件的存放路径。类似于 Windows 的快捷方式。操作系统根据路径层层查找，直到找到目标文件。</p>
 <p>这种情况下，删除文件会使 link 文件的软链接失效。</p>
-<p>软连接方式访问文件会查询多级目录，产生多次磁盘
-I/O，因此速度也比硬链接更慢。</p></li>
+<p>软连接方式访问文件会查询多级目录，产生多次磁盘 I/O，因此速度也比硬链接更慢。</p>
+</li>
 </ul>
 <h4 id="文件保护">文件保护</h4>
 <p>文件保护有三种形式：</p>
 <ul>
-<li><p><strong>口令保护</strong></p>
+<li>
+<p><strong>口令保护</strong></p>
 <p>为文件设置口令。用户请求访问文件时，必须正确提供口令。</p>
-<p>虽然保存、验证口令的开销不多，但正确口令存放在系统内部，不够安全。</p></li>
-<li><p><strong>加密保护</strong></p>
+<p>虽然保存、验证口令的开销不多，但正确口令存放在系统内部，不够安全。</p>
+</li>
+<li>
+<p><strong>加密保护</strong></p>
 <p>使用某个密码对文件进行加密。必须依据正确密码才能对文件进行正确解密。</p>
-<p>虽然保密性强，但加密/解密需要一定的开销。</p></li>
-<li><p><strong>访问控制</strong></p>
-<p>系统在文件 索引节点/FCB 中增加一个
-<strong>访问控制列表</strong>（ACL，Access-Control
-List）。访问列表可以以 <strong>组</strong>
-为单位，标记各组能执行的操作。</p>
-<p>该方法实现灵活，且能实现复杂的文件保护功能。</p></li>
+<p>虽然保密性强，但加密/解密需要一定的开销。</p>
+</li>
+<li>
+<p><strong>访问控制</strong></p>
+<p>系统在文件 索引节点/FCB 中增加一个 <strong>访问控制列表</strong>（ACL，Access-Control List）。访问列表可以以 <strong>组</strong> 为单位，标记各组能执行的操作。</p>
+<p>该方法实现灵活，且能实现复杂的文件保护功能。</p>
+</li>
 </ul>
-<h2 id="os4.6-磁盘">OS4.6 磁盘</h2>
+<h2 id="OS4-6-磁盘">OS4.6 磁盘</h2>
 <p>磁盘的表面由磁性物质组成，可以用这些磁性物质记录二进制数据。</p>
-<p>磁盘的 <strong>盘面</strong> 从内向外分成一个个圆形
-<strong>磁道</strong>，同时磁道又被划分为不同
-<strong>扇区</strong>。</p>
-<p>每个扇区就是一个
-磁盘块。各扇区存放的数据量相同。可见最内侧磁道数据密度最大。</p>
-<p>磁盘由多个 <strong>盘片</strong>
-堆叠而成，盘片可能有一个或两个盘面。每个盘面各自对应一个读写数据的
-<strong>磁头</strong>。所有磁头连接着同一磁臂上，因此所有磁头必须同时移动。所有盘面中，相对位置相同的磁道组成
-<strong>柱面</strong>。</p>
-<p>因此，就能使用 <strong>柱面号</strong> + <strong>盘面号</strong> +
-<strong>扇区号</strong> 来确定任意的磁盘块。换言之，磁盘块号能转换为
-<code>(柱面号,盘面号,扇区号)</code>
-的地址形式。柱面号放在最前，这样能减少磁头的移动次数。</p>
-<p>磁盘根据磁盘头可分为：活动头磁盘（磁臂伸缩以移动磁头）和
-固定头磁盘（每个磁道都分配一个磁头）。</p>
+<p>磁盘的 <strong>盘面</strong> 从内向外分成一个个圆形 <strong>磁道</strong>，同时磁道又被划分为不同 <strong>扇区</strong>。</p>
+<p>每个扇区就是一个 磁盘块。各扇区存放的数据量相同。可见最内侧磁道数据密度最大。</p>
+<p>磁盘由多个 <strong>盘片</strong> 堆叠而成，盘片可能有一个或两个盘面。每个盘面各自对应一个读写数据的 <strong>磁头</strong>。所有磁头连接着同一磁臂上，因此所有磁头必须同时移动。所有盘面中，相对位置相同的磁道组成 <strong>柱面</strong>。</p>
+<p>因此，就能使用 <strong>柱面号</strong> + <strong>盘面号</strong> + <strong>扇区号</strong> 来确定任意的磁盘块。换言之，磁盘块号能转换为 <code>(柱面号,盘面号,扇区号)</code> 的地址形式。柱面号放在最前，这样能减少磁头的移动次数。</p>
+<p>磁盘根据磁盘头可分为：活动头磁盘（磁臂伸缩以移动磁头）和 固定头磁盘（每个磁道都分配一个磁头）。</p>
 <p>又可根据盘片分为：可换盘磁盘（盘片可更换）、固定盘磁盘（盘片不能更换）</p>
 <h4 id="磁盘调度算法">磁盘调度算法</h4>
 <p>每次读/写操作花费的时间分为几部分：</p>
 <ul>
-<li><p><strong>寻找时间</strong>（寻道时间）<span
-class="math inline">\(T_S\)</span>：读写数据前，将磁头移动到指定磁道的时间。</p>
-<p>启动磁头壁花费时间 <span
-class="math inline">\(s\)</span>，移动磁头跨越一个磁道时间为 <span
-class="math inline">\(m\)</span>，需跨越磁道数为 <span
-class="math inline">\(n\)</span>，则有 <span class="math inline">\(T_S=
-s + m\times n\)</span></p></li>
-<li><p><strong>延迟时间</strong> <span
-class="math inline">\(T_R\)</span>：通过旋转磁盘，使磁头抵达目标扇区需要的时间。</p>
-<p>若磁盘转速为 <span class="math inline">\(r\)</span> 转每秒（分），则
-<span class="math inline">\(T_R=\dfrac{1}{2r}\)</span></p></li>
-<li><p><strong>传输时间</strong> <span
-class="math inline">\(T_t\)</span>：磁盘的 读出/写入
-数据经历的时间。</p>
-<p>若磁盘转速为 <span class="math inline">\(r\)</span>
-转每秒（分）,需读/写的字节数为 <span
-class="math inline">\(b\)</span>，磁道上的字节数为 <span
-class="math inline">\(N\)</span>，则有 <span
-class="math inline">\(T_t=\dfrac{b}{rN}\)</span></p></li>
+<li>
+<p><strong>寻找时间</strong>（寻道时间）<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">T_S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：读写数据前，将磁头移动到指定磁道的时间。</p>
+<p>启动磁头壁花费时间 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>，移动磁头跨越一个磁道时间为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span>，需跨越磁道数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>，则有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>S</mi></msub><mo>=</mo><mi>s</mi><mo>+</mo><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">T_S= s + m\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></p>
+</li>
+<li>
+<p><strong>延迟时间</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">T_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：通过旋转磁盘，使磁头抵达目标扇区需要的时间。</p>
+<p>若磁盘转速为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 转每秒（分），则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>R</mi></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mn>2</mn><mi>r</mi></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">T_R=\dfrac{1}{2r}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>传输时间</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">T_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：磁盘的 读出/写入 数据经历的时间。</p>
+<p>若磁盘转速为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 转每秒（分）,需读/写的字节数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>，磁道上的字节数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>，则有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>t</mi></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mi>b</mi><mrow><mi>r</mi><mi>N</mi></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">T_t=\dfrac{b}{rN}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
 </ul>
 <p>延迟时间与传输时间与磁盘固有属性相关，操作系统无法优化。但操作系统可以优化寻道时间。</p>
 <p>寻道算法有以下几种：</p>
 <ul>
-<li><p><strong>先来先服务算法（FCFS）</strong></p>
-<p>根据进程请求访问磁盘的顺序进行调度。</p></li>
-<li><p><strong>最短寻找时间优先算法（SSTF）</strong></p>
+<li>
+<p><strong>先来先服务算法（FCFS）</strong></p>
+<p>根据进程请求访问磁盘的顺序进行调度。</p>
+</li>
+<li>
+<p><strong>最短寻找时间优先算法（SSTF）</strong></p>
 <p>优先处理与当前磁头最近的磁道。</p>
 <p>是一种贪心算法。可以保证每次寻道时间最短，但不能保证总寻道时间最短。</p>
-<p>虽然性能较好，但可能产生饥饿现象。</p></li>
-<li><p><strong>扫描算法（SCAN）</strong></p>
-<p>也称 电梯算法。在 SSTF
-的基础上，规定仅当磁头移动到最外侧磁道时才能向内移动，之后仅当磁头移动到最内侧磁道时才向外移动。</p>
-<p>虽然不会产生饥饿现象，但各位置磁道响应频率不均匀。</p></li>
-<li><p><strong>LOOK 调度算法</strong></p>
-<p>在 SCAN
-算法基础上，规定如果磁头移动方向上已无其他请求，就能改变磁头方向。</p></li>
-<li><p><strong>循环扫描算法（C-SCAN）</strong></p>
-<p>为解决 SCAN 算法磁道响应频率不均的问题提出的算法。在 SCAN
-的基础上规定，仅磁头向特定方向移动时才处理磁道访问请求。返回时，直接快速移动到起始端，期间不处理请求。</p></li>
-<li><p><strong>C-LOOK 算法</strong></p>
-<p>C-SCAN 算法与 LOOK 算法的结合。</p></li>
+<p>虽然性能较好，但可能产生饥饿现象。</p>
+</li>
+<li>
+<p><strong>扫描算法（SCAN）</strong></p>
+<p>也称 电梯算法。在 SSTF 的基础上，规定仅当磁头移动到最外侧磁道时才能向内移动，之后仅当磁头移动到最内侧磁道时才向外移动。</p>
+<p>虽然不会产生饥饿现象，但各位置磁道响应频率不均匀。</p>
+</li>
+<li>
+<p><strong>LOOK 调度算法</strong></p>
+<p>在 SCAN 算法基础上，规定如果磁头移动方向上已无其他请求，就能改变磁头方向。</p>
+</li>
+<li>
+<p><strong>循环扫描算法（C-SCAN）</strong></p>
+<p>为解决 SCAN 算法磁道响应频率不均的问题提出的算法。在 SCAN 的基础上规定，仅磁头向特定方向移动时才处理磁道访问请求。返回时，直接快速移动到起始端，期间不处理请求。</p>
+</li>
+<li>
+<p><strong>C-LOOK 算法</strong></p>
+<p>C-SCAN 算法与 LOOK 算法的结合。</p>
+</li>
 </ul>
 <h4 id="减少磁盘延迟时间">减少磁盘延迟时间</h4>
 <p>由于磁头读取内容后，需要时间处理。而盘片却在不断旋转。因此，磁盘不能连续读入相邻的扇区。</p>
 <p>若使逻辑上相邻的扇区在物理上也相邻，就会产生很长的延迟时间。</p>
 <p>减少磁盘延迟时间的方法有：</p>
 <ul>
-<li><p><strong>交替编号</strong></p>
-<p>使逻辑上相邻的扇区在物理上具备间隔，这样就能使读取连续逻辑扇区所需的延迟时间减少。</p></li>
-<li><p><strong>错位命名</strong></p>
-<p>与交替编号同理。使相邻盘面的扇区编号错位，以减少延迟时间。</p></li>
+<li>
+<p><strong>交替编号</strong></p>
+<p>使逻辑上相邻的扇区在物理上具备间隔，这样就能使读取连续逻辑扇区所需的延迟时间减少。</p>
+</li>
+<li>
+<p><strong>错位命名</strong></p>
+<p>与交替编号同理。使相邻盘面的扇区编号错位，以减少延迟时间。</p>
+</li>
 </ul>
 <h4 id="磁盘管理">磁盘管理</h4>
 <ul>
-<li><p><strong>磁盘初始化</strong></p>
-<ol type="1">
-<li><p>磁盘出厂前会进行
-<strong>物理格式化</strong>（低级格式化），将磁盘各个磁道划分扇区。</p>
-<p>磁盘扇区可分为 头、数据区域、尾
-三部分。管理扇区所需的各种数据结构一般放在头、尾部分，包括扇区校验码（校验扇区数据是否发生错误）。</p></li>
-<li><p>将磁盘分区，每个分区由若干柱面组成（分区即分为 C 盘、D
-盘等）</p></li>
-<li><p>进行 <strong>逻辑格式化</strong>，创建文件系统。</p>
-<p>包括创建文件系统根目录，初始化存储空间管理所用的数据结构。</p></li>
-</ol></li>
-<li><p><strong>磁盘引导块</strong></p>
-<p>计算机开机时要进行一系列初始化工作，这些工作是通过
-<strong>初始化程序（自举程序）</strong>完成的。</p>
-<p>自举程序的装入程序放在
-<strong>ROM</strong>（只读存储器，通常在出场时就集成在主板上）中，在出厂时就已写入，并且不能修改。而完整的自举程序放在磁盘的
-<strong>引导块</strong>（启动块、启动分区）上，引导块位于磁盘的固定位置。</p>
+<li>
+<p><strong>磁盘初始化</strong></p>
+<ol>
+<li>
+<p>磁盘出厂前会进行 <strong>物理格式化</strong>（低级格式化），将磁盘各个磁道划分扇区。</p>
+<p>磁盘扇区可分为 头、数据区域、尾 三部分。管理扇区所需的各种数据结构一般放在头、尾部分，包括扇区校验码（校验扇区数据是否发生错误）。</p>
+</li>
+<li>
+<p>将磁盘分区，每个分区由若干柱面组成（分区即分为 C 盘、D 盘等）</p>
+</li>
+<li>
+<p>进行 <strong>逻辑格式化</strong>，创建文件系统。</p>
+<p>包括创建文件系统根目录，初始化存储空间管理所用的数据结构。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>磁盘引导块</strong></p>
+<p>计算机开机时要进行一系列初始化工作，这些工作是通过 **初始化程序（自举程序）**完成的。</p>
+<p>自举程序的装入程序放在 <strong>ROM</strong>（只读存储器，通常在出场时就集成在主板上）中，在出厂时就已写入，并且不能修改。而完整的自举程序放在磁盘的 <strong>引导块</strong>（启动块、启动分区）上，引导块位于磁盘的固定位置。</p>
 <p>开机时，计算机先执行自举装入程序，找到引导块，将自举程序装入内存。之后就能完成初始化。</p>
-<p>拥有引导块的磁盘称为 <strong>系统磁盘</strong>（启动磁盘、C
-盘）</p></li>
-<li><p><strong>磁盘坏块管理</strong></p>
+<p>拥有引导块的磁盘称为 <strong>系统磁盘</strong>（启动磁盘、C 盘）</p>
+</li>
+<li>
+<p><strong>磁盘坏块管理</strong></p>
 <p>磁盘坏块属于硬件故障，操作系统无法修复。但操作系统能将坏块标记出来，以避免错误地使用。</p>
 <p>对于简单磁盘，可以在逻辑格式化时即对磁盘进行坏块检查，标明坏扇区。此时，坏块对操作系统不透明。</p>
-<p>对于复杂磁盘，会使用磁盘控制器来维护一个坏块链表。在出厂前的物理格式化时即对其初始化。</p></li>
+<p>对于复杂磁盘，会使用磁盘控制器来维护一个坏块链表。在出厂前的物理格式化时即对其初始化。</p>
+</li>
 </ul>
 <h4 id="提升文件系统性能的技术">提升文件系统性能的技术</h4>
 <p>常见技术措施有：</p>
 <ul>
-<li><p><strong>磁盘高速缓存</strong></p>
-<p>系统在内存中保存一些磁盘块。这些磁盘块在逻辑上属于磁盘，被称为
-块高速缓存。</p>
-<p>运行时，检查读请求。若其所需文件块位于块高速缓存，则直接在内存进行读取。否则，将磁盘块先读入块高速缓存，再复制到其他内存区域。高速缓存满时，以一定算法淘汰一些较少使用的磁盘块，让出高速缓存空间。</p></li>
-<li><p><strong>RAID 技术</strong></p>
-<p>磁盘是机械设备，其访存速度慢，故障率高。为解决上述问题，提出了 RAID
-技术。在组成 RAID 的结构上有几种多不同方法。</p>
+<li>
+<p><strong>磁盘高速缓存</strong></p>
+<p>系统在内存中保存一些磁盘块。这些磁盘块在逻辑上属于磁盘，被称为 块高速缓存。</p>
+<p>运行时，检查读请求。若其所需文件块位于块高速缓存，则直接在内存进行读取。否则，将磁盘块先读入块高速缓存，再复制到其他内存区域。高速缓存满时，以一定算法淘汰一些较少使用的磁盘块，让出高速缓存空间。</p>
+</li>
+<li>
+<p><strong>RAID 技术</strong></p>
+<p>磁盘是机械设备，其访存速度慢，故障率高。为解决上述问题，提出了 RAID 技术。在组成 RAID 的结构上有几种多不同方法。</p>
 <p>RAID0 采用多个磁盘并行以提高读写速度。</p>
 <p>RAID1 采用镜像方法提高存储可靠性。</p>
 <p>RAID2、RAID3 分别采用 位分布式存储 和 字节分布式存储。</p>
-<p>RAID4
-采用块分布式存储，并加入了校验，以提高可靠性。其校验码是独立存储的。</p>
-<p>RAID5 与 RAID4
-相同，但其校验码以块为单位，与数据块一起随机存储在磁盘块中。</p>
-<p>其余 RAID 技术都是上述各方法的组合或扩展。</p></li>
+<p>RAID4 采用块分布式存储，并加入了校验，以提高可靠性。其校验码是独立存储的。</p>
+<p>RAID5 与 RAID4 相同，但其校验码以块为单位，与数据块一起随机存储在磁盘块中。</p>
+<p>其余 RAID 技术都是上述各方法的组合或扩展。</p>
+</li>
 </ul>
 
               
@@ -874,7 +874,6 @@ class="math inline">\(T_t=\dfrac{b}{rN}\)</span></p></li>
 
   
   
-
 
 
 
@@ -1122,44 +1121,6 @@ class="math inline">\(T_t=\dfrac{b}{rN}\)</span></p></li>
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

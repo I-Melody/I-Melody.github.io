@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="10 枚举和注解 10.1 枚举 把具体的对象一一列举出来的类，就称为 枚举类（enumeration） 实现方法：  自定义枚举 enum 关键字枚举  10.1.1 自定义枚举  构造器私有化 去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读 在类内部直接创建固定对象。使用 final + static 共同修饰，对象名通常全部大写。">
+    <meta name="description" content="10 枚举和注解 10.1 枚举 把具体的对象一一列举出来的类，就称为 枚举类（enumeration） 实现方法：  自定义枚举 enum 关键字枚举  10.1.1 自定义枚举  构造器私有化 去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读 在类内部直接创建固定对象。使用 final + static 共同修饰，对象名通常全部大写。 枚举对象按照需要可以有多个属">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;10 枚举和注解">
 <meta property="og:url" content="https://i-melody.github.io/2021/12/17/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/10%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="10 枚举和注解 10.1 枚举 把具体的对象一一列举出来的类，就称为 枚举类（enumeration） 实现方法：  自定义枚举 enum 关键字枚举  10.1.1 自定义枚举  构造器私有化 去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读 在类内部直接创建固定对象。使用 final + static 共同修饰，对象名通常全部大写。">
+<meta property="og:description" content="10 枚举和注解 10.1 枚举 把具体的对象一一列举出来的类，就称为 枚举类（enumeration） 实现方法：  自定义枚举 enum 关键字枚举  10.1.1 自定义枚举  构造器私有化 去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读 在类内部直接创建固定对象。使用 final + static 共同修饰，对象名通常全部大写。 枚举对象按照需要可以有多个属">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-06T01:14:22.471Z">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3k 字
         
       </span>
     
@@ -298,24 +298,22 @@
             
             <div class="markdown-body">
               
-              <h1 id="枚举和注解">10 枚举和注解</h1>
-<h2 id="枚举">10.1 枚举</h2>
+              <h1>10 枚举和注解</h1>
+<h2 id="10-1-枚举">10.1 枚举</h2>
 <p>把具体的对象一一列举出来的类，就称为 枚举类（enumeration）</p>
 <p>实现方法：</p>
-<ol type="1">
+<ol>
 <li>自定义枚举</li>
 <li><code>enum</code> 关键字枚举</li>
 </ol>
-<h3 id="自定义枚举">10.1.1 自定义枚举</h3>
-<ol type="1">
+<h3 id="10-1-1-自定义枚举">10.1.1 自定义枚举</h3>
+<ol>
 <li>构造器私有化</li>
-<li>去掉 set 方法（可保留
-get），防止属性被修改。因为枚举对象值通常为只读</li>
-<li>在类内部直接创建固定对象。使用 <code>final</code> +
-<code>static</code> 共同修饰，对象名通常全部大写。</li>
+<li>去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读</li>
+<li>在类内部直接创建固定对象。使用 <code>final</code> + <code>static</code> 共同修饰，对象名通常全部大写。</li>
 <li>枚举对象按照需要可以有多个属性</li>
 </ol>
-<h3 id="enum-关键字">10.1.2 <code>enum</code> 关键字</h3>
+<h3 id="10-1-2-enum-关键字">10.1.2 <code>enum</code> 关键字</h3>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Example</span> &#123;
  RED(<span class="hljs-string">&quot;小红&quot;</span>, <span class="hljs-number">10</span>), BLUE(<span class="hljs-string">&quot;小蓝&quot;</span>, <span class="hljs-number">11</span>), YELLOW; <span class="hljs-comment">//这句话要放在前面，第三个是无参</span>
  <span class="hljs-keyword">private</span> String name;
@@ -327,206 +325,196 @@ get），防止属性被修改。因为枚举对象值通常为只读</li>
  &#125;
 
 &#125;</code></pre></div>
-<ol type="1">
+<ol>
 <li>用关键字 <code>enum</code> 替代 <code>class</code></li>
-<li>用 <code>常量名.(形参列表);</code>
-代替创建对象（放在前面）。多个对象的场合，用 <code>,</code> 间隔。</li>
+<li>用 <code>常量名.(形参列表);</code> 代替创建对象（放在前面）。多个对象的场合，用 <code>,</code> 间隔。</li>
 <li>如果使用 <code>enum</code> 枚举，要求将常量对象写在前面</li>
 </ol>
-<h4 id="使用细节">10.1.2.1 使用细节</h4>
-<ol type="1">
-<li><p>当我们用 <code>enum</code> 关键字开发一个枚举类时，默认会继承
-java.lang.Enum 类，而且是一个 <code>final</code> 类。</p>
+<h4 id="10-1-2-1-使用细节">10.1.2.1 使用细节</h4>
+<ol>
+<li>
+<p>当我们用 <code>enum</code> 关键字开发一个枚举类时，默认会继承 java.lang.Enum 类，而且是一个 <code>final</code> 类。</p>
 <p>这样，我们就能使用 Enum 中的相关方法。</p>
-<p><strong>也正因为如此，<code>enum</code>
-类不能继承其他类，亦不能被其它类继承</strong></p>
-<p>不过，<code>enum</code> 类和其他类一样，可以实现接口。</p></li>
-<li><p>传统的 <code>public ststic final RED("小红", 10);</code> 简化为
-<code>RED("小红", 10);</code></p></li>
-<li><p>如果使用无参构造器创建枚举对象，则 实参列表 和 <code>( )</code>
-都能省略</p></li>
+<p><strong>也正因为如此，<code>enum</code> 类不能继承其他类，亦不能被其它类继承</strong></p>
+<p>不过，<code>enum</code> 类和其他类一样，可以实现接口。</p>
+</li>
+<li>
+<p>传统的 <code>public ststic final RED(&quot;小红&quot;, 10);</code> 简化为 <code>RED(&quot;小红&quot;, 10);</code></p>
+</li>
+<li>
+<p>如果使用无参构造器创建枚举对象，则 实参列表 和 <code>( )</code> 都能省略</p>
+</li>
 </ol>
-<h4 id="enum-类中的常用方法">10.1.2.2 <code>Enum</code>
-类中的常用方法</h4>
+<h4 id="10-1-2-2-Enum-类中的常用方法">10.1.2.2 <code>Enum</code> 类中的常用方法</h4>
 <ul>
 <li><code>valueOf</code>：将字符串转换成枚举对象。要求字符串必须是已有的常量名，否则报异常。</li>
-<li><code>values</code>：返回一个数组
-<code>Example[]</code>，其中包含定义的所有枚举对象</li>
-<li><code>getDeclaringClass</code>：得到枚举常量所属的
-<code>class</code></li>
-<li><code>name</code>：得到当前枚举常量的名称。建议优先用
-<code>toString</code></li>
-<li><code>ordinal</code>：输出该枚举对象的次序/编号（从 0
-开始编号。如上例 <code>BLUE.ordinal = 1</code>）</li>
-<li><code>compareTo</code>：比较两个枚举常量的编号（调用常量编号 减去
-传入常量编号）</li>
-<li><code>clone</code>：枚举类不能
-<code>clone</code>，所以，这是一个只会抛出异常的方法</li>
+<li><code>values</code>：返回一个数组 <code>Example[]</code>，其中包含定义的所有枚举对象</li>
+<li><code>getDeclaringClass</code>：得到枚举常量所属的 <code>class</code></li>
+<li><code>name</code>：得到当前枚举常量的名称。建议优先用 <code>toString</code></li>
+<li><code>ordinal</code>：输出该枚举对象的次序/编号（从 0 开始编号。如上例 <code>BLUE.ordinal = 1</code>）</li>
+<li><code>compareTo</code>：比较两个枚举常量的编号（调用常量编号 减去 传入常量编号）</li>
+<li><code>clone</code>：枚举类不能 <code>clone</code>，所以，这是一个只会抛出异常的方法</li>
 </ul>
-<h2 id="注解">10.2 注解</h2>
-<p>注解（Annotation）也被称为元数据（Metadata）。用于修饰
-包、类、方法、属性、构造器、局部变量 等数据信息</p>
+<h2 id="10-2-注解">10.2 注解</h2>
+<p>注解（Annotation）也被称为元数据（Metadata）。用于修饰 包、类、方法、属性、构造器、局部变量 等数据信息</p>
 <p>和注释一样，注解不影响程序逻辑，但注解可以被编译或运行，相当于嵌入在代码中的补充信息</p>
-<p>在 JavaSE 中，注解的使用目的比较简单，例如 标记过时的功能，忽略警告
-等。在 JavaEE
-中注解占据了更重要的角色，例如用于配置应用程序的任何切面，代替 JavaEE
-旧版中所遗留的繁冗代码和 XML 配置等。</p>
-<ol type="1">
-<li>使用 <code>@Annotation</code> 时要在前面增加 <code>@</code>
-符号，并把该注解当成一个修饰符使用。用于修饰它支持的程序元素。</li>
+<p>在 JavaSE 中，注解的使用目的比较简单，例如 标记过时的功能，忽略警告 等。在 JavaEE 中注解占据了更重要的角色，例如用于配置应用程序的任何切面，代替 JavaEE 旧版中所遗留的繁冗代码和 XML 配置等。</p>
+<ol>
+<li>使用 <code>@Annotation</code> 时要在前面增加 <code>@</code> 符号，并把该注解当成一个修饰符使用。用于修饰它支持的程序元素。</li>
 <li>三个基本的 <code>@Annotation</code>：
 <ul>
-<li><code>@Override</code>：限定某个方法，是 重写
-父类方法。该注解只能用于方法。如果你写了该注解，编译器会替你校验，看看是不是真的
-重写 了父类方法。</li>
+<li><code>@Override</code>：限定某个方法，是 重写 父类方法。该注解只能用于方法。如果你写了该注解，编译器会替你校验，看看是不是真的 重写 了父类方法。</li>
 <li><code>@Deprecated</code>：用于表示某个程序元素（类、方法等）已经过时</li>
 <li><code>@SuppressWarnings()</code>：抑制编辑器警告</li>
-</ul></li>
-<li>如果发现 <code>public @interface XXX&#123;&#125;</code>
-这种东西，说明是定义了一个注解类 <code>XXX</code>。这里的
-<code>@interface</code> 不代表接口（<code>interface</code>）。</li>
+</ul>
+</li>
+<li>如果发现 <code>public @interface XXX&#123;&#125;</code> 这种东西，说明是定义了一个注解类 <code>XXX</code>。这里的 <code>@interface</code> 不代表接口（<code>interface</code>）。</li>
 </ol>
-<h3 id="override">10.2.1 <code>@Override</code></h3>
-<ol type="1">
-<li><code>@Override</code>
-表示指定重写父类的方法（从编译器层面验证），如果父类没有该方法，就报错</li>
+<h3 id="10-2-1-Override">10.2.1 <code>@Override</code></h3>
+<ol>
+<li><code>@Override</code> 表示指定重写父类的方法（从编译器层面验证），如果父类没有该方法，就报错</li>
 <li>不写该注解，重写依然构成重写</li>
-<li><code>@Override</code> 只能修饰方法，不能修饰其他
-类、包、属性等</li>
-<li>查看 <code>@Override</code> 注解源码为
-<code>@Target(ElementType.METHOD)</code> 说明只能修饰方法</li>
+<li><code>@Override</code> 只能修饰方法，不能修饰其他 类、包、属性等</li>
+<li>查看 <code>@Override</code> 注解源码为 <code>@Target(ElementType.METHOD)</code> 说明只能修饰方法</li>
 <li><code>@Target</code> 是修饰注解的注解，称为 元注解</li>
 </ol>
-<h3 id="deprecated">10.2.2 <code>@Deprecated</code></h3>
-<ol type="1">
-<li><p><code>@Deprecated</code>
-表示指定的某个程序元素（类、方法等）已过时</p></li>
-<li><p>不推荐使用，但仍能使用</p></li>
-<li><p>可以修饰方法、类、字段、包、参数</p>
-<p><code>@Target(value=&#123;CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE&#125;)</code></p></li>
-<li><p><code>@Deprecated</code> 可以做到新旧版本的兼容和过度</p></li>
+<h3 id="10-2-2-Deprecated">10.2.2 <code>@Deprecated</code></h3>
+<ol>
+<li>
+<p><code>@Deprecated</code> 表示指定的某个程序元素（类、方法等）已过时</p>
+</li>
+<li>
+<p>不推荐使用，但仍能使用</p>
+</li>
+<li>
+<p>可以修饰方法、类、字段、包、参数</p>
+<p><code>@Target(value=&#123;CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE&#125;)</code></p>
+</li>
+<li>
+<p><code>@Deprecated</code> 可以做到新旧版本的兼容和过度</p>
+</li>
 </ol>
-<h3 id="suppresswarnings">10.2.3 <code>@SuppressWarnings()</code></h3>
-<ol type="1">
-<li><p>当我们不想看到警告信息时，用 <code>@SuppressWarnings()</code></p>
-<p>语法：<code>@SuppressWarnings(&#123;"..."&#125;)</code></p>
-<p>在后面 <code>(&#123;"unused", "unchecked"&#125;)</code>
-这样写入你希望抑制的信息，以下是所有可以输入的关键字</p>
+<h3 id="10-2-3-SuppressWarnings">10.2.3 <code>@SuppressWarnings()</code></h3>
+<ol>
+<li>
+<p>当我们不想看到警告信息时，用 <code>@SuppressWarnings()</code></p>
+<p>语法：<code>@SuppressWarnings(&#123;&quot;...&quot;&#125;)</code></p>
+<p>在后面 <code>(&#123;&quot;unused&quot;, &quot;unchecked&quot;&#125;)</code> 这样写入你希望抑制的信息，以下是所有可以输入的关键字</p>
 <table>
-
 <thead>
-<tr class="header">
-<th style="text-align: left;"><strong>关键字</strong></th>
-<th style="text-align: left;"><strong>用途</strong></th>
+<tr>
+<th style="text-align:left"><strong>关键字</strong></th>
+<th style="text-align:left"><strong>用途</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">all</td>
-<td style="text-align: left;">抑制所有警告</td>
+<tr>
+<td style="text-align:left">all</td>
+<td style="text-align:left">抑制所有警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">boxing</td>
-<td style="text-align: left;">抑制与装箱/解装箱操作相关的警告</td>
+<tr>
+<td style="text-align:left">boxing</td>
+<td style="text-align:left">抑制与装箱/解装箱操作相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">cast</td>
-<td style="text-align: left;">抑制与强制转换操作相关的警告</td>
+<tr>
+<td style="text-align:left">cast</td>
+<td style="text-align:left">抑制与强制转换操作相关的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">dep-ann</td>
-<td style="text-align: left;">抑制与已弃用注释相关的警告</td>
+<tr>
+<td style="text-align:left">dep-ann</td>
+<td style="text-align:left">抑制与已弃用注释相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">deprecation</td>
-<td style="text-align: left;">抑制与弃用有关的警告</td>
+<tr>
+<td style="text-align:left">deprecation</td>
+<td style="text-align:left">抑制与弃用有关的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">fallthrough</td>
-<td style="text-align: left;">抑制与 switch
-语句中丢失断点相关的警告</td>
+<tr>
+<td style="text-align:left">fallthrough</td>
+<td style="text-align:left">抑制与 switch 语句中丢失断点相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">finally</td>
-<td style="text-align: left;">抑制不返回的 finally 块的相关警告</td>
+<tr>
+<td style="text-align:left">finally</td>
+<td style="text-align:left">抑制不返回的 finally 块的相关警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">hiding</td>
-<td style="text-align: left;">抑制与隐藏变量的局部变量相关的警告</td>
+<tr>
+<td style="text-align:left">hiding</td>
+<td style="text-align:left">抑制与隐藏变量的局部变量相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">incomplete-switch</td>
-<td style="text-align: left;">抑制与 switch
-语句中缺少条目相关的警告（enum）</td>
+<tr>
+<td style="text-align:left">incomplete-switch</td>
+<td style="text-align:left">抑制与 switch 语句中缺少条目相关的警告（enum）</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">nls</td>
-<td style="text-align: left;">抑制与 非nls 字符串字面值相关的警告</td>
+<tr>
+<td style="text-align:left">nls</td>
+<td style="text-align:left">抑制与 非nls 字符串字面值相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">null</td>
-<td style="text-align: left;">抑制相对于null分析的警告</td>
+<tr>
+<td style="text-align:left">null</td>
+<td style="text-align:left">抑制相对于null分析的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">rawtypes</td>
-<td
-style="text-align: left;">在类参数上使用泛型时，抑制与非特定类型相关的警告</td>
+<tr>
+<td style="text-align:left">rawtypes</td>
+<td style="text-align:left">在类参数上使用泛型时，抑制与非特定类型相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">restriction</td>
-<td style="text-align: left;">抑制与不推荐或禁止引用有关的警告</td>
+<tr>
+<td style="text-align:left">restriction</td>
+<td style="text-align:left">抑制与不推荐或禁止引用有关的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">serial</td>
-<td
-style="text-align: left;">抑制与可序列化类缺少serialVersionUID字段相关的警告</td>
+<tr>
+<td style="text-align:left">serial</td>
+<td style="text-align:left">抑制与可序列化类缺少serialVersionUID字段相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">static-access</td>
-<td style="text-align: left;">抑制与不正确的静态访问有关的警告</td>
+<tr>
+<td style="text-align:left">static-access</td>
+<td style="text-align:left">抑制与不正确的静态访问有关的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">synthetic-access</td>
-<td style="text-align: left;">抑制与未优化的内部类访问相关的警告</td>
+<tr>
+<td style="text-align:left">synthetic-access</td>
+<td style="text-align:left">抑制与未优化的内部类访问相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">unchecked</td>
-<td style="text-align: left;">抑制与未检查的操作相关的警告</td>
+<tr>
+<td style="text-align:left">unchecked</td>
+<td style="text-align:left">抑制与未检查的操作相关的警告</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">unqualified-field-access</td>
-<td style="text-align: left;">抑制与字段访问不合格相关的警告</td>
+<tr>
+<td style="text-align:left">unqualified-field-access</td>
+<td style="text-align:left">抑制与字段访问不合格相关的警告</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">unused</td>
-<td style="text-align: left;">抑制与未使用代码相关的警告</td>
+<tr>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">抑制与未使用代码相关的警告</td>
 </tr>
 </tbody>
-</table></li>
-<li><p><code>@SuppressWarnings</code>
-的范围与你放置的位置相关。</p></li>
+</table>
+</li>
+<li>
+<p><code>@SuppressWarnings</code> 的范围与你放置的位置相关。</p>
+</li>
 </ol>
-<h3 id="jdk-的元注解了解即可">10.2.4 JDK 的元注解（了解即可）</h3>
+<h3 id="10-2-4-JDK-的元注解（了解即可）">10.2.4 JDK 的元注解（了解即可）</h3>
 <blockquote>
 <p>JDK 的 元注解 是用于修饰其他注解的注解</p>
 </blockquote>
-<ol type="1">
-<li><p><code>@Rentention</code>：指定注解的作用范围，有三种范围
-<code>SOURCE</code> <code>CLASS</code> <code>RUNTIME</code></p>
+<ol>
+<li>
+<p><code>@Rentention</code>：指定注解的作用范围，有三种范围 <code>SOURCE</code> <code>CLASS</code> <code>RUNTIME</code></p>
 <p><code>@Rentention</code> 的三种值：</p>
 <ul>
 <li><code>RententionPolicy.SOURCE</code>：编译器使用后，直接丢弃这种策略的注释</li>
-<li><code>RententionPolicy.CLASS</code>：编译器把注解记录在 class
-文件中。当运行 Java 程序时， JVM 不会保留注释。这是默认值</li>
-<li><code>RententionPolicy.RUNTIME</code>：编译器把注解记录在 class
-文件中。当运行 Java 程序时，JVM
-会保留注解。程序可以通过反射获取该注解</li>
-</ul></li>
-<li><p><code>@Target</code>：指定注解的使用范围</p>
-<p><code>@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</code></p></li>
-<li><p><code>@Documented</code>：指定该注解会不会在 Javadoc
-体现</p></li>
-<li><p><code>@Inherited</code>：子类会继承父类注解</p></li>
+<li><code>RententionPolicy.CLASS</code>：编译器把注解记录在 class 文件中。当运行 Java 程序时， JVM 不会保留注释。这是默认值</li>
+<li><code>RententionPolicy.RUNTIME</code>：编译器把注解记录在 class 文件中。当运行 Java 程序时，JVM 会保留注解。程序可以通过反射获取该注解</li>
+</ul>
+</li>
+<li>
+<p><code>@Target</code>：指定注解的使用范围</p>
+<p><code>@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</code></p>
+</li>
+<li>
+<p><code>@Documented</code>：指定该注解会不会在 Javadoc 体现</p>
+</li>
+<li>
+<p><code>@Inherited</code>：子类会继承父类注解</p>
+</li>
 </ol>
 
               

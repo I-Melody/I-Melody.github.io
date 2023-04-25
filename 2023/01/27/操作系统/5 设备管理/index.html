@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OS5 设备管理 I&#x2F;O 设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。 按照使用特性，I&#x2F;O 设备分为三种：人机交互类外部设备、存储设备、网络通信设备 按照传输速率，I&#x2F;O 设备分为：低速设备、中速设备、高速设备 按照信息交换单位，I&#x2F;O 设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动） OS5.1">
+    <meta name="description" content="OS5 设备管理 I&#x2F;O 设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。 按照使用特性，I&#x2F;O 设备分为三种：人机交互类外部设备、存储设备、网络通信设备 按照传输速率，I&#x2F;O 设备分为：低速设备、中速设备、高速设备 按照信息交换单位，I&#x2F;O 设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动） OS5.1 I&#x2F;O 控制 I">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;操作系统&gt;OS5 设备管理">
 <meta property="og:url" content="https://i-melody.github.io/2023/01/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5%20%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="OS5 设备管理 I&#x2F;O 设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。 按照使用特性，I&#x2F;O 设备分为三种：人机交互类外部设备、存储设备、网络通信设备 按照传输速率，I&#x2F;O 设备分为：低速设备、中速设备、高速设备 按照信息交换单位，I&#x2F;O 设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动） OS5.1">
+<meta property="og:description" content="OS5 设备管理 I&#x2F;O 设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。 按照使用特性，I&#x2F;O 设备分为三种：人机交互类外部设备、存储设备、网络通信设备 按照传输速率，I&#x2F;O 设备分为：低速设备、中速设备、高速设备 按照信息交换单位，I&#x2F;O 设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动） OS5.1 I&#x2F;O 控制 I">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-26T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-03-15T10:06:11.779Z">
@@ -45,6 +45,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -298,59 +300,62 @@
             
             <div class="markdown-body">
               
-              <h1 id="os5-设备管理">OS5 设备管理</h1>
-<p>I/O
-设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。</p>
-<p>按照使用特性，I/O
-设备分为三种：人机交互类外部设备、存储设备、网络通信设备</p>
+              <h1>OS5 设备管理</h1>
+<p>I/O 设备：输入输出设备。能将数据输入计算机，或接收计算机输出数据的外部设备。是计算机中的硬件部件。</p>
+<p>按照使用特性，I/O 设备分为三种：人机交互类外部设备、存储设备、网络通信设备</p>
 <p>按照传输速率，I/O 设备分为：低速设备、中速设备、高速设备</p>
-<p>按照信息交换单位，I/O
-设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动）</p>
-<h2 id="os5.1-io-控制">OS5.1 I/O 控制</h2>
-<p>I/O 设备由机械部件与电子部件组成。I/O
-设备的电子部件通常是一块插入主板扩充槽的印刷电路板。</p>
-<h4 id="io-控制器">I/O 控制器</h4>
-<p>CPU 不能直接控制 I/O 设备的机械组件，因此 I/O
-设备需要一个电子部件作为 CPU 与 I/O 设备的中介，用于实现 CPU
-对设备的控制。这些电子部件就是 <strong>I/O
-控制器</strong>（设备控制器）。CPU 能控制 I/O 控制器，而 I/O
-控制器能操纵机械部件。</p>
+<p>按照信息交换单位，I/O 设备分为：块设备（传输快、可寻址）、字符设备（传输慢、不可寻址、常采用中断驱动）</p>
+<h2 id="OS5-1-I-O-控制">OS5.1 I/O 控制</h2>
+<p>I/O 设备由机械部件与电子部件组成。I/O 设备的电子部件通常是一块插入主板扩充槽的印刷电路板。</p>
+<h4 id="I-O-控制器">I/O 控制器</h4>
+<p>CPU 不能直接控制 I/O 设备的机械组件，因此 I/O 设备需要一个电子部件作为 CPU 与 I/O 设备的中介，用于实现 CPU 对设备的控制。这些电子部件就是 <strong>I/O 控制器</strong>（设备控制器）。CPU 能控制 I/O 控制器，而 I/O 控制器能操纵机械部件。</p>
 <p>I/O 控制器的功能有以下几点：</p>
 <ul>
-<li><p><strong>接收识别 CPU 指令</strong>：I/O 控制器设置有相应的
-<strong>控制寄存器</strong> 来存放命令和参数。</p></li>
-<li><p><strong>向 CPU 报告设备状态</strong>：I/O 控制器设置有相应的
-<strong>状态寄存器</strong> 来记录设备的状态。</p></li>
-<li><p><strong>数据交换</strong>：I/O 控制器设置有相应的
-<strong>数据寄存器</strong>。</p>
-<p>输出时暂存 CPU
-发来的数据，由控制器传送给设备。输入时暂存设备发来的数据，由 CPU
-从中取走数据。</p></li>
-<li><p><strong>地址识别</strong>：为区分各个寄存器，I/O
-控制器也会给寄存器 <strong>编址</strong>。I/O 控制器通过 CPU
-给出的地址判断要读写的目标寄存器。</p></li>
+<li>
+<p><strong>接收识别 CPU 指令</strong>：I/O 控制器设置有相应的 <strong>控制寄存器</strong> 来存放命令和参数。</p>
+</li>
+<li>
+<p><strong>向 CPU 报告设备状态</strong>：I/O 控制器设置有相应的 <strong>状态寄存器</strong> 来记录设备的状态。</p>
+</li>
+<li>
+<p><strong>数据交换</strong>：I/O 控制器设置有相应的 <strong>数据寄存器</strong>。</p>
+<p>输出时暂存 CPU 发来的数据，由控制器传送给设备。输入时暂存设备发来的数据，由 CPU 从中取走数据。</p>
+</li>
+<li>
+<p><strong>地址识别</strong>：为区分各个寄存器，I/O 控制器也会给寄存器 <strong>编址</strong>。I/O 控制器通过 CPU 给出的地址判断要读写的目标寄存器。</p>
+</li>
 </ul>
 <p>I/O 控制器的组成分为三部分：</p>
 <ul>
-<li><p>CPU 与控制器的接口：实现 CPU 与控制器的通信。</p>
-<p>CPU：通过 <em>控制线</em> 发出命令；通过 <em>地址线</em>
-指明操作的设备；通过 <em>数据线</em> 来取出/放入数据。</p></li>
-<li><p>I/O 逻辑：负责接收与识别 CPU 的命令，并对设备发出指令</p></li>
-<li><p>控制器与设备的接口：实现控制器与设备的通信。</p></li>
+<li>
+<p>CPU 与控制器的接口：实现 CPU 与控制器的通信。</p>
+<p>CPU：通过 <em>控制线</em> 发出命令；通过 <em>地址线</em> 指明操作的设备；通过 <em>数据线</em> 来取出/放入数据。</p>
+</li>
+<li>
+<p>I/O 逻辑：负责接收与识别 CPU 的命令，并对设备发出指令</p>
+</li>
+<li>
+<p>控制器与设备的接口：实现控制器与设备的通信。</p>
+</li>
 </ul>
 <p>一个控制器可能对应多个设备。同时，各类寄存器也可能有多个。为给寄存器编址，有以下两种策略：</p>
 <ul>
-<li><p><strong>内存映像 I/O</strong>：让寄存器占用内存地址的一部分。</p>
+<li>
+<p><strong>内存映像 I/O</strong>：让寄存器占用内存地址的一部分。</p>
 <p>控制器中的寄存器与内存地址统一编制，其地址编号追加在内存地址之后。</p>
-<p>这种情况下，可以采用对内存操作的指令来操作控制器。</p></li>
-<li><p><strong>寄存器独立编址</strong>：采用 I/O 专用地址。</p>
+<p>这种情况下，可以采用对内存操作的指令来操作控制器。</p>
+</li>
+<li>
+<p><strong>寄存器独立编址</strong>：采用 I/O 专用地址。</p>
 <p>控制器中的寄存器使用单独的地址，其地址编号与内存无关。</p>
-<p>此时需要专门的指令实现对控制器的操作，不仅要指明寄存器地址，还要指明控制器编号。</p></li>
+<p>此时需要专门的指令实现对控制器的操作，不仅要指明寄存器地址，还要指明控制器编号。</p>
+</li>
 </ul>
-<h4 id="io-控制方式">I/O 控制方式</h4>
+<h4 id="I-O-控制方式">I/O 控制方式</h4>
 <p>I/O 控制器控制设备读写的方式有以下几种：</p>
 <ul>
-<li><p><strong>程序直接控制方式</strong></p>
+<li>
+<p><strong>程序直接控制方式</strong></p>
 <p>最早期的控制方式。</p>
 <pre><code class=" mermaid">sequenceDiagram
 autonumber
@@ -363,15 +368,12 @@ loop
 end
 I/O 控制器 -&gt;&gt; CPU: 读取字
 CPU -&gt;&gt; 存储器: 写入字</code></pre>
-<p>该方式每次读写一个 <strong>字</strong>。读写时，每个字的操作都要 CPU
-帮助。</p>
-<p>该方式下，CPU 需要不断轮询检查，干预频繁。CPU 与 I/O
-设备只能串行工作，CPU 长期处于忙等状态，利用率低。</p></li>
-<li><p><strong>中断驱动方式</strong></p>
-<p>引入中断机制。发出读写指令后，让等待 I/O 的进程阻塞。I/O 完成后，向
-CPU 发出中断信号，此时 CPU
-中断当前任务、保存运行环境，并读取数据，写入主存。接着，CPU
-恢复原先进程的运行环境，并继续执行。</p>
+<p>该方式每次读写一个 <strong>字</strong>。读写时，每个字的操作都要 CPU 帮助。</p>
+<p>该方式下，CPU 需要不断轮询检查，干预频繁。CPU 与 I/O 设备只能串行工作，CPU 长期处于忙等状态，利用率低。</p>
+</li>
+<li>
+<p><strong>中断驱动方式</strong></p>
+<p>引入中断机制。发出读写指令后，让等待 I/O 的进程阻塞。I/O 完成后，向 CPU 发出中断信号，此时 CPU 中断当前任务、保存运行环境，并读取数据，写入主存。接着，CPU 恢复原先进程的运行环境，并继续执行。</p>
 <pre><code class=" mermaid">sequenceDiagram
 autonumber
 participant 存储器
@@ -385,15 +387,13 @@ CPU --&gt; CPU: 中断当前进程
 I/O 控制器 -&gt;&gt; CPU: 读取字
 CPU -&gt;&gt; 存储器: 写入字
 CPU --&gt; CPU: 恢复当前进程</code></pre>
-<p>该方式每次读写一个 <strong>字</strong>。读写时，每个字的操作都要 CPU
-帮助。</p>
-<p>虽然等待 I/O 时 CPU 可以切换到其他任务执行，CPU 与 I/O
-设备能并行工作，但频繁的中断处理会消耗较多 CPU 时间。</p></li>
-<li><p><strong>直接存储器存取方式（DMA 方式）</strong></p>
+<p>该方式每次读写一个 <strong>字</strong>。读写时，每个字的操作都要 CPU 帮助。</p>
+<p>虽然等待 I/O 时 CPU 可以切换到其他任务执行，CPU 与 I/O 设备能并行工作，但频繁的中断处理会消耗较多 CPU 时间。</p>
+</li>
+<li>
+<p><strong>直接存储器存取方式（DMA 方式）</strong></p>
 <p>主要用于块设备的 I/O 控制。</p>
-<p>DMA 方式的数据传输单位是
-<strong>块</strong>。数据从设备直接放入内存，仅传输开始、结束时需 CPU
-干预，中途不需要 CPU 帮助。</p>
+<p>DMA 方式的数据传输单位是 <strong>块</strong>。数据从设备直接放入内存，仅传输开始、结束时需 CPU 干预，中途不需要 CPU 帮助。</p>
 <pre><code class=" mermaid">sequenceDiagram
 autonumber
 participant CPU
@@ -411,13 +411,11 @@ I/O 控制器 -&gt;&gt; CPU: 发出中断信号</code></pre>
 <li>DC（数据计数器）：表示剩余要读写的字节数</li>
 <li>CR（命令/状态寄存器）：存放 CPU 的指令，或设备的状态信息。</li>
 </ul>
-<p>CPU
-仅在传送开始/结束时才需要介入。每次读写一个或多个连续块（并写入连续的存储空间），数据不需要经过
-CPU。</p></li>
-<li><p><strong>通道控制方式</strong></p>
-<p><strong>通道</strong>：一种硬件。可以识别并执行一系列通道指令。与 CPU
-相比，通道能执行的指令非常单一。通道程序放在主机内存中，与 CPU
-共享内存。</p>
+<p>CPU 仅在传送开始/结束时才需要介入。每次读写一个或多个连续块（并写入连续的存储空间），数据不需要经过 CPU。</p>
+</li>
+<li>
+<p><strong>通道控制方式</strong></p>
+<p><strong>通道</strong>：一种硬件。可以识别并执行一系列通道指令。与 CPU 相比，通道能执行的指令非常单一。通道程序放在主机内存中，与 CPU 共享内存。</p>
 <p>一个通道可控制多个设备控制器，一个设备控制器可控制多个设备。</p>
 <pre><code class=" MERMAID">sequenceDiagram
 autonumber
@@ -433,42 +431,42 @@ CPU --&gt; CPU: 处理其他进程
 通道 -&gt;&gt; I/O 控制器2: 执行任务
 note left of 通道: 完成后
 通道 -&gt;&gt; CPU: 中断指令</code></pre>
-<p>通道控制方式需要额外硬件实现。CPU
-的干预频率极低。每次读写一组数据块（可以是非连续），数据在通道控制下进行，不需要经过
-CPU。</p></li>
+<p>通道控制方式需要额外硬件实现。CPU 的干预频率极低。每次读写一组数据块（可以是非连续），数据在通道控制下进行，不需要经过 CPU。</p>
+</li>
 </ul>
-<h2 id="os5.2-io-软件层次结构">OS5.2 I/O 软件层次结构</h2>
-<p>I/O
-软件层次结构自上而下分为：用户层软件、设备独立性软件、设备驱动软件、中断处理软件、硬件。</p>
+<h2 id="OS5-2-I-O-软件层次结构">OS5.2 I/O 软件层次结构</h2>
+<p>I/O 软件层次结构自上而下分为：用户层软件、设备独立性软件、设备驱动软件、中断处理软件、硬件。</p>
 <ul>
-<li><p><strong>用户层软件</strong>（系统调用处理层）</p>
-<p>用户层软件实现了与用户交互的接口，用户直接使用该层提供的、与 I/O
-操作相关的库函数，以操作设备。</p>
-<p>用户层将用户请求翻译成格式化的 I/O
-请求，并通过系统调用请求来操作系统内核的服务。</p></li>
-<li><p><font color="#E03030"><strong>设备独立性软件</strong>（设备无关性软件）</font></p>
+<li>
+<p><strong>用户层软件</strong>（系统调用处理层）</p>
+<p>用户层软件实现了与用户交互的接口，用户直接使用该层提供的、与 I/O 操作相关的库函数，以操作设备。</p>
+<p>用户层将用户请求翻译成格式化的 I/O 请求，并通过系统调用请求来操作系统内核的服务。</p>
+</li>
+<li>
+<p><font color="#E03030"><strong>设备独立性软件</strong>（设备无关性软件）</font></p>
 <p>与设备硬件特性无关的功能几乎都在本层实现。</p>
-<p>本层向上层提供统一的调用接口；实现设备保护（类似于文件保护）；进行差错处理；实现设备的分配与回收；管理数据缓冲区；建立逻辑设备名与物理设备名的映射（通过设备逻辑表
-LUT 完成），并选择调用的驱动程序。</p></li>
-<li><p><font color="#E03030"><strong>设备驱动软件</strong></font></p>
+<p>本层向上层提供统一的调用接口；实现设备保护（类似于文件保护）；进行差错处理；实现设备的分配与回收；管理数据缓冲区；建立逻辑设备名与物理设备名的映射（通过设备逻辑表 LUT 完成），并选择调用的驱动程序。</p>
+</li>
+<li>
+<p><font color="#E03030"><strong>设备驱动软件</strong></font></p>
 <p>设备驱动程序主要负责对硬件设备的具体控制，将上层发出的指令转化为针对特定设备的一系列操作。</p>
-<p>不同的 I/O
-设备特性不同，厂家要为其提供设备的硬件特性设计并提供相应驱动程序。</p></li>
-<li><p><font color="#E03030"><strong>中断处理软件</strong></font></p>
+<p>不同的 I/O 设备特性不同，厂家要为其提供设备的硬件特性设计并提供相应驱动程序。</p>
+</li>
+<li>
+<p><font color="#E03030"><strong>中断处理软件</strong></font></p>
 <p>进行中断处理。</p>
-<p>I/O 任务完成时，I/O
-控制器会发送中断信号。系统根据中断信号类型执行相应的中断处理程序。</p></li>
-<li><p>硬件</p></li>
+<p>I/O 任务完成时，I/O 控制器会发送中断信号。系统根据中断信号类型执行相应的中断处理程序。</p>
+</li>
+<li>
+<p>硬件</p>
+</li>
 </ul>
-<p>设备独立性软件、设备驱动软件、中断处理软件
-三层属于操作系统内核部分。即 <strong>I/O 核心子系统</strong>（I/O
-系统）</p>
-<h4 id="假脱机技术spooling-技术">假脱机技术（SPOOLing 技术）</h4>
-<p>SPOOLing 技术是由软件方式模拟脱机技术，处于用户层。要实现 SPOOLing
-技术，必须有多道程序技术的支持。系统会建立 输入进程 和 输出进程。</p>
+<p>设备独立性软件、设备驱动软件、中断处理软件 三层属于操作系统内核部分。即 <strong>I/O 核心子系统</strong>（I/O 系统）</p>
+<h4 id="假脱机技术（SPOOLing-技术）">假脱机技术（SPOOLing 技术）</h4>
+<p>SPOOLing 技术是由软件方式模拟脱机技术，处于用户层。要实现 SPOOLing 技术，必须有多道程序技术的支持。系统会建立 输入进程 和 输出进程。</p>
 <p>一个独占式设备，可以通过该技术改造成共享设备。</p>
 <p>当多个用户发出指令后，系统由假脱机管理进程为其进行如下操作：</p>
-<ol type="1">
+<ol>
 <li>在磁盘输出井中为进程申请一个空闲缓冲区，并将进程指令的数据放入其中</li>
 <li>为用户进程创建一张指令表，将该指令表挂到假脱机队列上。</li>
 <li>设备空闲时，输出进程从假脱机队列上取出一个指令表，把所需数据从输出井转移到输出缓冲区，再输出给设备执行。</li>
@@ -476,30 +474,42 @@ LUT 完成），并选择调用的驱动程序。</p></li>
 <h4 id="设备的分配与回收">设备的分配与回收</h4>
 <p>设备分配时，要考虑的因素有：</p>
 <ul>
-<li><p><strong>设备的固有属性</strong></p>
-<p>分为：独占设备、共享设备、虚拟设备（SPOOLing 技术共享）。</p></li>
-<li><p><strong>设备分配算法</strong></p>
-<p>先来先服务、高优先级优先、短任务优先等</p></li>
-<li><p><strong>设备分配的安全性</strong></p>
+<li>
+<p><strong>设备的固有属性</strong></p>
+<p>分为：独占设备、共享设备、虚拟设备（SPOOLing 技术共享）。</p>
+</li>
+<li>
+<p><strong>设备分配算法</strong></p>
+<p>先来先服务、高优先级优先、短任务优先等</p>
+</li>
+<li>
+<p><strong>设备分配的安全性</strong></p>
 <p>从安全性上考虑，有两种分配方式</p>
 <ul>
-<li><p><strong>安全分配方式</strong>：为进程分配设备后即将其阻塞，直到
-I/O 完成后再将进程唤醒。</p>
-<p>虽然不会死锁，但 CPU 与 I/O 设备只能串行工作。</p></li>
-<li><p><strong>不安全分配方式</strong>：进程发出 I/O
-请求后，系统为其分配设备，进程可以继续执行，之后还能发出更多请求。直到某个请求不满足时才阻塞。</p>
-<p>虽然 CPU 与 I/O 设备能并行工作，但可能发生死锁。</p></li>
-</ul></li>
+<li>
+<p><strong>安全分配方式</strong>：为进程分配设备后即将其阻塞，直到 I/O 完成后再将进程唤醒。</p>
+<p>虽然不会死锁，但 CPU 与 I/O 设备只能串行工作。</p>
+</li>
+<li>
+<p><strong>不安全分配方式</strong>：进程发出 I/O 请求后，系统为其分配设备，进程可以继续执行，之后还能发出更多请求。直到某个请求不满足时才阻塞。</p>
+<p>虽然 CPU 与 I/O 设备能并行工作，但可能发生死锁。</p>
+</li>
+</ul>
+</li>
 </ul>
 <p>为进程分配设备的方式分为静态和动态分配：</p>
 <ul>
-<li><p><strong>静态分配</strong>：进程运行前为其分配所有所需资源，运行结束后归还资源</p></li>
-<li><p><strong>动态分配</strong>：进程运行时动态申请设备资源</p></li>
+<li>
+<p><strong>静态分配</strong>：进程运行前为其分配所有所需资源，运行结束后归还资源</p>
+</li>
+<li>
+<p><strong>动态分配</strong>：进程运行时动态申请设备资源</p>
+</li>
 </ul>
 <p>设备分配管理中，会用到一些数据结构：</p>
 <ul>
-<li><p><strong>设备控制表（DCT）</strong>：系统为每个设备配置一张
-DCT，用于记录设备情况。包含：</p>
+<li>
+<p><strong>设备控制表（DCT）</strong>：系统为每个设备配置一张 DCT，用于记录设备情况。包含：</p>
 <ul>
 <li>设备类型</li>
 <li>标识符（设备的物理设备名）</li>
@@ -507,33 +517,36 @@ DCT，用于记录设备情况。包含：</p>
 <li>指向控制器控制表的指针（找到该设备所属的控制器）</li>
 <li>重复执行次数（重复多次 I/O 后仍不成功则认为此次 I/O 失败）</li>
 <li>设备队列指针（等待该设备的进程队列）</li>
-</ul></li>
-<li><p><strong>控制器控制表（COCT）</strong>：每个设备控制器对应一张
-COCT，系统根据 COCT 信息对控制器进行操作和管理。包含：</p>
+</ul>
+</li>
+<li>
+<p><strong>控制器控制表（COCT）</strong>：每个设备控制器对应一张 COCT，系统根据 COCT 信息对控制器进行操作和管理。包含：</p>
 <ul>
 <li>控制器标识符（各控制器的唯一 ID）</li>
 <li>控制器状态</li>
 <li>指向通道表的指针（找到该设备所属的通道）</li>
 <li>控制器队列的队首指针与队尾指针（等待该控制器的进程队列）</li>
-</ul></li>
-<li><p><strong>通道控制表（CHCT）</strong>：每个设备控制器对应一张
-CHCT，系统根据 CHT 信息对通道进行操作和管理。包含：</p>
+</ul>
+</li>
+<li>
+<p><strong>通道控制表（CHCT）</strong>：每个设备控制器对应一张 CHCT，系统根据 CHT 信息对通道进行操作和管理。包含：</p>
 <ul>
 <li>通道标识符（通道的唯一 ID）</li>
 <li>通道状态</li>
-<li>与通道连接的控制器表的指针（找到该通道管理的所有控制器的信息
-COCT）</li>
+<li>与通道连接的控制器表的指针（找到该通道管理的所有控制器的信息 COCT）</li>
 <li>通道队列的队首指针与队尾指针（等待该通道的进程队列）</li>
-</ul></li>
-<li><p><strong>系统设备表（SDT）</strong>：记录了系统中
-<strong>全部设备</strong> 的情况。每个设备对应一个条目。</p>
-<p>表项包含：设备类型、设备标识符、设备控制表（DCT）、驱动程序入口</p></li>
-<li><p><strong>逻辑设备表（LUT）</strong>：建立了逻辑设备名与物理设备名之间的映射关系</p>
-<p>用户进程第一次使用设备时使用逻辑设备名向操作系统发出请求。操作系统会根据用户进程指定的设备类型查找
-SDT，将一个空闲设备分配给进程，并在 LUT 中添加表项。</p>
-<p>之后，用户再次通过相同逻辑设备名发出请求时，操作系统根据 LUT
-表即可确定用户实际要使用的是哪个设备，也能确定驱动程序。</p>
-<p>可以在整个系统中只设置一张 LUT；也能为每个用户单独设置 LUT。</p></li>
+</ul>
+</li>
+<li>
+<p><strong>系统设备表（SDT）</strong>：记录了系统中 <strong>全部设备</strong> 的情况。每个设备对应一个条目。</p>
+<p>表项包含：设备类型、设备标识符、设备控制表（DCT）、驱动程序入口</p>
+</li>
+<li>
+<p><strong>逻辑设备表（LUT）</strong>：建立了逻辑设备名与物理设备名之间的映射关系</p>
+<p>用户进程第一次使用设备时使用逻辑设备名向操作系统发出请求。操作系统会根据用户进程指定的设备类型查找 SDT，将一个空闲设备分配给进程，并在 LUT 中添加表项。</p>
+<p>之后，用户再次通过相同逻辑设备名发出请求时，操作系统根据 LUT 表即可确定用户实际要使用的是哪个设备，也能确定驱动程序。</p>
+<p>可以在整个系统中只设置一张 LUT；也能为每个用户单独设置 LUT。</p>
+</li>
 </ul>
 <p>设备分配的流程如下：</p>
 <pre><code class=" mermaid">graph LR
@@ -541,36 +554,38 @@ SDT，将一个空闲设备分配给进程，并在 LUT 中添加表项。</p>
 2c--是--&gt;2r[等待队列]-.-&gt;2c
 3c--是--&gt;3r[等待队列]-.-&gt;3c
 4c--是--&gt;4r[等待队列]-.-&gt;4c</code></pre>
-<ol type="1">
-<li>分配设备时，先根据请求的
-<strong>逻辑设备名</strong>（即设备类型），从 SDT
-中找出指定类型的、空闲的设备的 DCT。</li>
-<li>若设备忙碌则将进程 PCB
-挂到设备等待队列中，不忙碌则将设备分配给进程，并在 LUT 中新增表项。</li>
-<li>之后，根据 DCT 找到
-COCT，若控制器忙碌则将进程挂到控制器等待队列中，否则将控制器分配给进程。</li>
-<li>再根据 COCT 找到
-CHCT，若通道忙碌则将进程挂到通道等待队列中，否则将通道分配给进程。</li>
-<li>设备、控制器、通道都分配成功时，设备分配成功。之后便可启动 I/O
-设备进行数据传输。</li>
+<ol>
+<li>分配设备时，先根据请求的 <strong>逻辑设备名</strong>（即设备类型），从 SDT 中找出指定类型的、空闲的设备的 DCT。</li>
+<li>若设备忙碌则将进程 PCB 挂到设备等待队列中，不忙碌则将设备分配给进程，并在 LUT 中新增表项。</li>
+<li>之后，根据 DCT 找到 COCT，若控制器忙碌则将进程挂到控制器等待队列中，否则将控制器分配给进程。</li>
+<li>再根据 COCT 找到 CHCT，若通道忙碌则将进程挂到通道等待队列中，否则将通道分配给进程。</li>
+<li>设备、控制器、通道都分配成功时，设备分配成功。之后便可启动 I/O 设备进行数据传输。</li>
 </ol>
 <h4 id="缓冲区管理">缓冲区管理</h4>
 <p><strong>缓冲区</strong>：一个存储区域。可以由专门的寄存器组成，也能利用内存作为缓冲区。</p>
 <p>缓冲区数据非空时，不能向缓冲区冲入数据，而只能将数据传出。当缓冲区为空时，可以向缓冲区冲入数据，但必须将缓冲区充满后才能传出数据。</p>
 <p>缓冲区的作用：</p>
 <ul>
-<li><p>缓和 CPU 与 I/O 设备间速度不匹配的矛盾</p>
-<p>CPU 可将数据快速放入缓冲区，由 I/O
-设备慢慢从缓冲区中取走数据</p></li>
-<li><p>减少对 CPU 的中断频率，放宽对 CPU 中断响应时间的限制</p></li>
-<li><p>解决数据粒度不匹配的问题</p></li>
-<li><p>提高 CPU 与 I/O 设备间的并行性</p></li>
+<li>
+<p>缓和 CPU 与 I/O 设备间速度不匹配的矛盾</p>
+<p>CPU 可将数据快速放入缓冲区，由 I/O 设备慢慢从缓冲区中取走数据</p>
+</li>
+<li>
+<p>减少对 CPU 的中断频率，放宽对 CPU 中断响应时间的限制</p>
+</li>
+<li>
+<p>解决数据粒度不匹配的问题</p>
+</li>
+<li>
+<p>提高 CPU 与 I/O 设备间的并行性</p>
+</li>
 </ul>
 <p>缓冲区管理策略：</p>
 <ul>
-<li><p><strong>单缓冲</strong></p>
+<li>
+<p><strong>单缓冲</strong></p>
 <p>操作系统在主存中为用户分配一个缓冲区（一般大小是一个块）。</p>
-<p>下面是 <span class="math inline">\(T&gt;C\)</span> 的情况</p>
+<p>下面是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&gt;</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">T&gt;C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 的情况</p>
 <pre><code class=" mermaid">gantt
 
 dateFormat x
@@ -592,11 +607,12 @@ C: 4, 6
 C: 8, 10
 C: 12, 14
 </code></pre>
-<p>可见，单缓冲策略下，处理数据的平均耗时为 <span
-class="math inline">\(\max(C,T)+M\)</span></p></li>
-<li><p><strong>双缓冲</strong></p>
+<p>可见，单缓冲策略下，处理数据的平均耗时为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>C</mi><mo separator="true">,</mo><mi>T</mi><mo stretchy="false">)</mo><mo>+</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">\max(C,T)+M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></p>
+</li>
+<li>
+<p><strong>双缓冲</strong></p>
 <p>操作系统在主存中为用户分配两个缓冲区。</p>
-<p>下面是一种 <span class="math inline">\(M+C&gt;T\)</span> 的情况</p>
+<p>下面是一种 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>+</mo><mi>C</mi><mo>&gt;</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">M+C&gt;T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 的情况</p>
 <pre><code class=" mermaid">gantt
 
 dateFormat x
@@ -621,15 +637,18 @@ C: 2, 5
 C: 7, 10
 C: 12, 15
 C: 17, 20</code></pre>
-<p>采用双缓冲策略，处理数据块的平均耗时为 <span
-class="math inline">\(\max(T, C+M)\)</span></p></li>
-<li><p><strong>循环缓冲区</strong></p>
+<p>采用双缓冲策略，处理数据块的平均耗时为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo>+</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max(T, C+M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p><strong>循环缓冲区</strong></p>
 <p>将多个大小相等的缓冲区链接成一个循环队列。</p>
-<p>会有一个 in 指针指向下一个能被冲入数据的空缓冲区，一个 out
-指针指向下一个可取出数据的满缓冲区。</p></li>
-<li><p><strong>缓冲池</strong></p>
+<p>会有一个 in 指针指向下一个能被冲入数据的空缓冲区，一个 out 指针指向下一个可取出数据的满缓冲区。</p>
+</li>
+<li>
+<p><strong>缓冲池</strong></p>
 <p>由系统中共用的缓冲区组成。这些缓冲区按使用情况分为：空缓冲队列、输入队列（装满输入数据）、输出队列（装满输出数据）</p>
-<p>从功能上划分，也能分为：hin（空输入数据缓冲区）、sin（满输入数据缓冲区）、hout（空输出数据缓冲区）、sout（满输出数据缓冲区）</p></li>
+<p>从功能上划分，也能分为：hin（空输入数据缓冲区）、sin（满输入数据缓冲区）、hout（空输出数据缓冲区）、sout（满输出数据缓冲区）</p>
+</li>
 </ul>
 
               
@@ -776,7 +795,6 @@ class="math inline">\(\max(T, C+M)\)</span></p></li>
 
   
   
-
 
 
 
@@ -1024,44 +1042,6 @@ class="math inline">\(\max(T, C+M)\)</span></p></li>
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

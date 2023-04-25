@@ -16,14 +16,22 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，">
+    <meta name="description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，其在计算机内部的二进制数列称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;计算机系统结构&gt;CA2 数据">
 <meta property="og:url" content="https://i-melody.github.io/2022/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/2%20%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，">
+<meta property="og:description" content="CA2 数据 机器级数据分为两类：  数值数据：无符号整数、带符号整数、浮点数 非数值数据：逻辑数（包括位串）、西文字符和汉字  计算机内部所有信息都用二进制进行编码。  使用二进制码的原因：制造两个稳定态的物理器件容易 二进制编码、计数、运算规则简单 1&#x2F;0 正好与逻辑命题中的 真&#x2F;假 对应，便于逻辑运算 可以方便地用逻辑电路实现算术运算  现实中真正的值称为 真值，其在计算机内部的二进制数列称">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-melody.github.io/img/CA2_6%20基本逻辑电路图1.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E7%25BB%2593%25E6%259E%2584%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3_1%2520%25E5%258D%2595%25E7%25B2%25BE%25E5%25BA%25A6%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_4%2520ASCII%2520%25E7%25A0%2581%25E8%25A1%25A8.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520%25E4%25BA%258C%25E8%25B7%25AF%25E9%2580%2589%25E6%258B%25A9%25E5%2599%25A8%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520%25E5%2585%25A8%25E5%258A%25A0%25E5%2599%25A8%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520%25E5%25B8%25A6%25E6%25A0%2587%25E5%25BF%2597%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520%25E6%2595%25B4%25E6%2595%25B0%25E5%258A%25A0%25E5%2587%258F%25E8%25BF%2590%25E7%25AE%2597%25E5%2599%25A8%25E5%259B%25BE.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_6%2520ALU%25E5%259B%25BE.webp">
 <meta property="article:published_time" content="2022-12-12T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-04-17T04:17:19.010Z">
 <meta property="article:author" content="Melody">
@@ -31,7 +39,7 @@
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="计算机系统结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i-melody.github.io/img/CA2_6%20基本逻辑电路图1.webp">
+<meta name="twitter:image" content="https://i-melody.github.io/img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E7%25BB%2593%25E6%259E%2584%25E5%259B%25BE.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -48,6 +56,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -228,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          11k 字
         
       </span>
     
@@ -239,7 +249,7 @@
         
         
         
-          29 分钟
+          32 分钟
         
       </span>
     
@@ -301,7 +311,7 @@
             
             <div class="markdown-body">
               
-              <h1 id="ca2-数据">CA2 数据</h1>
+              <h1>CA2 数据</h1>
 <p>机器级数据分为两类：</p>
 <ul>
 <li>数值数据：无符号整数、带符号整数、浮点数</li>
@@ -314,177 +324,144 @@
 <li>1/0 正好与逻辑命题中的 真/假 对应，便于逻辑运算</li>
 <li>可以方便地用逻辑电路实现算术运算</li>
 </ul>
-<p>现实中真正的值称为
-<strong>真值</strong>，其在计算机内部的二进制数列称为
-<strong>机器数</strong></p>
+<p>现实中真正的值称为 <strong>真值</strong>，其在计算机内部的二进制数列称为 <strong>机器数</strong></p>
 <p><strong>数据表示</strong>：计算机硬件能直接识别、指令可直接调用的数据类型。数据表示表现在其有对计算机硬件识别和引用的数据类型进行操作的指令和运算部件。</p>
 <p>引入数据表示（添加硬件支持）取决于：系统效率（包括实现时间与存储空间）是否提高、数据通用性与利用率是否提高</p>
 <p><strong>数据结构</strong>：由软件进行处理和实现的各种数据类型。</p>
-<h2 id="ca2.1-二进制">CA2.1 二进制</h2>
+<h2 id="CA2-1-二进制">CA2.1 二进制</h2>
 <p>数值数据的表示有三要素：进位计数制、定/浮点表示、二进制编码</p>
 <h4 id="进位计数制">进位计数制</h4>
-<p>二进制（Binary，用后缀 0b 表示）、八进制（Octal，用后缀 O
-表示）、十进制、十六进制（Hexadecimal，用后缀 H 或前缀 0x 表示）</p>
+<p>二进制（Binary，用后缀 0b 表示）、八进制（Octal，用后缀 O 表示）、十进制、十六进制（Hexadecimal，用后缀 H 或前缀 0x 表示）</p>
 <p>日常生活中使用十进制，计算机中使用二进制。八进制与十六进制主要是二进制的简便表示。</p>
-<p>对于 <span class="math inline">\(R\)</span> 进制数（<span
-class="math inline">\(R\)</span> 是基数，可以是 <span
-class="math inline">\(2、8、10、16\)</span> 等），该数的右起第 <span
-class="math inline">\(n\)</span> 位的数值 <span
-class="math inline">\(v\)</span> 代表 <span
-class="math inline">\(v\times
-R^{n-1}\)</span>。将数值的各位累加即该值的十进制表示。</p>
-<p>对于 <span class="math inline">\(R\)</span> 进制浮点数，其尾数左起第
-<span class="math inline">\(n\)</span> 位的数值 <span
-class="math inline">\(v\)</span> 代表 <span
-class="math inline">\(v\times
-R^{-n}\)</span>，将尾数值的各位累加即该尾数的十进制表示。</p>
-<h4 id="定浮点表示">定/浮点表示</h4>
+<p>对于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 进制数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 是基数，可以是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mtext>、</mtext><mn>8</mn><mtext>、</mtext><mn>10</mn><mtext>、</mtext><mn>16</mn></mrow><annotation encoding="application/x-tex">2、8、10、16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord cjk_fallback">、</span><span class="mord">8</span><span class="mord cjk_fallback">、</span><span class="mord">10</span><span class="mord cjk_fallback">、</span><span class="mord">16</span></span></span></span> 等），该数的右起第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 位的数值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> 代表 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>×</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">v\times R^{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>。将数值的各位累加即该值的十进制表示。</p>
+<p>对于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 进制浮点数，其尾数左起第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 位的数值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> 代表 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>×</mo><msup><mi>R</mi><mrow><mo>−</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">v\times R^{-n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span>，将尾数值的各位累加即该尾数的十进制表示。</p>
+<h4 id="定-浮点表示">定/浮点表示</h4>
 <p>定点整数、定点小数、浮点数</p>
 <p>计算机中只能通过约定小数点的位置来表示小数。其中：</p>
 <ul>
-<li><p><strong>定点数</strong></p>
+<li>
+<p><strong>定点数</strong></p>
 <p>小数点在固定位置的数。</p>
-<p>定点小数通常用来表示浮点数的尾数部分。定点整数分为带符号整数或无符号整数</p></li>
-<li><p><strong>浮点数</strong></p>
+<p>定点小数通常用来表示浮点数的尾数部分。定点整数分为带符号整数或无符号整数</p>
+</li>
+<li>
+<p><strong>浮点数</strong></p>
 <p>小数点位置可浮动的数。</p>
-<p>任何实数 <span class="math inline">\(X\)</span> 都能写成 <span
-class="math inline">\(X=(-1)^S\times M\times R^E\)</span> 的形式。</p>
-<p>其中 <span class="math inline">\((-1)^S\)</span>
-决定该数的符号（正负）、<span class="math inline">\(M\)</span>
-是一个二进制的定点小数（尾数）、<span class="math inline">\(R\)</span>
-是基数、<span class="math inline">\(E\)</span>
-是一个二进制定点整数（阶、指数）</p>
-<p>计算机中只要确定 <span class="math inline">\(S,M,E\)</span>
-这三个信息，就能确定 <span class="math inline">\(X\)</span>
-的值。这就是浮点数</p></li>
+<p>任何实数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 都能写成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>S</mi></msup><mo>×</mo><mi>M</mi><mo>×</mo><msup><mi>R</mi><mi>E</mi></msup></mrow><annotation encoding="application/x-tex">X=(-1)^S\times M\times R^E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span></span></span></span> 的形式。</p>
+<p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>S</mi></msup></mrow><annotation encoding="application/x-tex">(-1)^S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span></span></span></span></span></span></span> 决定该数的符号（正负）、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> 是一个二进制的定点小数（尾数）、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 是基数、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 是一个二进制定点整数（阶、指数）</p>
+<p>计算机中只要确定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo separator="true">,</mo><mi>M</mi><mo separator="true">,</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">S,M,E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 这三个信息，就能确定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 的值。这就是浮点数</p>
+</li>
 </ul>
 <h4 id="二进制编码">二进制编码</h4>
 <p>分为原码、补码、反码、移码</p>
 <ul>
-<li><p><strong>原码</strong></p>
+<li>
+<p><strong>原码</strong></p>
 <p>正/负号用最左端的 0/1 表示，数值部分不变。</p>
 <p>如：3（<font color="red">0</font>011）、-3（<font color="red">1</font>011）</p>
-<p>原码有一些缺点：0
-的表示不唯一、加减运算方式不统一、要额外对符号位进行处理等</p>
-<p>所以，从 50
-年代开始，整数都采用补码表示。但浮点数的尾数仍用原码定点小数表示</p></li>
-<li><p><strong>移码</strong></p>
-<p>将每个数值加上一个偏置常数。编码位数为 <span
-class="math inline">\(n\)</span> 时，偏置常数取 <span
-class="math inline">\(2^{n-1}\)</span> 或 <span
-class="math inline">\(2^{n-1}-1\)</span>。</p>
-<p>如：<span class="math inline">\(n=4\)</span> 时，偏置常数取
-8。此时，-8（-8+8：0000B）、+6（+6+8：1110B）</p>
-<p>此时，0 的移码表示唯一，且移码与补码仅第一位不同</p></li>
-<li><p><strong>补码</strong></p>
+<p>原码有一些缺点：0 的表示不唯一、加减运算方式不统一、要额外对符号位进行处理等</p>
+<p>所以，从 50 年代开始，整数都采用补码表示。但浮点数的尾数仍用原码定点小数表示</p>
+</li>
+<li>
+<p><strong>移码</strong></p>
+<p>将每个数值加上一个偏置常数。编码位数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 时，偏置常数取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{n-1}-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>。</p>
+<p>如：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span> 时，偏置常数取 8。此时，-8（-8+8：0000B）、+6（+6+8：1110B）</p>
+<p>此时，0 的移码表示唯一，且移码与补码仅第一位不同</p>
+</li>
+<li>
+<p><strong>补码</strong></p>
 <blockquote>
-<p>在模运算系统中，一个数与其取模的结果等价（时钟就是模 12
-系统）。等价的数称为补码。</p>
-<p>如：<span class="math inline">\(-4\equiv8\quad(\operatorname{mod}
-12)\)</span>，称：8 是 -4 对模 12 的补码</p>
+<p>在模运算系统中，一个数与其取模的结果等价（时钟就是模 12 系统）。等价的数称为补码。</p>
+<p>如：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>4</mn><mo>≡</mo><mn>8</mn><mspace width="1em"/><mo stretchy="false">(</mo><mi mathvariant="normal">mod</mi><mo>⁡</mo><mn>12</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-4\equiv8\quad(\operatorname{mod} 12)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mop"><span class="mord mathrm">mod</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">12</span><span class="mclose">)</span></span></span></span>，称：8 是 -4 对模 12 的补码</p>
 <p>有以下结论：</p>
 <ul>
-<li><p>一个负数的补码等于模减该负数的绝对值：</p>
-<p>对于某一确定的模 <span class="math inline">\(M\)</span>，数值 <span
-class="math inline">\(x(x&lt;0)\)</span>，有 <span
-class="math inline">\(x\equiv
-M-|x|\quad(\operatorname{mod}M)\)</span></p></li>
-<li><p>对于某一确定的模 <span class="math inline">\(M\)</span>，数值
-<span class="math inline">\(x,y\,(y&lt;M)\)</span>，有 <span
-class="math inline">\(x-y\equiv
-x+(M-y)\quad(\operatorname{mod}M)\)</span></p></li>
+<li>
+<p>一个负数的补码等于模减该负数的绝对值：</p>
+<p>对于某一确定的模 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>，数值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false">(</mo><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x(x&lt;0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span>，有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≡</mo><mi>M</mi><mo>−</mo><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi><mspace width="1em"/><mo stretchy="false">(</mo><mi mathvariant="normal">mod</mi><mo>⁡</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x\equiv M-|x|\quad(\operatorname{mod}M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4637em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mop"><span class="mord mathrm">mod</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p>对于某一确定的模 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>，数值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mtext> </mtext><mo stretchy="false">(</mo><mi>y</mi><mo>&lt;</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x,y\,(y&lt;M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>，有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mi>y</mi><mo>≡</mo><mi>x</mi><mo>+</mo><mo stretchy="false">(</mo><mi>M</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo><mspace width="1em"/><mo stretchy="false">(</mo><mi mathvariant="normal">mod</mi><mo>⁡</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x-y\equiv x+(M-y)\quad(\operatorname{mod}M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6582em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mop"><span class="mord mathrm">mod</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span></p>
+</li>
 </ul>
 </blockquote>
-<p>于是，对于机器数 <span class="math inline">\([X]_补\)</span> 和真值
-<span class="math inline">\(X\)</span>，有 <span
-class="math inline">\([X]_补\equiv 2^n+X\quad(-2^n\le
-X&lt;2^n,\operatorname{mod}2^n)\)</span></p>
+<p>于是，对于机器数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>X</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub></mrow><annotation encoding="application/x-tex">[X]_补</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和真值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>X</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>≡</mo><msup><mn>2</mn><mi>n</mi></msup><mo>+</mo><mi>X</mi><mspace width="1em"/><mo stretchy="false">(</mo><mo>−</mo><msup><mn>2</mn><mi>n</mi></msup><mo>≤</mo><mi>X</mi><mo>&lt;</mo><msup><mn>2</mn><mi>n</mi></msup><mo separator="true">,</mo><mi mathvariant="normal">mod</mi><mo>⁡</mo><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[X]_补\equiv 2^n+X\quad(-2^n\le X&lt;2^n,\operatorname{mod}2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7477em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">mod</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <p>正数：符号位为 0，数值部分不变</p>
 <p>负数：符号位为 1，数值部分按位取反，之后加 1</p>
 <p>变形补码：符号位为 2 位，用于存放可能溢出的中间结果。</p>
-<p>如：8（补码：<font color="red">1</font>000、变形补码：<font color="red">01</font>000）；-8（补码：<font color="red">1</font>000、变形补码：<font color="red">11</font>000）</p></li>
+<p>如：8（补码：<font color="red">1</font>000、变形补码：<font color="red">01</font>000）；-8（补码：<font color="red">1</font>000、变形补码：<font color="red">11</font>000）</p>
+</li>
 </ul>
-<h2 id="ca2.2-定点数">CA2.2 定点数</h2>
+<h2 id="CA2-2-定点数">CA2.2 定点数</h2>
 <p>机器中字的位排列顺序有两种方式，即高到低位可以是从右到左，也可能是从左到右。一般多采用从左往右排列方式。</p>
-<p>为避免表达歧义，用 <strong>LSB</strong>（Least Significant
-Bit）来表示最低有效位，<strong>MSB</strong> 来表示最高有效位。</p>
-<p><strong>无符号整数</strong>：在全部是正数运算且不会出现负值的情况下，可以使用无符号数。如：地址运算、编号表示等。无符号整数的编码没有符号位。常在一个数后面加一个
-U 或 u 表示无符号数</p>
-<p><strong>带符号整数</strong>：用 MSB 表示数字的符号（0 正数、1
-负数）。通常使用补码表示带符号整数</p>
-<p>若同时有无符号数和带符号数，C
-语言会将带符号数强制转换成无符号数。</p>
+<p>为避免表达歧义，用 <strong>LSB</strong>（Least Significant Bit）来表示最低有效位，<strong>MSB</strong> 来表示最高有效位。</p>
+<p><strong>无符号整数</strong>：在全部是正数运算且不会出现负值的情况下，可以使用无符号数。如：地址运算、编号表示等。无符号整数的编码没有符号位。常在一个数后面加一个 U 或 u 表示无符号数</p>
+<p><strong>带符号整数</strong>：用 MSB 表示数字的符号（0 正数、1 负数）。通常使用补码表示带符号整数</p>
+<p>若同时有无符号数和带符号数，C 语言会将带符号数强制转换成无符号数。</p>
 <p>所以在 C 语言中，一些表达式会产生以下结果</p>
 <table>
-
 <thead>
-<tr class="header">
-<th style="text-align: left;">关系表达式</th>
-<th style="text-align: center;">类型</th>
-<th style="text-align: center;">结果</th>
+<tr>
+<th style="text-align:left">关系表达式</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">结果</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>0 == 0U</code></td>
-<td style="text-align: center;">无符号</td>
-<td style="text-align: center;">True</td>
-<td><span class="math inline">\(00\dots 0B（0）= 00\dots
-0B（0）\)</span></td>
+<tr>
+<td style="text-align:left"><code>0 == 0U</code></td>
+<td style="text-align:center">无符号</td>
+<td style="text-align:center">True</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>00</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mn>0</mn><mtext>）</mtext><mo>=</mo><mn>00</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mn>0</mn><mtext>）</mtext></mrow><annotation encoding="application/x-tex">00\dots 0B（0）= 00\dots 0B（0）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">00</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord">0</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">00</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord">0</span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><code>-1 &lt; 0</code></td>
-<td style="text-align: center;">带符号</td>
-<td style="text-align: center;">True</td>
-<td><span class="math inline">\(11\dots 1B（-1）&lt; 00\dots
-0B（0）\)</span></td>
+<tr>
+<td style="text-align:left"><code>-1 &lt; 0</code></td>
+<td style="text-align:center">带符号</td>
+<td style="text-align:center">True</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mo>…</mo><mn>1</mn><mi>B</mi><mtext>（</mtext><mo>−</mo><mn>1</mn><mtext>）</mtext><mo>&lt;</mo><mn>00</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mn>0</mn><mtext>）</mtext></mrow><annotation encoding="application/x-tex">11\dots 1B（-1）&lt; 00\dots 0B（0）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">11</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">00</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord">0</span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><code>-1 &lt; 0U</code></td>
-<td style="text-align: center;">无符号</td>
-<td style="text-align: center;"><font color="RED">False</font></td>
-<td><span class="math inline">\(11\dots 1B（2^{32}-1）&gt; 00\dots
-0B（0）\)</span></td>
+<tr>
+<td style="text-align:left"><code>-1 &lt; 0U</code></td>
+<td style="text-align:center">无符号</td>
+<td style="text-align:center"><font color="RED">False</font></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mo>…</mo><mn>1</mn><mi>B</mi><mtext>（</mtext><msup><mn>2</mn><mn>32</mn></msup><mo>−</mo><mn>1</mn><mtext>）</mtext><mo>&gt;</mo><mn>00</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mn>0</mn><mtext>）</mtext></mrow><annotation encoding="application/x-tex">11\dots 1B（2^{32}-1）&gt; 00\dots 0B（0）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">11</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">00</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord">0</span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
-<tr class="even">
-<td
-style="text-align: left;"><code>2147483647 &gt; -2147483647-1</code></td>
-<td style="text-align: center;">带符号</td>
-<td style="text-align: center;">True</td>
-<td><span class="math inline">\(011\dots 1B（2^{31}-1）&gt; 100\dots
-0B（-2^{31}）\)</span></td>
+<tr>
+<td style="text-align:left"><code>2147483647 &gt; -2147483647-1</code></td>
+<td style="text-align:center">带符号</td>
+<td style="text-align:center">True</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>011</mn><mo>…</mo><mn>1</mn><mi>B</mi><mtext>（</mtext><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mtext>）</mtext><mo>&gt;</mo><mn>100</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mo>−</mo><msup><mn>2</mn><mn>31</mn></msup><mtext>）</mtext></mrow><annotation encoding="application/x-tex">011\dots 1B（2^{31}-1）&gt; 100\dots 0B（-2^{31}）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">011</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
-<tr class="odd">
-<td
-style="text-align: left;"><code>2147483647U &gt; -2147483647-1</code></td>
-<td style="text-align: center;">无符号</td>
-<td style="text-align: center;"><font color="RED">False</font></td>
-<td><span class="math inline">\(011\dots 1B（2^{31}-1）&lt; 100\dots
-0B（2^{31}）\)</span></td>
+<tr>
+<td style="text-align:left"><code>2147483647U &gt; -2147483647-1</code></td>
+<td style="text-align:center">无符号</td>
+<td style="text-align:center"><font color="RED">False</font></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>011</mn><mo>…</mo><mn>1</mn><mi>B</mi><mtext>（</mtext><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mtext>）</mtext><mo>&lt;</mo><mn>100</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><msup><mn>2</mn><mn>31</mn></msup><mtext>）</mtext></mrow><annotation encoding="application/x-tex">011\dots 1B（2^{31}-1）&lt; 100\dots 0B（2^{31}）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">011</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
-<tr class="even">
-<td
-style="text-align: left;"><code>2147483647 &gt; (int)2147483648U</code></td>
-<td style="text-align: center;">带符号</td>
-<td style="text-align: center;"><font color="RED">True</font></td>
-<td><span class="math inline">\(011\dots 1B（2^{31}-1）&gt; 100\dots
-0B（-2^{31}）\)</span></td>
+<tr>
+<td style="text-align:left"><code>2147483647 &gt; (int)2147483648U</code></td>
+<td style="text-align:center">带符号</td>
+<td style="text-align:center"><font color="RED">True</font></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>011</mn><mo>…</mo><mn>1</mn><mi>B</mi><mtext>（</mtext><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mtext>）</mtext><mo>&gt;</mo><mn>100</mn><mo>…</mo><mn>0</mn><mi>B</mi><mtext>（</mtext><mo>−</mo><msup><mn>2</mn><mn>31</mn></msup><mtext>）</mtext></mrow><annotation encoding="application/x-tex">011\dots 1B（2^{31}-1）&gt; 100\dots 0B（-2^{31}）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">011</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">（</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span></span></span></span></span><span class="mord cjk_fallback">）</span></span></span></span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="ca2.3-高级数据表示">CA2.3 高级数据表示</h2>
+<h2 id="CA2-3-高级数据表示">CA2.3 高级数据表示</h2>
 <h4 id="自定义数据表示">自定义数据表示</h4>
 <p>包含 标识符的数据表示 和 数据描述符 两类</p>
 <ul>
-<li><p><strong>标识符的数据表示</strong></p>
+<li>
+<p><strong>标识符的数据表示</strong></p>
 <p>在计算机中的数据左侧添加标志位，以识别不同类型的数据</p>
 <p>其优点是：简化了指令系统和程序设计、简化了编译程序、便于实现一致性校验、能由硬件自动变换数据类型、支持数据库系统的实现与数据类型无关的要求、为软件测试和应用开发提供支持</p>
-<p>缺点是：每个数据字增设标识符，可能占用更多空间、采用标识符降低了指令执行速度</p></li>
-<li><p><strong>数据描述符</strong></p>
-<p>描述符与数据分开存放，用于描述要访问的数据的信息。</p></li>
+<p>缺点是：每个数据字增设标识符，可能占用更多空间、采用标识符降低了指令执行速度</p>
+</li>
+<li>
+<p><strong>数据描述符</strong></p>
+<p>描述符与数据分开存放，用于描述要访问的数据的信息。</p>
+</li>
 </ul>
-<h4 id="向量数组数据表示">向量、数组数据表示</h4>
+<h4 id="向量、数组数据表示">向量、数组数据表示</h4>
 <p>增设向量、数组数据表示、硬件支持，做称向量机</p>
 <p>引入向量、数组数据表示不只是能加快形成元素地址，还便于实现把向量各元素成块预取到中央处理机。</p>
 <h4 id="堆栈数据表示">堆栈数据表示</h4>
@@ -493,19 +470,11 @@ style="text-align: left;"><code>2147483647 &gt; (int)2147483648U</code></td>
 <p>堆栈计算机有丰富的堆栈操作指令且功能强大，可直接对堆栈数据进行各种运算和处理</p>
 <p>堆栈计算机有力支持了高级语言程序的编译。且有力支持了子程序的嵌套和递归调用。</p>
 <h4 id="浮点数">浮点数</h4>
-<p>在科学计数法中，任何数都能表示为类似 <span
-class="math inline">\(2.022\times10^{3}\)</span> 的格式。</p>
-<p>一个数有多种表示形式，但规格化形式（小数点前只有一位非 0
-数）是唯一的。</p>
-<p>在二进制中，也能将数字表示为 <span
-class="math inline">\(1.1111100101_{two}\times 2^{10}\)</span>
-的形式</p>
-<p>32 位浮点数 <b><font color="#D05000">(-1)<sup>S</sup></font> ×
-1.<font color="#6060CF">xxxx</font>
-× <font color="#B01010">2<sup>E</sup></font></b>
-的规格化数如下所示：</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E7%25BB%2593%25E6%259E%2584%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>在科学计数法中，任何数都能表示为类似 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.022</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">2.022\times10^{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2.022</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span> 的格式。</p>
+<p>一个数有多种表示形式，但规格化形式（小数点前只有一位非 0 数）是唯一的。</p>
+<p>在二进制中，也能将数字表示为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.111110010</mn><msub><mn>1</mn><mrow><mi>t</mi><mi>w</mi><mi>o</mi></mrow></msub><mo>×</mo><msup><mn>2</mn><mn>10</mn></msup></mrow><annotation encoding="application/x-tex">1.1111100101_{two}\times 2^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">1.111110010</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">tw</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span> 的形式</p>
+<p>32 位浮点数 <b><font color="#D05000">(-1)<sup>S</sup></font> × 1.<font color="#6060CF">xxxx</font> × <font color="#B01010">2<sup>E</sup></font></b> 的规格化数如下所示：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E7%25BB%2593%25E6%259E%2584%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_3 浮点数结构图）</em></p>
 <ul>
 <li><font color="#D05000"><strong>S</strong></font>：符号（正/负）</li>
@@ -514,70 +483,67 @@ src="./../../../../../img/CA_InputImage/CA2_3%2520%25E6%25B5%25AE%25E7%2582%25B9
 </ul>
 <p>早期各计算机内部浮点数的表示格式还不统一，因而互不兼容。</p>
 <p>浮点数尾数的基值可表示数的范围、个数，随进制增大而增大。其精度随之减小，精度损失可能性也减少。</p>
-<p>浮点数尾数下溢时，处理方法有：截断法、舍入法、恒置 1
-法、查表舍入法。</p>
+<p>浮点数尾数下溢时，处理方法有：截断法、舍入法、恒置 1 法、查表舍入法。</p>
 <ul>
-<li><p><strong>IEEE 754</strong></p>
-<p>1985 年，IEEE 754 标准制定。现在所有通用计算机都采用 IEEE 754
-来表示浮点数</p>
-<p>单精度（SP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1
-+ <font color="#6060CF">Significant</font>) ×
-2<sup>(<font color="#30A060">Exponent</font> - 127)</sup></b></p>
-<p>双精度（DP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1 +
-<font color="#6060CF">Significant</font>) ×
-2<sup>(<font color="#30A060">Exponent</font> - 1223)</sup></b></p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_3_1%2520%25E5%258D%2595%25E7%25B2%25BE%25E5%25BA%25A6%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<li>
+<p><strong>IEEE 754</strong></p>
+<p>1985 年，IEEE 754 标准制定。现在所有通用计算机都采用 IEEE 754 来表示浮点数</p>
+<p>单精度（SP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1 + <font color="#6060CF">Significant</font>) × 2<sup>(<font color="#30A060">Exponent</font> - 127)</sup></b></p>
+<p>双精度（DP）：<b>(-1)<sup><font color="#D05000">S</font></sup> × (1 + <font color="#6060CF">Significant</font>) × 2<sup>(<font color="#30A060">Exponent</font> - 1223)</sup></b></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_3_1%2520%25E5%258D%2595%25E7%25B2%25BE%25E5%25BA%25A6%25E6%25B5%25AE%25E7%2582%25B9%25E6%2595%25B0%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_3_1 单精度浮点数图）</em></p>
 <ul>
-<li><p><font color="#D05000"><strong>S</strong></font>：符号，1 位。1
-表示负值，0 表示正值</p></li>
-<li><p><font color="#30A060"><strong>Exponent</strong></font>：阶码。用移码表示。全
-0 和全 1 表示特殊值</p>
-<p>单精度 8 位。偏置常数为 127。范围为 -126（0000 0001）~ 127（1111
-1110）</p>
-<p>双精度时 11 位，偏置常数为 1023。</p></li>
-<li><p><font color="#6060CF"><strong>significant</strong></font>：有效数（尾数的小数点后部分）</p>
+<li>
+<p><font color="#D05000"><strong>S</strong></font>：符号，1 位。1 表示负值，0 表示正值</p>
+</li>
+<li>
+<p><font color="#30A060"><strong>Exponent</strong></font>：阶码。用移码表示。全 0 和全 1 表示特殊值</p>
+<p>单精度 8 位。偏置常数为 127。范围为 -126（0000 0001）~ 127（1111 1110）</p>
+<p>双精度时 11 位，偏置常数为 1023。</p>
+</li>
+<li>
+<p><font color="#6060CF"><strong>significant</strong></font>：有效数（尾数的小数点后部分）</p>
 <p>规格化尾数的小数点后第一位总是 1，所以此处省略第一位</p>
 <p>单精度时为 23 位。能用 23 位尾数表示 24 位数。</p>
-<p>双精度时为 52 位。</p></li>
+<p>双精度时为 52 位。</p>
+</li>
 </ul>
 <p>特殊值的表示如下：</p>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">阶码（E）</th>
-<th style="text-align: center;">有效数（M）</th>
-<th style="text-align: center;">特殊值</th>
+<tr>
+<th style="text-align:center">阶码（E）</th>
+<th style="text-align:center">有效数（M）</th>
+<th style="text-align:center">特殊值</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">全 1（255）</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">正负无穷大（取决于符号）</td>
+<tr>
+<td style="text-align:center">全 1（255）</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">正负无穷大（取决于符号）</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">全 1（255）</td>
-<td style="text-align: center;">非 0</td>
-<td style="text-align: center;">非数（NaN）</td>
+<tr>
+<td style="text-align:center">全 1（255）</td>
+<td style="text-align:center">非 0</td>
+<td style="text-align:center">非数（NaN）</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">正负零（取决于符号）</td>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">正负零（取决于符号）</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">非 0</td>
-<td style="text-align: center;">非规格化数（阶码视为 1，尾数第一位为
-0）</td>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">非 0</td>
+<td style="text-align:center">非规格化数（阶码视为 1，尾数第一位为 0）</td>
 </tr>
 </tbody>
 </table>
-<p>当数据是一个不可表示数时，机器将其转换为最近的可表示数。</p></li>
+<p>当数据是一个不可表示数时，机器将其转换为最近的可表示数。</p>
+</li>
 </ul>
-<h2 id="ca2.4-非数值数据">CA2.4 非数值数据</h2>
+<h2 id="CA2-4-非数值数据">CA2.4 非数值数据</h2>
 <h4 id="逻辑数据">逻辑数据</h4>
 <p>逻辑数据用于表示表达式中的逻辑值（真/假）</p>
 <ul>
@@ -586,41 +552,46 @@ src="./../../../../../img/CA_InputImage/CA2_3_1%2520%25E5%258D%2595%25E7%25B2%25
 <li>识别：逻辑数据和数值数据在形式上无差别。计算机依靠指令来识别</li>
 </ul>
 <h4 id="西文字符">西文字符</h4>
-<p>西文字符是拼音文字，用有限字母就能拼出所有单词。字符总数不超过 256
-个，可以使用 7-8 位二进制表示</p>
+<p>西文字符是拼音文字，用有限字母就能拼出所有单词。字符总数不超过 256 个，可以使用 7-8 位二进制表示</p>
 <ul>
 <li>表示：常用编码为 7 位 ASCII 码</li>
 <li>操作：字符串操作。如传送、比较等</li>
 </ul>
 <p>ASCII 码表如下：</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_4%2520ASCII%2520%25E7%25A0%2581%25E8%25A1%25A8.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_4%2520ASCII%2520%25E7%25A0%2581%25E8%25A1%25A8.webp" alt=""></p>
 <p><em>（CA2_4 ASCII 码表）</em></p>
-<p>如，空格（SP）的 ASCII 码为（0010 0000），字母 M 的 ASCII 码为（0100
-1101）</p>
+<p>如，空格（SP）的 ASCII 码为（0010 0000），字母 M 的 ASCII 码为（0100 1101）</p>
 <h4 id="汉字">汉字</h4>
 <p>汉字数量巨大，总数超过 6 万字。</p>
 <ul>
-<li><p>编码形式：有几种不同的编码形式</p>
+<li>
+<p>编码形式：有几种不同的编码形式</p>
 <ul>
 <li>输入码：对汉字用相应按键进行编码表示。用于输入</li>
 <li>内码：用于在系统中进行存储、查找、传送等处理</li>
 <li>字模点阵或轮廓描述：描述汉字字模点阵或轮廓，用于显示/打印</li>
-</ul></li>
-<li><p>GB2312-80 字符集</p>
+</ul>
+</li>
+<li>
+<p>GB2312-80 字符集</p>
 <ul>
-<li><p>组成</p>
-<p>字母、数字和符号。包括英文、俄文、日文平假名与片假名、罗马字母、汉语拼音等共
-687 个</p>
+<li>
+<p>组成</p>
+<p>字母、数字和符号。包括英文、俄文、日文平假名与片假名、罗马字母、汉语拼音等共 687 个</p>
 <p>一级常用汉字，共 3755 个。按汉语拼音排列</p>
-<p>二级常用汉字，共 3008 个。按偏旁部首排列</p></li>
-<li><p>区位码</p>
-<p>码表由 94 行，94 列组成。行号为区号，列号为位号。各占 7 位</p></li>
-<li><p>国标码</p>
+<p>二级常用汉字，共 3008 个。按偏旁部首排列</p>
+</li>
+<li>
+<p>区位码</p>
+<p>码表由 94 行，94 列组成。行号为区号，列号为位号。各占 7 位</p>
+</li>
+<li>
+<p>国标码</p>
 <p>每个汉字的区号、位号各自加上 32 就得到了国标码。</p>
-<p>国标码的区号和位号各占 7 位，在前方添 1（为与 ASCII
-码区别）构成字节。一个汉字占 2 字节</p></li>
-</ul></li>
+<p>国标码的区号和位号各占 7 位，在前方添 1（为与 ASCII 码区别）构成字节。一个汉字占 2 字节</p>
+</li>
+</ul>
+</li>
 </ul>
 <h4 id="多媒体信息的表示">多媒体信息的表示</h4>
 <p>图形、图像、音频、视频 等信息</p>
@@ -631,56 +602,60 @@ src="./../../../../../img/CA_InputImage/CA2_4%2520ASCII%2520%25E7%25A0%2581%25E8
 <li>视频：随时间变化的图像（每幅图像称为一帧）</li>
 <li>音乐：通过对演奏的乐器、乐谱等相关各类信息用 0、1 编码来描述</li>
 </ul>
-<h2 id="ca2.5-数据的存储">CA2.5 数据的存储</h2>
+<h2 id="CA2-5-数据的存储">CA2.5 数据的存储</h2>
 <h4 id="数据的宽度">数据的宽度</h4>
 <ul>
-<li><p><strong>比特</strong>（bit，位）：是计算机中处理、存储、传输信息的最小单位。一位是就一个
-0 或 1</p></li>
-<li><p><strong>字节</strong>（Byte，B）：二进制信息的基本计量单位。多数情况下，一个字节长
-8 位。</p>
+<li>
+<p><strong>比特</strong>（bit，位）：是计算机中处理、存储、传输信息的最小单位。一位是就一个 0 或 1</p>
+</li>
+<li>
+<p><strong>字节</strong>（Byte，B）：二进制信息的基本计量单位。多数情况下，一个字节长 8 位。</p>
 <p>现代计算机中，存储器按照 字节 编址。字节是最小可寻址单位</p>
-<p>若以字节为一个排列单位，则 <strong>LSB</strong>
-表示最低有效字节，<strong>MSB</strong> 表示最高有效字节</p></li>
-<li><p><strong>字</strong>（word）：用于表示其自然的数据单位的术语。字与字长的宽度可能相同或不同。</p>
+<p>若以字节为一个排列单位，则 <strong>LSB</strong> 表示最低有效字节，<strong>MSB</strong> 表示最高有效字节</p>
+</li>
+<li>
+<p><strong>字</strong>（word）：用于表示其自然的数据单位的术语。字与字长的宽度可能相同或不同。</p>
 <p>对于 x86 体系结构，不论字长多少，字都是 16 位。</p>
-<p>对于 MIPS 32 体系结构，字和字长都是 32 位</p></li>
-<li><p><strong>字长</strong>：数据通路的宽度，CPU
-一次能并行处理的二进制位数。</p>
+<p>对于 MIPS 32 体系结构，字和字长都是 32 位</p>
+</li>
+<li>
+<p><strong>字长</strong>：数据通路的宽度，CPU 一次能并行处理的二进制位数。</p>
 <p>字长是 8 的倍数。常见有 16位、32位、64位。</p>
-<p>数据通路是 CPU
-内部数据运算、存储、传送的部件。这些部件需要宽度一致。</p></li>
-<li><p><strong>容量常用的单位</strong></p>
+<p>数据通路是 CPU 内部数据运算、存储、传送的部件。这些部件需要宽度一致。</p>
+</li>
+<li>
+<p><strong>容量常用的单位</strong></p>
 <p>千字节（KB，1 KB = 2<sup>10</sup> B = 1204 B）</p>
 <p>兆字节（MB，1 MB = 2<sup>20</sup> B = 1204 KB）</p>
 <p>千兆字节（GB，1 GB = 2<sup>30</sup> B = 1204 MB）</p>
-<p>兆兆字节（TB，1 TB = 2<sup>40</sup> B = 1204 GB）</p></li>
-<li><p><strong>带宽常用的单位</strong></p>
-<p>千<font color="#E05030">比特</font>每秒（kb/s，1kbps = 10<sup>3</sup>
-b/s = 1000 bps）</p>
-<p>兆<font color="#E05030">比特</font>每秒（Mb/s，1Mbps = 10<sup>6</sup>
-b/s = 1000 kbps）</p>
-<p>千兆<font color="#E05030">比特</font>每秒（Gb/s，1Gbps =
-10<sup>9</sup> b/s = 1000 Mbps）</p>
-<p>兆兆<font color="#E05030">比特</font>每秒（Tb/s，1Tbps =
-10<sup>12</sup> b/s = 1000 Gbps）</p>
-<p>把上述 b 换为 B 才表示字节，如 10 MBps 表示 10 兆字节/秒</p></li>
+<p>兆兆字节（TB，1 TB = 2<sup>40</sup> B = 1204 GB）</p>
+</li>
+<li>
+<p><strong>带宽常用的单位</strong></p>
+<p>千<font color="#E05030">比特</font>每秒（kb/s，1kbps = 10<sup>3</sup> b/s = 1000 bps）</p>
+<p>兆<font color="#E05030">比特</font>每秒（Mb/s，1Mbps = 10<sup>6</sup> b/s = 1000 kbps）</p>
+<p>千兆<font color="#E05030">比特</font>每秒（Gb/s，1Gbps = 10<sup>9</sup> b/s = 1000 Mbps）</p>
+<p>兆兆<font color="#E05030">比特</font>每秒（Tb/s，1Tbps = 10<sup>12</sup> b/s = 1000 Gbps）</p>
+<p>把上述 b 换为 B 才表示字节，如 10 MBps 表示 10 兆字节/秒</p>
+</li>
 </ul>
 <p>高级语言支持多种不同的类型和长度的数据。</p>
-<p>不同机器上表示同一种类型的数据分配的宽度，可能随
-ISA、机器字长和编译器不同而不同。</p>
+<p>不同机器上表示同一种类型的数据分配的宽度，可能随 ISA、机器字长和编译器不同而不同。</p>
 <h4 id="数据的存储">数据的存储</h4>
 <p>从 80 年代起，几乎所有通用计算机采用 <strong>字节编址</strong></p>
 <p>在高级语言中声明的基本数据类型有各种不同长度的数据，一个基本数据可能占用多个存储单元。存放方式有两种</p>
 <ul>
-<li><p><strong>大端方式</strong>：MSB 所在地址是数的地址</p></li>
-<li><p><strong>小端方式</strong>：LSB 所在地址是数的地址</p></li>
+<li>
+<p><strong>大端方式</strong>：MSB 所在地址是数的地址</p>
+</li>
+<li>
+<p><strong>小端方式</strong>：LSB 所在地址是数的地址</p>
+</li>
 </ul>
 <p>有的机器支持两种存放方式，通过特定控制位来设定具体采用的方式。</p>
-<p>C 语言的 union 的存放顺序是所有成员从低地址开始。可以以此测试 CPU
-的大/小 端方式</p>
+<p>C 语言的 union 的存放顺序是所有成员从低地址开始。可以以此测试 CPU 的大/小 端方式</p>
 <h4 id="寻址方式">寻址方式</h4>
-<p>通常要在指令中为每个操作数设置一个地址字段，以表示数据来源或去向的地址。指令中给出的是
-<strong>形式地址</strong>，要用其计算出 <strong>实际地址</strong>。</p>
+<p>通常要在指令中为每个操作数设置一个地址字段，以表示数据来源或去向的地址。指令中给出的是 <strong>形式地址</strong>，要用其计算出 <strong>实际地址</strong>。</p>
 <p>寻址对象有以下几种：</p>
 <ul>
 <li><strong>面向寄存器</strong>：操作数可以取自寄存器或主存。结果多保存在寄存器中，少量送入主存。</li>
@@ -691,14 +666,12 @@ ISA、机器字长和编译器不同而不同。</p>
 <p>寻址方式有以下几种：</p>
 <ul>
 <li><strong>立即数寻址</strong>：直接给出地址</li>
-<li><strong>直接寻址 /
-绝对寻址</strong>：给出存放在主存中的地址位置的地址</li>
+<li><strong>直接寻址 / 绝对寻址</strong>：给出存放在主存中的地址位置的地址</li>
 <li><strong>寄存器直接寻址</strong>：给出寄存器地址，该寄存器中存放地址</li>
 <li><strong>寄存器间接寻址</strong>：给出寄存器地址，该寄存器中存放主存中地址位置的地址</li>
 <li><strong>存储器间接寻址</strong>：给出主存地址，该地址下保存地址位置</li>
 <li><strong>变址寻址</strong>：指令中给出地址码，并从指定寄存器中找到基址。用于数组</li>
-<li><strong>相对寻址</strong>：相对于当前 PC
-寄存器的地址进行加减。用于分支跳转</li>
+<li><strong>相对寻址</strong>：相对于当前 PC 寄存器的地址进行加减。用于分支跳转</li>
 <li><strong>基址寻址</strong>：指令中给出地址吗，并从基地址寄存器中取出基址。用于虚拟存储</li>
 <li><strong>堆栈寻址</strong>：堆栈是一个先进后出队列，不给出地址，而是操作指针</li>
 </ul>
@@ -709,123 +682,95 @@ ISA、机器字长和编译器不同而不同。</p>
 <li><strong>动态重定位</strong>：指令不修改，通过基址寻址法来解决。要注意进行越界分析</li>
 <li><strong>虚实地址映像表</strong>：建立虚实地址映像表，通过查表获得物理地址</li>
 </ul>
-<h2 id="ca2.6-数据的运算">CA2.6 数据的运算</h2>
+<h2 id="CA2-6-数据的运算">CA2.6 数据的运算</h2>
 <p>关于 0 和 1 的一套数学运算体系称为 <strong>布尔代数</strong>。</p>
-<p>0 和 1 分别代表逻辑的 “假” 和 “真”。通过逻辑关系可以构建基于 0 和 1
-的布尔代数运算。</p>
-<p>基本的逻辑运算有：与（AND，<span
-class="math inline">\(\bull\)</span>）、或（OR，<span
-class="math inline">\(+\)</span>）、非（NOT，<span
-class="math inline">\(\overline{ }\)</span>）</p>
-<p><strong><em>——见离散数学 [DM1 逻辑关系]、[DM4.7.4
-布尔代数]</em></strong></p>
+<p>0 和 1 分别代表逻辑的 “假” 和 “真”。通过逻辑关系可以构建基于 0 和 1 的布尔代数运算。</p>
+<p>基本的逻辑运算有：与（AND，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∙</mo></mrow><annotation encoding="application/x-tex">\bull</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord">∙</span></span></span></span>）、或（OR，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span></span></span></span>）、非（NOT，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow></mrow><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\overline{ }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.2em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.2em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-3.12em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>）</p>
+<p><em><strong>——见离散数学 [DM1 逻辑关系]、[DM4.7.4 布尔代数]</strong></em></p>
 <p>任何表达逻辑都能写成这三种运算的组合。</p>
-<p>如 异或（XOR，<span
-class="math inline">\(\oplus\)</span>）逻辑表达式为：<span
-class="math inline">\(A\oplus B=\overline{A}\bull B+A\bull
-\overline{B}\)</span></p>
+<p>如 异或（XOR，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊕</mo></mrow><annotation encoding="application/x-tex">\oplus</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">⊕</span></span></span></span>）逻辑表达式为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>⊕</mo><mi>B</mi><mo>=</mo><mover accent="true"><mi>A</mi><mo stretchy="true">‾</mo></mover><mo>∙</mo><mi>B</mi><mo>+</mo><mi>A</mi><mo>∙</mo><mover accent="true"><mi>B</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">A\oplus B=\overline{A}\bull B+A\bull \overline{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∙</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∙</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span></p>
 <h4 id="基本逻辑门电路">基本逻辑门电路</h4>
 <p>可以通过逻辑门电路来实现逻辑运算。</p>
 <p>有三种基本门电路：与门、或门、非门</p>
 <p>用这三种基本门电路就能组成其他门电路</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA2_6%20基本逻辑电路图1.webp" /></p>
+<p>![](./…/…/…/…/…/img/CA2_6 基本逻辑电路图1.webp)</p>
 <p><em>（CA2_6 基本逻辑电路图1）</em></p>
 <p>对于 n 位的逻辑运算，只要重复使用 n 个相同的门电路即可。</p>
 <p>对于 n 位的逻辑值，那些逻辑符号如下所示</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%20基本逻辑电路图2.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>![](./…/…/…/…/…/img/CA_InputImage/CA2_6 基本逻辑电路图2.webp)</p>
 <p><em>（CA2_6 基本逻辑电路图2）</em></p>
-<h4 id="逻辑组合部件功能部件">逻辑组合部件（功能部件）</h4>
+<h4 id="逻辑组合部件（功能部件）">逻辑组合部件（功能部件）</h4>
 <p>根据电路是否有存储功能，将逻辑电路划分为以下两种</p>
 <ul>
 <li><strong>逻辑组合电路</strong>：没有存储功能，其输出仅依赖当前输入</li>
 <li><strong>时序逻辑电路</strong>：具有存储功能，其输出不仅依赖当前输入，还依赖存储单元的当前状态</li>
 </ul>
-<p>可以利用基本逻辑门电路构成一些具有特定功能的
-<strong>组合逻辑部件</strong>（功能部件）。如
-译码器、编码器、多路选择器、加法器 等。</p>
-<p>实现功能部件的过程：使用 真值表
-描述功能部件输入与输出间的关系。再根据真值表确定逻辑表达式根据逻辑表达式实现逻辑电路</p>
+<p>可以利用基本逻辑门电路构成一些具有特定功能的 <strong>组合逻辑部件</strong>（功能部件）。如 译码器、编码器、多路选择器、加法器 等。</p>
+<p>实现功能部件的过程：使用 真值表 描述功能部件输入与输出间的关系。再根据真值表确定逻辑表达式根据逻辑表达式实现逻辑电路</p>
 <ul>
-<li><p><strong>多路选择器（MUX）</strong></p>
+<li>
+<p><strong>多路选择器（MUX）</strong></p>
 <p><strong>二路选择器</strong></p>
-<p>最简单的多路选择器。有输入端 <span
-class="math inline">\(A,B\)</span>，控制端 <span
-class="math inline">\(S\)</span>。输出端 <span
-class="math inline">\(F=\begin{cases}A,&amp;S=0\\B,&amp;S=1
-\end{cases}\)</span></p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520%25E4%25BA%258C%25E8%25B7%25AF%25E9%2580%2589%25E6%258B%25A9%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>最简单的多路选择器。有输入端 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>，控制端 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>。输出端 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>A</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>S</mi><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>B</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>S</mi><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">F=\begin{cases}A,&amp;S=0\\B,&amp;S=1 \end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">0</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520%25E4%25BA%258C%25E8%25B7%25AF%25E9%2580%2589%25E6%258B%25A9%25E5%2599%25A8%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_6 二路选择器图）</em></p>
 <p><strong>k 路选择器</strong></p>
-<p>有 k 路输入，其控制端位数应是 <span class="math inline">\(\log_2
-k\)</span></p></li>
-<li><p><strong>加法器</strong></p>
-<p>一位加法器称为 全加器：有输入端 <span
-class="math inline">\(A,B\)</span>，低位进位 <span
-class="math inline">\({Cin}\)</span>，和为 <span
-class="math inline">\(F\)</span>，向高位进位为 <span
-class="math inline">\({Cout}\)</span></p>
-<p>有 <span class="math inline">\(F=A\oplus B\oplus {Cin},\quad
-{Cout}=A\bull B+A\bull{Cin}+B\bull{Cin}\)</span></p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%2585%25A8%25E5%258A%25A0%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>有 k 路输入，其控制端位数应是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>k</mi></mrow><annotation encoding="application/x-tex">\log_2 k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></p>
+</li>
+<li>
+<p><strong>加法器</strong></p>
+<p>一位加法器称为 全加器：有输入端 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>，低位进位 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>i</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">{Cin}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span></span></span></span></span>，和为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>，向高位进位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>o</mi><mi>u</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">{Cout}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span></span></span></span></span></p>
+<p>有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mi>A</mi><mo>⊕</mo><mi>B</mi><mo>⊕</mo><mrow><mi>C</mi><mi>i</mi><mi>n</mi></mrow><mo separator="true">,</mo><mspace width="1em"/><mrow><mi>C</mi><mi>o</mi><mi>u</mi><mi>t</mi></mrow><mo>=</mo><mi>A</mi><mo>∙</mo><mi>B</mi><mo>+</mo><mi>A</mi><mo>∙</mo><mrow><mi>C</mi><mi>i</mi><mi>n</mi></mrow><mo>+</mo><mi>B</mi><mo>∙</mo><mrow><mi>C</mi><mi>i</mi><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">F=A\oplus B\oplus {Cin},\quad {Cout}=A\bull B+A\bull{Cin}+B\bull{Cin}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∙</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∙</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∙</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span></span></span></span></span></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%2585%25A8%25E5%258A%25A0%25E5%2599%25A8%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_6 全加器图)</em></p>
 <p>使用 n 个全加器就能实现 n 位加法器</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
-<p><em>（CA2_6 加法器图)</em></p></li>
-<li><p><strong>带标志加法器</strong></p>
-<p>n
-位加法器无法用于两个带符号整数（补码）加法，无法判断溢出。在程序中常要比较大小，这些可以通过减法得到的标志信息判断。<strong>带标志加法器</strong>
-如下所示</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%25B8%25A6%25E6%25A0%2587%25E5%25BF%2597%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" alt=""></p>
+<p><em>（CA2_6 加法器图)</em></p>
+</li>
+<li>
+<p><strong>带标志加法器</strong></p>
+<p>n 位加法器无法用于两个带符号整数（补码）加法，无法判断溢出。在程序中常要比较大小，这些可以通过减法得到的标志信息判断。<strong>带标志加法器</strong> 如下所示</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520%25E5%25B8%25A6%25E6%25A0%2587%25E5%25BF%2597%25E5%258A%25A0%25E6%25B3%2595%25E5%2599%25A8%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_6 带标志加法器图)</em></p>
 <p>其中标志：</p>
 <ul>
-<li><p><strong>OF</strong>（溢出标志）：<span
-class="math inline">\({OF}=C_n\oplus C_{n-1}\)</span>。</p>
-<p>同符号数相加后，结果不同号，则为 1。异号数相加必定为 0</p></li>
-<li><p><strong>SF</strong>（符号标志）：<span
-class="math inline">\({SF}=F_{n-1}\)</span></p>
-<p>结果的第一位作为符号位</p></li>
-<li><p><strong>ZF</strong>（零标志）：<span
-class="math inline">\({ZF}=1\oplus(F_0+F_1+\ldots+F_{n-1})\)</span></p>
-<p>结果为 0 时为 1</p></li>
-<li><p><strong>CF</strong>（进/错位标志）：<span
-class="math inline">\({CF}={Cout}\oplus{Cin}\)</span></p>
-<p>当 <span class="math inline">\(Cin=1\)</span>
-时，代表减运算的借位。<span class="math inline">\(Cin=0\)</span>
-时，代表加运算的进位</p></li>
+<li>
+<p><strong>OF</strong>（溢出标志）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>O</mi><mi>F</mi></mrow><mo>=</mo><msub><mi>C</mi><mi>n</mi></msub><mo>⊕</mo><msub><mi>C</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">{OF}=C_n\oplus C_{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">OF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<p>同符号数相加后，结果不同号，则为 1。异号数相加必定为 0</p>
+</li>
+<li>
+<p><strong>SF</strong>（符号标志）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>S</mi><mi>F</mi></mrow><mo>=</mo><msub><mi>F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">{SF}=F_{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">SF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>结果的第一位作为符号位</p>
+</li>
+<li>
+<p><strong>ZF</strong>（零标志）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>Z</mi><mi>F</mi></mrow><mo>=</mo><mn>1</mn><mo>⊕</mo><mo stretchy="false">(</mo><msub><mi>F</mi><mn>0</mn></msub><mo>+</mo><msub><mi>F</mi><mn>1</mn></msub><mo>+</mo><mo>…</mo><mo>+</mo><msub><mi>F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{ZF}=1\oplus(F_0+F_1+\ldots+F_{n-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">ZF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>结果为 0 时为 1</p>
+</li>
+<li>
+<p><strong>CF</strong>（进/错位标志）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>C</mi><mi>F</mi></mrow><mo>=</mo><mrow><mi>C</mi><mi>o</mi><mi>u</mi><mi>t</mi></mrow><mo>⊕</mo><mrow><mi>C</mi><mi>i</mi><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">{CF}={Cout}\oplus{Cin}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">CF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span></span></span></span></span></p>
+<p>当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>i</mi><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Cin=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 时，代表减运算的借位。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>i</mi><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Cin=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">in</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 时，代表加运算的进位</p>
+</li>
 </ul>
-<p>进行补码运算有 <span
-class="math inline">\([A+B]_补=[A]_补+[B]_补,\quad
-[A-B]_补=[A]_补+[-B]_补\)</span></p>
-<p>又因为 <span
-class="math inline">\([-B]_补=\overline{[B]_补}+1\)</span>，于是
-<strong>整数加/减法运算器</strong> 就如下所示</p>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520%25E6%2595%25B4%25E6%2595%25B0%25E5%258A%25A0%25E5%2587%258F%25E8%25BF%2590%25E7%25AE%2597%25E5%2599%25A8%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p>进行补码运算有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo>+</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>=</mo><mo stretchy="false">[</mo><mi>A</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>+</mo><mo stretchy="false">[</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">[</mo><mi>A</mi><mo>−</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>=</mo><mo stretchy="false">[</mo><mi>A</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>+</mo><mo stretchy="false">[</mo><mo>−</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub></mrow><annotation encoding="application/x-tex">[A+B]_补=[A]_补+[B]_补,\quad [A-B]_补=[A]_补+[-B]_补</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>又因为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub><mo>=</mo><mover accent="true"><mrow><mo stretchy="false">[</mo><mi>B</mi><msub><mo stretchy="false">]</mo><mtext>补</mtext></msub></mrow><mo stretchy="true">‾</mo></mover><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">[-B]_补=\overline{[B]_补}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.25em;"></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.87em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.25em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，于是 <strong>整数加/减法运算器</strong> 就如下所示</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520%25E6%2595%25B4%25E6%2595%25B0%25E5%258A%25A0%25E5%2587%258F%25E8%25BF%2590%25E7%25AE%2597%25E5%2599%25A8%25E5%259B%25BE.webp" alt=""></p>
 <p><em>（CA2_6 整数加减运算器图)</em></p>
 <p>当 Sub 为 1 时进行减法，Sub 为 1 时进行加法。此时的标志有：</p>
-<p>在整数加/减运算部件基础上，加上寄存器、移位器、控制逻辑等，就能实现
-<strong>ALU</strong>、<strong>乘/除运算</strong>、<strong>浮点运算</strong>
-电路</p></li>
-<li><p><strong>算术逻辑部件（ALU）</strong></p>
+<p>在整数加/减运算部件基础上，加上寄存器、移位器、控制逻辑等，就能实现 <strong>ALU</strong>、<strong>乘/除运算</strong>、<strong>浮点运算</strong> 电路</p>
+</li>
+<li>
+<p><strong>算术逻辑部件（ALU）</strong></p>
 <p>ALU（算术逻辑部件）的核心电路是带标志加法器。可以进行：</p>
 <ul>
 <li>无符号整数加、减</li>
 <li>带符号整数加、减</li>
 <li>与、或、非、异或 等逻辑运算</li>
 </ul>
-<p><img
-src="./../../../../../img/CA_InputImage/CA2_6%2520ALU%25E5%259B%25BE.webp" srcset="/img/loading.webp" lazyload /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/CA_InputImage/CA2_6%2520ALU%25E5%259B%25BE.webp" alt=""></p>
 <p><em>(CA2_6 ALU图)</em></p>
-<p>有一个操作控制端（ALUop）用以决定 ALU 执行的处理功能。ALUop
-的位数决定了操作的种类。</p>
-<p>ALUop 为 3 位时，ALU 最多执行 <span
-class="math inline">\(2^3=8\)</span> 种操作</p></li>
+<p>有一个操作控制端（ALUop）用以决定 ALU 执行的处理功能。ALUop 的位数决定了操作的种类。</p>
+<p>ALUop 为 3 位时，ALU 最多执行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">2^3=8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span></span></span></span> 种操作</p>
+</li>
 </ul>
 <h4 id="从表达式到逻辑电路">从表达式到逻辑电路</h4>
 <p>C 语言中的基本数据类型、基本运算类型如下</p>
@@ -835,7 +780,8 @@ class="math inline">\(2^3=8\)</span> 种操作</p></li>
 <li>无符号数（二进制位串）、带符号整数（补码）</li>
 <li>浮点数（IEEE 754 标准）</li>
 <li>位串、字符（串）</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>基本运算类型</strong>
 <ul>
 <li>算数（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;=</code>、<code>==</code>、<code>!=</code>）</li>
@@ -843,19 +789,14 @@ class="math inline">\(2^3=8\)</span> 种操作</p></li>
 <li>逻辑运算（<code>||</code>、<code>&amp;&amp;</code>、<code>!</code>）</li>
 <li>移位（<code>&lt;&lt;</code>、<code>&gt;&gt;</code>）</li>
 <li>扩展（无符号数高位加 0，带符号数按符号扩展）和截断（高位丢弃）</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>在进行运算时，先将表达式转换为指令序列。计算机执行指令，让操作数在运算电路中运算。</p>
 <h4 id="整数加运算">整数加运算</h4>
-<p>整数加运算时，条件标志（零标志ZF、溢出标志OF、进/错位标志CF、符号标志SF）在运算电路中产生，被记录到专门的寄存器中。这些寄存器称为
-<strong>程序/状态字寄存器</strong>（也叫
-标志寄存器）。每个标志对应寄存器中的一个标志位。</p>
-<p>在无符号加法中，判断溢出的条件是 <span
-class="math inline">\(CF=1\)</span>；在带符号加法中，判断溢出的条件是
-<span class="math inline">\(OF=1\)</span></p>
-<p>减法可以用于比较大小。无符号的场合，若 <span
-class="math inline">\(CF=0\)</span> 则被减数大于减数。带符号的场合，如果
-<span class="math inline">\(OF=SF\)</span> 则被减数大于减数</p>
+<p>整数加运算时，条件标志（零标志ZF、溢出标志OF、进/错位标志CF、符号标志SF）在运算电路中产生，被记录到专门的寄存器中。这些寄存器称为 <strong>程序/状态字寄存器</strong>（也叫 标志寄存器）。每个标志对应寄存器中的一个标志位。</p>
+<p>在无符号加法中，判断溢出的条件是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>F</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">CF=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>；在带符号加法中，判断溢出的条件是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>F</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">OF=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">OF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+<p>减法可以用于比较大小。无符号的场合，若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>F</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">CF=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 则被减数大于减数。带符号的场合，如果 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>F</mi><mo>=</mo><mi>S</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">OF=SF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">OF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">SF</span></span></span></span> 则被减数大于减数</p>
 <p>下面是一个例子，下面的例子中假定 int 是 8 位。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/* 以下假定 n = 8，即 int 为 8 位 */</span>
 
@@ -893,96 +834,79 @@ class="math inline">\(CF=0\)</span> 则被减数大于减数。带符号的场�
 <h4 id="整数乘运算">整数乘运算</h4>
 <p>两个 n 位的二进制无符号数相乘，结果通常是 2n 位。</p>
 <p>高级语言的两个 n 位数相乘，其结果通常只取乘积中的较低 n 位。</p>
-<p>计算机内部，对于浮点数定有 <span class="math inline">\(x^2\ge
-0\)</span>，但带符号整数却不一定。</p>
-<p>对于 <span class="math inline">\(X\times Y\)</span>，取低 n
-位作为结果，若高 n 位全部等于低 n 位的最高位则不溢出，否则溢出。</p>
+<p>计算机内部，对于浮点数定有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2\ge 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9501em;vertical-align:-0.136em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>，但带符号整数却不一定。</p>
+<p>对于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>×</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\times Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，取低 n 位作为结果，若高 n 位全部等于低 n 位的最高位则不溢出，否则溢出。</p>
 <ul>
 <li>硬件不判断溢出。仅保留 2n 位乘积，供软件使用</li>
 <li>如果程序不采用防止溢出的措施，且编译器也不生成处理溢出的代码，就可能出现问题</li>
 <li>指令：分为无符号乘指令，带符号乘指令</li>
-<li>乘法指令的操作数长度为 n，乘积长度为
-2n。乘法指令不生成溢出标志，而以 2n 位乘积判断是否溢出</li>
+<li>乘法指令的操作数长度为 n，乘积长度为 2n。乘法指令不生成溢出标志，而以 2n 位乘积判断是否溢出</li>
 <li>整数乘法运算比起位移和加法运算所用时间长得多。通常高级语言编译器处理变量与常数相乘时，会将其转化为移位、加法、减法的组合运算</li>
 <li>不论无符号数还是带符号数的乘法，即使乘积溢出时，利用移位和加减运算组合得到的结果都是一样的</li>
 </ul>
 <p><font size=6>☆</font></p>
 <h4 id="整数除运算">整数除运算</h4>
-<p>对于带符号整数来讲，n 位整数除以 n 位整数，除 <span
-class="math inline">\(-2^{n-1}/{-1}=2^{n-1}\)</span>
-会溢出外，都不会溢出</p>
+<p>对于带符号整数来讲，n 位整数除以 n 位整数，除 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mi mathvariant="normal">/</mi><mrow><mo>−</mo><mn>1</mn></mrow><mo>=</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">-2^{n-1}/{-1}=2^{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord">−</span><span class="mord">1</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> 会溢出外，都不会溢出</p>
 <p>整数除法的商也是整数，因此，不能整除时要进行舍入。舍入时会直接丢弃小数点后部分（截断）。</p>
 <p>整数除法不能除以 0，否则会发生异常。</p>
-<p>计算机中的整数除法运算比乘法运算用时更长，也不能通过流水线方式实现。为缩短除法运算时间，编译器处理除数为
-2 的幂次形式时，采用右移运算实现。</p>
-<p>能整除时，右移得到结果，移出为全
-0。不能整除时，对于无符号数低位截断，有符号数加偏移量（<span
-class="math inline">\(2^k-1\)</span>）右移后再低位截断。</p>
+<p>计算机中的整数除法运算比乘法运算用时更长，也不能通过流水线方式实现。为缩短除法运算时间，编译器处理除数为 2 的幂次形式时，采用右移运算实现。</p>
+<p>能整除时，右移得到结果，移出为全 0。不能整除时，对于无符号数低位截断，有符号数加偏移量（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9324em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>）右移后再低位截断。</p>
 <h4 id="浮点数加减运算">浮点数加减运算</h4>
-<p>若两个浮点数分别为 <span class="math inline">\(A=M_a\times
-2^{E_a}\quad B=M_b\times 2^{E_b}\quad(E_a\ge E_b)\)</span>，则有</p>
-<p><span class="math inline">\(\quad\begin{align}
-&amp;A+B=(M_a+M_b\times2^{R_a-E_b})\times 2^{E_a}\\ &amp;A*B=(M_a \times
-M_b)\times 2^{E_a + E_b}\\ &amp;A/B=(M_a/M_b)\times 2^{E_a - E_b}
-\end{align}\)</span></p>
+<p>若两个浮点数分别为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msub><mi>M</mi><mi>a</mi></msub><mo>×</mo><msup><mn>2</mn><msub><mi>E</mi><mi>a</mi></msub></msup><mspace width="1em"/><mi>B</mi><mo>=</mo><msub><mi>M</mi><mi>b</mi></msub><mo>×</mo><msup><mn>2</mn><msub><mi>E</mi><mi>b</mi></msub></msup><mspace width="1em"/><mo stretchy="false">(</mo><msub><mi>E</mi><mi>a</mi></msub><mo>≥</mo><msub><mi>E</mi><mi>b</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A=M_a\times 2^{E_a}\quad B=M_b\times 2^{E_b}\quad(E_a\ge E_b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，则有</p>
+<p><span class='katex-error' title='ParseError: KaTeX parse error: {align} can be used only in display mode.'>\quad\begin{align} 
+&amp;A+B=(M_a+M_b\times2^{R_a-E_b})\times 2^{E_a}\\
+&amp;A*B=(M_a \times M_b)\times 2^{E_a + E_b}\\
+&amp;A/B=(M_a/M_b)\times 2^{E_a - E_b}
+\end{align}</span></p>
 <p>上述运算可能出现几种情况</p>
 <ul>
-<li>阶码上溢：一个正指数超过最大允许值（<span
-class="math inline">\(+\infin\)</span>、<span
-class="math inline">\(-\infin\)</span>、溢出）</li>
+<li>阶码上溢：一个正指数超过最大允许值（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">+\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">-\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span>、溢出）</li>
 <li>阶码下溢：一个负指数超过最小允许值（+0、-0）</li>
 <li>尾数溢出：最高有效位有进位（右规）</li>
 <li>非规格化尾数：数值部分高位为零（左规）</li>
 <li>右规或对阶时，右端有效位丢失（尾数舍入）</li>
 </ul>
-<p>IEEE 建议实现时为每种异常情况提供一个自陷允许位。若某异常对应的位是
-1，则发生相应异常时，调用一个特定的异常处理程序。异常情况有</p>
+<p>IEEE 建议实现时为每种异常情况提供一个自陷允许位。若某异常对应的位是 1，则发生相应异常时，调用一个特定的异常处理程序。异常情况有</p>
 <ul>
 <li>无效运算（无意义运算）
 <ul>
 <li>运算时有一个数是非有限数</li>
-<li>结果无效（<span class="math inline">\(NaN\)</span>、<span
-class="math inline">\(0/0\)</span>、<span
-class="math inline">\(x/0\)</span>、<span
-class="math inline">\(\infin/x\)</span>）</li>
-</ul></li>
+<li>结果无效（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi>a</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">NaN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi mathvariant="normal">/</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">0/0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0/0</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi mathvariant="normal">/</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">x/0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord">/0</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∞</mi><mi mathvariant="normal">/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\infin/x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∞/</span><span class="mord mathnormal">x</span></span></span></span>）</li>
+</ul>
+</li>
 <li>除以零（无穷大）</li>
-<li>数太大（阶上溢）：对于 SP（单精度浮点数），指阶码 <span
-class="math inline">\(E&gt;1111\,\,1110\)</span>（指数大于 127）</li>
-<li>数太小（阶下溢）：对于 SP（单精度浮点数），指阶码 <span
-class="math inline">\(E&lt;0000\,\,0001\)</span>（指数小于 -126）</li>
+<li>数太大（阶上溢）：对于 SP（单精度浮点数），指阶码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>&gt;</mo><mn>1111</mn><mtext> </mtext><mtext> </mtext><mn>1110</mn></mrow><annotation encoding="application/x-tex">E&gt;1111\,\,1110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1111</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1110</span></span></span></span>（指数大于 127）</li>
+<li>数太小（阶下溢）：对于 SP（单精度浮点数），指阶码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>&lt;</mo><mn>0000</mn><mtext> </mtext><mtext> </mtext><mn>0001</mn></mrow><annotation encoding="application/x-tex">E&lt;0000\,\,0001</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0000</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0001</span></span></span></span>（指数小于 -126）</li>
 <li>结果不精确（舍入时引起），如 1/3、1/10 等不能精确表示成浮点数</li>
 </ul>
-<p>进行浮点数加减法的步骤。（<span class="math inline">\(x\pm
-y\)</span>，其中 <span class="math inline">\(M_x,\,E_x\)</span> 是 <span
-class="math inline">\(x\)</span> 的尾数和阶数）</p>
-<ol type="1">
-<li><p>求阶差：<span class="math inline">\(\Delta E= E_y -
-E_x\)</span>（若 <span
-class="math inline">\(E_y&gt;E_x\)</span>，则结果阶码位 <span
-class="math inline">\(E_y\)</span>）</p></li>
-<li><p>对阶：将 <span class="math inline">\(M_x\)</span> 右移 <span
-class="math inline">\(\Delta E\)</span> 位，尾数变为 <span
-class="math inline">\(M_x\times 2^{E_x-E_y}\)</span></p></li>
-<li><p>尾数加减：<span class="math inline">\(M_x\times 2^{E_x-E_y}\pm
-M_y\)</span></p></li>
-<li><p>规格化：</p>
-<p>当尾数高位为 0，则需要左规（尾数左移 1 次，阶码减 1，直到 MSB 为
-1。每次移动后判断阶码是否下溢）</p>
-<p>当尾数高位有进位，则需要右规（尾数右移 1 次，阶码加 1，直到 MSB 为
-1。每次右移判断阶码是否上溢）</p>
-<p>阶码溢出异常处理：上溢则结果溢出，下溢则结果为 0</p></li>
-<li><p>若尾数比规定位数长，则舍入。若运算结果尾数为 0，则阶码也置
-0。</p>
-<p>IEEE754 规定，中间结果必须在右侧加 2
-个有效位（一位保护位，一位舍入位）</p>
+<p>进行浮点数加减法的步骤。（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>±</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x\pm y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>x</mi></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>E</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">M_x,\,E_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 的尾数和阶数）</p>
+<ol>
+<li>
+<p>求阶差：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>E</mi><mo>=</mo><msub><mi>E</mi><mi>y</mi></msub><mo>−</mo><msub><mi>E</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\Delta E= E_y - E_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>y</mi></msub><mo>&gt;</mo><msub><mi>E</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">E_y&gt;E_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则结果阶码位 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">E_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>）</p>
+</li>
+<li>
+<p>对阶：将 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">M_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 右移 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">\Delta E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 位，尾数变为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>x</mi></msub><mo>×</mo><msup><mn>2</mn><mrow><msub><mi>E</mi><mi>x</mi></msub><mo>−</mo><msub><mi>E</mi><mi>y</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">M_x\times 2^{E_x-E_y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p>尾数加减：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>x</mi></msub><mo>×</mo><msup><mn>2</mn><mrow><msub><mi>E</mi><mi>x</mi></msub><mo>−</mo><msub><mi>E</mi><mi>y</mi></msub></mrow></msup><mo>±</mo><msub><mi>M</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">M_x\times 2^{E_x-E_y}\pm M_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9247em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0576em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p>规格化：</p>
+<p>当尾数高位为 0，则需要左规（尾数左移 1 次，阶码减 1，直到 MSB 为 1。每次移动后判断阶码是否下溢）</p>
+<p>当尾数高位有进位，则需要右规（尾数右移 1 次，阶码加 1，直到 MSB 为 1。每次右移判断阶码是否上溢）</p>
+<p>阶码溢出异常处理：上溢则结果溢出，下溢则结果为 0</p>
+</li>
+<li>
+<p>若尾数比规定位数长，则舍入。若运算结果尾数为 0，则阶码也置 0。</p>
+<p>IEEE754 规定，中间结果必须在右侧加 2 个有效位（一位保护位，一位舍入位）</p>
 <p>舍入方式有几种</p>
 <ul>
 <li>就近舍入：非中间值时正常舍入；恰为中间值则取最近偶数（其余部分奇数则入，为偶数则舍弃）</li>
-<li>朝 <span class="math inline">\(+\infin\)</span> 舍入</li>
-<li>朝 <span class="math inline">\(-\infin\)</span> 舍入</li>
+<li>朝 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">+\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span> 舍入</li>
+<li>朝 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">-\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span> 舍入</li>
 <li>朝 0 舍入（直接丢弃）</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 
               
@@ -1131,7 +1055,6 @@ M_y\)</span></p></li>
 
   
   
-
 
 
 
@@ -1372,44 +1295,6 @@ M_y\)</span></p></li>
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

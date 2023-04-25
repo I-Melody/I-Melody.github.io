@@ -16,18 +16,18 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="4 数组、切片和 map 4.1 数组 数组可以存放多个同一类型的数据。数组也是一种数据类型。 在 Go 中，数组也是值类型。默认情况下为值拷贝，新旧数组互不影响 数组在内存中是一段连续的空间。数组名指向该数组空间的首地址，也是数组第一个元素的地址。 数组各个元素的地址间隔依据数组类型决定。 Go 中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片 数组的">
+    <meta name="description" content="4 数组、切片和 map 4.1 数组 数组可以存放多个同一类型的数据。数组也是一种数据类型。 在 Go 中，数组也是值类型。默认情况下为值拷贝，新旧数组互不影响 数组在内存中是一段连续的空间。数组名指向该数组空间的首地址，也是数组第一个元素的地址。 数组各个元素的地址间隔依据数组类型决定。 Go 中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片 数组的定义： var a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;4 数组、切片和 map">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/11/Go/4%20%E6%95%B0%E7%BB%84%E3%80%81%E5%88%87%E7%89%87%E5%92%8C%20map/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="4 数组、切片和 map 4.1 数组 数组可以存放多个同一类型的数据。数组也是一种数据类型。 在 Go 中，数组也是值类型。默认情况下为值拷贝，新旧数组互不影响 数组在内存中是一段连续的空间。数组名指向该数组空间的首地址，也是数组第一个元素的地址。 数组各个元素的地址间隔依据数组类型决定。 Go 中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片 数组的">
+<meta property="og:description" content="4 数组、切片和 map 4.1 数组 数组可以存放多个同一类型的数据。数组也是一种数据类型。 在 Go 中，数组也是值类型。默认情况下为值拷贝，新旧数组互不影响 数组在内存中是一段连续的空间。数组名指向该数组空间的首地址，也是数组第一个元素的地址。 数组各个元素的地址间隔依据数组类型决定。 Go 中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片 数组的定义： var a">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-10T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-18T17:47:48.215Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -298,15 +298,13 @@
             
             <div class="markdown-body">
               
-              <h1 id="数组切片和-map">4 数组、切片和 map</h1>
-<h2 id="数组">4.1 数组</h2>
+              <h1>4 数组、切片和 map</h1>
+<h2 id="4-1-数组">4.1 数组</h2>
 <p>数组可以存放多个同一类型的数据。数组也是一种数据类型。</p>
-<p>在 Go
-中，数组也是值类型。<strong>默认情况下为值拷贝，新旧数组互不影响</strong></p>
+<p>在 Go 中，数组也是值类型。<strong>默认情况下为值拷贝，新旧数组互不影响</strong></p>
 <p>数组在内存中是一段连续的空间。数组名指向该数组空间的首地址，也是数组第一个元素的地址。</p>
 <p>数组各个元素的地址间隔依据数组类型决定。</p>
-<p>Go
-中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片</p>
+<p>Go 中不允许可变大小的数组，也不允许使用变量作为数组大小。如有需求，请使用切片</p>
 <p><strong>数组的定义：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> array [<span class="hljs-number">10</span>]<span class="hljs-type">int</span>										<span class="hljs-comment">// 数组元素为零值</span>
 <span class="hljs-keyword">var</span> array1 [<span class="hljs-number">3</span>]<span class="hljs-type">int</span> = [<span class="hljs-number">3</span>]<span class="hljs-type">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;						<span class="hljs-comment">// 声明时即初始化</span>
@@ -316,11 +314,11 @@
 <span class="hljs-keyword">var</span> array5 = [...]<span class="hljs-type">int</span>&#123;<span class="hljs-number">1</span>: <span class="hljs-number">1</span>, <span class="hljs-number">0</span>: <span class="hljs-number">2</span>, <span class="hljs-number">3</span>: <span class="hljs-number">3</span>, <span class="hljs-number">7</span>: <span class="hljs-number">4</span>&#125;			<span class="hljs-comment">// 此时类型为 int[8]</span></code></pre></div>
 <p><strong>访问数组元素：</strong></p>
 <div class="code-wrapper"><pre><code class="hljs go">数组名[下标]</code></pre></div>
-<h2 id="切片">4.2 切片</h2>
+<h2 id="4-2-切片">4.2 切片</h2>
 <p>slice 切片是 Go 中特有的数据类型。切片的使用类似数组</p>
 <p>切片是数组的引用，因此切片是引用类型。进行值传递时，遵守引用传递机制</p>
 <p>切片的长度可变，因此切片是可以动态变化的数组</p>
-<h4 id="切片的定义">切片的定义：</h4>
+<h4 id="切片的定义：">切片的定义：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> s []<span class="hljs-type">int</span>							<span class="hljs-comment">// 声明一个切片</span>
 s1 := array4[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]					<span class="hljs-comment">// 该切片引用数组 array4 [1,3) 范围的数据</span>
 s2 := <span class="hljs-built_in">make</span>([]<span class="hljs-type">int</span>, <span class="hljs-number">4</span>, <span class="hljs-number">10</span>)			<span class="hljs-comment">// 使用 make 函数获得 长度4 容量10 的切片</span>
@@ -328,45 +326,47 @@ s3 := <span class="hljs-built_in">make</span>([]<span class="hljs-type">int</spa
 s4 := array4[<span class="hljs-number">2</span>:]					<span class="hljs-comment">// 相当于 array4[2:len(array4)]</span>
 s5 := array4[:<span class="hljs-number">4</span>]					<span class="hljs-comment">// 相当于 array4[0:4]</span>
 s6 := array4[:]						<span class="hljs-comment">// 相当于 array4[0:len(array4)]</span></code></pre></div>
-<p>切片声明后还不能使用，因为其为空。必须让其引用数组，或使用 make
-方法产生切片空间后才能使用。</p>
+<p>切片声明后还不能使用，因为其为空。必须让其引用数组，或使用 make 方法产生切片空间后才能使用。</p>
 <p>切片可以继续切片</p>
-<h4 id="切片常用函数">切片常用函数：</h4>
+<h4 id="切片常用函数：">切片常用函数：</h4>
 <ul>
-<li><p><code>len(v) int</code>：返回切片的长度（包含的元素数量）</p></li>
-<li><p><code>cap(v) int</code>：返回切片的容量（能包含的最大元素数量）</p></li>
-<li><p><code>make(Type, IntegerType) Type</code>：分配并初始化一个指定长度的切片</p>
+<li>
+<p><code>len(v) int</code>：返回切片的长度（包含的元素数量）</p>
+</li>
+<li>
+<p><code>cap(v) int</code>：返回切片的容量（能包含的最大元素数量）</p>
+</li>
+<li>
+<p><code>make(Type, IntegerType) Type</code>：分配并初始化一个指定长度的切片</p>
 <p><code>make(Type, IntegerType, IntegerType) Type</code>：返回一个指定长度、容量的切片</p>
-<p>通过 make 方式创建的切片，其对应数组由 make
-函数底层维护，对外不可见。</p></li>
-<li><p><code>append(slice []Type, ele Type...) slice</code>：对切片进行动态追加。</p>
+<p>通过 make 方式创建的切片，其对应数组由 make 函数底层维护，对外不可见。</p>
+</li>
+<li>
+<p><code>append(slice []Type, ele Type...) slice</code>：对切片进行动态追加。</p>
 <p>容量不足的场合会扩容。返回追加完毕后的新的切片</p>
-<p>Go 底层会创建新的数组，并将原有元素以 <strong>值拷贝</strong>
-方式拷贝到新的数组。之后，返回一个引用新数组的新切片</p>
+<p>Go 底层会创建新的数组，并将原有元素以 <strong>值拷贝</strong> 方式拷贝到新的数组。之后，返回一个引用新数组的新切片</p>
 <p>也就是说，切片进行 append 后，新的切片会失去对原有数组的引用</p>
 <p>也能追加一个切片：</p>
-<div class="code-wrapper"><pre><code class="hljs go">s = <span class="hljs-built_in">append</span>(s, s...)				<span class="hljs-comment">// 表示将 s 的全部元素追加到 s 后</span></code></pre></div></li>
-<li><p><code>copy(s []Type, o []Type)</code>：将 o
-的数据拷贝（值拷贝）到 s。</p>
-<p>期间，s 的容量不变。s 容量更大时，多余位置保留原样。s
-容量更小时，其余元素不保存。</p></li>
+<div class="code-wrapper"><pre><code class="hljs go">s = <span class="hljs-built_in">append</span>(s, s...)				<span class="hljs-comment">// 表示将 s 的全部元素追加到 s 后</span></code></pre></div>
+</li>
+<li>
+<p><code>copy(s []Type, o []Type)</code>：将 o 的数据拷贝（值拷贝）到 s。</p>
+<p>期间，s 的容量不变。s 容量更大时，多余位置保留原样。s 容量更小时，其余元素不保存。</p>
+</li>
 </ul>
 <h4 id="string-与-slice-的关系">string 与 slice 的关系</h4>
 <p>因为 string 底层是 byte 数组，因此 string 也能进行切片处理</p>
-<p>字符串是不可变的。不能通过下标直接改变 string
-的字符。可以通过切片实现修改需求</p>
-<p>想要改变字符串时，先将字符串转换成 []byte 或
-[]rune。修改后重新转换成字符串：</p>
+<p>字符串是不可变的。不能通过下标直接改变 string 的字符。可以通过切片实现修改需求</p>
+<p>想要改变字符串时，先将字符串转换成 []byte 或 []rune。修改后重新转换成字符串：</p>
 <div class="code-wrapper"><pre><code class="hljs go">str := <span class="hljs-string">&quot;刻晴刻晴刻晴刻晴&quot;</span>
 s := []<span class="hljs-type">rune</span>(str)[<span class="hljs-number">6</span>:]
 s = <span class="hljs-built_in">append</span>(s, []<span class="hljs-type">rune</span>(<span class="hljs-string">&quot;晴~~&quot;</span>)...)
 s[<span class="hljs-number">3</span>] = <span class="hljs-string">&#x27;★&#x27;</span>
 str = <span class="hljs-type">string</span>(s)								<span class="hljs-comment">// 刻晴晴★~</span></code></pre></div>
-<h2 id="map">4.3 map</h2>
+<h2 id="4-3-map">4.3 map</h2>
 <p>map（映射）是 key-value 数据结构，又称字段或关联数组</p>
-<p>key 可以是 slice、map、function 外的类型（这些类型不能使用 ==
-判断）。通常使用 int 或 string 做 key</p>
-<h4 id="map-的定义">map 的定义：</h4>
+<p>key 可以是 slice、map、function 外的类型（这些类型不能使用 == 判断）。通常使用 int 或 string 做 key</p>
+<h4 id="map-的定义：">map 的定义：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> m <span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-type">int</span> 					<span class="hljs-comment">// key 是 string，value 是 int</span>
 m2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-type">int</span>, <span class="hljs-number">10</span>)
 m3 := <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">string</span>&#123;
@@ -375,7 +375,7 @@ m3 := <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<
     <span class="hljs-number">2</span>: <span class="hljs-string">&quot;甘雨&quot;</span>,
 &#125;</code></pre></div>
 <p>map 的声明时不分配内存，需要 make 后才能使用</p>
-<h4 id="map-的-crud">map 的 CRUD：</h4>
+<h4 id="map-的-CRUD：">map 的 CRUD：</h4>
 <div class="code-wrapper"><pre><code class="hljs go">m[<span class="hljs-string">&quot;刻晴&quot;</span>] = <span class="hljs-number">100</span>					<span class="hljs-comment">// 增加、修改 k-v</span>
 <span class="hljs-built_in">delete</span>(m, <span class="hljs-string">&quot;刻晴&quot;</span>)					<span class="hljs-comment">// 按照 key 删除 k-v</span>
 val, find := m[<span class="hljs-string">&quot;甘雨&quot;</span>]			<span class="hljs-comment">// val 为查找到的值，find 为是否找到</span>
@@ -383,8 +383,7 @@ val, find := m[<span class="hljs-string">&quot;甘雨&quot;</span>]			<span clas
     fmt.Println(k, <span class="hljs-string">&quot; - &quot;</span>, v)
 &#125;</code></pre></div>
 <p>map 的 key 不能重复，value 可以重复。其 key - value 是无序存放的</p>
-<p>要将 map 的 key 排序，只有先将所有 key 取出，再将取出的 key
-排序，最后按照顺序取出那些值</p>
+<p>要将 map 的 key 排序，只有先将所有 key 取出，再将取出的 key 排序，最后按照顺序取出那些值</p>
 <h4 id="使用细节">使用细节</h4>
 <ul>
 <li>map 是引用类型，遵守引用传递的机制</li>
@@ -423,9 +422,9 @@ val, find := m[<span class="hljs-string">&quot;甘雨&quot;</span>]			<span clas
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Go/">#Go</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Go/">#Go</a>
       
     </div>
   

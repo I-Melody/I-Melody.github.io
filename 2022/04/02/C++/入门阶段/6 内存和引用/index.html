@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="6 内存和引用 6.1 内存分区模型  不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.">
+    <meta name="description" content="6 内存和引用 6.1 内存分区模型  不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.1.1 程序运行前 程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;6 内存和引用">
 <meta property="og:url" content="https://i-melody.github.io/2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="6 内存和引用 6.1 内存分区模型  不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.">
+<meta property="og:description" content="6 内存和引用 6.1 内存分区模型  不同区域存放的数据被赋予不同的生命周期，提高编程灵活性  C++ 程序执行时，将内存大致分为 4 个区域：  代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量、静态变量以及常量 栈区：由编译器自动分配释放。存放函数的参数值、局部变量等 堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收  6.1.1 程序运行前 程序">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-01T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-19T13:53:16.354Z">
@@ -298,8 +298,8 @@
             
             <div class="markdown-body">
               
-              <h1 id="内存和引用">6 内存和引用</h1>
-<h2 id="内存分区模型">6.1 内存分区模型</h2>
+              <h1>6 内存和引用</h1>
+<h2 id="6-1-内存分区模型">6.1 内存分区模型</h2>
 <blockquote>
 <p>不同区域存放的数据被赋予不同的生命周期，提高编程灵活性</p>
 </blockquote>
@@ -310,26 +310,29 @@
 <li>栈区：由编译器自动分配释放。存放函数的参数值、局部变量等</li>
 <li>堆区：由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收</li>
 </ul>
-<h3 id="程序运行前">6.1.1 程序运行前</h3>
+<h3 id="6-1-1-程序运行前">6.1.1 程序运行前</h3>
 <p>程序编译后，生产了 exe 可执行程序。未执行该程序前分为 2 个区域：</p>
 <ul>
-<li><p>代码区：</p>
+<li>
+<p>代码区：</p>
 <p>存放 CPU 执行的机器指令</p>
-<p>代码区是 <strong>共享</strong>
-的。对于频繁被执行的程序，只要在代码区有一份代码即可</p>
-<p>代码区是 <strong>只读</strong> 的，以防止程序意外修改其指令</p></li>
-<li><p>全局区：</p>
+<p>代码区是 <strong>共享</strong> 的。对于频繁被执行的程序，只要在代码区有一份代码即可</p>
+<p>代码区是 <strong>只读</strong> 的，以防止程序意外修改其指令</p>
+</li>
+<li>
+<p>全局区：</p>
 <p><strong>全局变量</strong> 和 <strong>静态变量</strong> 存放在这里</p>
-<p>全局区还包含 <strong>常量区</strong>，<strong>字符串常量</strong>
-和其他 <strong>常量</strong> 也存放在这里</p>
+<p>全局区还包含 <strong>常量区</strong>，<strong>字符串常量</strong> 和其他 <strong>常量</strong> 也存放在这里</p>
 <p>（局部变量、局部常量 不放在这里）</p>
-<p>该区域的数据在程序结束后由系统操作释放</p></li>
+<p>该区域的数据在程序结束后由系统操作释放</p>
+</li>
 </ul>
-<h3 id="程序运行后">6.1.2 程序运行后</h3>
+<h3 id="6-1-2-程序运行后">6.1.2 程序运行后</h3>
 <ul>
-<li><p>栈区：</p>
+<li>
+<p>栈区：</p>
 <p>存放函数的参数值、局部变量等。</p>
-<p>由编译器自动分配释放。<strong>因此，应该避免把局部变量地址作为返回值。</strong>若如此做，编译器仅一次会保留指针指向的值。</p>
+<p>由编译器自动分配释放。**因此，应该避免把局部变量地址作为返回值。**若如此做，编译器仅一次会保留指针指向的值。</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>* <span class="hljs-title">met1</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;					<span class="hljs-comment">//一个局部变量</span>
     <span class="hljs-keyword">return</span> &amp;a;					<span class="hljs-comment">//把局部变量地址作为返回值</span>
@@ -340,8 +343,10 @@
     cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//仅一次，编译器保留的局部变量值</span>
     cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//此时会输出错误的值</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre></div></li>
-<li><p>堆区：</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>堆区：</p>
 <p>由程序员分配和释放。若程序员不释放，程序结束时会由操作系统回收</p>
 <p>在 C++ 中主要利用 new 在栈区开辟内存空间</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>* <span class="hljs-title">met2</span><span class="hljs-params">()</span> </span>&#123;
@@ -354,16 +359,21 @@
     cout &lt;&lt; *p &lt;&lt; endl;			
     cout &lt;&lt; *p &lt;&lt; endl;			<span class="hljs-comment">//正常输出</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
-<h3 id="new-操作符">6.1.3 new 操作符</h3>
+<h3 id="6-1-3-new-操作符">6.1.3 new 操作符</h3>
 <blockquote>
 <p>在 C++ 中主要利用 new 在栈区开辟内存空间</p>
 </blockquote>
 <p>堆区由程序员手动分配和释放空间</p>
 <ul>
-<li><p>分配空间：<code>new 数据类型</code></p></li>
-<li><p>释放空间：<code>delete 指针</code></p></li>
+<li>
+<p>分配空间：<code>new 数据类型</code></p>
+</li>
+<li>
+<p>释放空间：<code>delete 指针</code></p>
+</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span>* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">24</span>);			<span class="hljs-comment">//[1]</span>
 cout &lt;&lt; *p &lt;&lt; endl;				<span class="hljs-comment">//这里，输出 24</span>
@@ -376,20 +386,18 @@ cout &lt;&lt; *p &lt;&lt; endl;				<span class="hljs-comment">//这里，输出 
 &#125;
 <span class="hljs-keyword">delete</span>[] p2;					<span class="hljs-comment">//[4]</span></code></pre></div>
 <blockquote>
-<ol type="1">
+<ol>
 <li>new 返回一个该数据类型的指针</li>
 <li>delete 释放该数据内存</li>
-<li>为一个长度 10
-的数组开辟了空间。这个场合数组中的元素也都在堆区内</li>
-<li>delete[] 释放该数组内存。需要加 <code>[ ]</code>
-中括号以表示释放多个内存</li>
+<li>为一个长度 10 的数组开辟了空间。这个场合数组中的元素也都在堆区内</li>
+<li>delete[] 释放该数组内存。需要加 <code>[ ]</code> 中括号以表示释放多个内存</li>
 </ol>
 </blockquote>
-<h2 id="引用">6.2 引用</h2>
+<h2 id="6-2-引用">6.2 引用</h2>
 <blockquote>
 <p>引用：给变量起别名</p>
 </blockquote>
-<h3 id="引用的基本使用">6.2.1 引用的基本使用</h3>
+<h3 id="6-2-1-引用的基本使用">6.2.1 引用的基本使用</h3>
 <p>语法：<code>数据类型&amp; 别名 = 原名</code></p>
 <div class="code-wrapper"><pre><code class="hljs c++">string keQing = <span class="hljs-string">&quot;霓霆快雨&quot;</span>;
 string&amp; waifu = keQing;					<span class="hljs-comment">// 为 keQing 起了别名 waifu</span>
@@ -397,56 +405,67 @@ waifu = <span class="hljs-string">&quot;玉衡星&quot;</span>;
 cout &lt;&lt; keQing;							<span class="hljs-comment">// 玉衡星</span></code></pre></div>
 <p>上面的 waifu 就是引用，其类型是 string&amp;。</p>
 <p>引用声明后，系统不会为其分配空间，而是让其指向被引用的地址。</p>
-<h3 id="引用注意事项">6.2.2 引用注意事项</h3>
+<h3 id="6-2-2-引用注意事项">6.2.2 引用注意事项</h3>
 <ul>
-<li><p>引用必须初始化</p>
+<li>
+<p>引用必须初始化</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/* int&amp; temp; */</span>					<span class="hljs-comment">// 不可以，不可以哟</span></code></pre></div>
-<p>引用的对象也必须完成初始化。</p></li>
-<li><p>引用初始化后即不能改变</p>
+<p>引用的对象也必须完成初始化。</p>
+</li>
+<li>
+<p>引用初始化后即不能改变</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> S_H_Ark = <span class="hljs-number">101</span>;
 <span class="hljs-type">int</span> S_H_Dark = <span class="hljs-number">101</span>;
 <span class="hljs-type">int</span>&amp; card = S_H_Ark;
 <span class="hljs-comment">/* int&amp; card = S_H_Dark; */</span>			<span class="hljs-comment">// 快住手，这根本不是引用</span>
-card = S_H_Dark;					<span class="hljs-comment">// 这里是赋值操作</span></code></pre></div></li>
-<li><p>不能声明地址的引用</p>
+card = S_H_Dark;					<span class="hljs-comment">// 这里是赋值操作</span></code></pre></div>
+</li>
+<li>
+<p>不能声明地址的引用</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-type">int</span> n = <span class="hljs-number">10</span>;
 <span class="hljs-comment">/* int&amp; nn = &amp;n; */</span>					<span class="hljs-comment">// 这，这不对吧</span></code></pre></div>
-<p>不能声明宏常量的引用，也不能声明一个表达式的引用（除非表达式的结果是一个变量的引用）</p></li>
+<p>不能声明宏常量的引用，也不能声明一个表达式的引用（除非表达式的结果是一个变量的引用）</p>
+</li>
 </ul>
-<h3 id="引用做函数参数">6.2.3 引用做函数参数</h3>
+<h3 id="6-2-3-引用做函数参数">6.2.3 引用做函数参数</h3>
 <blockquote>
 <p>传入参数时，利用引用方法让形参修饰实参。这样，可以简化指针修改实参。</p>
 </blockquote>
 <ul>
-<li><p>值传递：</p>
+<li>
+<p>值传递：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met1</span> <span class="hljs-params">(<span class="hljs-type">int</span> n1)</span> </span>&#123;
     n1++;
 &#125;</code></pre></div>
 <blockquote>
 <p>值传递的场合，形参是另一个局部变量。其值改变<strong>不</strong>影响原本的变量。</p>
-</blockquote></li>
-<li><p>地址传递：</p>
+</blockquote>
+</li>
+<li>
+<p>地址传递：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met2</span> <span class="hljs-params">(<span class="hljs-type">int</span>* n2)</span> </span>&#123;
     (*n2)++;
 &#125;</code></pre></div>
 <blockquote>
 <p>地址传递的场合，形参即原变量的指针。其值改变<strong>会</strong>影响原本的变量。</p>
-</blockquote></li>
-<li><p>引用传递：</p>
+</blockquote>
+</li>
+<li>
+<p>引用传递：</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">met3</span> <span class="hljs-params">(<span class="hljs-type">int</span>&amp; n3)</span> </span>&#123;
     n3++;
 &#125;</code></pre></div>
 <blockquote>
 <p>引用传递的场合，形参即原变量的引用。其值改变<strong>会</strong>影响原本的变量。</p>
 <p>引用传递的效果和地址传递相同，但语法更简单</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-<h3 id="引用做返回值">6.2.4 引用做返回值</h3>
+<h3 id="6-2-4-引用做返回值">6.2.4 引用做返回值</h3>
 <ul>
-<li><p>不要返回局部变量的引用</p>
-<p><strong><em>—— 同 <a
-href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-2-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%90%8E">[6.1.2
-栈区]</a></em></strong></p>
+<li>
+<p>不要返回局部变量的引用</p>
+<p><em><strong>—— 同 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-2-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%90%8E">[6.1.2 栈区]</a></strong></em></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">met4</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-type">int</span> n = <span class="hljs-number">100</span>;
     <span class="hljs-keyword">return</span> n;						<span class="hljs-comment">//[1]</span>
@@ -458,13 +477,15 @@ href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20
     cout &lt;&lt; ref &lt;&lt; endl;			<span class="hljs-comment">//[3]</span>
 &#125;</code></pre></div>
 <blockquote>
-<ol type="1">
+<ol>
 <li>返回了局部变量（的引用）</li>
 <li>编译器保留一次</li>
 <li>此时变量已经被释放，结果会出错</li>
 </ol>
-</blockquote></li>
-<li><p><strong>如果函数的返回值是引用，则该函数调用可以作为左值</strong></p>
+</blockquote>
+</li>
+<li>
+<p><strong>如果函数的返回值是引用，则该函数调用可以作为左值</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span>&amp; <span class="hljs-title">met5</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span> </span>&#123;
     <span class="hljs-type">static</span> <span class="hljs-type">int</span> n = a;				<span class="hljs-comment">//[1]</span>
     <span class="hljs-keyword">return</span> n;					
@@ -477,31 +498,32 @@ href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20
     cout &lt;&lt; ref &lt;&lt; <span class="hljs-string">&#x27;,&#x27;</span> &lt;&lt; <span class="hljs-built_in">met5</span>(<span class="hljs-number">4</span>);	<span class="hljs-comment">//[4]</span>
 &#125;</code></pre></div>
 <blockquote>
-<ol type="1">
-<li><p>静态变量，储存在全局区。全局区数据在系统结束后被释放</p>
-<p><strong><em>—— 全局区 见 <a
-href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-1-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%89%8D">[6.1.1
-全局区]</a></em></strong></p></li>
-<li><p>此时输出 1</p></li>
-<li><p><code>met5()</code> 返回值是引用，所以可以作为左值</p>
-<p><code>met5()</code> 相当于是 <code>ref</code>
-变量的原名，<code>ref</code> 是别名</p>
+<ol>
+<li>
+<p>静态变量，储存在全局区。全局区数据在系统结束后被释放</p>
+<p><em><strong>—— 全局区 见 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-1-1-%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%89%8D">[6.1.1 全局区]</a></strong></em></p>
+</li>
+<li>
+<p>此时输出 1</p>
+</li>
+<li>
+<p><code>met5()</code> 返回值是引用，所以可以作为左值</p>
+<p><code>met5()</code> 相当于是 <code>ref</code> 变量的原名，<code>ref</code> 是别名</p>
 <p>所以此处，<code>ref</code> 变量变为 100</p>
-<p>经过测试，虽然 <code>met5()</code> 方法的参数改变了，但值是同一个，即
-100</p>
-<p><strong><em>—— 原因 见 …… 就往下看呗 <a
-href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-5-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8">[6.2.5
-引用的本质]</a></em></strong></p></li>
-<li><p>输出：100,100</p></li>
+<p>经过测试，虽然 <code>met5()</code> 方法的参数改变了，但值是同一个，即 100</p>
+<p><em><strong>—— 原因 见 …… 就往下看呗 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-5-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8">[6.2.5 引用的本质]</a></strong></em></p>
+</li>
+<li>
+<p>输出：100,100</p>
+</li>
 </ol>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-<h3 id="引用的本质">6.2.5 引用的本质</h3>
+<h3 id="6-2-5-引用的本质">6.2.5 引用的本质</h3>
 <blockquote>
 <p>引用的本质在 C++ 内部实现是一个指针常量</p>
-<p><strong><em>—— 指针常量 见 <a
-href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.2
-指针常量]</a></em></strong></p>
+<p><em><strong>—— 指针常量 见 <a href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93/#4-1-3-const-%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88">[4.1.3.2 指针常量]</a></strong></em></p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/*—&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; 去伪存真 —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt; —&gt;*/</span>
 
@@ -526,13 +548,11 @@ href="../../../../../../2022/03/31/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/4%20
     cout &lt;&lt; ref &lt;&lt; <span class="hljs-built_in">met5</span>(<span class="hljs-number">4</span>);			<span class="hljs-comment">//		cout &lt;&lt; *ref &lt;&lt; *met5;</span>
 &#125;									<span class="hljs-comment">//	&#125;</span></code></pre></div>
 <blockquote>
-<ol type="1">
-<li>此处解释了 <a
-href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-4-%E5%BC%95%E7%94%A8%E5%81%9A%E8%BF%94%E5%9B%9E%E5%80%BC">[6.2.4.3]</a>
-出现的参数变化的问题：指针常量的指向是不变的</li>
+<ol>
+<li>此处解释了 <a href="../../../../../../2022/04/02/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/6%20%E5%86%85%E5%AD%98%E5%92%8C%E5%BC%95%E7%94%A8/#6-2-4-%E5%BC%95%E7%94%A8%E5%81%9A%E8%BF%94%E5%9B%9E%E5%80%BC">[6.2.4.3]</a> 出现的参数变化的问题：指针常量的指向是不变的</li>
 </ol>
 </blockquote>
-<h3 id="常量引用">6.2.6 常量引用</h3>
+<h3 id="6-2-6-常量引用">6.2.6 常量引用</h3>
 <blockquote>
 <p>常量引用主要用来修饰形参，防止误操作</p>
 </blockquote>

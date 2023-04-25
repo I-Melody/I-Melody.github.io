@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="27 Java 8 新特性  Java 8 是 Java 语言开发的一个主要版本，其为 Java 带来了大量新特性  27.1 Lambda 表达式  Lambda 是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。 （Java 中）Lambda 的本质：作为函数式接口的实例  原">
+    <meta name="description" content="27 Java 8 新特性  Java 8 是 Java 语言开发的一个主要版本，其为 Java 带来了大量新特性  27.1 Lambda 表达式  Lambda 是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。 （Java 中）Lambda 的本质：作为函数式接口的实例  原代码： Compara">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Java&gt;27 Java 8 新特性">
 <meta property="og:url" content="https://i-melody.github.io/2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="27 Java 8 新特性  Java 8 是 Java 语言开发的一个主要版本，其为 Java 带来了大量新特性  27.1 Lambda 表达式  Lambda 是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。 （Java 中）Lambda 的本质：作为函数式接口的实例  原">
+<meta property="og:description" content="27 Java 8 新特性  Java 8 是 Java 语言开发的一个主要版本，其为 Java 带来了大量新特性  27.1 Lambda 表达式  Lambda 是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。 （Java 中）Lambda 的本质：作为函数式接口的实例  原代码： Compara">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-08T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-19T13:52:23.079Z">
@@ -298,15 +298,13 @@
             
             <div class="markdown-body">
               
-              <h1 id="java-8-新特性">27 Java 8 新特性</h1>
+              <h1>27 Java 8 新特性</h1>
 <blockquote>
 <p>Java 8 是 Java 语言开发的一个主要版本，其为 Java 带来了大量新特性</p>
 </blockquote>
-<h2 id="lambda-表达式">27.1 Lambda 表达式</h2>
+<h2 id="27-1-Lambda-表达式">27.1 Lambda 表达式</h2>
 <blockquote>
-<p>Lambda
-是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使
-Java 语言的表达能力得到了提升。</p>
+<p>Lambda 是一个匿名函数，可以理解为一段可传递的代码。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。</p>
 <p>（Java 中）Lambda 的本质：作为函数式接口的实例</p>
 </blockquote>
 <p>原代码：</p>
@@ -323,55 +321,59 @@ System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class
 <p>通过 方法引用 进一步改写代码：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;Integer&gt; comp = Integer::compare;
 System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class="hljs-number">10</span>));</code></pre></div>
-<h3 id="lambda-表达式的使用">27.1.1 Lambda 表达式的使用</h3>
+<h3 id="27-1-1-Lambda-表达式的使用">27.1.1 Lambda 表达式的使用</h3>
 <blockquote>
-<p>Lambda 表达式：在 Java 8
-语言中引入的一种新的语法元素和操作符。这个操作符 <code>-&gt;</code>
-被称为 Lambda 操作符（箭头操作符）。它将 Lambda 分为两部分：</p>
-<p>左侧：Lambda
-形参列表。可以进行类型推断的场合，能省略参数类型；参数唯一的场合，能省略小括号。</p>
-<p>右侧：Lambda 体。只有一条语句的场合，能省略大括号和
-<code>return</code>。</p>
+<p>Lambda 表达式：在 Java 8 语言中引入的一种新的语法元素和操作符。这个操作符 <code>-&gt;</code> 被称为 Lambda 操作符（箭头操作符）。它将 Lambda 分为两部分：</p>
+<p>左侧：Lambda 形参列表。可以进行类型推断的场合，能省略参数类型；参数唯一的场合，能省略小括号。</p>
+<p>右侧：Lambda 体。只有一条语句的场合，能省略大括号和 <code>return</code>。</p>
 </blockquote>
-<ol type="1">
-<li><p>无参，无返回值：</p>
+<ol>
+<li>
+<p>无参，无返回值：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Runnable</span> <span class="hljs-variable">r1</span> <span class="hljs-operator">=</span> () -&gt; &#123;
     System.out.println(<span class="hljs-string">&quot;格式一&quot;</span>);
-&#125;;</code></pre></div></li>
-<li><p>有参，无返回值：</p>
+&#125;;</code></pre></div>
+</li>
+<li>
+<p>有参，无返回值：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Consumer&lt;String&gt; con = (String str) -&gt; &#123;
     System.out.println(<span class="hljs-string">&quot;格式二&quot;</span>);
-&#125;;</code></pre></div></li>
-<li><p>有参，无返回值。但参数的数据类型可由编译器推断得出，即
-“类型推断”：</p>
+&#125;;</code></pre></div>
+</li>
+<li>
+<p>有参，无返回值。但参数的数据类型可由编译器推断得出，即 “类型推断”：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Consumer&lt;String&gt; con = (str) -&gt; &#123;
     System.out.println(<span class="hljs-string">&quot;格式三&quot;</span>);
-&#125;;</code></pre></div></li>
-<li><p>有参，无返回值。但只需要一个参数：</p>
+&#125;;</code></pre></div>
+</li>
+<li>
+<p>有参，无返回值。但只需要一个参数：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Consumer&lt;String&gt; con = str -&gt; &#123;
     System.out.println(<span class="hljs-string">&quot;格式四&quot;</span>);
-&#125;;</code></pre></div></li>
-<li><p>多个参数，多条执行语句，可以有返回值：</p>
+&#125;;</code></pre></div>
+</li>
+<li>
+<p>多个参数，多条执行语句，可以有返回值：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;Integer&gt; comp = (o1, o2) -&gt; &#123;
     System.out.println(<span class="hljs-string">&quot;格式五&quot;</span>);
     <span class="hljs-keyword">return</span> Integer.compare(o1, o2);
-&#125;;</code></pre></div></li>
-<li><p>只有一条执行语句时，<code>&#123; &#125;</code> 和 <code>return</code>
-都能省略：</p>
-<div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;Integer&gt; comp = (o1, o2) -&gt; Integer.compare(o1, o2);</code></pre></div></li>
+&#125;;</code></pre></div>
+</li>
+<li>
+<p>只有一条执行语句时，<code>&#123; &#125;</code> 和  <code>return</code> 都能省略：</p>
+<div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;Integer&gt; comp = (o1, o2) -&gt; Integer.compare(o1, o2);</code></pre></div>
+</li>
 </ol>
-<h2 id="函数式接口">27.2 函数式接口</h2>
+<h2 id="27-2-函数式接口">27.2 函数式接口</h2>
 <blockquote>
 <p>一个接口中只声明了一个抽象方法，这种接口就被称为函数式接口</p>
-<p>可以在一个接口上使用 <code>@FunctionalInterface</code>
-注解，以检查其是否是一个函数式接口。</p>
+<p>可以在一个接口上使用 <code>@FunctionalInterface</code> 注解，以检查其是否是一个函数式接口。</p>
 </blockquote>
-<h3 id="java-内置的函数式接口">27.2.1 Java 内置的函数式接口</h3>
+<h3 id="27-2-1-Java-内置的函数式接口">27.2.1 Java 内置的函数式接口</h3>
 <p><strong>常用的四个函数式接口：</strong></p>
 <table>
-
 <thead>
-<tr class="header">
+<tr>
 <th>函数式接口</th>
 <th>参数类型</th>
 <th>返回类型</th>
@@ -380,28 +382,28 @@ System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Consumer&lt;T&gt;</code>：消费型接口</td>
 <td>T</td>
 <td>void</td>
 <td>对类型 T 的对象进行操作</td>
 <td><code>void accept(T t)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Supplier&lt;T&gt;</code>：供给型接口</td>
 <td>无</td>
 <td>T</td>
 <td>返回类型 T 的对象</td>
 <td><code>T get()</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Function&lt;T, R&gt;</code>：函数型接口</td>
 <td>T</td>
 <td>R</td>
 <td>对类型 T 的对象进行操作，返回类型 R 的对象</td>
 <td><code>R apply(T t)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Predicate&lt;T&gt;</code>：断定型接口</td>
 <td>T</td>
 <td>boolean</td>
@@ -412,9 +414,8 @@ System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class
 </table>
 <p><strong>其他的函数式接口：</strong></p>
 <table>
-
 <thead>
-<tr class="header">
+<tr>
 <th>函数式接口</th>
 <th>参数类型</th>
 <th>返回类型</th>
@@ -423,51 +424,49 @@ System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>BiFunction&lt;T, U, R&gt;</code></td>
 <td>T、U</td>
 <td>R</td>
 <td>对类型 T、U 的对象进行操作，返回类型 R 的对象</td>
 <td><code>R apply(T t, U u)</code></td>
 </tr>
-<tr class="even">
-<td><code>UnaryOperator&lt;T&gt;</code>（<code>Function</code>
-子接口）</td>
+<tr>
+<td><code>UnaryOperator&lt;T&gt;</code>（<code>Function</code> 子接口）</td>
 <td>T</td>
 <td>T</td>
 <td>对类型 T 的对象进行一元运算，返回类型 T 的对象</td>
 <td><code>T apply(T t)</code></td>
 </tr>
-<tr class="odd">
-<td><code>BinaryOperator&lt;T&gt;</code>（<code>BiFunction</code>
-子接口）</td>
+<tr>
+<td><code>BinaryOperator&lt;T&gt;</code>（<code>BiFunction</code> 子接口）</td>
 <td>T、T</td>
 <td>T</td>
 <td>对类型 T 的对象进行二元运算，返回类型 T 的对象</td>
 <td><code>T apply(T t1, T t2)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>BiConsumer&lt;T, U&gt;</code></td>
 <td>T、U</td>
 <td>void</td>
 <td>对类型 T、U 的对象进行操作</td>
 <td><code>void accept(T t, U u)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>BiPredicate&lt;T, U&gt;</code></td>
 <td>T、U</td>
 <td>boolean</td>
 <td>确定类型 T、U 的对象是否满足约束</td>
 <td><code>boolean test(T t, U u)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ToIntFunction&lt;T&gt;</code>、<code>ToLongFunction&lt;T&gt;</code>、<code>ToDoubleFunction&lt;T&gt;</code></td>
 <td>T</td>
 <td>int / long / double</td>
 <td>计算 int / long /double 值的函数</td>
 <td><code>int apply(T t)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>IntFunction&lt;T&gt;</code>、<code>LongFunction&lt;T&gt;</code>、<code>DoubleFunction&lt;T&gt;</code></td>
 <td>int / long / double</td>
 <td>T</td>
@@ -476,66 +475,66 @@ System.out.println(comp.compare(<span class="hljs-number">11</span>, <span class
 </tr>
 </tbody>
 </table>
-<h2 id="方法引用和构造器引用">27.3 方法引用和构造器引用</h2>
+<h2 id="27-3-方法引用和构造器引用">27.3 方法引用和构造器引用</h2>
 <blockquote>
 <p>当要传递给 Lambda 体的操作已经有实现方法了，可以使用方法引用。</p>
-<p>方法引用可以看作是 Lambda 表达式深层次的表达。换句话说，方法引用就是
-Lambda 表达式，即函数式接口的一个实例。通过方法名指向一个方法。</p>
+<p>方法引用可以看作是 Lambda 表达式深层次的表达。换句话说，方法引用就是 Lambda 表达式，即函数式接口的一个实例。通过方法名指向一个方法。</p>
 </blockquote>
-<h3 id="方法引用">27.3.1 方法引用</h3>
+<h3 id="27-3-1-方法引用">27.3.1 方法引用</h3>
 <blockquote>
 <p>实现接口的抽象方法的参数列表和返回值，与引用方法的参数列表和返回值一致</p>
 </blockquote>
-<ol type="1">
-<li><p><code>对象::非静态方法</code></p>
+<ol>
+<li>
+<p><code>对象::非静态方法</code></p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">PrintStream</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> System.out;
-Consumer&lt;String&gt; con = out::println;</code></pre></div></li>
-<li><p><code>类::静态方法</code></p>
-<div class="code-wrapper"><pre><code class="hljs java">Supplier&lt;Long&gt; sl = System::currentTimeMillis;</code></pre></div></li>
-<li><p><code>类::非静态方法</code></p>
+Consumer&lt;String&gt; con = out::println;</code></pre></div>
+</li>
+<li>
+<p><code>类::静态方法</code></p>
+<div class="code-wrapper"><pre><code class="hljs java">Supplier&lt;Long&gt; sl = System::currentTimeMillis;</code></pre></div>
+</li>
+<li>
+<p><code>类::非静态方法</code></p>
 <div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;String&gt; bp = String::compareTo;</code></pre></div>
 <p>上面的代码等同于以下写法</p>
-<div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;String&gt; bp = (str1, str2) -&gt; str1.compareTo(str2);</code></pre></div></li>
+<div class="code-wrapper"><pre><code class="hljs java">Comparator&lt;String&gt; bp = (str1, str2) -&gt; str1.compareTo(str2);</code></pre></div>
+</li>
 </ol>
-<h3 id="构造器引用">27.3.2 构造器引用</h3>
+<h3 id="27-3-2-构造器引用">27.3.2 构造器引用</h3>
 <blockquote>
 <p>实现接口的抽象方法的参数列表与构造器参数列表一致，返回类型与构造器所在类一致</p>
 </blockquote>
-<ol type="1">
-<li><p>无参构造器 <div class="code-wrapper"><pre><code class="hljs java">Supplier&lt;String&gt; s = String::<span class="hljs-keyword">new</span>;</code></pre></div></p>
+<ol>
+<li>
+<p>无参构造器</p>
+<div class="code-wrapper"><pre><code class="hljs java">Supplier&lt;String&gt; s = String::<span class="hljs-keyword">new</span>;</code></pre></div>
 <p>等同于以下写法</p>
 <div class="code-wrapper"><pre><code class="hljs java">Supplier&lt;String&gt; s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Supplier</span>&lt;String&gt;()&#123;
     <span class="hljs-meta">@Override</span>
     <span class="hljs-keyword">public</span> String <span class="hljs-title function_">get</span><span class="hljs-params">()</span>&#123;
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>();
     &#125;
-&#125;</code></pre></div></li>
-<li><p>有参构造器</p>
-<div class="code-wrapper"><pre><code class="hljs java">Function&lt;String, String&gt; function = String::<span class="hljs-keyword">new</span>;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>有参构造器</p>
+<div class="code-wrapper"><pre><code class="hljs java">Function&lt;String, String&gt; function = String::<span class="hljs-keyword">new</span>;</code></pre></div>
+</li>
 </ol>
-<h3 id="数组引用">27.3.3 数组引用</h3>
+<h3 id="27-3-3-数组引用">27.3.3 数组引用</h3>
 <blockquote>
 <p>把数组看成一个类，则其用法与构造器引用相同</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs java">Function&lt;Integer, <span class="hljs-type">char</span>[]&gt; f = n -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">char</span>[n];
 Function&lt;Integer, <span class="hljs-type">char</span>[]&gt; f2 = <span class="hljs-type">char</span>[]::<span class="hljs-keyword">new</span>;</code></pre></div>
-<h2 id="stream-api">27.4 Stream API</h2>
+<h2 id="27-4-Stream-API">27.4 Stream API</h2>
 <blockquote>
-<p>Stream
-API（<code>java.util.stream</code>）把真正的函数式编程风格引入到 Java
-中。这是目前为止对 Java 类库最好的补充。因为 Stream API 可以极大提高
-Java 程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
-<p>Stream 是 Java8
-中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用
-Stream API 对集合进行数据操作，就类似于使用 SQL
-执行的数据库查询。也可以使用 Stream API 来并行执行操作。简言之，Stream
-API 提供了一种高效且易于使用的处理数据的方式。</p>
+<p>Stream API（<code>java.util.stream</code>）把真正的函数式编程风格引入到 Java 中。这是目前为止对 Java 类库最好的补充。因为 Stream API 可以极大提高 Java 程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
+<p>Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤和映射数据等操作。使用 Stream API 对集合进行数据操作，就类似于使用 SQL 执行的数据库查询。也可以使用 Stream API 来并行执行操作。简言之，Stream API 提供了一种高效且易于使用的处理数据的方式。</p>
 </blockquote>
-<p>Stream API 和 Collection 的区别：Collection
-是一种静态的内存数据结构，而 Stream
-是有关计算的。前者主要面向内存，储存于内存。后者主要面向 CPU，通过 CPU
-实现计算。</p>
-<h3 id="什么是-stream">27.4.1 什么是 Stream</h3>
+<p>Stream API 和 Collection 的区别：Collection 是一种静态的内存数据结构，而 Stream 是有关计算的。前者主要面向内存，储存于内存。后者主要面向 CPU，通过 CPU 实现计算。</p>
+<h3 id="27-4-1-什么是-Stream">27.4.1 什么是 Stream</h3>
 <blockquote>
 <p>Stream 是数据渠道，用于操作数据源所生成的元素序列</p>
 </blockquote>
@@ -544,22 +543,31 @@ API 提供了一种高效且易于使用的处理数据的方式。</p>
 <li>Stream 不会改变源对象。他们会返回一个持有结果的新 Stream</li>
 <li>Stream 操作是延迟执行的。这意味着他们会等到需要结果时才执行</li>
 </ul>
-<h3 id="stream-操作步骤">27.4.2 Stream 操作步骤</h3>
-<ol type="1">
-<li><p>创建 Stream：</p>
-<p>根据一个数据源，获取一个流</p></li>
-<li><p>中间操作：</p>
-<p>一个中间操作链，对数据源的数据进行处理</p></li>
-<li><p>终止操作：</p>
-<p>一旦执行终止操作，就执行中间操作链，并产生结果。之后，不会再被使用</p></li>
+<h3 id="27-4-2-Stream-操作步骤">27.4.2 Stream 操作步骤</h3>
+<ol>
+<li>
+<p>创建 Stream：</p>
+<p>根据一个数据源，获取一个流</p>
+</li>
+<li>
+<p>中间操作：</p>
+<p>一个中间操作链，对数据源的数据进行处理</p>
+</li>
+<li>
+<p>终止操作：</p>
+<p>一旦执行终止操作，就执行中间操作链，并产生结果。之后，不会再被使用</p>
+</li>
 </ol>
-<h4 id="创建-stream">27.4.2.1 创建 Stream</h4>
-<ol type="1">
-<li><p>通过集合：</p>
+<h4 id="27-4-2-1-创建-Stream">27.4.2.1 创建 Stream</h4>
+<ol>
+<li>
+<p>通过集合：</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">List</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();				<span class="hljs-comment">//某个集合</span>
 <span class="hljs-type">Stream</span> <span class="hljs-variable">stream</span> <span class="hljs-operator">=</span> list.stream();				<span class="hljs-comment">//返回一个顺序流</span>
-<span class="hljs-type">Stream</span> <span class="hljs-variable">stream</span> <span class="hljs-operator">=</span> list.parallelStream();		<span class="hljs-comment">//返回一个并行流</span></code></pre></div></li>
-<li><p>通过数组：</p>
+<span class="hljs-type">Stream</span> <span class="hljs-variable">stream</span> <span class="hljs-operator">=</span> list.parallelStream();		<span class="hljs-comment">//返回一个并行流</span></code></pre></div>
+</li>
+<li>
+<p>通过数组：</p>
 <p>Arrays 类提供了这个静态方法</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">int</span>[] ints = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];					<span class="hljs-comment">//基本数据类型只有这三种</span>
 <span class="hljs-type">IntStream</span> <span class="hljs-variable">IS</span> <span class="hljs-operator">=</span> Arrays.stream(ints);
@@ -574,228 +582,226 @@ Stream&lt;Object&gt; stream = Arrays.stream(objs);</code></pre></div>
 <li><code>public static IntStream stream(int[] arr)</code></li>
 <li><code>public static LongStream stream(long[] arr)</code></li>
 <li><code>public static DoubleStream stream(double[] arr)</code></li>
-</ul></li>
-<li><p>通过 <code>Stream.of()</code> 方法：</p>
+</ul>
+</li>
+<li>
+<p>通过 <code>Stream.of()</code> 方法：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Char[] chars = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Char</span>[<span class="hljs-number">4</span>];
-Stream&lt;Char&gt; CS = Stream.of(chars);</code></pre></div></li>
-<li><p>创建无限流：</p>
+Stream&lt;Char&gt; CS = Stream.of(chars);</code></pre></div>
+</li>
+<li>
+<p>创建无限流：</p>
 <div class="code-wrapper"><pre><code class="hljs java">Stream&lt;Integer&gt; iterate = Stream.iterate(<span class="hljs-number">1</span>, o -&gt; ++o);
 Stream&lt;Long&gt; generate = Stream.generate(System::currentTimeMillis);</code></pre></div>
 <ul>
-<li><p><code>public static&lt;T&gt; Stream&lt;T&gt; iterate(final T seed, final UnaryOperator&lt;T&gt; f)</code></p></li>
-<li><p><code>public static&lt;T&gt; Stream&lt;T&gt; generate(Supplier&lt;T&gt; s)</code></p>
-<p><strong><em>——看不懂？请看 <a
-href="../../../../../../2022/03/09/Java/入门阶段/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-2-1-Java-%E5%86%85%E7%BD%AE%E7%9A%84%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">[
-27.2.1 Java 内置的函数式接口 ]</a></em></strong></p></li>
-</ul></li>
+<li>
+<p><code>public static&lt;T&gt; Stream&lt;T&gt; iterate(final T seed, final UnaryOperator&lt;T&gt; f)</code></p>
+</li>
+<li>
+<p><code>public static&lt;T&gt; Stream&lt;T&gt; generate(Supplier&lt;T&gt; s)</code></p>
+<p><em><strong>——看不懂？请看 <a href="../../../../../../2022/03/09/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/27%20Java%208%20%E6%96%B0%E7%89%B9%E6%80%A7/#27-2-1-Java-%E5%86%85%E7%BD%AE%E7%9A%84%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">[ 27.2.1 Java 内置的函数式接口 ]</a></strong></em></p>
+</li>
+</ul>
+</li>
 </ol>
-<h4 id="中间操作">27.4.2.2 中间操作</h4>
+<h4 id="27-4-2-2-中间操作">27.4.2.2 中间操作</h4>
 <blockquote>
-<p>多个中间操作连接起一个流水线。该流水线在触发终止操作前不执行任何处理，终止操作触发时一次性进行全部处理。这个流程也称为
-“惰性求值”。</p>
+<p>多个中间操作连接起一个流水线。该流水线在触发终止操作前不执行任何处理，终止操作触发时一次性进行全部处理。这个流程也称为 “惰性求值”。</p>
 </blockquote>
-<ol type="1">
-<li><p>筛选与切片</p>
+<ol>
+<li>
+<p>筛选与切片</p>
 <table>
-
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>filter(Predicate P)</code></td>
 <td>接收一个 Lambda，从流中排除某些元素</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>distinct()</code></td>
-<td>筛选，通过流生成元素的 <code>hashCode()</code> 和
-<code>equals()</code> 进行去重</td>
+<td>筛选，通过流生成元素的 <code>hashCode()</code> 和 <code>equals()</code> 进行去重</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>linmit(long maxSize)</code></td>
 <td>截断流，使其元素不超过给定数量</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>skip(long n)</code></td>
 <td>跳过元素，返回一个扔掉了前 n 给元素的流。不足 n 的场合返回空流</td>
 </tr>
 </tbody>
-</table></li>
-<li><p>映射</p>
+</table>
+</li>
+<li>
+<p>映射</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>map(Function f)</code></td>
 <td>接收一个函数，将元素转化成其他形式提取信息</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>flatMap(Function f)</code></td>
 <td>接收一个函数，将每个元素都转换成另一个流</td>
 </tr>
 </tbody>
-</table></li>
-<li><p>排序</p>
+</table>
+</li>
+<li>
+<p>排序</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>sorted()</code></td>
 <td>产生一个新流，该流按自然顺序排序</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>sorted(Comparator c)</code></td>
 <td>产生一个新流，该流按比较器顺序排序</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ol>
-<h4 id="终止操作">27.4.2.3 终止操作</h4>
-<ol type="1">
-<li><p>匹配和查找</p>
+<h4 id="27-4-2-3-终止操作">27.4.2.3 终止操作</h4>
+<ol>
+<li>
+<p>匹配和查找</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>allMatch(Predicate p)</code></td>
 <td>检查是否匹配全部元素</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>anyMatch(Predicate p)</code></td>
 <td>检查是否有任意元素匹配</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>noneMatch(Predicate p)</code></td>
 <td>检查是否任意元素都不匹配</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>findFirst()</code></td>
 <td>返回第一个元素</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>findAny()</code></td>
 <td>返回当前流的任意元素</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>count()</code></td>
 <td>返回当前流的元素个数</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>max(Comparator c)</code></td>
 <td>返回流中的（比较器顺序下的）最大值</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>min(Comparator c)</code></td>
 <td>返回流中的（比较器顺序下的）最小值</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>forEach(Consumer c)</code></td>
 <td>内部迭代</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>关于内部迭代：使用 <code>Collection</code>
-接口需要用户去做迭代，称为外部迭代。Stream API
-使用内部迭代，不需要用户做迭代。</li>
-</ul></li>
-<li><p>归约</p>
+<li>关于内部迭代：使用 <code>Collection</code> 接口需要用户去做迭代，称为外部迭代。Stream API 使用内部迭代，不需要用户做迭代。</li>
+</ul>
+</li>
+<li>
+<p>归约</p>
 <table>
-
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>reduce(T identity, BinaryOperator b)</code></td>
 <td>可以把流中元素反复结合起来，得到一个值。返回 <code>T</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>reduce(BinaryOperator b)</code></td>
-<td>可以把流中元素反复结合起来，得到一个值。返回
-<code>Optinal&lt;T&gt;</code></td>
+<td>可以把流中元素反复结合起来，得到一个值。返回 <code>Optinal&lt;T&gt;</code></td>
 </tr>
 </tbody>
-</table></li>
-<li><p>收集</p>
+</table>
+</li>
+<li>
+<p>收集</p>
 <table>
-
 <thead>
-<tr class="header">
+<tr>
 <th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>collect(Collector c)</code></td>
-<td>将流转换为其他形式。接收一个 Collector 接口的实现，用于给 Stream
-中元素做汇总的方法</td>
+<td>将流转换为其他形式。接收一个 Collector 接口的实现，用于给 Stream 中元素做汇总的方法</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><p><code>Collector</code>
-接口中方法的实现决定了如何对流执行收集的操作</p>
-<p>另外，<code>Collectors</code>
-实用类提供了很多静态方法，可以方便地创建常见收集器实例。</p></li>
-</ul></li>
+<li>
+<p><code>Collector</code> 接口中方法的实现决定了如何对流执行收集的操作</p>
+<p>另外，<code>Collectors</code> 实用类提供了很多静态方法，可以方便地创建常见收集器实例。</p>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="optional-类">27.5 <code>Optional</code> 类</h2>
+<h2 id="27-5-Optional-类">27.5 <code>Optional</code> 类</h2>
 <blockquote>
-<p><code>Optional</code>
-类（<code>java.util.Optional</code>）是一个容器类，它可以保存类型 T
-的值，代表这个值存在。也可以仅仅保存 null，表示这个值不存在。原来用 null
-表示一个值不存在，现在 Optional
-可以更好地表达这个概念，而且可以避免空指针异常。</p>
+<p><code>Optional</code> 类（<code>java.util.Optional</code>）是一个容器类，它可以保存类型 T 的值，代表这个值存在。也可以仅仅保存 null，表示这个值不存在。原来用 null 表示一个值不存在，现在 Optional 可以更好地表达这个概念，而且可以避免空指针异常。</p>
 </blockquote>
-<h3 id="方法">27.5.1 方法</h3>
+<h3 id="27-5-1-方法">27.5.1 方法</h3>
 <p><strong>创建方法：</strong></p>
 <ul>
-<li><code>Optional.of(T t)</code>：创建一个 <code>Optional</code>
-实例。<strong><code>t</code> 必须非空</strong></li>
-<li><code>Optional.empty()</code>：创建一个空的 <code>Optional</code>
-实例</li>
-<li><code>Optional.ofNullable(T t)</code>：创建一个
-<code>Optional</code> 实例。<strong><code>t</code> 可以为
-null</strong></li>
+<li><code>Optional.of(T t)</code>：创建一个 <code>Optional</code> 实例。<strong><code>t</code> 必须非空</strong></li>
+<li><code>Optional.empty()</code>：创建一个空的 <code>Optional</code> 实例</li>
+<li><code>Optional.ofNullable(T t)</code>：创建一个 <code>Optional</code> 实例。<strong><code>t</code> 可以为 null</strong></li>
 </ul>
 <p><strong>判断 <code>Optional</code> 实例是否包含对象：</strong></p>
 <ul>
 <li><code>isPresent()</code>：判断是否包含对象，返回 boolean</li>
-<li><code>ifPresent(Consumer c)</code>：如果有值，则传入该值并执行
-<code>Consumer</code> 接口的实现代码。</li>
+<li><code>ifPresent(Consumer c)</code>：如果有值，则传入该值并执行 <code>Consumer</code> 接口的实现代码。</li>
 </ul>
 <p><strong>获取 <code>Optional</code> 实例的对象：</strong></p>
 <ul>
 <li><code>get()</code>：如果有值，返回该值。否则抛出异常。</li>
-<li><code>orElse(T other)</code>：如果有值，返回该值。否则返回指定的
-other 对象。</li>
-<li><code>orElseGet(Supplier other)</code>：如果有值，返回该值。否则返回
-<code>Supplier</code> 接口实现提供的对象。</li>
-<li><code>orElseThrow(Supplier excption)</code>：如果有值，返回该值。否则抛出
-<code>Supplier</code> 接口实现提供的异常。</li>
+<li><code>orElse(T other)</code>：如果有值，返回该值。否则返回指定的 other 对象。</li>
+<li><code>orElseGet(Supplier other)</code>：如果有值，返回该值。否则返回 <code>Supplier</code> 接口实现提供的对象。</li>
+<li><code>orElseThrow(Supplier excption)</code>：如果有值，返回该值。否则抛出 <code>Supplier</code> 接口实现提供的异常。</li>
 </ul>
 
               

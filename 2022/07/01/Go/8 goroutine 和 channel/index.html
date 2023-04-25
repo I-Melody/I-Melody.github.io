@@ -16,18 +16,18 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="8 goroutine 和 channel 8.1 单元测试  传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。 测试多个模块时都要写在 main 函数，也不便于管理。  Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。 testing 框架可以基于该框架编写针对相应函数的测试用">
+    <meta name="description" content="8 goroutine 和 channel 8.1 单元测试  传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。 测试多个模块时都要写在 main 函数，也不便于管理。  Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。 testing 框架可以基于该框架编写针对相应函数的测试用例，也能基于该框架写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;8 goroutine 和 channel">
 <meta property="og:url" content="https://i-melody.github.io/2022/07/01/Go/8%20goroutine%20%E5%92%8C%20channel/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="8 goroutine 和 channel 8.1 单元测试  传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。 测试多个模块时都要写在 main 函数，也不便于管理。  Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。 testing 框架可以基于该框架编写针对相应函数的测试用">
+<meta property="og:description" content="8 goroutine 和 channel 8.1 单元测试  传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。 测试多个模块时都要写在 main 函数，也不便于管理。  Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。 testing 框架可以基于该框架编写针对相应函数的测试用例，也能基于该框架写">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-07-04T00:34:32.506Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -298,17 +298,14 @@
             
             <div class="markdown-body">
               
-              <h1 id="goroutine-和-channel">8 goroutine 和 channel</h1>
-<h2 id="单元测试">8.1 单元测试</h2>
+              <h1>8 goroutine 和 channel</h1>
+<h2 id="8-1-单元测试">8.1 单元测试</h2>
 <blockquote>
-<p>传统的测试方法需要在 main 函数中调用，每次要修改 main
-函数，很不方便。</p>
+<p>传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。</p>
 <p>测试多个模块时都要写在 main 函数，也不便于管理。</p>
 </blockquote>
-<p>Golang 中带有一个轻量级的测试框架 testing 和自带的 go test
-命令来实现单元测试和性能测试。</p>
-<p>testing
-框架可以基于该框架编写针对相应函数的测试用例，也能基于该框架写相应压力测试用例。</p>
+<p>Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。</p>
+<p>testing 框架可以基于该框架编写针对相应函数的测试用例，也能基于该框架写相应压力测试用例。</p>
 <p>通过单元测试，能解决以下问题：</p>
 <ul>
 <li>确保每个函数可运行，且运行结果正确</li>
@@ -316,19 +313,20 @@
 <li>及时发现程序设计或实现的逻辑错误，使问题及早暴露。性能测试重点在于发现程序设计上的一些问题，让程序在高并发状态下也能稳定运行。</li>
 </ul>
 <h4 id="单元测试流程">单元测试流程</h4>
-<ol start="0" type="1">
-<li><p>原本的文件，其中包含待测试的函数</p>
+<ol start="0">
+<li>
+<p>原本的文件，其中包含待测试的函数</p>
 <blockquote>
 <p><em>example</em></p>
 </blockquote>
-<p><div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main
+ <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">act</span><span class="hljs-params">(n <span class="hljs-type">int</span>)</span></span> <span class="hljs-type">int</span> &#123;				<span class="hljs-comment">// 待测试函数</span>
 	<span class="hljs-keyword">return</span> -n
-&#125;</code></pre></div></p></li>
-<li><p>创建 xxx_test.go
-测试用例文件，放在与被测试函数相同的包中。该文件包含 TestXxx
-测试用例函数。</p>
+&#125;</code></pre></div>
+</li>
+<li>
+<p>创建 xxx_test.go 测试用例文件，放在与被测试函数相同的包中。该文件包含 TestXxx 测试用例函数。</p>
 <blockquote>
 <p><em>example_test.go</em></p>
 </blockquote>
@@ -352,23 +350,38 @@
 &#125;</code></pre></div>
 <p>在 test 包下，提供了自动化测试的函数支持：</p>
 <ul>
-<li><p><code>func (t *testing.T) Logf(format string, args ...interface&#123;&#125;)</code></p>
-<p>输出一段测试信息</p></li>
-<li><p><code>func (t *testing.T) FailNow()</code></p>
-<p>将当前测试标识为失败并停止执行该测试。之后，继续进行下一测试</p></li>
-<li><p><code>func (t *testing.T) Fatalf(format string, args ...interface&#123;&#125;)</code></p>
-<p>相当于调用 Logf 后调用 FailNow</p></li>
-</ul></li>
-<li><p>使用 <code>go test</code> 指令，将所有 xxx_test.go
-文件引入，并自动执行所有 TestXxx 的函数</p>
+<li>
+<p><code>func (t *testing.T) Logf(format string, args ...interface&#123;&#125;)</code></p>
+<p>输出一段测试信息</p>
+</li>
+<li>
+<p><code>func (t *testing.T) FailNow()</code></p>
+<p>将当前测试标识为失败并停止执行该测试。之后，继续进行下一测试</p>
+</li>
+<li>
+<p><code>func (t *testing.T) Fatalf(format string, args ...interface&#123;&#125;)</code></p>
+<p>相当于调用 Logf 后调用 FailNow</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用 <code>go test</code> 指令，将所有 xxx_test.go 文件引入，并自动执行所有 TestXxx 的函数</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; go test [-v] [xxx.go xxx_test.go] [-test.run TestXxx]</code></pre></div>
 <p><code>[ ]</code> 是可选项。其中：</p>
 <ul>
-<li><p><code>-v</code>：无论运行正确还是错误，都输出日志。否则，仅发生错误时输出日志</p></li>
-<li><p><code>xxx.go xxx_test.go</code>：要测试单个测试用例文件时，将那些文件名写在后面</p></li>
-<li><p><code>-test.run TestXxx</code>：只测试指定的测试用例函数</p></li>
-</ul></li>
-<li><p>最后，输出</p>
+<li>
+<p><code>-v</code>：无论运行正确还是错误，都输出日志。否则，仅发生错误时输出日志</p>
+</li>
+<li>
+<p><code>xxx.go xxx_test.go</code>：要测试单个测试用例文件时，将那些文件名写在后面</p>
+</li>
+<li>
+<p><code>-test.run TestXxx</code>：只测试指定的测试用例函数</p>
+</li>
+</ul>
+</li>
+<li>
+<p>最后，输出</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; go test -v
 === RUN   TestAct
 <span class="hljs-function">    test_test.go:12: <span class="hljs-title">correct</span></span>
@@ -378,33 +391,29 @@
 <span class="hljs-function">--- <span class="hljs-title">PASS</span>: <span class="hljs-title">TestHello</span> (0.00<span class="hljs-title">s</span>)</span>
 <span class="hljs-function"><span class="hljs-title">PASS</span></span>
 <span class="hljs-function"><span class="hljs-title">ok</span>      ******/<span class="hljs-title">main</span>       0.040<span class="hljs-title">s</span></span></code></pre></div>
-<p>其中 PASS 表示测试用例运行成功，FAIL 表示测试用例运行失败</p></li>
+<p>其中 PASS 表示测试用例运行成功，FAIL 表示测试用例运行失败</p>
+</li>
 </ol>
 <h4 id="注意事项">注意事项</h4>
 <ul>
-<li>测试用例的文件名必须是 <code>xxx_test.go</code> 格式。即文件名以
-<code>_test.go</code> 结尾</li>
-<li>测试用例函数名是 <code>TestXxx</code> 格式。其中 <code>Xxx</code>
-部分必须大写开头，一般是被测试的函数名</li>
+<li>测试用例的文件名必须是 <code>xxx_test.go</code> 格式。即文件名以 <code>_test.go</code> 结尾</li>
+<li>测试用例函数名是 <code>TestXxx</code> 格式。其中 <code>Xxx</code> 部分必须大写开头，一般是被测试的函数名</li>
 <li>一个测试用例文件中，可以有多个测试用例函数。那些测试用例函数会被全部调用</li>
-<li>测试用例函数不需要放在 main
-函数中，但也能被执行。这就是测试用例的方便之处</li>
+<li>测试用例函数不需要放在 main 函数中，但也能被执行。这就是测试用例的方便之处</li>
 </ul>
-<h2 id="goroutine-协程">8.2 goroutine 协程</h2>
+<h2 id="8-2-goroutine-协程">8.2 goroutine 协程</h2>
 <p><strong>进程</strong>：程序在操作系统中的一次执行过程。进程是系统分配资源和调度的基本单位</p>
 <p><strong>线程</strong>：进程的一个执行实例，是程序执行的最小单元，是比进程更小的能独立运行的基本单位</p>
 <p>一个进程可以创建或销毁多个线程。一个进程中的多个线程可以并发执行。</p>
 <p>一个程序至少有一个进程。一个进程至少有一个线程</p>
 <p><strong>并发</strong>：多线程程序在单核上运行。各个线程会被轮流执行，同一时间只有一个线程执行。</p>
-<p><strong>并行</strong>：多线程程序在多核上运行。各个线程在不同 CPU
-上同时执行</p>
-<h4 id="go-协程和主线程">Go 协程和主线程</h4>
+<p><strong>并行</strong>：多线程程序在多核上运行。各个线程在不同 CPU 上同时执行</p>
+<h4 id="Go-协程和主线程">Go 协程和主线程</h4>
 <blockquote>
 <p>Go 的主线程（进程/线程）上，可以起多个协程。协程是轻量级的线程</p>
 <p>主线程是一个物理线程，是重量级的，非常耗费 CPU 资源</p>
 <p>协程是从主线程开启的，是轻量级线程，是逻辑态，资源消耗小</p>
-<p>Go 的协程机制是重要的特点，可以轻松开启上万个协程。这也是 Go
-语言在并发上的优势</p>
+<p>Go 的协程机制是重要的特点，可以轻松开启上万个协程。这也是 Go 语言在并发上的优势</p>
 </blockquote>
 <p>Go 协程的特点：</p>
 <ul>
@@ -430,31 +439,35 @@ A[程序开始] --&gt; B(主线程开启协程) --继续执行--&gt; C(主线程
 B -.协程.-&gt; BB(协程调用函数)</code></pre>
 <p>主线程和协程同时进行。</p>
 <ul>
-<li><p>如果主线程结束了，那么即使协程还未执行完毕，则协程也会退出。但协程也能在主线程结束前自行结束（如完成任务）</p></li>
-<li><p>在协程中出现 panic 而未处理时，会导致整个程序崩溃。</p>
-<p>在 goroutine 中使用 recover，解决协程中出现的 panic</p></li>
+<li>
+<p>如果主线程结束了，那么即使协程还未执行完毕，则协程也会退出。但协程也能在主线程结束前自行结束（如完成任务）</p>
+</li>
+<li>
+<p>在协程中出现 panic 而未处理时，会导致整个程序崩溃。</p>
+<p>在 goroutine 中使用 recover，解决协程中出现的 panic</p>
+</li>
 </ul>
-<h4 id="mpg-模式">MPG 模式</h4>
+<h4 id="MPG-模式">MPG 模式</h4>
 <p>M：操作系统的主线程（物理线程）</p>
 <p>P：协程需要的上下文环境</p>
 <p>G：协程</p>
 <p><font color="#FF0000" size="6">☆</font></p>
-<h4 id="设置-go-运行的-cpu-数">设置 Go 运行的 CPU 数</h4>
+<h4 id="设置-Go-运行的-CPU-数">设置 Go 运行的 CPU 数</h4>
 <p>为了充分利用多 CPU 的优势，在 Go 语言中，可以设置运行 CPU 数量</p>
 <p>在 runtime 包中包含了 Go 运行环境的互操作。</p>
 <ul>
-<li><p><code>func NumCPU() int</code>：返回本地机器的逻辑 CPU
-的个数</p></li>
-<li><p><code>func GOMAXPROCS(n int) int</code>：设置可同时执行的最大 CPU
-数，返回之前的设置</p>
-<p>在 Go 1.8 后，默认让程序在多核上运行。Go 1.8
-前还需要手动设置</p></li>
+<li>
+<p><code>func NumCPU() int</code>：返回本地机器的逻辑 CPU 的个数</p>
+</li>
+<li>
+<p><code>func GOMAXPROCS(n int) int</code>：设置可同时执行的最大 CPU 数，返回之前的设置</p>
+<p>在 Go 1.8 后，默认让程序在多核上运行。Go 1.8 前还需要手动设置</p>
+</li>
 </ul>
-<h2 id="channel-管道">8.3 channel 管道</h2>
-<p>使用 goroutine 效率较高，但可能出现 并发/并行安全问题。在编译时增加
-<code>-race</code> 就能发现资源竞争问题。</p>
+<h2 id="8-3-channel-管道">8.3 channel 管道</h2>
+<p>使用 goroutine 效率较高，但可能出现 并发/并行安全问题。在编译时增加 <code>-race</code> 就能发现资源竞争问题。</p>
 <p>要解决不同 goroutine 间的通信问题，有两种方法：</p>
-<h3 id="线程加锁">8.3.1 线程加锁</h3>
+<h3 id="8-3-1-线程加锁">8.3.1 线程加锁</h3>
 <p>同一资源同一时间只能被一个协程访问，资源被占用时会被锁定。访问锁定资源的协程会阻塞并被移入等待队列。直到锁定解除时，再让等待队列中的协程依次出列，并访问该资源。</p>
 <p>实现方法：全局变量互斥锁</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> (
@@ -482,31 +495,31 @@ B -.协程.-&gt; BB(协程调用函数)</code></pre>
 	act(<span class="hljs-string">&quot;main&quot;</span>)				<span class="hljs-comment">// 因为互斥锁的存在，输出字符串时不会被插队</span>
 &#125;</code></pre></div>
 <p>sync 包提供了基本的同步单元，如互斥锁，适用于低水平程序线程</p>
-<p>sync.Mutex
-是一个互斥锁，可以创建为其他结构体的字段。其零值为未上锁状态</p>
+<p>sync.Mutex 是一个互斥锁，可以创建为其他结构体的字段。其零值为未上锁状态</p>
 <ul>
-<li><p><code>func (m *Mutex) Lock()</code>：将 Mutex 变为锁定状态</p>
-<p>已加锁时，会阻塞，直到 m 解锁</p></li>
-<li><p><code>func (m *Mutex) Unlock()</code>：将 Mutex 解锁</p>
-<p>未加锁时会产生错误</p></li>
+<li>
+<p><code>func (m *Mutex) Lock()</code>：将 Mutex 变为锁定状态</p>
+<p>已加锁时，会阻塞，直到 m 解锁</p>
+</li>
+<li>
+<p><code>func (m *Mutex) Unlock()</code>：将 Mutex 解锁</p>
+<p>未加锁时会产生错误</p>
+</li>
 </ul>
-<h3 id="channel-的使用">8.3.2 channel 的使用</h3>
+<h3 id="8-3-2-channel-的使用">8.3.2 channel 的使用</h3>
 <p>线程加锁的方法仍有缺陷。协程的完成任务的时间难以确定，也不利于多协程对全部变量的读写操作。</p>
 <p>所以就要使用 channel 啦</p>
-<p>channel 的本质是一个队列，数据先进先出。channel
-是数据安全的，不需要加锁。</p>
-<p>channel 是有类型的，一个 string 类型的 channel 只能存放 string
-类型数据</p>
-<h4 id="声明定义-channel">声明/定义 channel：</h4>
+<p>channel 的本质是一个队列，数据先进先出。channel 是数据安全的，不需要加锁。</p>
+<p>channel 是有类型的，一个 string 类型的 channel 只能存放 string 类型数据</p>
+<h4 id="声明-定义-channel：">声明/定义 channel：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> c1 <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>					<span class="hljs-comment">// 一个存放 int 的 channel</span>
 c2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">2</span>)</code></pre></div>
 <p>channel 是引用类型。channel 需初始化后（make 后）才能写入数据</p>
 <p>channel 中只能存放那个指定的数据类型</p>
 <p>不过，也可以试试这个</p>
 <div class="code-wrapper"><pre><code class="hljs go">cc := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-number">0</span>)</code></pre></div>
-<p>因为任何类型都实现了空接口，所以这个 channel
-存放的是任意类型的数据。但使用数据时可能需要类型断言。</p>
-<h4 id="加入数据">加入数据：</h4>
+<p>因为任何类型都实现了空接口，所以这个 channel 存放的是任意类型的数据。但使用数据时可能需要类型断言。</p>
+<h4 id="加入数据：">加入数据：</h4>
 <div class="code-wrapper"><pre><code class="hljs go">c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">3</span>)				<span class="hljs-comment">// 初始化</span>
 c &lt;- <span class="hljs-number">1</span>								<span class="hljs-comment">// 写入一个数据</span>
 c &lt;- <span class="hljs-number">5</span> &lt;&lt; <span class="hljs-number">2</span>							<span class="hljs-comment">// 写入一个数据（表达式 5 &lt;&lt; 2）</span>
@@ -514,25 +527,22 @@ fmt.Println(<span class="hljs-built_in">len</span>(c), <span class="hljs-built_i
 c &lt;- <span class="hljs-number">-1</span></code></pre></div>
 <p>边写边读的场合，写入数据而超过最大容量时，那个写入会阻塞，直到有数据取出。</p>
 <p>没有协程读取数据的场合，给管道写入数据超过那个最大容量时，就会报错</p>
-<h4 id="取出数据">取出数据：</h4>
+<h4 id="取出数据：">取出数据：</h4>
 <div class="code-wrapper"><pre><code class="hljs go">n := &lt;-c							<span class="hljs-comment">// 取出一个数据</span>
 fmt.Println(n, &lt;-c)					<span class="hljs-comment">// 1 20</span>
 &lt;-c									<span class="hljs-comment">// 仅取出数据而不接收</span>
 fmt.Println(<span class="hljs-built_in">len</span>(c), <span class="hljs-built_in">cap</span>(c))			<span class="hljs-comment">// 0 3</span></code></pre></div>
 <p>在没有协程的情况下，向空管道索取数据会报错（deadlock）</p>
-<h4 id="关闭-channel">关闭 channel：</h4>
-<p>使用内置函数 close 以关闭 channel。关闭后，该 channel
-不再接收数据，但仍能取出数据</p>
+<h4 id="关闭-channel：">关闭 channel：</h4>
+<p>使用内置函数 close 以关闭 channel。关闭后，该 channel 不再接收数据，但仍能取出数据</p>
 <div class="code-wrapper"><pre><code class="hljs go">c3 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">3</span>)
 c3 &lt;- <span class="hljs-number">1</span>
 <span class="hljs-built_in">close</span>(c3)						<span class="hljs-comment">// 关闭了 channel</span>
 &lt;-c3							<span class="hljs-comment">// 仍能取出数据</span>
 c3 &lt;- <span class="hljs-number">1</span>					<span class="hljs-comment">// 此处会报错，因为管道已经关闭 			☆</span></code></pre></div>
-<h4 id="遍历-channel">遍历 channel：</h4>
+<h4 id="遍历-channel：">遍历 channel：</h4>
 <p>channel 支持 for-range 遍历。那个遍历时没有下标。</p>
-<p>在 channel 未关闭前进行遍历，遍历到最后会阻塞，直到 channel
-关闭时才完成遍历。没有协程的场合，遍历一个未关闭的 channel
-时会报错（deadlock）</p>
+<p>在 channel 未关闭前进行遍历，遍历到最后会阻塞，直到 channel 关闭时才完成遍历。没有协程的场合，遍历一个未关闭的 channel 时会报错（deadlock）</p>
 <div class="code-wrapper"><pre><code class="hljs go">c4 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">10</span>)
 <span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)</span></span> &#123;
     <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">cap</span>(c); i++ &#123;
@@ -543,17 +553,18 @@ c3 &lt;- <span class="hljs-number">1</span>					<span class="hljs-comment">// �
 <span class="hljs-keyword">for</span> v := <span class="hljs-keyword">range</span> c4 &#123;
     fmt.Print(v, <span class="hljs-string">&quot; &quot;</span>)
 &#125;</code></pre></div>
-<h4 id="注意事项-1">注意事项</h4>
+<h4 id="注意事项-2">注意事项</h4>
 <ul>
-<li><p>默认情况下，channel 是双向管道。但也能声明为 只读/只写
-的形式。</p>
+<li>
+<p>默认情况下，channel 是双向管道。但也能声明为 只读/只写 的形式。</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> ca <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span> 			<span class="hljs-comment">// 可读可写</span>
 <span class="hljs-keyword">var</span> cw <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-type">int</span>			<span class="hljs-comment">// 只写</span>
 <span class="hljs-keyword">var</span> cr &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>			<span class="hljs-comment">// 只读</span></code></pre></div>
 <p>只读/只写 的管道仍是 chan 类型，只读/只写 只表示一种状态。</p>
-<p>在函数的参数声明中，将 chan 声明为
-只读/只写，既能避免误操作，也能提升效率。</p></li>
-<li><p>使用 select 可以解决从管道取数据的阻塞问题</p>
+<p>在函数的参数声明中，将 chan 声明为 只读/只写，既能避免误操作，也能提升效率。</p>
+</li>
+<li>
+<p>使用 select 可以解决从管道取数据的阻塞问题</p>
 <div class="code-wrapper"><pre><code class="hljs go">cv := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)
 cm := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)
 ...
@@ -567,7 +578,8 @@ run := <span class="hljs-literal">true</span>
     <span class="hljs-keyword">default</span>:
         run = <span class="hljs-literal">false</span>
     &#125;
-&#125;</code></pre></div></li>
+&#125;</code></pre></div>
+</li>
 </ul>
 
               
@@ -601,9 +613,9 @@ run := <span class="hljs-literal">true</span>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Go/">#Go</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Go/">#Go</a>
       
     </div>
   

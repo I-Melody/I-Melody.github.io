@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CA4 存储、中断、总线、I&#x2F;O 系统 CA4.1 存储系统 对存储系统的基本要求是：大容量、高速度、低价格。但高速度与大容量间存在矛盾。 能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为 并行主存系统 CA4.2 中断系统 计算机中断分为：内部中断（由 CPU 异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。 中断发生时，CPU">
+    <meta name="description" content="CA4 存储、中断、总线、I&#x2F;O 系统 CA4.1 存储系统 对存储系统的基本要求是：大容量、高速度、低价格。但高速度与大容量间存在矛盾。 能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为 并行主存系统 CA4.2 中断系统 计算机中断分为：内部中断（由 CPU 异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。 中断发生时，CPU 暂停当前工作，转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;计算机系统结构&gt;CA4 存储、中断、总线、I&#x2F;O 系统">
 <meta property="og:url" content="https://i-melody.github.io/2023/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/4%20%E5%AD%98%E5%82%A8%E3%80%81%E4%B8%AD%E6%96%AD%E3%80%81%E6%80%BB%E7%BA%BF%E3%80%81IO%20%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="CA4 存储、中断、总线、I&#x2F;O 系统 CA4.1 存储系统 对存储系统的基本要求是：大容量、高速度、低价格。但高速度与大容量间存在矛盾。 能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为 并行主存系统 CA4.2 中断系统 计算机中断分为：内部中断（由 CPU 异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。 中断发生时，CPU">
+<meta property="og:description" content="CA4 存储、中断、总线、I&#x2F;O 系统 CA4.1 存储系统 对存储系统的基本要求是：大容量、高速度、低价格。但高速度与大容量间存在矛盾。 能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为 并行主存系统 CA4.2 中断系统 计算机中断分为：内部中断（由 CPU 异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。 中断发生时，CPU 暂停当前工作，转">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-04-17T04:04:46.377Z">
@@ -46,6 +46,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -226,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          4.4k 字
         
       </span>
     
@@ -237,7 +239,7 @@
         
         
         
-          11 分钟
+          13 分钟
         
       </span>
     
@@ -299,54 +301,63 @@
             
             <div class="markdown-body">
               
-              <h1 id="ca4-存储中断总线io-系统">CA4 存储、中断、总线、I/O 系统</h1>
-<h2 id="ca4.1-存储系统">CA4.1 存储系统</h2>
+              <h1>CA4 存储、中断、总线、I/O 系统</h1>
+<h2 id="CA4-1-存储系统">CA4.1 存储系统</h2>
 <p>对存储系统的基本要求是：大容量、高速度、低价格。但高速度与大容量间存在矛盾。</p>
-<p>能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为
-<strong>并行主存系统</strong></p>
-<h2 id="ca4.2-中断系统">CA4.2 中断系统</h2>
-<p>计算机中断分为：内部中断（由 CPU
-异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。</p>
-<p>中断发生时，CPU
-暂停当前工作，转而执行中断处理程序。处理完毕后，恢复环境并继续先前工作。</p>
-<p>中断处理程序无参数，无返回值。CPU
-响应中断时要跳转到一个特定地址开始执行中断服务程序，这个地址由
-<strong>中断向量</strong> 维护。</p>
+<p>能并行读出多个 CPU 字的单体多字、多体单字、多体多字的交叉访问系统称为 <strong>并行主存系统</strong></p>
+<h2 id="CA4-2-中断系统">CA4.2 中断系统</h2>
+<p>计算机中断分为：内部中断（由 CPU 异常引起）、外部中断（由中断信号引起）、软件中断（由陷入指令引起）三种。</p>
+<p>中断发生时，CPU 暂停当前工作，转而执行中断处理程序。处理完毕后，恢复环境并继续先前工作。</p>
+<p>中断处理程序无参数，无返回值。CPU 响应中断时要跳转到一个特定地址开始执行中断服务程序，这个地址由 <strong>中断向量</strong> 维护。</p>
 <p>中断中的一些基本概念：</p>
 <ul>
-<li><p><strong>中断源</strong>：引起中断的各种事件。主要分为 6
-类。等级由高到低为：</p>
-<ol type="1">
-<li><p><strong>机器校验中断</strong>：由于机器设备故障引起的中断。如电源故障、主存出错、处理器硬件故障等</p>
-<p>IBM 370 将机器校验中断分为两类：紧急的、可抑制的</p></li>
-<li><p><strong>程序性中断（异常）</strong>：程序性错误、特殊运算结果、出现监控事件。</p>
-<p><strong>访管中断</strong>：用户主动调用一些管理程序发送中断请求</p></li>
-<li><p><strong>外中断</strong>：计时器、时钟等来自控制台的中断开关</p></li>
-<li><p><strong>I/O 设备中断</strong>：多数 I/O 设备通过中断与 CPU
-进行通信</p></li>
-<li><p><strong>重新启动中断</strong></p></li>
-</ol></li>
-<li><p>中断请求：中断源向系统发出请求中断的申请</p></li>
-<li><p>中断响应：允许其中断 CPU
-现行程序的运行，转而执行中断处理程序</p></li>
-<li><p>中断使能：允许 CPU 响应中断请求，进行中断处理</p>
-<p>中断屏蔽：阻止 CPU 响应中断请求，禁止中断处理</p></li>
-<li><p>中断优先级：指示中断的紧迫程度</p></li>
-<li><p>中断嵌套：在处理低优先级中断时，响应其他高优先级的中断请求</p></li>
+<li>
+<p><strong>中断源</strong>：引起中断的各种事件。主要分为 6 类。等级由高到低为：</p>
+<ol>
+<li>
+<p><strong>机器校验中断</strong>：由于机器设备故障引起的中断。如电源故障、主存出错、处理器硬件故障等</p>
+<p>IBM 370 将机器校验中断分为两类：紧急的、可抑制的</p>
+</li>
+<li>
+<p><strong>程序性中断（异常）</strong>：程序性错误、特殊运算结果、出现监控事件。</p>
+<p><strong>访管中断</strong>：用户主动调用一些管理程序发送中断请求</p>
+</li>
+<li>
+<p><strong>外中断</strong>：计时器、时钟等来自控制台的中断开关</p>
+</li>
+<li>
+<p><strong>I/O 设备中断</strong>：多数 I/O 设备通过中断与 CPU 进行通信</p>
+</li>
+<li>
+<p><strong>重新启动中断</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p>中断请求：中断源向系统发出请求中断的申请</p>
+</li>
+<li>
+<p>中断响应：允许其中断 CPU 现行程序的运行，转而执行中断处理程序</p>
+</li>
+<li>
+<p>中断使能：允许 CPU 响应中断请求，进行中断处理</p>
+<p>中断屏蔽：阻止 CPU 响应中断请求，禁止中断处理</p>
+</li>
+<li>
+<p>中断优先级：指示中断的紧迫程度</p>
+</li>
+<li>
+<p>中断嵌套：在处理低优先级中断时，响应其他高优先级的中断请求</p>
+</li>
 </ul>
-<p>中断系统中，关于
-中断请求的保存、中断优先级的确定、中断断点及现场的保存、中断请求分析处理、中断返回等，都是由
-<strong>中断处理硬件</strong> 与 <strong>中断处理程序</strong>
-共同完成的。</p>
-<h2 id="ca4.3-总线系统">CA4.3 总线系统</h2>
-<p><strong>总线（Bus）</strong>是一组信号线的集合，其定义了各引线的
-信号、电气、机械特性，使得计算机内部各部件与外部各系统间建立信号联系，进行数据传递和通信。</p>
+<p>中断系统中，关于 中断请求的保存、中断优先级的确定、中断断点及现场的保存、中断请求分析处理、中断返回等，都是由 <strong>中断处理硬件</strong> 与 <strong>中断处理程序</strong> 共同完成的。</p>
+<h2 id="CA4-3-总线系统">CA4.3 总线系统</h2>
+<p>**总线（Bus）**是一组信号线的集合，其定义了各引线的 信号、电气、机械特性，使得计算机内部各部件与外部各系统间建立信号联系，进行数据传递和通信。</p>
 <p>同一时刻只能有一个信息源发送信息，多模块传输信息使用分时操作。</p>
 <p>按照计算机传输的信息种类将总线分为四类：</p>
 <ul>
 <li>数据总线：双向，8 根（字节）、16 根（字）、32 根（双字）</li>
-<li>地址总线：单向，由 CPU 发出。指向信息源或目标地址。20 根（8086）、24
-根（80286）、32 根（80386 以后）</li>
+<li>地址总线：单向，由 CPU 发出。指向信息源或目标地址。20 根（8086）、24 根（80286）、32 根（80386 以后）</li>
 <li>控制总线：单/双向，控制读写、数据传输、联络、总线判决、中断控制等功能</li>
 <li>电源总线：供电</li>
 </ul>
@@ -359,41 +370,35 @@
 </ul>
 <p>总线控制有两种方式：</p>
 <ul>
-<li><p>分布式控制：总线控制逻辑分散在各部件中</p></li>
-<li><p>集中式控制：总线控制逻辑基本上集中在一起。有三种方式</p>
+<li>
+<p>分布式控制：总线控制逻辑分散在各部件中</p>
+</li>
+<li>
+<p>集中式控制：总线控制逻辑基本上集中在一起。有三种方式</p>
 <ul>
-<li><p><strong>串行链接</strong>：设三条控制线（总线请求线、总线忙线、总线可用线）。</p>
-<p>仅当 "总线忙" 信号未建立时，总线控制器通过 "总线可用" 线相应
-"总线请求" 线的请求。该 "总线可用" 信号依次穿过各部件，直到第一个发出过
-"总线请求" 的部件。该请求部件建立 "总线忙" 信号，去除其 "总线请求"
-信号，之后进行数据传输。传输完毕后，去除 "总线忙" 和 "总线可用"。</p>
+<li>
+<p><strong>串行链接</strong>：设三条控制线（总线请求线、总线忙线、总线可用线）。</p>
+<p>仅当 “总线忙” 信号未建立时，总线控制器通过 “总线可用” 线相应 “总线请求” 线的请求。该 “总线可用” 信号依次穿过各部件，直到第一个发出过 “总线请求” 的部件。该请求部件建立 “总线忙” 信号，去除其 “总线请求” 信号，之后进行数据传输。传输完毕后，去除 “总线忙” 和 “总线可用”。</p>
 <p>可见，串行链接下，部件优先级由其在总线上的位置决定。</p>
 <p>优点：选择算法简单，控制线数量少；部件增减容易，可扩充性好；容易通过重复设置提高可靠性</p>
-<p>缺点：对相关电路失效敏感，一个部件异常会导致其后所有部件失连；优先级不易改变，缺乏灵活度；总线长度限制了总线分配速度，也限制了部件的增减和移动</p></li>
-<li><p><strong>定时查询</strong>：设 <span
-class="math inline">\(2+\log_2n\)</span>
-条控制线（总线请求线、总线忙线、若干定时查询计数线）</p>
-<p>"总线忙" 信号未建立，总线控制器收到 "总线请求"
-时，使计时器开始计数，以定时查询发出请求的部件。当计数值与发出
-"总线请求" 的部件相等时，该请求部件建立 "总线忙"
-信号，使计数器停止查询，去除其
-"总线请求"，之后进行数据传输。传输完毕后，去除 "总线忙"。</p>
+<p>缺点：对相关电路失效敏感，一个部件异常会导致其后所有部件失连；优先级不易改变，缺乏灵活度；总线长度限制了总线分配速度，也限制了部件的增减和移动</p>
+</li>
+<li>
+<p><strong>定时查询</strong>：设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>+</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">2+\log_2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span></span></span></span> 条控制线（总线请求线、总线忙线、若干定时查询计数线）</p>
+<p>“总线忙” 信号未建立，总线控制器收到 “总线请求” 时，使计时器开始计数，以定时查询发出请求的部件。当计数值与发出 “总线请求” 的部件相等时，该请求部件建立 “总线忙” 信号，使计数器停止查询，去除其 “总线请求”，之后进行数据传输。传输完毕后，去除 “总线忙”。</p>
 <p>每次总线分配前，若计时器不清零，则为循环优先级。若计时器重置为某数值，则该数值为最大优先级。改变部件号也能指定各部件希望的任意优先级。</p>
 <p>优点：优先级可程序控制，灵活性强；不会因部件失效影响其他部件使用总线，可靠性高</p>
-<p>缺点：控制线数量较多；部件数受限于定时查询线数量，扩展性稍差；控制复杂；总线分配速度取决于技术信号频率和部件数，不能很高</p></li>
-<li><p><strong>独立请求</strong>：设 <span
-class="math inline">\(2n+1\)</span> 条控制线（总线已被分配线、若干对
-总线请求-总线准许 线）</p>
-<p>各部件分别持有一对 "总线请求" 线和 "总线准许" 线。"总线已被分配"
-无信号时，总线控制器仲裁所有 "总线请求"，选择其中一个以 "总线准许"
-送回该部件，去除其请求，建立
-"总线已被分配"，之后进行数据传输。结束后，部件去除
-"总线已被分配"，总线控制器去除 "总线准许"。</p>
+<p>缺点：控制线数量较多；部件数受限于定时查询线数量，扩展性稍差；控制复杂；总线分配速度取决于技术信号频率和部件数，不能很高</p>
+</li>
+<li>
+<p><strong>独立请求</strong>：设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 条控制线（总线已被分配线、若干对 总线请求-总线准许 线）</p>
+<p>各部件分别持有一对 “总线请求” 线和 “总线准许” 线。“总线已被分配” 无信号时，总线控制器仲裁所有 “总线请求”，选择其中一个以 “总线准许” 送回该部件，去除其请求，建立 “总线已被分配”，之后进行数据传输。结束后，部件去除 “总线已被分配”，总线控制器去除 “总线准许”。</p>
 <p>优点：总线分配速度快；控制器使用程序可控方式决定下一个使用总线部件；能方便隔离失效部件请求</p>
-<p>缺点：控制线数量过大；总线控制器复杂</p></li>
+<p>缺点：控制线数量过大；总线控制器复杂</p>
+</li>
 </ul>
-<p>高性能的巨、大、中型计算机上，主要使用 定时查询、独立请求
-方式。而应用广泛的小、微型计算机上，仍主要采用串行链接方式。</p></li>
+<p>高性能的巨、大、中型计算机上，主要使用 定时查询、独立请求 方式。而应用广泛的小、微型计算机上，仍主要采用串行链接方式。</p>
+</li>
 </ul>
 <p>按传送方法划分为：</p>
 <ul>
@@ -404,14 +409,11 @@ class="math inline">\(2n+1\)</span> 条控制线（总线已被分配线、若�
 <ul>
 <li>总线频率：总线工作时钟频率（单位：MHz）</li>
 <li>总线位宽：总线数据线根数，有 8、16、32、64 位（单位：bit）</li>
-<li>总线带宽：总线传输率（单位：Mb/S）。<span
-class="math inline">\(总线带宽=总线位宽\times 总线频率\)</span></li>
+<li>总线带宽：总线传输率（单位：Mb/S）。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>总线带宽</mtext><mo>=</mo><mtext>总线位宽</mtext><mo>×</mo><mtext>总线频率</mtext></mrow><annotation encoding="application/x-tex">总线带宽=总线位宽\times 总线频率</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">总线带宽</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">总线位宽</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">总线频率</span></span></span></span></li>
 </ul>
-<p>总线间通过 <strong>总线适配器</strong> 进行通信，总线与外设间通过
-<strong>I/O 控制器</strong> 进行通信。</p>
-<h2 id="ca4.4-io-系统">CA4.4 I/O 系统</h2>
-<p>I/O 系统负责管理计算机 CPU 与
-内存储以外的，所有外部设备。包括：存储设备、传输设备</p>
+<p>总线间通过 <strong>总线适配器</strong> 进行通信，总线与外设间通过 <strong>I/O 控制器</strong> 进行通信。</p>
+<h2 id="CA4-4-I-O-系统">CA4.4 I/O 系统</h2>
+<p>I/O 系统负责管理计算机 CPU 与 内存储以外的，所有外部设备。包括：存储设备、传输设备</p>
 <p>CPU 对 I/O 的编址有两种方式：</p>
 <ul>
 <li>存储器映射 I/O（统一编址）</li>
@@ -419,14 +421,16 @@ class="math inline">\(总线带宽=总线位宽\times 总线频率\)</span></li>
 </ul>
 <p>CPU 与外部设备进行 I/O 的方式：</p>
 <ul>
-<li><p><strong>程序控制 I/O 方式</strong></p>
-<p><strong>程序查询</strong>：CPU 轮询执行数据传输相关操作。数据在 CPU
-与外围设备间传送全靠 计算机程序 控制。是在 CPU 主动控制下进行。</p>
-<p><strong>中断</strong>：外设准备数据时，CPU
-执行与传输数据无关的工作。数据尊卑完毕后，发送中断请求，使 CPU
-处理数据</p></li>
-<li><p><strong>DMA（直接存储存取）</strong></p></li>
-<li><p><strong>通道</strong></p>
+<li>
+<p><strong>程序控制 I/O 方式</strong></p>
+<p><strong>程序查询</strong>：CPU 轮询执行数据传输相关操作。数据在 CPU 与外围设备间传送全靠 计算机程序 控制。是在 CPU 主动控制下进行。</p>
+<p><strong>中断</strong>：外设准备数据时，CPU 执行与传输数据无关的工作。数据尊卑完毕后，发送中断请求，使 CPU 处理数据</p>
+</li>
+<li>
+<p><strong>DMA（直接存储存取）</strong></p>
+</li>
+<li>
+<p><strong>通道</strong></p>
 <p>通道的功能：</p>
 <ul>
 <li>接收 CPU 发送的 I/O 指令，根据指令选择外设与通道连接</li>
@@ -454,50 +458,39 @@ section CPU（管态）
 section 通道
 组织 I/O 操作: 4, 6
 发出中断请求: milestone, 6</code></pre>
-<p>一个通道传输数据期间，单位时间内能传送的数据量称为
-<strong>通道流量</strong>（通道吞吐率、通道数据传输率）。单位一般是
-Bps。满负载时，通道的流量称为 <strong>最大流量</strong></p>
+<p>一个通道传输数据期间，单位时间内能传送的数据量称为 <strong>通道流量</strong>（通道吞吐率、通道数据传输率）。单位一般是 Bps。满负载时，通道的流量称为 <strong>最大流量</strong></p>
 <p>一些重要参数：</p>
 <ul>
-<li><span
-class="math inline">\(T_S\)</span>：设备选择时间。从通道响应设备发出的指令开始，到通道实际开始传送数据所需的时间</li>
-<li><span
-class="math inline">\(T_D\)</span>：传送一个字节所用的时间</li>
-<li><span
-class="math inline">\(p\)</span>：在一个通道上连接且同时工作的设备数</li>
-<li><span class="math inline">\(n\)</span>：每台设备传送的字节数</li>
-<li><span
-class="math inline">\(k\)</span>：数组多路通道传送中，一个数据块包含的字节数</li>
-<li><span
-class="math inline">\(T\)</span>：通道完成全部传输工作需要的时间</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">T_S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：设备选择时间。从通道响应设备发出的指令开始，到通道实际开始传送数据所需的时间</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">T_D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：传送一个字节所用的时间</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>：在一个通道上连接且同时工作的设备数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>：每台设备传送的字节数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>：数组多路通道传送中，一个数据块包含的字节数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>：通道完成全部传输工作需要的时间</li>
 </ul>
 <p>根据信息传输方式的不同，将通道分为 3 类：</p>
 <ul>
-<li><p><strong>字节多路通道</strong>：多个设备连接至该通道，每次每个设备传输一个字节。以字节交叉方式分时进行服务</p>
-<p>所需总时间为：<span class="math inline">\(T_{BYTE}=(T_S+T_D)\times
-p\times n\)</span></p>
-<p>则最大流量：<span
-class="math inline">\(f_{MAX-BYTE}=\dfrac{pn}{T_{BYTE}}=\dfrac{1}{T_S+T_D}\)</span></p>
-<p>实际流量为所有设备数据传输率和：<span
-class="math inline">\(f_{BYTE}={\sum^{p}_{i=1}\\}f_{i}\)</span></p></li>
-<li><p><strong>选择通道</strong>：多个设备连接至该通道，一段时间内仅为一台设备服务。磁盘常用此方法</p>
-<p>所需总时间为：<span class="math inline">\(T_{SELECT}=p\times T_S+
-n\times p\times T_D=np\times(\dfrac{T_S}{n}+T_D)\)</span></p>
-<p>则最大流量：<span
-class="math inline">\(f_{MAX-SELECT}=\dfrac{pn}{T_{SELECT}}=\dfrac{1}{\frac{T_S}{n}+T_D}\)</span></p>
-<p>实际流量为该通道上的最大设备数据传输率：<span
-class="math inline">\(f_{SELECT.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}\)</span></p></li>
-<li><p><strong>数组多路通道</strong>：多个设备连接至该通道，轮流为每个设备传送一个数据块</p>
-<p>所需总时间为：<span class="math inline">\(f_{BLOCK}=T_S\times
-p\times\dfrac{n}{k}+ n\times p\times
-T_D=np\times(\dfrac{T_S}{k}+T_D)\)</span></p>
-<p>则最大流量：<span
-class="math inline">\(f_{MAX-BLOCK}=\dfrac{pn}{T_{BLOCK}}=\dfrac{1}{\dfrac{T_S}{k}+T_D}\)</span></p>
-<p>实际流量为该通道上的最大设备数据传输率：<span
-class="math inline">\(f_{BLOCK.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}\)</span></p></li>
+<li>
+<p><strong>字节多路通道</strong>：多个设备连接至该通道，每次每个设备传输一个字节。以字节交叉方式分时进行服务</p>
+<p>所需总时间为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>B</mi><mi>Y</mi><mi>T</mi><mi>E</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub><mo stretchy="false">)</mo><mo>×</mo><mi>p</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">T_{BYTE}=(T_S+T_D)\times p\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">Y</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">TE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></p>
+<p>则最大流量：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>M</mi><mi>A</mi><mi>X</mi><mo>−</mo><mi>B</mi><mi>Y</mi><mi>T</mi><mi>E</mi></mrow></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi>p</mi><mi>n</mi></mrow><msub><mi>T</mi><mrow><mi>B</mi><mi>Y</mi><mi>T</mi><mi>E</mi></mrow></msub></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">f_{MAX-BYTE}=\dfrac{pn}{T_{BYTE}}=\dfrac{1}{T_S+T_D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9028em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">Y</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">TE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.9436em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">Y</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">TE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1574em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>实际流量为所有设备数据传输率和：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>B</mi><mi>Y</mi><mi>T</mi><mi>E</mi></mrow></msub><mo>=</mo><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>p</mi></msubsup><mspace linebreak="newline"></mspace></mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_{BYTE}={\sum^{p}_{i=1}\\}f_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">Y</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">TE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.104em;vertical-align:-0.2997em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace newline"></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>选择通道</strong>：多个设备连接至该通道，一段时间内仅为一台设备服务。磁盘常用此方法</p>
+<p>所需总时间为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>S</mi><mi>E</mi><mi>L</mi><mi>E</mi><mi>C</mi><mi>T</mi></mrow></msub><mo>=</mo><mi>p</mi><mo>×</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><mi>n</mi><mo>×</mo><mi>p</mi><mo>×</mo><msub><mi>T</mi><mi>D</mi></msub><mo>=</mo><mi>n</mi><mi>p</mi><mo>×</mo><mo stretchy="false">(</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>T</mi><mi>S</mi></msub><mi>n</mi></mfrac></mstyle><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T_{SELECT}=p\times T_S+ n\times p\times T_D=np\times(\dfrac{T_S}{n}+T_D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">SE</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">ECT</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>则最大流量：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>M</mi><mi>A</mi><mi>X</mi><mo>−</mo><mi>S</mi><mi>E</mi><mi>L</mi><mi>E</mi><mi>C</mi><mi>T</mi></mrow></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi>p</mi><mi>n</mi></mrow><msub><mi>T</mi><mrow><mi>S</mi><mi>E</mi><mi>L</mi><mi>E</mi><mi>C</mi><mi>T</mi></mrow></msub></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mfrac><msub><mi>T</mi><mi>S</mi></msub><mi>n</mi></mfrac><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">f_{MAX-SELECT}=\dfrac{pn}{T_{SELECT}}=\dfrac{1}{\frac{T_S}{n}+T_D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9028em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">SE</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">ECT</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.9436em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">SE</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">ECT</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4451em;vertical-align:-1.1236em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.2214em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8886em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4103em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3567em;margin-left:-0.1389em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1433em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1236em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>实际流量为该通道上的最大设备数据传输率：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>S</mi><mi>E</mi><mi>L</mi><mi>E</mi><mi>C</mi><mi>T</mi><mi mathvariant="normal">.</mi><mi>j</mi></mrow></msub><mo>=</mo><mrow><msubsup><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>p</mi><mi>j</mi></msub></msubsup><mspace linebreak="newline"></mspace></mrow><msub><mi>f</mi><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{SELECT.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">SE</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">ECT</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1296em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mop"><span class="mop">max</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8435em;"><span style="top:-2.4231em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2421em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span><span class="mspace newline"></span></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>数组多路通道</strong>：多个设备连接至该通道，轮流为每个设备传送一个数据块</p>
+<p>所需总时间为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>B</mi><mi>L</mi><mi>O</mi><mi>C</mi><mi>K</mi></mrow></msub><mo>=</mo><msub><mi>T</mi><mi>S</mi></msub><mo>×</mo><mi>p</mi><mo>×</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mi>n</mi><mi>k</mi></mfrac></mstyle><mo>+</mo><mi>n</mi><mo>×</mo><mi>p</mi><mo>×</mo><msub><mi>T</mi><mi>D</mi></msub><mo>=</mo><mi>n</mi><mi>p</mi><mo>×</mo><mo stretchy="false">(</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>T</mi><mi>S</mi></msub><mi>k</mi></mfrac></mstyle><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{BLOCK}=T_S\times p\times\dfrac{n}{k}+ n\times p\times T_D=np\times(\dfrac{T_S}{k}+T_D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">OC</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.7936em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>则最大流量：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>M</mi><mi>A</mi><mi>X</mi><mo>−</mo><mi>B</mi><mi>L</mi><mi>O</mi><mi>C</mi><mi>K</mi></mrow></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi>p</mi><mi>n</mi></mrow><msub><mi>T</mi><mrow><mi>B</mi><mi>L</mi><mi>O</mi><mi>C</mi><mi>K</mi></mrow></msub></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>T</mi><mi>S</mi></msub><mi>k</mi></mfrac></mstyle><mo>+</mo><msub><mi>T</mi><mi>D</mi></msub></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">f_{MAX-BLOCK}=\dfrac{pn}{T_{BLOCK}}=\dfrac{1}{\dfrac{T_S}{k}+T_D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9028em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">OC</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.9436em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">OC</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.2578em;vertical-align:-1.9363em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.11em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.5903em;"><span class="pstrut" style="height:3.3603em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-4.0373em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.9363em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>实际流量为该通道上的最大设备数据传输率：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>B</mi><mi>L</mi><mi>O</mi><mi>C</mi><mi>K</mi><mi mathvariant="normal">.</mi><mi>j</mi></mrow></msub><mo>=</mo><mrow><msubsup><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>p</mi><mi>j</mi></msub></msubsup><mspace linebreak="newline"></mspace></mrow><msub><mi>f</mi><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{BLOCK.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">OC</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1296em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mop"><span class="mop">max</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8435em;"><span style="top:-2.4231em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2421em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span><span class="mspace newline"></span></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
 </ul>
-<p>设计通道的基本原则，是必须满足 实际最大流量 不超过
-极限流量。</p></li>
+<p>设计通道的基本原则，是必须满足 实际最大流量 不超过 极限流量。</p>
+</li>
 </ul>
 
               
@@ -646,7 +639,6 @@ class="math inline">\(f_{BLOCK.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}\)</span></p></li
 
   
   
-
 
 
 
@@ -894,44 +886,6 @@ class="math inline">\(f_{BLOCK.j}={\max^{p_j}_{i=1}\\}{f_{i.j}}\)</span></p></li
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

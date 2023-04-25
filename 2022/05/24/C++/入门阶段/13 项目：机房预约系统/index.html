@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：">
+    <meta name="description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;13 项目：机房预约系统">
 <meta property="og:url" content="https://i-melody.github.io/2022/05/24/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/13%20%E9%A1%B9%E7%9B%AE%EF%BC%9A%E6%9C%BA%E6%88%BF%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：">
+<meta property="og:description" content="13 项目：机房预约系统 13.1 项目需求  有数个规格不同的机房，现开发一套预约系统，以解决使用冲突 三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号） 机房共有三间：1号机房（20人）、2号机房（50人）、3号机房（100人） 管理员：申请的订单每周由管理员手动清空 学生：可以预约未来一周内的机房使用，日期为周一至周五，可选时段为上午或下午 教师：审核预约，选择通">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-23T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-05-26T00:57:16.214Z">
@@ -299,8 +299,8 @@
             
             <div class="markdown-body">
               
-              <h1 id="项目机房预约系统">13 项目：机房预约系统</h1>
-<h2 id="项目需求">13.1 项目需求</h2>
+              <h1>13 项目：机房预约系统</h1>
+<h2 id="13-1-项目需求">13.1 项目需求</h2>
 <blockquote>
 <p>有数个规格不同的机房，现开发一套预约系统，以解决使用冲突</p>
 <p>三种身份代表：学生（申请使用）、教师（审核预约）、管理员（创建学生、教师账号）</p>
@@ -318,13 +318,15 @@
 <li>查看所有预约</li>
 <li>取消预约（成功的预约或审核中的预约）</li>
 <li>注销登录（二次确认）</li>
-</ul></li>
+</ul>
+</li>
 <li>老师（职工号、姓名、登陆密码）
 <ul>
 <li>查看所有预约</li>
 <li>审核预约</li>
 <li>注销登录（二次确认）</li>
-</ul></li>
+</ul>
+</li>
 <li>管理员（管理员编号、登陆密码）
 <ul>
 <li>添加账号</li>
@@ -333,7 +335,8 @@
 <li>查看机房</li>
 <li>清空预约记录</li>
 <li>注销登录（二次确认）</li>
-</ul></li>
+</ul>
+</li>
 <li>退出</li>
 </ul>
 <p><strong>账号：</strong></p>
@@ -343,7 +346,8 @@
 <li>管理员（ID 为 000000，标识符）</li>
 <li>教师（ID 为 1000XX，标识符）</li>
 <li>学生（ID 为 3000XX，标识符）</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><strong>机房：</strong></p>
 <ul>
@@ -359,7 +363,7 @@
 	<span class="hljs-built_in">menu0</span>();
 &#125;</code></pre></div>
 </blockquote>
-<h4 id="头文件">1 2头文件：</h4>
+<h4 id="1-2头文件：">1 2头文件：</h4>
 <p><strong>room.h</strong></p>
 <blockquote>
 <p>包含机房类。还声明了一个预定信息类。</p>
@@ -519,7 +523,7 @@
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change_account</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 修改一个账号的信息</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show_rooms</span><span class="hljs-params">()</span></span>;							<span class="hljs-comment">// 展示全部机房</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">clear_history</span><span class="hljs-params">()</span></span>;						<span class="hljs-comment">// 清空预约记录</span></code></pre></div>
-<h4 id="源文件">2 源文件：</h4>
+<h4 id="2-源文件：">2 源文件：</h4>
 <p><strong>room.cpp</strong></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;room.h&quot;</span></span>
 

@@ -16,12 +16,12 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CA7 多处理机 MIMD 多处理机：多台处理机共享 I&#x2F;O 系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为 作业&#x2F;任务级并行。 多处理机要解决以下问题：  硬件结构上，处理机、存储器、I&#x2F;O 系统 间的互连方式 最大限度开发系统并行性，以实现多处理机各级的全面并行 如何选择分割任务和子任务大小，使并行度高，辅助开销小 如何协调多处理机">
+    <meta name="description" content="CA7 多处理机 MIMD 多处理机：多台处理机共享 I&#x2F;O 系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为 作业&#x2F;任务级并行。 多处理机要解决以下问题：  硬件结构上，处理机、存储器、I&#x2F;O 系统 间的互连方式 最大限度开发系统并行性，以实现多处理机各级的全面并行 如何选择分割任务和子任务大小，使并行度高，辅助开销小 如何协调多处理机中并行任务&#x2F;进程间">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;计算机系统结构&gt;CA7 多处理机 MIMD">
 <meta property="og:url" content="https://i-melody.github.io/2023/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/7%20%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%20MIMD/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="CA7 多处理机 MIMD 多处理机：多台处理机共享 I&#x2F;O 系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为 作业&#x2F;任务级并行。 多处理机要解决以下问题：  硬件结构上，处理机、存储器、I&#x2F;O 系统 间的互连方式 最大限度开发系统并行性，以实现多处理机各级的全面并行 如何选择分割任务和子任务大小，使并行度高，辅助开销小 如何协调多处理机">
+<meta property="og:description" content="CA7 多处理机 MIMD 多处理机：多台处理机共享 I&#x2F;O 系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为 作业&#x2F;任务级并行。 多处理机要解决以下问题：  硬件结构上，处理机、存储器、I&#x2F;O 系统 间的互连方式 最大限度开发系统并行性，以实现多处理机各级的全面并行 如何选择分割任务和子任务大小，使并行度高，辅助开销小 如何协调多处理机中并行任务&#x2F;进程间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-04-17T04:17:38.036Z">
@@ -46,6 +46,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -226,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k 字
+          4.5k 字
         
       </span>
     
@@ -237,7 +239,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -299,10 +301,8 @@
             
             <div class="markdown-body">
               
-              <h1 id="ca7-多处理机-mimd">CA7 多处理机 MIMD</h1>
-<p><strong>多处理机</strong>：多台处理机共享 I/O
-系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为
-作业/任务级并行。</p>
+              <h1>CA7 多处理机 MIMD</h1>
+<p><strong>多处理机</strong>：多台处理机共享 I/O 系统，经共享主存或高速通信网络通信，在统一操作系统控制下，协同处理复杂问题的计算机系统。为 作业/任务级并行。</p>
 <p>多处理机要解决以下问题：</p>
 <ul>
 <li>硬件结构上，处理机、存储器、I/O 系统 间的互连方式</li>
@@ -312,60 +312,65 @@
 <li>如何将各任务分配到多个处理机上，进行处理机调度、任务调度、资源调度，避免死锁</li>
 <li>单个处理机故障时，如何对系统进行重新组织而使其不瘫痪</li>
 </ul>
-<p>由于应用目的和结构不同，多处理机分为 同构型、异构型、分布型
-三种。</p>
-<h2 id="ca7.1-多处理机的硬件结构">CA7.1 多处理机的硬件结构</h2>
+<p>由于应用目的和结构不同，多处理机分为 同构型、异构型、分布型 三种。</p>
+<h2 id="CA7-1-多处理机的硬件结构">CA7.1 多处理机的硬件结构</h2>
 <p>处理器间的连接分为 紧耦合 与 松耦合 两种：</p>
 <ul>
-<li><p><strong>紧耦合多处理机</strong>：通过 <strong>共享主存</strong>
-实现处理机间通信。其通信速率受限于主存频宽。</p>
-<p>由于各处理机与主存经互连网络连接，系统中的 处理机数量 会受限于
-互连网络带宽 及 多处理机访问主存发生冲突的概率。</p>
-<p>就处理机而言，有 <strong>同构对称型</strong>（处理机结构相同）和
-<strong>异构非对称型</strong>（处理机结构不同）。并行任务时，常用同构对称型的紧耦合多处理机。</p>
-<p>紧耦合多处理机采用 <strong>非对称 I/O
-互连</strong>，即连到一台处理机的设备不能被另一处理机直接访问。为避免单一处理机若故障引起的
-I/O 失连，可以采用 <strong>冗余连接</strong>（使 I/O
-设备连接到多个处理机）</p>
+<li>
+<p><strong>紧耦合多处理机</strong>：通过 <strong>共享主存</strong> 实现处理机间通信。其通信速率受限于主存频宽。</p>
+<p>由于各处理机与主存经互连网络连接，系统中的 处理机数量 会受限于 互连网络带宽 及 多处理机访问主存发生冲突的概率。</p>
+<p>就处理机而言，有 <strong>同构对称型</strong>（处理机结构相同）和 <strong>异构非对称型</strong>（处理机结构不同）。并行任务时，常用同构对称型的紧耦合多处理机。</p>
+<p>紧耦合多处理机采用 <strong>非对称 I/O 互连</strong>，即连到一台处理机的设备不能被另一处理机直接访问。为避免单一处理机若故障引起的 I/O 失连，可以采用 <strong>冗余连接</strong>（使 I/O 设备连接到多个处理机）</p>
 <p>紧耦合多处理机共享主存，可能出现 Cache 一致性问题。解决方法有：</p>
 <ul>
 <li><strong>限制功能</strong>：禁止进程迁移（禁止可能造成问题的功能）、写直流</li>
 <li><strong>硬件方法</strong>：监听法（写更新、写作废）、目录法（全映像目录法、有限目录法、链式目录表法）</li>
-<li><strong>软件方法</strong>：（没有。因为 Cache
-对于软件是透明的）</li>
-</ul></li>
-<li><p><strong>松耦合多处理机</strong>：每台处理机有一个较大的局部存储器，存储常用指令和数据，以减少耦合系统中的主存冲突。</p>
-<p>不同处理机通过 <strong>通道互连/消息传递系统</strong>
-通信。粗粒度并行。</p>
-<p>松耦合多处理机的构形有 <strong>非层次型</strong> 和
-<strong>层次型</strong>。</p></li>
+<li><strong>软件方法</strong>：（没有。因为 Cache 对于软件是透明的）</li>
+</ul>
+</li>
+<li>
+<p><strong>松耦合多处理机</strong>：每台处理机有一个较大的局部存储器，存储常用指令和数据，以减少耦合系统中的主存冲突。</p>
+<p>不同处理机通过 <strong>通道互连/消息传递系统</strong> 通信。粗粒度并行。</p>
+<p>松耦合多处理机的构形有 <strong>非层次型</strong> 和 <strong>层次型</strong>。</p>
+</li>
 </ul>
 <p>机器间的链接方式有以下几种：</p>
 <ul>
-<li><p><strong>总线形式</strong>：多个处理机、存储器模块、外围设备间通过接口与公用总线连接，采用分时或多路转接技术传递。</p>
-<p>单总线方式结构简单、成本低，但效率较差，对总线失效敏感。可以考虑的优化方式：使用光纤、多总线</p></li>
-<li><p><strong>环形互连</strong>：总线形成闭环。信息传递时要引入令牌概念。</p></li>
-<li><p><strong>交叉开关</strong>：总线数等于全部相连的模块数，每个处理机与
-I/O
-设备都能分到总线与存储器连通并行通信。互连网络不争用开关，可以大大展宽互连传输频带，提高系统效率。</p></li>
-<li><p><strong>多端口存储器模式</strong>：存储器具有多个端口，使得原本分布于交叉开关矩阵中的控制、转移、优先级仲裁逻辑移到存储器相应模块接口中。</p></li>
-<li><p><strong>蠕虫穿洞寻径网络</strong>：机间采用小容量缓冲存储器，用于消息分组寻经存储转发。将消息分割成一系列更小的小组，小组以异步流水方式不间断地按序传送。利用虚拟通道思想，使得存在于发送和接收节点间的物理通道能被多个虚拟通道共享</p></li>
-<li><p><strong>开关枢纽结构形式</strong>：按照 多端口存储器模式
-的思想，将互联结构开关设置在各处理机或接口内部，组成分布式结构。</p></li>
+<li>
+<p><strong>总线形式</strong>：多个处理机、存储器模块、外围设备间通过接口与公用总线连接，采用分时或多路转接技术传递。</p>
+<p>单总线方式结构简单、成本低，但效率较差，对总线失效敏感。可以考虑的优化方式：使用光纤、多总线</p>
+</li>
+<li>
+<p><strong>环形互连</strong>：总线形成闭环。信息传递时要引入令牌概念。</p>
+</li>
+<li>
+<p><strong>交叉开关</strong>：总线数等于全部相连的模块数，每个处理机与 I/O 设备都能分到总线与存储器连通并行通信。互连网络不争用开关，可以大大展宽互连传输频带，提高系统效率。</p>
+</li>
+<li>
+<p><strong>多端口存储器模式</strong>：存储器具有多个端口，使得原本分布于交叉开关矩阵中的控制、转移、优先级仲裁逻辑移到存储器相应模块接口中。</p>
+</li>
+<li>
+<p><strong>蠕虫穿洞寻径网络</strong>：机间采用小容量缓冲存储器，用于消息分组寻经存储转发。将消息分割成一系列更小的小组，小组以异步流水方式不间断地按序传送。利用虚拟通道思想，使得存在于发送和接收节点间的物理通道能被多个虚拟通道共享</p>
+</li>
+<li>
+<p><strong>开关枢纽结构形式</strong>：按照 多端口存储器模式 的思想，将互联结构开关设置在各处理机或接口内部，组成分布式结构。</p>
+</li>
 </ul>
 <p>多处理机的主存通常采用多个模块构成的并行存储器，以尽量减少多处理机访问同一模块的冲突。其组织方式有：</p>
 <ul>
-<li><p><strong>m
-个模块低位交叉编址</strong>：能更多地让多个存储模块服务同一处理机</p></li>
-<li><p><strong>m
-个模块高位交叉编址</strong>：能更多地让单个存储模块服务同一处理机</p></li>
-<li><p><strong>二维并行存储</strong></p>
-<p>每个处理机拥有一个模块作为
-<strong>本地存储</strong>，访问各自本地存储的速度比访问其他模块更快。</p>
-<p>不同模块间采用 高位交叉。各模块内部（本地存储内部）使用
-低位交叉。</p></li>
+<li>
+<p><strong>m 个模块低位交叉编址</strong>：能更多地让多个存储模块服务同一处理机</p>
+</li>
+<li>
+<p><strong>m 个模块高位交叉编址</strong>：能更多地让单个存储模块服务同一处理机</p>
+</li>
+<li>
+<p><strong>二维并行存储</strong></p>
+<p>每个处理机拥有一个模块作为 <strong>本地存储</strong>，访问各自本地存储的速度比访问其他模块更快。</p>
+<p>不同模块间采用 高位交叉。各模块内部（本地存储内部）使用 低位交叉。</p>
+</li>
 </ul>
-<h2 id="ca7.2-多处理机的操作系统">CA7.2 多处理机的操作系统</h2>
+<h2 id="CA7-2-多处理机的操作系统">CA7.2 多处理机的操作系统</h2>
 <p>多处理机操作系统设计时要注意以下问题：</p>
 <ul>
 <li>处理机的分配、进程调度</li>
@@ -379,10 +384,8 @@ I/O
 <li><strong>各自独立型</strong>：每台处理机有独立的管理程序运行。管理程序必须是可再入的。</li>
 <li><strong>浮动型</strong>：在较长时间内随机指定一台处理机为控制处理机。</li>
 </ul>
-<h2 id="ca7.3-多处理机的并行性">CA7.3 多处理机的并行性</h2>
-<p>多处理机的并行性既存在于指令内部，也存在于指令外部。要利用
-算法、程序设计语言、编译、操作系统、指令、硬件
-等多种途径来开拓指令外部的并行性。</p>
+<h2 id="CA7-3-多处理机的并行性">CA7.3 多处理机的并行性</h2>
+<p>多处理机的并行性既存在于指令内部，也存在于指令外部。要利用 算法、程序设计语言、编译、操作系统、指令、硬件 等多种途径来开拓指令外部的并行性。</p>
 <p>并行算法的分类方法：</p>
 <ul>
 <li>按运算基本对象分为：数值型、非数值型</li>
@@ -392,67 +395,67 @@ I/O
 </ul>
 <p>并行算法的划分方式有：</p>
 <ul>
-<li><p>程序划分：将程序从逻辑上分段</p>
-<p>将大的程序分解为多个过程（进程、任务、程序段），每个过程作为一个节点，用树形结构描述过程的关系。</p></li>
-<li><p>数据划分：将数据分组</p></li>
+<li>
+<p>程序划分：将程序从逻辑上分段</p>
+<p>将大的程序分解为多个过程（进程、任务、程序段），每个过程作为一个节点，用树形结构描述过程的关系。</p>
+</li>
+<li>
+<p>数据划分：将数据分组</p>
+</li>
 </ul>
 <p>分析并行算法使用的参数：</p>
 <ul>
-<li><span class="math inline">\(P\)</span>：可并行处理的处理机个数</li>
-<li><span
-class="math inline">\(T_P\)</span>：处理机运算级数（树的高度）</li>
-<li><span class="math inline">\(S_P\)</span>：单处理机顺序运算级数，与
-<span class="math inline">\(P\)</span> 台处理机并行运算的 <span
-class="math inline">\(T_P\)</span> 之比</li>
-<li><span class="math inline">\(E_P\)</span>：<span
-class="math inline">\(P\)</span> 台处理机的设备利用率，有 <span
-class="math inline">\(E_P=\dfrac{S_P}{P}\)</span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>：可并行处理的处理机个数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>P</mi></msub></mrow><annotation encoding="application/x-tex">T_P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：处理机运算级数（树的高度）</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>P</mi></msub></mrow><annotation encoding="application/x-tex">S_P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：单处理机顺序运算级数，与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 台处理机并行运算的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>P</mi></msub></mrow><annotation encoding="application/x-tex">T_P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 之比</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>P</mi></msub></mrow><annotation encoding="application/x-tex">E_P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 台处理机的设备利用率，有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>P</mi></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>S</mi><mi>P</mi></msub><mi>P</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">E_P=\dfrac{S_P}{P}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
 </ul>
 <p>程序并行时，可能发生相关：</p>
 <ul>
-<li><p><strong>数据相关</strong>：即 先写后读相关。</p>
-<p>如 <span class="math inline">\(P_i:A=B+D\qquad
-P_j:C=A+E\)</span>。此时 <span class="math inline">\(P_i\)</span> 与
-<span class="math inline">\(P_j\)</span> 不能并行。</p></li>
-<li><p><strong>数据反相关</strong>：即 先读后写相关。</p>
-<p>如 <span class="math inline">\(P_i:C=A+E\qquad
-P_j:A=B+D\)</span>。必须保证 <span class="math inline">\(P_i\)</span> 对
-<span class="math inline">\(A\)</span> 先进行读出才能并行</p></li>
-<li><p><strong>数据输出相关</strong>：即 先写后写相关。</p>
-<p>如 <span class="math inline">\(P_i:A=B+D\qquad
-P_j:A=C+E\)</span>。必须保证 <span class="math inline">\(P_i\)</span>
-先进行写入才能并行。</p></li>
-<li><p><strong>互为输出变量</strong>：同时具有 先写后读 和 先读后写
-相关。</p>
-<p>如 <span class="math inline">\(P_i:A=B\qquad P_j:B=A\)</span>。<span
-class="math inline">\(P_i\)</span> 与 <span
-class="math inline">\(P_j\)</span> 必须同时执行。</p></li>
-<li><p>若两个程序不存在任何数据相关（无共同变量，或共同变量只出现在右侧的源操作数），则可以无条件并行、串行或交换串行。</p></li>
+<li>
+<p><strong>数据相关</strong>：即 先写后读相关。</p>
+<p>如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub><mo>:</mo><mi>A</mi><mo>=</mo><mi>B</mi><mo>+</mo><mi>D</mi><mspace width="2em"/><msub><mi>P</mi><mi>j</mi></msub><mo>:</mo><mi>C</mi><mo>=</mo><mi>A</mi><mo>+</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">P_i:A=B+D\qquad P_j:C=A+E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>。此时 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">P_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> 不能并行。</p>
+</li>
+<li>
+<p><strong>数据反相关</strong>：即 先读后写相关。</p>
+<p>如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub><mo>:</mo><mi>C</mi><mo>=</mo><mi>A</mi><mo>+</mo><mi>E</mi><mspace width="2em"/><msub><mi>P</mi><mi>j</mi></msub><mo>:</mo><mi>A</mi><mo>=</mo><mi>B</mi><mo>+</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">P_i:C=A+E\qquad P_j:A=B+D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>。必须保证 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 对 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 先进行读出才能并行</p>
+</li>
+<li>
+<p><strong>数据输出相关</strong>：即 先写后写相关。</p>
+<p>如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub><mo>:</mo><mi>A</mi><mo>=</mo><mi>B</mi><mo>+</mo><mi>D</mi><mspace width="2em"/><msub><mi>P</mi><mi>j</mi></msub><mo>:</mo><mi>A</mi><mo>=</mo><mi>C</mi><mo>+</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">P_i:A=B+D\qquad P_j:A=C+E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>。必须保证 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 先进行写入才能并行。</p>
+</li>
+<li>
+<p><strong>互为输出变量</strong>：同时具有 先写后读 和 先读后写 相关。</p>
+<p>如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub><mo>:</mo><mi>A</mi><mo>=</mo><mi>B</mi><mspace width="2em"/><msub><mi>P</mi><mi>j</mi></msub><mo>:</mo><mi>B</mi><mo>=</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">P_i:A=B\qquad P_j:B=A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">P_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> 必须同时执行。</p>
+</li>
+<li>
+<p>若两个程序不存在任何数据相关（无共同变量，或共同变量只出现在右侧的源操作数），则可以无条件并行、串行或交换串行。</p>
+</li>
 </ul>
-<p><strong>并行任务的派生</strong>
-是使一个任务执行的同时，派生出与其并行执行的其他任务，分配给不同处理机完成。待其全部完成后，再汇合起来继续执行后续任务。</p>
-<h2 id="ca7.4-多处理机的发展">CA7.4 多处理机的发展</h2>
-<p>下面是按照访存模型的多处理机的分类： <span class="math display">\[
-\operatorname{MIMD}\begin{cases}
-    {多处理器(单地址空间共享存储器)}\begin{cases}
-        中央存储器\ \operatorname{UMA}\begin{cases}
-            \operatorname{PVP\ (Cray\ T-90\ 等)}
-            \\\operatorname{SMP\ (Intel\ SHV\ 等)}
-            \end{cases}
-        \\分布处理器\ \operatorname{NUMA}\begin{cases}
-            \operatorname{COMA\ (KSR-1,\ DDM\ 等)}
-            \\\operatorname{CC-NUMA\ (SGI\ Origin\ 2000\ 等)}
-            \\\operatorname{NCC-NUMA\ (Cray\ T3E\ 等)}
-            \end{cases}
-        \end{cases}
-    \\{\operatorname{NORMA}(多地址空间非共享存储器)}\begin{cases}
-        \operatorname{松散耦合\ Cluster\ (IBM\ SP2\ 等)}
-        \\\operatorname{紧耦合\ MMP\ (Intel\ TFLOPS\ 等)}
-        \end{cases}
-    \end{cases}
-\]</span></p>
+<p><strong>并行任务的派生</strong> 是使一个任务执行的同时，派生出与其并行执行的其他任务，分配给不同处理机完成。待其全部完成后，再汇合起来继续执行后续任务。</p>
+<h2 id="CA7-4-多处理机的发展">CA7.4 多处理机的发展</h2>
+<p>下面是按照访存模型的多处理机的分类：</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">MIMD</mi><mo>⁡</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mrow><mtext>多处理器</mtext><mo stretchy="false">(</mo><mtext>单地址空间共享存储器</mtext><mo stretchy="false">)</mo></mrow><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>中央存储器 </mtext><mi mathvariant="normal">UMA</mi><mo>⁡</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">PVP (Cray T-90 等)</mi><mo>⁡</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">SMP (Intel SHV 等)</mi><mo>⁡</mo></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>分布处理器 </mtext><mi mathvariant="normal">NUMA</mi><mo>⁡</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">COMA (KSR-1, DDM 等)</mi><mo>⁡</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">CC-NUMA (SGI Origin 2000 等)</mi><mo>⁡</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">NCC-NUMA (Cray T3E 等)</mi><mo>⁡</mo></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mrow><mi mathvariant="normal">NORMA</mi><mo>⁡</mo><mo stretchy="false">(</mo><mtext>多地址空间非共享存储器</mtext><mo stretchy="false">)</mo></mrow><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">松散耦合 Cluster (IBM SP2 等)</mi><mo>⁡</mo></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">紧耦合 MMP (Intel TFLOPS 等)</mi><mo>⁡</mo></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">\operatorname{MIMD}\begin{cases}
+	{多处理器(单地址空间共享存储器)}\begin{cases}
+		中央存储器\ \operatorname{UMA}\begin{cases}
+			\operatorname{PVP\ (Cray\ T-90\ 等)}
+			\\\operatorname{SMP\ (Intel\ SHV\ 等)}
+			\end{cases}
+		\\分布处理器\ \operatorname{NUMA}\begin{cases}
+			\operatorname{COMA\ (KSR-1,\ DDM\ 等)}
+			\\\operatorname{CC-NUMA\ (SGI\ Origin\ 2000\ 等)}
+			\\\operatorname{NCC-NUMA\ (Cray\ T3E\ 等)}
+			\end{cases}
+		\end{cases}
+	\\{\operatorname{NORMA}(多地址空间非共享存储器)}\begin{cases}
+		\operatorname{松散耦合\ Cluster\ (IBM\ SP2\ 等)}
+		\\\operatorname{紧耦合\ MMP\ (Intel\ TFLOPS\ 等)}
+		\end{cases}
+	\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:10.3201em;vertical-align:-4.91em;"></span><span class="mop"><span class="mord mathrm">MIMD</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.35em;"><span style="top:-1.366em;"><span class="pstrut" style="height:5.316em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-1.358em;"><span class="pstrut" style="height:5.316em;"></span><span style="height:3.316em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='3.316em' style='width:0.8889em' viewBox='0 0 888.89 3316' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V3316 H384z M384 0 H504 V3316 H384z'/></svg></span></span><span style="top:-5.316em;"><span class="pstrut" style="height:5.316em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-6.458em;"><span class="pstrut" style="height:5.316em;"></span><span style="height:3.316em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='3.316em' style='width:0.8889em' viewBox='0 0 888.89 3316' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V3316 H384z M384 0 H504 V3316 H384z'/></svg></span></span><span style="top:-9.766em;"><span class="pstrut" style="height:5.316em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:4.85em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.41em;"><span style="top:-7.41em;"><span class="pstrut" style="height:5.91em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">多处理器</span><span class="mopen">(</span><span class="mord cjk_fallback">单地址空间共享存储器</span><span class="mclose">)</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.85em;"><span style="top:-1.366em;"><span class="pstrut" style="height:3.816em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-1.358em;"><span class="pstrut" style="height:3.816em;"></span><span style="height:1.816em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='1.816em' style='width:0.8889em' viewBox='0 0 888.89 1816' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V1816 H384z M384 0 H504 V1816 H384z'/></svg></span></span><span style="top:-3.816em;"><span class="pstrut" style="height:3.816em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.958em;"><span class="pstrut" style="height:3.816em;"></span><span style="height:1.816em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='1.816em' style='width:0.8889em' viewBox='0 0 888.89 1816' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V1816 H384z M384 0 H504 V1816 H384z'/></svg></span></span><span style="top:-6.766em;"><span class="pstrut" style="height:3.816em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.35em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.91em;"><span style="top:-6.57em;"><span class="pstrut" style="height:4.41em;"></span><span class="mord"><span class="mord cjk_fallback">中央存储器</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">UMA</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">PVP (Cray T-90 </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">SMP (Intel SHV </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.91em;"><span class="pstrut" style="height:4.41em;"></span><span class="mord"><span class="mord cjk_fallback">分布处理器</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">NUMA</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.35em;"><span style="top:-2.2em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-2.192em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.316em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='0.316em' style='width:0.8889em' viewBox='0 0 888.89 316' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V316 H384z M384 0 H504 V316 H384z'/></svg></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.292em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.316em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='0.316em' style='width:0.8889em' viewBox='0 0 888.89 316' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V316 H384z M384 0 H504 V316 H384z'/></svg></span></span><span style="top:-4.6em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.85em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.41em;"><span style="top:-4.41em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">COMA (KSR-1, DDM </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span><span style="top:-2.97em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">CC-NUMA (SGI Origin 2000 </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span><span style="top:-1.53em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">NCC-NUMA (Cray T3E </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.91em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.41em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:5.91em;"></span><span class="mord"><span class="mord"><span class="mop"><span class="mord mathrm">NORMA</span></span><span class="mopen">(</span><span class="mord cjk_fallback">多地址空间非共享存储器</span><span class="mclose">)</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm cjk_fallback">松散耦合</span><span class="mord mathrm"> Cluster (IBM SP2 </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mop"><span class="mord mathrm cjk_fallback">紧耦合</span><span class="mord mathrm"> MMP (Intel TFLOPS </span><span class="mord mathrm cjk_fallback">等</span><span class="mord mathrm">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:4.91em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <ul>
-<li><p><strong>分布式共享存储器多处理机</strong>：共享虚拟存储器。物理上分散存储，逻辑上统一编址，从而统一虚拟地址空间。</p>
+<li>
+<p><strong>分布式共享存储器多处理机</strong>：共享虚拟存储器。物理上分散存储，逻辑上统一编址，从而统一虚拟地址空间。</p>
 <pre><code class=" mermaid">graph TB
 LM1[LM]---PC1[P/C]---N[定制网络]
 LM2[LM]---PC2[P/C]---N
@@ -461,41 +464,53 @@ subgraph 虚拟分布共享存储 DSM
 LM1
 LM2
 LM3
-end</code></pre></li>
-<li><p><strong>集中共享存储多处理机</strong>：任意处理器可直接访问内存地址，其访问延迟、带宽、几率等价，系统是对称的。</p>
+end</code></pre>
+</li>
+<li>
+<p><strong>集中共享存储多处理机</strong>：任意处理器可直接访问内存地址，其访问延迟、带宽、几率等价，系统是对称的。</p>
 <pre><code class=" MERMAID">graph TB
 PC1[P/C]---N[总线或交叉开关]---SM[SM]
 PC2[P/C]---N
 PC3[P/C]---N
 subgraph 共享主存
 SM
-end</code></pre></li>
-<li><p><strong>多向量多处理机</strong>：多台处理机、多个向量流水部件和标量部件，共享主存的松耦合结构。</p></li>
-<li><p><strong>并行向量处理机</strong>：若干数目不等的强功能的专用向量处理器，共享若干存储器模块，以高带宽的纵横交叉开关互连。</p>
-<p>一般不用 Cache，而是采用大量向量寄存器和指令缓冲寄存器。</p></li>
-<li><p><strong>大规模并行处理机
-MPP</strong>：物理与逻辑上都是分布内存，采用高通信带宽低延迟的互连网络。</p>
-<p>是一种异步的 MIMD
-机器，扩展性强。各进程有私有地址空间，进程间采用传递消息相互作用。</p></li>
-<li><p><strong>集群系统
-Cluster（机群系统）</strong>：每个节点都是完整的计算机，每个节点都有完整的操作系统。</p>
+end</code></pre>
+</li>
+<li>
+<p><strong>多向量多处理机</strong>：多台处理机、多个向量流水部件和标量部件，共享主存的松耦合结构。</p>
+</li>
+<li>
+<p><strong>并行向量处理机</strong>：若干数目不等的强功能的专用向量处理器，共享若干存储器模块，以高带宽的纵横交叉开关互连。</p>
+<p>一般不用 Cache，而是采用大量向量寄存器和指令缓冲寄存器。</p>
+</li>
+<li>
+<p><strong>大规模并行处理机 MPP</strong>：物理与逻辑上都是分布内存，采用高通信带宽低延迟的互连网络。</p>
+<p>是一种异步的 MIMD 机器，扩展性强。各进程有私有地址空间，进程间采用传递消息相互作用。</p>
+</li>
+<li>
+<p><strong>集群系统 Cluster（机群系统）</strong>：每个节点都是完整的计算机，每个节点都有完整的操作系统。</p>
 <p>节点间通过高性能网络相互连接，网络接口和 I/O 总线松耦合连接。</p>
-<p>机群系统有许多优势：性价比高、系统开发周期短、可扩展性好、资源利用率高、投资风险小、编程方便</p></li>
+<p>机群系统有许多优势：性价比高、系统开发周期短、可扩展性好、资源利用率高、投资风险小、编程方便</p>
+</li>
 </ul>
-<h2 id="ca7.5-数据流计算机和归约机">CA7.5 数据流计算机和归约机</h2>
-<p>为了提高计算机并行处理的能力，有必要突破 冯·诺依曼
-结构，寻求更有利于开发高度并行功能的计算机模型</p>
+<h2 id="CA7-5-数据流计算机和归约机">CA7.5 数据流计算机和归约机</h2>
+<p>为了提高计算机并行处理的能力，有必要突破 冯·诺依曼 结构，寻求更有利于开发高度并行功能的计算机模型</p>
 <p>计算模型中不仅要考虑数据控制类型，还要考虑驱动模式（控制机制）。驱动模式有：</p>
 <ul>
-<li><p><strong>控制驱动</strong>：冯·诺依曼结构中的驱动方式。指令执行次序受指令计数器控制。特点是
-共享数据，串行执行。</p></li>
-<li><p><strong>数据驱动</strong>：只要程序中任意指令所需的操作数齐备，就能立即启动执行。不需要指令计数器控制。数据驱动是一种提前求值的策略</p>
-<p>数据流计算机
-就是一种数据驱动计算机。根据对数据令牌的处理方式不同，数据流计算机又分为
-静态数据流计算机 和 动态数据流计算机</p></li>
-<li><p><strong>需求驱动</strong>：一个操作仅在需要用到其结果时才开始执行。操作数不齐备时，再递归启动给出操作数的操作。需求驱动是一种滞后求值的策略</p>
-<p>归约机 就是一种需求驱动计算机。归约又分为 串规约 和 图规约。</p></li>
-<li><p><strong>模式匹配驱动</strong>：计算的进行是由谓词模式匹配加以驱动的。程序的执行受控于寻找谓词的匹配和度量的归一操作，其中的谓词是代表客体间关系的一种字符串模式。</p></li>
+<li>
+<p><strong>控制驱动</strong>：冯·诺依曼结构中的驱动方式。指令执行次序受指令计数器控制。特点是 共享数据，串行执行。</p>
+</li>
+<li>
+<p><strong>数据驱动</strong>：只要程序中任意指令所需的操作数齐备，就能立即启动执行。不需要指令计数器控制。数据驱动是一种提前求值的策略</p>
+<p>数据流计算机 就是一种数据驱动计算机。根据对数据令牌的处理方式不同，数据流计算机又分为 静态数据流计算机 和 动态数据流计算机</p>
+</li>
+<li>
+<p><strong>需求驱动</strong>：一个操作仅在需要用到其结果时才开始执行。操作数不齐备时，再递归启动给出操作数的操作。需求驱动是一种滞后求值的策略</p>
+<p>归约机 就是一种需求驱动计算机。归约又分为 串规约 和 图规约。</p>
+</li>
+<li>
+<p><strong>模式匹配驱动</strong>：计算的进行是由谓词模式匹配加以驱动的。程序的执行受控于寻找谓词的匹配和度量的归一操作，其中的谓词是代表客体间关系的一种字符串模式。</p>
+</li>
 </ul>
 
               
@@ -644,7 +659,6 @@ Cluster（机群系统）</strong>：每个节点都是完整的计算机，每�
 
   
   
-
 
 
 
@@ -892,44 +906,6 @@ Cluster（机群系统）</strong>：每个节点都是完整的计算机，每�
   });
 </script>
 
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
