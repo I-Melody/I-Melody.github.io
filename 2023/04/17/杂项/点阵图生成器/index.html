@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/cover/TOOL1-Point_Picture.webp">
 <meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-26T12:56:16.384Z">
+<meta property="article:modified_time" content="2023-04-27T10:33:05.705Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="程序">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
         
         
         
-          41 分钟
+          42 分钟
         
       </span>
     
@@ -292,7 +292,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月26日 晚上
+                    本文最后更新于：2023年4月27日 晚上
                   
                 
               </p>
@@ -466,9 +466,10 @@
 <li>
 <p>本点阵图对象的多数方法支持链式调用。包括：</p>
 <p><code>toSafe()</code>、<code>toSafe_D(char... replace)</code>、<code>toNormal()</code>、<code>reverse()</code>、<code>changeSpace(char... spaces)</code>、<code>reCreate(File path)</code></p>
+<p>只是要注意，调用后返回的是新的对象，愿对象的内容不会发生改变。</p>
 </li>
 </ol>
-<h4 id="Java-代码（version-0-13）">Java 代码（version 0.13）</h4>
+<h4 id="Java-代码（version-0-14）">Java 代码（version 0.14）</h4>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Pic</span> &#123;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span>[] C;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;Character, Character&gt; RC = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
@@ -517,7 +518,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(String path)</span> &#123;
-        <span class="hljs-keyword">return</span> create(path, <span class="hljs-literal">false</span>, default_space);
+        <span class="hljs-keyword">return</span> create(path, <span class="hljs-literal">false</span>, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(String path, String space)</span> &#123;
@@ -525,7 +526,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(String path, <span class="hljs-type">boolean</span> anti)</span> &#123;
-        <span class="hljs-keyword">return</span> create(path, anti, default_space);
+        <span class="hljs-keyword">return</span> create(path, anti, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(String path, <span class="hljs-type">boolean</span> anti, String space)</span> &#123;
@@ -534,7 +535,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(File path)</span> &#123;
-        <span class="hljs-keyword">return</span> create(path, <span class="hljs-literal">false</span>, default_space);
+        <span class="hljs-keyword">return</span> create(path, <span class="hljs-literal">false</span>, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(File path, String space)</span> &#123;
@@ -542,7 +543,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(File path, <span class="hljs-type">boolean</span> anti)</span> &#123;
-        <span class="hljs-keyword">return</span> create(path, anti, default_space);
+        <span class="hljs-keyword">return</span> create(path, anti, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(File path, <span class="hljs-type">boolean</span> anti, String space)</span> &#123;
@@ -558,7 +559,7 @@
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Pic</span>((String) <span class="hljs-literal">null</span>);
         &#125;
     &#125;
-    
+
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">create</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] data, <span class="hljs-type">boolean</span> anti, String space)</span> &#123;
         <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
         <span class="hljs-type">int</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> anti ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
@@ -594,7 +595,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">reverse</span><span class="hljs-params">(String pic)</span> &#123;
-        <span class="hljs-keyword">return</span> reverse(pic, default_space);
+        <span class="hljs-keyword">return</span> reverse(pic, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">reverse</span><span class="hljs-params">(String pic, String sapce)</span> &#123;
@@ -614,7 +615,7 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(String pic, String replace)</span> &#123;
-        <span class="hljs-keyword">return</span> pic.replace(default_space, replace);
+        <span class="hljs-keyword">return</span> pic.replace(Pic.default_space, replace);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toNormal</span><span class="hljs-params">(String pic)</span> &#123;
@@ -624,7 +625,7 @@
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">changeDefaultSpace</span><span class="hljs-params">(String spaces)</span> &#123;
         <span class="hljs-keyword">if</span> (spaces == <span class="hljs-literal">null</span> || spaces.length() == <span class="hljs-number">0</span>)
             <span class="hljs-keyword">return</span> changeDefaultSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
-        <span class="hljs-type">String</span> <span class="hljs-variable">old</span> <span class="hljs-operator">=</span> default_space;
+        <span class="hljs-type">String</span> <span class="hljs-variable">old</span> <span class="hljs-operator">=</span> Pic.default_space;
         Pic.default_space = spaces;
         <span class="hljs-keyword">return</span> old;
     &#125;
@@ -634,22 +635,29 @@
         <span class="hljs-keyword">return</span> changeDefaultSpace(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(spaces));
     &#125;
 
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Pic <span class="hljs-title function_">buildPic</span><span class="hljs-params">(String pic, String space)</span> &#123;
+        <span class="hljs-type">Pic</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Pic</span>();
+        res.currentPicture = pic;
+        res.space = space;
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
 
 
 
 
     <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">currentPicture</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">space</span> <span class="hljs-operator">=</span> default_space;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">space</span> <span class="hljs-operator">=</span> Pic.default_space;
 
     <span class="hljs-keyword">private</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">()</span> &#123;
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(File path)</span> &#123;
-        <span class="hljs-built_in">this</span>(path, <span class="hljs-literal">false</span>, default_space);
+        <span class="hljs-built_in">this</span>(path, <span class="hljs-literal">false</span>, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(File path, <span class="hljs-type">boolean</span> anti)</span> &#123;
-        <span class="hljs-built_in">this</span>(path, anti, default_space);
+        <span class="hljs-built_in">this</span>(path, anti, Pic.default_space);
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(File path, String space)</span> &#123;
@@ -662,24 +670,29 @@
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(String pic)</span> &#123;
-        <span class="hljs-built_in">this</span>(pic, default_space);
+        <span class="hljs-built_in">this</span>(pic, Pic.default_space);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(String pic, <span class="hljs-type">char</span>... spaces)</span> &#123;
+        <span class="hljs-built_in">this</span>(pic, String.valueOf(spaces));
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Pic</span><span class="hljs-params">(String pic, String space)</span> &#123;
-        <span class="hljs-built_in">this</span>.space = space;
+        <span class="hljs-keyword">if</span> (space == <span class="hljs-literal">null</span> || space.length() == <span class="hljs-number">0</span>) <span class="hljs-built_in">this</span>.space = Pic.default_space;
+        <span class="hljs-keyword">else</span> <span class="hljs-built_in">this</span>.space = space;
         <span class="hljs-keyword">if</span> (pic == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
         <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();
         <span class="hljs-type">boolean</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : pic.replace(space, String.valueOf(TEMP_CHAR)).toCharArray()) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : pic.replace(<span class="hljs-built_in">this</span>.space, String.valueOf(TEMP_CHAR)).toCharArray()) &#123;
             <span class="hljs-keyword">if</span> (RC.containsKey(c)) sb.append(c);
             <span class="hljs-keyword">else</span> &#123;
                 sb.append(TEMP_CHAR);
                 out = <span class="hljs-literal">true</span>;
             &#125;
         &#125;
-        <span class="hljs-built_in">this</span>.currentPicture = sb.toString().replace(String.valueOf(TEMP_CHAR), space);
+        <span class="hljs-built_in">this</span>.currentPicture = sb.toString().replace(String.valueOf(TEMP_CHAR), <span class="hljs-built_in">this</span>.space);
         <span class="hljs-keyword">if</span> (out) <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;PictureString contains undefined character. SpaceCharacters [&quot;</span>
-                + space + <span class="hljs-string">&quot;] have took place of them.&quot;</span>).printStackTrace();
+                + <span class="hljs-built_in">this</span>.space + <span class="hljs-string">&quot;] have took place of them.&quot;</span>).printStackTrace();
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe</span><span class="hljs-params">()</span> &#123;
@@ -695,8 +708,10 @@
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toSafe_D</span><span class="hljs-params">(String replace)</span> &#123;
-        <span class="hljs-built_in">this</span>.currentPicture = <span class="hljs-built_in">this</span>.currentPicture.replace(space, replace);
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+        <span class="hljs-type">Pic</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Pic</span>();
+        res.currentPicture = <span class="hljs-built_in">this</span>.currentPicture.replace(<span class="hljs-built_in">this</span>.space, replace);
+        res.space = <span class="hljs-built_in">this</span>.space;
+        <span class="hljs-keyword">return</span> res;
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">toNormal</span><span class="hljs-params">()</span> &#123;
@@ -704,20 +719,17 @@
     &#125;
 
     <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">reverse</span><span class="hljs-params">()</span> &#123;
-        <span class="hljs-built_in">this</span>.currentPicture = Pic.reverse(<span class="hljs-built_in">this</span>.currentPicture, space);
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+        <span class="hljs-keyword">return</span> Pic.buildPic(Pic.reverse(<span class="hljs-built_in">this</span>.currentPicture, <span class="hljs-built_in">this</span>.space), <span class="hljs-built_in">this</span>.space);
     &#125;
 
-    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">changeSpace</span><span class="hljs-params">(<span class="hljs-type">char</span>... spaces)</span> &#123;
-        <span class="hljs-keyword">if</span> (spaces == <span class="hljs-literal">null</span> || spaces.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> changeSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
-        <span class="hljs-keyword">return</span> changeSpace(String.valueOf(spaces));
+    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">changeSpace</span><span class="hljs-params">(<span class="hljs-type">char</span>... newSpaces)</span> &#123;
+        <span class="hljs-keyword">if</span> (newSpaces == <span class="hljs-literal">null</span> || newSpaces.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> changeSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
+        <span class="hljs-keyword">return</span> changeSpace(String.valueOf(newSpaces));
     &#125;
 
-    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">changeSpace</span><span class="hljs-params">(String space)</span> &#123;
-        <span class="hljs-keyword">if</span> (space == <span class="hljs-literal">null</span> || space.length() == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> changeSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
-        <span class="hljs-built_in">this</span>.currentPicture = <span class="hljs-built_in">this</span>.currentPicture.replace(<span class="hljs-built_in">this</span>.space, space);
-        <span class="hljs-built_in">this</span>.space = space;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+    <span class="hljs-keyword">public</span> Pic <span class="hljs-title function_">changeSpace</span><span class="hljs-params">(String newSpace)</span> &#123;
+        <span class="hljs-keyword">if</span> (newSpace == <span class="hljs-literal">null</span> || newSpace.length() == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> changeSpace(SPACE_6PE, SPACE_6PE, SPACE_THIN, SPACE_THIN);
+        <span class="hljs-keyword">return</span> Pic.buildPic(<span class="hljs-built_in">this</span>.currentPicture.replace(<span class="hljs-built_in">this</span>.space, newSpace), newSpace);
     &#125;
 
     <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getSpace</span><span class="hljs-params">()</span> &#123;
@@ -757,7 +769,8 @@
     <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hashCode</span><span class="hljs-params">()</span> &#123;
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.currentPicture.hashCode();
     &#125;
-&#125;</code></pre></div>
+&#125;
+</code></pre></div>
 
               
             </div>
