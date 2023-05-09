@@ -24,7 +24,7 @@
 <meta property="og:description" content="5 数组、排序和查找  数组：可以存放多个同一类型的数据。数组也是一种数据，是引用类型。 即：数组就是一组数据。  5.1 一维数组  数组可以是多个相同类型数据的组合，实现对这些数据的统一管理。 数组中的元素可以是任何数据类型。包括基本类型和引用类型。 数组的下标从 0 开始。且必须在指定范围内使用，否则报错。 数组属于 引用类型，数组型数据是 对象（Object） 数组创建后，如果没有赋值，有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-09T09:21:07.672Z">
+<meta property="article:modified_time" content="2023-05-09T10:42:38.928Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -293,7 +293,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年5月9日 下午
+                    本文最后更新于：2023年5月9日 晚上
                   
                 
               </p>
@@ -630,7 +630,7 @@ B--有未确定的值--&gt;b
 B--&gt;F(有序序列)</code></pre>
 <p>如此，各元素不断接近自己的位置。<font color="#FF5A0F">值较大的元素逐渐向后移动</font>，就像水下的气泡一样逐渐上浮。</p>
 <p>特别地：如果在某次排序中没有发生过任何交换，则此时是已完成排序，可提前结束排序过程。</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=2&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760598&page=2&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了冒泡排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">bubble_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     <span class="hljs-comment">/* 共执行 n - 1 轮排序 */</span>
@@ -660,7 +660,7 @@ A(待排序序列)--&gt;S[遍历查找]--&gt;e((最小元素))--&gt;D[与首位�
 o--为空--&gt;F(有序序列)
 o(剩余序列)--不为空--&gt;S</code></pre>
 <p>从 <font color="#10ACAF">待排序序列</font> 中找出 <font color="#6AAF0F">最小值</font>，与下标 0 位置元素 <font color="#FF5A0F">交换</font>。之后在剩余元素中找出 <font color="#6AAF0F">最小值</font>，与下标 1 元素 <font color="#FF5A0F">交换</font>。以此类推，直到完成。</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=3&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588763198&page=3&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了选择排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">choice_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; p &lt; array.length - <span class="hljs-number">1</span>; p++) &#123;
@@ -722,7 +722,7 @@ D--&gt;d4((...))--&gt;d141[插入排序]--&gt;T(序列)</code></pre>
 <p><font color="#0000FF">希儿</font>排序也是一种插入排序，是简单插入排序的高效改进版。也称为：缩小增量排序。</p>
 <p><font color="#0000FF">希儿</font>排序是把 <font color="#10ACAF">待排序序列</font> 按下标的一定 <font color="#FF5A0F">步长</font> 进行 <font color="#6AAF0F">分组</font>，对每组使用 插入排序法。随着 <font color="#FF5A0F">步长</font> 逐渐减少，每组包含的 <font color="#6AAF0F">元素个数</font> 也越来越多。</p>
 <p>当 <font color="#FF5A0F">步长</font> 减至 1 时，整个 <font color="#10ACAF">待排序序列</font> 恰被分为 1 组，算法便中止。</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=20&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588765535&page=20&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了希儿排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">seele_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     <span class="hljs-type">int</span> <span class="hljs-variable">step</span> <span class="hljs-operator">=</span> array.length / <span class="hljs-number">2</span>;		<span class="hljs-comment">// 步长。该值等于分组数量</span>
@@ -780,7 +780,7 @@ k6.-&gt;K
 k7.-&gt;K
 k8.-&gt;K</code></pre>
 <p>整个排序过程可以 <font color="#FF5A0F">递归进行</font>，最终使整个数据变成有序序列。</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=13&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764662&page=13&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了快速排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     quick_sort(array, <span class="hljs-number">0</span>, array.length);
@@ -826,7 +826,7 @@ B--&gt;b7((元素7))--&gt;ba4[排序]--&gt;bb4((组4))--&gt;bba2
 B--&gt;b8((元素8))--&gt;ba4</code></pre>
 <p>对 2 个元素进行比较、排序，是很容易的。对 2 个有序序列，将其合并为新的有序序列，也是容易的。</p>
 <p>因此，我们把 <font color="#10ACAF">待排序序列</font> 分成许多 <font color="#FF5A0F">组</font>，每组包含 2 个元素，并对每组进行排序。再逐渐 <font color="#6AAF0F">合并</font> 那些组，最终就能得到一个完整的有序序列。</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=4&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588763441&page=4&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了归并排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">merger_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     <span class="hljs-type">int</span> <span class="hljs-variable">tl</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) Math.ceil(array.length / <span class="hljs-number">2.0</span>);
@@ -905,7 +905,7 @@ D --&gt; F[序列的最大值]--小于 10&lt;sup&gt;k&lt;/sup&gt;--&gt;E(有序�
 F --大于等于 10&lt;sup&gt;k&lt;/sup&gt;--&gt; B</code></pre>
 <p>基数排序法是桶排序的扩展。将整数 <font color="#FF5A0F">按照位数切割成不同数字</font>，然后 <font color="#6AAF0F">按照每个位数分别比较</font>。</p>
 <p>该方法只能用于比较正数。你非要比较负数？咱也不说不行，你自己看着办吧</p>
-<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760371&page=15&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764948&page=15&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了基数排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">radix_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
     <span class="hljs-type">int</span>[][] bucket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">10</span>][array.length];
@@ -989,9 +989,9 @@ end</code></pre>
 </ol>
 <iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764772&page=11&autoplay=0" width="400" height="300" name="ttttar">
 </iframe>
-<table><tr><td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764772&page=08&autoplay=0" target="ttttar">什么是堆</a></td>
-    <td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764772&page=09&autoplay=0" target="ttttar">生成大顶堆</a></td>
-    <td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764772&page=10&autoplay=0" target="ttttar">维护大顶堆</a></td>
+<table><tr><td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764006&page=8&autoplay=0" target="ttttar">什么是堆</a></td>
+    <td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764284&page=9&autoplay=0" target="ttttar">生成大顶堆</a></td>
+    <td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764425&page=10&autoplay=0" target="ttttar">维护大顶堆</a></td>
     <td><a href="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764772&page=11&autoplay=0" target="ttttar">堆排序</a></td></tr></table>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了堆排序的工作原理</p>
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">heap_sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] array)</span> &#123;
