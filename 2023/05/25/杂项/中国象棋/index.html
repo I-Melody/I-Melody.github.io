@@ -1,0 +1,1428 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一个中国象棋小游戏。很弱，仅作纪念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国象棋">
+<meta property="og:url" content="https://i-melody.github.io/2023/05/25/%E6%9D%82%E9%A1%B9/%E4%B8%AD%E5%9B%BD%E8%B1%A1%E6%A3%8B/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="一个中国象棋小游戏。很弱，仅作纪念。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/cover/ChineseChess.webp">
+<meta property="article:published_time" content="2023-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-25T15:56:46.228Z">
+<meta property="article:author" content="Melody">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/cover/ChineseChess.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>中国象棋 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">中国象棋</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-25 00:00" pubdate>
+          2023年5月25日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          20k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          56 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">中国象棋</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年5月25日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>中国象棋</h1>
+<p>花了三个晚上写的小游戏。勉强能玩。</p>
+<p>我编写的程序里，AI 只能看自己的一步棋，所以很弱。但是看到他被我捉子会躲，被将军会垫子，还是产生了巨大的成就感。</p>
+<p>这么着，就决定发到博客里了。</p>
+<h4 id="一些说明">一些说明</h4>
+<ul>
+<li>
+<p>使用鼠标点击棋子进行操作</p>
+<p>在任何情况下，点击我方棋子即选中该棋子。</p>
+<p>被选中的棋子被<font color="MAGENTA">品红色</font>圆圈指出，其移动范围被<font color="GRAY">白点</font>标记，攻击范围被<font color="CYAN">青色</font>点标记。</p>
+<p>选中棋子的情况下，点击要移动的格子即完成移动，按右键或点击空白处则取消选中。</p>
+</li>
+<li>
+<p>键盘 <code>E</code> 键可以进行红黑交换</p>
+</li>
+</ul>
+<h4 id="后续的优化方向">后续的优化方向</h4>
+<p>中国象棋的棋盘有 90 个点位，故场况可以使用长度 90 的字符串表示。此举为日后 AI 思考更多步数提供了可能。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 开始游戏的方法：执行 new ChessFrame();</span>
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ChessFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">windowWidth</span> <span class="hljs-operator">=</span> <span class="hljs-number">900</span>; <span class="hljs-comment">//600;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">windowHeight</span> <span class="hljs-operator">=</span> <span class="hljs-number">1020</span>; <span class="hljs-comment">//680;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">cellEdge</span> <span class="hljs-operator">=</span> <span class="hljs-number">90</span>; <span class="hljs-comment">//60;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">GamePanel</span> <span class="hljs-variable">gamePanel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GamePanel</span>(<span class="hljs-built_in">this</span>);
+
+    ChessFrame() &#123;
+        setSize(windowWidth, windowHeight);
+        setVisible(<span class="hljs-literal">true</span>);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(gamePanel);
+        addKeyListener(gamePanel);
+        addMouseListener(gamePanel);
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(gamePanel).start();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCellEdge</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> cellEdge;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getWindowWidth</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> windowWidth;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getWindowHeight</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> windowHeight;
+    &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">GamePanel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JPanel</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span>, KeyListener, MouseListener &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">NONE_FLAG</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;\u0000&#x27;</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Color</span> <span class="hljs-variable">CHESS_FILL</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">240</span>, <span class="hljs-number">170</span>, <span class="hljs-number">70</span>);
+
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> cellEdge;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> ori;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ChessFrame root;
+    <span class="hljs-keyword">private</span> Piece[][] chessboard = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>[<span class="hljs-number">10</span>][<span class="hljs-number">9</span>];
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Player</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Player</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">this</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Player</span> <span class="hljs-variable">p2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Player</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>);
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Piece</span> <span class="hljs-variable">selected</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; selectedRange = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">playerCheesing</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Piece</span> <span class="hljs-variable">blocked</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">Piece</span> <span class="hljs-variable">blocked2</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span>[] blocked_pos = &#123;-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>&#125;;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+
+
+    GamePanel(ChessFrame cf) &#123;
+        <span class="hljs-built_in">this</span>.root = cf;
+        cellEdge = cf.getCellEdge();
+        ori = cellEdge &gt;&gt; <span class="hljs-number">1</span>;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;
+        p1.initialize();
+        p2.initialize();
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+            repaint();
+            <span class="hljs-keyword">if</span> (end == <span class="hljs-number">0</span>) &#123;
+                <span class="hljs-keyword">if</span> (!p1.getKing().alive) end |= <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">if</span> (!p2.getKing().alive) end |= <span class="hljs-number">2</span>;
+            &#125;
+            <span class="hljs-keyword">if</span> (end == <span class="hljs-number">0</span> &amp;&amp; !playerCheesing) &#123;
+                <span class="hljs-type">int</span>[] analyse = AnalyseHelper.analyse(p1, p2);
+                p1.pieces.get(analyse[<span class="hljs-number">0</span>]).put(analyse[<span class="hljs-number">2</span>], analyse[<span class="hljs-number">1</span>]);
+                playerCheesing = <span class="hljs-literal">true</span>;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">paint</span><span class="hljs-params">(Graphics g)</span> &#123;
+        drawBoard(g);
+        drawPieces(g);
+        drawSelectedPiece(g);
+        <span class="hljs-keyword">if</span> (end &gt; <span class="hljs-number">0</span>) drawEndGame(g, end == <span class="hljs-number">1</span>);
+        drawEndGame(g, end == <span class="hljs-number">1</span>);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawEndGame</span><span class="hljs-params">(Graphics g, <span class="hljs-type">boolean</span> win)</span> &#123;
+        g.setColor(win ? Color.WHITE: Color.LIGHT_GRAY);
+        g.fillRect(<span class="hljs-number">0</span>, (root.getWindowHeight()&gt;&gt;<span class="hljs-number">1</span>)-((cellEdge+<span class="hljs-number">3</span>*ori)&gt;&gt;<span class="hljs-number">1</span>), root.getWindowWidth(), ori);
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;华文行楷&quot;</span>, Font.BOLD, (<span class="hljs-number">3</span>*ori&gt;&gt;<span class="hljs-number">1</span>)));
+        <span class="hljs-type">String</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> win ? <span class="hljs-string">&quot;技高一筹&quot;</span> : <span class="hljs-string">&quot;棋差一着&quot;</span>;
+        <span class="hljs-type">Color</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> win ? <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">200</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>) : <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-number">50</span>);
+        g.setColor(c);
+        g.drawString(out, root.getWindowWidth()&gt;&gt;<span class="hljs-number">1</span>, (root.getWindowHeight()&gt;&gt;<span class="hljs-number">1</span>)-cellEdge);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawBoard</span><span class="hljs-params">(Graphics g)</span> &#123;
+        g.setColor(Color.ORANGE);
+        g.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, cellEdge * <span class="hljs-number">9</span>, cellEdge * <span class="hljs-number">10</span>);
+        g.setColor(Color.BLACK);
+        g.drawRect(ori, ori, cellEdge * <span class="hljs-number">8</span>, cellEdge * <span class="hljs-number">9</span>);
+        g.drawRect(ori - (ori &gt;&gt; <span class="hljs-number">3</span>), ori - (ori &gt;&gt; <span class="hljs-number">3</span>), cellEdge * <span class="hljs-number">8</span> + (ori &gt;&gt; <span class="hljs-number">3</span>) * <span class="hljs-number">2</span>, cellEdge * <span class="hljs-number">9</span> + (ori &gt;&gt; <span class="hljs-number">3</span>) * <span class="hljs-number">2</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++) &#123;
+            g.drawLine(ori, ori + cellEdge * i, ori + <span class="hljs-number">8</span> * cellEdge, ori + cellEdge * i);
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">7</span>; i++) &#123;
+            g.drawLine(ori + cellEdge * i, ori, ori + cellEdge * i, ori + cellEdge * <span class="hljs-number">4</span>);
+            g.drawLine(ori + cellEdge * i, ori + cellEdge * <span class="hljs-number">5</span>, ori + cellEdge * i, ori + cellEdge * <span class="hljs-number">9</span>);
+        &#125;
+        g.drawLine(ori + <span class="hljs-number">3</span> * cellEdge, ori, ori + <span class="hljs-number">5</span> * cellEdge, ori + <span class="hljs-number">2</span> * cellEdge);
+        g.drawLine(ori + <span class="hljs-number">3</span> * cellEdge, ori + <span class="hljs-number">2</span> * cellEdge, ori + <span class="hljs-number">5</span> * cellEdge, ori);
+        g.drawLine(ori + <span class="hljs-number">3</span> * cellEdge, ori + <span class="hljs-number">7</span> * cellEdge, ori + <span class="hljs-number">5</span> * cellEdge, ori + <span class="hljs-number">9</span> * cellEdge);
+        g.drawLine(ori + <span class="hljs-number">3</span> * cellEdge, ori + <span class="hljs-number">9</span> * cellEdge, ori + <span class="hljs-number">5</span> * cellEdge, ori + <span class="hljs-number">7</span> * cellEdge);
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span> (i == <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>) | (i == <span class="hljs-number">4</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">2</span>);
+            drawBroadALine(i * <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, dir, g);
+            drawBroadALine(i * <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, dir, g);
+        &#125;
+        drawBroadALine(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, g);
+        drawBroadALine(<span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, g);
+        drawBroadALine(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, g);
+        drawBroadALine(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, g);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawBroadALine</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> dir, Graphics g)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">small</span> <span class="hljs-operator">=</span> cellEdge &gt;&gt; <span class="hljs-number">3</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">small2</span> <span class="hljs-operator">=</span> small * <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span> ((dir &amp; <span class="hljs-number">1</span>) &gt; <span class="hljs-number">0</span>) &#123;
+            g.drawLine(ori + x * cellEdge - small, ori + y * cellEdge - small2, ori + x * cellEdge - small, ori + y * cellEdge - small);
+            g.drawLine(ori + x * cellEdge - small2, ori + y * cellEdge - small, ori + x * cellEdge - small, ori + y * cellEdge - small);
+            g.drawLine(ori + x * cellEdge - small, ori + y * cellEdge + small2, ori + x * cellEdge - small, ori + y * cellEdge + small);
+            g.drawLine(ori + x * cellEdge - small2, ori + y * cellEdge + small, ori + x * cellEdge - small, ori + y * cellEdge + small);
+        &#125;
+        <span class="hljs-keyword">if</span> ((dir &amp; <span class="hljs-number">2</span>) &gt; <span class="hljs-number">0</span>) &#123;
+            g.drawLine(ori + x * cellEdge + small, ori + y * cellEdge - small2, ori + x * cellEdge + small, ori + y * cellEdge - small);
+            g.drawLine(ori + x * cellEdge + small2, ori + y * cellEdge - small, ori + x * cellEdge + small, ori + y * cellEdge - small);
+            g.drawLine(ori + x * cellEdge + small, ori + y * cellEdge + small2, ori + x * cellEdge + small, ori + y * cellEdge + small);
+            g.drawLine(ori + x * cellEdge + small2, ori + y * cellEdge + small, ori + x * cellEdge + small, ori + y * cellEdge + small);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawPieces</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-keyword">for</span> (Piece p : p1.pieces) <span class="hljs-keyword">if</span> (p.alive) drawSingleChess(g, p);
+        <span class="hljs-keyword">for</span> (Piece p : p2.pieces) <span class="hljs-keyword">if</span> (p.alive) drawSingleChess(g, p);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawSingleChess</span><span class="hljs-params">(Graphics g, Piece p)</span> &#123;
+        drawSingleChess(g, getX(p), getY(p), p.getSpecies(), p.getMaster().color);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawSingleChess</span><span class="hljs-params">(Graphics g, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">char</span> species, Color cc)</span> &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">chessLength</span> <span class="hljs-operator">=</span> (cellEdge &gt;&gt; <span class="hljs-number">2</span>) + (cellEdge &gt;&gt; <span class="hljs-number">3</span>) + (cellEdge &gt;&gt; <span class="hljs-number">4</span>);
+        <span class="hljs-type">int</span> <span class="hljs-variable">outRing</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) (chessLength * <span class="hljs-number">0.83</span>);
+        <span class="hljs-type">int</span> <span class="hljs-variable">half_fontsize</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) (chessLength * <span class="hljs-number">0.707</span> * <span class="hljs-number">0.9</span>);
+        g.setColor(CHESS_FILL);
+        g.fillOval(ori + x * cellEdge - chessLength, ori + y * cellEdge - chessLength, chessLength * <span class="hljs-number">2</span>, chessLength * <span class="hljs-number">2</span>);
+        g.setColor(Color.BLACK);
+        g.drawOval(ori + x * cellEdge - chessLength, ori + y * cellEdge - chessLength, chessLength * <span class="hljs-number">2</span>, chessLength * <span class="hljs-number">2</span>);
+        g.drawOval(ori + x * cellEdge - outRing, ori + y * cellEdge - outRing, outRing * <span class="hljs-number">2</span>, outRing * <span class="hljs-number">2</span>);
+        g.setColor(cc);
+        g.setFont(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Font</span>(<span class="hljs-string">&quot;楷体&quot;</span>, Font.BOLD, half_fontsize * <span class="hljs-number">2</span>));
+        g.drawString(Piece.chineseCharacter.getOrDefault(species, <span class="hljs-string">&#x27; &#x27;</span>) + <span class="hljs-string">&quot;&quot;</span>, ori + x * cellEdge - half_fontsize, ori + y * cellEdge + half_fontsize);
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">drawSelectedPiece</span><span class="hljs-params">(Graphics g)</span> &#123;
+        <span class="hljs-keyword">if</span> (selectedRange == <span class="hljs-literal">null</span> || selected == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">bullSize</span> <span class="hljs-operator">=</span> cellEdge &gt;&gt; <span class="hljs-number">3</span>;
+        <span class="hljs-type">boolean</span> <span class="hljs-variable">anti</span> <span class="hljs-operator">=</span> selected.getMaster() == p2;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] ints : selectedRange) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> anti ? <span class="hljs-number">8</span> - ints[<span class="hljs-number">0</span>]: ints[<span class="hljs-number">0</span>], y = anti ? <span class="hljs-number">9</span> - ints[<span class="hljs-number">1</span>]: ints[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">if</span> (ints[<span class="hljs-number">2</span>] == <span class="hljs-number">2</span>) &#123;
+                g.setColor(Color.MAGENTA);
+                g.fillOval(ori + x * cellEdge - (cellEdge &gt;&gt; <span class="hljs-number">1</span>), ori + y * cellEdge - (cellEdge &gt;&gt; <span class="hljs-number">1</span>), cellEdge, cellEdge);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-keyword">if</span> (ints[<span class="hljs-number">2</span>] == <span class="hljs-number">1</span>) g.setColor(Color.CYAN);
+                <span class="hljs-keyword">else</span> g.setColor(Color.WHITE);
+                g.fillOval(ori + x * cellEdge - bullSize, ori + y * cellEdge - bullSize, bullSize * <span class="hljs-number">2</span>, bullSize * <span class="hljs-number">2</span>);
+            &#125;
+        &#125;
+        drawSingleChess(g, selected);
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> Piece <span class="hljs-title function_">checkPos</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, Player master)</span> &#123;
+        <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span> || x &gt; <span class="hljs-number">8</span> || y &lt; <span class="hljs-number">0</span> || y &gt; <span class="hljs-number">9</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (master == p1) <span class="hljs-keyword">return</span> chessboard[y][x];
+        <span class="hljs-keyword">return</span> chessboard[<span class="hljs-number">9</span>-y][<span class="hljs-number">8</span>-x];
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">(<span class="hljs-type">int</span> nx, <span class="hljs-type">int</span> ny, Piece p)</span> &#123;
+        <span class="hljs-keyword">if</span> (p.getMaster() == p2) &#123;
+            nx = <span class="hljs-number">8</span>-nx;
+            ny = <span class="hljs-number">9</span>-ny;
+        &#125;
+        <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> getY(p), x = getX(p);
+        <span class="hljs-keyword">if</span> (chessboard[ny][nx] != <span class="hljs-literal">null</span>) chessboard[ny][nx].alive = <span class="hljs-literal">false</span>;
+        chessboard[ny][nx] = chessboard[y][x];
+        chessboard[y][x] = <span class="hljs-literal">null</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(Piece p)</span> &#123;
+        <span class="hljs-keyword">if</span> (p.alive) chessboard[getY(p)][getX(p)] = p;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getX</span><span class="hljs-params">(Piece p)</span> &#123;
+        <span class="hljs-keyword">return</span> getX(p.getMaster(), p.getX());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getY</span><span class="hljs-params">(Piece p)</span> &#123;
+        <span class="hljs-keyword">return</span> getY(p.getMaster(), p.getY());
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getX</span><span class="hljs-params">(Player p, <span class="hljs-type">int</span> x)</span> &#123;
+        <span class="hljs-keyword">if</span> (p == p1) <span class="hljs-keyword">return</span> x;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">8</span> - x;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getY</span><span class="hljs-params">(Player p, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-keyword">if</span> (p == p1) <span class="hljs-keyword">return</span> y;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">9</span> - y;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSelected</span><span class="hljs-params">(Piece p)</span> &#123;
+        selected = p;
+        <span class="hljs-keyword">if</span> (selected == <span class="hljs-literal">null</span>) &#123;
+            selectedRange = <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (selected.getMaster() == p2) &#123;
+            selectedRange = p.getRange();
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            selectedRange = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+            selectedRange.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;getX(p), getY(p), <span class="hljs-number">2</span>&#125;);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">block</span><span class="hljs-params">(<span class="hljs-type">int</span> y, <span class="hljs-type">int</span> x, Piece p)</span> &#123;
+<span class="hljs-comment">//        if (p.getMaster() == p2) return;</span>
+        removeBlock();
+        blocked = chessboard[y][x];
+        blocked2 = p;
+        blocked_pos[<span class="hljs-number">1</span>] = getY(blocked2);
+        blocked_pos[<span class="hljs-number">0</span>] = getX(blocked2);
+        blocked2.put(y, x);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeBlock</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (blocked_pos[<span class="hljs-number">0</span>] &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">by</span> <span class="hljs-operator">=</span> getY(blocked2), bx = getX(blocked2);
+        blocked2.put(blocked_pos[<span class="hljs-number">1</span>], blocked_pos[<span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">if</span> (blocked != <span class="hljs-literal">null</span>) &#123;
+            blocked.alive = <span class="hljs-literal">true</span>;
+            chessboard[by][bx] = blocked;
+        &#125;
+        blocked = <span class="hljs-literal">null</span>;
+        blocked2 = <span class="hljs-literal">null</span>;
+        blocked_pos[<span class="hljs-number">1</span>] = -<span class="hljs-number">1</span>;
+        blocked_pos[<span class="hljs-number">0</span>] = -<span class="hljs-number">1</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Piece <span class="hljs-title function_">getPiece</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, Player p)</span> &#123;
+        <span class="hljs-keyword">return</span> chessboard[getY(p, y)][getX(p, x)];
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">reverse</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-type">Player</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p1;
+        p1 = p2;
+        p2 = temp;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; y &lt; <span class="hljs-number">5</span>; y++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; x &lt; <span class="hljs-number">9</span>; x++) &#123;
+                <span class="hljs-type">Piece</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> chessboard[y][x];
+                chessboard[y][x] = chessboard[<span class="hljs-number">9</span>-y][<span class="hljs-number">8</span>-x];
+                chessboard[<span class="hljs-number">9</span>-y][<span class="hljs-number">8</span>-x] = t;
+            &#125;
+        &#125;
+        playerCheesing = !playerCheesing;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyTyped</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyPressed</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;
+        <span class="hljs-keyword">if</span> (e.getKeyCode() == KeyEvent.VK_E) reverse();
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseClicked</span><span class="hljs-params">(MouseEvent e)</span> &#123;
+        <span class="hljs-keyword">if</span> (end &gt; <span class="hljs-number">0</span> || e.getButton() != MouseEvent.BUTTON1) &#123;
+            setSelected(<span class="hljs-literal">null</span>);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> (e.getY()-ori)/cellEdge, x = (e.getX()-ori)/cellEdge;
+        <span class="hljs-keyword">if</span> (selected != <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] points: selectedRange) &#123;
+                <span class="hljs-keyword">if</span> (points[<span class="hljs-number">2</span>] == <span class="hljs-number">2</span>) <span class="hljs-keyword">continue</span>;
+                <span class="hljs-type">int</span> <span class="hljs-variable">px</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span> - points[<span class="hljs-number">0</span>], py = <span class="hljs-number">9</span> - points[<span class="hljs-number">1</span>];
+                <span class="hljs-keyword">if</span> (px == x &amp;&amp; py == y) &#123;
+                    selected.put(<span class="hljs-number">9</span>-y, <span class="hljs-number">8</span>-x);
+                    setSelected(<span class="hljs-literal">null</span>);
+                    playerCheesing = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">return</span>;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">if</span> (y &gt;= <span class="hljs-number">0</span> &amp;&amp; x &gt;= <span class="hljs-number">0</span> &amp;&amp; y &lt; <span class="hljs-number">10</span> &amp;&amp; x &lt; <span class="hljs-number">9</span>) setSelected(chessboard[y][x]);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mousePressed</span><span class="hljs-params">(MouseEvent e)</span> &#123;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseReleased</span><span class="hljs-params">(MouseEvent e)</span> &#123;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseEntered</span><span class="hljs-params">(MouseEvent e)</span> &#123;
+
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseExited</span><span class="hljs-params">(MouseEvent e)</span> &#123;
+
+    &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Player</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">CHANGE</span> <span class="hljs-operator">=</span> <span class="hljs-number">32</span>;
+    ArrayList&lt;Piece&gt; pieces = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+    <span class="hljs-keyword">private</span> Piece king;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> GamePanel broad;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Color color;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Player</span><span class="hljs-params">(<span class="hljs-type">int</span> p, GamePanel broad)</span> &#123;
+        <span class="hljs-built_in">this</span>.broad = broad;
+        <span class="hljs-built_in">this</span>.p = p;
+        <span class="hljs-keyword">if</span> ((p &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>) color = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">200</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">else</span> color = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initialize</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (king != <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">red</span> <span class="hljs-operator">=</span> (p &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : CHANGE;
+        king = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;K&#x27;</span> + red), <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>);
+        pieces.add(king);
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;C&#x27;</span> + red), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;N&#x27;</span> + red), <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;R&#x27;</span> + red), <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;X&#x27;</span> + red), <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;S&#x27;</span> + red), <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;S&#x27;</span> + red), <span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;X&#x27;</span> + red), <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;R&#x27;</span> + red), <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;N&#x27;</span> + red), <span class="hljs-number">7</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;C&#x27;</span> + red), <span class="hljs-number">8</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;P&#x27;</span> + red), <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;P&#x27;</span> + red), <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;P&#x27;</span> + red), <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;P&#x27;</span> + red), <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-built_in">this</span>));
+        pieces.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Piece</span>((<span class="hljs-type">char</span>) (<span class="hljs-string">&#x27;P&#x27;</span> + red), <span class="hljs-number">8</span>, <span class="hljs-number">3</span>, <span class="hljs-built_in">this</span>));
+    &#125;
+
+    <span class="hljs-keyword">public</span> GamePanel <span class="hljs-title function_">getBroad</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> broad;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Piece <span class="hljs-title function_">getKing</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> king;
+    &#125;
+
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Piece</span> &#123;
+    <span class="hljs-comment">// 以下各标记，大写为红方，小写为黑方</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">K</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;K&#x27;</span>;      <span class="hljs-comment">// 帥将</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">C</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;C&#x27;</span>;      <span class="hljs-comment">// 俥車</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">N</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;N&#x27;</span>;      <span class="hljs-comment">// 傌馬</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">P</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;P&#x27;</span>;      <span class="hljs-comment">// 兵卒</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">X</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;X&#x27;</span>;      <span class="hljs-comment">// 相象</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">R</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;R&#x27;</span>;      <span class="hljs-comment">// 炮砲</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">char</span> <span class="hljs-variable">S</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;S&#x27;</span>;      <span class="hljs-comment">// 仕士</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;Character, Character&gt; chineseCharacter = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+
+    <span class="hljs-keyword">static</span> &#123;
+        chineseCharacter.put(<span class="hljs-string">&#x27;K&#x27;</span>, <span class="hljs-string">&#x27;帥&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;k&#x27;</span>, <span class="hljs-string">&#x27;将&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;俥&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;車&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;N&#x27;</span>, <span class="hljs-string">&#x27;傌&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;n&#x27;</span>, <span class="hljs-string">&#x27;馬&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;兵&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;卒&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;X&#x27;</span>, <span class="hljs-string">&#x27;相&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;象&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;R&#x27;</span>, <span class="hljs-string">&#x27;炮&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;r&#x27;</span>, <span class="hljs-string">&#x27;砲&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;S&#x27;</span>, <span class="hljs-string">&#x27;仕&#x27;</span>);
+        chineseCharacter.put(<span class="hljs-string">&#x27;s&#x27;</span>, <span class="hljs-string">&#x27;士&#x27;</span>);
+    &#125;
+
+    <span class="hljs-comment">// 位置，红黑方各自的帅（将）初始位于各自的 (0,4) 位置，并认为对方的子力位置为 (9-y,8-x)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> y;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> x;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">char</span> species;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">alive</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> GamePanel board;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Player master;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Piece</span><span class="hljs-params">(<span class="hljs-type">char</span> s, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, Player master)</span> &#123;
+        <span class="hljs-built_in">this</span>.species = s;
+        <span class="hljs-built_in">this</span>.x = x;
+        <span class="hljs-built_in">this</span>.y = y;
+        <span class="hljs-built_in">this</span>.master = master;
+        <span class="hljs-built_in">this</span>.board = master.getBroad();
+        <span class="hljs-built_in">this</span>.board.add(<span class="hljs-built_in">this</span>);
+    &#125;
+
+
+    <span class="hljs-keyword">public</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getRange() &#123;
+        <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;K&#x27;</span> || species == <span class="hljs-string">&#x27;k&#x27;</span>) <span class="hljs-keyword">return</span> getKRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;C&#x27;</span> || species == <span class="hljs-string">&#x27;c&#x27;</span>) <span class="hljs-keyword">return</span> getCRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;N&#x27;</span> || species == <span class="hljs-string">&#x27;n&#x27;</span>) <span class="hljs-keyword">return</span> getNRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;P&#x27;</span> || species == <span class="hljs-string">&#x27;p&#x27;</span>) <span class="hljs-keyword">return</span> getPRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;X&#x27;</span> || species == <span class="hljs-string">&#x27;x&#x27;</span>) <span class="hljs-keyword">return</span> getXRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;R&#x27;</span> || species == <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">return</span> getRRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (species == <span class="hljs-string">&#x27;S&#x27;</span> || species == <span class="hljs-string">&#x27;s&#x27;</span>) <span class="hljs-keyword">return</span> getSRange(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getKRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">3</span>) checkToAdd(p, x - <span class="hljs-number">1</span>, y, res);
+        <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">5</span>) checkToAdd(p, x + <span class="hljs-number">1</span>, y, res);
+        <span class="hljs-keyword">if</span> (y &gt; <span class="hljs-number">0</span>) checkToAdd(p, x, y - <span class="hljs-number">1</span>, res);
+        <span class="hljs-keyword">if</span> (y &lt; <span class="hljs-number">2</span>) checkToAdd(p, x, y + <span class="hljs-number">1</span>, res);
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getCRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; ; i++) <span class="hljs-keyword">if</span> (checkToAdd(p, x + i, y, res)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; ; i++) <span class="hljs-keyword">if</span> (checkToAdd(p, x - i, y, res)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; ; i++) <span class="hljs-keyword">if</span> (checkToAdd(p, x, y + i, res)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; ; i++) <span class="hljs-keyword">if</span> (checkToAdd(p, x, y - i, res)) <span class="hljs-keyword">break</span>;
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getNRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">if</span> (checkPos(x - <span class="hljs-number">1</span>, y) &amp;&amp; p.board.checkPos(x - <span class="hljs-number">1</span>, y, p.master) == <span class="hljs-literal">null</span>) &#123;
+            checkToAdd(p, x - <span class="hljs-number">2</span>, y + <span class="hljs-number">1</span>, res);
+            checkToAdd(p, x - <span class="hljs-number">2</span>, y - <span class="hljs-number">1</span>, res);
+        &#125;
+        <span class="hljs-keyword">if</span> (checkPos(x + <span class="hljs-number">1</span>, y) &amp;&amp; p.board.checkPos(x + <span class="hljs-number">1</span>, y, p.master) == <span class="hljs-literal">null</span>) &#123;
+            checkToAdd(p, x + <span class="hljs-number">2</span>, y + <span class="hljs-number">1</span>, res);
+            checkToAdd(p, x + <span class="hljs-number">2</span>, y - <span class="hljs-number">1</span>, res);
+        &#125;
+        <span class="hljs-keyword">if</span> (checkPos(x, y - <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x, y - <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) &#123;
+            checkToAdd(p, x + <span class="hljs-number">1</span>, y - <span class="hljs-number">2</span>, res);
+            checkToAdd(p, x - <span class="hljs-number">1</span>, y - <span class="hljs-number">2</span>, res);
+        &#125;
+        <span class="hljs-keyword">if</span> (checkPos(x, y + <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x, y + <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) &#123;
+            checkToAdd(p, x - <span class="hljs-number">1</span>, y + <span class="hljs-number">2</span>, res);
+            checkToAdd(p, x + <span class="hljs-number">1</span>, y + <span class="hljs-number">2</span>, res);
+        &#125;
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getPRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">if</span> (y &lt; <span class="hljs-number">5</span>) checkToAdd(p, x, y + <span class="hljs-number">1</span>, res);
+        <span class="hljs-keyword">else</span> &#123;
+            checkToAdd(p, x - <span class="hljs-number">1</span>, y, res);
+            checkToAdd(p, x + <span class="hljs-number">1</span>, y, res);
+            checkToAdd(p, x, y + <span class="hljs-number">1</span>, res);
+        &#125;
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getXRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">if</span> (checkPos(x - <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x - <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) checkToAdd(p, x - <span class="hljs-number">2</span>, y - <span class="hljs-number">2</span>, res);
+        <span class="hljs-keyword">if</span> (y &lt; <span class="hljs-number">3</span> &amp;&amp; checkPos(x + <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x + <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) checkToAdd(p, x + <span class="hljs-number">2</span>, y + <span class="hljs-number">2</span>, res);
+        <span class="hljs-keyword">if</span> (checkPos(x + <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x + <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) checkToAdd(p, x + <span class="hljs-number">2</span>, y - <span class="hljs-number">2</span>, res);
+        <span class="hljs-keyword">if</span> (y &lt; <span class="hljs-number">3</span> &amp;&amp; checkPos(x - <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>) &amp;&amp; p.board.checkPos(x - <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>, p.master) == <span class="hljs-literal">null</span>) checkToAdd(p, x - <span class="hljs-number">2</span>, y + <span class="hljs-number">2</span>, res);
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getRRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, f = <span class="hljs-number">0</span>; x + i &lt; <span class="hljs-number">9</span>; i++) &#123;
+            <span class="hljs-type">Piece</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p.board.checkPos(x + i, y, p.master);
+            <span class="hljs-keyword">if</span> (temp != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">if</span> (f == <span class="hljs-number">1</span>) &#123;
+                    checkToAdd(p, x + i, y, res);
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+                f = <span class="hljs-number">1</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (f == <span class="hljs-number">0</span>) &#123;
+                checkToAdd(p, x + i, y, res);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, f = <span class="hljs-number">0</span>; x - i &gt;= <span class="hljs-number">0</span>; i++) &#123;
+            <span class="hljs-type">Piece</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p.board.checkPos(x - i, y, p.master);
+            <span class="hljs-keyword">if</span> (temp != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">if</span> (f == <span class="hljs-number">1</span>) &#123;
+                    checkToAdd(p, x - i, y, res);
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+                f = <span class="hljs-number">1</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (f == <span class="hljs-number">0</span>) &#123;
+                checkToAdd(p, x - i, y, res);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, f = <span class="hljs-number">0</span>; y + i &lt; <span class="hljs-number">10</span>; i++) &#123;
+            <span class="hljs-type">Piece</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p.board.checkPos(x, y + i, p.master);
+            <span class="hljs-keyword">if</span> (temp != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">if</span> (f == <span class="hljs-number">1</span>) &#123;
+                    checkToAdd(p, x, y + i, res);
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+                f = <span class="hljs-number">1</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (f == <span class="hljs-number">0</span>) &#123;
+                checkToAdd(p, x, y + i, res);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, f = <span class="hljs-number">0</span>; y - i &gt;= <span class="hljs-number">0</span>; i++) &#123;
+            <span class="hljs-type">Piece</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p.board.checkPos(x, y - i, p.master);
+            <span class="hljs-keyword">if</span> (temp != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">if</span> (f == <span class="hljs-number">1</span>) &#123;
+                    checkToAdd(p, x, y - i, res);
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+                f = <span class="hljs-number">1</span>;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (f == <span class="hljs-number">0</span>) &#123;
+                checkToAdd(p, x, y - i, res);
+            &#125;
+        &#125;
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ArrayList&lt;<span class="hljs-type">int</span>[]&gt; getSRange(Piece p) &#123;
+        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p.x, y = p.y;
+        ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-keyword">if</span> (x == <span class="hljs-number">4</span>) &#123;
+            checkToAdd(p, x + <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>, res);
+            checkToAdd(p, x - <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>, res);
+            checkToAdd(p, x + <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>, res);
+            checkToAdd(p, x - <span class="hljs-number">1</span>, y - <span class="hljs-number">1</span>, res);
+        &#125; <span class="hljs-keyword">else</span> checkToAdd(p, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, res);
+        res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">2</span>&#125;);
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkToAdd</span><span class="hljs-params">(Piece p, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, ArrayList&lt;<span class="hljs-type">int</span>[]&gt; res)</span> &#123;
+        <span class="hljs-keyword">if</span> (!checkPos(x, y)) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-type">Piece</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> p.board.checkPos(x, y, p.master);
+        <span class="hljs-keyword">if</span> (temp == <span class="hljs-literal">null</span>) res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">0</span>&#125;);
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">if</span> (temp.master != p.master) res.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;x, y, <span class="hljs-number">1</span>&#125;);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPos</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;
+        <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">9</span> &amp;&amp; x &gt;= <span class="hljs-number">0</span> &amp;&amp; y &lt; <span class="hljs-number">10</span> &amp;&amp; y &gt;= <span class="hljs-number">0</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Piece <span class="hljs-title function_">put</span><span class="hljs-params">(<span class="hljs-type">int</span> y, <span class="hljs-type">int</span> x)</span> &#123;
+        board.move(x, y, <span class="hljs-built_in">this</span>);
+        <span class="hljs-built_in">this</span>.y = y;
+        <span class="hljs-built_in">this</span>.x = x;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getX</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> x;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getY</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> y;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">char</span> <span class="hljs-title function_">getSpecies</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> species;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Player <span class="hljs-title function_">getMaster</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">return</span> master;
+    &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">AnalyseHelper</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Map&lt;Character, <span class="hljs-type">int</span>[][]&gt; pos_value = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Map&lt;Character, Integer&gt; value = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+
+    <span class="hljs-keyword">static</span> &#123;
+        <span class="hljs-type">int</span>[][] TEMP = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">10</span>][<span class="hljs-number">5</span>];
+        <span class="hljs-type">int</span>[][] KV = &#123;&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">10</span>,<span class="hljs-number">20</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;K&#x27;</span>, KV);
+        value.put(<span class="hljs-string">&#x27;K&#x27;</span>, <span class="hljs-number">10000</span>);
+        <span class="hljs-type">int</span>[][] CV = &#123;&#123;-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">50</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">20</span>,-<span class="hljs-number">40</span>&#125;,&#123;-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">20</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">50</span>&#125;
+                ,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>,<span class="hljs-number">10</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">20</span>,-<span class="hljs-number">5</span>,<span class="hljs-number">20</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>&#125;
+                ,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">30</span>,<span class="hljs-number">30</span>,<span class="hljs-number">10</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">35</span>,<span class="hljs-number">35</span>,<span class="hljs-number">50</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">20</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>,<span class="hljs-number">20</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;C&#x27;</span>, CV);
+        value.put(<span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-number">90</span>);
+        <span class="hljs-type">int</span>[][] NV = &#123;&#123;-<span class="hljs-number">40</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">30</span>,-<span class="hljs-number">50</span>&#125;,&#123;-<span class="hljs-number">20</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">35</span>,-<span class="hljs-number">50</span>&#125;,&#123;-<span class="hljs-number">10</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">10</span>,-<span class="hljs-number">40</span>&#125;
+                ,&#123;-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">10</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">25</span>,<span class="hljs-number">5</span>,<span class="hljs-number">25</span>,<span class="hljs-number">10</span>&#125;
+                ,&#123;<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">20</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">10</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">15</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;N&#x27;</span>, NV);
+        value.put(<span class="hljs-string">&#x27;N&#x27;</span>, <span class="hljs-number">40</span>);
+        <span class="hljs-type">int</span>[][] RV = &#123;&#123;-<span class="hljs-number">10</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">20</span>&#125;,&#123;-<span class="hljs-number">20</span>,-<span class="hljs-number">20</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">35</span>,-<span class="hljs-number">30</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">30</span>&#125;
+                ,&#123;-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">25</span>&#125;,&#123;<span class="hljs-number">25</span>,<span class="hljs-number">10</span>,<span class="hljs-number">30</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>&#125;,&#123;-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;,&#123;-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">30</span>&#125;
+                ,&#123;-<span class="hljs-number">30</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">5</span>,-<span class="hljs-number">15</span>,-<span class="hljs-number">5</span>&#125;,&#123;-<span class="hljs-number">30</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">10</span>,-<span class="hljs-number">10</span>&#125;,&#123;<span class="hljs-number">30</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-<span class="hljs-number">20</span>,-<span class="hljs-number">50</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;R&#x27;</span>, RV);
+        value.put(<span class="hljs-string">&#x27;R&#x27;</span>, <span class="hljs-number">45</span>);
+        <span class="hljs-type">int</span>[][] XV = &#123;&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">30</span>&#125;,&#123;&#125;,&#123;<span class="hljs-number">20</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">40</span>&#125;
+                ,&#123;&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">20</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;X&#x27;</span>, XV);
+        value.put(<span class="hljs-string">&#x27;X&#x27;</span>, <span class="hljs-number">20</span>);
+        <span class="hljs-type">int</span>[][] SV = &#123;&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">40</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">40</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">10</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;S&#x27;</span>, SV);
+        value.put(<span class="hljs-string">&#x27;S&#x27;</span>, <span class="hljs-number">20</span>);
+        <span class="hljs-type">int</span>[][] PV = &#123;&#123;&#125;,&#123;&#125;,&#123;&#125;
+                ,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">5</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">20</span>,<span class="hljs-number">25</span>,<span class="hljs-number">30</span>&#125;,&#123;<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>&#125;
+                ,&#123;<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>&#125;,&#123;<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">60</span>,<span class="hljs-number">70</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>&#125;&#125;;
+        pos_value.put(<span class="hljs-string">&#x27;P&#x27;</span>, PV);
+        value.put(<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-number">10</span>);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] analyse(Player cur, Player opp) &#123;
+        <span class="hljs-keyword">if</span> (cur.getBroad() != opp.getBroad()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>();
+        <span class="hljs-type">GamePanel</span> <span class="hljs-variable">broad</span> <span class="hljs-operator">=</span> cur.getBroad();
+        <span class="hljs-type">int</span> <span class="hljs-variable">score</span> <span class="hljs-operator">=</span> Integer.MIN_VALUE &gt;&gt; <span class="hljs-number">1</span>;
+        <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; cur.pieces.size(); i++) &#123;
+            <span class="hljs-type">Piece</span> <span class="hljs-variable">currentP</span> <span class="hljs-operator">=</span> cur.pieces.get(i);
+            <span class="hljs-keyword">if</span> (!currentP.alive) <span class="hljs-keyword">continue</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] p: currentP.getRange()) &#123;
+                <span class="hljs-keyword">if</span> (p[<span class="hljs-number">2</span>] == <span class="hljs-number">2</span>) <span class="hljs-keyword">continue</span>;
+                <span class="hljs-type">int</span> <span class="hljs-variable">newScore</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">if</span> (p[<span class="hljs-number">2</span>] == <span class="hljs-number">1</span>) newScore += value.get(Character.toUpperCase(broad.getPiece(p[<span class="hljs-number">0</span>], p[<span class="hljs-number">1</span>], cur).getSpecies()));
+                broad.block(p[<span class="hljs-number">1</span>], p[<span class="hljs-number">0</span>], currentP);
+                newScore += countScore(cur, opp);
+                <span class="hljs-keyword">if</span> (newScore &gt; score) &#123;
+                    score = newScore;
+                    res[<span class="hljs-number">0</span>] = i;
+                    res[<span class="hljs-number">1</span>] = p[<span class="hljs-number">0</span>];
+                    res[<span class="hljs-number">2</span>] = p[<span class="hljs-number">1</span>];
+                &#125;
+                broad.removeBlock();
+            &#125;
+        &#125;
+        broad.removeBlock();
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countScore</span><span class="hljs-params">(Player cur, Player opp)</span> &#123;
+        <span class="hljs-type">int</span>[][] positions = getPos(opp);
+        <span class="hljs-type">int</span> <span class="hljs-variable">currentScore</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (Piece p : cur.pieces) &#123;
+            <span class="hljs-keyword">if</span> (!p.alive) <span class="hljs-keyword">continue</span>;
+            <span class="hljs-type">char</span> <span class="hljs-variable">species</span> <span class="hljs-operator">=</span> Character.toUpperCase(p.getSpecies());
+            <span class="hljs-type">int</span> <span class="hljs-variable">py</span> <span class="hljs-operator">=</span> p.getY(), px = p.getX();
+            <span class="hljs-type">int</span> <span class="hljs-variable">cpv</span> <span class="hljs-operator">=</span> positions[py][px];
+            <span class="hljs-type">int</span> <span class="hljs-variable">currValue</span> <span class="hljs-operator">=</span> value.get(species) + pos_value.get(species)[py][px &gt; <span class="hljs-number">4</span> ? <span class="hljs-number">8</span>-px : px];
+            currentScore += currValue &gt;&gt; (cpv &amp; <span class="hljs-number">15</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> currentScore;
+    &#125;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[][] getPos(Player opp) &#123;
+        <span class="hljs-type">int</span>[][] positions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">10</span>][<span class="hljs-number">9</span>];
+        <span class="hljs-keyword">for</span> (Piece op: opp.pieces) &#123;
+            <span class="hljs-keyword">if</span> (!op.alive) <span class="hljs-keyword">continue</span>;
+            <span class="hljs-type">char</span> <span class="hljs-variable">species</span> <span class="hljs-operator">=</span> Character.toUpperCase(op.getSpecies());
+            <span class="hljs-type">int</span> <span class="hljs-variable">normalMove</span> <span class="hljs-operator">=</span> species == <span class="hljs-string">&#x27;C&#x27;</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] pos : op.getRange()) &#123;
+                <span class="hljs-keyword">if</span> (pos[<span class="hljs-number">2</span>] == <span class="hljs-number">0</span>) positions[<span class="hljs-number">9</span>-pos[<span class="hljs-number">1</span>]][<span class="hljs-number">8</span>-pos[<span class="hljs-number">0</span>]] += normalMove;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pos[<span class="hljs-number">2</span>] == <span class="hljs-number">1</span>) positions[<span class="hljs-number">9</span>-pos[<span class="hljs-number">1</span>]][<span class="hljs-number">8</span>-pos[<span class="hljs-number">0</span>]]++;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> positions;
+    &#125;
+&#125;
+</code></pre></div>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9D%82%E7%89%A9/" class="category-chain-item">杂物</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>中国象棋</div>
+      <div>https://i-melody.github.io/2023/05/25/杂项/中国象棋/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月25日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://space.bilibili.com/17026508" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
