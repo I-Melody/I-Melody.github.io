@@ -24,7 +24,7 @@
 <meta property="og:description" content="8 goroutine 和 channel 8.1 单元测试  传统的测试方法需要在 main 函数中调用，每次要修改 main 函数，很不方便。 测试多个模块时都要写在 main 函数，也不便于管理。  Golang 中带有一个轻量级的测试框架 testing 和自带的 go test 命令来实现单元测试和性能测试。 testing 框架可以基于该框架编写针对相应函数的测试用例，也能基于该框架写">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-04T00:34:32.506Z">
+<meta property="article:modified_time" content="2023-06-27T03:22:58.324Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Go">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k 字
+          4.8k 字
         
       </span>
     
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月4日 早上
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -312,7 +312,7 @@
 <li>确保写出来的代码是好的</li>
 <li>及时发现程序设计或实现的逻辑错误，使问题及早暴露。性能测试重点在于发现程序设计上的一些问题，让程序在高并发状态下也能稳定运行。</li>
 </ul>
-<h4 id="单元测试流程">单元测试流程</h4>
+<h4 id="单元测试流程">#单元测试流程</h4>
 <ol start="0">
 <li>
 <p>原本的文件，其中包含待测试的函数</p>
@@ -394,7 +394,7 @@
 <p>其中 PASS 表示测试用例运行成功，FAIL 表示测试用例运行失败</p>
 </li>
 </ol>
-<h4 id="注意事项">注意事项</h4>
+<h4 id="注意事项">#注意事项</h4>
 <ul>
 <li>测试用例的文件名必须是 <code>xxx_test.go</code> 格式。即文件名以 <code>_test.go</code> 结尾</li>
 <li>测试用例函数名是 <code>TestXxx</code> 格式。其中 <code>Xxx</code> 部分必须大写开头，一般是被测试的函数名</li>
@@ -408,7 +408,7 @@
 <p>一个程序至少有一个进程。一个进程至少有一个线程</p>
 <p><strong>并发</strong>：多线程程序在单核上运行。各个线程会被轮流执行，同一时间只有一个线程执行。</p>
 <p><strong>并行</strong>：多线程程序在多核上运行。各个线程在不同 CPU 上同时执行</p>
-<h4 id="Go-协程和主线程">Go 协程和主线程</h4>
+<h4 id="Go-协程和主线程">#Go 协程和主线程</h4>
 <blockquote>
 <p>Go 的主线程（进程/线程）上，可以起多个协程。协程是轻量级的线程</p>
 <p>主线程是一个物理线程，是重量级的，非常耗费 CPU 资源</p>
@@ -447,12 +447,12 @@ B -.协程.-&gt; BB(协程调用函数)</code></pre>
 <p>在 goroutine 中使用 recover，解决协程中出现的 panic</p>
 </li>
 </ul>
-<h4 id="MPG-模式">MPG 模式</h4>
+<h4 id="MPG-模式">#MPG 模式</h4>
 <p>M：操作系统的主线程（物理线程）</p>
 <p>P：协程需要的上下文环境</p>
 <p>G：协程</p>
 <p><font color="#FF0000" size="6">☆</font></p>
-<h4 id="设置-Go-运行的-CPU-数">设置 Go 运行的 CPU 数</h4>
+<h4 id="设置-Go-运行的-CPU-数">#设置 Go 运行的 CPU 数</h4>
 <p>为了充分利用多 CPU 的优势，在 Go 语言中，可以设置运行 CPU 数量</p>
 <p>在 runtime 包中包含了 Go 运行环境的互操作。</p>
 <ul>
@@ -511,7 +511,7 @@ B -.协程.-&gt; BB(协程调用函数)</code></pre>
 <p>所以就要使用 channel 啦</p>
 <p>channel 的本质是一个队列，数据先进先出。channel 是数据安全的，不需要加锁。</p>
 <p>channel 是有类型的，一个 string 类型的 channel 只能存放 string 类型数据</p>
-<h4 id="声明-定义-channel：">声明/定义 channel：</h4>
+<h4 id="声明-定义-channel：">#声明/定义 channel：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> c1 <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>					<span class="hljs-comment">// 一个存放 int 的 channel</span>
 c2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">2</span>)</code></pre></div>
 <p>channel 是引用类型。channel 需初始化后（make 后）才能写入数据</p>
@@ -519,7 +519,7 @@ c2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</s
 <p>不过，也可以试试这个</p>
 <div class="code-wrapper"><pre><code class="hljs go">cc := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-number">0</span>)</code></pre></div>
 <p>因为任何类型都实现了空接口，所以这个 channel 存放的是任意类型的数据。但使用数据时可能需要类型断言。</p>
-<h4 id="加入数据：">加入数据：</h4>
+<h4 id="加入数据：">#加入数据：</h4>
 <div class="code-wrapper"><pre><code class="hljs go">c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">3</span>)				<span class="hljs-comment">// 初始化</span>
 c &lt;- <span class="hljs-number">1</span>								<span class="hljs-comment">// 写入一个数据</span>
 c &lt;- <span class="hljs-number">5</span> &lt;&lt; <span class="hljs-number">2</span>							<span class="hljs-comment">// 写入一个数据（表达式 5 &lt;&lt; 2）</span>
@@ -527,20 +527,20 @@ fmt.Println(<span class="hljs-built_in">len</span>(c), <span class="hljs-built_i
 c &lt;- <span class="hljs-number">-1</span></code></pre></div>
 <p>边写边读的场合，写入数据而超过最大容量时，那个写入会阻塞，直到有数据取出。</p>
 <p>没有协程读取数据的场合，给管道写入数据超过那个最大容量时，就会报错</p>
-<h4 id="取出数据：">取出数据：</h4>
+<h4 id="取出数据：">#取出数据：</h4>
 <div class="code-wrapper"><pre><code class="hljs go">n := &lt;-c							<span class="hljs-comment">// 取出一个数据</span>
 fmt.Println(n, &lt;-c)					<span class="hljs-comment">// 1 20</span>
 &lt;-c									<span class="hljs-comment">// 仅取出数据而不接收</span>
 fmt.Println(<span class="hljs-built_in">len</span>(c), <span class="hljs-built_in">cap</span>(c))			<span class="hljs-comment">// 0 3</span></code></pre></div>
 <p>在没有协程的情况下，向空管道索取数据会报错（deadlock）</p>
-<h4 id="关闭-channel：">关闭 channel：</h4>
+<h4 id="关闭-channel：">#关闭 channel：</h4>
 <p>使用内置函数 close 以关闭 channel。关闭后，该 channel 不再接收数据，但仍能取出数据</p>
 <div class="code-wrapper"><pre><code class="hljs go">c3 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">3</span>)
 c3 &lt;- <span class="hljs-number">1</span>
 <span class="hljs-built_in">close</span>(c3)						<span class="hljs-comment">// 关闭了 channel</span>
 &lt;-c3							<span class="hljs-comment">// 仍能取出数据</span>
 c3 &lt;- <span class="hljs-number">1</span>					<span class="hljs-comment">// 此处会报错，因为管道已经关闭 			☆</span></code></pre></div>
-<h4 id="遍历-channel：">遍历 channel：</h4>
+<h4 id="遍历-channel：">#遍历 channel：</h4>
 <p>channel 支持 for-range 遍历。那个遍历时没有下标。</p>
 <p>在 channel 未关闭前进行遍历，遍历到最后会阻塞，直到 channel 关闭时才完成遍历。没有协程的场合，遍历一个未关闭的 channel 时会报错（deadlock）</p>
 <div class="code-wrapper"><pre><code class="hljs go">c4 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>, <span class="hljs-number">10</span>)
@@ -553,7 +553,7 @@ c3 &lt;- <span class="hljs-number">1</span>					<span class="hljs-comment">// �
 <span class="hljs-keyword">for</span> v := <span class="hljs-keyword">range</span> c4 &#123;
     fmt.Print(v, <span class="hljs-string">&quot; &quot;</span>)
 &#125;</code></pre></div>
-<h4 id="注意事项-2">注意事项</h4>
+<h4 id="注意事项-2">#注意事项</h4>
 <ul>
 <li>
 <p>默认情况下，channel 是双向管道。但也能声明为 只读/只写 的形式。</p>

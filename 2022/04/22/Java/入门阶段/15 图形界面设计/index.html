@@ -24,7 +24,7 @@
 <meta property="og:description" content="15 图形界面设计  图形用户界面（Graphical User Interface，简称 GUI）是大多数程序不可缺少的部分。 Java 的图形界面由各种组件组成。在 java.awt 和 java.swing 包中定义了多种用于创建图形用户界面的组件类。 Swing 组件和 AWT 组件最大的不同是 Swing 组件实现时不包含任何本地代码，因此不受硬件平台的限制，而具有更多的功能，并且在任何">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-05T08:01:10.495Z">
+<meta property="article:modified_time" content="2023-06-27T03:15:05.905Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月5日 下午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -406,7 +406,7 @@ jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加�
 <blockquote>
 <p>普通面板（JPanel）和滚动面板（JScrollPanel）都是用途广泛的容器。面板与顶层容器不同，不能独立存在，而必须添加到其他容器内部。面板可以嵌套，由此可以设计出复杂的图形用户界面。</p>
 </blockquote>
-<h4 id="15-1-3-1-JPanel">15.1.3.1 JPanel</h4>
+<h4 id="15-1-3-1-JPanel">#15.1.3.1 JPanel</h4>
 <p><strong>构造方法：</strong></p>
 <ul>
 <li><code>new JPanel()</code>：创建具有 FlowLayout 布局的新面板</li>
@@ -416,7 +416,7 @@ jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加�
 <ul>
 <li><code>Component add(Compinent comp)</code>：将指定组件添加至面板</li>
 </ul>
-<h4 id="15-1-3-2-JScrollPanel">15.1.3.2 JScrollPanel</h4>
+<h4 id="15-1-3-2-JScrollPanel">#15.1.3.2 JScrollPanel</h4>
 <p>JScrollPanel 是一个带有滚动条的面板，但只能添加一个组件。添加多个组件的场合，先将那些组件添加入 JPanel 对象，再将该 JPanel 对象添加进 JScrollPanel 对象中</p>
 <p><strong>构造方法：</strong></p>
 <ul>
@@ -444,7 +444,7 @@ jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加�
 </ul>
 </li>
 </ul>
-<h4 id="15-1-3-3-Scrollbar">15.1.3.3 Scrollbar</h4>
+<h4 id="15-1-3-3-Scrollbar">#15.1.3.3 Scrollbar</h4>
 <p>AWT 中还有一个滚动条组件，提供了允许用户在一定范围的值中进行选择的便捷方式</p>
 <p><strong>构造器：</strong></p>
 <ul>
@@ -501,7 +501,7 @@ jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加�
 <p>经常用到的按钮有 4 种形式：按钮（JButton）、切换按钮（JToggleButton）、复选按钮（JCheckButton）、单选按钮（JRadioButton）</p>
 <p>这些按钮类均是 AbstractButton 的子类或间接子类</p>
 </blockquote>
-<h4 id="15-2-2-1-JButton">15.2.2.1 JButton</h4>
+<h4 id="15-2-2-1-JButton">#15.2.2.1 JButton</h4>
 <p><strong>构造器：</strong></p>
 <ul>
 <li><code>new JButton()</code>：构造一个既没有文本也没有图标的按钮</li>
@@ -532,7 +532,7 @@ jfream.setContentPane(contentPane);					<span class="hljs-comment">//[4] 添加�
 <p><code>void removeActionListener(ActionListener l)</code>：移除事件监听程序</p>
 </li>
 </ul>
-<h4 id="15-2-2-2-JToggleButton、JCheckButton、JRadioButton">15.2.2.2 JToggleButton、JCheckButton、JRadioButton</h4>
+<h4 id="15-2-2-2-JToggleButton、JCheckButton、JRadioButton">#15.2.2.2 JToggleButton、JCheckButton、JRadioButton</h4>
 <blockquote>
 <p>JToggleButton 是有两种状态（选中状态、未选中状态）的按钮。通过点击切换这两种状态</p>
 <p>JCheckButton、JRadioButton 是 JToggleButton 的子类，构造方法与 JToggleButton 相同。</p>
@@ -779,7 +779,7 @@ jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyButton</span><span class="hljs-params">()</span> &#123;
         addActionListener(<span class="hljs-built_in">this</span>);
     &#125;
-	                              
+	                                 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> &#123;
         System.out.println(<span class="hljs-string">&quot;Pressed&quot;</span>);
@@ -1152,7 +1152,7 @@ jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class
 <p>我感觉是和 PS 里的浮雕效果类似，生成了亮部和暗部。rasied 决定是凸起还是凹陷。</p>
 </li>
 </ul>
-<h4 id="15-5-3-1-Polygon-类">15.5.3.1 Polygon 类</h4>
+<h4 id="15-5-3-1-Polygon-类">#15.5.3.1 Polygon 类</h4>
 <blockquote>
 <p>Polygon 对象封装了多边形的坐标。</p>
 </blockquote>
@@ -1188,7 +1188,7 @@ jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class
 <p>为了解决图形对象的局限性，Java 1.1 后 引入了 Java 2D，其包含一个继承自 Graphics 的 Graphics2D 类，增加了很多状态属性，扩展了 Java 的绘图功能</p>
 <p>Graphics2D 拥有强大的二维图形处理能力，提供对几何形状、坐标转换、颜色管理、文字布局等更复杂的控制</p>
 </blockquote>
-<h4 id="15-5-4-1-图形状态属性">15.5.4.1 图形状态属性</h4>
+<h4 id="15-5-4-1-图形状态属性">#15.5.4.1 图形状态属性</h4>
 <blockquote>
 <p>通过设定和修改属性，可以指定画笔宽度和画笔连接方式、设定平移、旋转、缩放或裁剪变换图形，还能设置填充图形的颜色和图案等。</p>
 </blockquote>
@@ -1285,7 +1285,7 @@ jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class
 <p>通过 <code>setComposite(Composite comp)</code> 设置混合效果</p>
 </li>
 </ul>
-<h4 id="15-5-4-2-Graphics2D-的绘图方法">15.5.4.2 Graphics2D 的绘图方法</h4>
+<h4 id="15-5-4-2-Graphics2D-的绘图方法">#15.5.4.2 Graphics2D 的绘图方法</h4>
 <blockquote>
 <p>Graphics2D 保留了 Graphics 的绘图方法，又增加了很多新方法</p>
 <p>另外，在 java.awt.geom 中声明了一系列类，能用于创建各种几何图形对象，包括：Line2D 线段类、Rectangle2D 矩形类、RoundRectangle2D 圆角矩形类、Ellipse2D 椭圆类、Arc2D 圆弧类、QuadCurve2D 二次曲线类、CubicCurve2D 三次曲线类</p>
@@ -1312,7 +1312,7 @@ jp.setLayout(<span class="hljs-keyword">new</span> <span class="hljs-title class
 </li>
 </ol>
 </blockquote>
-<h4 id="15-5-4-3-Graphics2D-中的几何图形类">15.5.4.3 Graphics2D 中的几何图形类</h4>
+<h4 id="15-5-4-3-Graphics2D-中的几何图形类">#15.5.4.3 Graphics2D 中的几何图形类</h4>
 <ul>
 <li>
 <p><code>new Line2D.Double(int x1, int y1, int x2, int y2)</code>：线段</p>

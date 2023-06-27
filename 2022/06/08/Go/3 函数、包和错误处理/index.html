@@ -16,15 +16,15 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="3 函数、包和错误处理 3.1 包 go 以包的形式管理文件和项目目录结构。Go 中的每个文件都属于一个包。 包的作用：  区分相同名字的函数、变量等标识符 程序文件繁多时，可以很好地管理项目 控制函数、变量等访问范围（作用域）  语法： package 包名				&#x2F;&#x2F; 文件打包 import &quot;包的路径&quot;			&#x2F;&#x2F; 引入包 使用细节：   文件打包时，让该包对应文件夹名。包">
+    <meta name="description" content="3 函数、包和错误处理 3.1 包 go 以包的形式管理文件和项目目录结构。Go 中的每个文件都属于一个包。 #包的作用：  区分相同名字的函数、变量等标识符 程序文件繁多时，可以很好地管理项目 控制函数、变量等访问范围（作用域）  #语法： package 包名				&#x2F;&#x2F; 文件打包 import &quot;包的路径&quot;			&#x2F;&#x2F; 引入包 #使用细节：   文件打包时，让该包对应文件夹">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;Go&gt;3 函数、包和错误处理">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/08/Go/3%20%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%85%E5%92%8C%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="3 函数、包和错误处理 3.1 包 go 以包的形式管理文件和项目目录结构。Go 中的每个文件都属于一个包。 包的作用：  区分相同名字的函数、变量等标识符 程序文件繁多时，可以很好地管理项目 控制函数、变量等访问范围（作用域）  语法： package 包名				&#x2F;&#x2F; 文件打包 import &quot;包的路径&quot;			&#x2F;&#x2F; 引入包 使用细节：   文件打包时，让该包对应文件夹名。包">
+<meta property="og:description" content="3 函数、包和错误处理 3.1 包 go 以包的形式管理文件和项目目录结构。Go 中的每个文件都属于一个包。 #包的作用：  区分相同名字的函数、变量等标识符 程序文件繁多时，可以很好地管理项目 控制函数、变量等访问范围（作用域）  #语法： package 包名				&#x2F;&#x2F; 文件打包 import &quot;包的路径&quot;			&#x2F;&#x2F; 引入包 #使用细节：   文件打包时，让该包对应文件夹">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-09T12:14:43.619Z">
+<meta property="article:modified_time" content="2023-06-27T03:22:29.821Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Go">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月9日 晚上
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -301,16 +301,16 @@
               <h1>3 函数、包和错误处理</h1>
 <h2 id="3-1-包">3.1 包</h2>
 <p>go 以包的形式管理文件和项目目录结构。Go 中的每个文件都属于一个包。</p>
-<h4 id="包的作用：">包的作用：</h4>
+<h4 id="包的作用：">#包的作用：</h4>
 <ul>
 <li>区分相同名字的函数、变量等标识符</li>
 <li>程序文件繁多时，可以很好地管理项目</li>
 <li>控制函数、变量等访问范围（作用域）</li>
 </ul>
-<h4 id="语法：">语法：</h4>
+<h4 id="语法：">#语法：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> 包名				<span class="hljs-comment">// 文件打包</span>
 <span class="hljs-keyword">import</span> <span class="hljs-string">&quot;包的路径&quot;</span>			<span class="hljs-comment">// 引入包</span></code></pre></div>
-<h4 id="使用细节：">使用细节：</h4>
+<h4 id="使用细节：">#使用细节：</h4>
 <ul>
 <li>
 <p>文件打包时，让该包对应文件夹名。包名与文件夹名一致，且为小写字母</p>
@@ -348,14 +348,14 @@
 <h2 id="3-2-函数">3.2 函数</h2>
 <p>为完成某一功能的程序指令的集合，称为函数。程序不能没有函数，就像西方不能失去耶路撒冷。</p>
 <p>在 Go 中，函数分为：自定义函数、系统函数</p>
-<h4 id="基本语法：">基本语法：</h4>
+<h4 id="基本语法：">#基本语法：</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> 函数名 <span class="hljs-params">(形参列表)</span></span> (返回值列表) &#123;
     执行语句
     <span class="hljs-keyword">return</span> 返回值列表
 &#125;</code></pre></div>
 <p>可以没有返回值。这个场合，也能没有 return 语句</p>
 <p>只有一个返回值（且未命名）时，那个返回值列表的括号也能省略</p>
-<h4 id="注意事项：">注意事项：</h4>
+<h4 id="注意事项：">#注意事项：</h4>
 <ul>
 <li>
 <p>接收函数返回值时，如果希望忽略某个返回值，可以使用 <code>_</code> 接收那个希望忽略的值</p>
@@ -452,7 +452,7 @@ n = myInt(i)				<span class="hljs-comment">// 需要进行类型转换</span></c
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span> &#123;
     ...
 &#125;</code></pre></div>
-<h4 id="注意事项：-2">注意事项：</h4>
+<h4 id="注意事项：-2">#注意事项：</h4>
 <ul>
 <li>
 <p>如果一个文件包含 全局变量定义、init 函数 和 main 函数，其执行流程是：</p>
@@ -469,7 +469,7 @@ n = myInt(i)				<span class="hljs-comment">// 需要进行类型转换</span></c
 <h3 id="3-2-2-匿名函数">3.2.2 匿名函数</h3>
 <p>Go 支持匿名函数。如果我们希望某个函数只使用一次，可以使用匿名函数。</p>
 <p>匿名函数也能多次调用。</p>
-<h4 id="使用方式：">使用方式：</h4>
+<h4 id="使用方式：">#使用方式：</h4>
 <ul>
 <li>
 <p>将匿名函数赋给变量。通过变量来调用</p>
@@ -523,7 +523,7 @@ f(<span class="hljs-number">0</span>)</code></pre></div>
 <blockquote>
 <p>此时，系统依次输出 100 、10(defer2)、0(defer1)</p>
 </blockquote>
-<h4 id="注意事项：-3">注意事项：</h4>
+<h4 id="注意事项：-3">#注意事项：</h4>
 <ul>
 <li>
 <p>执行函数时，如果遇到 defer 语句，系统不会执行该语句，而是会将其压入栈中。</p>
@@ -677,7 +677,7 @@ fmt.Println(i / n)				<span class="hljs-comment">// 这里出现一处除以 0 �
 <p>以上代码输出：Error -runtime error: integer divide by zero</p>
 </blockquote>
 <p>加入错误处理后，程序不会轻易崩溃。如果加入预警代码，就能增强代码健壮性</p>
-<h4 id="自定义错误：">自定义错误：</h4>
+<h4 id="自定义错误：">#自定义错误：</h4>
 <p>Go 语言支持自定义错误。</p>
 <ul>
 <li><code>errors.New(string) error</code>：传入错误说明，返回一个 error 对象</li>

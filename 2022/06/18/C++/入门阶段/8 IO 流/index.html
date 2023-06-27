@@ -16,15 +16,15 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="8 I&#x2F;O 流  C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  C++ 流类库关系图： graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(ostream) --&gt; o(iostre">
+    <meta name="description" content="8 I&#x2F;O 流  C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  #C++ 流类库关系图： graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(ostream) --&gt; o(iostr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;C++&gt;8 I&#x2F;O 流">
 <meta property="og:url" content="https://i-melody.github.io/2022/06/18/C++/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/8%20IO%20%E6%B5%81/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="8 I&#x2F;O 流  C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  C++ 流类库关系图： graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(ostream) --&gt; o(iostre">
+<meta property="og:description" content="8 I&#x2F;O 流  C++ 中没有输入&#x2F;输出语句，但有一个面向对象的输入&#x2F;输出软件包，即 I&#x2F;O 流类库。 流是 I&#x2F;O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。  #C++ 流类库关系图： graph TD a(ios) --&gt; b(istream) c --&gt; e(ofstream) a --&gt; c(ostream) --&gt; o(iostr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-20T09:26:01.319Z">
+<meta property="article:modified_time" content="2023-06-27T03:24:19.549Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C++">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月20日 下午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -303,7 +303,7 @@
 <p>C++ 中没有输入/输出语句，但有一个面向对象的输入/输出软件包，即 I/O 流类库。</p>
 <p>流是 I/O 流类库的核心概念。一般意义上说，凡是数据从一处传输到另一处都是流的操作。</p>
 </blockquote>
-<h4 id="C-流类库关系图：">C++ 流类库关系图：</h4>
+<h4 id="C-流类库关系图：">#C++ 流类库关系图：</h4>
 <pre><code class=" mermaid">graph TD
 a(ios) --&gt; b(istream)
 c --&gt; e(ofstream)
@@ -345,7 +345,7 @@ o --&gt; m(fstream)</code></pre>
 </li>
 </ul>
 <p>程序中可以直接对上述 4 个预定义的标准流进行操作，而无需事先进行 “打开” 操作，也无需在事后进行 “关闭”。系统已经预先为每个程序都隐含了对他们的打开和关闭操作。</p>
-<h4 id="错误状态字">错误状态字</h4>
+<h4 id="错误状态字">#错误状态字</h4>
 <p>C++ 在 ios 类中定义了相关的错误状态字来反映流的状态。</p>
 <p>状态字的每一位对应流的一种错误状态，用一个对应的标识常量标记</p>
 <table>
@@ -375,7 +375,7 @@ o --&gt; m(fstream)</code></pre>
         <td align="left">非法操作，数据丢失，无法恢复</td>
     </tr>
 </table>
-<h4 id="常用函数：">常用函数：</h4>
+<h4 id="常用函数：">#常用函数：</h4>
 <ul>
 <li>
 <p><code>FILE* freopen(const char* path, const char* mode, FILE* stream)</code></p>
@@ -417,7 +417,7 @@ o --&gt; m(fstream)</code></pre>
 <p>不同的应用会对数据输入/输出的格式提出不同的要求。可以在使用 cout 输出时控制格式。</p>
 <h3 id="8-2-1-流操作符">8.2.1 流操作符</h3>
 <p>为方便使用，C++ 中对所有的基本数据类型均设置了默认的数据输入/数据输出格式。</p>
-<h4 id="默认的输出-输入格式：">默认的输出/输入格式：</h4>
+<h4 id="默认的输出-输入格式：">#默认的输出/输入格式：</h4>
 <table>
     <tr align="center">
     	<th>I/O 的数据类型</th>
@@ -457,7 +457,7 @@ o --&gt; m(fstream)</code></pre>
 </table>
 <p>C++ 在 iostream 中提供了一些常用的无参数的流操作符（也称格式控制符）</p>
 <p>流操作符可以直接用在 <code>&gt;&gt;</code> 或 <code>&lt;&lt;</code> 后，使用便捷。</p>
-<h4 id="常用的格式控制符：">常用的格式控制符：</h4>
+<h4 id="常用的格式控制符：">#常用的格式控制符：</h4>
 <p>使用以下格式控制符时要包含头文件 iostream</p>
 <table>
     <tr align="center">
@@ -501,7 +501,7 @@ o --&gt; m(fstream)</code></pre>
         <td>O</td>
     </tr>
 </table>
-<h4 id="常用的格式控制流操作符：">常用的格式控制流操作符：</h4>
+<h4 id="常用的格式控制流操作符：">#常用的格式控制流操作符：</h4>
 <p>使用以下格式控制符时要包含头文件 iomanip</p>
 <table>
     <tr align="center">
@@ -619,7 +619,7 @@ o --&gt; m(fstream)</code></pre>
 <h3 id="8-2-2-标志字">8.2.2 标志字</h3>
 <p>为满足不同用户对数据输入/输出 格式的要求，C++ 提供了通过 setiosflags() 设置标志字进行格式控制的方式。函数的参数为流的格式标志位</p>
 <p>标志字是一个 long 型的数据，由若干系统定义的格式控制标志位组合而成</p>
-<h4 id="常见标志">常见标志</h4>
+<h4 id="常见标志">#常见标志</h4>
 <table>
     <tr align="center">
     	<th>标志常量名</th>
@@ -730,7 +730,7 @@ o --&gt; m(fstream)</code></pre>
     </tr>
 </table>
 <h2 id="8-3-cin-cout-常用函数">8.3 cin/cout 常用函数</h2>
-<h4 id="cin">cin</h4>
+<h4 id="cin">#cin</h4>
 <ul>
 <li>
 <p><code>long flags(long lFlags)</code>：用传入关键字替换原先标志字。返回那个原来的标志字</p>
@@ -770,7 +770,7 @@ o --&gt; m(fstream)</code></pre>
 <li><code>ostream&amp; put(char)</code>：向流中插入字符</li>
 <li><code>ostream&amp; write(const char* pch, int nCount)</code>：向流中插入 pch 指向的长度为 nCount 的序列</li>
 </ul>
-<h4 id="cout">cout</h4>
+<h4 id="cout">#cout</h4>
 <ul>
 <li>
 <p><code>int get()</code>：从输入流中读取一个字符。</p>
@@ -817,7 +817,7 @@ o --&gt; m(fstream)</code></pre>
 <p>文件格式是：文本方式、二进制方式</p>
 </li>
 </ul>
-<h4 id="打开文件的方式">打开文件的方式</h4>
+<h4 id="打开文件的方式">#打开文件的方式</h4>
 <ul>
 <li>
 <p>先建立流对象，再调用 open 函数</p>
@@ -834,7 +834,7 @@ ofs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:\1
 <div class="code-wrapper"><pre><code class="hljs c++">cout &lt;&lt; (ofs ? <span class="hljs-string">&quot;打开成功&quot;</span> : <span class="hljs-string">&quot;打开失败&quot;</span>) &lt;&lt; endl;</code></pre></div>
 </li>
 </ul>
-<h4 id="文件打开模式标记">文件打开模式标记</h4>
+<h4 id="文件打开模式标记">#文件打开模式标记</h4>
 <table>
     <tr align="center">
     	<th>模式标记</th>
@@ -874,7 +874,7 @@ ofs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:\1
 </table>
 <p>标记可以组合使用。组合时，使用 <code>|</code> 符号分隔。如：</p>
 <p><code>ios::in | ios::out</code>：此时既可以读也可以写，且打开文件时原有内容保持不变</p>
-<h4 id="关闭文件">关闭文件</h4>
+<h4 id="关闭文件">#关闭文件</h4>
 <p>发出关闭文件指令后，系统会将缓存区数据完整写入文件，并添加文件结束标记，切断流对象与外部文件的连接。</p>
 <p>使用 fstream 的成员函数 close 关闭文件</p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">ofstream <span class="hljs-title">ofs</span><span class="hljs-params">(<span class="hljs-string">&quot;D:\1.txt&quot;</span>, ios::out | ios::app)</span></span>;
@@ -883,7 +883,7 @@ ofs.<span class="hljs-built_in">close</span>();			<span class="hljs-comment">// 
 <h3 id="8-4-2-读写文件">8.4.2 读写文件</h3>
 <p>每个文件都有一个结束标识。对于文本文件来说，C++ 在 iostream 中定义了一个标识文件结束的标识常量 EOF，其值为 <code>0x1A</code> 的字符。关闭文件流时，该字符被自动加入文件尾部。</p>
 <p>在键盘操作时，按下 ctrl + Z 组合键即可在标准输入流 cin 中输入文件结束符</p>
-<h4 id="写文件">写文件</h4>
+<h4 id="写文件">#写文件</h4>
 <div class="code-wrapper"><pre><code class="hljs c++">ofstream ofs;					<span class="hljs-comment">// [2] 创建流对象</span>
 ofs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:/1.txt&quot;</span>);			<span class="hljs-comment">// [3] 打开文件</span>
 ofs &lt;&lt; <span class="hljs-string">&quot;OFS&quot;</span>;					<span class="hljs-comment">// [4] 写入数据</span>
@@ -906,7 +906,7 @@ ofs.<span class="hljs-built_in">close</span>();					<span class="hljs-comment">/
 <p>关闭文件：<code>ofs.close();</code></p>
 </li>
 </ol>
-<h4 id="读文件">读文件</h4>
+<h4 id="读文件">#读文件</h4>
 <div class="code-wrapper"><pre><code class="hljs c++">ifstream ifs;							<span class="hljs-comment">// [2] 创建流对象</span>
 ifs.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;D:/1.txt&quot;</span>, ios::in);			<span class="hljs-comment">// [3] 打开文件</span>
 <span class="hljs-keyword">if</span> (!ifs.<span class="hljs-built_in">is_open</span>()) <span class="hljs-keyword">return</span>;
@@ -954,7 +954,7 @@ ifs &gt;&gt; c;									<span class="hljs-comment">// 读取一个字符</span>
 <h3 id="8-4-3-二进制文件">8.4.3 二进制文件</h3>
 <p>二进制文件也被称为 类型文件。</p>
 <p>二进制文件以基本数据类型的二进制形式存放。其数据存储格式与内存一致，且长度仅与数据类型有关。二进制数据流不会对写入读出的数据做格式转换，便于高速处理数据。</p>
-<h4 id="二进制文件与文本文件的区别">二进制文件与文本文件的区别</h4>
+<h4 id="二进制文件与文本文件的区别">#二进制文件与文本文件的区别</h4>
 <ul>
 <li>
 <p>文本文件兼容性强。但其存储信息时需要人为添加分隔符，占用空间大。读取时需要在内存、外存间进行格式转换，也不便于对数据进行随机访问 。</p>
@@ -968,7 +968,7 @@ ifs &gt;&gt; c;									<span class="hljs-comment">// 读取一个字符</span>
 <p>因此，使用文本方式打开二进制文件进行读写，其结果可能与原先存在出入。所以使用二进制方法打开文件总是更为安全。</p>
 </li>
 </ul>
-<h4 id="读写二进制文件">读写二进制文件</h4>
+<h4 id="读写二进制文件">#读写二进制文件</h4>
 <p>二进制文件打开方式要指定为 <code>ios::binary</code></p>
 <div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Ele</span> &#123;			<span class="hljs-comment">// 随便写的一个类</span>
 <span class="hljs-keyword">public</span>:

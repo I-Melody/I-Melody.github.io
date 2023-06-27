@@ -24,7 +24,7 @@
 <meta property="og:description" content="2 变量  变量：变量是程序的基本组成单位 变量的三个基本要素：类型 + 名称 + 值 示例：int a &#x3D; 1 类型 int 名称 a 值 1  如何声明变量： int a; a &#x3D; 100;  int b &#x3D; 100;  int c &#x3D; 5, d; 2.1 变量使用注意事项  变量表示内存中的一个存储区域。不同变量，不同类型，占用的空间大小不同。如 int 有 4 byte，而  double">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-19T13:50:50.859Z">
+<meta property="article:modified_time" content="2023-06-27T03:13:26.681Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月19日 晚上
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -334,7 +334,7 @@ a = <span class="hljs-number">100</span>;
 </li>
 </ol>
 <h2 id="2-3-Java-数据类型">2.3 Java 数据类型</h2>
-<h4 id="基本数据类型（本章）">- 基本数据类型（本章）</h4>
+<h4 id="基本数据类型（本章）">#基本数据类型（本章）</h4>
 <ul>
 <li>
 <p><strong>数值型</strong></p>
@@ -370,7 +370,7 @@ a = <span class="hljs-number">100</span>;
 </ul>
 </li>
 </ul>
-<h4 id="引用数据类型（复合数据类型）">- 引用数据类型（复合数据类型）</h4>
+<h4 id="引用数据类型（复合数据类型）">#引用数据类型（复合数据类型）</h4>
 <ul>
 <li>
 <p><strong>类</strong>：class</p>
@@ -590,7 +590,7 @@ is a newline</code></pre></div>
 <p><code>byte</code>  &gt;  <code>short</code>  &gt;  <code>int </code>  &gt;  <code>long</code>  &gt;  <code>float</code>  &gt;  <code>double</code></p>
 <p>例子：<code>int a = 'c'</code>  或者 <code>double b = 80</code></p>
 </blockquote>
-<h4 id="2-8-1-1-使用细节">2.8.1.1 使用细节</h4>
+<h4 id="2-8-1-1-使用细节">#2.8.1.1 使用细节</h4>
 <ol>
 <li>
 <p>有多种类型数据混合运算时，系统会将所有数据转换成容量最大的那种，再进行运算。</p>
@@ -617,7 +617,7 @@ is a newline</code></pre></div>
 <blockquote>
 <p>强制类型转换：自动类型转换的逆过程，将容量大的数据类型转换为容量小的数据类型。使用时加上强制转换符 <code>( )</code> ，但<strong>可能造成精度降低或溢出</strong>，要格外注意。</p>
 </blockquote>
-<h4 id="2-8-2-1-使用细节">2.8.2.1 使用细节</h4>
+<h4 id="2-8-2-1-使用细节">#2.8.2.1 使用细节</h4>
 <ol>
 <li>
 <p>当进行数据从大到小转换时，用强制转换。</p>
@@ -652,7 +652,7 @@ System.out.println(n1 + <span class="hljs-string">&quot;&quot;</span> + n1 + <sp
 <div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(<span class="hljs-number">0</span>);		<span class="hljs-comment">// 得到 s 字符串中的第一个字符。</span></code></pre></div>
 </li>
 </ul>
-<h4 id="2-8-3-1-使用细节">2.8.3.1 使用细节</h4>
+<h4 id="2-8-3-1-使用细节">#2.8.3.1 使用细节</h4>
 <ol>
 <li>将 <code>String</code> 转成基本数据类型时，要保证其能转换为有效数据。即不能把 <code>&quot;Hello&quot;</code> 转换成 <code>int</code>。</li>
 <li>如果格式不正确，会抛出<a href="../../../../../../2021/12/18/Java/%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5/11%20%E5%BC%82%E5%B8%B8/">异常</a>，程序会中止。</li>

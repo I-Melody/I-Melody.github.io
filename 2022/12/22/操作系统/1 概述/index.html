@@ -24,7 +24,7 @@
 <meta property="og:description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-14T06:50:34.962Z">
+<meta property="article:modified_time" content="2023-06-27T03:10:33.824Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月14日 下午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -489,7 +489,7 @@
 <li>通过有关的通用寄存器传递参数</li>
 <li>在内存中开辟专用堆栈区传递参数</li>
 </ul>
-<h4 id="系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系">系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系</h4>
+<h4 id="系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系">#系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系</h4>
 <p><strong>特权指令</strong>：CPU 的执行状态分为目态和管态。只能在管态执行的指令称为特权指令，此外的指令称为非特权指令。</p>
 <p><strong>陷入指令</strong>：即访管指令，也称自陷指令、trap 指令。是非特权指令，且只能在目态下调用。执行陷入指令会引发中断，从而使程序由用户程序切换到操作系统，CPU 状态也从目态转变为管态。陷入指令是实现系统调用的重要手段。</p>
 <p><strong>系统调用</strong>：是操作系统提供的，用户与硬件间的接口。系统调用发生在目态，被调用程序运行在管态。系统调用的流程是，先执行陷入指令引发中断进入管态，之后在管态处理相应系统调用，最后返回。</p>

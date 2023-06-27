@@ -24,7 +24,7 @@
 <meta property="og:description" content="7 类和对象  面向对象程序设计方法是 20 世纪 90 年代以来软件开发方法的主流。其将问题看成是相互作用的事物的集合，即对象的集合。 对象有两个特征：状态和行为。状态即对象本身的信息，也称为属性；行为是对对象的操作。 通过对事物的抽象找出同一类对象的共同特征（静态特征）和行为（动态特征）从而得到类的概念。对象是类的一个具象，类是对象的一个抽象。 C++ 面向对象的三大特性：封装、继承、多态">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-19T13:53:19.170Z">
+<meta property="article:modified_time" content="2023-06-27T03:24:14.799Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C++">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月19日 晚上
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -406,7 +406,7 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <li>构造函数：在创建对象时被系统自动调用。为对象的成员属性赋值</li>
 <li>析构函数：于对象销毁前被系统自动调用。执行一些清理工作</li>
 </ul>
-<h4 id="7-2-1-1-构造函数">7.2.1.1 构造函数</h4>
+<h4 id="7-2-1-1-构造函数">#7.2.1.1 构造函数</h4>
 <blockquote>
 <p>在创建对象时被系统自动调用。为对象的成员属性赋值</p>
 </blockquote>
@@ -432,7 +432,7 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <li>特别地，只有唯一参数的构造函数也被称为 <strong>类型转换构造函数</strong></li>
 </ol>
 </blockquote>
-<h4 id="7-2-1-2-析构函数">7.2.1.2 析构函数</h4>
+<h4 id="7-2-1-2-析构函数">#7.2.1.2 析构函数</h4>
 <blockquote>
 <p>于对象销毁前被系统自动调用。执行一些清理工作</p>
 </blockquote>
@@ -650,12 +650,12 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
 <li>类成员析构函数被调用</li>
 </ol>
 <h3 id="7-2-7-静态成员">7.2.7 静态成员</h3>
-<h4 id="静态变量：">静态变量：</h4>
+<h4 id="静态变量：">#静态变量：</h4>
 <p>全局变量是指在大括号外声明的变量，其作用域范围是全局可见。</p>
 <p>使用 static 修饰的全局变量称为静态全局变量。其作用域限于定义该变量的源文件中</p>
 <p>使用 static 修饰的局部变量是静态局部变量。其具有局部作用域，却有全局生存期。就是说，静态局部变量在整个运行期间存在，其占用空间直到程序结束才释放，但只能在其定义块内访问。</p>
 <p>静态局部变量只进行一次初始化。如果显式给出初始值，则其初始化发生在该静态变量所在的块第一次执行时。</p>
-<h4 id="类的静态成员：">类的静态成员：</h4>
+<h4 id="类的静态成员：">#类的静态成员：</h4>
 <p>在类体内定义类成员时，在前方添加 static 关键字，即使其成为静态成员。</p>
 <p>类的静态成员被类的所有对象共享。</p>
 <p>在类体外为静态成员赋初始值时，那个赋值时前面不能加 static，以免和静态全局变量混淆</p>
@@ -932,7 +932,7 @@ Point::<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</
         <td>#</td>
     </tr>
 </table>
-<h4 id="注意事项：">注意事项：</h4>
+<h4 id="注意事项：">#注意事项：</h4>
 <ul>
 <li>重载运算符的含义应符合原有用法习惯。
 <ul>
@@ -1274,7 +1274,7 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 <p>“一种接口，多种实现”。实现了多态机制的程序，可以使用同一名字实现不同功能</p>
 </blockquote>
 <p>多态分为：静态多态、动态多态</p>
-<h4 id="静态多态">静态多态</h4>
+<h4 id="静态多态">#静态多态</h4>
 <p>静态多态通过函数名、参数个数及类型，在编译阶段即建立函数代码与函数调用的对应关系。</p>
 <p>静态多态也称 静态连编 或 静态绑定</p>
 <p>静态多态的函数地址早绑定：编译阶段确定地址</p>
@@ -1301,7 +1301,7 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
     Son s;
     <span class="hljs-built_in">check</span>(s);							<span class="hljs-comment">//即使传入子类，也是调用父类方法</span>
 &#125;</code></pre></div>
-<h4 id="动态多态">动态多态</h4>
+<h4 id="动态多态">#动态多态</h4>
 <p>由于多态的存在，编译器不能在编译阶段得知指针指向父类还是继承子类，也就不能确定调用的函数版本。函数调用与代码入口地址的绑定发生在运行时。</p>
 <p>动态多态也称 动态连编 或 动态绑定。</p>
 <p>动态多态的函数地址晚绑定：运行阶段确定函数地址、</p>
@@ -1345,11 +1345,11 @@ E&amp; <span class="hljs-keyword">operator</span>-- (E&amp; e) &#123;				<span c
 	cout &lt;&lt; <span class="hljs-string">&#x27;B&#x27;</span> &lt;&lt; endl;
 &#125;</code></pre></div>
 <p>只有类的成员函数声明时才能声明为虚函数。成员函数的类外实现 和 静态成员函数 不能包含 virtual 关键字。</p>
-<h4 id="虚函数原理">虚函数原理</h4>
+<h4 id="虚函数原理">#虚函数原理</h4>
 <p>虚函数在类内部保存一个虚函数指针。该指针指向该类的虚函数表内，该虚函数的地址</p>
 <p>子类会继承该指针和虚函数表</p>
 <p>子类重写该虚函数的场合，指针指向的虚函数被重写后的函数覆盖</p>
-<h4 id="注意事项">注意事项</h4>
+<h4 id="注意事项">#注意事项</h4>
 <ul>
 <li>
 <p>如果想要调用虚函数对象，需要在调用前加上基类名及作用域限定符</p>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="7 文件操作 文件是……是什么大家都懂的吧。 在程序中，以流的形式对文件来进行操作 流：数据在文件和程序间经历的路径 输入流：数据从数据源（文件）到程序（内存）的路径 输出流：数据从程序（内存）到数据源（文件）的路径 7.1 打开、关闭文件 在 os 包中，封装了所有文件相关的操作。 os 包的结构体 File 代表一个打开的文件对象 var file *os.File  &#x2F;* 打开文件 *&#x2F; i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-26T07:32:42.130Z">
+<meta property="article:modified_time" content="2023-06-27T03:22:53.075Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Go">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月26日 下午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -323,7 +323,7 @@
 &#125; <span class="hljs-keyword">else</span> &#123;
     fmt.Println(<span class="hljs-string">&quot;关闭失败\t&quot;</span>, err)
 &#125;</code></pre></div>
-<h4 id="常用函数">常用函数</h4>
+<h4 id="常用函数">#常用函数</h4>
 <blockquote>
 <p>以下函数存在于 os 包</p>
 </blockquote>
@@ -374,7 +374,7 @@
 </li>
 </ul>
 <h2 id="7-2-读、写文件">7.2 读、写文件</h2>
-<h4 id="读文件">读文件</h4>
+<h4 id="读文件">#读文件</h4>
 <p><strong>读取文件内容（带缓冲区）：</strong></p>
 <blockquote>
 <p>需要导入 bufio 包。该包下有一个 Reader 结构体</p>
@@ -412,7 +412,7 @@ file.Close()</code></pre></div>
 <p>**注意：**该方法仅适用于较小文件</p>
 </li>
 </ol>
-<h4 id="写文件">写文件</h4>
+<h4 id="写文件">#写文件</h4>
 <p><strong>写入文件内容（带缓冲区）：</strong></p>
 <blockquote>
 <p>需要导入 bufio 包。</p>
@@ -443,7 +443,7 @@ f.Close()</code></pre></div>
 </li>
 </ol>
 <h2 id="7-3-命令行参数">7.3 命令行参数</h2>
-<h4 id="os-Args-获取命令行参数">os.Args 获取命令行参数</h4>
+<h4 id="os-Args-获取命令行参数">#os.Args 获取命令行参数</h4>
 <p>os.Args 是一个 string 的切片，其存放所有的命令行参数</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe ☆ <span class="hljs-number">123</span></code></pre></div>
 <p>上述指令的命令行参数分别是</p>
@@ -451,7 +451,7 @@ f.Close()</code></pre></div>
 fmt.Println(os.Args[<span class="hljs-number">1</span>])		<span class="hljs-comment">// ☆</span>
 fmt.Println(os.Args[<span class="hljs-number">2</span>])		<span class="hljs-comment">// 123</span></code></pre></div>
 <p>第一个参数是文件名（* 是我省略的部分），之后以空格为间隔区分其他参数</p>
-<h4 id="flag-包解析命令行参数">flag 包解析命令行参数</h4>
+<h4 id="flag-包解析命令行参数">#flag 包解析命令行参数</h4>
 <p>os.Args 必须严格按照输入顺序解析命令行参数。解析参数不方便，也不便于指定参数。</p>
 <div class="code-wrapper"><pre><code class="hljs cmd">******&gt; test.exe -c ☆ -d <span class="hljs-number">123</span></code></pre></div>
 <p>上述指令的命令行参数分别是</p>
@@ -501,7 +501,7 @@ a(Golang) --序列化--&gt; b(JSON 字符串) --网络传输--&gt; c(程序) --�
 <p>JSON 是用键值对来保存数据的方式。键名在前，值在后，内容用引号 <code>&quot; &quot;</code> 包裹。键值间以冒号 <code>:</code> 间隔。多个值时用方括号 <code>[ ]</code> 包裹。不同项间以逗号 <code>,</code> 间隔。</p>
 <p>比如：</p>
 <div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Heruin&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;H.M.J&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;I.M&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span></code></pre></div>
-<h4 id="JSON-序列化">JSON 序列化</h4>
+<h4 id="JSON-序列化">#JSON 序列化</h4>
 <p>JSON 序列化是指将具有 key-value 结构的数据类型（如结构体、切片、map）序列化。</p>
 <p>在 json 包下提供了序列化方法</p>
 <ul>
@@ -537,7 +537,7 @@ a(Golang) --序列化--&gt; b(JSON 字符串) --网络传输--&gt; c(程序) --�
 &#125;</code></pre></div>
 </li>
 </ul>
-<h4 id="JSON-反序列化">JSON 反序列化</h4>
+<h4 id="JSON-反序列化">#JSON 反序列化</h4>
 <p>JSON 序列化是指将 JSON 字符串转换成指定的数据类型</p>
 <p>在 json 包下提供了反序列化方法</p>
 <ul>

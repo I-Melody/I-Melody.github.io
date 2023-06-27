@@ -24,7 +24,7 @@
 <meta property="og:description" content="10 枚举和注解 10.1 枚举 把具体的对象一一列举出来的类，就称为 枚举类（enumeration） 实现方法：  自定义枚举 enum 关键字枚举  10.1.1 自定义枚举  构造器私有化 去掉 set 方法（可保留 get），防止属性被修改。因为枚举对象值通常为只读 在类内部直接创建固定对象。使用 final + static 共同修饰，对象名通常全部大写。 枚举对象按照需要可以有多个属">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-06T01:14:22.471Z">
+<meta property="article:modified_time" content="2023-06-27T03:14:27.547Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月6日 上午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -330,7 +330,7 @@
 <li>用 <code>常量名.(形参列表);</code> 代替创建对象（放在前面）。多个对象的场合，用 <code>,</code> 间隔。</li>
 <li>如果使用 <code>enum</code> 枚举，要求将常量对象写在前面</li>
 </ol>
-<h4 id="10-1-2-1-使用细节">10.1.2.1 使用细节</h4>
+<h4 id="10-1-2-1-使用细节">#10.1.2.1 使用细节</h4>
 <ol>
 <li>
 <p>当我们用 <code>enum</code> 关键字开发一个枚举类时，默认会继承 java.lang.Enum 类，而且是一个 <code>final</code> 类。</p>
@@ -345,7 +345,7 @@
 <p>如果使用无参构造器创建枚举对象，则 实参列表 和 <code>( )</code> 都能省略</p>
 </li>
 </ol>
-<h4 id="10-1-2-2-Enum-类中的常用方法">10.1.2.2 <code>Enum</code> 类中的常用方法</h4>
+<h4 id="10-1-2-2-Enum-类中的常用方法">#10.1.2.2 <code>Enum</code> 类中的常用方法</h4>
 <ul>
 <li><code>valueOf</code>：将字符串转换成枚举对象。要求字符串必须是已有的常量名，否则报异常。</li>
 <li><code>values</code>：返回一个数组 <code>Example[]</code>，其中包含定义的所有枚举对象</li>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="2 程序流程控制 2.1 运算符 运算符是一种特殊的符号，用以表示数据运算、赋值、比较等 主要有 6 类：  算术运算符：++、--、+、-、*、&#x2F; 赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、!&#x3D; 比较运算符 &#x2F; 关系运算符：&gt;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 逻辑运算符：&amp;&amp;、|| 位运算符：&gt;&gt;、&lt;&lt;、&gt;&gt;&amp;g">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-21T06:59:35.965Z">
+<meta property="article:modified_time" content="2023-06-27T03:22:24.234Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Go">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年6月21日 下午
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -320,7 +320,7 @@ i++
 <p>这两个功能包含在 fmt 包中。</p>
 <p>导入 fmt 包：</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span></code></pre></div>
-<h4 id="屏幕输出：">屏幕输出：</h4>
+<h4 id="屏幕输出：">#屏幕输出：</h4>
 <ul>
 <li>
 <p><code>fmt.Print(a... interface&#123;&#125;)</code>：输出该语句</p>
@@ -328,7 +328,7 @@ i++
 <p><code>fmt.Printf(format string, a... interface&#123;&#125;)</code>：格式化输出语句</p>
 </li>
 </ul>
-<h4 id="键盘输入：">键盘输入：</h4>
+<h4 id="键盘输入：">#键盘输入：</h4>
 <ul>
 <li>
 <p><code>fmt.Scanln(a... interface&#123;&#125;)</code>：获取输入，保存到传入参数中。直到换行时才停止扫描</p>
@@ -349,7 +349,7 @@ i++
 <pre><code class=" mermaid">graph LR
 A(A语句)--&gt;B(B语句)--&gt;C(C语句)--&gt;D(D语句)--&gt;E(...)</code></pre>
 <h3 id="2-3-2-分支控制">2.3.2 分支控制</h3>
-<h4 id="单分支控制：">单分支控制：</h4>
+<h4 id="单分支控制：">#单分支控制：</h4>
 <p>当条件满足时，执行表达式。</p>
 <pre><code class=" mermaid">graph LR
 A(if 语句)--&gt; B&#123;条件表达式&#125;
@@ -360,7 +360,7 @@ B --false----&gt; D</code></pre>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">if</span> i := <span class="hljs-number">5</span>; i &lt; <span class="hljs-number">10</span> &#123;
     i++
 &#125;</code></pre></div>
-<h4 id="双分支控制：">双分支控制：</h4>
+<h4 id="双分支控制：">#双分支控制：</h4>
 <p>当条件满足时，执行表达式。否则执行另一表达式</p>
 <pre><code class=" mermaid">graph LR
 A(if...else 语句)--&gt; B&#123;条件表达式&#125;
@@ -374,7 +374,7 @@ F --&gt; D</code></pre>
 &#125; <span class="hljs-keyword">else</span> &#123;
     i--
 &#125;</code></pre></div>
-<h4 id="多分支控制：">多分支控制：</h4>
+<h4 id="多分支控制：">#多分支控制：</h4>
 <p>有条件满足时，执行该表达式。否则执行 else 语句或直接继续</p>
 <pre><code class=" mermaid">graph LR
 A(if...else if  语句)--&gt; B&#123;条件1&#125;
@@ -396,7 +396,7 @@ J --&gt; D</code></pre>
 &#125; <span class="hljs-keyword">else</span> &#123;
     i = <span class="hljs-number">0</span>
 &#125;</code></pre></div>
-<h4 id="switch-分支结构：">switch 分支结构：</h4>
+<h4 id="switch-分支结构：">#switch 分支结构：</h4>
 <p>switch 语句用于基于不同条件执行不同动作。</p>
 <p>每个 case 分支都是唯一的，从上到下逐一测试，直到匹配为止。</p>
 <pre><code class=" mermaid">graph LR
@@ -482,14 +482,14 @@ B --true--&gt; C(循环操作)  --&gt; E[循环变量迭代]  --&gt; B</code></p
 <p>for 循环四个要素：循环变量初始化、循环的条件、循环的操作、循环变量迭代</p>
 <p>所有循环开始前仅一次进行初始化。直到循环条件变为 false 前，执行循环操作。每轮循环结束后，进行循环变量迭代。</p>
 <p>可以把 变量初始化 和 循环变量迭代 写在其他位置。循环条件为空时，默认无限循环</p>
-<h4 id="for-range">for-range</h4>
+<h4 id="for-range">#for-range</h4>
 <p>Golang 提供 for-range 方式，以便于遍历字符串和数组</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> str <span class="hljs-type">string</span> = <span class="hljs-string">&quot;辟邪剑法&quot;</span>
 <span class="hljs-keyword">for</span> index, val := <span class="hljs-keyword">range</span> str &#123;				<span class="hljs-comment">// index 即下标，val 即值。使用 _ 忽略其中的一个</span>
     fmt.Printf(<span class="hljs-string">&quot;%d\t%c\n&quot;</span>, index, val)
 &#125;</code></pre></div>
 <p>汉字占 3 字节。传统方法遍历字符串时，可能产生乱码。但 for-range 方式遍历时不会出错。</p>
-<h4 id="while-和-do…while">while 和 do…while</h4>
+<h4 id="while-和-do…while">#while 和 do…while</h4>
 <p>Go 语言中没有 while 和 do…while 语法。通过 for 循环来模拟实现其效果。</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-comment">/* 模拟 while */</span>
 <span class="hljs-keyword">for</span> &#123;
@@ -509,7 +509,7 @@ B --true--&gt; C(循环操作)  --&gt; E[循环变量迭代]  --&gt; B</code></p
     &#125;
 &#125;</code></pre></div>
 <h2 id="2-4-跳转控制语句">2.4 跳转控制语句</h2>
-<h4 id="break">break</h4>
+<h4 id="break">#break</h4>
 <blockquote>
 <p>用于中止一个语句块的执行。用于中断当前 for 循环或跳出 switch 语句</p>
 </blockquote>
@@ -538,7 +538,7 @@ c1 --break--&gt; D</code></pre>
 &#125;</code></pre></div>
 </li>
 </ul>
-<h4 id="continue">continue</h4>
+<h4 id="continue">#continue</h4>
 <blockquote>
 <p>在循环中出现。用于结束本次循环，继续下一次循环</p>
 </blockquote>
@@ -550,7 +550,7 @@ c1 --continue--&gt; E</code></pre>
 <li>continue 默认会跳过最近的循环</li>
 <li>continue 语句出现在多层嵌套语句块中时，能通过标签指明要跳过哪一层循环</li>
 </ul>
-<h4 id="goto">goto</h4>
+<h4 id="goto">#goto</h4>
 <blockquote>
 <p>可以无条件地转移到程序中指定的行</p>
 </blockquote>
@@ -558,7 +558,7 @@ c1 --continue--&gt; E</code></pre>
 <li>goto 语句通常与条件语句配合使用，以实现条件转移，跳出循环体等功能。</li>
 <li>一般不建议使用 goto 语句，以免造成流程混乱</li>
 </ul>
-<h4 id="return">return</h4>
+<h4 id="return">#return</h4>
 <blockquote>
 <p>用于方法或函数中。表示跳出所在的方法或函数</p>
 </blockquote>

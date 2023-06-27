@@ -24,7 +24,7 @@
 <meta property="og:description" content="5 Go 面向 “对象” 编程 Go 也支持面向对象编程（OOP），但并不是纯粹的面向对象语言。准确地讲，Go 语言支持面向对象编程特性 Go 语言没有类（class）。Go 语言的结构体（struct）与其他编程语言的类有同等地位。可以认为 Go 语言是通过 struct 来实现 OOP 特性的 Go 面向对象编程非常简洁，其去掉了 OOP 语言的继承、方法重载、构造函数、析构函数、隐藏的 th">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-14T10:25:26.829Z">
+<meta property="article:modified_time" content="2023-06-27T03:22:40.063Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Go">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月14日 晚上
+                    本文最后更新于：2023年6月27日 上午
                   
                 
               </p>
@@ -306,13 +306,13 @@
 <p>面向对象编程的步骤：声明（定义）结构体、编写结构体字段、编写结构体方法</p>
 <h2 id="5-1-结构体">5.1 结构体</h2>
 <p>将一类事物的特性提取出来，形成新的数据类型，就是一个结构体。通过这个结构体，可以创建多个变量。</p>
-<h4 id="定义结构体">定义结构体</h4>
+<h4 id="定义结构体">#定义结构体</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Example <span class="hljs-keyword">struct</span> &#123;
     A_Str <span class="hljs-type">string</span>
     A_Int <span class="hljs-type">int</span>
 &#125;</code></pre></div>
 <p>结构体名、字段名的首字母大写时，该结构体、字段可以在其他包使用，否则只能在本包使用</p>
-<h4 id="声明结构体变量">声明结构体变量</h4>
+<h4 id="声明结构体变量">#声明结构体变量</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">var</span> e Example
 e2 := Example&#123;<span class="hljs-string">&quot;e2 AStr&quot;</span>, <span class="hljs-number">2</span>&#125;			<span class="hljs-comment">// 此时字段初始化列表要么为空，要么全部初始化</span>
 e3 := Example&#123;
@@ -333,7 +333,7 @@ ep.A_Int = <span class="hljs-number">-1</span>						<span class="hljs-comment">/
 <blockquote>
 <p><code>指针名.字段名</code> 的写法等同于 <code>(*指针名).字段名</code></p>
 </blockquote>
-<h4 id="使用细节">使用细节</h4>
+<h4 id="使用细节">#使用细节</h4>
 <ul>
 <li>
 <p>结构体的所有字段在内存中是连续分布的</p>
@@ -356,7 +356,7 @@ ep.A_Int = <span class="hljs-number">-1</span>						<span class="hljs-comment">/
 <p>在某些情况下，需要声明（定义）方法。</p>
 <p>方法与函数不同。Go 中的方法与指定的数据类型绑定。</p>
 <p>不仅是 struct，只要是自定义类型，都可以有方法。</p>
-<h4 id="方法的声明">方法的声明</h4>
+<h4 id="方法的声明">#方法的声明</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> A <span class="hljs-keyword">struct</span> &#123;					<span class="hljs-comment">// 一个自定义类型 A</span>
     str <span class="hljs-type">string</span>
 &#125;
@@ -368,7 +368,7 @@ ep.A_Int = <span class="hljs-number">-1</span>						<span class="hljs-comment">/
     s := A&#123;<span class="hljs-string">&quot;★&quot;</span>&#125;
     s.act()						<span class="hljs-comment">// 调用方法</span>
 &#125;</code></pre></div>
-<h4 id="使用细节-2">使用细节</h4>
+<h4 id="使用细节-2">#使用细节</h4>
 <ul>
 <li>
 <p>方法必须被指定的数据类型的对象调用。不能直接调用，也不能被其他数据类型调用</p>
@@ -389,7 +389,7 @@ ep.A_Int = <span class="hljs-number">-1</span>						<span class="hljs-comment">/
 <p>如果一个变量实现了 <code>String() string</code> 方法，则 fmt.Print 会默认调用该方法进行输出</p>
 </li>
 </ul>
-<h4 id="工厂模式">工厂模式</h4>
+<h4 id="工厂模式">#工厂模式</h4>
 <p>Golang 的结构体没有构造函数，通常使用工厂模式解决这个问题</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> ast <span class="hljs-keyword">struct</span> &#123;					<span class="hljs-comment">// 一个自定义类型 ast</span>
     str <span class="hljs-type">string</span>
@@ -406,7 +406,7 @@ fonc (a *ast) GetAStr() <span class="hljs-type">string</span> &#123;	<span class
 <p>interface 类型可以定义一组方法，这些方法不需要实现。某个自定义类型需要使用时，再实现这些方法。接口体现了程序设计的 <strong>多态</strong> 和 <strong>高内聚低耦合</strong> 的思想。</p>
 <p>在 Go 语言中，<strong>interface 不能包含任何变量</strong>，其方法都是没有实现的方法</p>
 <p>在 Go 语言中，接口不需要显式的实现。只要一个变量实现了接口中的 <strong>所有</strong> 方法，那么该变量就实现这个接口。</p>
-<h4 id="声明-定义接口">声明/定义接口</h4>
+<h4 id="声明-定义接口">#声明/定义接口</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> I <span class="hljs-keyword">interface</span>&#123;			<span class="hljs-comment">// 接口</span>
     method() <span class="hljs-type">int</span>			<span class="hljs-comment">// 一个未实现的方法</span>
 &#125;
@@ -421,7 +421,7 @@ fonc (a *ast) GetAStr() <span class="hljs-type">string</span> &#123;	<span class
 	<span class="hljs-keyword">var</span> i I = A&#123;&#125;
 	fmt.Println(i.act())
 &#125;</code></pre></div>
-<h4 id="注意事项">注意事项</h4>
+<h4 id="注意事项">#注意事项</h4>
 <ul>
 <li>
 <p>接口不能创建实例，但可以指向一个实现了该接口的变量</p>
@@ -482,7 +482,7 @@ fonc (a *ast) GetAStr() <span class="hljs-type">string</span> &#123;	<span class
 <li>提高代码复用性</li>
 <li>提高代码维护性、可扩展性</li>
 </ul>
-<h4 id="语法">语法</h4>
+<h4 id="语法">#语法</h4>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Father <span class="hljs-keyword">struct</span> &#123;
     str <span class="hljs-type">string</span>
 &#125;
@@ -494,7 +494,7 @@ fonc (a *ast) GetAStr() <span class="hljs-type">string</span> &#123;	<span class
 <div class="code-wrapper"><pre><code class="hljs go">s := Son&#123;&#125;
 fmt.Println(s.Father.str)	<span class="hljs-comment">// 使用匿名构造体的字段</span>
 fmt.Println(s.str)			<span class="hljs-comment">// 访问匿名结构体字段可以简化</span></code></pre></div>
-<h4 id="注意事项-2">注意事项</h4>
+<h4 id="注意事项-2">#注意事项</h4>
 <ul>
 <li>
 <p>结构体能使用嵌套匿名结构体的所有字段和方法</p>
@@ -528,7 +528,7 @@ fmt.Println(s.str)			<span class="hljs-comment">// 访问匿名结构体字段�
 <h3 id="5-4-3-多态">5.4.3 多态</h3>
 <p>多态：变量（实例）具有多种形态。</p>
 <p>在 Go 语言中，多态特征是通过接口实现的。通过统一的接口调用不同的实现，此时接口就呈现不同的形态。</p>
-<h4 id="类型断言">类型断言</h4>
+<h4 id="类型断言">#类型断言</h4>
 <p>由于接口是一般类型，不知道具体类型。要转成具体类型时，需要类型断言</p>
 <div class="code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">type</span> I <span class="hljs-keyword">interface</span>&#123;&#125;
 
