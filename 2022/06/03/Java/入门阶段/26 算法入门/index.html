@@ -24,7 +24,7 @@
 <meta property="og:description" content="26 算法初级 26.1 算法的执行时间  度量一个算法执行时间的方法：   事后统计方法 该方法可行，但需要实际运行该程序，并且结果受环境因素影响。   事前估算方法 通过分析算法的时间复杂度来判断哪个算法更优    #时间频度 算法花费的时间与算法中语句的执行次数成正相关。算法中语句执行次数越多，其花费时间也就越多。 一个算法中的语句执行次数称为 时间频度（语句频度），记为 T(n) 举例说明">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T03:15:56.040Z">
+<meta property="article:modified_time" content="2023-07-02T07:12:32.352Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="程序">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          33 分钟
+          37 分钟
         
       </span>
     
@@ -292,7 +292,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月27日 上午
+                    本文最后更新于：2023年7月2日 下午
                   
                 
               </p>
@@ -757,6 +757,76 @@ A--5---E((4))--7---D</code></pre>
     &#125;
     <span class="hljs-keyword">return</span> ret;
 &#125;</code></pre></div>
+<h3 id="26-2-10-埃氏筛、线性筛">26.2.10 埃氏筛、线性筛</h3>
+<p>要找出一定数字范围内，所有的质数，可以使用 <strong>埃氏筛</strong> 或 <strong>线性筛</strong></p>
+<h4 id="埃氏筛步骤">#埃氏筛步骤</h4>
+<p>埃拉托斯特尼筛法，简称埃氏筛。虽然我们不能直接求出所有的质数，但可以求出所有的合数，这样余下的数就是质数。任何合数都能被分解为一个质数和另一个数的积，换言之，质数的倍数（除其本身）都是合数。</p>
+<p>假设我们要求出小于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 的所有质数。由于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 的特殊性，我们将其直接排除。</p>
+<p>接下来，我们依次枚举 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>2</mn><mo separator="true">,</mo><mtext> </mtext><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[2,\ n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">]</span></span></span></span> 范围内的数字 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>，对其做如下操作</p>
+<ul>
+<li>
+<p>若该数被标记过（意味着 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 是某个质数的倍数），则其为合数。跳过该数</p>
+</li>
+<li>
+<p>若该数未被标记（意味着 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 不是质数的倍数），则其为质数。可见第一个质数是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></p>
+<p>之后，标记该质数的所有小于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 的倍数。</p>
+</li>
+</ul>
+<h4 id="实现埃氏筛">#实现埃氏筛</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Integer&gt; <span class="hljs-title function_">sieveEra</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;
+    List&lt;Integer&gt; prime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();	<span class="hljs-comment">// 返回列表</span>
+    <span class="hljs-type">boolean</span>[] not_prime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[n+<span class="hljs-number">1</span>];		<span class="hljs-comment">// not_prime[i] 表示数字 i 是否是合数</span>
+    
+    <span class="hljs-comment">/* 遍历检查 [2, n] 范围内的所有数 */</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;
+        <span class="hljs-comment">/* 首先进行判断，若为合数则跳过，为质数则添加到返回列表 */</span>
+        <span class="hljs-keyword">if</span> (not_prime[i]) <span class="hljs-keyword">continue</span>;
+        prime.add(i);
+        
+        <span class="hljs-comment">/* 下面，将该质数的所有倍数标记为合数 */</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; j*i &lt;= n; j++) not_prime[j*i] = <span class="hljs-literal">true</span>;
+    &#125;
+    <span class="hljs-keyword">return</span> prime;
+&#125;</code></pre></div>
+<p>该算法的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\log\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
+<h4 id="线性筛步骤">#线性筛步骤</h4>
+<p>埃氏筛在筛选过程中，每个合数必然会被不同质数重复标记。若能使每个合数都只被其最小质因数标记一次，就能减少标记次数，从而降低时间复杂度。</p>
+<p>详见下面的代码。</p>
+<h4 id="实现线性筛">#实现线性筛</h4>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Integer&gt; <span class="hljs-title function_">sieveEul</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;
+    List&lt;Integer&gt; prime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();	<span class="hljs-comment">// 返回列表</span>
+    <span class="hljs-type">int</span>[] mpf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n+<span class="hljs-number">1</span>];					<span class="hljs-comment">// mpf[i] 表示数字 i 的最小质因数，质数有 mpf[i] = 0</span>
+    
+    <span class="hljs-comment">/* 遍历检查 [2, n] 范围内的所有数 */</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;
+        <span class="hljs-comment">/* 若该数为质数则添加到返回列表 */</span>
+        <span class="hljs-keyword">if</span> (mpf[i] == <span class="hljs-number">0</span>) prime.add(i);
+        
+        <span class="hljs-comment">/* 从小到大顺序遍历先前找到的质数，与 i 相乘，其结果必然是合数 */</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> p: prime) &#123;
+        	<span class="hljs-type">int</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> i * p;				<span class="hljs-comment">// 下一个要标记的合数</span>
+			<span class="hljs-keyword">if</span> (t &lt;= n) mpf[t] = p;		<span class="hljs-comment">// 若在范围内，则将其标记，否则跳出</span>
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;
+            
+            <span class="hljs-comment">/*  mpf[i] 是数字 i 的最小质因数。</span>
+<span class="hljs-comment">            	若当前遍历到的质数是数字 i 的最小质因数，则直接跳出。</span>
+<span class="hljs-comment">                下面证明该做法的合理性：</span>
+<span class="hljs-comment">                	若遍历到的质数 p 是当前数字 i 的最小质因数，则 i 是 p 的正整数倍</span>
+<span class="hljs-comment">                	设 i = k*p，则必有 k &gt;= p，且 p 小于 k 的最小质因数（因为 p 是 i = k*p 的最小质因数）</span>
+<span class="hljs-comment">                	若不在此处跳出：</span>
+<span class="hljs-comment">                		对于 p 之后的任意质数 r，其与 i 的乘积为 r*i</span>
+<span class="hljs-comment">                		有 r*i = r*(k*p) = (r*k)*p。</span>
+<span class="hljs-comment">                		也就是说，合数 r*i 不仅会被 i 和 r 标记，也会被数字 r*k 和 p 再次标记。 </span>
+<span class="hljs-comment">                	若在此处跳出，则之后枚举到数字 r*k 时：</span>
+<span class="hljs-comment">                		由于 r 是大于 p 的质数，而 p 小于 k 的最小质因数（因为 p 是 i = k*p 的最小质因数）</span>
+<span class="hljs-comment">                		所以，合数 r*k 的最小质因数一定大于 p。换言之，r*k*p = r*i 会被标记。</span>
+<span class="hljs-comment">                综上所述：当前遍历到的质数 p 是数字 i 的最小质因数时，应该直接跳出	*/</span>
+			<span class="hljs-keyword">if</span> (mpf[i] == p) <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> prime;
+&#125;</code></pre></div>
+<p>理论上该算法的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，但因为种种原因，有时候比埃氏筛要慢。</p>
 <h2 id="附录">附录</h2>
 <h3 id="骑士周游问题">骑士周游问题</h3>
 <p>将一枚骑士棋子放在国际象棋棋盘上。使骑士按照行棋规则移动，要求每个方格只能进入一次，最终走遍棋盘上所有方格。</p>
