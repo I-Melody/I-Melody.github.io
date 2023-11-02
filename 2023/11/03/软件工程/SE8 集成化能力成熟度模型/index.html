@@ -1,0 +1,970 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="SE8 集成化能力成熟度模型 CMMI 软件系统的质量取决于用来开发和改进它的过程的质量。过程是生产产品的机制。不论过程改善还是能力确定，都需要过程评估。而过程评估通常基于已提出的一些评估模型。 软件能力成熟度模型（CMM）给出了从混乱、个人的过程到成熟的规范化过程的一个框架。按照软件过程的不同成熟度划分了 5 个等级，1 级最低，5 级最高。人们可以利用该框架进行可靠且统一的评估，实现对软件过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;软件工程&gt;SE8 集成化能力成熟度模型 CMMI">
+<meta property="og:url" content="https://i-melody.github.io/2023/11/03/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/SE8%20%E9%9B%86%E6%88%90%E5%8C%96%E8%83%BD%E5%8A%9B%E6%88%90%E7%86%9F%E5%BA%A6%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="SE8 集成化能力成熟度模型 CMMI 软件系统的质量取决于用来开发和改进它的过程的质量。过程是生产产品的机制。不论过程改善还是能力确定，都需要过程评估。而过程评估通常基于已提出的一些评估模型。 软件能力成熟度模型（CMM）给出了从混乱、个人的过程到成熟的规范化过程的一个框架。按照软件过程的不同成熟度划分了 5 个等级，1 级最低，5 级最高。人们可以利用该框架进行可靠且统一的评估，实现对软件过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T17:44:30.067Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;软件工程&gt;SE8 集成化能力成熟度模型 CMMI ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><软件工程>SE8 集成化能力成熟度模型 CMMI</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-03 00:00" pubdate>
+          2023年11月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;软件工程&gt;SE8 集成化能力成熟度模型 CMMI</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月3日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>SE8 集成化能力成熟度模型 CMMI</h1>
+<p>软件系统的质量取决于用来开发和改进它的过程的质量。过程是生产产品的机制。不论过程改善还是能力确定，都需要过程评估。而过程评估通常基于已提出的一些评估模型。</p>
+<p>软件能力成熟度模型（CMM）给出了从混乱、个人的过程到成熟的规范化过程的一个框架。按照软件过程的不同成熟度划分了 5 个等级，1 级最低，5 级最高。人们可以利用该框架进行可靠且统一的评估，实现对软件过程的度量。</p>
+<p>CMM 体现了软件工程和软件管理的优秀实践。CMM 并没有涉及使得项目成功的所有重要问题。</p>
+<p>自从 CMM 出现以来，出现了多种基于 CMM 的模型：</p>
+<ul>
+<li>SW-CMM：为了与其他模型区分，将软件能力成熟度模型也称为 SW-CMM</li>
+<li>SE-CMM：系统工程 CMM</li>
+<li>SA-CMM：软件采购 CMM</li>
+<li>IPD-CMM：集成产品开发 CMM</li>
+<li>P-CMM：人力资源 CMM</li>
+</ul>
+<p>CMMI 模型基于 <strong>过程途径</strong> 思想。CMMI 的目标是集成已有的 CMM 模型，实现一个组织的集成化 <strong>过程改善</strong>。包括：软件CMM、产品集成开发CMM、系统工程CMM</p>
+<p>支撑软件产品/系统质量的三大要素是：受训人员、规程和方法、工具和设备</p>
+<h2 id="SE8-1-CMMI-模型部件">SE8.1 CMMI 模型部件</h2>
+<p>CMMI 的层次关系如下图所示</p>
+<pre><code class=" mermaid">graph TB
+CMMI[CMMI]
+Y1(过程域1)
+Y2(过程域2)
+Y3(过程域3)
+ZT(专用目标)
+GT(共用目标)
+ZP&#123;专用实践&#125;
+GP&#123;共用实践&#125;
+Z1([典型工作产品])
+Z2([子实践])
+G1([共用实践的精化])
+G2([子实践])
+
+
+CMMI---Y1
+CMMI---Y2
+CMMI---Y3
+Y2---ZT
+Y2---GT
+ZT---ZP
+ZP---Z1
+ZP---Z2
+GT---GP
+GP---G1
+GP---G2</code></pre>
+<ul>
+<li>
+<p><strong>过程域</strong></p>
+<p>过程域是一个业务域中的一束相关实践。这些实践得以实现时，就满足被认为对该过程域的改进具有重要作用的一组条件</p>
+<pre><code class=" mermaid">graph LR
+A(过程域)</code></pre>
+<p>CMMI 中有 22 个过程域，分为四类：</p>
+<table>
+<thead>
+<tr>
+<th>过程域类名</th>
+<th>包含的过程域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目管理类</td>
+<td>规划、监控、定量项目管理、集成项目管理、风险管理、提供方协议管理</td>
+</tr>
+<tr>
+<td>工程类</td>
+<td>需求开发、需求管理、技术解决方案、产品集成、确认、验证</td>
+</tr>
+<tr>
+<td>支持类</td>
+<td>配置管理、过程和产品质量保证、测量与分析、原因分析与解决、决策分析与解决</td>
+</tr>
+<tr>
+<td>过程管理类</td>
+<td>组织过程定义、组织过程性能、组织过程培训、组织过程关注、组织</td>
+</tr>
+</tbody>
+</table>
+<p>过程域有自己的确定专用目的和公共目标。每个过程域还有意图陈述，简介性注释以及相关过程域</p>
+</li>
+<li>
+<p><strong>专用目标</strong></p>
+<p>一个过程域中都有一个或多个专用目标，描述该过程域必须呈现的一些独有特征。专用目标可以帮助确定一个过程域是否得以满足</p>
+<pre><code class=" mermaid">graph LR
+A&#123;目标&#125;</code></pre>
+<p>每个专用目标和公共目标的实现，分别依赖一些实践</p>
+</li>
+<li>
+<p><strong>专用实践</strong></p>
+<p>专用实践是对于达到专用目标而言重要的活动。期望以专用实践所描述的活动，会导致达到一个过程域专用的目标</p>
+<pre><code class=" mermaid">graph LR
+A([实践])</code></pre>
+<p>每个专用实践有自己的子实践和确定的典型工作产品，资料性部件</p>
+</li>
+<li>
+<p><strong>共用目标、共用实践</strong></p>
+<p>可用于多个过程域的目标和实践。</p>
+</li>
+<li>
+<p><strong>典型工作产品</strong></p>
+<p>专用实践产生的输出样品</p>
+</li>
+<li>
+<p><strong>子实践</strong></p>
+<p>对专用实践、共用实践的详细描述</p>
+</li>
+<li>
+<p><strong>共用实践的精化</strong></p>
+<p>为一个共用实践唯一的应用于一个过程域提供了相关的指导</p>
+</li>
+<li>
+<p><strong>意图描述</strong></p>
+<p>用来描述过程域的意图</p>
+</li>
+<li>
+<p><strong>简介性解释</strong></p>
+<p>描述该过程域中涉及的主要概念</p>
+</li>
+<li>
+<p><strong>相关过程域</strong></p>
+<p>用来描述过程域引用的相关过程域</p>
+</li>
+</ul>
+<h2 id="SE8-2-CMMI-的等级">SE8.2 CMMI 的等级</h2>
+<p>CMMI 有两种类型的等级：</p>
+<ul>
+<li>能力等级：一种过程改善路径。能使组织 <em>针对单一过程域</em> 不断改善该过程域</li>
+<li>成熟度等级：一种过程改善路径。能使组织 <em>针对一组过程域</em> 不断改善该组相关程域</li>
+</ul>
+<h4 id="能力等级"># 能力等级</h4>
+<p>过程能力：遵循一个过程可达到的期望结果的程度。表示组织对一个过程域的改善，是不断改善过程域的手段</p>
+<p>能力等级包含一个共性目标及其相关的共性实践，它们与一过程域相关联，能够改进组织同该过程域关联的过程</p>
+<table>
+<thead>
+<tr>
+<th>能力等级</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力等级 0</td>
+<td>未完成级：过程不完整</td>
+</tr>
+<tr>
+<td>能力等级 1</td>
+<td>已执行级：实现了过程域的特定目标</td>
+</tr>
+<tr>
+<td>能力等级 2</td>
+<td>已管理级：建立了基本的项目管理过程。制定了必要的过程纪律，能重复早先类似项目的成功经验</td>
+</tr>
+<tr>
+<td>能力等级 3</td>
+<td>已定义级：按照组织到裁剪指南从组织的标准过程中裁剪出的一个已管理（能力等级 2）过程</td>
+</tr>
+<tr>
+<td>能力等级 4</td>
+<td>已量化管理级：使用统计和其他定量技巧控制的一个已定义（能力等级 3）过程</td>
+</tr>
+<tr>
+<td>能力等级 5</td>
+<td>已持续优化级：经过改进的一个量化管理过程</td>
+</tr>
+</tbody>
+</table>
+<h4 id="组织成熟度等级"># 组织成熟度等级</h4>
+<p>成熟度等级是达到预先定义的一组过程域所有目标的一种 过程改善 等级。</p>
+<p>每一等级包含一组过程目标。当一个软件开发组织达到其中一个目标时，则表明软件过程的一个（或几个）重要成分得到了实现，从而导致该组织软件过程能力的增长。每个成熟度等级为达到下一个等级提供了一个基础</p>
+<p>在成熟度框架中，将能力成熟度分为五级：</p>
+<table>
+<thead>
+<tr>
+<th>成熟度等级</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成熟度等级 1</td>
+<td>初始级：过程是混乱的，应付式的</td>
+</tr>
+<tr>
+<td>成熟度等级 2</td>
+<td>已管理级：能确保过程按预定方针得到计划和执行</td>
+</tr>
+<tr>
+<td>成熟度等级 3</td>
+<td>已定义级：用程得到了好的描述和理解，并应用标准、规程、工具、方法来表现</td>
+</tr>
+<tr>
+<td>成熟度等级 4</td>
+<td>量化管理级：组织和项目为质量和过程绩效制定了量化目标并用作管理过程标准</td>
+</tr>
+<tr>
+<td>成熟度等级 5</td>
+<td>持续优化级：通过渐进性和革新性过程改进和技术改进来持续改进过程绩效</td>
+</tr>
+</tbody>
+</table>
+<p>为了达到成熟度等级 2，则 2 级包含所有过程域都必须达到能力等级 2 或更高级。</p>
+<p>为了达到成熟度等级 3，则 2 级、3 级包含所有过程域都必须达到能力等级 3 或更高级。以此类推。</p>
+<h2 id="SE8-3-过程域举例">SE8.3 过程域举例</h2>
+<h4 id="项目规划"># 项目规划</h4>
+<p>意图：建立并维护项目活动计划的的定义</p>
+<p>要满足的专用目标、共用目标、所需实践：</p>
+<table>
+<thead>
+<tr>
+<th>专用目标</th>
+<th>专用实践</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SG1：建立估算</td>
+<td>SP1.1：估算项目规模<br/>SP1.2：建立工作产品和任务属性估算<br/>SP1.3：定义项目生存期<br/>SP1.4：确定工作量、成本估算</td>
+</tr>
+<tr>
+<td>SG2：开发项目计划</td>
+<td>SP2.1：建立预算和进度<br/>SP2.2：标识项目风险<br/>SP2.3：规划数据管理<br/>SP2.4：规划项目资源<br/>SP2.5：规划需要的知识和技能<br/>SP2.6：规划利益攸关方的参与<br/>SP2.7：建立项目计划</td>
+</tr>
+<tr>
+<td>SG3：获得对该计划的承诺</td>
+<td>SP3.1：评审该项目计划<br/>SP3.2：调和工作和资源等级，使之一致<br/>SP3.3：获得计划承诺</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>共用目标</th>
+<th>共用实践</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GG2：共用目标 2<br/>把过程制度化为一个已管理过程<br/>对达到共用目标 1 的专用实践实施了 P-D-C-A</td>
+<td>GP2.1：建立组织策略<br/>GP2.2：规划过程<br/>GP2.3：提供资源<br/>GP2.4：指派委任<br/>GP2.5：培训人员<br/>GP2.6：管理配置<br/>GP2.7：标识相关利益方参与<br/>GP2.8：监控过程<br/>GP2.9：客观评估符合型<br/>GP2.10：高层管理视角评审状态</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="category-chain-item">软件工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">#软件工程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;软件工程&gt;SE8 集成化能力成熟度模型 CMMI</div>
+      <div>https://i-melody.github.io/2023/11/03/软件工程/SE8 集成化能力成熟度模型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

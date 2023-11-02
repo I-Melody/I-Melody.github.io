@@ -1,0 +1,975 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="SE3 敏捷开发方法 敏捷软件开发是一种应对快速变化的需求的一种软件开发能力 敏捷开发是一种专注快速开发的增量式开发。其频繁发布软件、降低过程开销、生产高质量代码，并支持用户参与到开发过程中。 决断是否使用敏捷或计划驱动的方法，取决于所开发系统的类型、开发团队的能力及开发系统的公司的文化。 敏捷软件开发的具体名称、理念、过程、术语都不尽相同。其更强调程序员团队与业务专家间的紧密协作，面对面沟通（认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;软件工程&gt;3 敏捷开发方法">
+<meta property="og:url" content="https://i-melody.github.io/2023/11/03/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/SE3%20%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="SE3 敏捷开发方法 敏捷软件开发是一种应对快速变化的需求的一种软件开发能力 敏捷开发是一种专注快速开发的增量式开发。其频繁发布软件、降低过程开销、生产高质量代码，并支持用户参与到开发过程中。 决断是否使用敏捷或计划驱动的方法，取决于所开发系统的类型、开发团队的能力及开发系统的公司的文化。 敏捷软件开发的具体名称、理念、过程、术语都不尽相同。其更强调程序员团队与业务专家间的紧密协作，面对面沟通（认">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T17:46:12.227Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;软件工程&gt;3 敏捷开发方法 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><软件工程>3 敏捷开发方法</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-03 00:00" pubdate>
+          2023年11月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;软件工程&gt;3 敏捷开发方法</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月3日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>SE3 敏捷开发方法</h1>
+<p>敏捷软件开发是一种应对快速变化的需求的一种软件开发能力</p>
+<p>敏捷开发是一种专注快速开发的增量式开发。其频繁发布软件、降低过程开销、生产高质量代码，并支持用户参与到开发过程中。</p>
+<p>决断是否使用敏捷或计划驱动的方法，取决于所开发系统的类型、开发团队的能力及开发系统的公司的文化。</p>
+<p>敏捷软件开发的具体名称、理念、过程、术语都不尽相同。其更强调程序员团队与业务专家间的紧密协作，面对面沟通（认为比书面文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好适应需求变化的代码编写和团队组织方法，也更注重软件开发中人的作用</p>
+<p>敏捷软件工程是哲学理念和一系列开发指南的综合。其推崇人客户满意和软件的早期增量发布，小而高度自主的项目团队，非正式的方法，最小化软件工程产品，以及整体精简开发。开发的指导方针强调超越分析和设计（或采用简洁的分析和设计）的发布，以及人员和客户间主动和持续的沟通</p>
+<h4 id="敏捷联盟"># 敏捷联盟</h4>
+<p>一批业界专家聚集在一起概括除了一些可以让软件开发团队具有快速工作、响应变化能力的价值观的原则。这些专家称自己为敏捷联盟</p>
+<p>他们提出四个宣言：</p>
+<ul>
+<li>
+<p><em>个体和交互</em> 胜过 <em>过程和工具</em></p>
+<p>人是获得成功的最重要因素，不要过分夸大工具的作用。一个优秀的团队成员能很好地与他人合作，合作、沟通和交互能力比单纯的编程能力更为重要。团队的构建比环境的构建更为重要。</p>
+</li>
+<li>
+<p><em>可以工作的软件</em> 胜过 <em>面面俱到的文档</em></p>
+<p>没有文档的软件是一种灾难，但过多的文档更加糟糕。对团队而已，需要编写和维护一份系统原理和结构方面的文档</p>
+</li>
+<li>
+<p><em>客户合作</em> 胜过 <em>合同谈判</em></p>
+<p>成功的项目需要有序，频繁的客户反馈。不是依赖于合同或关于工作的陈述，而是让软件的客户和开发团队密切地在一起工作，并尽量经常提供反馈。那些为开发团队和客户的协同工作方式提供指导的合同才是最好的合同</p>
+</li>
+<li>
+<p><em>响应变化</em> 胜过 <em>遵循计划</em></p>
+<p>响应变化的能力常常决定一个软件项目的成败。计划不能考虑过远。好的计划是：为下两周左详细计划，为下三个月做粗略计划，再远的将来做极为粗略的计划</p>
+</li>
+</ul>
+<h4 id="敏捷原则"># 敏捷原则</h4>
+<ol>
+<li>最先要做的是：尽早、持续地交付有价值的软件来使客户满意</li>
+<li>即使到了开发后期，也欢迎改变需求。敏捷过程利用变化来为客户创造竞争优势</li>
+<li>经常交付可工作的软件。其时间间隔可以是几周到几个月。交付时间间隔越短越好</li>
+<li>在整个项目开发期间，业务人员和开发人员必须天天在一起工作</li>
+<li>不断鼓励开发人员，开展项目的有关工作。给他们提供需要的环境和支持，并信任他们能完成所承担的工作</li>
+<li>在团队内部，最有效果的、最有效率低传递信息的方法，就是面对面交流</li>
+<li>首要的进度度量标准是工作的软件</li>
+<li>敏捷过程提倡可持续的开发速度。责任人、开发者和用户应能保持一个长期的、恒定的开发速度</li>
+<li>不断关注优秀的技能和设计，增强敏捷能力</li>
+<li>简单是根本的</li>
+<li>最好的体系结构、需求和设计，出自自己组织的团队</li>
+<li>每隔一段时间，团队对如何才能有效地工作进行反省，然后对自己的行为进行适当的调整</li>
+</ol>
+<h2 id="SE3-1-极限编程">SE3.1 极限编程</h2>
+<p>极限编程（eXtreme Programming，简称 XP）是敏捷方法中最显著的一个。其集成了一系列的编程经验，如频繁发布软件、连续改善软件和客户参与到软件开发团队中。其特点之一是在创建程序特征前开发自动测试，在增量集成进系统时所有测试必须成功执行。</p>
+<p>极限编程由一系列简单却相互依赖的实践组成：</p>
+<ul>
+<li>
+<p>客户作为团队的成员</p>
+<p>客户与开发人员一起紧密协作，相互了解面临的问题，并共同解决。其中，客户的主要责任是定义产品特征，并对这些特征进行优先排序</p>
+</li>
+<li>
+<p>用户素材</p>
+<p>为了了解与项目需求有关的内容，采用 “用户素材”。用户素材是一种规划工具。通常，在客户的索引卡上记录认可的一些短语，与之同时，在该卡上写下关于需求的预算。</p>
+</li>
+<li>
+<p>短的交付周期</p>
+<p>每隔两周，就交付一次可工作的软件。这意味着每隔两周的迭代都实现了 “涉众” 的一些需求，并在每次迭代结束时，可给 “涉众” 演示由迭代生成的系统，以得到他们的反馈</p>
+<p>显然，这一实践涉及到迭代计划和交付计划的指定</p>
+</li>
+<li>
+<p>验收测试</p>
+<p>在实现该用户素材前或实现期间，使用能让其自动、反复运行的某种脚本语言编写验收测试，捕获用户素材的有关细节。</p>
+</li>
+<li>
+<p>结对编程</p>
+<p>结对编程的含义是：共同设计，共同编写，功劳均等，以促进知识在全队的传播</p>
+</li>
+<li>
+<p>测试驱动的开发</p>
+<p>首先对产品的某一功能编写一个单元测试。由于该功能尚不存在，该测试必定失败。此后继续编写该功能代码，直至测试通过。</p>
+<p>为了测试用例而编写代码，这样的代码称为 <del>面向用例编程</del> 可测试的代码。由于要独立对其进行测试，可以鼓励解除模块间的耦合。</p>
+</li>
+<li>
+<p>集体所有权</p>
+<p>编程中的每一结对，都具有检出任何模块的权力。没有程序员对一个特定模块或技术单独负责。</p>
+<p>每个人都要参与 GUI 工作、中间件方面的工作、数据库方面的工作。没有人对结对编写的模块和技术具有更多权威</p>
+</li>
+<li>
+<p>持续集成</p>
+<p>程序员每天可以多次检入他们的模块进行集成。其中，最重要的是，确保所有测试都能通过。</p>
+<p>可以把新的代码集成到代码库中，可以对代码进行合并。必要时，和检入程序员进行协商。一旦集成了他们的更改，就构造了新的系统，从而要运行系统中的每个测试，包括当前所有运行的验收测试。一旦所有的测试都通过，这才算完成这一次的检入工作</p>
+</li>
+<li>
+<p>可持续的开发速度</p>
+<p>团队须有意识保持稳定、适中的速度</p>
+</li>
+<li>
+<p>开放的工作空间</p>
+<p>团队在一个充满工作气氛的房间中一起工作，结对的每个人都可以了解对方的工作状态，可以得知另一个人何时遇到了麻烦，并能适宜地进行交流和讨论</p>
+</li>
+<li>
+<p>规划游戏</p>
+<p>业务人员决定特征以及特征的重要性，开发人员决定实现一个特征所花费的代价。</p>
+<p>即：每次发布和迭代开始时，开发人员基于最近一次所完成迭代或最近一次发布所使用的工作量，为客户提供一个预算。客户选择那些所需的、成本合适的用户素材。其本质是业务人员和开发人员间的职责划分</p>
+</li>
+<li>
+<p>简单的设计</p>
+<p>仅关注计划中一次迭代需要完成的用户素材，在一次次迭代中，不断变迁系统设计，使其对正实现的用户素材始终保持最佳状态，使团队进行的设计尽可能简单，具有表现力</p>
+<p>三个指导原则是：</p>
+<ul>
+<li>
+<p>尽可能寻找简单的方法，实现当前的用户素材</p>
+</li>
+<li>
+<p>延迟基础设施的需求决策</p>
+<p>有关基础设施（数据库、ORB 等）的引入，团队应该对此进行认真的考虑</p>
+</li>
+<li>
+<p>一次代码，并且只有一次</p>
+<p>不允许出现重复的代码。一旦出现，必须消除之，以减少代码耦合。消除重复代码的最好办法是抽象</p>
+</li>
+</ul>
+</li>
+<li>
+<p>重构</p>
+<p>在不改变代码行为的前提下，对其进行的一系列该值。旨在改进系统结构的实践活动。通过重构，可以逐步改进系统设计和体系结构</p>
+<p>每次改造时，要进行单元测试，确保这次改进没有造成任何破坏，保持系统可以工作。</p>
+<p>每隔一小时或更短时间要重复进行重构。这样能保证尽可能干净、简单且有表现力的代码</p>
+</li>
+<li>
+<p>隐喻</p>
+<p>隐喻是 XP 中形成系统一个全局视图的重要实践。隐喻是每个人（客户、设计人员和管理者）可以讲述的系统如何工作的故事</p>
+</li>
+</ul>
+<h4 id="极限编程过程"># 极限编程过程</h4>
+<p>XP 使用面向对象方法作为推荐的开发泛型，它包含策划、设计、变化、测试 4 个框架活动的规范和实践</p>
+<pre><code class=" mermaid">graph LR
+A(策划)---&gt;B(设计)---&gt;C(编码)---&gt;D(测试)---&gt;A
+C--重构--&gt;C
+D---&gt;E(发布)</code></pre>
+<ul>
+<li>
+<p><strong>策划</strong>：形成用户故事，给出权值。并且制定验收测试标准和迭代计划</p>
+<p>策划活动始于聆听，是一个需求获取的活动。该活动使 XP 团队技术成员理解软件的商业背景，并充分感受输出和主要特征及主要功能</p>
+<ul>
+<li>产生一系列用户故事，用于描述即将建立的软件所需要的输出、特征和功能。每个故事由用户书写并置于索引卡上，客户根据特征或功能的综合业务价值标明故事优先级</li>
+<li>XP 团队成员评估每个故事并给出以 开发周 为度量单位的开发时间的成本。单个故事成本超过 3 个开发周时，请客户将故事细化，并重新赋值和计算成本</li>
+<li>客户和 XP 团队共同把故事分组并置于 XP 团队将要开发的下一个发行版本中</li>
+<li>一旦认可对下一发布版本的承诺（包含故事、交付日期及其他事项），XP 团队将以下述方式之一对开发的故事进行排序
+<ul>
+<li>所有选定故事将在几周内快速实现</li>
+<li>具有高优先级的故事首先实现</li>
+<li>高风险故事首先实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>设计</strong>：简单设计 CRC 卡，开发人员给出解决方案原型</p>
+<p>XP 鼓励使用 CRC 卡（类 - 责任 -写作者）确定和组织当前软件增量相关的面向对象的类。CRC 卡也是 XP 过程中的唯一设计工作产品</p>
+<p>如果某个故事设计出现困难，XP 推荐使用 Spike 解决方案：立即建立这部分设计可执行的原型，实现并评估设计原型。目的是在真正的实现开始时降低风险，对可能存在的设计问题的故事确认其最初的设计</p>
+</li>
+<li>
+<p><strong>编码</strong>：推崇结对编程。开发过程中允许不断对编码进行重构，并连续进行集成</p>
+<p>XP 推荐在故事策划和初步设计完成后，不是直接编码，而是开发一系列用于检测本次（软件质量）发布的所有故事的单元测试。</p>
+<p>建立单元测试后，开发者集中精力编码，使实现内容通过测试。编码中强调结对编程。</p>
+<p>完成编码任务后，将开发工作与其他人的工作集成</p>
+</li>
+<li>
+<p><strong>测试</strong>：通过单元测试、验收测试对软件进行测试</p>
+<p>在编码前进行单元测试是 XP 方法的关键。所建立的单元测试应使用一个可以自动实施的框架，以便回归测试。一旦将个人的单元测试组织到一个通用测试集，每天都能进行系统的集成和确认测试。</p>
+<p>XP 验收测试，也称客户测试。由客户规定技术条件，并着眼于用户可见的、可评审的系统级的特征和功能。验收测试根据本次软件发布中实现的用户故事决定</p>
+</li>
+</ul>
+<h2 id="SE3-2-敏捷设计">SE3.2 敏捷设计</h2>
+<p>为了应对需求变化，设计应尽力避免以下问题</p>
+<ul>
+<li>
+<p>僵化性</p>
+<p>僵化性：指难以对软件设计进行改动。如果一个改动会导致有依赖关系的连锁改动，那么设计就是僵化的。需要改动的模块越多，设计就越僵化</p>
+<p>要避免腐化性，就要以变应变：</p>
+<ul>
+<li>团队不进行预先设计，因此不需要一个成熟的初始设计</li>
+<li>团队通过多次使用单元测试和验收测试，支持系统的设计尽可能的干净、简单，使设计保持灵活性和易于理解性</li>
+<li>灵活、持续性地改进设计，以便使每次迭代结束时所生成的系统具有满足那次迭代需求的设计</li>
+</ul>
+</li>
+<li>
+<p>脆弱性</p>
+<p>在进行一个改动时，程序的许多地方可能出现问题。即使出现问题的地方和改动处没有概念上的关联，即设计易于遭受破坏</p>
+</li>
+<li>
+<p>粘固性</p>
+<p>在一部分设计中包含了对其它部分有用的成分，但要将这些成分分离出来就要面临巨大挑战和极大风险，即设计难以复用</p>
+</li>
+<li>
+<p>粘滞性</p>
+<p>软件粘滞性：面临一个改动时，很难保持系统一致的设计方法，很易采用一些破坏设计的方法，即难于做正确的事情</p>
+<p>环境粘滞性：环境的迟钝和低效，如编译时间长。也是难于做正确的事情</p>
+</li>
+<li>
+<p>不必要的复杂性</p>
+<p>设计中包含当前没有用的成分。不仅让软件变得复杂，也会让软件难以理解。即过分设计</p>
+</li>
+<li>
+<p>不必要的复制</p>
+<p>滥用剪切、粘贴等鼠标操作 <del>面向 CV 编程</del></p>
+</li>
+<li>
+<p>晦涩性</p>
+<p>模块难以理解，并且由于代码随时不断演化，往往会让模块越来越晦涩</p>
+</li>
+</ul>
+<h4 id="采用敏捷设计的方法"># 采用敏捷设计的方法</h4>
+<p>包括：使用一些设计原则，以保证软件灵活、可维护。掌握一些设计模式，以便针对特定问题权衡这些原则</p>
+<p>敏捷设计是一个应用原则、模式和实践的过程，期间不断改善软件结构，保持系统设计在任何时间都尽可能简单、干净、富有表现力。即：</p>
+<ul>
+<li>它的功能：对用户来说，通过直观、简单的界面呈现出恰当特征的程序</li>
+<li>它的内部结构：对于软件设计者来说，通过简单、直观的划分，使其具有最小耦合的内部结构</li>
+<li>创造过程：对于开发人员来说，每周都会取得一些重大进展，并生产出无缺陷代码的具有活力的团队过程</li>
+</ul>
+<h4 id="Scrum-模型"># Scrum 模型</h4>
+<p>Scrum 是一种敏捷过程模型。其核心是一组冲刺循环。开发一个系统增量有固定的时间周期。</p>
+<p>其具有三个阶段</p>
+<ul>
+<li>
+<p>规划纲要阶段</p>
+<p>建立大致的项目目标和设计软件体系结构</p>
+</li>
+<li>
+<p>系列的冲刺循环</p>
+<p>每个循环开发出一个系统增量。基于积压的工作优先级，选择高优先级的任务开始冲刺循环</p>
+</li>
+<li>
+<p>项目结束阶段</p>
+<p>总结项目，完善所需文档，如系统帮助、用户手册，并总结项目中获得的经验</p>
+</li>
+</ul>
+<h4 id="可扩展的敏捷开发方法"># 可扩展的敏捷开发方法</h4>
+<p>敏捷方法的开发是在为同一个房间办公与交流的小型团队使用的。但也能将敏捷实践用到大型系统开发中。</p>
+<p>大型系统与小型系统存在诸多区别：</p>
+<ul>
+<li>大型系统常由独立的、交互的子系统组成，不同团队独立开发不同的子系统</li>
+<li>大型系统包含了一系列已存在的系统与它们进行交互，所以许多系统需求关注这种交互，而非如何适应于灵活性和增量式开发</li>
+<li>当一个系统由多个系统集成时，开发工作中一个重要部分是系统配置而不是原始代码的开发。这不一定与增量式开发和频繁的系统集成兼容</li>
+<li>大型系统和它们的开发流程通常受限于外部规则和规章限制，如要求写各种系统文档等</li>
+<li>大型系统由很长的采购和开发时间，很难保持团队在整个周期中对系统连续的认识</li>
+<li>大型系统通通常具有不同的信息持有者，将不同的信息持有者加入开发流程中很重要</li>
+</ul>
+<p>于是提出了<strong>伸缩的敏捷方法</strong>：</p>
+<ul>
+<li>按照放大的观点，关注如何将敏捷开发应用到哪些小型团队无法开发的大型项目中</li>
+<li>按照渗透的观点，关注如何将敏捷方法介绍到拥有多年开发经验的大机构中</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="category-chain-item">软件工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">#软件工程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;软件工程&gt;3 敏捷开发方法</div>
+      <div>https://i-melody.github.io/2023/11/03/软件工程/SE3 敏捷开发方法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

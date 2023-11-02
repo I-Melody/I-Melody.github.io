@@ -1,0 +1,1357 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="SE2 结构化方法 结构化方法认为一切系统都是由信息流构成的。每个信息流有其起点（数据源）与终点（数据潭），还有驱动数据流的加工。因此，所谓信息处理主要表现为信息的流动。 基于上述世界观，结构化方法提出了一些基本原则：  自顶向下，功能分解 数据抽象 功能、过程抽象 模块化  结构化方法是一种系统化的软件开发方法。结构化方法的抽象层，包括：  需求分析层（需求规约），对应：结构化分析方法 设计层（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;软件工程&gt;2 结构化方法">
+<meta property="og:url" content="https://i-melody.github.io/2023/11/03/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/SE2%20%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="SE2 结构化方法 结构化方法认为一切系统都是由信息流构成的。每个信息流有其起点（数据源）与终点（数据潭），还有驱动数据流的加工。因此，所谓信息处理主要表现为信息的流动。 基于上述世界观，结构化方法提出了一些基本原则：  自顶向下，功能分解 数据抽象 功能、过程抽象 模块化  结构化方法是一种系统化的软件开发方法。结构化方法的抽象层，包括：  需求分析层（需求规约），对应：结构化分析方法 设计层（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/SE_InputImage/N-S%E5%9B%BE_SE2_3_2_2.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/SE_InputImage/PAD%E5%9B%BE_SE2_3_2_3.webp">
+<meta property="article:published_time" content="2023-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T17:54:28.173Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/SE_InputImage/N-S%E5%9B%BE_SE2_3_2_2.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;软件工程&gt;2 结构化方法 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><软件工程>2 结构化方法</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-03 00:00" pubdate>
+          2023年11月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;软件工程&gt;2 结构化方法</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月3日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>SE2 结构化方法</h1>
+<p>结构化方法认为一切系统都是由信息流构成的。每个信息流有其起点（数据源）与终点（数据潭），还有驱动数据流的加工。因此，所谓信息处理主要表现为信息的流动。</p>
+<p>基于上述世界观，结构化方法提出了一些基本原则：</p>
+<ul>
+<li>自顶向下，功能分解</li>
+<li>数据抽象</li>
+<li>功能、过程抽象</li>
+<li>模块化</li>
+</ul>
+<p>结构化方法是一种系统化的软件开发方法。结构化方法的抽象层，包括：</p>
+<ul>
+<li>需求分析层（需求规约），对应：<strong>结构化分析方法</strong></li>
+<li>设计层（总体设计），对应：<strong>结构化设计方法</strong></li>
+<li>实现层（详细设计），对应：<strong>结构化程序设计方法</strong></li>
+</ul>
+<p>围绕结构化方法的基本原则，结构化方法给出了：完备的符号、可操作的过程、易理解的表示工具。并提供了控制信息组织复杂性的机制，例如逐层分解，数据打包等，以支持将问题空间的一个问题映射为解空间的一个解</p>
+<p>结构化方法捕获的 “过程” 和 “数据” 是客观事物的易变性质，且解的结构没有保持原系统的结构。因此，结构化方法造成了维护、验证上的困难。</p>
+<h2 id="SE2-1-结构化分析方法">SE2.1 结构化分析方法</h2>
+<p>结构化分析方法：系统化使用问题域术语，给出该问题的模型</p>
+<p>好的需求技术应具有以下基本特征：</p>
+<ul>
+<li>提供方便通信的机制。比如：在不同开发阶段，使用对相关人员易于理解的语言</li>
+<li>鼓励需求分析人员使用问题空间的术语思考问题，编写文档</li>
+<li>提供定义系统边界的方法</li>
+<li>提供支持抽象的基本机制，如 ”划分“、”功能抽象“、”结构抽象“ 等</li>
+<li>为需求分析人员提供多种可供选择的方案</li>
+<li>提供特定的技术、适应需求的变化等</li>
+</ul>
+<p>实现软件需求分析目标的要求：</p>
+<ol>
+<li>
+<p>提供一组术语，指导需求抽象中需要关注的主要方面，并用于表达分析中所使用的信息</p>
+<p>这些术语形成一个特定的抽象层，即需求层</p>
+</li>
+<li>
+<p>根据术语形成的空间，给出表达模型的工具，支持表达系统功能形态</p>
+</li>
+<li>
+<p>给出过程指导，以支持系统化使用相关信息建造系统模型</p>
+</li>
+</ol>
+<h4 id="基本术语"># 基本术语</h4>
+<ul>
+<li>
+<p><strong>数据流</strong></p>
+<p>数据是信息的载体。数据流是数据的流动，</p>
+<p>数据流是一类术语，在使用中一般要给出标识：</p>
+<pre><code class=" mermaid">graph LR
+A( ) --数据流--&gt; B( )</code></pre>
+<p>该标识是一个名词或名词短语，往往直接使用实际问题空间中的概念。</p>
+</li>
+<li>
+<p><strong>加工</strong></p>
+<p>加工是数据的变换单元。它接受输入的数据，处理后产生输出。</p>
+<pre><code class=" mermaid">graph LR
+A((加工))</code></pre>
+<p>该标识一般采用动宾结构，往往直接使用实际问题空间中的概念。</p>
+<p>加工 是数据变换单元，因此必须关联一个或多个 输入/输出数据流。</p>
+</li>
+<li>
+<p><strong>数据存储</strong></p>
+<p>数据存储是数据的静态结构</p>
+<pre><code class=" mermaid">graph LR
+A&gt;数据存储]</code></pre>
+<p><em>注：本应以 双横线 表示数据存储。力有未逮，姑且以旗形代替</em></p>
+<p>该标识是一个名词或名词短语，往往直接使用实际问题空间中的概念。</p>
+</li>
+<li>
+<p><strong>数据源、数据潭</strong></p>
+<p>”边界“ 是表达一个事物语义的重要因素。</p>
+<p>数据源是数据流的起点，数据潭是数据流的归宿。数据源和数据潭是系统之外的实体</p>
+<p>引入这两个术语的目的是未来表示系统环境。可以使用他们和相关数据流来定义系统边界</p>
+<pre><code class=" mermaid">graph TB
+A[数据源]
+B[数据潭]</code></pre>
+<p>该标识是一个名词或名词短语，往往直接使用实际问题空间中的概念。</p>
+</li>
+</ul>
+<h4 id="数据流图"># 数据流图</h4>
+<p>结构化分析给出了一种表达功能模型的工具，即 <strong>数据流图（DFD 图）</strong></p>
+<p>一个示例：</p>
+<pre><code class=" mermaid">graph LR
+f
+a[旅行社] --订票单--&gt; b((订票)) --航班--&gt; c((备票))
+a1&gt;航班目录] --&gt; b --&gt; d((记账))
+c --机票--&gt; e[旅客]
+d --账单--&gt; e
+f&gt;记账文件] --&gt; d
+d --&gt; f</code></pre>
+<p>DFD 图是一种描述数据变换的图形化工具，其中包含的元素可以是数据流、数据存储、加工、数据源、数据潭等</p>
+<p>使用 DFD 图时，应注意以下问题：</p>
+<ul>
+<li>数据流起到连接其他实体的作用。在应用中，数据流和数据存储一般要给出标识。在语义清晰的情况下，才能省略标识</li>
+<li>加工之间可以有多个数据流。这些数据流间可以无关。数据流图不表明其先后顺序</li>
+<li>对于较大软件系统，为便于理解，常采用多层次的数据流图</li>
+</ul>
+<h4 id="建模过程"># 建模过程</h4>
+<p>结构化分析方法建模的基本步骤属于 <strong>”自顶向下，逐步求精”</strong> 的模式</p>
+<ol>
+<li>
+<p><strong>建立系统环境图，确定系统语境</strong></p>
+<p>经过需求发现后，按照系统工程观点，可以确定系统的数据源和数据潭，以及相关数据流。据此，可以形成系统顶层数据流图（系统环境图）</p>
+<pre><code class=" mermaid">graph LR
+A[旅行社] --订票单--&gt; b((订票系统)) --机票--&gt; c[旅客]
+b --账单--&gt; c</code></pre>
+<p>该顶层的 “大加工” 就是待建系统</p>
+<p>可见，结构化方法是通过系统顶层数据流图来定义系统语句的</p>
+</li>
+<li>
+<p><strong>自顶向下，逐步求精，建立系统的层次数据流图</strong></p>
+<p>在顶层数据流图基础上，按功能分解的设计思想，自顶向下对加工进行分解。</p>
+<p>自顶向下画出各层数据流图，直至底层加工足够简单，不需要继续分解为止。这样的加工叫做叶加工。</p>
+<pre><code class=" mermaid">graph LR
+subgraph 1 层
+direction RL
+subgraph 1.1
+c((2.1)) --&gt; c1((2.2)) --&gt; c4( )
+c((2.1)) --&gt; c2((2.3)) --&gt; c4
+c((2.1)) --&gt; c3((2.4)) --&gt; c4
+end
+
+subgraph 1.2
+d( ) --&gt; d1((3.1)) --&gt; d2((3.2)) --&gt; d5((3.5)) --&gt; dd( )
+d1 --&gt; d3((3.3)) --&gt; d5
+d1 --&gt; d4((3.4)) --&gt; ddd( )
+end
+end
+
+subgraph 0 层
+b( ) --&gt; B((1)) --&gt; bb((2))
+bbb( ) --&gt; B --&gt; bbbb((3))
+bbbb --&gt; b1( )
+bbbb --&gt; b2( )
+end
+
+subgraph 顶层
+a( ) --&gt; A((11)) --&gt; aa( )
+aaa( ) --&gt; A --&gt; aaaa( )
+end</code></pre>
+<p>为便于管理，从 0 层起需对其中的加工进行编号。这些编号在整个系统中唯一。</p>
+<p>由 “父图” 加工为 “子图” 的步骤如下：</p>
+<ol>
+<li>
+<p>将父图的每一加工按照功能分解为若干子加工</p>
+</li>
+<li>
+<p>将父图的输入/输出流分配到相关的子加工</p>
+<p>输入流需要分流时，在输入处引入判定要求</p>
+</li>
+<li>
+<p>在各加工间建立合理的关联，必要时引入数据存储</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>定义数据字典</strong></p>
+<p>依据系统的数据流图，定义其中包含的所有数据流和数据存储的数据结构</p>
+<p>所有数据都可以用以下三种结构表示</p>
+<ul>
+<li>
+<p><strong>顺序结构</strong></p>
+<p>数据 A 是由数据 B 及数据 C 顺序构成的。记为 <strong>+</strong></p>
+<p>如：学生成绩 = 姓名 + 性别 + 学号 + 科目 + 成绩</p>
+</li>
+<li>
+<p><strong>选择结构</strong></p>
+<p>数据 A 是由数据 B 或数据 C 构成的，不可能既是 B 又是 C。记为 <strong>|</strong></p>
+<p>如：性别 = 男 | 女</p>
+</li>
+<li>
+<p><strong>重复结构</strong></p>
+<p>数据 A 是由复数个数据 B 构成的。记为 <strong>{ }</strong></p>
+<p>如：学生成绩表 = { 学生成绩 }</p>
+</li>
+<li>
+<p><strong>子界</strong></p>
+<p>数据 A 的取值在 m 到 n 间，记为 <strong>m…n</strong></p>
+</li>
+</ul>
+<p>数据结构符号表：</p>
+<table>
+    <tr><th>符号</th><th>描述</th></tr>
+    <tr><td>=</td><td>等价于（定义为）</td></tr>
+    <tr><td>+</td><td>与（顺序结构）</td></tr>
+    <tr><td>{ }</td><td>重复（循环结构）</td></tr>
+    <tr><td>|</td><td>或（选择结构）</td></tr>
+    <tr><td>( )</td><td>任选</td></tr>
+    <tr><td>m..n</td><td>界域</td></tr>
+</table>
+<p>在数据字典中，为方便阅读，通常按照 数据流条目、数据存储条目、数据项条目 的顺序来进行组织。</p>
+<p>如：</p>
+<div class="code-wrapper"><pre><code class="hljs fix"><span class="hljs-attr">销售的商品 </span>=<span class="hljs-string"> 商品名 + 商品编号 + 单价 + 数量 + 销售时间</span></code></pre></div>
+</li>
+<li>
+<p><strong>描述加工</strong></p>
+<p>依据系统的数据流图，对其中每一项加工进行说明</p>
+<p>需求分析的目的是定义问题，因此此处只需给出输入数据与输出数据间的关系</p>
+<p>所有上层加工都被分解为了底层加工，只需对那些底层的叶加工进行说明</p>
+<p>有以下 3 种表达工具</p>
+<ul>
+<li>
+<p><strong>结构化自然语言</strong></p>
+<p>加工的输入/输出数据间，逻辑关系较为简单时，也能用结构化的自然语言表述</p>
+<div class="code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">if</span> 订票量 &gt; <span class="hljs-number">20</span>
+<span class="hljs-attribute">then</span> 订票折扣 = <span class="hljs-number">15</span>%
+<span class="hljs-attribute">else</span> 订票折扣 = <span class="hljs-number">5</span>%</code></pre></div>
+</li>
+<li>
+<p><strong>判定表</strong></p>
+<table>
+    <tr align="center">
+    	<th>旅游时间</th>
+        <td colspan="2">7 ~ 9 月、12 月</td>
+        <td colspan="2">1 ~ 6 月、10 月、11 月</td>
+    </tr>
+    <tr align="center">
+    	<th>订票量</th>
+        <td>≤20</td>
+        <td>>20</td>
+        <td>≤20</td>
+        <td>>20</td>
+    </tr>
+    <tr align="center">
+    	<th>折扣量</th>
+        <td>5%</td>
+        <td>15%</td>
+        <td>20%</td>
+        <td>30%</td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>判定树</strong></p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>计算折扣量</mtext><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>7</mn><mo>−</mo><mn>9</mn><mtext>月、</mtext><mn>12</mn><mtext>月</mtext><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>订票量</mtext><mo>&gt;</mo><mn>20</mn><mtext>：</mtext><mn>15</mn><mi mathvariant="normal">%</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>订票量</mtext><mo>≤</mo><mn>20</mn><mtext>：</mtext><mn>5</mn><mi mathvariant="normal">%</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>1</mn><mtext> </mtext><mn>6</mn><mtext>月、</mtext><mn>10</mn><mtext>月、</mtext><mn>11</mn><mtext>月</mtext><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>订票量</mtext><mo>&gt;</mo><mn>20</mn><mtext>：</mtext><mn>30</mn><mi mathvariant="normal">%</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>订票量</mtext><mo>≤</mo><mn>20</mn><mtext>：</mtext><mn>20</mn><mi mathvariant="normal">%</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">计算折扣量
+\begin{cases}
+	7-9月、12月
+		\begin{cases}
+			订票量&gt;20：15\%
+			\\
+			订票量\leq20：5\%
+		\end{cases}
+	\\
+	1 ~ 6 月、10 月、11 月
+		\begin{cases}
+			订票量&gt;20：30\%
+			\\
+			订票量\leq20：20\%
+		\end{cases}
+\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:6.0001em;vertical-align:-2.75em;"></span><span class="mord cjk_fallback">计算折扣量</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.25em;"><span style="top:-1.366em;"><span class="pstrut" style="height:3.216em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-1.358em;"><span class="pstrut" style="height:3.216em;"></span><span style="height:1.216em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='1.216em' style='width:0.8889em' viewBox='0 0 888.89 1216' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V1216 H384z M384 0 H504 V1216 H384z'/></svg></span></span><span style="top:-3.216em;"><span class="pstrut" style="height:3.216em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.358em;"><span class="pstrut" style="height:3.216em;"></span><span style="height:1.216em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.8889em' height='1.216em' style='width:0.8889em' viewBox='0 0 888.89 1216' preserveAspectRatio='xMinYMin'><path d='M384 0 H504 V1216 H384z M384 0 H504 V1216 H384z'/></svg></span></span><span style="top:-5.566em;"><span class="pstrut" style="height:3.216em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.75em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.25em;"><span style="top:-5.25em;"><span class="pstrut" style="height:3.75em;"></span><span class="mord"><span class="mord">7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">9</span><span class="mord cjk_fallback">月、</span><span class="mord">12</span><span class="mord cjk_fallback">月</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">订票量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">20</span><span class="mord cjk_fallback">：</span><span class="mord">15%</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">订票量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">20</span><span class="mord cjk_fallback">：</span><span class="mord">5%</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.75em;"></span><span class="mord"><span class="mord">1</span><span class="mspace nobreak"> </span><span class="mord">6</span><span class="mord cjk_fallback">月、</span><span class="mord">10</span><span class="mord cjk_fallback">月、</span><span class="mord">11</span><span class="mord cjk_fallback">月</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">订票量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">20</span><span class="mord cjk_fallback">：</span><span class="mord">30%</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">订票量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">20</span><span class="mord cjk_fallback">：</span><span class="mord">20%</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.75em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="注意细节"># 注意细节</h4>
+<ul>
+<li>模型平衡问题：
+<ul>
+<li>每个 数据流 和 数据存储 需要在数据字典中定义，且和数据名一致</li>
+<li>每个底层叶加工 需要在数据字典中描述，且和加工名一致。那些描述中的数据流也必须是数据字典定义的数据流。</li>
+<li>某加工的数据流 和 分解的子图数据流 要保持一致</li>
+</ul>
+</li>
+<li>信息复杂性控制问题：
+<ul>
+<li>上层数据流可以打包。打包数据流要以 <strong>*</strong> 符号标记，上下层间的对应关系通过数据字典予以描述。</li>
+<li>一副子图中的图元个数控制在 7 ± 2 个</li>
+<li>尽量控制与某一加工相关的数据流数量</li>
+<li>分析数据内容，确保所有数据信息都用于产出输出信息，并让加工产出的信息都能由进入该加工的信息导出</li>
+</ul>
+</li>
+</ul>
+<h2 id="SE2-2-结构化设计">SE2.2 结构化设计</h2>
+<p>依据需求规约，在一个抽象层上建立系统软件模型，包括软件体系结构（数据和程序结构），以及详细的处理算法，产生设计规格说明书</p>
+<p>结构化设计可以分为：总体设计、详细设计</p>
+<p>实现软件设计目标对结构化方法的要求：</p>
+<ol>
+<li>提供可体现 “原理/原则” 的一组术语，形成一个特定的抽象层，用于表达设计中使用的部件</li>
+<li>根据术语形成的空间，给出表达模型的工具</li>
+<li>给出设计的过程指导</li>
+</ol>
+<h4 id="总体设计"># 总体设计</h4>
+<p>结构化方法在设计中引入了两个基本概念：模块、模块调用</p>
+<p>总体设计阶段的基本任务是把系统的功能需求分配到一个特定的软件系统结构中。</p>
+<p>其工具有：</p>
+<ul>
+<li>
+<p><strong>模块结构图（MSD）</strong></p>
+<pre><code class=" mermaid">graph TB
+A0[产生最佳解]
+A0 --- A1[得到好输入]
+A2[计算最佳解]
+A0 --- A2
+A3[输出结果]
+A0 --- A3
+
+A1 --- A11[读输入]
+A1 --- A12[编辑输入]
+
+A3 --- A31[结果格式化]
+A3 --- A32[显示结果]</code></pre>
+<p>模块结构图是一种描述软件宏观结构的图形化工具。图中每个方框代表一个模块，连接上下层的线段表示其调用关系。</p>
+<p>处于较高层次的是控制模块，低层次的是从属模块。依据控制模块的内部逻辑，一个控制模块可以调用一个或多个从属模块；一个从属模块也可能被多个控制模块调用</p>
+<p>还可以使用带注释的箭头线来表示模块调用过程中传递的信息。尾部空心圆代表传递数据信息，实心圆代表传递控制信息</p>
+<p>模块结构图是系统的高层蓝图，允许设计人员在较高层次上进行抽象思维</p>
+</li>
+<li>
+<p><strong>层次图</strong></p>
+<p>主要用于描述软件的层次结构。图中每个方框代表一个模块，方框间的线段表示其调用关系。</p>
+<pre><code class=" mermaid">graph TB
+A0[正文加工系统]
+A0 --- A1[输入]
+A0 --- A2[输出]
+A0 --- A3[编辑]
+A0 --- A4[加标题]
+A0 --- A5[存储]
+A0 --- A6[检索]
+A0 --- A7[编目录]
+A0 --- A8[格式化]
+
+A2 --- A21[添加]
+A2 --- A22[删除]
+A2 --- A23[输入]
+A2 --- A24[修改]
+A2 --- A25[合并]
+A2 --- A26[列表]</code></pre>
+<p>层次图很适合在自顶向下设计软件的过程中使用</p>
+</li>
+<li>
+<p><strong>HIPO 图</strong></p>
+<p>HIPO 是 “层次图 + 输入/处理/输出” 的缩写。HIPO 图由 H 图和 IPO 图构成。</p>
+<p>H 图即上文的层次图，但其中每个方框都带有编号。</p>
+<p>对于 H 图的每个方框，都应有一张 IPO 图，以描述该方框所代表的模块处理逻辑。其基本形式是：在左侧的输入框中列出产生的输出数据，中间的处理框中列出主要的处理和处理次序，右边的输出框中列出产生的输出数据。此外，还会使用箭头指出数据通信的情况</p>
+</li>
+</ul>
+<p>结构化设计方法要将 DFD 图映射为设计层面上的 模块和模块调用。</p>
+<h4 id="总体设计步骤"># 总体设计步骤</h4>
+<p>基本步骤是：首先将系统的 DFD 图转化为初始的模块结构图，再基于 “<strong>高内聚低耦合</strong>” 的设计原理，通过模块化，将初始的模块结构图转化为最终的、可供详细设计使用的 <strong>模块结构图（MSD）</strong></p>
+<p><strong>第一步：将 DFD 图转化为初步的 MSD 图</strong></p>
+<p>DFD 图可以分为以下两种：</p>
+<ul>
+<li>
+<p><strong>变换型数据流图</strong></p>
+<p>具有较明显的 输入部分和变换（主加工）部分之间的界面、变换部分和输出部分间的界面 的数据流图，称为变换型数据流图</p>
+<pre><code class=" mermaid">graph TB
+A[主控模块]
+A --- A1[输入模块&lt;br/&gt;取得 c]
+A --- A2[c 变成 d 或 f]
+A --- A3[输出模块&lt;br/&gt;输出 d]
+A --- A4[输出模块&lt;br/&gt;输出 f]</code></pre>
+<p>该类 DFD 图对应的系统，在高层次上讲，由 3 部分组成：处理输入数据的部分、数据变换部分、处理数据输出部分。</p>
+<p>数据首先进入处理输入部分，由外部形式转换为系统内部形式。之后，进入变换部分，将其变换为待输出的数据。最后，由处理输出部分将其转换为用户需要的数据形式。</p>
+<p>变换设计对应的软件体系结构，应由 “主控” 模块以及与该模式的 3 个部分（输入、变换、输出）对应的模块组成。</p>
+</li>
+<li>
+<p><strong>事务型数据流图</strong></p>
+<p>数据到达一个加工 T 后，该加工 T 根据数据的值，在其后若干动作序列（事务）中选一个执行，这类数据流图称为 事务型数据流图</p>
+<pre><code class=" mermaid">graph TB
+A[事务中心]
+A --- A1[输入模块&lt;br/&gt;取得 a]
+A --- A2[调度模块]
+A --- A3[输出模块&lt;br/&gt;给出 h]
+A2 --- A21[路径 bcd]
+A2 --- A22[路径 efg]
+A2 --- A23[路径 xyz]</code></pre>
+<p>上面的加工 T 称为 事务中心。其完成以下任务：</p>
+<ul>
+<li>接收输入数据</li>
+<li>分析并确定对应事务</li>
+<li>选取与该事务对应的一条活动路径</li>
+</ul>
+<p>事务型数据流图描述系统的数据处理模式为 “集中 - 发散” 式</p>
+</li>
+</ul>
+<p>任何软件系统本质上都是信息的变换装置。因此，原则上任何 DFD 图都能被归为变换型。但如果其中某些部分具有事务型特征，就可以将这些部分按照事务型数据流图进行处理。</p>
+<p>总体设计分为 3 个阶段：初始设计、精化设计、复审阶段。</p>
+<p>基于自顶向下，功能分解的设计原则，针对两种不同的数据流图提出了两种初始设计，即 <strong>变换设计</strong> 和 <strong>事务设计</strong>。</p>
+<ul>
+<li>
+<p><strong>变换设计</strong></p>
+<p>目标是将变换型数据流图转换为系统的模块设计图</p>
+<ol>
+<li>
+<p>设计准备 —— 复审并精化系统模型</p>
+</li>
+<li>
+<p>确定 输入、变换、输出 的边界</p>
+</li>
+<li>
+<p>第一级分解 —— 系统模块结构图 顶层、第一层 设计</p>
+<p>变换型数据流图具有 输入、变换、输出 模块。为了协调各模块工作，还需有一个主控模块</p>
+</li>
+<li>
+<p>第二级分解 —— 自顶向下，逐步求精</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>事务设计</strong></p>
+<p>当数据流图具有明显事务型特征时，适宜采用事务设计</p>
+<ol>
+<li>设计准备 —— 复审并精化系统模型</li>
+<li>确定事务处理中心</li>
+<li>第一级分解 —— 系统模块结构图 顶层、第一层 设计</li>
+<li>第二级分解 —— 自顶向下，逐步求精</li>
+</ol>
+</li>
+</ul>
+<p><strong>第二步：将初始的 MSD 图转化为最终可供详细设计使用的 MSD 图</strong></p>
+<p>基于模块化原理 - 高内聚低耦合，给出设计规则 - 经验规则 - 启发式规则 用于精化初始的 MSD</p>
+<ul>
+<li>
+<p><strong>模块</strong>：执行一个任务的过程及相关的数据结构。通常由两部分组成：</p>
+<ul>
+<li>接口：由其他模块或例程访问的常量、变量、函数等</li>
+<li>实现：接口的实现（模块功能的执行机制）</li>
+</ul>
+</li>
+<li>
+<p><strong>模块化</strong>：把系统分解成若干高内聚低耦合的模块的过程</p>
+<p>当问题变得复杂时，解决问题的工作量也会更多。将两个问题合并解决时，其复杂性大于单独解决。因此，尽可能拆分问题，这有助于减少工作量。</p>
+<p>考虑到集成模块的工作量也会随着模块数量增长，所以将模块划分得恰如其分时，那个工作量最少</p>
+</li>
+</ul>
+<p>模块化评价的原则是：<strong>高内聚、低耦合</strong></p>
+<ul>
+<li>
+<p><strong>耦合</strong>：不同模块间的互相依赖程度。</p>
+<p>耦合强度的依赖因素有：</p>
+<ul>
+<li>一个模块对另一模块的引用</li>
+<li>一个模块向另一模块传递的数据量</li>
+<li>一个模块施加到另一模块的控制的数量</li>
+<li>模块间接口的复杂程度</li>
+</ul>
+<p>耦合从类型上又分为几类（由强到弱）：</p>
+<ul>
+<li>
+<p><strong>内容耦合</strong>：一个模块直接修改或操作另一模块的数据</p>
+<pre><code class=" mermaid">graph LR
+A&#123;&#123;模块A&#125;&#125;
+B&#123;&#123;模块B&#125;&#125;
+A--直接修改--&gt;B</code></pre>
+</li>
+<li>
+<p><strong>公共耦合</strong>：多个模块共同引用同一全局数据项</p>
+<pre><code class=" mermaid">graph BT
+O((公共数据))
+A&#123;&#123;模块A&#125;&#125;
+B&#123;&#123;模块B&#125;&#125;
+A--引用--&gt;O
+B--引用--&gt;O</code></pre>
+</li>
+<li>
+<p><strong>控制耦合</strong>：一个模块向另一模块传递一个控制信号，接受信号的模块将依据该信号进行必要活动</p>
+<pre><code class=" mermaid">graph LR
+A&#123;&#123;模块A&#125;&#125;
+B&#123;&#123;模块B&#125;&#125;
+A--控制信号--&gt;B</code></pre>
+</li>
+<li>
+<p><strong>标记耦合</strong>：一个模块向两个模块传递一个公共参数</p>
+<pre><code class=" mermaid">graph LR
+A&#123;&#123;模块A&#125;&#125;
+B&#123;&#123;模块B&#125;&#125;
+C&#123;&#123;模块C&#125;&#125;
+A--传递---O((公共数据))--&gt;B
+O--&gt;C</code></pre>
+</li>
+<li>
+<p><strong>数据耦合</strong>：模块间通过参数传递基本类型的数据</p>
+<pre><code class=" mermaid">graph LR
+A&#123;&#123;模块A&#125;&#125;
+B&#123;&#123;模块B&#125;&#125;
+A--控制耦合---O((简单数据))--&gt;B</code></pre>
+</li>
+</ul>
+<p><strong>如果模块间必须存在耦合，应尽量使用数据耦合，少用控制耦合，限制公共耦合范围，并坚决避免使用内容耦合</strong></p>
+</li>
+<li>
+<p><strong>内聚</strong>：一个模块内，各成分间的相互依赖程度</p>
+<p>好的设计应满足：</p>
+<ul>
+<li>模块功能单一</li>
+<li>模块各部分都和模块功能直接相关</li>
+<li>高内聚</li>
+</ul>
+<p>内聚的类型（由低到高）：</p>
+<ul>
+<li><strong>偶然内聚</strong>：模块内各成分间没有任何关系</li>
+<li><strong>逻辑内聚</strong>：几个逻辑上相关的功能放在同一模块中</li>
+<li><strong>时间内聚</strong>：一个模块完成的功能必须在同一时间内完成，而这些功能只是因为时间因素关联在一起</li>
+<li><strong>过程内聚</strong>：各成分必须以特定次序执行</li>
+<li><strong>通信内聚</strong>：各成分都操作在同一数据集或生成统一数据集</li>
+<li><strong>顺序内聚</strong>：各成分与一个功能相关，且一个成分的输出作为另一成分的输入</li>
+<li><strong>功能内聚</strong>：模块的所有成分对完成单一功能是最基本的，且该模块对完成这一功能而言是充分必要的</li>
+</ul>
+</li>
+<li>
+<p><strong>启发式规则</strong>：是根据设计准则，从长期的软件开发实践中，总结出来的规则。</p>
+<p>启发式规则不是设计目标，也不是设计时应该普遍遵循的原理</p>
+<p>常见的启发式规则：</p>
+<ul>
+<li>
+<p><strong>改进软件结构，提高模块独立性</strong></p>
+<p>通过模块的分解和合并，达到降低耦合，提高内聚</p>
+</li>
+<li>
+<p><strong>模块规模适中</strong>，每页 60 行语句</p>
+</li>
+<li>
+<p><strong>深度、宽度、扇入、扇出适中</strong></p>
+<p>深度：软件结构中控制的层数。其标示一个系统的大小和复杂程度</p>
+<p>宽度：软件结构中同一层次上的模块总数的最大值</p>
+<p>扇入：被多少上级模块调用。不违背模块独立性的条件下，扇入越大越好</p>
+<p>扇出：调用多少下级模块。扇出过大则模块过分复杂，过小说明功能过度集中。</p>
+<p>对于好的系统，应该做到：顶层扇出高，中层扇出少，底层扇入高</p>
+</li>
+<li>
+<p><strong>模块的作用域力争在控制域内</strong></p>
+<p>作用域：受该模块内一个判定影响的所有模块的集合</p>
+<p>控制域：模块本身 + 所有直接或间接从属于它的模块集合</p>
+</li>
+<li>
+<p><strong>降低模块接口的复杂性</strong></p>
+</li>
+<li>
+<p><strong>模块功能应该可以预测</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="SE2-3-结构化程序设计">SE2.3 结构化程序设计</h3>
+<h4 id="详细设计"># 详细设计</h4>
+<p>具体描述模块结构图中的每一模块，给出实现其功能的实现机制。包括一组 <strong>例程</strong> 和 <strong>数据结构</strong>。</p>
+<p><strong>详细设计的目标</strong>：将总体设计阶段产生的高层结构映射为以相关术语表达的低层结构，也是系统的最终结构。</p>
+<p><strong>结构化程序设计方法</strong>：一种基于结构的编程方法，采用 <strong>顺序结构</strong>、<strong>选择结构</strong> 和 <strong>循环结构</strong> 进行编程。其中每个结构只允许一个入口和出口。结构化程序设计的本质，是使程序的控制流程线性化，实现程序动态执行顺序符合静态书写的结构，提高程序的可读性。</p>
+<h4 id="详细设计工具"># 详细设计工具</h4>
+<ul>
+<li>
+<p><strong>程序流程图</strong></p>
+<p>又称程序框图。是历史最悠久，使用最广泛的描述过程设计的方法。然而也是使用最为混乱的方法。</p>
+<pre><code class=" mermaid">graph LR
+END1(结束)
+TOP(开始)--&gt;A&#123;分支判断&#125;--true--&gt;B(语句)--&gt;W&#123;循环判断&#125;--false--&gt;E(结束)
+A--false--&gt;END1(结束)
+W--true--&gt;B</code></pre>
+</li>
+<li>
+<p><strong>盒图（N-S 图）</strong></p>
+<p>完全去掉了流程线，算法的每一步都用一个矩形框来描述，把一个个矩形框按执行的次序连接起来就是一个完整的算法描述。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/SE_InputImage/N-S%E5%9B%BE_SE2_3_2_2.webp" alt=""></p>
+<p>​	<em>（N-S图_SE2_3_2_2）</em></p>
+</li>
+<li>
+<p><strong>问题分析图（PAD 图）</strong></p>
+<p>执行顺序是从最左主干线的上端的结点开始，自上而下依次执行。每遇到判断或循环，就自左而右进入下一层，从表示下一层的纵线上端开始执行，宜到该纵线下端，再返回上一层的纵线的转入处。如此继续，直到执行到主干线的下端为止。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/SE_InputImage/PAD%E5%9B%BE_SE2_3_2_3.webp" alt=""></p>
+<p>​	<em>（PAD图_SE2_3_2_3）</em></p>
+</li>
+<li>
+<p><strong>类程序设计语言（PDL）</strong></p>
+<p>也称 <strong>伪码</strong>。用正文形式表示数据和处理过程。</p>
+<p>PDL 有严格的关键字外部语法，用于定义控制结构和数据结构。</p>
+<p>PDL 一般是一种混杂的语言，其使用一种语言（自然语言）的词汇，却使用另一语言（结构化程序设计语言）的语法。</p>
+</li>
+</ul>
+<h4 id="设计规约"># 设计规约</h4>
+<p>设计规约是一份正式性文档，其完整准确地描述满足需求规约所要求的所有功能模块，以及伴随功能模块而出现的非功能机制。设计规约包括 <strong>概要设计规约</strong> 和 <strong>详细设计规约</strong>。</p>
+<ul>
+<li>
+<p>概要设计规约</p>
+<p>指明高层软件体系结构。包括：系统环境、软件模块结构、模块描述、文件结构和全局数据文件的逻辑结构、测试需求</p>
+</li>
+<li>
+<p>详细设计规约</p>
+<p>主要作为软件设计人员和程序员间交流的媒体。包括：各处理过程的算法、算法所涉及的全部数据结构的描述</p>
+</li>
+</ul>
+<h3 id="SE2-4-设计评审">SE2.4 设计评审</h3>
+<p>目前存在两种不同的评审方法：非正式评审、正式技术评审</p>
+<p><strong>软件设计评审细节</strong></p>
+<ul>
+<li>概要设计评审和详细设计评审必须分开进行，不能合并为一次评审
+<ul>
+<li>概要设计评审评价从需求到设计数据和体系结构的变换</li>
+<li>详细设计评审，通常叫详细设计走查，注重算法设计的正确性</li>
+</ul>
+</li>
+<li>建立一个议事日程并遵循它</li>
+<li>审计设计文档，不评审设计者</li>
+<li>评审中提出的问题应该详细记录，但不要谋求当场解决</li>
+<li>限制参与人数和坚持充分准备
+<ul>
+<li>除软件开发人员外，概要设计评审必须有用户代表参加，必要时可以邀请有关领域专家到会</li>
+<li>详细设计评审一般不邀请用户和其他领域的代表</li>
+</ul>
+</li>
+<li>为设计文档开发一个检查表，以帮助评审人员集中在重要问题上</li>
+<li>为了提高评审效率，所有评审的参加者应接受一定的正规培训</li>
+<li>评审结束前，做出本次评审是否通过的结论</li>
+</ul>
+<p><strong>概要设计评审检查表</strong></p>
+<ul>
+<li>软件体系结构是否反映了软件需求</li>
+<li>达到高的模块化吗？模块功能独立吗？</li>
+<li>模块与外部系统元素接口定义了吗？</li>
+<li>数据结构与软件需求一致吗？</li>
+<li>考虑了可维护性吗？</li>
+<li>是否直接评价了质量因素？</li>
+</ul>
+<p><strong>详细设计评审检查表</strong></p>
+<ul>
+<li>算法是否能完成所要求的功能</li>
+<li>算法逻辑是否正确</li>
+<li>接口与体系结构设计是否一致</li>
+<li>逻辑的复杂性合理吗</li>
+<li>是否规定了错误处理和反故障处理</li>
+<li>正确定义了局部数据机构吗</li>
+<li>都使用了结构化变成构造吗</li>
+<li>用到是哪个操作系统或语言独立性</li>
+<li>是否考虑到可维护性</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="category-chain-item">软件工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">#软件工程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;软件工程&gt;2 结构化方法</div>
+      <div>https://i-melody.github.io/2023/11/03/软件工程/SE2 结构化方法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

@@ -1,0 +1,1861 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="SE4 统一建模语言（UML） 在消化、吸收、提炼至今存在的所有软件建模语言的基础上，提出了 UML（统一建模语言） UML 是软件设计与需求规约语言，是一种为面向对象系统的产品进行说明、可视化和编制文档的一种标准语言。 面向对象方法是一种以对象、对象关系等来构建软件系统模型的系统化方法。其认为一切系统都是由对象构成的。对象间的相互作用、相互影响，构成了各式各样的系统。面向对象不仅仅是一种程序开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;软件工程&gt;SE4-5 面向对象方法">
+<meta property="og:url" content="https://i-melody.github.io/2023/11/03/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/SE4%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="SE4 统一建模语言（UML） 在消化、吸收、提炼至今存在的所有软件建模语言的基础上，提出了 UML（统一建模语言） UML 是软件设计与需求规约语言，是一种为面向对象系统的产品进行说明、可视化和编制文档的一种标准语言。 面向对象方法是一种以对象、对象关系等来构建软件系统模型的系统化方法。其认为一切系统都是由对象构成的。对象间的相互作用、相互影响，构成了各式各样的系统。面向对象不仅仅是一种程序开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/SE_InputImage/%E7%94%A8%E5%86%B5%E5%9B%BE_SE4_3_2.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/SE_InputImage/RUP%25E9%2598%25B6%25E6%25AE%25B5%25E5%259B%25BE_SE5.webp">
+<meta property="article:published_time" content="2023-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T17:35:38.103Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="基础课目">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/SE_InputImage/%E7%94%A8%E5%86%B5%E5%9B%BE_SE4_3_2.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;软件工程&gt;SE4-5 面向对象方法 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><软件工程>SE4-5 面向对象方法</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-03 00:00" pubdate>
+          2023年11月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;软件工程&gt;SE4-5 面向对象方法</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月3日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>SE4 统一建模语言（UML）</h1>
+<p>在消化、吸收、提炼至今存在的所有软件建模语言的基础上，提出了 UML（统一建模语言）</p>
+<p>UML 是软件设计与需求规约语言，是一种为面向对象系统的产品进行说明、可视化和编制文档的一种标准语言。</p>
+<p>面向对象方法是一种以对象、对象关系等来构建软件系统模型的系统化方法。其认为一切系统都是由对象构成的。对象间的相互作用、相互影响，构成了各式各样的系统。面向对象不仅仅是一种程序开发方法，也是一种软件方法学</p>
+<ul>
+<li>
+<p>用 对象作为对事物的抽象表示，并以此作为系统的基本构成单位。</p>
+<p>事物的静态特征用 属性表示，动态特征用对象的操作表示</p>
+<p>对象的属性和操作合为一体，构成一个独立的实体，对外屏蔽其内部细节（<strong>对象</strong>）</p>
+</li>
+<li>
+<p>对事物进行分类。具有相同属性和操作的分为一类。类是对象的抽象描述，每个对象是其所属类的实例（<strong>类</strong>）</p>
+</li>
+<li>
+<p>通过在不同程度上运用抽象原则，能得到一般类和特殊类。特殊类继承一般类的属性和操作。</p>
+<p>面向对象支持对这种继承关系的描述和实现，从而简化系统的构造过程及其文档（<strong>泛化</strong>）</p>
+</li>
+<li>
+<p>复杂的对象可以用简单的对象作为其构成部分（<strong>细化</strong>）</p>
+</li>
+<li>
+<p>对象间通过消息进行通信，以实现对象间的动态联系（<strong>依赖</strong>）</p>
+</li>
+<li>
+<p>用 关联表达类之间的静态关系（<strong>关联</strong>）</p>
+</li>
+</ul>
+<p>UML 可用于可用于对象方法和构件方法，可用于所有应用领域和不同的实现平台。</p>
+<p>UML 主要提供了两类术语：表达客观事物的术语、表达关系的术语</p>
+<h2 id="SE4-1-表达客观事物的术语">SE4.1 表达客观事物的术语</h2>
+<p>为了表达客观世界中各类事物，UML 给出了如下术语</p>
+<h3 id="SE4-1-1-类、对象">SE4.1.1 类、对象</h3>
+<p><strong>类</strong>（class）：一组具有相同属性、操作、关系和语义的对象的描述。<strong>对象</strong>（object）是类的一个实例</p>
+<pre><code class=" mermaid">classDiagram
+class Class
+Class:operation()
+Class:attribute
+Class:virtualOperation()*</code></pre>
+<p>类主要用于抽象客观世界中的事物，因此一般具有一组属性和操作</p>
+<p>一个结构良好的类，应符合以下条件：</p>
+<ul>
+<li>是对问题域或解域中事物的明确抽象</li>
+<li>嵌入了小的、明确定义的责任集，并能将其很好地实现</li>
+<li>清晰地分离了抽象的规约和实现</li>
+</ul>
+<h4 id="属性（attribute）"># 属性（attribute）</h4>
+<p>属性是类的一个命名属性，由该类的所有对象共享，用于表达对象状态的数据</p>
+<p>一个属性往往具有所属的类型，用于描述该特性的实例能取值的范围</p>
+<p>类的一个对象对每个属性有特定的值</p>
+<p>一个类能有多个属性，也可以没有属性</p>
+<p>定义属性的格式为（<code>[ ]</code> 中的内容可选）：<code>[可见性]属性名[:类型][多重性][=初始值][&#123;特性串&#125;]</code></p>
+<ul>
+<li>
+<p>可见性：表明该属性是否可被其他类使用</p>
+<p>值可以是：公有（+），受保护（#），私有（-），包内（~）</p>
+</li>
+<li>
+<p>多重性：如 <code>points[2..*]:Point</code>。可以不写，此时默认是 1…1</p>
+</li>
+<li>
+<p>初始值</p>
+</li>
+<li>
+<p>性质串：如 <code>a:integer=1&#123;frozen&#125;</code></p>
+</li>
+<li>
+<p>作用范围</p>
+</li>
+</ul>
+<h4 id="操作（operation）"># 操作（operation）</h4>
+<p>操作是一个类中所有对象要做的事情的抽象。一个类可以有复数个操作。操作的命名遵循驼峰法</p>
+<p>表达操作的语法格式：<code>[可见性]操作名[(参数表)[:返回类型]][&#123;性质串&#125;]</code></p>
+<ul>
+<li>
+<p>性质串：有以下几种</p>
+<p>leaf：该操作是叶子操作</p>
+<p>abstract：该操作是抽象操作</p>
+<p>qucry：是完全没有副作用的纯函数。不会改变系统状态</p>
+<p>sequential：一次只能调用对象的一个操作。相当于 synchronize</p>
+<p>static：该操作没有隐式参数。</p>
+</li>
+</ul>
+<h4 id="类的责任（responsibility）"># 类的责任（responsibility）</h4>
+<p>在模型化一类事物中，其起始点往往是给出该类责任。即一个类承诺的任务（contract）或职责（obligation）</p>
+<p>在实践中，每个结构良好的类至少要有一个职责</p>
+<h3 id="SE4-1-2-接口">SE4.1.2 接口</h3>
+<p><strong>接口</strong>是操作的一个集合。其中每个操作描述了类、构件或子系统的一个服务</p>
+<p>接口通常有两种形式：</p>
+<ul>
+<li>
+<p>采用分栏和关键字 &lt;&lt;interface&gt;&gt; 的矩形符号表示</p>
+<pre><code class=" mermaid">classDiagram
+class IClass&#123;
+	&lt;&lt;Interface&gt;&gt;
+	operation()*
+&#125;</code></pre>
+</li>
+<li>
+<p>采用小圆圈和半圆圈表示</p>
+</li>
+</ul>
+<p>接口只能被其他类目使用，而不能访问其他类目。</p>
+<p>接口不描述其中操作的实现，也没有属性和状态。接口在形式上等价于仅有抽象操作的抽象类。</p>
+<p>接口间没有关联、泛化、实现和依赖，但能参与关联、泛化、实现和依赖</p>
+<h3 id="SE4-1-3-其他术语">SE4.1.3 其他术语</h3>
+<p>除了 <strong>类和接口</strong> 外，还有 6 个术语</p>
+<ul>
+<li>
+<p>协作（Collaboration）</p>
+<p>协作是一个交互，其涉及交互的三要素：交互各方、交互方式、交互内容</p>
+<p>交互各方间的相互作用提供了某种协作性行为</p>
+<p>在 系统/产品 建模中，可以通过协作来刻画一种由一组特定元素参与的、具有特定行为的结构。这组特定元素可以是给定的类或对象，因此，协作可以编 写 系统/产品 实现的一种构成模式</p>
+<p>协作是系统体系结构的概念组块。其仅引用或使用在其他地方声明的类、接口、组件、节点和其他结构元素，而不能拥有自己的结构元素。</p>
+</li>
+<li>
+<p>用况（Use Case）</p>
+<p>也称用例。用况是对一组动作序列的描述，系统执行这些动作应产生对特定参与者有价值的、可观察的结果</p>
+<p>在 系统/产品 建模中，用况一般用于模型化系统中的功能行为，是建立系统功能模型的一个重要术语。一个用况描述了系统的一个完整的功能需求</p>
+<p>由用况表达的 系统/产品 功能，往往可以通过协作精化</p>
+</li>
+<li>
+<p>主动类（Active Class）</p>
+<p>主动类是一种至少具有一个进程或线程的类。主动类能够启动系统的控制活动，并且其对象行为通常是与其他元素行为并发的</p>
+<p>在 系统/产品 建模中，主动类一般用于模型化系统中的并发行为</p>
+</li>
+<li>
+<p>构件（Component）</p>
+<p>系统中逻辑的且可替换的成分，通过外部接口隐藏了其实现</p>
+<p>在一个系统中，具有共享的、相同接口的、相同逻辑行为构件是可以互相替代的。构件可以嵌套，大的构件可以嵌套小的构件</p>
+<p>在 系统/产品 建模中，构件一般用于表达解空间中可以独立标识的部分。换言之，构件这一术语不能用于问题定义</p>
+</li>
+<li>
+<p>制品（Artifact）</p>
+<p>制品是系统中包含物理信息的、可替代的物理组件</p>
+<p>在软件开发中，制品通常用于代表有关源代码信息或运行时信息的一个物理打包。在一个系统中，可能存在不同类型的部署制品，如源代码文件、可执行程序和脚本</p>
+</li>
+<li>
+<p>节点（Node）</p>
+<p>节点是运行时存在的物理元素，通常表示一种具有记忆能力和处理能力的计算机资源。一个构件可以驻留在一个节点中，也能从一个节点移动到另一节点</p>
+</li>
+<li>
+<p>包（package）</p>
+<p>为了组织类目，控制信息组织和文档组织的复杂性，UML 引入了包</p>
+<p>包是模型元素的一个分组。一个包本身可以被嵌套在其他包中，并可以含有子包和其他种类的模型元素</p>
+<p>包之间的关系分为两种：</p>
+<ul>
+<li>
+<p>访问依赖（Access）</p>
+<p>目标包中具有可见性的内容增加到源包的私有命名空间中。源包能引用目标包内容，但不能输出之</p>
+</li>
+<li>
+<p>引入依赖（Import）</p>
+<p>目标包中有适当可见性的内容被加入到源包的公共命名空间中。这相当于源包对它们做了声明</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="SE4-1-4-常用的建模技术">SE4.1.4 常用的建模技术</h3>
+<ol>
+<li>
+<p>模型化一个系统中的词汇</p>
+<ul>
+<li>识别用于描述问题或解决方案的事物，将其表示为类</li>
+<li>标识每个类的责任集，确保每个类的定义清晰，并使责任分配均衡</li>
+<li>为每个类的责任的实现，提供所需属性和操作</li>
+</ul>
+</li>
+<li>
+<p>模型化系统中的责任分布</p>
+<p>目标是：均衡系统中每个类的责任，避免类过大或过小</p>
+<ul>
+<li>为了完成某些行为，标识一组紧密协作的类。对这组中的每个类，标识其一组职责</li>
+<li>将职责过多的类拆分为一些较小的抽象类。将职责琐碎的类合并为较大的类</li>
+<li>考虑这些类的协作方式，调整其责任，避免类职责的过多或过少</li>
+</ul>
+</li>
+<li>
+<p>模型化基本类型</p>
+<p>在其他极端情况下，建模事物可能直接取自现实中解的编程语言。通常这些抽象包括简单类型，如数字、字符串、乃至自定义枚举类型。</p>
+<p>对抽象为类型或枚举的事物建模时，可以用带有适当衍型的类表示</p>
+<p>如需要详细描述与该类型相关的值域，可使用约束</p>
+</li>
+</ol>
+<h2 id="SE4-2-表达关系的术语">SE4.2 表达关系的术语</h2>
+<p>为了表达事物间的相互依赖和作用，UML 给出了如下术语</p>
+<h3 id="SE4-2-1-关联（Association）">SE4.2.1 关联（Association）</h3>
+<p>关联是类目间的一种结构关系，是对一组具有相同结构、相同链的描述。</p>
+<p>链（link）：对象间具有特定语义关系的抽象，实现后的链通常称为对象间的连接（connection）</p>
+<p>关联两个类目的关联称为 二元关联。关联 n 个类名的关联称为 n 元关联</p>
+<p>与类相比：</p>
+<ul>
+<li>类是一组具有相同属性、操作、关系和语义的对象的描述</li>
+<li>关联是一组具有相同结构和语义的链的描述</li>
+</ul>
+<p>为了表达关联的语义，UML 采用了如下描述：</p>
+<ul>
+<li>
+<p>关联名：关联的标识，用于提示该关联的含义。为避免关联涵义上的歧义，可以给出关联方向</p>
+</li>
+<li>
+<p>导航：对于一个给定类目，可以找到与之关联的另一类目。一般情况下，导航是双向的。也能限定导航为单向</p>
+</li>
+<li>
+<p>角色：关联一端的类目对另一端的类目的一种呈现。当一个类目参与一个关联时，如果它具有一个特定角色，那么就要显式给出端点名，以此来命名该类目在关联中的角色</p>
+</li>
+<li>
+<p>可见性：能通过导航找到另一类目的实例。有些情况下，需要限制关联外的实例通过该关联访问相关对象</p>
+</li>
+<li>
+<p>多重性：类中对象参与一个关联的数目</p>
+</li>
+<li>
+<p>限定符：限定符是一个关联的属性或属性表，这些属性的值将与该关联相关类的对象集做了一个划分</p>
+</li>
+<li>
+<p>聚合：分类是增强客观实际问题语义的一种手段。满足 “一个类是另一类的一部分” 的关联就称为一个集合。集合是关联的特殊形式，表达 “整体/部分” 的关系</p>
+<p>使用聚合这一术语时，应注意双方在概念上是否处于同一层次。如若是，则标识为一个部分类，否则应标识为属性</p>
+</li>
+<li>
+<p>组合：组合是聚合的特殊形式。如果在一个时间段内，整体类的实例中至少包含一个部分类的实例，且该整体类负责创建和消除该部分类实例，那么这样的聚合称为组合</p>
+<p>回想一下 Java 的 HashSet 和 HashMap 吧。回想完了？那忘掉吧，和这个没关系</p>
+</li>
+<li>
+<p>关联类：一种具有关联和类特性的模型元素。一个关联类可以被看作关联，但也有类的特性。</p>
+</li>
+<li>
+<p>约束：为进一步描述关联一端类的性质，UML 给出了 6 个约束</p>
+<ul>
+<li>有序（ordered）</li>
+<li>无重复对象（set）</li>
+<li>有重复对象（bag）</li>
+<li>有序集合（order set）</li>
+<li>列表（list）或序列（sequence）</li>
+<li>只读（readonly）</li>
+</ul>
+</li>
+</ul>
+<h3 id="SE4-2-2-泛化">SE4.2.2 泛化</h3>
+<p>泛化是一般性类目（父类、超类）和其较为特殊性类目（子类）间的一种联系</p>
+<p>如果两个类具有泛化关系，则：</p>
+<ul>
+<li>子类能继承父类属性和操作，并可有更多的属性和操作</li>
+<li>子类可以替换父类声明</li>
+<li>子类同一操作的实现可能覆盖父类的实现，这种情况称为操作多态</li>
+<li>可以在类目间创建泛化，如节点间、类和接口间等</li>
+</ul>
+<p>无父类且拥有子类的类称为基类（根类），没有子类的类称为叶子类</p>
+<p>具有单一父类的情况称为单继承，具有多个父类称为 <del>人中赤兔</del> 多继承。历史经验告诉我们，如果一个子类有多个父类，这些父类的结构或行为存在重叠，就可能产生一系列问题。因此，一般尽量采用单继承。</p>
+<p>为进一步表达泛化语义，UML 提供了 4 个约束</p>
+<ul>
+<li>完整（Complete）：已在模型中给出了泛化的所有子类。尽管有所省略，也不允许添加新的子类</li>
+<li>不完整（Incomplete）：模型中未给出全部子类。因此，可以添加子类</li>
+<li>互斥（Disjoint）：父类对象最多允许该泛化中的一个子类作为其类型</li>
+<li>重叠（Overlapping）：父类对象可能具有泛化中多个子类作为其类型</li>
+</ul>
+<h3 id="SE4-2-3-细化">SE4.2.3 细化</h3>
+<p>类目间的语义关系。其中一个类目规约了保证另一类目执行的契约</p>
+<p>一般在以下地方使用细化</p>
+<ul>
+<li>接口与其实现类或实现构件间</li>
+<li>用况与其实现协作间</li>
+</ul>
+<h3 id="SE4-2-4-依赖">SE4.2.4 依赖</h3>
+<p>依赖是一种使用关系，用于描述一个类目使用另一类目的信息和服务</p>
+<p>UML 对依赖进行了分类</p>
+<ul>
+<li>
+<p>绑定（Bind）：源的实例化是使用目标给定的实际参数来达到的。</p>
+<p>如：可以把模板容器类与该类中实例间的关系模型化为绑定。绑定涉及实参到形参的映射</p>
+</li>
+<li>
+<p>导出（Derive）：可以从目标推导出源。如：出生日期和年龄</p>
+</li>
+<li>
+<p>允许（Permit）：表明目标对源而言可见。一个类访问另一类的私有特征时，将这一关系模型化为允许</p>
+</li>
+<li>
+<p>实例（Instanceof）：源的对象是目标的一个实例</p>
+</li>
+<li>
+<p>实例化（Instantiate）：源的实例是由目标创建的</p>
+</li>
+<li>
+<p>幂类型（Powertype）：源是目标的幂类型</p>
+</li>
+<li>
+<p>精化（Refine）：源比目标更精细</p>
+</li>
+<li>
+<p>使用（Use）：表明源的公共部分的语义依赖于目标语义</p>
+</li>
+</ul>
+<p>按照 UML 观点，一切事物间关系都可用 依赖 来规约。关联、细化、泛化 都是一类特殊的依赖。</p>
+<h3 id="SE4-2-5-模型化关系">SE4.2.5 模型化关系</h3>
+<p>使用上述术语，能模型化下列关系</p>
+<ul>
+<li>
+<p><strong>结构关系</strong></p>
+<p>系统中存在大量结构关系，可以用 <strong>关联</strong> 来模型化这种关系</p>
+<p>对各种结构关系进行模型化时，可以采用两种方式</p>
+<ul>
+<li>
+<p>以数据驱动</p>
+<p>对所标识的每个类，如果一个类要导航到另一个类的对象，就在这两个类间给出一个关联</p>
+</li>
+<li>
+<p>以行为驱动</p>
+<p>对所标识的每个类，如果一个类要与另一个类的对象交互，就在这两个类间给出一个关联</p>
+</li>
+</ul>
+<p>不论何种驱动方式，为了进一步给出关联语义，一般要做到如下两点：</p>
+<ul>
+<li>给出关联的多重性</li>
+<li>判断该关联是否为聚合或组合</li>
+</ul>
+</li>
+<li>
+<p><strong>继承关系</strong></p>
+<p>对于系统中存在的 一般/特殊 的关系，可以使用 <strong>泛化</strong> 对其进行规约</p>
+<p>在对系统中的 一般/特殊 关系进行模型化时，应以共同的职责为驱动。发现一组类中具有的相同职责，继而抽取其共同职责及相关共同属性和操作，作为一般类，并表明该一般类与这组特殊类间的泛化关系</p>
+<p>模型化继承关系时，应避免继承层次过深（多代子类）或过宽（多个父类）</p>
+</li>
+<li>
+<p><strong>精化关系</strong></p>
+<p>对于系统中存在的精化关系，可以使用 <strong>细化</strong> 对其进行规约</p>
+<p>精化关系是两个不同抽象层间的一种关系。一个抽象层的一个事物通过另一抽象层的术语细化，并增加相应细节</p>
+<p>软件分析和设计是一个不断求精的过程。经常使用该术语表达不同抽象层间的精化，以体现 “自顶向下，逐步求精” 的思想</p>
+<p>在对系统中的精化关系进行模型化时，应以一个抽象层中的概念为驱动，使用下一抽象层的概念对其进行精化</p>
+</li>
+<li>
+<p><strong>依赖关系</strong></p>
+<p>人类在认识客观世界中，最常用的构造方法是：分类、整体/部分、一般/特殊。据此，在对系统中存在的各种关系进行模型化时，首先应考虑静态结构问题。不是结构关系、继承关系、精化关系时，才使用 <strong>依赖</strong> 对其进行规约。</p>
+<p>一般只有在操作没有给出，或省略明显操作标记时，或模型还需描述与目标类的其他关系时，才将其关系模型化为依赖。如果给出了明显标记，一般不需要给出该依赖。</p>
+</li>
+</ul>
+<h2 id="SE4-3-UML-的模型表达工具">SE4.3 UML 的模型表达工具</h2>
+<pre><code class=" mermaid">graph TB
+M(图)
+M---S(结构图)
+M---A(行为图)
+S---CLASSDIAGRAM(类图)
+S----OBJECTDIAGRAM(对象图)
+S---STRUCTDIAGRAM(构件图)
+S----PACKAGEDIAGRAM(包图)
+S---DEPLOYDIAGRAM(部署图)
+S----C_S_DIAGRAM(组合结构图)
+
+A---USECASEDIAGRAM(用例图)
+A----ACTIVITYDIAGRAM(活动图)
+A---STATEDIAGRAM(状态图)
+A----I(交互图)
+I---SEQUENCEDIAGRAM(顺序图)
+I----COMMUNICATIONDIAGRAM(通信图)
+I---WTFDIAGRAM(交互概观图)
+I----TIMINGDIAGRAM(定时图)</code></pre>
+<p>UML 为不同抽象层提供了 6 种可对 <strong>系统静态部分</strong> 建模的图形工具：</p>
+<ul>
+<li>
+<p>类图</p>
+<p>类图显示了类（及接口）、类的内部结构及其他类的联系。类图是 OOAD 得到的最重要的模型。</p>
+</li>
+<li>
+<p>构件图</p>
+<p>在转入实现阶段前，可以用构件图表示如何组织构件。构件图描述了构件及构件间的依赖关系。</p>
+</li>
+<li>
+<p>组合结构图</p>
+<p>展示了类或协作的内部结构</p>
+</li>
+<li>
+<p>对象图</p>
+<p>展示了一组对象及它们间的关系。用对象图说明在类图中发现的事物实例的数据结构和静态快照。</p>
+</li>
+<li>
+<p>部署图</p>
+<p>部署图展示运行时进行处理的结点和在结点上生存的制品的配置。部署图用来对系统的静态部署视图建模</p>
+</li>
+<li>
+<p>制品图</p>
+<p>展示了一组制品及其间的依赖关系。利用制品图可以对系统的静态实现视图建模</p>
+</li>
+</ul>
+<p>UML 为不同抽象层提供了 7 种可对 <strong>系统动态部分</strong> 建模的图形工具：</p>
+<ul>
+<li>
+<p>用况图</p>
+<p>需求模型</p>
+</li>
+<li>
+<p>状态图</p>
+<p>当对象的行为较为复杂时，可以用状态图作为辅助模型描述对象的状态及状态转移，从而更准确地定义对象的操作</p>
+</li>
+<li>
+<p>活动图</p>
+<p>注重从活动到活动的控制流，可用来描述对象的操作流程，也可以描述一组对象间的协作行为或用户的业务流程</p>
+</li>
+<li>
+<p>顺序图</p>
+<p>注重于消息的时间次序。可以用来表示一组对象间的交互情况</p>
+</li>
+<li>
+<p>通信图</p>
+<p>注重于收发消息的对象的组织结构。可以用来表示一组对象间的交互情况</p>
+</li>
+<li>
+<p>交互概念图</p>
+<p>用于描述系统的宏观行为。是活动图和顺序图的混合物</p>
+</li>
+<li>
+<p>定时图</p>
+<p>用于表示交互，它展现了消息跨越不同对象或角色的实际时间，而不仅仅关心消息的相对顺序</p>
+</li>
+</ul>
+<h3 id="SE4-3-1-类图（Class-Diagram）">SE4.3.1 类图（Class Diagram）</h3>
+<p>类图通常包含：类、接口、类间关系。还能包含注解和约束，以及包或子系统。甚至可以包含一个实例，以便使其可视化</p>
+<p>下面是一个类图的示例：</p>
+<pre><code class=" mermaid">classDiagram
+
+class Company &#123;
+	
+&#125;
+
+class Department &#123;
+	name Name
+&#125;
+
+class Office &#123;
+	address String
+	phone Number
+&#125;
+
+class Headquarters &#123;
+	
+&#125;
+
+class Person &#123;
+	name Name
+	employeeID Integer
+	title String
+	getPhoto() Photo
+	getPhone() Number
+	getContactInformation() ContactInformation
+	getPersonalRecords() PersonalRecords
+&#125;
+
+
+class ContactInformation &#123;
+	address String
+&#125;
+
+class PersonalRecords &#123;
+	taxID
+	employmentHistory
+	salary
+&#125;
+
+Company &quot;1&quot; *-- &quot;1..*&quot; Department
+Company &quot;1&quot; *-- &quot;1..*&quot; Office
+Office &lt;|-- Headquarters : 泛化
+Department --* Department : 0..1
+Office &quot;*&quot;--&quot;*&quot; Department : Location
+Department &quot;*&quot;--&quot;1..*&quot; Person : member
+Department &quot;*&quot;--&quot;1&quot; Person : manager
+Person ..&gt; ContactInformation : 依赖
+Person ..&gt; PersonalRecords : 依赖</code></pre>
+<p>创建类图包括以下几方面工作：</p>
+<ol>
+<li>
+<p>对系统中的概念（词汇）建模，形成类图中的基本元素</p>
+<p>使用 UML 的术语 “类”，来抽象系统中各个组成部分，包括系统环境。然后，确定每一类的责任，最终形成类图中的模型元素。</p>
+</li>
+<li>
+<p>对待建系统中的各种关系建模，形成该系统的初始类图</p>
+<p>使用 UML 中表达关系的术语来抽象系统中各成分间的关系，形成该系统的初始类图</p>
+<ul>
+<li>
+<p>当用 <strong>关联</strong> 关系建模时，是在对相互同等的两个类建模。给定两个类间的关联，则这两个类以某种方式相互依赖，且常常从两边都可以导航</p>
+<ul>
+<li>
+<p>对于每一对类，如果需要从一个类到另一类导航，就要在这两个类间建立一个关联</p>
+<pre><code class=" mermaid">classDiagram
+class Person
+class Company
+Person --&gt; Company : works for</code></pre>
+</li>
+<li>
+<p>对于每一对类，如果一个类的对象要与另一类的对象交互，并且后者不是前者的过程局部变量或操作参数，就要在这两个类间建立一个关联</p>
+</li>
+<li>
+<p>如果关联中的一个类与另一端的类相比，前者在结构或组织上是一个整体，后者看来像是它的部分，则在靠近整体的一侧用一个菱形关联修饰，从而将其标记为聚合</p>
+<pre><code class=" mermaid">classDiagram
+class Company
+class Department
+Company &quot;1&quot;o--&quot;*&quot; Department : 聚合</code></pre>
+</li>
+<li>
+<p>对于每一个关联，都要说明其多重性（否则，默认多重性为 *）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>依赖</strong> 关系是使用关系。常见的依赖关系是两个类间的连接，一个类知识使用另一个类作为其操作参数</p>
+<pre><code class=" mermaid">classDiagram
+class CourseSchdule &#123;
+	add(c:Course)
+	remove(c:Course)
+&#125;
+class Course
+CourseSchdule ..&gt; Course</code></pre>
+</li>
+<li>
+<p><strong>泛化</strong> 关系是 is-a-kind-of 关系。在对系统的词汇建模时，如果遇到结构或行为上与其他类相似的类，可以提取所有的共同的结构特征和行为特征，并把它们提升到较一般的类中。特殊类继承这些特征</p>
+<pre><code class=" mermaid">classDiagram
+class Shape &#123;
+	origin: Point
+	move(offset: Point)
+	resize(ratio: Real)
+	display()
+&#125;
+
+class Circle &#123;
+	radius: Distance
+	resize(ratio: Real)
+	display()
+&#125;
+
+class Polygon &#123;
+	vertexOffset: List of Point
+	resize(ratio: Real)
+	display()
+&#125;
+
+class Rectangle &#123;
+	width: Distance
+	height: Distance
+	resize(ratio: Real)
+	display()
+&#125;
+
+Shape &lt;|-- Circle : 泛化
+Shape &lt;|-- Polygon : 泛化
+Shape &lt;|-- Rectangle : 泛化</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>模型化系统中的协作，给出该系统的最终类图</p>
+<p>使用类和 UML 中表达关系的术语，模型化一些类之间的协作，用类图对这组类及他们间的关系建模</p>
+</li>
+<li>
+<p>对逻辑数据库模式建模（附加）</p>
+<p>当需要给出数据库概念设计的指导，可以对要在数据库中存储的信息，采用类图对相应数据库模式中进行建模</p>
+</li>
+</ol>
+<h3 id="SE4-3-2-用况图（Use-Case-Diagram）">SE4.3.2 用况图（Use Case Diagram）</h3>
+<p>用况图是表现一组 Use cases（用况、用例）、Actors（参与者） 以及它们间关系的图</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/SE_InputImage/%E7%94%A8%E5%86%B5%E5%9B%BE_SE4_3_2.webp" alt=""></p>
+<p><em>（用况图_SE4_3_2……图片来源于网络！）</em></p>
+<h4 id="用况图的术语"># 用况图的术语</h4>
+<ul>
+<li>
+<p>主题</p>
+<p>主题是一组用况描述的一个系统或子系统。这些用况描述了该主题的完整行为，而参与者则表示与该主题交互的另一种类</p>
+</li>
+<li>
+<p>用况</p>
+<p>使用视角：用况表达了参与者使用系统的一种方式</p>
+<p>系统设计视角：一个用况规约了系统可以执行的一个动作序列，包括一些可能的变体，并对特定的操作者产生可见的、有值的结果</p>
+<p>用例是系统分析和设计阶段的输入之一。是类、对象、操作的源，也是分析设计的一个依据。用例也是制定开发计划、测试计划、设计测试用例的依据之一。</p>
+<p>用例能划分系统与外部实体的界限，是系统开发的起点</p>
+</li>
+<li>
+<p>参与者</p>
+<p>一组高内聚的角色。用户与用况交互时，该用户就是参与者</p>
+<p>一个参与者一般可以表达与系统交互的那些人、硬件或其他系统的角色</p>
+<p>参与者实际上不是软件应用的一部分，而是在应用环境之中。其实例代表以某种特定方式与系统进行交互</p>
+<p>一个客体对象可以扮演多个参与者。一个参与者代表了客体一个方面的角色</p>
+</li>
+<li>
+<p>关系</p>
+<ul>
+<li>
+<p>关联：参与关系。即操作者参与一个用例</p>
+<p>关联是操作者和用例间的唯一关系</p>
+</li>
+<li>
+<p>扩展：用例 A 到 用例 B 的扩展关系，指出了用例 B 的一个实例可以由 A 说明的行为予以扩展，并依据该扩展点定义的位置，A 说明的行为被插入到 B 中</p>
+</li>
+<li>
+<p>包含：用例 A 到 用例 B 的一个包含，指出 A 的一个实例将包含 B 说明的行为，即这一行为将包含在 A 定义的那部分中</p>
+</li>
+<li>
+<p>泛化：用例 A 到 用例 B 的泛化，指出 A 是 B 的特殊情况</p>
+</li>
+</ul>
+<p><em>扩展</em> 和 <em>包含</em> 是 <em>依赖</em> 的变体。</p>
+</li>
+</ul>
+<h4 id="用况图的使用"># 用况图的使用</h4>
+<ol>
+<li>对系统语境建模
+<ul>
+<li>决定哪些行为是系统的一部分，哪些行为是外部实体执行的。以此标识系统边界，同时定义主题</li>
+<li>在标识系统的参与者时，应考虑这些问题：谁需要得到系统帮助以完成其任务；谁执行系统的功能；系统与哪些硬件设备或其他系统交互；谁执行一些辅助功能进行系统的管理和维护</li>
+<li>将一些相似的参与者组织为一般/特殊结构</li>
+<li>在需要加深理解的地方，为每个参与者提供一个衍型</li>
+<li>最后，将这些参与者放入用况图中，并建立它们与系统用况间的关联：通信路径</li>
+</ul>
+</li>
+<li>对系统需求建模
+<ul>
+<li>确定系统的基本用况。考虑每个参与者期望或需要的系统行为，将这些行为规约为相应用况</li>
+<li>用况的结构化处理，即分解行为，形成必要的泛化结构和扩展、包含结构，并在用况图中给出各种已确定的关系</li>
+<li>用况的语义表达。即通过注解和约束来修饰用况，特别是给出用况的一些非功能需求</li>
+</ul>
+</li>
+</ol>
+<h3 id="SE4-3-3-顺序图（Sequence-Diagram）">SE4.3.3 顺序图（Sequence Diagram）</h3>
+<p>顺序图是一种交互图。由一组对象和对象间的关系组成。其中还包括对象间发送的消息</p>
+<pre><code class=" mermaid">sequenceDiagram
+participant c Client
+participant Transaction
+participant p ODBCProxy
+activate c Client
+c Client -&gt;&gt; Transaction : create()
+c Client -&gt;&gt; Transaction : setActions(a, d, o)
+activate Transaction
+Transaction -&gt;&gt; p ODBCProxy : setValues(d, 3.4)
+activate p ODBCProxy
+deactivate p ODBCProxy
+Transaction -&gt;&gt; p ODBCProxy : setValues(a, &quot;CO&quot;)
+activate p ODBCProxy
+deactivate p ODBCProxy
+Transaction --&gt;&gt; c Client : committed
+deactivate Transaction
+c Client -x Transaction : destory()
+deactivate c Client</code></pre>
+<p>顺序图包含的内容：</p>
+<ul>
+<li>交互的各方：角色或对象</li>
+<li>交互方式：同步或异步</li>
+<li>交互内容：消息</li>
+<li>也能包含注解和约束</li>
+</ul>
+<p>这些成分确定了交互的各种形态</p>
+<p>从应用的角度来看，交互图是一个交互中各元素（各方、方式和内容）的投影。其中把这些元素的语义应用到交互图中</p>
+<p>一些术语：</p>
+<ul>
+<li>
+<p>对象生命线</p>
+<p>用于表示一个对象在一个特定时间段中的存在。对象生命线 <del>被表示为垂直的虚线</del> 我上面的图里是垂直的实线。</p>
+</li>
+<li>
+<p>消息</p>
+<p>顺序图中包含了一些由时间定序的消息。消息表示为一条箭头线，由一条生命线到另一条生命线。</p>
+<ul>
+<li>异步：<del>用枝形箭头线表示</del> 我上面是用叉号箭头表示</li>
+<li>同步（调用）：用实心三角箭头线表示。同步消息的回复用虚线表示</li>
+</ul>
+</li>
+<li>
+<p>聚焦控制</p>
+<p>聚焦控制用于表达一个对象执行一个动作的时间段。聚焦控制表现为细高的矩形。根据需要，也能嵌套使用聚焦控制</p>
+</li>
+</ul>
+<p>在顺序图中，也可以使用结构化控制操作符来实现更为复杂的流程</p>
+<pre><code class=" mermaid">sequenceDiagram
+participant user Person
+participant bank ATM
+loop invalid password
+    user Person -&gt;&gt; bank ATM : enter(password)
+    bank ATM -&gt;&gt; user Person : valid=verify(password)
+end
+opt valid password
+    par
+        user Person -&gt;&gt; bank ATM : enter(account)
+        user Person -&gt;&gt; bank ATM : enter(amount)
+    end
+    bank ATM -&gt;&gt; user Person : deliver cash
+end</code></pre>
+<p>四种最常用的控制操作符（控制操作子）：</p>
+<ul>
+<li>
+<p>选择执行操作符</p>
+<p>该操作符记为：<strong>opt</strong></p>
+<p>该操作符由两部分组成：监护条件、监护体。监护条件是一个布尔表达式，可以出现在该监护体内任意一个生命线顶端的方括号内。</p>
+<p>仅当进入该控制操作符，监护条件为真时，才执行监护体。</p>
+</li>
+<li>
+<p>条件执行操作符</p>
+<p>该操作符记为：<strong>alt</strong></p>
+<p>该操作符的体通过水平线分为几部分，每部分拥有一个监护条件，表示一个条件分支。可以存在一个 else 分支，表示其他分支都不为真时执行该分支。</p>
+<p>仅当进入该控制操作符，并存在分支的监护条件为真时，才从那些为真的分支中选择一个执行。</p>
+<p>多个分支条件为真时，选择的结果不确定。</p>
+</li>
+<li>
+<p>并发执行操作符</p>
+<p>该操作符记为：<strong>par</strong></p>
+<p>该操作符的体通过水平线分为几部分，每部分表示一个并行计算。多数情况下，每部分涉及不同生命线</p>
+<p>当进入该控制操作符时，所有部分并发执行。</p>
+<p>在每部分中的消息发送、接收是有次序的。但在所有并发中，消息的次序是任意的。</p>
+</li>
+<li>
+<p>迭代执行</p>
+<p>该操作符记为：<strong>loop</strong></p>
+<p>监护条件可以出现在该监护体内一个生命线顶端的方括号内。</p>
+<p>只要在每次迭代前监护条件为真，该循环就会反复进行。当监护条件为假时，跳过该监护体</p>
+</li>
+</ul>
+<h3 id="SE4-3-4-状态图（State-Diagram）">SE4.3.4 状态图（State Diagram）</h3>
+<p>状态图是显示一个状态机的图，其中强调了一种状态到另一种状态的控制流</p>
+<p>状态机：一种行为，规约了一个对象在其生存期间因响应事件并作出响应而经历的状态</p>
+<pre><code class=" mermaid">stateDiagram
+[*] --&gt; Idle
+Idle --&gt; [*] : shutDown
+Idle --&gt; Cooling : atTemp
+Idle --&gt; Heating : atTemp
+state Heating &#123;
+	[*] --&gt; Activating
+	Activating --&gt; Active
+&#125;
+Cooling --&gt; Idle : tooCold
+Heating --&gt; Cooling : tooHot
+Cooling --&gt; Heating : tooCold
+Heating --&gt; Idle : tooHot</code></pre>
+<p>状态图通常包含 简单状态和组合状态、事件、转换，也能包含注解和约束。</p>
+<p>从使用角度来看，一个状态图可以包含一个状态机中任意的、所有的特征。即，状态图基本上是一个状态机中那些元素（分支、结合、动作状态、活动状态、对象、初始状态、最终状态、历史状态等）的一个投影</p>
+<h4 id="状态"># 状态</h4>
+<p>一个状态是类目的一个实例（对象）在其生存周期间的一种条件或情况，该期间该对象满足这一条件，执行某一活动或等待某一消息</p>
+<p>一个状态表达了一个对象所处的特定阶段，所具有的对外呈现及所能提供的服务。</p>
+<p>UML 把状态分为三种：</p>
+<ul>
+<li>
+<p>初态：表达状态机默认的开始位置。用一个实心圆表示</p>
+</li>
+<li>
+<p>终态：表达状态机的执行已经完成。用一个同心圆来表示</p>
+<p>初态和终态都是伪状态。它们只有名字。从初态转移到正常状态可以给出一些特征，如监护条件和动作</p>
+</li>
+<li>
+<p>正常状态：既不是初态又不是终态的状态</p>
+</li>
+</ul>
+<p>状态的规约：</p>
+<ul>
+<li>
+<p><strong>进入/退出效应</strong></p>
+<p>是 进入/退出 该状态时执行的动作。为表达 进入/退出效应，UML 给出了 2 个专用动作符号：</p>
+<ul>
+<li>entry：标识在进入该状态时要执行的，由相应动作表达式所规定的动作。简称进入动作</li>
+<li>exit：标识在退出该状态时要执行的，由相应动作表达式所规定的动作。简称退出动作</li>
+</ul>
+<p>一般情况下，进入/退出效应 不能有参数或监护条件。但位于类状态机顶层的进入效应可以有参数，以标识创建一个对象状态机时要接受的参数</p>
+</li>
+<li>
+<p><strong>状态内部转移</strong></p>
+<p>指没有导致该状态改变的内部转移。一般情况下，在此给出对象在这个状态中要执行的内部动作或活动列表。其中表达动作的一般格式是：<code>动作标号 / 动作表达式</code></p>
+<p>动作标号标识了该环境下要调用动作表达式中的动作。动作表达式可以为空，此时斜线分隔符也能省略。</p>
+<ul>
+<li>do：为表达状态内部转换中的动作或活动，UML 给出了这个专用的动作符号。该符号标识正在进行由相应动作表达式规定的活动，并且只要对象在一个状态中没有完成由该动作表达式指定的活动，就一直执行之。当动作表达式完成时，可能产生一个完成事件。</li>
+</ul>
+<p>动作标号 entry、exit、do 不能作为事件名</p>
+<ul>
+<li>
+<p><strong>动作</strong>：动作是不可中断的原子计算。动作可以导致状态的改变或导致一个值的返回</p>
+</li>
+<li>
+<p><strong>活动</strong>：一个活动是指状态机中一种可中断的计算，中断处理后仍可继续。一个活动往往是由多个动作组成的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>子状态</strong></p>
+<p>如果在一个状态机中引入另一状态机，那么被引入的状态机被称为子状态机。没有子状态的状态被称为 <strong>简单状态</strong>，包含子状态的状态被称为 <strong>组合状态</strong></p>
+<p>子状态机分为：顺序子状态机（非正交）、并发子状态机（正交）</p>
+<ul>
+<li>
+<p>顺序子状态机（非正交）</p>
+<p>关于子状态的进入（转入）：</p>
+<p>从组合外的状态可以进入该组合状态，那个源状态作为目标状态。此时，被嵌套的子状态一定有一个初态，以便进入组合状态并执行进入动作后，将控制传送给该初态。</p>
+<p>也可以从组合外的状态转移到组合状态中的一个子状态，作为其目标状态。此时，进入组合状态并执行进入动作后，将控制传送给该子状态。</p>
+<p>关于子状态的离开（转出）：</p>
+<p>可以从一个组合状态，或一个组合状态中的一个子状态离开。首先离开被嵌套状态，并执行那些被嵌套状态的退出动作。接着离开该组合状态，并执行组合状态的退出动作。</p>
+<p>由此可见，一个转移的源是组合状态的场合，该转移的本质是中止被嵌套状态机的活动。</p>
+<p>当控制到达该组合状态的子终态时，就触发一个活动完成的转移</p>
+<p>如要指定在转移出该组合状态前所执行的那个活动所在的子状态，UML 引入了 <strong>浅历史状态</strong> 的概念，用于指明这样的子状态，并用 H 标识。</p>
+</li>
+<li>
+<p>并发子状态机</p>
+<p>正交子状态机是组合状态中一些并发执行的子状态。其中，用虚线段分成了多个正交区域，每个区域有各自的初态和终态</p>
+<p>关于转入（分岔）：</p>
+<p>当一个转移到达具有多个正交区域的组合状态时，控制就被分成多个并发流（分岔）。正交区域的执行是并行的，相当于存在两个被嵌套的状态机</p>
+<p>关于离开（汇合）：</p>
+<p>先达到终态的正交区域在其终态等待，直到所有正交区域都到达终态时，几个区域的控制汇合成一个控制流（汇合）。另外，当一个转移离开这样的组合状态时，控制汇成一个控制流。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>被延迟事件</strong></p>
+<p>被延迟事件是在一个状态中不予处理的事件列表。往往需要一个队列机制，对这样的事件予以推迟并予排队，以便在该对象的另一状态中予以处理。</p>
+</li>
+</ul>
+<h4 id="事件"># 事件</h4>
+<p>一个事件是对一个有意义的发生的规约，该发生有其自己的时空。在状态机的语境下，一个事件是一个激励，可引发状态的转换</p>
+<p>事件的种类：</p>
+<ul>
+<li>
+<p>内部事件</p>
+<p>是在系统内对象间传送的事件。如：溢出异常</p>
+</li>
+<li>
+<p>外部事件</p>
+<p>在系统和参与者间传送的事件。如按下按钮，一个来自传感器的中断</p>
+</li>
+</ul>
+<p>在 UML 中可以模型 4 种事件：</p>
+<ul>
+<li>
+<p>信号</p>
+<p>信号是消息的一个类目，是消息类型。信号是一种异步事件</p>
+<p>信号有属性和操作，信号间可以有泛化</p>
+<p>在 UML 中，可以将信号模型化为具有名字 &lt;&lt;singal&gt;&gt; 的衍型类。也可用衍型表示一个操作发送了一个特殊信号。也能在类的附加栏中为对象可能接受的、有名的信号进行模型化</p>
+</li>
+<li>
+<p>调用</p>
+<p>一个调用事件表示对象接受到一个操作调用的请求</p>
+<p>可以使用在类的定义中的操作定义来规约调用事件。该事件或触发状态机中的一个状态转换，或调用目标对象的一个方法。</p>
+<p>调用一般是同步事件，但也能将其规约为异步调用</p>
+</li>
+<li>
+<p>时间事件和变化事件</p>
+<p>时间事件是推移一段时间的事件。变化事件是一个条件得到满足，或表示状态的一个变化。</p>
+</li>
+<li>
+<p>发送事件和接受事件</p>
+<p>发送事件是类的一个实例发送一个调用事件或信号事件。接受事件是类的一个实例接受一个调用事件或信号事件</p>
+<p>如果是一个同步调用事件，那么发送者和接受者都处在该操作执行期间的一个汇聚点上。即发送者的控制流一直被挂起，直到该操作执行完成</p>
+<p>如果是一个信号事件，那么发送者和接受者并不汇合。即，发送者发出信号后不等待接受者响应。</p>
+<p>以上两种情况下，事件可能丢失（如未定义对该事件的响应）。事件的丢失肯除法接受者的状态机（如有），或引起一个常规的方法调用</p>
+</li>
+</ul>
+<h4 id="状态转换"># 状态转换</h4>
+<p>状态转换是两个状态间的一种关系。</p>
+<p>在第一个状态中的一个对象将执行一些确定的动作，当规约事件发生并且规约条件满足时，进入第二个状态。</p>
+<p>状态转换的规约涉及以下几部分：</p>
+<ul>
+<li>
+<p>源状态</p>
+<p>引发状态转换的那个状态</p>
+</li>
+<li>
+<p>转换触发器</p>
+<p>在源状态中由对象识别的事件。一旦满足监护条件，就让状态发生转换。其中，在同一个简单状态图中，如果触发多个转换，则高优先级优先。存在多个高优先级转换时，从中随机选择一个执行。</p>
+</li>
+<li>
+<p>监护条件</p>
+<p>一个布尔表达式。当某个转换触发器接受一个事件时，如果该表达式有值为真，则触发转换。如有值为假，并且此时没有其他可被触发的转换，则该事件丢失</p>
+</li>
+<li>
+<p>效应</p>
+<p>一种可执行的行为。例如可作用于对象上的一个动作，或间接地作用于其他对象的动作。但这些对象对那个对象是可见的</p>
+</li>
+<li>
+<p>目标状态</p>
+<p>转换完成后处于的状态</p>
+</li>
+</ul>
+<p>在 UML 中，把状态转换表示为从源状态出发，并在目标状态上终止的带箭头的实践</p>
+<h4 id="状态图的一般用法"># 状态图的一般用法</h4>
+<ol>
+<li>是建立一个系统动态方面的模型。这些动态方面包括任意种类对象、任意系统结构（类、接口、构件、节点）视角下以事件定序的行为</li>
+<li>建立一个场景的模型，其主要途径是针对用例图给出相应的状态图。</li>
+</ol>
+<p>以上两种用法，一般都是对反应型对象的行为进行建模。为反应型对象建模时，步骤为：</p>
+<ol>
+<li>选择状态机的语境，是类、用况或是子系统。</li>
+<li>选择其实例的初始状态和最终状态，并分别给出初始状态和最终状态的前置条件和后置条件，以便指导以后的建模工作</li>
+<li>标识某一可用的时间段，考虑该实例在此期间内存在的条件，以此判断该实例的其他状态。对此应以该实例的高层状态开始，继之再考虑这些状态的可能的子状态</li>
+<li>判断该实例在整个生存周期内所有状态的有意义的偏序</li>
+<li>判断可以触发该状态转换的事件。可以逐一从一个合理定序的状态到另一状态，来模型化其中的事件</li>
+<li>为这些状态转移添加动作，或为这些状态添加动作</li>
+<li>使用子状态、分支、合并和历史状态等，考虑简化状态机的方法</li>
+<li>检查在某一组合事件下所有状态的可能性</li>
+<li>检查是否存在死状态</li>
+<li>跟踪整个状态机，检查是否符合期望的事件次序和响应</li>
+</ol>
+<h1>SE5 统一软件开发过程（RUP）</h1>
+<p>统一软件开发过程（Rational Unified Process）是对象管理组织推荐的一个有关过程的标准。是一种以用况驱动的，以体系结构为中心的迭代、增量式开发。</p>
+<p>RUP 是基于 UML 的一种过程框架，较完整地定义了将用户需求转换成产品需要的活动集，并提供了活动指南及对产生相关文档的需求。</p>
+<p>RUP 与 UML 是一对 “姐妹”，它们构成一种特定的软件开发方法学。可以认为：RUP + UML = 面向对象方法</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="./../../../../../img/SE_InputImage/RUP%25E9%2598%25B6%25E6%25AE%25B5%25E5%259B%25BE_SE5.webp" alt=""></p>
+<p>​	<em>（RUP阶段图_SE5）</em></p>
+<ul>
+<li>
+<p>初始阶段</p>
+<p>获得与特定用况和平台无关的系统体系结构轮廓。位系统建立商业案例，确定项目边界，从业务角度指出该项目价值。</p>
+<p>第一个重要里程碑：生命周期目标里程碑</p>
+</li>
+<li>
+<p>细化阶段</p>
+<p>目标是分析问题领域，建立健全体系结构基础，编制项目计划，淘汰项目中最高风险元素</p>
+<p>第二个重要里程碑：生命周期结构里程碑</p>
+</li>
+<li>
+<p>构造阶段</p>
+<p>形成最终的系统体系结构基线，开发完整的系统，确保产品开始向客户交付</p>
+<p>第三个重要里程碑：初始功能里程碑</p>
+</li>
+<li>
+<p>交付阶段</p>
+<p>确保软件对最终用户可用。基于用户反馈进行少量调整</p>
+<p>第四个重要里程碑：产品发布里程碑</p>
+</li>
+</ul>
+<h2 id="SE5-1-核心工作流">SE5.1 核心工作流</h2>
+<p>RUP 中有 9 个核心工作流。分为 6 个核心过程工作流，及 3 个核心支持工作流。</p>
+<h4 id="需求获取"># 需求获取</h4>
+<p>RUP 运用用况来获取需求，得到系统 <strong>用况模型</strong>。</p>
+<p>其基本步骤为：</p>
+<ul>
+<li>
+<p>列出候选需求</p>
+<p>搜取特征。特征是一个新的项及其简要描述</p>
+</li>
+<li>
+<p>理解系统语境</p>
+<p>创建领域模型或业务模型。</p>
+<p>业务用况模型：业务参与者和业务用况</p>
+<p>业务对象模型：用交互图和活动图表达。包含：工作人员、业务实体、工作单元</p>
+</li>
+<li>
+<p>捕获功能需求</p>
+<p>建立系统的用况模型。发现和描述参与者、用况，确定用况优先级，精化用况，构造用户界面模型，用况模型结构化。</p>
+</li>
+<li>
+<p>捕获非功能需求</p>
+</li>
+</ul>
+<h4 id="需求分析"># 需求分析</h4>
+<p>在系统用况模型基础上，创建系统 <strong>分析模型</strong>，以及该分析模型视角下的体系结构描述。</p>
+<p>包含以下术语：</p>
+<ul>
+<li>
+<p>分析类：类的一种衍型，少有操作和特征标记，而用责任来定义其行为，且其属性和关系是概念性的</p>
+<p>分为实体类、边界类、控制类</p>
+</li>
+<li>
+<p>用况细化：一个协作。把一个用况用多个分析类的相互作用来细化。</p>
+</li>
+<li>
+<p>分析包：把一些变化限制到一个业务过程、一个参与者行为或一组紧密相关的用况，形成一些分析包。分析包体现了局部化、问题分离的软件设计原理，体现了 “高内聚，低耦合”。</p>
+</li>
+</ul>
+<p>分析模型是由分析系统来定义的。分析系统包含一组有层次结构的包。</p>
+<p>分析的主要活动：</p>
+<ul>
+<li>
+<p>体系结构分析</p>
+<p>标识分析包，处理分析包之间的共性，标识服务包，定义分析包的依赖，标识重要的实体类，标识分析包和重要实体类的公共特征性需求</p>
+</li>
+<li>
+<p>用况分析</p>
+<p>标识分析类，描述分析类间的交互</p>
+</li>
+<li>
+<p>类的分析</p>
+<p>标识责任，标识属性，标识关联和聚合，包的分析</p>
+</li>
+<li>
+<p>包的分析</p>
+<p>确保分析包尽可能与其他包独立，确保分析包实现了其目标，描述依赖</p>
+</li>
+</ul>
+<p>用况模型 与 分析模型 的区别：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用况模型</th>
+<th style="text-align:center">分析模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">使用客户语言描述</td>
+<td style="text-align:center">使用开发者语言描述</td>
+</tr>
+<tr>
+<td style="text-align:center">系统对外的视图</td>
+<td style="text-align:center">系统对内的视图</td>
+</tr>
+<tr>
+<td style="text-align:center">外部视角下的体系结构</td>
+<td style="text-align:center">内部视角下的体系结构</td>
+</tr>
+<tr>
+<td style="text-align:center">客户与开发者 “系统应做什么” 的契约</td>
+<td style="text-align:center">开发者理解系统如何设计实现的基础</td>
+</tr>
+<tr>
+<td style="text-align:center">需求间可能出现冗余、不一致</td>
+<td style="text-align:center">需求间不可能出现冗余、不一致</td>
+</tr>
+<tr>
+<td style="text-align:center">捕获系统功能</td>
+<td style="text-align:center">给出细化的系统功能</td>
+</tr>
+<tr>
+<td style="text-align:center">定义了需要进一步分析的用况</td>
+<td style="text-align:center">定义了用况模型中每一个用况的细化</td>
+</tr>
+</tbody>
+</table>
+<h4 id="软件设计"># 软件设计</h4>
+<p>RUP 软件设计目标：定义满足系统/产品分析模型所规约需求的软件结构。给出 <strong>设计模型</strong>、<strong>部署模型</strong>。</p>
+<p>相关术语：</p>
+<ul>
+<li>设计类</li>
+<li>用况细化</li>
+<li>设计子系统</li>
+<li>接口</li>
+</ul>
+<p>设计模型、部署模型及相关视角下的体系结构描述：</p>
+<ul>
+<li>设计模型：设计子系统、设计类、用况细化、接口</li>
+<li>部署模型：一个对象模型，描述了系统的物理分布。即，如何把功能分布于各个节点上</li>
+</ul>
+<p>软件设计的主要活动：</p>
+<ul>
+<li>
+<p>体系结构设计</p>
+<p>标识节点和其网络配置，标识子系统和其接口，标识在体系结构方面有意义的设计类和其接口，标识一般性的设计机制</p>
+</li>
+<li>
+<p>用况的设计</p>
+<p>标识参与用况细化的设计类，标识参与用况细化的子系统和接口</p>
+</li>
+<li>
+<p>类的设计</p>
+<p>概括描述设计类，标识操作，标识属性，标识关联和聚合，标识泛化，描述方法，描述状态</p>
+</li>
+<li>
+<p>子系统设计</p>
+<p>维护子系统依赖，维护子系统提供的接口，维护子系统内容</p>
+</li>
+</ul>
+<p>设计模型：</p>
+<ul>
+<li>设计子系统和服务子系统，及其依赖、接口和内容</li>
+<li>设计类，及其具有的操作、属性、关系、实现需求</li>
+<li>用况细化</li>
+<li>设计模型视角下的体系结构描述</li>
+</ul>
+<p>部署模型：</p>
+<ul>
+<li>节点的特征及连接</li>
+<li>主动类到节点的初始映射</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分析模型</th>
+<th style="text-align:center">设计模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">概念模型</td>
+<td style="text-align:center">软件模型</td>
+</tr>
+<tr>
+<td style="text-align:center">可用于不同设计</td>
+<td style="text-align:center">特定于一个实现</td>
+</tr>
+<tr>
+<td style="text-align:center">使用了三个衍生类：边界类、实体类、控制类</td>
+<td style="text-align:center">依赖实现的语言，使用了多个衍生类</td>
+</tr>
+<tr>
+<td style="text-align:center">几乎不是形式化的</td>
+<td style="text-align:center">是比较形式化的</td>
+</tr>
+<tr>
+<td style="text-align:center">开发费用少</td>
+<td style="text-align:center">开发费用多</td>
+</tr>
+<tr>
+<td style="text-align:center">结构层次少</td>
+<td style="text-align:center">结构层次多</td>
+</tr>
+<tr>
+<td style="text-align:center">动态的，很少关注定序方面</td>
+<td style="text-align:center">动态的，更多关注定序方面</td>
+</tr>
+<tr>
+<td style="text-align:center">概括给出系统设计</td>
+<td style="text-align:center">表明了系统设计</td>
+</tr>
+<tr>
+<td style="text-align:center">整个生命周期内不能修改</td>
+<td style="text-align:center">整个生命周期内应予维护</td>
+</tr>
+<tr>
+<td style="text-align:center">为构建系统定义一个结构，是基本输入</td>
+<td style="text-align:center">构建系统时，尽可能保留分析模型</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实现与测试"># 实现与测试</h4>
+<p>实现的目标：基于设计类和子系统生成构件，对构件进行单元测试，进行集成和连接，并把可执行的构件映射到 <strong>部署模型</strong>。</p>
+<p>实现的主要活动：</p>
+<ul>
+<li>实现体系结构</li>
+<li>集成系统</li>
+<li>实现子系统</li>
+<li>实现类</li>
+<li>完成单元测试</li>
+</ul>
+<p>测试包括：内部测试、中间测试、最终测试</p>
+<p>测试的主要活动：</p>
+<ul>
+<li>计划测试</li>
+<li>设计测试</li>
+<li>实现测试</li>
+<li>执行集成测试</li>
+<li>执行系统测试</li>
+<li>评价测试</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="category-chain-item">软件工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9B%AE/">#基础课目</a>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">#软件工程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;软件工程&gt;SE4-5 面向对象方法</div>
+      <div>https://i-melody.github.io/2023/11/03/软件工程/SE4 面向对象方法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
