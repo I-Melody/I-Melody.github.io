@@ -1,0 +1,1653 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第一章 计算机系统概述 一、名词解释   中央处理器（CPU）：P-27 通常把控制部件、运算部件和各类寄存器互联组成的电路称为中央处理器（CPU），简称处理器   算术逻辑部件（ALU）：P-26 用来进行算术逻辑运算的部件   通用寄存器：P-26 用来临时存放从主存取来的数据或运算的结果的寄存器   程序计数器（PC）：P-27 用来自动计算并保存下一条指令的地址的部件   指令寄存器（IR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Melody 的小纸箱">
+<meta property="og:url" content="https://i-melody.github.io/2024/04/08/temp/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="第一章 计算机系统概述 一、名词解释   中央处理器（CPU）：P-27 通常把控制部件、运算部件和各类寄存器互联组成的电路称为中央处理器（CPU），简称处理器   算术逻辑部件（ALU）：P-26 用来进行算术逻辑运算的部件   通用寄存器：P-26 用来临时存放从主存取来的数据或运算的结果的寄存器   程序计数器（PC）：P-27 用来自动计算并保存下一条指令的地址的部件   指令寄存器（IR">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/2024/04/08/temp/media/image1.jpeg">
+<meta property="og:image" content="https://i-melody.github.io/2024/04/08/temp/media/image2.jpeg">
+<meta property="og:image" content="https://i-melody.github.io/2024/04/08/temp/media/image3.jpeg">
+<meta property="og:image" content="https://i-melody.github.io/2024/04/08/temp/media/image4.jpeg">
+<meta property="article:published_time" content="2024-04-08T07:18:26.919Z">
+<meta property="article:modified_time" content="2024-04-08T07:19:08.804Z">
+<meta property="article:author" content="Melody">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/2024/04/08/temp/media/image1.jpeg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-08 15:18" pubdate>
+          2024年4月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年4月8日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>第一章 计算机系统概述</h1>
+<p>一、名词解释</p>
+<ol>
+<li>
+<p><strong>中央处理器（CPU）：P-27</strong> 通常把控制部件、运算部件和各类寄存器互联组成的电路称为中央处理器（CPU），简称处理器</p>
+</li>
+<li>
+<p><strong>算术逻辑部件（ALU）：P-26</strong> 用来进行算术逻辑运算的部件</p>
+</li>
+<li>
+<p><strong>通用寄存器：P-26</strong> 用来临时存放从主存取来的数据或运算的结果的寄存器</p>
+</li>
+<li>
+<p><strong>程序计数器（PC）：P-27</strong> 用来自动计算并保存下一条指令的地址的部件</p>
+</li>
+<li>
+<p><strong>指令寄存器（IR）：P-27</strong> 用来临时保存从主存中取出来的指令的寄存器</p>
+</li>
+<li>
+<p><strong>控制器：P-26</strong> 用于自动逐条取出指令并进行译码的部件被称为控制元件，也称控制器</p>
+</li>
+<li>
+<p><strong>主存储器：P-26</strong> 用来存放指令和数据的部件叫主存储器，也叫主存或内存</p>
+</li>
+<li>
+<p><strong>总线：P-27</strong> 通常把连接不同部件进行信息传输的介质称为总线</p>
+</li>
+<li>
+<p><strong>主存地址寄存器（MAR）：P-27</strong> 用来存放 CPU 送到地址线的主存地址的寄存器</p>
+</li>
+<li>
+<p><strong>主存数据寄存器（MDR）：P-27</strong> 用来存放发送到或从数据先取来的信息的寄存器</p>
+</li>
+<li>
+<p><strong>机器指令：P-30</strong> 由 0 和 1 组成，并且能为计算机理解和执行的指令被称为机器指令</p>
+</li>
+<li>
+<p><strong>指令操作码：</strong></p>
+</li>
+<li>
+<p><strong>高级程序语言：P-30</strong> 高级程序设计语言简称高级程序语言，是面相算法设计的、较接近于日常英语书面语言的程序设计语言。如BASIC、C/C++、JAVA 等</p>
+</li>
+<li>
+<p><strong>汇编语言：P-30</strong> 用简短的英文符号和机器指令建立对应关系，以方便程序员编写和阅读的语言</p>
+</li>
+<li>
+<p><strong>机器语言：P-30</strong> 使用特定的计算机规定的指令格式而形成的 0/1 序列称为机器语言</p>
+</li>
+<li>
+<p><strong>机器级语言：P-30</strong> 汇编语言和机器语言都属于低级语言，它们统称位机器级语言</p>
+</li>
+<li>
+<p><strong>源程序：P-30</strong> 被翻译的程序称为源程序</p>
+</li>
+<li>
+<p><strong>目标程序：p-30</strong> 翻译生成的程序被称为目标程序</p>
+</li>
+<li>
+<p>**编译程序：**也称解释器，用来将源程序中的语句按其执行顺序逐条用子程序进行解释，并最终转换成机器指令执行</p>
+</li>
+<li>
+<p><strong>解释程序：P-30</strong> 也称解释器，用于将源程序中的语句按其执行顺序逐条翻译成机器指令并立即执行</p>
+</li>
+<li>
+<p><strong>汇编程序：P-30</strong> 也称汇编器，用来将汇编语言源程序翻译成机器语言目标程序</p>
+</li>
+<li>
+<p><strong>语言处理系统：P-35</strong> 提供程序编辑器和各类翻译转换软件的工具包统称为语言处理系统或软件的集成开发环境</p>
+</li>
+<li>
+<p><strong>设备控制器：P-34</strong> 外设通过 I/O 控制器或 I/O 适配器连接到主机上，I/O 控制器或 I/O 适配器统称为设备控制器</p>
+</li>
+<li>
+<p><strong>最终用户：P-36</strong> 使用应用软件完成特定任务的计算机用户称为最终用户</p>
+</li>
+<li>
+<p><strong>系统管理员：P-36</strong> 是指利用操作系统、数据库管理系统等软件提供的功能对系统进行配置、管理和维护， 以建立高效合理的系统环境供计算机用户使用的擦走人员</p>
+</li>
+<li>
+<p><strong>应用程序员：P-36</strong> 是指使用高级编程语言编制应用软件的程序员</p>
+</li>
+<li>
+<p><strong>系统程序员：P-36</strong> 是指设计和开发系统软件的程序员</p>
+</li>
+<li>
+<p><strong>指令集体系结构（ISA）：P-35</strong> 软件和硬件之间的界面就是指令集体系结构，简称指令集架构或指令系统</p>
+</li>
+<li>
+<p><strong>微体系结构：P-35</strong> 实现 ISA 的电路逻辑结构称为计算机组织或微体系结构</p>
+</li>
+<li>
+<p><strong>透明：P-37</strong> 在计算机技术中，一个存在的事物或概念从某个角度看似乎不存在，即对实际存在的事物或概念感觉不到，则称为透明</p>
+</li>
+<li>
+<p><strong>响应时间：P-40</strong> 是指从作业提交开始时间到作业完成所用时间</p>
+</li>
+<li>
+<p><strong>吞吐率：P-40</strong> 表示在单元时间内所完成的工作量</p>
+</li>
+<li>
+<p><strong>用户 CPU 时间：P-40</strong> 指真正用于运行用户程序代码的时间</p>
+</li>
+<li>
+<p><strong>时钟周期：P-40</strong> 节拍，计算机中最基本的、最小的时间单位。是时钟频率的倒数，也成为震荡周期</p>
+</li>
+<li>
+<p><strong>主频：P-40</strong> cpu 的主频就是cpu 时钟信号的时钟频率，是 cpu 时钟周期的倒数，单位为 Hz</p>
+</li>
+<li>
+<p><strong>CPI：P-40</strong> 表示执行一条指令所需要的时钟周期数</p>
+</li>
+<li>
+<p><strong>基准程序：P-43</strong> 专门用来进行性能评价的一组程序，能够很好地反映机器在运行实际负载时的性能，可</p>
+</li>
+</ol>
+<blockquote>
+<p>以通过在不用机器上运行相同的基准程序来比较在不同机器上的运行时间，从而评测其性能</p>
+</blockquote>
+<ol start="38">
+<li>
+<p>**MIPS：**每秒处理的百万级的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%8F%88%E5%93%84%E6%AB%92%E7%92%87%EE%85%A1%E2%96%88/2019225?fromModule=lemma_inlink">机器语言</a>指令数。这是衡量 CPU 速度的一个指标</p>
+</li>
+<li>
+<p><strong>峰值 MIPS：P-42</strong> 选取一组指令组合，使的得到的平均 CPI 最小，由此得到的 MIPS 就是峰值 MIPS</p>
+</li>
+<li>
+<p><strong>相对 MIPS：P-42</strong> 是根据某个公认的参考机型来定义的相应 MIPS 值，其值的含义是被测机型相对于参考机型 MIPS 的倍数</p>
+</li>
+<li>
+<p><strong>MFLOPS：P-43</strong> 浮点操作速度的指标，表示每秒所执行的浮点运算有多少百万次</p>
+</li>
+<li>
+<p><strong>GFLOPS：P-43 109 次/s</strong></p>
+</li>
+<li>
+<p><strong>TFLOPS：P-43 1012 次/s</strong></p>
+</li>
+<li>
+<p><strong>PFLOPS：P-43 1015 次/s</strong></p>
+</li>
+<li>
+<p><strong>EFLOPS：P-43 1018 次/s</strong></p>
+</li>
+<li>
+<p>**指令：**用 0 和 1 表示的一串 0/1 序列，用来指示 cpu 完成一个特定的基本操作</p>
+</li>
+<li>
+<p>**翻译程序：**也称编译器，用来将高级语言翻译成汇编语言或机器语言目标程序</p>
+</li>
+</ol>
+<blockquote>
+<p>答：运算器、控制器、存储器、输入设备和输出设备</p>
+</blockquote>
+<ul>
+<li>
+<p>运算器：是对数据进行运算的部件,其主要功能是对二进制数据进行算术运算(加、减、乘、除)和逻辑运算(与、或、非、移位),故又称为算术逻辑单元;</p>
+</li>
+<li>
+<p>控制器：是整个计算机的控制中心,其功能是控制计算机各个部件自动协调工作。</p>
+</li>
+<li>
+<p>存储器：用来存放程序和数据;</p>
+</li>
+<li>
+<p>输入设备：用来向计算机输入程序和原始数据;</p>
+</li>
+<li>
+<p>输出设备：用来输出计算机的处理结果及程序;</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>2. 什么是“存储程序”工作方式？</strong> 答: (1) 事先编制程序 (2) 实现存储程序 (3) 自动、连续地执行程序</p>
+<p>即事先编写程序,再由计算机把这些信息存储起来,然后连续地、快速地执行程序,从而完成各种运算过程。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="media/image1.jpeg" alt=""></p>
+</blockquote>
+<p>6. 程序的 CPI 与哪些因素有关？</p>
+<blockquote>
+<p>CPI = 程序总时钟周期数 / 程序总指令条数，CPI <a target="_blank" rel="noopener" href="https://zhidao.baidu.com/search?word=%E9%8F%83%E5%A0%95%E6%8C%93%E9%8D%9B%E3%84%A6%E6%B9%A1&amp;fr=iknow_pc_qb_highlight">与时钟周期</a>、指令条数有关。在指令条数和时钟周期一定的情况下，CPI 越大，执行时间越长</p>
+<p><strong>7. 为什么说性能指标 MIPS 不能很好的反映计算机的性能？</strong> 答：MIPS 反映了机器执行定点指令的速度，但是用 MIPS 来对不同的机器进行性能比较有时是不准确</p>
+<p>或不客观的。因为不同的机器的指令集不同，指令的功能也不同。也许一个机器上一条指令的功能，在另外一个机器上要用多条指令来完成，这样，同样的指令条数所完成的功能可能完全不同。</p>
+</blockquote>
+<p>8. 源程序到目标程序的过程叫什么？分别有哪几种类型？ 答：源程序到目标程序的过程叫 翻译</p>
+<blockquote>
+<p>翻译程序分为：解释器（解释程序）、编译器（编译程序）、汇编器（汇编程序）</p>
+<p><strong>9. 指令由那几部分组成，什么决定了指令的操作类型？</strong> 答：指令通常被划分成若干字段，有操作码和地址码</p>
+<p>操作码：指出指令的操作类型，如取数、存数、加、减、传送、跳转等 地址码：指出指令所处的操作数的地址，如寄存器编号、主存单元编号等</p>
+</blockquote>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="media/image2.jpeg" alt=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="media/image3.jpeg" alt=""> 10. 源程序到可执行目标文件转换过程</p>
+<p>三、计算题</p>
+<ol>
+<li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="media/image4.jpeg" alt=""><strong>写出 Z=(X-Y)*Y 所对应的指令序列，X,Y 在主存的 5、6 号单元，Z 存在 7 号单元，假设 x=17,y=1;</strong></li>
+</ol>
+<blockquote>
+<p>实现 z=(x-y)*y 的程序在主存部分单元中的初始内容如下。</p>
+</blockquote>
+<p>[TABLE]</p>
+<blockquote>
+<p>实现 z=(x-y)*y 的程序中每条指令的执行过程如下。</p>
+</blockquote>
+<p>[TABLE]</p>
+<blockquote>
+<p>【计算公式】</p>
+</blockquote>
+<ol start="2">
+<li>
+<p><strong>假设某机器的时钟频率为 4GHz，程序 P 在 M 上的指令条数为 8*10^8,其 CPI 为 1.25，则 P 在 M 上的执行时间是多少？若在 M 上从程序 P 开始启动到执行结束所需时间为 4s,则 P 的用户 CPU 时间所占的百分比是多少？</strong></p>
+</li>
+<li>
+<p><strong>假设某程序 P 在机器 M1 上运行时间需要 10s，M1 的时钟频率为 2GHz,现开发一台与 M1 相同 ISA 的机器 M2。采用新技术可使 M2 的时钟频率增加，但 CPI 也会同时增加。假定程序 P 在 M2 上的时钟周期是M1 的 1.5 倍，则 M2 的时钟频率至少达到多少才能使 P 在 M2 上运行的时间缩短到 6s ?</strong></p>
+</li>
+<li>
+<p><strong>假设计算机 M 的指令集包含 A、B、C 三类指令，其 CPI 分别为 1、2、4。某程序 P 在 M 上被编译成俩个不同的目标代码序列 P1 和 P2，P1 所含 A、B、C 三类指令的条数分别为 8、2、2，P2 所含 A、B、C 三类指令的条数分别为 2、5、3。哪个代码序列总指令条数少？哪个执行速度快？其 CPI 分别是多少？</strong></p>
+</li>
+<li>
+<p><strong>假设某程序 P 编译后生成目标代码由 A、B、C、D 四类指令组成，它们在程序中所占比例分别是 43%、21%、12%、24%，已知它们的 CPI 分别为 1、2、2、2。</strong></p>
+</li>
+</ol>
+<p>现重新对 P 进行编译优化，生成新目标代码中 A 的指令条数减少了 50%，其他类型指令没变。回答：</p>
+<ol>
+<li>
+<p>编译优化前后的 CPI 各是多少？</p>
+</li>
+<li>
+<p>假设程序在一台 50MHz 的计算机上运行，则优化前后的 MIPS 各是多少？</p>
+</li>
+</ol>
+<p> </p>
+<ol start="6">
+<li><strong>若有两个基准测试程序 P1 和 P2 在机器 M1 和 M2 上运行，假定 M1 和 M2 的价格分别是 5000 元和 8000</strong></li>
+</ol>
+<blockquote>
+<p>元，下表给出了 P1 和 P2 在 M1 和 M2 上所花的时间和指令条数。</p>
+</blockquote>
+<p>[TABLE]</p>
+<blockquote>
+<p>请回答下列问题：</p>
+</blockquote>
+<ol>
+<li>
+<p>对于 P1，哪台机器的速度快？快多少？对于 P2 呢？</p>
+</li>
+<li>
+<p>在 M1 上执行 P1 和 P2 的速度分别是多少 MIPS？在 M2 上的执行速度又各是多少？从执行速度来看，对于 P2，哪台机器的速度快？快多少？</p>
+</li>
+<li>
+<p>假定 M1 和 M2 的时钟频率各是 800MHz 和 1.2GHz，则在 M1 和 M2 上执行 P1 时的 CPI 各是多少？</p>
+</li>
+<li>
+<p>如果某用户需要大量使用程序 P1，并且该用户主要关心系统的响应时间而不是吞吐率，那么，该用户需要大批购进机器时，该选择 M1 还是 M2？为什么？（提示：从性价比上考虑）</p>
+</li>
+<li>
+<p>如果另一个用户也需要购进大批机器，但该用户使用 P1 和 P2 一样多，主要关心的也是响应时间，那么， 应该选择 M1 还是 M2？为什么？</p>
+</li>
+</ol>
+<p> </p>
+<ol start="7">
+<li><strong>若机器 M1 和 M2 具有相同的指令集，其时钟频率分别为 1GHz 和 1.6GHz。在指令集中有五种不同类型的指令 A~E。下表给出了在 M1 和 M2 上每类指令的平均时钟周期数 CPI。</strong></li>
+</ol>
+<blockquote>
+<p>请回答下列问题：</p>
+</blockquote>
+<ol>
+<li>
+<p>M1 和 M2 的峰值 MIPS 各是多少？</p>
+</li>
+<li>
+<p>假定某程序 P 的指令序列中，五类指令具有完全相同的指令条数，则程序 P 在 M1 和 M2 上运行时，哪台机器更快？快多少？在 M1 和 M2 上执行程序 P 时的平均时钟周期数 CPI 各是多少？</p>
+</li>
+</ol>
+<p> </p>
+<ol start="8">
+<li>
+<p><strong>假设同一套指令集用不同的方法设计了两种机器 M1 和 M2。机器 M1 的时钟周期为 0.8ns，机器 M2 的时钟周期为 1.2ns。某程序 P 在机器 M1 上运行时的 CPI 为 4，在 M2 上的 CPI 为 2。对于程序 P 来说，哪台机器的执行速度更快？快多少？</strong></p>
+</li>
+<li>
+<p><strong>假设某机器 M 的时钟频率为 4GHz，用户程序 P 在 M 上的指令条数为 8×108，其 CPI 为 1.25，则 P 在 M 上的执行时间是多少？若在机器 M 上从程序 P 开始启动到执行结束所需的时间是 4 秒，则 P 的用户 CPU 时间所占的百分比是多少？</strong></p>
+</li>
+<li>
+<p><strong>假设某机器 M 的时钟频率为 4GHz，用户程序 P 在 M 上的指令条数为 8×108，其 CPI 为 1.25，则 P 在 M 上的执行时间是多少？若在机器 M 上从程序 P 开始启动到执行结束所需的时间是 4 秒，则 P 的用户 CPU 时间所占的百分比是多少？</strong></p>
+</li>
+</ol>
+<p>[TABLE]</p>
+<blockquote>
+<p>S1 和S2 各有多少条指令？CPI 各为多少？所含的时钟周期数各为多少？执行时间各为多少？</p>
+</blockquote>
+<ol start="11">
+<li><strong>假定机器 M 的时钟频率为 400MHz，某程序 P 在机器 M 上的执行时间为 12.000 秒。对 P 优化时，将其所有的乘 4 指令都换成了一条左移两位的指令，得到优化后的程序 P’。已知在 M 上乘法指令的 CPI 为102，左移指令的 CPI 为 2，P’的执行时间为 11.008 秒，则 P 中有多少条乘法指令被替换成了左移指令被执行？</strong></li>
+</ol>
+<h1>第二章 数据的表示和运算</h1>
+<p>四、名词解释</p>
+<ol start="48">
+<li>
+<p><strong>真值：机器数真正的值（即现实世界中带有正负号的数）称为机器数的真值。</strong></p>
+</li>
+<li>
+<p><strong>机器数：通常将数值数据在计算机内部编码表示的数称为机器数，机器数一定是一个 0/1 序列，通常缩写成十六进制形式。</strong></p>
+</li>
+<li>
+<p><strong>数值数据：可用来表示数量的多少，可比较其大小，分为整数和实数。</strong></p>
+</li>
+<li>
+<p><strong>非数值数据：没有大小之分，不表示数量的多少，主要包括字符数据和逻辑数据。</strong></p>
+</li>
+<li>
+<p><strong>无符号整数：p-54 当一个编码的所有二进位都用来表述数值而没有符号位时，该编码表示的就是无符号整数。</strong></p>
+</li>
+<li>
+<p><strong>带符号整数：p-55 又叫做有符号整数，它必须用一个二进制位来表示符号，其余位表示数值的编码就是带符号整数。</strong></p>
+</li>
+<li>
+<p><strong>定点数：P-54 整数的小数点隐含在数的最右边，故无须表示小数点，因而也被称为定点数。</strong></p>
+</li>
+<li>
+<p><strong>浮点数：</strong></p>
+</li>
+<li>
+<p><strong>尾数：对于任意一个实数 X，可表示为：X=（-1）S*M*RE，M 是一个二进制定点小数，称为数 X 的尾数。</strong></p>
+</li>
+<li>
+<p><strong>阶和阶码：对于任意一个实数 X，可表示为：X=（-1）S*M*RE，E 是一个二进制定点整数，称为数 X 的阶或指数；阶的移码表示称为阶码。</strong></p>
+</li>
+<li>
+<p><strong>溢出：两个数进行数学运算后的结果超出了该数的表示范围被称为溢出。</strong></p>
+</li>
+<li>
+<p><strong>规格化数：P-58 为了在浮点数运算过程中，尽可能多地保留有效数字的位数，使有效数字尽量占满尾数</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>数位，必须在运算过程中对浮点数进行“规格化”操作。</p>
+</blockquote>
+<ol start="60">
+<li>
+<p><strong>左规：P-58 左规时，尾数每左移一位，阶码减 1，直到尾数变成规格化形式为止。</strong></p>
+</li>
+<li>
+<p><strong>右规：P-58 右规时，尾数每右移一位，阶码加 1，直到尾数变成规格化形式为止，右规时阶码会增加， 因此阶码有可能溢出。</strong></p>
+</li>
+<li>
+<p><strong>ASCII 码：P-63 ASCII 码即美国标准信息交换码。</strong></p>
+</li>
+<li>
+<p><strong>汉字输入码：P-64 对每个汉字用相应的按键进行的编码表示就称为汉字的输入码，又称外码。</strong></p>
+</li>
+<li>
+<p><strong>汉字内码：P-64 汉字被输入计算机内部后，就按照一种称为内码的编码形式在系统中存储、查找、传送等处理。</strong></p>
+</li>
+<li>
+<p><strong>字长：P-65 在考察计算机性能时，一个真重要的性能参数就是计算机的字长，所谓字长通常是指 CPU</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>内部用于整数运算的数据通路的宽度。</p>
+</blockquote>
+<ol start="66">
+<li>
+<p><strong>大端方式：将数据的最高有效字节 MSB 存放在最小地址单元中，将最低有效字节 LSB 存放在最大地址单元中，即数据的地址就是 MSB 所在的地址。</strong></p>
+</li>
+<li>
+<p><strong>小端方式：将数据的最高有效字节 MSB 存放在最高地址单元中，将最低有效字节 LSB 存放在低地址中， 即数据的地址就是 LSB 所在的地址。</strong></p>
+</li>
+<li>
+<p><strong>ALU：P-68 算术逻辑部件，用来完成基本的逻辑运算和定点数加减运算的部件。</strong></p>
+</li>
+</ol>
+<p>五、简答题</p>
+<h1>第三章 程序的转换及机器级表示</h1>
+<p>六、名词解释</p>
+<ol start="69">
+<li>
+<p><strong>机器语言程序：</strong></p>
+</li>
+<li>
+<p><strong>汇编指令：P-90 用若干个助记符表示的与机器指令一一对应的指令称为汇编指令。</strong></p>
+</li>
+<li>
+<p><strong>汇编语言程序：P-90 用汇编语言编写的程序称为汇编语言程序。</strong></p>
+</li>
+<li>
+<p><strong>汇编助记符：P-90 英文单词或其缩写、标号、变量名称等都被称为汇编助记符。</strong></p>
+</li>
+<li>
+<p><strong>汇编程序：P-91 将汇编语言源程序中的汇编指令翻译成机器指令的程序称为汇编程序。</strong></p>
+</li>
+<li>
+<p><strong>反汇编程序：P-91 将机器指令反过来编译成汇编指令的程序称为反汇编程序。</strong></p>
+</li>
+<li>
+<p><strong>机器级代码：</strong></p>
+</li>
+<li>
+<p><strong>CISC：P-93 复杂指令集计算机</strong></p>
+</li>
+<li>
+<p><strong>RISC：P-94 精简指令集计算机</strong></p>
+</li>
+<li>
+<p><strong>通用寄存器：P-101 指没有专门用途的可以存放各类定点操作数的寄存器，长度 32 位</strong></p>
+</li>
+<li>
+<p><strong>变址寄存器：</strong></p>
+</li>
+<li>
+<p><strong>基址寄存器：</strong></p>
+</li>
+<li>
+<p><strong>栈指针寄存器：P-101 ESP 是栈指针寄存器</strong></p>
+</li>
+<li>
+<p><strong>指令指针寄存器：P-101 EIP 是指令指针寄存器，用于存放将要执行的下一跳指令的地址。</strong></p>
+</li>
+<li>
+<p><strong>标志寄存器：P-101 标志寄存器 EFLAGS，主要用于记录机器的状态和控制信息。</strong></p>
+</li>
+<li>
+<p><strong>条件标志（条件码）：P-102 条件标志用来存放运行的状态信息，有硬件自动设定，条件标志有时也称为条件码。</strong></p>
+</li>
+<li>
+<p><strong>寻址方式：P-102 根据指令给定信息得到操作数或操作数地址的方式称为寻址方式。</strong></p>
+</li>
+<li>
+<p><strong>立即寻址：P-102-103 立即寻址指指令中直接给出操作数。</strong></p>
+</li>
+<li>
+<p><strong>寄存器寻址：P-103 寄存器寻址指指令中给出操作数所存放的寄存器的编号。</strong></p>
+</li>
+<li>
+<p><strong>相对寻址：</strong></p>
+</li>
+<li>
+<p><strong>存储器操作数：P-103 除了立即寻址和寄存器寻址外，其他寻址方式下的操作数都在存储单元中，称为存储器操作数。</strong></p>
+</li>
+<li>
+<p><strong>实地址模式：P-103 实地址模式下的存储管理、中断控制以及应用程序运行环境等都与 8086/8088 相同， 其最大寻址空间为 1MB，32 条地址线中的 A31-A20 不起作用，存储管理采用分段方式，每段的最大地址空间为 64KB，物理地址有段地址乘以 16 加上偏移地址构成，其中短地址位于段寄存器中，偏移地址用来指定段内一个存储单元。</strong></p>
+</li>
+<li>
+<p><strong>保护模式：P-103 保护模式是为了实现在多任务方式下对不同任务使用的虚拟存储空间进行完全的隔离， 以保证不同任务之间不会相互破坏各自的代码和数据。</strong></p>
+</li>
+<li>
+<p><strong>有效模式：</strong></p>
+</li>
+<li>
+<p><strong>比例变址：</strong></p>
+</li>
+<li>
+<p><strong>非比例变址：P-104 相当于比例系数为 1 的比例变址情况，即变址值就是变址寄存器的内容，无须乘以比例系数。</strong></p>
+</li>
+<li>
+<p><strong>比例系数（比例因子）：</strong></p>
+</li>
+<li>
+<p><strong>MMX 指令：</strong></p>
+</li>
+<li>
+<p><strong>SSE 指令集：P-105 Inter 公司在 PentiumIII CPU 产品中首推 SSE 指令集，后来又陆续推出了 SSE2、SSE3、SSSE3 和 SSE4 等采用 SIMD 技术的指令集，这些统称为 SSE 指令集。</strong></p>
+</li>
+<li>
+<p><strong>SIMD：</strong></p>
+</li>
+<li>
+<p><strong>多媒体扩展通用寄存器：</strong></p>
+</li>
+<li>
+<p><strong>栈（Stack）：P-120 专门用来存储过程调用中的入口参数、返回地址、调用过程执行时间、非静态局部变量、过程返回结果等数据的存储区就是栈。</strong></p>
+</li>
+<li>
+<p><strong>调用者保存寄存器：P-120 寄存器 EAX、ECX 和 EDX 是调用者保存寄存器。</strong></p>
+</li>
+<li>
+<p><strong>被调用者保存寄存器：P-120 寄存器 EBX、ESI、EDI 是被调用保存寄存器。</strong></p>
+</li>
+<li>
+<p><strong>帧指针寄存器：P-121</strong></p>
+</li>
+<li>
+<p><strong>当前栈帧：P-121</strong></p>
+</li>
+<li>
+<p><strong>按值传递参数：P-125 当形参是基本类型变量名时，采用按值传递方式。</strong></p>
+</li>
+<li>
+<p><strong>按地址传递参数：P-125 当形参时指针类型变量名或构造类型变量名时，采用按地址传递方式。</strong></p>
+</li>
+<li>
+<p><strong>嵌套调用：</strong></p>
+</li>
+<li>
+<p><strong>递归调用：</strong></p>
+</li>
+</ol>
+<p>七、简答题</p>
+<h1>第四章 可执行文件的生成与加载执行</h1>
+<p>八、名词解释</p>
+<ol start="109">
+<li>
+<p><strong>链接：P-159 将一个程序的所有关联模块对应的目标代码文件结合在一起，以形成一个可执行文件的过程称为链接，由专门的链接程序（linker，也称为链接器）来实现。</strong></p>
+</li>
+<li>
+<p><strong>可重定位文件：P159 将可重定位目标文件简称为可重定位文件。</strong></p>
+</li>
+<li>
+<p><strong>可执行文件：P-159 将可执行文件目标文件简称为可执行文件。</strong></p>
+</li>
+<li>
+<p><strong>符号解析：P-162 符号解析的目的是将每个符号的引用与一个确定的符号定义建立关联。符号包括全局静态变量名和函数名，而非静态局部变量名则不是符号。</strong></p>
+</li>
+<li>
+<p><strong>重定位：重新确定代码和数据的地址并更新指令中被引用符号地址的操作称为重定位。</strong></p>
+</li>
+<li>
+<p><strong>目标代码：P-163 指编译器或汇编器处理源代码后所生成的机器语言目标代码。</strong></p>
+</li>
+<li>
+<p><strong>目标文件：P-163 指存放目标代码的文件。</strong></p>
+</li>
+<li>
+<p><strong>ELF 头：P-163 ELF 可执行可链接格式。ELF 目标文件即可用于程序的链接，也可用于程序的执行。</strong></p>
+</li>
+<li>
+<p><strong>节头表：P-163 ELF 文件中的节头表包含其中各节的说明信息，每个节在该表中都有一个与之对应的项， 每一项都指定了节名和节大小之类的信息。</strong></p>
+</li>
+<li>
+<p><strong>程序头表：P-163 用来指示系统如何创建进程的存储器映像，用于创建进程存储映像的可执行文件和共享库文件必须具有程序头表，而可重定位目标文件无需程序头表。</strong></p>
+</li>
+<li>
+<p><strong>只读代码段：P-168 在可执行文件中，ELF 头、程序头表、.init 节、.fini 节、.text 节和.rodata 节合起来可构成一个只读代码段。</strong></p>
+</li>
+<li>
+<p><strong>可读/写数据段：P-168 .data 节和.bss 节合起来构成一个可读/写数据段。</strong></p>
+</li>
+<li>
+<p><strong>全局符号：P-171 包括非晶态的函数名和全局函数名。</strong></p>
+</li>
+<li>
+<p><strong>外部符号：P-171 包括在模块中引用的在其他模块定义的外部函数名和外部变量名。</strong></p>
+</li>
+<li>
+<p><strong>本地符号：P-171 包括带 static 属性的函数名和全局变量名。</strong></p>
+</li>
+<li>
+<p><strong>强符号：P-173 前三类全局符号（即函数、.data 节和.bss 节中的全局变量）统称为强符号。</strong></p>
+</li>
+<li>
+<p><strong>COMMON 符号：P-172 COMMON 表示未被分配位置的未初始化的变量，称为 COMMON 符号。</strong></p>
+</li>
+<li>
+<p><strong>静态链接：P-175 编译系统通常会提供一种将多个目标模块打包成一个单独的库文件的机制，这个库文件局势静态库。在构建可执行文件时只需制定静态库文件名，链接器会自动到库中寻找那些在应用程序中用到的目标模块，并且只把用到的模块从库中提取出来，和应用程序模块进行链接。</strong></p>
+</li>
+<li>
+<p><strong>共享库文件：P-180 共享目标文件，也称为共享库文件。</strong></p>
+</li>
+<li>
+<p><strong>动态链接：P-180 是一种特殊的可重定位目标文件，其中记录了相应的代码、数据、重定位和符号表信息，能在可执行文件装入或运行时被动态地装入内存并自动被链接，这个过程成为动态链接。</strong></p>
+</li>
+<li>
+<p><strong>动态链接器：P-180 动态连接由一个动态链接器的程序来完成。</strong></p>
+</li>
+<li>
+<p><strong>动态链接库：能够被动态链接的文件，UNIX <a target="_blank" rel="noopener" href="http://xn--fiq0a00a4jm3iu4e81swolfzglz9deme.so">系统中共享文件扩展名为.so</a>，windows 系统中扩展名为.dll 的文件。</strong></p>
+</li>
+<li>
+<p><strong>进程：P-181 可以看成是程序的一次运行过程，因此进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动，进程具有动态的含义。</strong></p>
+</li>
+<li>
+<p><strong>进程描述符：P-181 计算机系统中的任务通常指进程，每个进程主要通过一个称为进程描述符的结构来描述，其结构类型定义为 task_structure，包含一个进程的所有信息。</strong></p>
+</li>
+<li>
+<p><strong>命令行解释程序：</strong></p>
+</li>
+<li>
+<p><strong>指令周期：P-185 CPU 取出并执行一条指令的时间称为指令周期。</strong></p>
+</li>
+<li>
+<p><strong>指令译码器：P-188 ID 对 IR 中操作码部分进行译码，产生的译码信号提供给操作控制信号形成部件，以产生控制信号。</strong></p>
+</li>
+<li>
+<p><strong>内部异常：P-189 Exception 是指由 CPU 在执行某条指令时引起的与该指令相关的意外事件。如除数为 0、结果溢出、断点、单步跟踪、寻址错、访问超时、非法操作码、栈溢出、缺页、地址越界（段错误）等。</strong></p>
+</li>
+<li>
+<p><strong>外部中断：P-189 事件与执行的指令无关，有 CPU 外部的 I/O 子系统发出，称为 I/O 中断或外部中断。</strong></p>
+</li>
+<li>
+<p><strong>数据通路：机器指令的执行是在 CPU 中完成的，通常将指令执行过程中的数据所经历过的路径，包括路径上的部件称为数据通路。</strong></p>
+</li>
+<li>
+<p><strong>执行部件：P-191 通常把数据通过中专门进行数据运算的部件称为执行元件（Execution Unit）或功能元件（Function Unit）</strong></p>
+</li>
+<li>
+<p><strong>功能部件：P-191 通常把数据通过中专门进行数据运算的部件称为执行元件（Execution Unit）或功能元件（Function Unit）</strong></p>
+</li>
+<li>
+<p><strong>控制器：P-191 控制元件也叫控制器。</strong></p>
+</li>
+<li>
+<p><strong>时钟信号：</strong></p>
+</li>
+<li>
+<p><strong>指令流水线：P-193 如果将各阶段看成响应的流水段，则指令的执行过程就构成了一条指令流水线。</strong></p>
+</li>
+</ol>
+<p>九、简答题</p>
+<h1>第五章 程序的存储访问</h1>
+<p>十、名词解释</p>
+<ol start="144">
+<li>
+<p><strong>随机存取存储器（RAM）：P-199 通过对地址译码来访问存储单元，因为每个地址译码时间相同，在不考虑芯片内部缓冲的前提下，每个单元的访问时间是一个常数，与地址无关。</strong></p>
+</li>
+<li>
+<p><strong>只读存储器（ROM）：P-199 ROM 芯片中的信息一旦确定，通常情况下只读不写，但在某些情况下也可重新写入。RAM 芯片和 ROM 芯片都采用随机存取方式进行信息的访问。</strong></p>
+</li>
+<li>
+<p><strong>易失性存储器：P-199 在电源关闭时信息自动丢失，如主存和高速缓存都属于易失性存储器。</strong></p>
+</li>
+<li>
+<p><strong>记忆单元（Cell）：P-200 记忆单元也称为存储元或位元，它是具有两种稳态的能表示二进制 0 和 1 的物理部件。</strong></p>
+</li>
+<li>
+<p><strong>存储阵列（Bank）：P-200 存储阵列也称为存储体、存储矩阵。</strong></p>
+</li>
+<li>
+<p><strong>编址单元：P-200 （Addressing Unit）指具有相同地址的那些位元构成的一个单位，可以是一个字节（按字节编址）或一个字（按字编址）。</strong></p>
+</li>
+<li>
+<p><strong>编址方式：P-200 对各存储单元进行编码的方式称为编址方式（Addressing Mode）可以按字节编址，也可以按字编址。</strong></p>
+</li>
+<li>
+<p><strong>存储器容量：P-201 指它能存放的二进制位数或字节数。</strong></p>
+</li>
+<li>
+<p><strong>存储周期：P-201 存储器的访问时间也称存取时间（Access Time），是指访问一次数据所用的时间。</strong></p>
+</li>
+<li>
+<p><strong>静态 RAM（SRAM）：P-199 高速缓存（Cache）由静态 RAM 芯片组成，位于主存和 CPU 之间，存取速度接近 CPU 的工作速度，用来存放当前 CPU 经常使用到的指令和数据。</strong></p>
+</li>
+<li>
+<p><strong>动态 RAM（DRAM）：P-199 指令直接面向的存储器是主存储器，简称主存，由 DRAM 芯片组成。</strong></p>
+</li>
+<li>
+<p><strong>内存（Flash 存储器）：</strong></p>
+</li>
+<li>
+<p><strong>SDRAM：</strong></p>
+</li>
+<li>
+<p><strong>行地址选通信号（RAS）：</strong></p>
+</li>
+<li>
+<p><strong>列地址选通信号（CAS）：</strong></p>
+</li>
+<li>
+<p><strong>磁盘驱动器：P-209 包括读/写电路、读/写转换开、读/写磁头与磁头定位伺服系统。主要由多个硬盘片、主轴、主轴电机、移动臂、磁头和控制电路等部分组成，通过接口与磁盘控制器连接。</strong></p>
+</li>
+<li>
+<p><strong>磁盘控制器：P-209（Disk Control）包括控制逻辑、时序电路、“并–&gt;串”转换和“串–&gt;并”转换电路。</strong></p>
+</li>
+<li>
+<p><strong>寻道时间：P-211 寻道时间为磁头移动到指定磁道所需时间。</strong></p>
+</li>
+<li>
+<p><strong>旋转（等待）时间：P-211 指指定扇区旋转到磁头下方所需时间。</strong></p>
+</li>
+<li>
+<p><strong>数据传输时间：P-211（Transfer Time）指传输一个扇区的时间（大约 0.01ms/扇区）。</strong></p>
+</li>
+<li>
+<p><strong>数据传输率：P-211（Data Transfer Rate）指磁盘存储器完成磁头定位和旋转等待以后，单位时间内读/</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>写存储介质的二进制信息量。</p>
+</blockquote>
+<ol start="165">
+<li>
+<p><strong>平均存取时间：P-212 通常近似等于平均寻道时间和平均等待时间之和。</strong></p>
+</li>
+<li>
+<p><strong>固态硬盘（SSD）：P-214 也叫电子硬盘，是使用 NAND 闪存组成的外存，与 U 盘没有本质差异，只是容量更大，存取性能更好。</strong></p>
+</li>
+<li>
+<p><strong>时间局部性：P-202 指被访问的存储单元在较短时间内很可能被重复访问。</strong></p>
+</li>
+<li>
+<p><strong>空间局部性：P-202 指被访问的存储单元的邻近单元在较短时间内很可能被访问。</strong></p>
+</li>
+<li>
+<p><strong>主存块：P-215 主存中的区域称为块（Block），也称为主存块，它是 cache 和主存之间的信息交换单位。</strong></p>
+</li>
+<li>
+<p><strong>Cache 行（槽）：P-215 cache 中存放一个主存块的区域称为行（Line）或槽（Slot）。</strong></p>
+</li>
+<li>
+<p><strong>命中率：P-215 在访存过程中需要判断所访问信息是否在 cache 中，若 CPU 访问单元所在的块在 cache</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>中，则称 cache 命中（Hit），命中概率称为命中率 p（Hit Rate），等于命中次数与访问总次数之比。</p>
+</blockquote>
+<ol start="172">
+<li>
+<p><strong>命中时间：P-216 命中时，CPU 在 cache 中直接存取信息，所用时间即为 cache 访问时间 Tc，称为命中时间。</strong></p>
+</li>
+<li>
+<p><strong>缺失损失：P-216 通常把主存访问时间 Tm 称为缺失损失。</strong></p>
+</li>
+<li>
+<p><strong>直接映射：P-216 将一个主存块映射到固定的 cache 行中，也称模映射。</strong></p>
+</li>
+<li>
+<p><strong>全相联映射：P-219 基本思想是主存块可装入任意 cache 行中。</strong></p>
+</li>
+<li>
+<p><strong>组相联映射：P-220 主要思想是，将 cache 所有行分成 2q 个大小相等的组，每组有 2s 行。每个主存块映射到 cache 固定组中的任意一行，即采用组间模映射、组内全映射的方式，映射关系：</strong></p>
+</li>
+</ol>
+<p>cache 组号=主存块号 mod cache 组数</p>
+<ol start="177">
+<li>
+<p><strong>替换策略：P-221 淘汰策略也成替换算法或替换策略。</strong></p>
+</li>
+<li>
+<p><strong>FIFO 算法：P-221 总是选择最早装入 cache 的主存块被替换掉。</strong></p>
+</li>
+<li>
+<p><strong>LRU 算法：P-222 总是选择最近期最少使用的主存块被替换掉。</strong></p>
+</li>
+<li>
+<p><strong>LRU 位：P-222</strong></p>
+</li>
+<li>
+<p><strong>Cache 写策略：P-222 cache 中的内容是主存块副本，当更新 cache 中的内容时，就要考虑何时更新主存中的相应内容，使两者保持一致，这称为写策略（Write Policy）。</strong></p>
+</li>
+<li>
+<p><strong>回写法（Write Back）：P-222 回写法也称一次性写、写回法，其基本做法是，若写命中，则只将内容写入 cache 而不写入主存；若写缺失，则分配一个 cache 行并装入主存块，然后更新该行的内容。写回法通常与写分配法组合使用。</strong></p>
+</li>
+<li>
+<p><strong>通写法（Write Through）：P-222 也称全写法、直写法或写直达法，其基本做法是，若写命中，则同时写 cache 和主存，以保持两者一致；若写缺失，则先写主存，再用写分配法或非写分配法处理。</strong></p>
+</li>
+<li>
+<p><strong>虚拟地址（逻辑地址）：P-226 逻辑地址（也称虚拟地址或虚地址，简称为 VA）。</strong></p>
+</li>
+<li>
+<p><strong>虚拟页号：</strong></p>
+</li>
+<li>
+<p><strong>物理地址： P-226 在采用虚拟存储技术的计算机中执行指令时， CPU 通过存储管理部件（ Memory Management Unit，MMU）将指令中的逻辑地址（也称虚拟地址或虚地址，简称为 VA）转换为主存的物理地址（也称主存地址或实地址，简写为 PA）。</strong></p>
+</li>
+<li>
+<p><strong>页框（页帧）：P-229 主存空间也被划分成同样大小的页框（页帧），也称为物理页或实页，简称 PF（Page Frame）或 PP（Physical Page）。</strong></p>
+</li>
+<li>
+<p><strong>物理页号：</strong></p>
+</li>
+<li>
+<p><strong>未分配页：P-229 没有和任何内容关联的页称为未分配页。</strong></p>
+</li>
+<li>
+<p><strong>未缓存页：P-229 未调入主存而存在外存的页称为未缓存页。</strong></p>
+</li>
+<li>
+<p><strong>请求分页：P-229 页式虚拟存储管理采用请求分页四项，仅将当前需要的页从外存调入主存，而其他不活跃的页保留在外存。</strong></p>
+</li>
+<li>
+<p><strong>页故障（Page Fault）：</strong></p>
+</li>
+<li>
+<p><strong>页表：P-230 用一种方法来建立个虚拟页与所存放的主存页框或硬盘上存储位置之间的关系，通常用页</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>表（Page Table）来描述这种对应关系。</p>
+</blockquote>
+<ol start="194">
+<li>
+<p><strong>页表基址寄存器：P-231 页表属于进程控制信息，位于虚拟地址空间的内核空间，页表在主存的首地址记录在页表基址寄存器中。</strong></p>
+</li>
+<li>
+<p><strong>有效位（装入位）：P230 装入位也称有效位或存在位，用来表示对应页面是否在主存，若为 1，表示已调入主存，是一个缓存页，此时，存放位置地段中记录主存物理页号（即页框号或实页号）；若为 0， 则表示未调入主存，此时若存放位置字段为 null，则说明是一个未分配页，否则是一个未缓存页，其存放位置字段给出该页在外存的起始地址。</strong></p>
+</li>
+<li>
+<p><strong>修改位（脏位）：P-230 用来说明对应页是否被修改过，虚存机制中采用回写策略，利用修改为可以判断替换时是否需写回外存。</strong></p>
+</li>
+<li>
+<p><strong>访问权限：</strong></p>
+</li>
+<li>
+<p><strong>快表（TLB）：P-232 为了减少访存次数，通常利用程序访问的局部性特性，将页表中最活跃的几个页表项复制到高速缓存中，这种在高速缓存中的页表项组成的页表称为转换后备缓冲器或快表。</strong></p>
+</li>
+<li>
+<p><strong>特权指令：P-235 对于页表基址寄存器、TLB 内容的等，只有操作系统内核程序才能用特权指令（也称管理指令）访问。</strong></p>
+</li>
+<li>
+<p><strong>特权模式：P-236 让内核程序和用户程序运行在不同的特权级别和特权模式。</strong></p>
+</li>
+<li>
+<p><strong>内核态：P-236 运行内核程序时处理器所处的模式称为监管模式（Supervisor Mode）、内核模式（Kernel Mode）、超级用户模式或管理程序状态，简称管态、管理态、内核态或核心态。</strong></p>
+</li>
+<li>
+<p><strong>用户态：P-236 执行用户程序时处理器所处的模式称为用户模式（User Mode）、用户状态或目标程序状态，简称 windows 目态或用户态。</strong></p>
+</li>
+<li>
+<p><strong>存储保护：P-236 存储保护包括访问权限保护和存储区域保护。</strong></p>
+</li>
+<li>
+<p><strong>地址越界：P-236 存储区域保护检查是否发生了地址越界，也即是否访问了不该访问的区域。例如：程序是否访问了“空洞”区域，访问区间是否超越了最大段长规定的地址。</strong></p>
+</li>
+<li>
+<p><strong>访问越权：P-236 访问越权即实际访问操作与访问权限不符。</strong></p>
+</li>
+</ol>
+<p>十一、简答题</p>
+<h1>第六章 程序中 I/O 操作的实现</h1>
+<p>十二、名词解释</p>
+<ol start="206">
+<li>
+<p><strong>I/O 硬件：P-248 I/O 硬件在操作系统内核空间 I/O 软件的控制下完成具体的 I/O 操作。</strong></p>
+</li>
+<li>
+<p><strong>I/O 软件：P-248 I/O 软件包括最上层提出 I/O 请求的用户空间 I/O 软件（称为用户 I/O 软件）和在底层操作系统中对 I/O 进行具体管理控制的内核空间 I/O 软件（称为系统 I/O 软件）。</strong></p>
+</li>
+<li>
+<p><strong>用户空间 I/O 软件：P-248 最上层提出 I/O 请求的用户空间 I/O 软件（称为用户 I/O 软件）。</strong></p>
+</li>
+<li>
+<p><strong>内核空间 I/O 软件：P-248 在底层操作系统中对 I/O 进行具体管理控制的内核空间 I/O 软件（称为系统 I/O</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>软件）。</p>
+</blockquote>
+<ol start="210">
+<li>
+<p><strong>系统调用处理程序：P-250 Linux 中有一个系统调用的统一入口，即系统调用处理程序 system_call。</strong></p>
+</li>
+<li>
+<p><strong>系统调用服务程序：P-249-250</strong></p>
+</li>
+<li>
+<p><strong>设备驱动程序：P-250 在系统调用服务里程的执行过程中，可能需要调用具体设备的驱动程序，在设备驱动程序执行的过程中启动外设工作，外设准备好数据或准备好接收数据后，就发出中断请求。</strong></p>
+</li>
+<li>
+<p><strong>中断服务程序：P-250 CPU 响应中断后，就调用中断服务程序执行，在中断服务程序程序中控制主机与设备进行具体的数据交换。</strong></p>
+</li>
+<li>
+<p><strong>系统级 I/O 函数：</strong></p>
+</li>
+<li>
+<p><strong>虚拟文件系统：</strong></p>
+</li>
+<li>
+<p><strong>文件描述符：P-254 创建一个新文件时，用户应指定其文件名和访问权限，系统将返回一个非负整数， 称为文件描述符（File Descriptor）。文件描述符是进程中被打开的唯一标识，可用于后续读/写等操作。</strong></p>
+</li>
+<li>
+<p><strong>文件元数据：P-256 文件名、文件大小、创建时间等文件属性信息均由操作系统内核维护，这些信息也称为文件元数据（File Metadata）。</strong></p>
+</li>
+<li>
+<p><strong>流缓存区：P-258 文件 fd 的流缓存区 FILE 由缓冲区起始位置 base、下一个可读/写位置 ptr 以及剩下未读/写的字节数 cnt 来描述。</strong></p>
+</li>
+<li>
+<p><strong>索引节点：</strong></p>
+</li>
+<li>
+<p><strong>目录文件：P-264 目录本身是一种文件，称为目录文件。</strong></p>
+</li>
+<li>
+<p><strong>目录项：</strong></p>
+</li>
+<li>
+<p><strong>系统打开文件表：P-265 VFS 为系统中所有打开的文件维护了一张系统文件表，因此，该表也称为系统打开文件表。</strong></p>
+</li>
+<li>
+<p><strong>磁盘高速缓存：P-267 传统的外部存储器是磁盘，因此上述高速缓存也称为磁盘高速缓存。</strong></p>
+</li>
+<li>
+<p><strong>高速缓存 RAM：P-267 作为高速缓存的主存 RAM 区可称为高速缓存 RAM。</strong></p>
+</li>
+<li>
+<p><strong>I/O 控制方式：</strong></p>
+</li>
+<li>
+<p><strong>程序直接控制 I/O：P-268 程序直接控制 I/O 方式的基本思想是直接通过查询程序来控制主机和外设的数据交换，因此也称为查询或轮询方式。</strong></p>
+</li>
+<li>
+<p><strong>就绪状态：</strong></p>
+</li>
+<li>
+<p><strong>中断控制 I/O：P-269 中断控制 I/O 方式的基本思想是，当需要进行 I/O 操作时，首先启动外设进行第一个数据的 I/O 操作，然后阻塞请求 I/O 的用户进程，并调度其他进程都 CPU 上执行，期间，外设在设备控制器的控制下工作。</strong></p>
+</li>
+<li>
+<p><strong>中断屏蔽字：</strong></p>
+</li>
+<li>
+<p><strong>多重中断：P-274 在中断处理过程中，若又到来了优先级更高的新中断请求，CPU 应立即暂停当前执行的中断服务程序，转去处理新终断，这种情况下称为多重中断。</strong></p>
+</li>
+<li>
+<p><strong>中断嵌套：P-274 多重中断也称中断嵌套。</strong></p>
+</li>
+<li>
+<p><strong>DMA 方式：P-272</strong></p>
+</li>
+<li>
+<p><strong>DMA 控制器：P-272 直接存储器访问控制 I/O 方式使用专门的 DMA 接口硬件直接控制在外设和主存之间交换数据，数据不经过 CPU，把该接口硬件称为 DMA 控制器。</strong></p>
+</li>
+<li>
+<p><strong>I/O 接口：P-279：I/O 接口又称设备控制器或 I/O 控制器或 I/O 控制接口，或 I/O 模块，是介于外设和 I/O</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>总线之间的部分，不同的外设往往对应不同的设备控制器。</p>
+</blockquote>
+<ol start="235">
+<li>
+<p><strong>设备控制器：P-280 I/O 接口又称设备控制器，是连接外设和主机的“桥梁”，它在外设侧和主机侧各有一个接口。</strong></p>
+</li>
+<li>
+<p><strong>I/O 端口：P-280 通常把设备控制器中的数据缓冲寄存器、状态/控制寄存器统称为 I/O 端口。</strong></p>
+</li>
+<li>
+<p><strong>控制端口：P-280 控制寄存器简称为控制端口。</strong></p>
+</li>
+<li>
+<p><strong>数据端口：P-280 数据缓冲器简称数据端口。</strong></p>
+</li>
+<li>
+<p><strong>状态端口：P-280 状态寄存器简称为状态端口。</strong></p>
+</li>
+<li>
+<p><strong>I/O 地址空间：P-280 所有 I/O 端口编号组成的空间称为 I/O 地址空间。</strong></p>
+</li>
+<li>
+<p><strong>独立编址方式：P-281 独立编址方式对所有的 I/O 端口单独编号，使它们成为一个与主存地址空间独立的 I/O 地址空间。</strong></p>
+</li>
+<li>
+<p><strong>统一编址方式：P-281 I/O 地址空间与主存地址空间统一编址，主存地址空间分出一部分地址给 I/O 端口编号。</strong></p>
+</li>
+<li>
+<p><strong>存储器映射 I/O：P-281 将 I/O 端口映射到主存空间的某段地址，也称为存储映射方式。</strong></p>
+</li>
+<li>
+<p><strong>I/O 指令：P-280 设备控制在主机侧通过 I/O 总线和主机相联，CPU 可通过指令将控制信息写入控制寄存器、从状态寄存器读出状态信息或数据缓冲寄存器进行数据交换，通常把这类指令称为 I/O 指令。</strong></p>
+</li>
+<li>
+<p><strong>可编程中断控制器：P-283 中断系统的功能一般通过可编程中断控制器实现。</strong></p>
+</li>
+<li>
+<p><strong>中断请求寄存器：P-282 及时记录各种中断请求，通常用一个中断请求寄存器来记录。</strong></p>
+</li>
+<li>
+<p><strong>中断响应优先级：P-283 中断响应优先权由中断查询程序或中断判优电路决定优先权，它决定多个中断同时请求时先响应哪个。</strong></p>
+</li>
+<li>
+<p><strong>中断处理优先级：P-283 中断处理优先级则由各自的中断屏蔽字来动态决定，决定本中断与其他所有中断之间的处理优先关系。</strong></p>
+</li>
+<li>
+<p>自陷指令：P-248 又叫访管指令、软终端指令，用于实现在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%A8%E6%88%B7%E6%80%81/9548791?fromModule=lemma_inlink">用户态</a>下运行的进程调用操作系统<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%86%85%E6%A0%B8/108410?fromModule=lemma_inlink">内核</a>程序， 即当运行的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B/56497963?fromModule=lemma_inlink">用户进程</a>或系统实用进程欲请求操作系统内核为其服务时，可以安排执行一条陷入指令引起一次特殊异常。</p>
+</li>
+<li>
+<p>I/O 子系统：主要解决信息的输入和输出问题，即解决如何将所需信息通过不同外设输入到计算机中，或者计算机内部处理的结果如何通过响应的外设输出给用户。</p>
+</li>
+<li>
+<p>运行时：运行时系统也称为运行时环境或简称运行时。一个运行时系统除了要支持语言基本的低级行为之外，还要实现更高层次的行为，如库函数等，甚至提供类型检查、调试以及代码生成与优化等功能。</p>
+</li>
+<li>
+<p>I/O 子系统主要包含 I/O 软件和 I/O 硬件两大部分。</p>
+</li>
+</ol>
+<p>十三、简答题</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://i-melody.github.io/2024/04/08/temp/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
