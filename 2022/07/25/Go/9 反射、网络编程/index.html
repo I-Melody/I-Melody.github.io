@@ -24,7 +24,7 @@
 <meta property="og:description" content="9 反射、网络编程 9.1 反射 反射可以在运行时动态获取变量信息，包括类型、类别。如果是结构体，还能获取其字段、方法。 通过反射，可以操作任意类型的对象。可以修改变量的值，调用关联的方法。 变量相关的内容包含在 reflect 包中 import &quot;reflect&quot; reflect.Value 在 reflect.Value 结构体中，包含了与变量相关的信息 相关函数   V">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-07T07:59:05.762Z">
+<meta property="article:modified_time" content="2024-07-07T13:05:58.871Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="Go">
 <meta property="article:tag" content="笔记">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          11k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          28 分钟
+          30 分钟
         
       </span>
     
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月7日 下午
+                    本文最后更新于：2024年7月7日 晚上
                   
                 
               </p>
@@ -689,8 +689,8 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
 &#125;
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
-	TestFunc(sum, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;[1,2,3,4]&quot;</span>))
-	TestFunc(Max, []<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;1,900&quot;</span>))
+	TestFuncS(sum, <span class="hljs-string">&quot;[1,2,3,4]&quot;</span>)
+	TestFuncS(Max, <span class="hljs-string">&quot;1,900&quot;</span>)
 &#125;
 
 
@@ -699,14 +699,18 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
 
 <span class="hljs-comment">/* 这是测试方法的入口。先解析测试用例，那之后会执行函数。</span>
 <span class="hljs-comment">   参数（functionName）：测试代码的对象（函数名），要求是一个无隐参的函数</span>
-<span class="hljs-comment">   参数（str）：测试用例字符串。不同元素间由逗号分隔，不能有多余的空格（除非是带有空格的字符串参数）</span>
+<span class="hljs-comment">   参数（paraString）：测试用例字符串。不同元素间由逗号分隔</span>
 <span class="hljs-comment">   */</span>
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TestFunc</span><span class="hljs-params">(functionName <span class="hljs-keyword">interface</span>&#123;&#125;, str []<span class="hljs-type">byte</span>)</span></span> &#123;
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TestFuncS</span><span class="hljs-params">(functionName <span class="hljs-keyword">interface</span>&#123;&#125;, paraString <span class="hljs-type">string</span>)</span></span> &#123;
+	TestFunc(functionName, []<span class="hljs-type">byte</span>(paraString))
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TestFunc</span><span class="hljs-params">(functionName <span class="hljs-keyword">interface</span>&#123;&#125;, paraString []<span class="hljs-type">byte</span>)</span></span> &#123;
 	fun := reflect.ValueOf(functionName)
-    
+
     <span class="hljs-comment">// 检查是不是一个函数</span>
-	<span class="hljs-keyword">if</span> fun.Kind() != reflect.Func &#123;				
-		<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;非函数名&quot;</span>))
+	<span class="hljs-keyword">if</span> fun.Kind() != reflect.Func &#123;
+		<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;传入无效的函数名&quot;</span>))
 	&#125;
     
     <span class="hljs-comment">// 获取该函数需要的参数</span>
@@ -716,7 +720,7 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
 	&#125;
     
     <span class="hljs-comment">// 解析测试用例字符串，得到需要的参数</span>
-	para := parsePara(str, paraNeeded...)
+	para := parsePara(paraString, paraNeeded...)
     
     <span class="hljs-comment">// 调用函数。如有返回值，在屏幕上输出那个返回值</span>
 	<span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> fun.Call(para) &#123;
@@ -730,42 +734,43 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
 <span class="hljs-comment">   参数（str）：待解析的字符串。认为方括号内是一个完整切片。此外，不同元素间有逗号分隔</span>
 <span class="hljs-comment">   参数（para）：提示了解析后每个元素的正确类型。解析切片内部的元素时，仅以一个参数提示切片元素的类型</span>
 <span class="hljs-comment">   */</span>
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">parsePara</span><span class="hljs-params">(str []<span class="hljs-type">byte</span>, para ...reflect.Value)</span></span> []reflect.Value &#123;
-	str = <span class="hljs-built_in">append</span>(str, <span class="hljs-string">&#x27;,&#x27;</span>)	<span class="hljs-comment">// 这步和代码逻辑有关，为了解析最后一个元素，在末尾添加一个额外的逗号</span>
-    res, length := <span class="hljs-built_in">make</span>([]reflect.Value, <span class="hljs-number">0</span>), <span class="hljs-built_in">len</span>(para)
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">parsePara</span><span class="hljs-params">(paraString []<span class="hljs-type">byte</span>, parameters ...reflect.Value)</span></span> []reflect.Value &#123;
+	<span class="hljs-comment">// 由 TestFunc 方法调用</span>
+	paraString = <span class="hljs-built_in">append</span>(paraString, <span class="hljs-string">&#x27;,&#x27;</span>)	<span class="hljs-comment">// 这步和代码逻辑有关，为了解析最后一个元素，在末尾添加一个额外的逗号</span>
+	res, length := <span class="hljs-built_in">make</span>([]reflect.Value, <span class="hljs-number">0</span>), <span class="hljs-built_in">len</span>(parameters)
 	<span class="hljs-keyword">if</span> length == <span class="hljs-number">0</span> &#123;
 		<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;参数长度为0&quot;</span>))	<span class="hljs-comment">// 参数长度不太可能为0，以防万一加入了这个异常</span>
 	&#125;
     
     <span class="hljs-comment">// 每次解析字符串的第一项元素，之后将这部分字符串剔除。字符串变为空则解析完成</span>
-	<span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(str) &gt; <span class="hljs-number">0</span> &#123;
-		<span class="hljs-keyword">if</span> str[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;[&#x27;</span> &#123;
+	<span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(paraString) &gt; <span class="hljs-number">0</span> &#123;
+		<span class="hljs-keyword">if</span> paraString[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;[&#x27;</span> &#123;
             <span class="hljs-comment">// 解析一个切片类型</span>
-			val := para[<span class="hljs-built_in">len</span>(res)%length]	<span class="hljs-comment">// val 应该是一个切片指针的反射对象</span>
+			val := parameters[<span class="hljs-built_in">len</span>(res)%length]	<span class="hljs-comment">// val 应该是一个切片指针的反射对象</span>
 			<span class="hljs-keyword">if</span> val.Elem().Kind() != reflect.Slice &#123;
-				<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;非切片类型&quot;</span>))	<span class="hljs-comment">// 检查 para 参数是否提示是切片，应该不会出错</span>
+				<span class="hljs-built_in">panic</span>(errors.New(<span class="hljs-string">&quot;传入的参数有误&quot;</span>))	<span class="hljs-comment">// 检查 para 参数是否提示是切片</span>
 			&#125;
             
             <span class="hljs-comment">// 完整获得一组方括号内的字符串，并解析</span>
 			count := <span class="hljs-number">0</span>
-			<span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> str &#123;
-				<span class="hljs-keyword">if</span> str[i] == <span class="hljs-string">&#x27;[&#x27;</span> &#123;
+			<span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> paraString &#123;
+				<span class="hljs-keyword">if</span> paraString[i] == <span class="hljs-string">&#x27;[&#x27;</span> &#123;
 					count++
-				&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> str[i] == <span class="hljs-string">&#x27;]&#x27;</span> &#123;
+				&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> paraString[i] == <span class="hljs-string">&#x27;]&#x27;</span> &#123;
 					count--
 					<span class="hljs-keyword">if</span> count == <span class="hljs-number">0</span> &#123;
-						res = <span class="hljs-built_in">append</span>(res, confirmPara(str[<span class="hljs-number">1</span>:i], val))
-						str = str[i+<span class="hljs-number">2</span>:]	<span class="hljs-comment">// 将解析完毕的部分剔除</span>
+						res = <span class="hljs-built_in">append</span>(res, confirmPara([]<span class="hljs-type">byte</span>(strings.TrimSpace(<span class="hljs-type">string</span>(paraString[<span class="hljs-number">1</span>:i]))), val))
+						paraString = paraString[i+<span class="hljs-number">2</span>:]	<span class="hljs-comment">// 将解析完毕的部分剔除</span>
 						<span class="hljs-keyword">break</span>
 					&#125;
 				&#125;
 			&#125;
 		&#125; <span class="hljs-keyword">else</span> &#123;
             <span class="hljs-comment">// 解析一个基本数据类型</span>
-			<span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> str &#123;
-				<span class="hljs-keyword">if</span> str[i] == <span class="hljs-string">&#x27;,&#x27;</span> &#123;
-					res = <span class="hljs-built_in">append</span>(res, confirmPara(str[:i], para[<span class="hljs-built_in">len</span>(res)%length]))
-					str = str[i+<span class="hljs-number">1</span>:]	<span class="hljs-comment">// 将解析完毕的部分剔除</span>
+			<span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> paraString &#123;
+				<span class="hljs-keyword">if</span> paraString[i] == <span class="hljs-string">&#x27;,&#x27;</span> &#123;
+					res = <span class="hljs-built_in">append</span>(res, confirmPara([]<span class="hljs-type">byte</span>(strings.TrimSpace(<span class="hljs-type">string</span>(paraString[:i]))), parameters[<span class="hljs-built_in">len</span>(res)%length]))
+					paraString = paraString[i+<span class="hljs-number">1</span>:]	<span class="hljs-comment">// 将解析完毕的部分剔除</span>
 					<span class="hljs-keyword">break</span>
 				&#125;
 			&#125;
@@ -774,38 +779,45 @@ fmt.Println(reflect.ValueOf(a).Kind()) 		<span class="hljs-comment">// struct</s
 	<span class="hljs-keyword">return</span> res
 &#125;
 
+
 <span class="hljs-comment">/* 这个方法确认一个元素的值</span>
 <span class="hljs-comment">   参数（str）：待解析的字符串。仅包含该项元素对应的部分字符串。</span>
 <span class="hljs-comment">   参数（oriVal）：仅提示该元素的正确类型</span>
 <span class="hljs-comment">   */</span>
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">confirmPara</span><span class="hljs-params">(str []<span class="hljs-type">byte</span>, oriVal reflect.Value)</span></span> reflect.Value &#123;
+<span class="hljs-comment">// 由 TestFunc 方法（间接）调用</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">confirmPara</span><span class="hljs-params">(stringPart []<span class="hljs-type">byte</span>, elementType reflect.Value)</span></span> reflect.Value &#123;
     <span class="hljs-comment">// val 是将来要返回的，最终会被用于调用函数的那个元素值的反射对象</span>
-	val := reflect.New(oriVal.Elem().Type())
+	val := reflect.New(elementType.Elem().Type())
     
     <span class="hljs-comment">// 下面开始根据元素类型采用不同的解析策略</span>
 	<span class="hljs-keyword">var</span> err <span class="hljs-type">error</span> = <span class="hljs-literal">nil</span>
 	<span class="hljs-keyword">switch</span> val.Elem().Kind() &#123;
 	<span class="hljs-keyword">case</span> reflect.Int, reflect.Int64, reflect.Int32, reflect.Int16, reflect.Int8:
 		<span class="hljs-keyword">var</span> n <span class="hljs-type">int64</span>
-		n, err = strconv.ParseInt(<span class="hljs-type">string</span>(str), <span class="hljs-number">10</span>, <span class="hljs-number">64</span>)
+		n, err = strconv.ParseInt(<span class="hljs-type">string</span>(stringPart), <span class="hljs-number">10</span>, <span class="hljs-number">64</span>)
 		val.Elem().SetInt(n)
 	<span class="hljs-keyword">case</span> reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
 		<span class="hljs-keyword">var</span> n <span class="hljs-type">uint64</span>
-		n, err = strconv.ParseUint(<span class="hljs-type">string</span>(str), <span class="hljs-number">10</span>, <span class="hljs-number">64</span>)
+        <span class="hljs-comment">// 考虑是否是 rune 与 byte 类型，做出不同处理</span>
+		<span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(stringPart) == <span class="hljs-number">3</span> &amp;&amp; (stringPart[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;\&#x27;&#x27;</span> || stringPart[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;&quot;&#x27;</span>) &#123;
+			n = <span class="hljs-type">uint64</span>(stringPart[<span class="hljs-number">1</span>])
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			n, err = strconv.ParseUint(<span class="hljs-type">string</span>(stringPart), <span class="hljs-number">10</span>, <span class="hljs-number">64</span>)
+		&#125;
 		val.Elem().SetUint(n)
 	<span class="hljs-keyword">case</span> reflect.String:
-		val.Elem().SetString(<span class="hljs-type">string</span>(str[<span class="hljs-number">1</span> : <span class="hljs-built_in">len</span>(str)<span class="hljs-number">-1</span>]))	<span class="hljs-comment">// 会去掉字符串的引号</span>
+		val.Elem().SetString(<span class="hljs-type">string</span>(stringPart[<span class="hljs-number">1</span> : <span class="hljs-built_in">len</span>(stringPart)<span class="hljs-number">-1</span>]))	<span class="hljs-comment">// 会去掉字符串的引号</span>
 	<span class="hljs-keyword">case</span> reflect.Bool:
 		<span class="hljs-keyword">var</span> n <span class="hljs-type">bool</span>
-		n, err = strconv.ParseBool(<span class="hljs-type">string</span>(str))
+		n, err = strconv.ParseBool(<span class="hljs-type">string</span>(stringPart))
 		val.Elem().SetBool(n)
 	<span class="hljs-keyword">case</span> reflect.Float32, reflect.Float64:
 		<span class="hljs-keyword">var</span> n <span class="hljs-type">float64</span>
-		n, err = strconv.ParseFloat(<span class="hljs-type">string</span>(str), <span class="hljs-number">64</span>)
+		n, err = strconv.ParseFloat(<span class="hljs-type">string</span>(stringPart), <span class="hljs-number">64</span>)
 		val.Elem().SetFloat(n)
 	<span class="hljs-keyword">default</span>:
         <span class="hljs-comment">// 不是上述类型时，认为传入类型是某种切片。调用方法继续拆解该切片字符串</span>
-		n := parsePara(str, reflect.New(reflect.MakeSlice(val.Elem().Type(), <span class="hljs-number">1</span>, <span class="hljs-number">1</span>).Index(<span class="hljs-number">0</span>).Type()))
+		n := parsePara(stringPart, reflect.New(reflect.MakeSlice(val.Elem().Type(), <span class="hljs-number">1</span>, <span class="hljs-number">1</span>).Index(<span class="hljs-number">0</span>).Type()))
 		temp := reflect.MakeSlice(val.Elem().Type(), <span class="hljs-built_in">len</span>(n), <span class="hljs-built_in">len</span>(n))
 		<span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> n &#123;
 			temp.Index(i).Set(n[i])
