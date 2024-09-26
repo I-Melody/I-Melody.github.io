@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/cover/TOOL1-Bullet_Picture.webp">
 <meta property="article:published_time" content="2023-04-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-23T07:29:39.276Z">
+<meta property="article:modified_time" content="2024-09-12T12:07:41.910Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="程序">
 <meta name="twitter:card" content="summary_large_image">
@@ -292,7 +292,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月23日 下午
+                    本文最后更新于：2024年9月12日 晚上
                   
                 
               </p>
@@ -547,8 +547,7 @@
         res += (n &amp; <span class="hljs-number">0b111111110000000000000000</span>) &gt;&gt; <span class="hljs-number">16</span>;
         res += (n &amp; <span class="hljs-number">0b1111111100000000</span>) &gt;&gt; <span class="hljs-number">8</span>;
         res += (n &amp; <span class="hljs-number">0b11111111</span>);
-        <span class="hljs-keyword">if</span> (res &gt; <span class="hljs-number">350</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> res &gt; <span class="hljs-number">350</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
     &#125;
 
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">reverse</span><span class="hljs-params">(String pic)</span> &#123;

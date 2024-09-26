@@ -1,0 +1,1893 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2 Android UI 用户界面（User Interface，简称 UI）是系统和用户间交互和信息交换的媒介，其实现信息的内部形式和人类可以接受的形式间的转换 软件设计分为两部分：编码设计、UI 设计 Android UI 都是由 布局 和 控件 组成的。 2.1 布局 ViewGroup 布局（layout）可以定义应用中的界面结构。布局中的所有元素都使用 View 和 ViewGroup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Android&gt;2 Android UI">
+<meta property="og:url" content="https://i-melody.github.io/2024/09/26/Android/2%20Android%20UI/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="2 Android UI 用户界面（User Interface，简称 UI）是系统和用户间交互和信息交换的媒介，其实现信息的内部形式和人类可以接受的形式间的转换 软件设计分为两部分：编码设计、UI 设计 Android UI 都是由 布局 和 控件 组成的。 2.1 布局 ViewGroup 布局（layout）可以定义应用中的界面结构。布局中的所有元素都使用 View 和 ViewGroup">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_2_%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_1a.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_1b.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_2.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_3.webp">
+<meta property="article:published_time" content="2024-09-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-26T11:22:08.590Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i-melody.github.io/img/Android_InputImage/2_2_%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Android&gt;2 Android UI ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><Android>2 Android UI</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-26 00:00" pubdate>
+          2024年9月26日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Android&gt;2 Android UI</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年9月26日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>2 Android UI</h1>
+<p>用户界面（User Interface，简称 UI）是系统和用户间交互和信息交换的媒介，其实现信息的内部形式和人类可以接受的形式间的转换</p>
+<p>软件设计分为两部分：编码设计、UI 设计</p>
+<p>Android UI 都是由 <strong>布局</strong> 和 <strong>控件</strong> 组成的。</p>
+<h2 id="2-1-布局-ViewGroup">2.1 布局 ViewGroup</h2>
+<p>布局（layout）可以定义应用中的界面结构。布局中的所有元素都使用 View 和 ViewGroup 对象的层次结构进行创建。</p>
+<p><strong>View</strong> 对象通常称为 “微件”。绘制用户可查看并交互的内容。</p>
+<p><strong>ViewGroup</strong> 对象通常称为 “布局”。是不可见容器，用于定义 View 和 其他ViewGroup 对象的布局结构。</p>
+<pre><code class=" mermaid">graph TB
+classDef vg fill:#EFFFFF, stroke:#333
+ROOT([ViewGroup])
+ROOT:::vg---A1([ViewGroup])
+ROOT---A2([View])
+ROOT---A3([View])
+A1:::vg---B4([...]):::vg
+A1---B1([View])
+A1---B2([View])
+A1---B3([View])</code></pre>
+<h4 id="编写-XML">编写 XML</h4>
+<p>利用 Android 的 XML 词汇，以元素嵌套方式，快速设计 UI 布局及其包含的同屏元素</p>
+<p>每个布局都必须包含一个根元素，且该元素必须是视图对象或 ViewGroup 对象。定义根元素后，以子元素形式添加其他布局对象或控件，从而由外向内，逐步构建定义布局的视图层次结构。</p>
+<p>在 XML 中声明布局后，以 <code>.xml</code> 扩展名将文件保存在 <code>res/layout</code> 目录中</p>
+<p>下面是一个例子：最外层是一个 RelativeLayout，其包含 4 个子控件（Toolbar、ImageView、TextView、RelativeLayout）。作为子控件的 RelativeLayout，又包含 3 个 Button 控件。</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span>?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">androidx.appcompat.widget.Toolbar...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ImageView...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/rl&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;300dp&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">&quot;@id/content_title&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">&quot;30dp&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:layout_centerInParent</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button...</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button...</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button...</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
+            
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span></code></pre></div>
+<p>编译应用时，系统会将每个 XML 布局文件编译成 View 资源，在 <code>Activity.onCreate()</code> 回调内，调用 <code>setContentView()</code> 方法，并以 <code>R.layout.xxxxxxx</code> 形式传参，以加载代码中的布局资源</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AppCompatActivity</span> &#123;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> &#123;
+        <span class="hljs-built_in">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);		<span class="hljs-comment">// 存在一个 activity_main.xml 文件</span>
+        ...
+    &#125;
+&#125;</code></pre></div>
+<p>要在 Java 内获取某个指定的 XML 布局资源，就要通过 <strong>LayoutInflater</strong> 类来实现。</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">View</span> <span class="hljs-variable">view</span> <span class="hljs-operator">=</span> LayoutInflater.from(MainActivity.<span class="hljs-built_in">this</span>).inflate(R.layout.xxx, <span class="hljs-literal">null</span>, <span class="hljs-literal">false</span>);</code></pre></div>
+<h4 id="属性与-ID">属性与 ID</h4>
+<p>每个 View 和 ViewGroup 对象都可设置各种 XML 属性。此外，任何 View 对象均可拥有一个整形 ID 以对其进行唯一标识。在布局 XML 中，系统常常以字符串形式在 <code>id</code> 属性中指定该 ID。</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/content_title&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;50dp&quot;</span>  /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/re&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">&quot;@id/content_title&quot;</span> /&gt;</span></code></pre></div>
+<p>上述 XML 中定义了一个 TextView 对象，其设置了三条属性。其中，ID 为 <code>content_title</code>，宽度为 <code>wrap_content</code>（适应内容）。此外，还定义了一个 RelativeLayout 对象，其设置了三条属性，ID 为 <code>re</code>，高度为 <code>match_parent</code>（父视图允许的最大尺寸）</p>
+<p>上述 XML 中出现了 <code>@+id/...</code> 以及 <code>@id/...</code> 语法。其中，<code>@+id/...</code> 表示在 R.java 文件中新增一个 ID 名称，而  <code>@id/...</code> 表示引用 R.java 文件中的一个 ID 名称。</p>
+<p>可以利用 ID 在 java 中创建指定对象的实例。语法如下：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">TextView</span> <span class="hljs-variable">tv</span> <span class="hljs-operator">=</span> (TextView) findViewById(R.id.content_title);
+<span class="hljs-type">RelativeLayout</span> <span class="hljs-variable">rl</span> <span class="hljs-operator">=</span> (RelativeLayout) findViewById(R.id.re);</code></pre></div>
+<p>也能在 java 中通过 LayoutParams 类实现对 View 对象属性的操作：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">RelativeLayout</span> <span class="hljs-variable">rl</span> <span class="hljs-operator">=</span> (RelativeLayout) findViewById(R.id.re);
+RelativeLayout.<span class="hljs-type">LayoutParams</span> <span class="hljs-variable">params</span> <span class="hljs-operator">=</span> (RelativeLayout.LayoutParams) rl.getLayoutParams();
+
+params.width = <span class="hljs-number">100</span>;
+params.topMargin = <span class="hljs-number">10</span>;</code></pre></div>
+<h4 id="事件分发机制">事件分发机制</h4>
+<p>用户与程序交互时产生的动作或操作称为 <strong>事件</strong>。主要包括</p>
+<table>
+    <tr>
+        <th>名称</th>
+    	<th>事件</th>
+    	<th>触发场景</th>
+    	<th>触发次数</th>
+    </tr>
+    <tr>
+    	<td>按下</td>
+    	<td>MontionEvent.ACTION_DOWN</td>
+    	<td>屏幕被按下时</td>
+    	<td>1 次</td>
+    </tr>
+    <tr>
+    	<td>滑动</td>
+    	<td>MontionEvent.ACTION_MOVE</td>
+    	<td>在屏幕上滑动时</td>
+    	<td>0 次或多次</td>
+    </tr>
+    <tr>
+    	<td>抬起</td>
+    	<td>MontionEvent.ACTION_UP</td>
+    	<td>从屏幕上抬起时</td>
+    	<td>0 次或 1 次</td>
+    </tr>
+    <tr>
+    	<td>取消</td>
+    	<td>MontionEvent.ACTION_CANCLE</td>
+    	<td>事件被取消，如滑动超出控件边界等</td>
+    	<td>0 次或 1 次</td>
+    </tr>
+</table>
+<p>事件由以上动作组成。从手指按下屏幕开始，到手指离开屏幕不再操作为止，期间所产生的一系列事件组成了 <strong>事件流（事件序列）</strong>。换言之，所有事件流都由 ACTION_DOWN 开始。</p>
+<p>当一个点击事件发生后，将按照 Acticity → ViewGroup → View 的方向依次传递。下面是三者大致的包含关系</p>
+<pre><code class=" mermaid">graph TB
+subgraph Activity
+    subgraph ViewGroup
+        v1[view]
+        v2[view]
+    end
+end
+style v1 fill:#eeeeeeee, stroke:#000000
+style v2 fill:#eeeeeeee, stroke:#000000
+style ViewGroup fill:#eeeeee88, stroke:#000000
+style Activity fill:#a0dfffff, stroke:#000000</code></pre>
+<p>安卓的布局结构中，组件会重叠在一起，这导致了事件可能发生冲突。为此，引入了 <strong>事件分发机制</strong>。主要有以下方法负责事件分发</p>
+<table>
+    <tr>
+        <th>方法</th>
+    	<td>dispatchTouchEvent()</td>
+        <td>onInterceptTouchEvent()</td>
+        <td>onTouchEvent()</td>
+    </tr>
+    <tr>
+        <th>说明</th>
+    	<td>
+            向下通知事件的发生（事件分发）<br>
+            返回 true 时结束事件分发
+        </td>
+        <td>
+            是否拦截向子组件的事件分发<br>
+            返回 true 时拦截事件分发
+        </td>
+        <td>
+            向上通知事件已处理（事件消费）<br>
+            返回 true 时事件已消费
+        </td>
+    </tr>
+    <tr>
+        <th>在 Activity 中..</th>
+    	<td>存在</td>
+        <td>不存在</td>
+        <td>存在</td>
+    </tr>
+    <tr>
+        <th>在 ViewGroup 中..</th>
+    	<td>存在</td>
+        <td>存在</td>
+        <td>存在</td>
+    </tr>
+    <tr>
+        <th>在 View 中..</th>
+    	<td>存在</td>
+        <td>不存在</td>
+        <td>存在</td>
+    </tr>
+</table>
+<p>下面是事件分发的流程图</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/2_2_%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.webp" alt=""></p>
+<p><em>(2_2_事件分发)</em></p>
+<p>默认情况下，所有组件的上述方法都会返回 false。可以重写这些方法，以控制事件分发流程。</p>
+<h3 id="2-1-1-线性布局-LinearLayout">2.1.1 线性布局 LinearLayout</h3>
+<p>LinearLayout 是一个视图容器，使得子视图在单个方向（垂直/水平）保持对齐。</p>
+<h4 id="orientation-属性">orientation 属性</h4>
+<p>在 LinearLayout 中，使用 <code>orientation</code> 指定子视图对齐的方向</p>
+<table>
+    <tr>
+    	<td>android:orientation="horizontal"</td>
+    	<td>水平对齐</td>
+    </tr>
+    <tr>
+    	<td>android:orientation="vertical"</td>
+    	<td>垂直对齐</td>
+    </tr>
+</table>
+<h4 id="layout-weight-属性">layout_weight 属性</h4>
+<p>可以为 LinearLayout 的子视图设置 <code>layout_weight</code> 属性，从而指定权重，以分配子视图所占空间的比例。</p>
+<p>有子视图添加 layout_weight 属性后，LinearLayout 中的所有剩余空间，将按权重分配给所有添加了 layout_weight 属性的子视图。</p>
+<p>如下图所示，未添加 layout_weight 属性（或设置为 0）时，LinearLayout 的剩余空间未被分配</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/2_1_1a.webp" alt=""></p>
+<p>当 控件1 与 控件2 的 layout_weight 分别设置为 3 和 1 时，剩余空间分配如下图所示</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/2_1_1b.webp" alt=""></p>
+<h4 id="gravity-属性">gravity 属性</h4>
+<p>可以为 LinearLayout 的子视图设置 <code>gravity </code> 属性，从而指定子容器相对于父容器所在的位置</p>
+<table>
+    <tr>
+    	<td>android:gravity="center"</td>
+    	<td>正中心</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="center_vertical"</td>
+    	<td>垂直方向的正中心</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="center_horizontal"</td>
+    	<td>水平方向的正中心</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="left"</td>
+    	<td>最左侧（默认）</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="right"</td>
+    	<td>最右侧</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="top"</td>
+    	<td>最上方（默认）</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="bottom"</td>
+    	<td>最下方</td>
+    </tr>
+</table>
+上述取值有一部分可以组合使用。比如 `android:gravity="right|bottom"`
+<p>此外，对于 水平/垂直 对齐方向，也可以使用 <code>layout_gravity</code> 属性以改变子视图在 水平/垂直 方向的位置。</p>
+<h3 id="2-1-2-相对布局-RelativeLayout">2.1.2 相对布局 RelativeLayout</h3>
+<p>相对布局下，子视图可以通过设置相应布局属性，设定相对于另一 兄弟视图 或 父视图 的相对位置。</p>
+<h4 id="相对兄弟元素">相对兄弟元素</h4>
+<p>需要通过 ID 指定相对的目标元素。</p>
+<table>
+    <tr>
+    	<td>android:layout_below="@id/xxx"</td>
+    	<td>在指定 View 的下方</td>
+    </tr>
+    <tr>
+    	<td>android:layout_above="@id/xxx"</td>
+    	<td>在指定 View 的上方</td>
+    </tr>
+    <tr>
+    	<td>android:layout_toLeftOf="@id/xxx"</td>
+    	<td>在指定 View 的左边</td>
+    </tr>
+    <tr>
+    	<td>android:layout_toRightOf="@id/xxx"</td>
+    	<td>在指定 View 的右边</td>
+    </tr>
+    <tr>
+    	<td>android:layout_alignTop="@id/xxx"</td>
+    	<td>与指定 View 上边界一致</td>
+    </tr>
+    <tr>
+    	<td>android:layout_alignBottom="@id/xxx"</td>
+    	<td>与指定 View 下边界一致</td>
+    </tr>
+    <tr>
+    	<td>android:layout_alignLeft="@id/xxx"</td>
+    	<td>与指定 View 左边界一致</td>
+    </tr>
+    <tr>
+    	<td>android:layout_alignRight="@id/xxx"</td>
+    	<td>与指定 View 右边界一致</td>
+    </tr>
+</table>
+<h4 id="相对父元素">相对父元素</h4>
+<table>
+    <tr>
+    	<td>android:alignParentLeft="true"</td>
+    	<td>在父元素内的左侧</td>
+    </tr>
+    <tr>
+    	<td>android:alignParentRight="true"</td>
+    	<td>在父元素内的右侧</td>
+    </tr>
+    <tr>
+    	<td>android:alignParentTop="true"</td>
+    	<td>在父元素内的顶部</td>
+    </tr>
+    <tr>
+    	<td>android:alignParentBottom="true"</td>
+    	<td>在父元素内的底部</td>
+    </tr>
+    <tr>
+    	<td>android:centerInParent="true"</td>
+    	<td>居中布局</td>
+    </tr>
+    <tr>
+    	<td>android:centerVertical="true"</td>
+    	<td>垂直居中布局</td>
+    </tr>
+    <tr>
+    	<td>android:centerHorizontal="true"</td>
+    	<td>水平居中布局</td>
+    </tr>
+</table>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/2_1_2.webp" alt=""></p>
+<h3 id="2-1-3-帧布局-FrameLayout">2.1.3 帧布局 FrameLayout</h3>
+<p>帧布局没有任何布局方式。添加子控件时，默认将其放置于区域左上角。帧布局大小由最大的子空间决定，后续添加的子控件将覆盖在原先子控件上面进行显示。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/2_1_3.webp" alt=""></p>
+<h3 id="2-1-4-网格布局-GridLayout">2.1.4 网格布局 GridLayout</h3>
+<p>一种基于网格的布局方式。加入的组件会默认按照由左至右、由上至下的顺序摆放。</p>
+<p>在 GridLayout 中可以指定布局的行列数。若仅指定其中一项，则系统会自动计算出另一项</p>
+<table>
+    <tr>
+    	<td>android:columnCount="10"</td>
+    	<td>指定布局的列数</td>
+    </tr>
+    <tr>
+    	<td>android:rowCount="10"</td>
+    	<td>指定布局的行数</td>
+    </tr>
+</table>
+在 子控件 中可以指定横跨的行列数
+<table>
+    <tr>
+    	<td>android:columnSpan="2"</td>
+    	<td>该控件横跨的列数</td>
+    </tr>
+    <tr>
+    	<td>android:rowSpan="2"</td>
+    	<td>该控件横跨的行数</td>
+    </tr>
+</table>
+此外，可以指定子控件所在的行列。行列的序号从 0 开始计算
+<table>
+    <tr>
+    	<td>android:layout_row="0"</td>
+    	<td>该控件显示在第几行</td>
+    </tr>
+    <tr>
+    	<td>android:layout_column="0"</td>
+    	<td>该控件显示在第几列</td>
+    </tr>
+</table>
+<h2 id="2-2-组件-View">2.2 组件 View</h2>
+<h3 id="2-2-1-文本框-TextView">2.2.1 文本框 TextView</h3>
+<p><strong>TextView</strong> 是一种用于显示文本的控件</p>
+<p>常用属性如下</p>
+<table>
+    <tr>
+    	<td>android:text="@string/content"</td>
+    	<td>指定文本的内容。<br>可以直接给出字符串，也能调用 strings.xml 中的字符串</td>
+    </tr>
+    <tr>
+    	<td>android:textColor="@color/my_color"</td>
+    	<td>指定字体颜色。<br>可以直接给出颜色，也能调用 color.xml 中的颜色</td>
+    </tr>
+    <tr>
+    	<td>android:Style="normal"</td>
+    	<td>指定字体风格。<br>可选值为：normal（默认）、bold、italic</td>
+    </tr>
+    <tr>
+    	<td>android:textSize="10sp"</td>
+    	<td>指定字体大小。单位通常是 sp</td>
+    </tr>
+    <tr>
+    	<td>android:autoLink="web"</td>
+    	<td>识别链接类型。<br>可选值为：web、email、phone、map、none（默认）、all</td>
+    </tr>
+</table>
+<h3 id="2-2-2-文本输入框-EditText">2.2.2 文本输入框 EditText</h3>
+<p><strong>EditText</strong> 由 TextView 派生而来，可以接受用户输入</p>
+<p>除了 TextView 的属性外，EditText 特有的属性有</p>
+<table>
+    <tr>
+    	<td>android:hint="@string/hint"</td>
+    	<td>指定默认的提示文本</td>
+    </tr>
+    <tr>
+    	<td>android:textColorHint="@color/my_color"</td>
+    	<td>指定默认提示文本的颜色</td>
+    </tr>
+    <tr>
+    	<td>android:selectAllOnFocus="true"</td>
+    	<td>点击输入框时，自动选中其内容</td>
+    </tr>
+    <tr>
+    	<td>android:inputType="none"</td>
+    	<td>限制输入类型<br>可选值有：none、text、textPassword、number、datetime、phone 等<br>要查看所有的可选值，请查阅 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/android/R.styleable#TextView_inputType">官方API文档</a></td>
+    </tr>
+    <tr>
+    	<td>android:minLines="1"</td>
+    	<td>指定最小行数</td>
+    </tr>
+    <tr>
+    	<td>android:maxLines="1"</td>
+    	<td>指定最大行数。超过时，文字将向上滚动</td>
+    </tr>
+    <tr>
+    	<td>android:singleLine="true"</td>
+    	<td>是否仅允许单行输入</td>
+    </tr>
+    <tr>
+    	<td>android:textScaleX="1.5"</td>
+    	<td>设置字符的水平间隔</td>
+    </tr>
+    <tr>
+    	<td>android:textScaleY="1.5"</td>
+    	<td>设置字符的垂直间隔</td>
+    </tr>
+    <tr>
+    	<td>android:capitalize="sentences"</td>
+    	<td>指定英文字母大写类型<br>可选值为：sentences（仅首字母大写）、words（每个单词的首字母大写、以空格区分单词）、characters（全部字母大写）</td>
+    </tr>
+</table>
+<h3 id="2-2-3-按钮-Buttom">2.2.3 按钮 Buttom</h3>
+<p><strong>Buttom</strong> 由 TextView 派生而来，可见 TextView 非常能生，连 Buttom 都是你家仔</p>
+<p>Buttom 具有默认的背景，文本默认居中对齐且全部大写</p>
+<p>Buttom 特有的属性有</p>
+<table>
+    <tr>
+    	<td>android:textAllCaps="true"</td>
+    	<td>按钮英文字母是否全大写，默认 true</td>
+    </tr>
+    <tr>
+    	<td>android:onClick="onButtomClick"</td>
+    	<td>指定按钮按下时调用的方法。值为方法名</td>
+    </tr>
+    <tr>
+    	<td>android:enable="true"</td>
+    	<td>指定按钮是否可用</td>
+    </tr>
+</table>
+亦能通过 Buttom 对象的 `setOnClickListener(view -> {...})` 方法添加点击响应事件
+<h3 id="2-2-4-图像视图-ImageView">2.2.4 图像视图 ImageView</h3>
+<p><strong>ImageView</strong> 可以用于显示图片以及任何 Drawable 对象</p>
+<p>ImageView 的一些属性如下</p>
+<table>
+    <tr>
+    	<td>android:src="@mipmap/pic"</td>
+    	<td>指定要显示的图片路径。按图片大小填充</td>
+    </tr>
+    <tr>
+    	<td>android:background="@drawable/bg"</td>
+    	<td>指定 ImageView 的背景。<br>背景位于图片下方，且以 ImageView 的长宽进行拉伸</td>
+    </tr>
+    <tr>
+    	<td>android:adjustViewBounds="true"</td>
+    	<td>仅当 ImageView 的宽高中，一方设为固定值，另一方设为自适应（warp_content）时，若图片尺寸大于 ImageView，则使得 ImageView 的宽高比与图片一致<br>其他情况下，该属性不生效</td>
+    </tr>
+    <tr>
+    	<td>android:scaleType="center"</td>
+    	<td>指定图片的填充方式。可选值有：<br>fitXY：拉伸图片以完全填充<br>fitStart：按比例缩放，使较长边符合容器边长。图片左上角与容器对齐<br>fitCenter：按比例缩放，使较长边符合容器边长。图片居中对齐<br>fitEnd：按比例缩放，使较长边符合容器边长。图片右下角与容器对齐<br>center：保持原图大小，居中对齐。裁剪多余部分<br>centerCrop：按比例缩放，使图片完全覆盖容器。裁剪多余部分<br>centerInside：按比例缩放，使图片完全显示<br>matrix（默认）：保持原图大小，图片左上角与容器对齐。裁剪多余部分</td>
+    </tr>
+</table>
+<h3 id="2-2-5-单选按钮-RadioButtom、复选按钮-CheckBox">2.2.5 单选按钮 RadioButtom、复选按钮 CheckBox</h3>
+<p><strong>RadioButtom</strong> 是一个单选按钮。当其被添加到 RadioGroup 按钮组后，该组按钮同时只有一个可被选中。</p>
+<p><strong>RadioGroup</strong> 按钮组由 LinerLayout 派生而来，用法与 LinerLayout 相似。</p>
+<p>使用 RadioGroup 对象的 <code>setOnCheckedChangeListener(group, id -&gt; &#123;...&#125;)</code> 方法，以添加事件响应</p>
+<p><strong>CheckBox</strong> 是一个复选按钮，用户点击复选框可使其在 选中/未选中 状态间切换。</p>
+<p>RadioButtom 和 CheckBox 的一些属性如下</p>
+<table>
+    <tr>
+    	<td>android:checked="false"</td>
+    	<td>指定按钮是否被选中</td>
+    </tr>
+    <tr>
+    	<td>android:drawableLeft="@drawable/dl"</td>
+    	<td>于按钮文本左侧添加一个 drawable 对象，可以控制图标与文本的距离</td>
+    </tr>
+    <tr>
+    	<td>android:buttom="@null"</td>
+    	<td>指定按钮样式。设置了 background 或 drawableft 时，应设为 @null</td>
+    </tr>
+</table>
+<h3 id="2-2-6-切换按钮-ToggleButtom、开关-Switch">2.2.6 切换按钮 ToggleButtom、开关 Switch</h3>
+<p><strong>ToggleButtom</strong> 和 <strong>Switch</strong> 可以在两种状态之间进行切换。其中 ToggleButtom 更为简洁，而 Switch 提供了可滑动的滑块和背景轨道，属性也更丰富。</p>
+<p>ToggleButtom 的一些属性如下</p>
+<table>
+    <tr>
+    	<td>android:checked="false"</td>
+    	<td>指定按钮是否被选中</td>
+    </tr>
+    <tr>
+    	<td>android:textOn="@string/on"</td>
+    	<td>设置按钮处于按下状态时的文字</td>
+    </tr
+    <tr>
+    	<td>android:textOff="@string/off"</td>
+    	<td>设置按钮处于未按下状态时的文字</td>
+    </tr>
+    <tr>
+    	<td>android:disabledAlpha="1"</td>
+    	<td>设置按钮处于未按下状态时的透明度</td>
+    </tr>
+</table>
+<p>Switch 的一些属性如下</p>
+<table>
+    <tr>
+    	<td>android:checked="false"</td>
+    	<td>指定按钮是否被选中</td>
+    </tr>
+    <tr>
+    	<td>android:textOn="@string/on"</td>
+    	<td>设置按钮处于按下状态时的文字</td>
+    </tr
+    <tr>
+    	<td>android:textOff="@string/off"</td>
+    	<td>设置按钮处于未按下状态时的文字</td>
+    </tr>
+    <tr>
+    	<td>android:track="@drawable/tk"</td>
+    	<td>设置按钮开关的滑轨图片</td>
+    </tr>
+    <tr>
+    	<td>android:thumb="@drawable/tb"</td>
+    	<td>设置按钮开关的滑块图片</td>
+    </tr>
+    <tr>
+    	<td>android:typeface="normal"</td>
+    	<td>设置字体<br>可选项有：sans、serif、monospace。也能使用其他字体文件</td>
+    </tr>
+</table>
+<h3 id="2-2-7-进度条-ProgressBar">2.2.7 进度条 ProgressBar</h3>
+<p><strong>ProgressBar</strong> 是一个图形控件，可以展示当前进度。可以选择 横向进度条 以及 圆形进度条。</p>
+<p>ProgressBar 的一些属性如下</p>
+<table>
+    <tr>
+    	<td>android:max="100"</td>
+    	<td>指定进度条的最大值。默认值为 100。</td>
+    </tr>
+    <tr>
+    	<td>android:indeterminate="false"</td>
+    	<td>设置进度条是否为不确定模式。<br>为不确定模式的场合，加载时会无限循环进行 Loading 动画<br>关闭不确定模式的场合，进度条的样子会根据实时进度而改变</td>
+    </tr>
+    <tr>
+    	<td>android:indeterminateDrawable="@drawable/idb"</td>
+    	<td>设置不确定模式进度条对应的 drawable 样式</td>
+    </tr>
+    <tr>
+    	<td>android:indeterminateDuration="1"</td>
+    	<td>设置不确定模式进度条的持续时间</td>
+    </tr>
+    <tr>
+    	<td>android:progress="0"</td>
+    	<td>指定进度条的当前进度</td>
+    </tr>
+    <tr>
+    	<td>android:style="android:attr/progressBarStyleHorizontal"</td>
+    	<td>指定进度条样式</td>
+    </tr>
+    <tr>
+    	<td>android:progressDrawable="@drawable/pdb"</td>
+    	<td>指定进度条对应的 drawable 样式</td>
+    </tr>
+    <tr>
+    	<td>android:secondaryProgress="0"</td>
+    	<td>指定二级进度条的进度<br>视频播放窗口中的缓冲进度条，即为二级进度条</td>
+    </tr>
+</table>
+<h3 id="2-2-8-拖动条-SeekBar">2.2.8 拖动条 SeekBar</h3>
+<p>拖动条 <strong>SeekBar</strong> 由进度条 ProgressBar 派生而来。其特性与进度条类似，但用户可以自由控制其进度。音量调节条就是一种拖动条。</p>
+<p>SeekBar 继承了 ProgressBar，也包括一些 ProgressBar 的属性和方法</p>
+<table>
+    <tr>
+    	<td>android:max="100"</td>
+    	<td>指定进度条的最大值。默认值为 100。</td>
+    </tr>
+    <tr>
+    	<td>android:progress="0"</td>
+    	<td>指定进度条的当前进度</td>
+    </tr>
+    <tr>
+    	<td>android:progressDrawable="@drawable/pdb"</td>
+    	<td>指定进度条对应的 drawable 样式</td>
+    </tr>
+    <tr>
+    	<td>android:secondaryProgress="0"</td>
+    	<td>指定二级进度条的进度</td>
+    </tr>
+    <tr>
+    	<td>android:thumb="@mipmap/thumb"</td>
+    	<td>指定进度条的滑块图片</td>
+    </tr>
+    <tr>
+    	<td>android:splitTrack="false"</td>
+    	<td>指定进度条背景样式。false 为透明</td>
+    </tr>
+</table>
+<p>对于 SeekBar，共需监听 3 个事件，分别是：</p>
+<ul>
+<li>数值的改变（onProgressChanged）</li>
+<li>开始拖动（onStartTrackingTouch）</li>
+<li>停止拖动（onStopTrackingTouch）</li>
+</ul>
+<h3 id="2-2-9-滚动条-ScrollView">2.2.9 滚动条 ScrollView</h3>
+<p>滚动条 <strong>ScrollView</strong> 是一个滚动条。也有水平版本的滚动条 <strong>HorizontalScrollView</strong>。</p>
+<p>ScrollView 实际上是 FrameLayout 的派生类，本质上是一个布局。其包含的内容超出范围后，可以使用侧面的滚动条以调整内容的位置。</p>
+<p>属性：</p>
+<table>
+    <tr>
+    	<td>android:fillViewport="false"</td>
+    	<td>指定内容是否填充视口。默认为 false</td>
+    </tr>
+    <tr>
+    	<td>android:scrollbars="none"</td>
+    	<td>指定滚动条的显示方式。可选值有 none、vertical、horizontal</td>
+    </tr>
+    <tr>
+    	<td>android:scrollbarStyle="default"</td>
+    	<td>指定滚动条样式。可选值有：<br>default：默认值<br>insideoverlay：覆盖内容上方<br>outsideoverlay：位于内容旁边</td>
+    </tr>
+    <tr>
+    	<td>android:fadeScrollbars="true"</td>
+    	<td>指定滚动条是否在非活动时渐隐。默认为 false</td>
+    </tr>
+</table>
+<p>一些常用方法：</p>
+<table>
+    <tr>
+    	<td>void scrollTo(int x, int y)</td>
+    	<td>将滚动条设置到指定位置</td>
+    </tr>
+    <tr>
+    	<td>void smoothScrollTo(int x, int y)</td>
+    	<td>将滚动条平滑地滚动到指定位置</td>
+    </tr>
+    <tr>
+    	<td>void smoothScrollBy(int dx, int dy)</td>
+    	<td>将滚动条平滑地滚动指定偏移量</td>
+    </tr>
+    <tr>
+    	<td>void fullScroll(int direction)</td>
+    	<td>使ScrollView滚动到指定的边界。其中 direction 的取值为：<br>View.FOCUS_UP：滚动到顶部<br>View.FOCUS_DOWN：滚动到底部</td>
+    </tr>
+    <tr>
+    	<td>boolean isSmoothScrollingEnabled()</td>
+    	<td>滚动条是否是平滑滚动</td>
+    </tr>
+    <tr>
+    	<td>void android:fling="int velocityY"</td>
+    	<td>设置滚动条的滚动速度</td>
+    </tr>
+</table>
+<h3 id="2-2-10-日期时间组件">2.2.10 日期时间组件</h3>
+<p><strong>文本时钟 TextClock</strong> 由 TextView 派生而来，可以字符串格式，按照 24 小时制或 12 小时制显示日期和时间。</p>
+<table>
+    <tr>
+    	<td>android:format24Hour="MM/dd/yyyy h:mmaa"</td>
+    	<td>指定 24 小时制下的显示格式</td>
+    </tr>
+    <tr>
+    	<td>android:format12Hour="MM/dd/yyyy h:mmaa"</td>
+    	<td>指定 12 小时制下的显示格式</td>
+    </tr>
+    <tr>
+    	<td>android:timeZone="null"</td>
+    	<td>指定时钟时区。指定后会忽略系统时区变化</td>
+    </tr>
+</table>
+<p><strong>表盘时钟 AnalogClock</strong> 由 View 直接派生而来，是一个可以随时间自动更新的时钟组件。</p>
+<table>
+    <tr>
+    	<td>android:dial="@minimap/anac_bg"</td>
+    	<td>指定模拟时钟的背景图片</td>
+    </tr>
+    <tr>
+    	<td>android:hand_hour="@minimap/anac_hour"</td>
+    	<td>指定模拟时钟的时针图片</td>
+    </tr>
+    <tr>
+    	<td>android:hand_minute="@minimap/anac_minute"</td>
+    	<td>指定模拟时钟的分针图片</td>
+    </tr>
+</table>
+**计时器 Chronometer** 由 TextView 派生而来，显示从某时刻开始经过的时间。
+<p>属性：</p>
+<table>
+    <tr>
+    	<td>android:format="MM/dd/yyyy h:mmaa"</td>
+    	<td>指定计时器的计时格式</td>
+    </tr>
+</table>
+<p>方法：</p>
+<table>
+    <tr>
+    	<td>void setBase(long base)</td>
+    	<td>设置计时器的起始时间</td>
+    </tr>
+    <tr>
+    	<td>void setFormat(String format)</td>
+    	<td>设置计时器的显示格式</td>
+    </tr>
+    <tr>
+    	<td>void start()</td>
+    	<td>计时器开始计时</td>
+    </tr>
+    <tr>
+    	<td>void stop()</td>
+    	<td>计时器停止计时</td>
+    </tr>
+    <tr>
+    	<td>void setOnChronometerTickListener(L listener)</td>
+    	<td>设置计时器改变事件监听器</td>
+    </tr>
+</table>
+<p><strong>日期选择器 DatePicker</strong> 派生自 FrameLayout，其允许用户选择一个日期。</p>
+<p>属性：</p>
+<table>
+    <tr>
+    	<td>android:calendarTextColor="@color/ct"</td>
+    	<td>指定日历列表的文本颜色</td>
+    </tr>
+    <tr>
+    	<td>android:calendarViewShown="true"</td>
+    	<td>指定是否显示日历视图</td>
+    </tr>
+    <tr>
+    	<td>android:datePickerMod="calender"</td>
+    	<td>指定组件外观。可选值为：spinner、calender（默认）</td>
+    </tr>
+    <tr>
+    	<td>android:dayOfWeekBackground="@color/dowbg"<br>android:dayOfWeekTextAppearance="@color/dowtapp"</td>
+    	<td>指定顶部星期数部分的背景色<br>指定顶部星期数部分的文字颜色</td>
+    </tr>
+    <tr>
+    	<td>android:yearLIstSelectorColor="@color/yaerlist_sel"<br>android:yearLIstItemAppearance="@color/yaerlist_item"</td>
+    	<td>指定年列表选择的颜色<br>指定年列表文本颜色</td>
+    </tr>
+    <tr>
+    	<td>android:headerBackground="@color/head_bg"<br>android:headerDayOfMonthAppearance="@color/head_day_text"<br>android:headerMonthAppearance="@color/head_month_text"<br>android:headerYearAppearance="@color/head_year_text"</td>
+    	<td>指定头部的背景色<br>指定头部日数部分的文字颜色<br>指定头部月份数部分的文字颜色<br>指定头部年份数部分的文字颜色</td>
+    </tr>
+    <tr>
+    	<td>android:firstDayOfWeek="1"</td>
+    	<td>指定日历列表中每周的起始星期数</td>
+    </tr>
+    <tr>
+    	<td>android:maxDate="12/31/2024"<br>android:minDate="01/01/2000"</td>
+    	<td>指定日历列表的最大、最小日期</td>
+    </tr>
+    <tr>
+    	<td>android:spinnerShown="false"</td>
+    	<td>指定是否显示微调框</td>
+    </tr>
+</table>
+方法：
+<table>
+    <tr>
+    	<td>int getDayOfMonth()<br>int getMonth()<br>int getYear()</td>
+    	<td>获取选定的日数/月份数/年份数</td>
+    </tr>
+    <tr>
+    	<td>void setMaxDate(long maxDate)<br>void setMinDate(long minDate)</td>
+    	<td>设置日历列表的最大/最小日期</td>
+    </tr>
+    <tr>
+    	<td>int getFirstDayOfWeek() </td>
+    	<td>获取每周的起始星期数</td>
+    </tr>
+    <tr>
+    	<td>void setSpinnerShown(boolean shown) </td>
+    	<td>设置是否显示微调框</td>
+    </tr>
+    <tr>
+    	<td>void updateDate(int year, int month, int day)</td>
+    	<td>设置当前日期</td>
+    </tr>
+    <tr>
+    	<td>CalendarView getCalendarView() </td>
+    	<td>获取日历视图</td>
+    </tr>
+</table>
+<p><strong>时间选择器 TImePicker</strong> 派生自 FrameLayout，其允许用户选择一个时间。</p>
+<h2 id="2-3-适配器-Adapter">2.3 适配器 Adapter</h2>
+<p>**MCV **是一种软件设计模式，用于将应用程序的逻辑分离成三个主要部分：Model（模型）、View（视图）和 Controller（控制器）。</p>
+<ul>
+<li>
+<p><strong>Model</strong>：负责应用程序的数据和业务逻辑，直接管理数据。</p>
+<p>其通过 View 获得用户输入的数据，也从数据库获得数据交给 View 来显示。</p>
+</li>
+<li>
+<p><strong>View</strong>：是用户的操作接口，即 GUI。</p>
+<p>负责显示数据（UI 部分），从 Model 获取数据，并将其呈现给用户。</p>
+</li>
+<li>
+<p><strong>Controller</strong>：负责处理输入，控制程序的执行流程、对象间的互动。</p>
+</li>
+</ul>
+<p><strong>Adapter</strong> 是用来帮助填充数据的中间桥梁（属于 Controller），将各种数据以合适的形式显示到 AdapterView 上。使用时，先给 Adapter 填充内容，之后将设定好内容的 Adapter 设置到 <strong>AdapterView</strong> 上。</p>
+<p>开发中常用的 Adapter 有：</p>
+<ul>
+<li>BaseAdapter：是一个抽象类。实际开发中会继承这个类并且重写相关方法。用途最为广泛。</li>
+<li>ArrayAdapter：最简单的一个Adapter。支持泛型操作，只能展现一行文字</li>
+<li>SimpleAdapter：具有良好扩展性的一个Adapter。可以自定义多种效果</li>
+<li>SimpleCursorAdapter：用于显示简单文本类型</li>
+</ul>
+<h3 id="2-3-1-基本适配器-BaseAdapter">2.3.1 基本适配器 BaseAdapter</h3>
+<p>BaseAdapter 定义了最基本的一些方法，开发时必须实现这些方法</p>
+<table>
+    <tr>
+    	<td>int getCount()</td>
+    	<td>获取填充的数据集数</td>
+    </tr>
+    <tr>
+    	<td>Object getItem(int i)</td>
+    	<td>获取指定索引的数据项</td>
+    </tr>
+    <tr>
+    	<td>long getItemId(int i)</td>
+    	<td>获取指定行对应的 ID</td>
+    </tr>
+    <tr>
+    	<td>View getView(int i, View view, ViewGroup viewGroup)</td>
+    	<td>获取某数据项对应的视图</td>
+    </tr>
+</table>
+<p>下面是一个使用 BaseAdapter 的例子</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AppCompatActivity</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> &#123;
+        <span class="hljs-built_in">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        <span class="hljs-comment">// 这是 MyAdapter 的构造函数。如何使用取决于如何定义</span>
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyAdapter</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Music&gt;(), <span class="hljs-built_in">this</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onDestroy</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-built_in">super</span>.onDestroy();
+    &#125;
+&#125;
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseAdapter</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;Music&gt; list;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Context context;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyAdapter</span><span class="hljs-params">(List&lt;Music&gt; list, Context context)</span> &#123;
+        <span class="hljs-built_in">this</span>.list = list;				<span class="hljs-comment">// 数据集列表</span>
+        <span class="hljs-built_in">this</span>.context = context;			<span class="hljs-comment">// 主视图对象</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCount</span><span class="hljs-params">()</span> &#123;				<span class="hljs-comment">// 获取数据集大小</span>
+        <span class="hljs-keyword">return</span> list.size();
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getItem</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> &#123;		<span class="hljs-comment">// 获取指定数据项</span>
+        <span class="hljs-keyword">return</span> list.get(i);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">getItemId</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> &#123;		<span class="hljs-comment">// 获取指定数据项 ID</span>
+        <span class="hljs-keyword">return</span> i;
+    &#125;
+    
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewHolder</span> &#123;			<span class="hljs-comment">// 定义类 ViewHolder，以便后续 getView 方法复用</span>
+        								<span class="hljs-comment">// 类的内容取决于数据项视图的布局</span>
+        TextView item_title;
+        TextView item_content;
+        ImageView item_icon;
+        String src;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> View <span class="hljs-title function_">getView</span><span class="hljs-params">(<span class="hljs-type">int</span> i, View view, ViewGroup viewGroup)</span> &#123;
+        								<span class="hljs-comment">// 获取指定数据项对应的视图</span>
+        ViewHolder vh;
+        <span class="hljs-keyword">if</span> (view == <span class="hljs-literal">null</span>)&#123;
+            view = LayoutInflater.from(context).inflate(R.layout.my_item_layout, viewGroup, <span class="hljs-literal">false</span>);
+            							<span class="hljs-comment">// my_item_layout 是一个自定义的数据项的布局文件</span>
+            							<span class="hljs-comment">// 是在 res/layout 下创建的布局文件</span>
+            vh = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ViewHolder</span>();
+            vh.item_content =  view.findViewById(R.id.item_content);
+            vh.item_title =  view.findViewById(R.id.item_title);
+            vh.item_icon = view.findViewById(R.id.item_icon);
+            vh.src = <span class="hljs-string">&quot;&quot;</span>;
+            view.setTag(vh);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            vh = (ViewHolder)view.getTag();
+        &#125;
+        vh.item_title.setText(list.get(i).getName());
+        vh.item_content.setText(list.get(i).getContent());
+        vh.item_icon.setImageResource(list.get(i).getPic());
+        vh.src = list.get(i).getSrc();
+        <span class="hljs-keyword">return</span> view;
+    &#125;
+&#125;</code></pre></div>
+<h3 id="2-3-2-容器控件-AdapterView">2.3.2 容器控件 AdapterView</h3>
+<p><strong>AdapterView</strong> 是由 ViewGroup 派生而来的抽象类。其由一个个子元素组成，子元素的内容与数据由 Adapter 决定。</p>
+<p>常用的 AdapterView 有 ListView（列表）、GridView（网格）、Spinner（下拉列表）</p>
+<ul>
+<li>
+<p><strong>ListView 列表视图</strong></p>
+<p>由 AdapterView 派生而来，以垂直滑动列表形式显示一组数据。</p>
+<p><strong>ExpandableListView 折叠列表</strong></p>
+<p>ExpandableListView 由 ListView 派生而来。其支持展开、折叠功能，可以展示带有分组和子项的层次结构数据。</p>
+<p>ExpandableListView 需要实现了 **ExpandableListAdapter（折叠列表适配器）**接口的适配器来提供数据源。使用时，分别为分组标签布局、子项布局准备布局与数据源。</p>
+<p>常用属性：</p>
+<table>
+    <tr>
+    	<td>android:groupIndicator="@drawable/group_indicator"<br>
+        	android:childIndicator="@drawable/child_indicator"
+        </td>
+    	<td>指定指示分组项展开/折叠（-/+）状态的图标<br>
+        	指定指示子项展开/折叠状态的图标。默认无图标
+        </td>
+    </tr>
+    <tr>
+    	<td>android:divider="@color/group_divider"<br>
+        	android:childDivider="@color/child_divider"
+        </td>
+    	<td>指定分组分隔线的样式<br>
+        	指定子项分隔线的样式
+        </td>
+    </tr>
+    <tr>
+    	<td>android:dividerHeight="1dp"
+        </td>
+    	<td>指定分组分隔线的高度
+        </td>
+    </tr>
+</table>
+<p>常用方法：</p>
+<table>
+    <tr>
+        <td>boolean isGroupExpanded(int group)</td>
+        <td>返回指定分组是否折叠
+        </td>
+    </tr>
+    <tr>
+        <td>boolean expandGroup(int groupPos)<br>
+        	boolean collapseGroup(int groupPos)
+        </td>
+        <td>展开指定分组<br>折叠指定分组
+        </td>
+    </tr>
+    <tr>
+        <td>void setAdapter(ListAdapter adapter)</td>
+        <td>设置适配器
+        </td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>GridView 网格视图</strong></p>
+<p>由 AdapterView 派生而来，以网格形式显示子项目的视图容器。</p>
+<p>下面是一些常用属性：</p>
+<table>
+    <tr>
+    	<td>android:numColumns="5"</td>
+    	<td>指定列数。默认为 1</td>
+    </tr>
+    <tr>
+    	<td>android:stretchMode="none"</td>
+    	<td>指定当数据项不满一行时，如何填充空位。可选值有：<br>
+            none：默认值。不填充空位<br>
+            spacingWidth：不改变间距大小，拉伸数据项宽度以填充整行<br>
+            columnWidth：拉伸数据项宽度以填充整行。可能改变每列宽度
+        </td>
+    </tr>
+    <tr>
+    	<td>android:horizontalSpacing="5dp"<br>
+            android:verticalSpacing="5dp"
+        </td>
+    	<td>指定数据项间的水平间距<br>
+            指定数据项间的竖直间距
+        </td>
+    </tr>
+    <tr>
+    	<td>android:columnWidth="5dp"<br>
+            android:rowHeight="5dp"
+        </td>
+    	<td>指定数据项的宽度<br>
+            指定数据项的盖度
+        </td>
+    </tr>
+    <tr>
+    	<td>android:gravity="center"</td>
+    	<td>指定数据项的对齐方式。可选值有：center、left、right 等
+        </td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>Spinner 下拉列表</strong></p>
+<p>由 AdapterView 派生而来，用于选择列表中的一个选项</p>
+<table>
+    <tr>
+    	<td>android:spannerMode="dropdown"
+        </td>
+    	<td>指定下拉列表的风格。可选值有：<br>
+        	dialog：对话框风格<br>
+            dropdown：默认值。下拉菜单风格
+        </td>
+    </tr>
+    <tr>
+    	<td>android:dropDownHorizontalOffset="5dp"<br>
+        	android:dropDownVerticalOffset="5dp"
+        </td>
+    	<td>指定列表框的水平偏移距离<br>指定列表框的竖直偏移距离</td>
+    </tr>
+    <tr>
+    	<td>android:dropDownSelector="@minimap/dds"<br>
+        	android:popupBackground="@minimap/pbg"
+        </td>
+    	<td>指定列表框被选中时的背景<br>
+        	指定列表框的背景
+        </td>
+    </tr>
+    <tr>
+    	<td>android:dropDownWidth="5dp"</td>
+    	<td>指定列表框宽度</td>
+    </tr>
+    <tr>
+    	<td>android:gravity="center"</td>
+    	<td>指定数据项的对齐方式。可选值有：center、left、right 等
+        </td>
+    </tr>
+    <tr>
+    	<td>android:prompt="@string/spinner_pp"</td>
+    	<td>指定列表框的标题。只能引用 string.xml 的资源 id</td>
+    </tr>
+</table>
+</li>
+</ul>
+<h2 id="2-4-其他控件">2.4 其他控件</h2>
+<h3 id="2-4-1-提示框-Toast">2.4.1 提示框 Toast</h3>
+<p><strong>Toast</strong> 是一种非模态弹窗，用于弹出信息，作为提醒或消息反馈。常见的 Toast 提示框为一句简短的描述性文字。这种样式的弹窗可以出现在页面的任何位置。</p>
+<p>弹窗分为模态弹窗和非模态弹窗两种，两者的区别在于需不需要用户对其进行回应</p>
+<ul>
+<li>模态弹窗：会打断用户的正常操作，要求用户必须对其进行回应，否则不能继续其它操作行为</li>
+<li>非模态弹窗：不会影响用户的操作，用户可以不对其进行回应。通常都有时间限制，一段时间后会自动消失</li>
+</ul>
+<p>常用方法：</p>
+<table>
+    <tr>
+    	<td>static Toast makeText(Context context, CharSequence text, int duration)</td>
+    	<td>创建一个 Toast 控件。参数如下：<br>
+            context：上下文对象<br>
+            text：要提示的信息<br>
+            duration：提示的时长。可以是 Toast.LENGTH_SHORT 或 Toast.LENGTH_LONG
+        </td>
+    </tr>
+    <tr>
+    	<td>void show()</td>
+    	<td>提示该信息
+        </td>
+    </tr>
+    <tr>
+    	<td>void setGravity(int gravity, int xOffset, int yOffset)</td>
+    	<td>设置该信息提示的位置<br>grivity 是 Grivity 类所记述的某个值
+        </td>
+    </tr>
+    <tr>
+    	<td>View getView()</td>
+    	<td>获取该提示信息的布局。如此一来就能变更其布局<br>
+            默认布局仅包含一个 id 为 message 的 TextView 组件
+        </td>
+    </tr>
+</table>
+<p>使用说明：</p>
+<ol>
+<li>通过 <code>Toast.makeText(this, str, 1)</code> 方法创建控件</li>
+<li>通过 <code>getView()</code> 方法获取布局，并可以自定义其布局</li>
+<li>需要该信息弹出时，调用 <code>show()</code> 方法</li>
+</ol>
+<h3 id="2-4-2-对话框-AlertDialog">2.4.2 对话框 AlertDialog</h3>
+<p><strong>Dialog</strong> 是一种模态弹窗。用于以弹窗形式弹出信息，并要求用户进行选择。Dialog 通常由标题、信息内容和功能按钮组成，只有当用户点击了某个功能按钮后弹窗才会消失。</p>
+<p>常用方法：</p>
+<table>
+    <tr>
+    	<td>
+            Builder(Context context)
+        </td>
+    	<td>
+        	构造器
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            Builder setTitle(int titleId)<br>
+            Builder setCustomTitle(View customTitleView)<br>
+            Builder setMessage(int messageId)<br>
+            Builder setIcon(int iconId)
+        </td>
+    	<td>
+        	设置对话框标题。需要传入 string.xml 的资源 id<br>
+            使用一个自定义的视图设置对话框标题<br>
+            设置对话框内容。需要传入 string.xml 的资源 id<br>
+            设置对话框图标。传入资源 id，并且设置过标题才能生效
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            Builder setPositiveButton(int text, OnClickListener) <br>
+            Builder setNegativeButton(int text, OnClickListener)<br>
+            Builder setNeutralButton(int text, OnClickListener)
+        </td>
+    	<td>
+        	设置确定/取消/普通按钮<br>
+            第一个参数可以传入资源 id 或字符串<br>
+            第二个参数是一个 DialogInterface.OnClickListener
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            AlertDialog create()
+        </td>
+    	<td>
+        	创建对话框对象
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            AlertDialog show()
+        </td>
+    	<td>
+        	将对话框弹出
+        </td>
+    </tr>
+</table>
+<p>使用说明：</p>
+<ol>
+<li>通过 <code>new AlertDialog.Builder(this)</code> 构造器，创建 AlertDialog.Builder 对象</li>
+<li>通过上文表中的方法设置标题、内容、图标等</li>
+<li>通过 <code>create()</code> 方法创建对象</li>
+<li>通过对象的 <code>show()</code> 方法弹出对话框</li>
+</ol>
+<h3 id="2-4-3-自定义对话框-PopupWindow">2.4.3 自定义对话框 PopupWindow</h3>
+<p><strong>PopupWindow</strong> 是一种阻塞式对话框。相对的，AlertDialog 是非阻塞式的对话框。阻塞式对话框弹出后，直到对话框关闭前，程序会一直等待。而非阻塞式对话框弹出后，程序会在后台继续运行。</p>
+<p>此外也有其他不同。PopupWindow 的位置可以自定义，而 AlertDialog 的位置是固定的。</p>
+<p>常用方法：</p>
+<table>
+    <tr>
+    	<td>
+            PopupWindow(View contentView, int width, int height, boolean focusable)
+        </td>
+    	<td>
+        	构造器。也有其他参数的构造器。<br>这里的参数依次是：加载的 view、宽度、高度、是否可以获取焦点
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            void setAnimationStyle(int animationStyle)
+        </td>
+    	<td>
+        	设置加载动画。需要一个资源 id
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            void showAsDropDown(View anchor, int xoff, int yoff)<br>
+            void showAtLocation(View parent, int gravity, int x, int y)
+        </td>
+    	<td>
+        	让对话框显示在某控件下方。即偏移基点为控件左下角<br>
+            让对话框显示在某控件内部。偏移基点取决于 gravity，后者是 Gravity 类规定的常数
+        </td>
+    </tr>
+    <tr>
+    	<td>
+            View getContentView()<br>void setContentView(View contentView)
+        </td>
+    	<td>
+        	获取/设置对话框显示的 View
+        </td>
+    </tr>
+</table>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android/" class="category-chain-item">Android</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Android/">#Android</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Android&gt;2 Android UI</div>
+      <div>https://i-melody.github.io/2024/09/26/Android/2 Android UI/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月26日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
