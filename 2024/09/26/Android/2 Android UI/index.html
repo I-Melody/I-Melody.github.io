@@ -29,10 +29,10 @@
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_2.webp">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/2_1_3.webp">
 <meta property="article:published_time" content="2024-09-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-06T08:30:51.332Z">
+<meta property="article:modified_time" content="2024-10-15T10:08:23.197Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i-melody.github.io/img/Android_InputImage/2_2_%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.webp">
   
@@ -231,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.2k 字
+          9.3k 字
         
       </span>
     
@@ -297,7 +297,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年10月6日 下午
+                    本文最后更新于：2024年10月15日 晚上
                   
                 
               </p>
@@ -776,6 +776,13 @@ textView.setOnClickListener(view-&gt;Log.d(<span class="hljs-string">&quot;MyDeb
     <tr>
     	<td>android:capitalize="sentences"</td>
     	<td>指定英文字母大写类型<br>可选值为：sentences（仅首字母大写）、words（每个单词的首字母大写、以空格区分单词）、characters（全部字母大写）</td>
+    </tr>
+</table>
+EditText 可以使用文字变化监听器
+<table>
+    <tr>
+    	<td>TextChangedListener</td>
+    	<td>文字变化监听器</td>
     </tr>
 </table>
 <h3 id="2-2-3-按钮-Buttom">2.2.3 按钮 Buttom</h3>
@@ -1663,6 +1670,162 @@ textView.setOnClickListener(view-&gt;Log.d(<span class="hljs-string">&quot;MyDeb
 <p>调用 NotificationManager 的 <code>notify(notifiction)</code> 以显示通知</p>
 </li>
 </ol>
+<h2 id="2-5-可绘制图形-Drawable">2.5 可绘制图形 Drawable</h2>
+<p>Darwable 是一个抽象类，表达了各种图形，包括图片、色块、画板、背景等。其放置在 res 目录的 drawable 目录下，有着使用简单、占用空间小的优点。</p>
+<p>使用时，在定义控件的标签属性中直接指定 <code>@drawable/xxx</code> 即可调用</p>
+<h3 id="2-5-1-形状图形-ShapeDrawable">2.5.1 形状图形 ShapeDrawable</h3>
+<p>以 <strong>shape 标签</strong> 为根节点的 XML 描述文件称为 <strong>形状图形（可绘制形状）</strong>。其属性有以下几种</p>
+<table>
+    <tr>
+    	<td>android:shape="oval"</td>
+    	<td>指定该形状的类型。取值有：<br>rectangle：矩形（默认）<br>oval：椭圆。此时 corners 节点失效<br>line：直线。此时必须设置 stroke 节点<br>ring：圆环</td>
+    </tr>
+</table>
+<p>此外，shape 还可以设置一些下级节点：</p>
+<ul>
+<li>
+<p><strong>尺寸 size</strong></p>
+<table>
+    <tr>
+    	<td>android:height="10px"</td>
+    	<td>指定该形状的高度</td>
+    </tr>
+    <tr>
+    	<td>android:width="10px"</td>
+    	<td>指定该形状的宽度</td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>描边 stoke</strong></p>
+<table>
+    <tr>
+    	<td>android:color="@color/stoke_color"</td>
+    	<td>指定描边的颜色</td>
+    </tr>
+    <tr>
+    	<td>android:dashGap="10px"</td>
+    	<td>指定描边的每段虚线的间隔。取 0 时为实线</td>
+    </tr>
+    <tr>
+    	<td>android:dashWidth="10px"</td>
+    	<td>指定描边的每段虚线的宽度。取 0 时为实线</td>
+    </tr>
+    <tr>
+    	<td>android:width="10px"</td>
+    	<td>指定描边的厚度</td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>圆角 corners</strong></p>
+<table>
+    <tr>
+    	<td>android:bottomLeftRadius="10px"<br>
+        	android:bottomRightRadius="10px"<br>
+            android:topLeftRadius="10px"<br>
+            android:topRightRadius="10px"
+        </td>
+    	<td>指定左下圆角的半径<br>
+            指定右下圆角的半径<br>
+            指定左上圆角的半径<br>
+            指定右上圆角的半径
+        </td>
+    </tr>
+    <tr>
+    	<td>android:radius="10px"</td>
+    	<td>指定所有圆角的半径</td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>填充 solid</strong></p>
+<table>
+    <tr>
+    	<td>android:color="@color/stoke_color"</td>
+    	<td>指定填充的颜色</td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>间隔 padding</strong></p>
+<table>
+    <tr>
+    	<td>android:top="10px"<br>
+        	android:bottom="10px"<br>
+            android:left="10px"<br>
+            android:right="10px"
+        </td>
+    	<td>指定上方间隔<br>
+            指定下方间隔<br>
+            指定左侧间隔<br>
+            指定右侧方间隔
+        </td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>渐变 gradient</strong></p>
+<table>
+    <tr>
+    	<td>android:angle="180"</td>
+    	<td>指定渐变的起始角度<br>值为 x 则表示从 9 点钟位置起，逆时针旋转 x 度的位置</td>
+    </tr>
+    <tr>
+    	<td>android:type="linear"</td>
+    	<td>指定渐变的类型。可选值有：<br>linear：线性渐变（默认）<br>radial：放射渐变<br>sweep：滚动渐变</td>
+    </tr>
+    <tr>
+    	<td>android:centerX="1.5"<br>android:centerY="1.5"</td>
+    	<td>指定圆心的 x 坐标<br>指定圆心的 y 坐标</td>
+    </tr>
+    <tr>
+    	<td>android:gradientRadius="10"</td>
+    	<td>指定渐变的半径</td>
+    </tr>
+    <tr>
+    	<td>android:startColor="@color/center_color"<br>android:centerColor="@color/center_color"<br>android:endColor="@color/end_color"</td>
+    	<td>指定渐变起始的颜色<br>指定渐变中间的颜色<br>指定渐变中止的颜色</td>
+    </tr>
+    <tr>
+    	<td>android:useLevel="false"</td>
+    	<td>为 true 时无渐变色，否则有渐变色</td>
+    </tr>
+</table>
+</li>
+</ul>
+<h3 id="2-5-2-点九图片-NinePatchDrawable">2.5.2 点九图片 NinePatchDrawable</h3>
+<p>点九图片（.9 图片），是 Andriod 平台的一种特殊的图片形式，文件扩展名为：<code>.9.png</code></p>
+<p>Andriod  平台有多种不同的分辨率。一些图片被放大拉伸后，边角会模糊失真。使用点九PNG技术，可以保留图像的渐变质感与圆角精度。</p>
+<p>在 Android studio 中，对 <code>.png</code> 文件点击右键，即可选择创建其点九图片。</p>
+<h3 id="2-5-3-状态列表图形-StateListDrawable">2.5.3 状态列表图形 StateListDrawable</h3>
+<p>以 <strong>selector 标签</strong> 为根节点的 XML 描述文件称为 <strong>可绘制选择器（状态列表图形）</strong>。可根据不同状态显示不同可绘制对象。</p>
+<p>selector 须包含多个 <strong>item</strong> 节点，每个 item 元素代表一种状态。这些状态由下列属性决定：</p>
+<table>
+    <tr>
+    	<td>android:state_focused="true"</td>
+    	<td>获得焦点时</td>
+    </tr>
+    <tr>
+    	<td>android:state_pressed="true"</td>
+    	<td>被按下时</td>
+    </tr>
+    <tr>
+    	<td>android:state_selected="true"</td>
+    	<td>被选中时</td>
+    </tr>
+    <tr>
+    	<td>android:state_checked="true"</td>
+    	<td>被勾选时</td>
+    </tr>
+    <tr>
+    	<td>android:state_enabled="true"</td>
+    	<td>可用时</td>
+    </tr>
+</table>
+<p>之后，只需设置 item 元素的 <code>android:drawable=&quot;@drawable/xxx&quot;</code> 等属性即可</p>
+<p>要在除了按钮的控件下使用状态列表图形，需添加 <code>android:clickable=&quot;true&quot;</code> 属性使得组件设置为可点击</p>
+<p>使用中，从状态列表中选择第一个匹配到的 item 元素生效。</p>
 
               
             </div>
@@ -1695,9 +1858,9 @@ textView.setOnClickListener(view-&gt;Log.d(<span class="hljs-string">&quot;MyDeb
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
-      
         <a href="/tags/Android/">#Android</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
       
     </div>
   
