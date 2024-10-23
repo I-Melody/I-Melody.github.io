@@ -1,0 +1,1680 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.webp">
+  <link rel="icon" href="/img/favicon.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Melody">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="3 数据存储 3.1 共享参数 SharedPreferences SharedPreferences 是一个轻量级储存工具，其存储结构是 k-v 键值对模式，可用来保存一些基础数据类型。 其存储介质是 XML 文件，保存路径是：&#x2F;data&#x2F;data&#x2F;包名&#x2F;shared_prefs 下面是一个 XML 实例 &lt;?xml version&#x3D;&amp;#x27;1.0&amp;#x27; encoding&#x3D;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;Android&gt;3 数据存储">
+<meta property="og:url" content="https://i-melody.github.io/2024/10/23/Android/3%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/index.html">
+<meta property="og:site_name" content="Melody 的小纸箱">
+<meta property="og:description" content="3 数据存储 3.1 共享参数 SharedPreferences SharedPreferences 是一个轻量级储存工具，其存储结构是 k-v 键值对模式，可用来保存一些基础数据类型。 其存储介质是 XML 文件，保存路径是：&#x2F;data&#x2F;data&#x2F;包名&#x2F;shared_prefs 下面是一个 XML 实例 &lt;?xml version&#x3D;&amp;#x27;1.0&amp;#x27; encoding&#x3D;&amp;#x">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-23T10:47:39.607Z">
+<meta property="article:author" content="Melody">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>&lt;Android&gt;3 数据存储 ★ Melody 的小纸箱</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"i-melody.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":15,"cursorChar":"★","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"♪(´▽｀)"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>箱庭</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><Android>3 数据存储</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Melody
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-23 00:00" pubdate>
+          2024年10月23日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;Android&gt;3 数据存储</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年10月23日 晚上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1>3 数据存储</h1>
+<h2 id="3-1-共享参数-SharedPreferences">3.1 共享参数 SharedPreferences</h2>
+<p>SharedPreferences 是一个轻量级储存工具，其存储结构是 k-v 键值对模式，可用来保存一些基础数据类型。</p>
+<p>其存储介质是 XML 文件，保存路径是：<code>/data/data/包名/shared_prefs</code></p>
+<p>下面是一个 XML 实例</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;utf-8&#x27; standalone=&#x27;yes&#x27; ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">map</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;str&quot;</span>&gt;</span>这是一个字符串<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">int</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;int&quot;</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">boolean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bool&quot;</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">float</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;float&quot;</span>&gt;</span>35.5<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span></code></pre></div>
+<p>要操作上述的共享参数 XML 文件，可通过 Java 进行如下操作：</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">SharedPreferences</span> <span class="hljs-variable">sp</span> <span class="hljs-operator">=</span> getSharedPreferences(<span class="hljs-string">&quot;config&quot;</span>, Context.MODE_PRIVATE);
+
+<span class="hljs-comment">/* 下面进行文件写入事务 */</span>
+SharedPreferences.<span class="hljs-type">Editor</span> <span class="hljs-variable">edit</span> <span class="hljs-operator">=</span> sp.edit();
+edit.putString(<span class="hljs-string">&quot;str&quot;</span>, <span class="hljs-string">&quot;这是一个字符串&quot;</span>);
+edit.putInt(<span class="hljs-string">&quot;int&quot;</span>, <span class="hljs-number">10</span>);
+edit.putBoolean(<span class="hljs-string">&quot;bool&quot;</span>, <span class="hljs-literal">true</span>);
+edit.putFloat(<span class="hljs-string">&quot;float&quot;</span>, <span class="hljs-number">35.5f</span>);
+edit.commit();				<span class="hljs-comment">// 提交事务</span>
+
+<span class="hljs-comment">/* 下面读取之前写入的数据 */</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sp.getString(<span class="hljs-string">&quot;str&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+<span class="hljs-type">int</span> <span class="hljs-variable">anInt</span> <span class="hljs-operator">=</span> sp.getInt(<span class="hljs-string">&quot;int&quot;</span>, <span class="hljs-number">0</span>);
+<span class="hljs-type">boolean</span> <span class="hljs-variable">bool</span> <span class="hljs-operator">=</span> sp.getBoolean(<span class="hljs-string">&quot;bool&quot;</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-type">float</span> <span class="hljs-variable">aFloat</span> <span class="hljs-operator">=</span> sp.getFloat(<span class="hljs-string">&quot;float&quot;</span>, <span class="hljs-number">0.0f</span>);</code></pre></div>
+<p>上面出现的一些方法如下</p>
+<table>
+    <tr>
+        <td>
+            SharedPreferences getSharedPreferences(String name, int mode)
+        </td>
+        <td>
+            获取指定共享参数实例。<br>
+            在 Context 类中有如下模式：<br>
+            MODE_PRIVATE：（默认）仅caller uid的进程可访问<br>
+            MODE_WORLD_READABLE：所有人可写<br>
+            MODE_WORLD_READABLE：所有人可读<br>
+            MODE_MULTI_PROCESS：始终重新加载数据
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            class SharedPreferences
+        </th>
+    </tr>
+    <tr>        
+        <td>
+            String getString(String var1, String var2)<br>
+            Set<String> getStringSet(String var1, Set<String> var2)<br>
+    		int getInt(String var1, int var2)<br>
+    		long getLong(String var1, long var2)<br>
+    		float getFloat(String var1, float var2)<br>
+    		boolean getBoolean(String var1, boolean var2)
+        </td>
+        <td>
+            获取数据，其名称为 var1，默认值为 var2
+        </td>
+    </tr>
+    <tr>        
+        <td>
+            Editor edit()
+        </td>
+        <td>
+            开启一个事务
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            class SharedPreferences.Edit
+        </th>
+    </tr>
+    <tr>        
+        <td>
+            Editor putString(String var1, String var2)<br>
+            Editor putInt(String var1, int var2)<br>
+        	Editor putLong(String var1, long var2)<br>
+        	Editor putFloat(String var1, float var2)<br>
+        	Editor putBoolean(String var1, boolean var2)
+        </td>
+        <td>
+            写入数据，其名称为 var1，值为 var2
+        </td>
+    </tr>
+    <tr>        
+        <td>
+            boolean commit()
+        </td>
+        <td>
+            提交一个事务<br>将数据同步写入，并将阻塞当前线程直到完成<br>若写入失败则返回 false
+        </td>
+    </tr>
+    <tr>        
+        <td>
+            void apply()
+        </td>
+        <td>
+            提交一个事务<br>将数据异步写入，写入过程在后台进行
+        </td>
+    </tr>
+</table>
+<p>共享参数的使用场合：</p>
+<ul>
+<li>简单且孤立的数据。复杂且相关的数据应保存在数据库中</li>
+<li>文本形式数据。二进制数据应保存在文件中</li>
+<li>需要持久化存储的数据。</li>
+</ul>
+<p>实际开发中，App 的个性化配置信息、用户使用 App 行为信息、临时保存的片段信息等，都可以使用共享参数保存</p>
+<h2 id="3-2-数据库-SQLite">3.2 数据库 SQLite</h2>
+<p><strong>SQLite</strong> 是 Android 内置的一个小型、关系型、属于文本型的数据库，是一种轻量级的嵌入式关系型数据库管理系统。</p>
+<p>SQLite <strong>不支持布尔类型</strong>，将以整形的 1（true）或 0（false）代替。其支持的数据类型有：</p>
+<ul>
+<li>整形 INTEGER</li>
+<li>长整形 LONG</li>
+<li>字符串 VARCHAR</li>
+<li>浮点数 FLOAT</li>
+</ul>
+<h3 id="3-2-1-SQLite-语法">3.2.1 SQLite 语法</h3>
+<h4 id="数据定义语言-DDL">数据定义语言 DDL</h4>
+<ul>
+<li>
+<p>创建表格</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> table_name (
+	_id <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">PRIMARY</span> KEY AUTOINCREMENT <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
+    name <span class="hljs-type">VARCHAR</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
+    height LONG <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
+	gender <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>);</code></pre></div>
+<p>SQL 语句不分大小写，除非是被单引号包裹的字符串值。</p>
+</li>
+<li>
+<p>删除表格</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> table_name;</code></pre></div>
+</li>
+<li>
+<p>修改标结构</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> new_column <span class="hljs-type">VARCHAR</span>;</code></pre></div>
+<p>SQLite <strong>只支持增加字段</strong>，不支持修改、删除字段。</p>
+<p>SQLite 的 ALTER 语句每次只能添加单一字段。添加多列时必须分多次添加。</p>
+</li>
+</ul>
+<h4 id="数据操作语言-DML">数据操作语言 DML</h4>
+<ul>
+<li>
+<p>添加记录</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table_name (name,height,weight,gender)
+	<span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&#x27;成步堂龙一&#x27;</span>,<span class="hljs-number">176</span>,<span class="hljs-number">1</span>);</code></pre></div>
+</li>
+<li>
+<p>删除记录</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> table_name <span class="hljs-keyword">WHERE</span> name<span class="hljs-operator">=</span><span class="hljs-string">&#x27;绫里千寻&#x27;</span>;</code></pre></div>
+</li>
+<li>
+<p>修改记录</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> table_name <span class="hljs-keyword">SET</span> height<span class="hljs-operator">=</span><span class="hljs-number">168</span> <span class="hljs-keyword">WHERE</span> name<span class="hljs-operator">=</span><span class="hljs-string">&#x27;绫里真宵&#x27;</span></code></pre></div>
+</li>
+<li>
+<p>查询记录</p>
+<div class="code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> table_name <span class="hljs-keyword">WHERE</span> name<span class="hljs-operator">=</span><span class="hljs-string">&#x27;裁判长&#x27;</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> height <span class="hljs-keyword">DESC</span>;</code></pre></div>
+</li>
+</ul>
+<h3 id="3-2-2-数据库管理器-SQLiteDatabase">3.2.2 数据库管理器 SQLiteDatabase</h3>
+<p>SQLiteDatabase 是 SQLite 的数据库管理类，其提供了若干操作数据表的 API。</p>
+<p>通过下列操作，即可创建/打开、删除数据库</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">dir</span> <span class="hljs-operator">=</span> getFilesDir() + <span class="hljs-string">&quot;/test.db&quot;</span>;
+
+<span class="hljs-comment">/* 打开、创建数据库 */</span>
+<span class="hljs-type">SQLiteDatabase</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> openOrCreateDatabase(dir, Context.MODE_PRIVATE, <span class="hljs-literal">null</span>);
+<span class="hljs-comment">/* 删除数据库 */</span>
+deleteDatabase(dir);</code></pre></div>
+<p>上例中用到的方法</p>
+<table>
+    <tr>
+        <td>
+            static SQLiteDatabase openOrCreateDatabase(String name,<br>
+            int mode, SQLiteDatabase.CursorFactory factory)
+        </td>
+        <td>
+            打开或创建指定目录的数据库
+        </td>
+    </tr>
+    <tr>
+        <td>
+            static boolean deleteDatabase(String name)
+        </td>
+        <td>
+            删除指定目录的数据库
+        </td>
+    </tr>
+</table>
+<p>通过以下方法进行数据库的增删改查</p>
+<table>
+    <tr>        
+        <th colspan="2" align="center">
+            class SQLiteDatabase
+        </th>
+    </tr>
+    <tr>
+        <td>
+            void execSQL(String sql)<br>
+            void execSQL(String sql, Object[] bindArgs)
+        </td>
+        <td>
+            执行 SQL 语句
+        </td>
+    </tr>
+    <tr>
+        <td>
+            long insert(String table, String nch, <font color="RED"><b>ContentValues</b></font> values)
+        </td>
+        <td>
+            向表中添加指定数据<br>
+            若 values 非空则 nch 可以是 null<br>
+            返回值为行号，若失败返回 -1
+        </td>
+    </tr>
+    <tr>
+        <td>
+            int delete(String table, String whereClause, String[] whereArgs)
+        </td>
+        <td>
+            删除表中的指定数据<br>
+            whereClause 为条件语句，以 ? 为占位符<br>
+            whereArgs 的值用于依次取代 whereClause 中的占位符<br>
+            返回值为被删除的行数
+        </td>
+    </tr>
+    <tr>
+        <td>
+            int update(String table, ContentValues values, String whereClause, String[] whereArgs) 
+        </td>
+        <td>
+            更新表中的指定数据<br>
+            返回值为被影响的行数
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <font color="RED"><b>Cursor</b></font> query(bool distinct, String table, String[] columns,<br>
+            String selection, String[] selectionArgs, String groupBy,<br>
+            String having, String orderBy, String limit)
+        </td>
+        <td>
+            查询表中的指定数据。参数如下<br>
+            distinct：是否去重<br>
+            columns：查找的列名。null 则返回全部列<br>
+            selection：where 条件。null 则无条件<br>
+            groupBy：groupBy 条件<br>
+            having：having 条件<br>
+            orderBy：orderBy 条件<br>
+            limit：limit 条件
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void beginTransaction()
+        </td>
+        <td>
+            开启事务
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void setTransactionSuccessful()
+        </td>
+        <td>
+            设置事务成功标记
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void endTransaction()
+        </td>
+        <td>
+           提交事务<br>之后根据是否设置成功标记，而回滚或执行事务
+        </td>
+    </tr>
+</table>
+<ul>
+<li>
+<p><strong>ContentValues 类</strong></p>
+<p>以键值对形式保存一系列数据。用于表示表中的一条记录</p>
+<table>
+    <tr>
+        <td>
+            ContentValues()
+        </td>
+        <td>
+            构造函数
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void put(String key, Byte value)<br>
+            void put(String key, Short value)<br>
+            void put(String key, Integer value)<br>
+            void put(String key, Long value)<br>
+            void put(String key, Float value)<br>
+            void put(String key, Double value)<br>
+            void put(String key, Boolean value)<br>
+            void put(String key, byte[] value)<br>
+            void putNull(String key)
+        </td>
+        <td>
+            向其中添加一组数据
+        </td>
+    </tr>
+</table>
+</li>
+<li>
+<p><strong>Cursor 类</strong></p>
+<p>Cursor 是一个指向返回结果的指针，其提供了一种对数据库返回结果集进行随机读写的途径</p>
+<table>
+    <tr>
+        <td>
+            boolean moveToFirst()<br>
+    		boolean moveToLast()<br>
+            boolean moveToNext()<br>
+            boolean moveToPrevious()
+        </td>
+        <td>
+            移动到第一行/最后一行/下一行/上一行<br>
+            不能移动时返回 false
+        </td>
+    </tr>
+    <tr>
+        <td>
+            int getCount()<br>
+            int getPosition()
+        </td>
+        <td>
+            返回总行数/当前行数
+        </td>
+    </tr>
+    <tr>
+        <td>
+            int getColumnIndex(String var1)<br>
+            String getColumnName(int var1)
+        </td>
+        <td>
+            根据名称/索引，返回指定列的索引/名称
+        </td>
+    </tr>
+    <tr>
+        <td>
+            String getString(int var1)<br>
+            short getShort(int var1)<br>
+            int getInt(int var1)<br>
+            long getLong(int var1)<br>
+            float getFloat(int var1)<br>
+            double getDouble(int var1)
+        </td>
+        <td>
+            获取指定列的数据
+        </td>
+    </tr>
+</table>
+</li>
+</ul>
+<h3 id="3-2-3-数据库管理辅助类-SQLiteOpenHelper">3.2.3 数据库管理辅助类 SQLiteOpenHelper</h3>
+<p>SQLiteOpenHelper 是 SQLiteDatabase 的辅助类，它可以简化打开数据库链接的过程，增加可维护性。</p>
+<p>SQLiteOpenHelper 是一个抽象类，使用时必须实现下列抽象方法。</p>
+<table>
+    <tr>
+        <td>
+            abstract void onCreate(SQLiteDatabase var1)
+        </td>
+        <td>
+            创建时调用，应涵盖初始化数据库的操作
+        </td>
+    </tr>
+    <tr>
+        <td>
+            abstract void onUpgrade(SQLiteDatabase var1, int var2, int var3)
+        </td>
+        <td>
+            版本更新时调用，应涵盖更新数据库的操作
+        </td>
+    </tr>
+</table>
+<p>此外，还有一些重要方法</p>
+<table>
+    <tr>
+        <td>
+            SQLiteDatabase getReadableDatabase()<br>
+            SQLiteDatabase getWritableDatabase()
+        </td>
+        <td>
+            获取一个可读/可写的 SQLiteDatabase 实例
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void close()
+        </td>
+        <td>
+            关闭连接
+        </td>
+    </tr>
+</table>
+<p>下面是一个例子，其使用 SQLiteOpenHelper 来对数据库的部分操作进行了封装</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyDBHelper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SQLiteOpenHelper</span> &#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">DB_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;test.db&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">TABLE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;test_db&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">DB_VERSION</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">MyDBHelper</span> <span class="hljs-variable">MY_DB_HELPER</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">SQLiteDatabase</span> <span class="hljs-variable">mRDB</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">SQLiteDatabase</span> <span class="hljs-variable">mWDB</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">MyDBHelper</span><span class="hljs-params">(<span class="hljs-meta">@Nullable</span> Context context)</span> &#123;
+        <span class="hljs-built_in">super</span>(context, DB_NAME, <span class="hljs-literal">null</span>, DB_VERSION);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MyDBHelper <span class="hljs-title function_">getInstance</span><span class="hljs-params">(Context context)</span> &#123;
+        <span class="hljs-keyword">if</span> (MY_DB_HELPER == <span class="hljs-literal">null</span>) MY_DB_HELPER = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyDBHelper</span>(context);
+        <span class="hljs-keyword">return</span> MY_DB_HELPER;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onCreate</span><span class="hljs-params">(SQLiteDatabase sqLiteDatabase)</span> &#123;
+        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;CREATE TABLE IF NOT EXISTS &quot;</span> + TABLE_NAME +
+                <span class="hljs-string">&quot; (_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,&quot;</span> +
+                <span class="hljs-string">&quot; name VARCHAR NOT NULL,&quot;</span> +
+                <span class="hljs-string">&quot; height LONG NOT NULL,&quot;</span> +
+                <span class="hljs-string">&quot; gender INTEGER NOT NULL);&quot;</span>;
+        sqLiteDatabase.execSQL(sql);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onUpgrade</span><span class="hljs-params">(SQLiteDatabase sqLiteDatabase, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> i1)</span> &#123;
+
+    &#125;
+
+    <span class="hljs-keyword">public</span> SQLiteDatabase <span class="hljs-title function_">openReadLink</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (mRDB == <span class="hljs-literal">null</span> || !mRDB.isOpen()) mRDB = getReadableDatabase();
+        <span class="hljs-keyword">return</span> mRDB;
+    &#125;
+
+    <span class="hljs-keyword">public</span> SQLiteDatabase <span class="hljs-title function_">openWriteLink</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (mWDB == <span class="hljs-literal">null</span> || !mWDB.isOpen()) mWDB = getWritableDatabase();
+        <span class="hljs-keyword">return</span> mWDB;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">closeLink</span><span class="hljs-params">()</span> &#123;
+        <span class="hljs-keyword">if</span> (mRDB != <span class="hljs-literal">null</span> &amp;&amp; mRDB.isOpen()) mRDB.close();
+        <span class="hljs-keyword">if</span> (mWDB != <span class="hljs-literal">null</span> &amp;&amp; mWDB.isOpen()) mWDB.close();
+        mRDB = <span class="hljs-literal">null</span>;
+        mWDB = <span class="hljs-literal">null</span>;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(String name, <span class="hljs-type">long</span> height, <span class="hljs-type">int</span> gender)</span> &#123;
+        <span class="hljs-type">ContentValues</span> <span class="hljs-variable">contentValues</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ContentValues</span>();
+        contentValues.put(<span class="hljs-string">&quot;name&quot;</span>, name);
+        contentValues.put(<span class="hljs-string">&quot;height&quot;</span>, height);
+        contentValues.put(<span class="hljs-string">&quot;gender&quot;</span>, gender);
+        <span class="hljs-keyword">return</span> mWDB.insert(TABLE_NAME, <span class="hljs-literal">null</span>, contentValues);
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">deleteByName</span><span class="hljs-params">(String name)</span> &#123;
+        <span class="hljs-keyword">return</span> mWDB.delete(TABLE_NAME, <span class="hljs-string">&quot;name=?&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;name&#125;);
+    &#125;
+
+    <span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title function_">queryAll</span><span class="hljs-params">()</span> &#123;
+        List&lt;String&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-type">Cursor</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> mRDB.query(TABLE_NAME, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+        <span class="hljs-keyword">while</span> (query.moveToNext()) &#123;
+            <span class="hljs-type">int</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> query.getInt(<span class="hljs-number">0</span>);
+            <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> query.getString(<span class="hljs-number">1</span>);
+            <span class="hljs-type">long</span> <span class="hljs-variable">height</span> <span class="hljs-operator">=</span> query.getLong(<span class="hljs-number">2</span>);
+            <span class="hljs-type">int</span> <span class="hljs-variable">gender</span> <span class="hljs-operator">=</span> query.getInt(<span class="hljs-number">3</span>);
+            res.add(String.format(<span class="hljs-string">&quot;ID：%s 姓名：%s 身高：%s 性别：%s&quot;</span>, id, name, height, gender == <span class="hljs-number">1</span> ? <span class="hljs-string">&#x27;男&#x27;</span> : <span class="hljs-string">&#x27;女&#x27;</span>));
+        &#125;
+        query.close();
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+&#125;</code></pre></div>
+<h3 id="3-2-4-Room-框架">3.2.4 Room 框架</h3>
+<p>Room 是谷歌推出的数据库处理框架。其通过注解技术简化了数据库操作，使得使用 SQLite 数据库变得更加方便。</p>
+<p>试用前，必先在 build.gradle 如下位置添加如下配置</p>
+<div class="code-wrapper"><pre><code class="hljs gradle">...
+
+<span class="hljs-keyword">dependencies</span> &#123;
+	...
+    implementation <span class="hljs-string">&#x27;androidx.room:room-runtime:2.6.1&#x27;</span>
+    annotationProcessor <span class="hljs-string">&#x27;androidx.room:room-compiler:2.6.1&#x27;</span>
+&#125;</code></pre></div>
+<p>在 AndroidStudio 中修改了 build.gradle 后，记得点击上方的同步按钮才能生效</p>
+<p>Room 框架提供了以下注释：</p>
+<table>
+    <tr>        
+        <th colspan="2" align="left">
+            类注释
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Entity
+        </td>
+        <td>
+            代表一个实体，对应数据库的一张表
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Dao
+        </td>
+        <td>
+            代表一个持久化类，其中蕴含数据访问操作
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Database(entities = {Xxx.class},version = 0)
+        </td>
+        <td>
+            代表一个派生自 RoomDatabase 数据库抽象类<br>
+            entities：指定了数据库所含的表<br>
+            该抽象类必须包含一个返回自定义的 Dao 的抽象方法
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="left">
+            属性注释
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @PrimaryKey(autoGenerate = true)
+        </td>
+        <td>
+            代表主键，autoGenerate 设置自增长
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @ColumnInfo(name = "xxx", typeAffinity = ColumnInfo.INTEGER)
+        </td>
+        <td>
+            设置一列的某些信息
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="left">
+            方法注释
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Insert
+        </td>
+        <td>
+            该方法对应一条插入语句
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Delete
+        </td>
+        <td>
+            该方法对应一条删除语句
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Update
+        </td>
+        <td>
+            该方法对应一条更新语句
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Query("SELECT * FROM xxx")
+        </td>
+        <td>
+            该方法对应一条查询语句
+        </td>
+    </tr>
+</table>
+<p>下面是一个简单的示例：</p>
+<ul>
+<li>
+<p>People.java</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> androidx.room.ColumnInfo;
+<span class="hljs-keyword">import</span> androidx.room.Entity;
+<span class="hljs-keyword">import</span> androidx.room.PrimaryKey;
+
+<span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">People</span> &#123;
+    <span class="hljs-meta">@PrimaryKey(autoGenerate = true)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-meta">@ColumnInfo(name = &quot;age&quot;, typeAffinity = ColumnInfo.INTEGER)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;
+&#125;</code></pre></div>
+</li>
+<li>
+<p>PeopleDao.java</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> androidx.room.Dao;
+<span class="hljs-keyword">import</span> androidx.room.Delete;
+<span class="hljs-keyword">import</span> androidx.room.Insert;
+<span class="hljs-keyword">import</span> androidx.room.Query;
+<span class="hljs-keyword">import</span> androidx.room.Update;
+
+<span class="hljs-meta">@Dao</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PeopleDao</span> &#123;
+    <span class="hljs-meta">@Insert</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">()</span> &#123; ... &#125;
+
+    <span class="hljs-meta">@Delete</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">delete</span><span class="hljs-params">()</span> &#123; ... &#125;
+    
+    <span class="hljs-meta">@Update</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">update</span><span class="hljs-params">()</span> &#123; ... &#125;
+    
+    <span class="hljs-meta">@Query(&quot;SELECT * FROM People&quot;)</span>
+    <span class="hljs-keyword">public</span> List&lt;People&gt; <span class="hljs-title function_">queryAll</span><span class="hljs-params">()</span> &#123; ... &#125;
+&#125;</code></pre></div>
+</li>
+<li>
+<p>PeopleDb.java</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> androidx.room.Database;
+<span class="hljs-keyword">import</span> androidx.room.RoomDatabase;
+
+<span class="hljs-meta">@Database(entities = &#123;People.class&#125;,version = 0, exportSchema = false)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PeopleDb</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">RoomDatabase</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> PeopleDao <span class="hljs-title function_">get</span><span class="hljs-params">()</span>;
+&#125;</code></pre></div>
+</li>
+</ul>
+<p>使用时，通过 Room 类的如下方法构建数据库实例</p>
+<h2 id="3-3-存储卡文件操作">3.3 存储卡文件操作</h2>
+<p>Android 访问存储卡（即外部存储）通常涉及三种主要的目录：应用程序私有空间、公共空间、缓存空间</p>
+<pre><code class=" mermaid">graph LR
+subgraph s[外部公共存储空间]
+	subgraph ssa[外部私有存储空间]
+		a1[PICTURE]
+		a2[MUSIC]
+		a3[……]
+	end
+	subgraph ssb[外部私有存储空间]
+		b1[PICTURE]
+		b2[MUSIC]
+		b3[……]
+	end
+end
+style s fill:#ddddddee, stroke:#000000
+style ssa fill:#ffffff, stroke:#000000
+style ssb fill:#ffffff, stroke:#000000</code></pre>
+<p>通过下列方法，即可获取指定的存储卡文件的路径</p>
+<table>
+    <tr>
+    	<td>
+        	File getExternalFilesDir(String type)
+        </td>
+    	<td>
+        	获取指定的外部私有存储空间路径<br>
+            type 是 Environment 类中规定的常量
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	File getExternalCacheDir()
+        </td>
+    	<td>
+        	获取外部缓存存储空间路径
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	File getFilesDir() 
+        </td>
+    	<td>
+        	获取内部存储空间路径
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            class Environment
+        </th>
+    </tr>
+    <tr>
+    	<td>
+        	static File getExternalStorageDirectory()<br>
+        	static File getExternalStorageDirectory(String type)
+        </td>
+    	<td>
+        	获取外部公共存储空间路径<br>
+            type 是 Environment 类中规定的常量
+        </td>
+    </tr>
+</table>
+<p>获取到路径后，只需使用 Java 的 IO 工具，就能对存储卡数据进行读写。</p>
+<h3 id="3-3-1-位图-Bitmap">3.3.1 位图 Bitmap</h3>
+<p>Android 提供了 <strong>Bitmap</strong> 类来处理位图文件。它可以获取图像文件信息，进行图像颜色变换、剪切、旋转、缩放等操作，并可以指定格式保存图像文件。</p>
+<p>通过 <strong>位图辅助类 BitmapFactory</strong> 以获取位图实例。</p>
+<table>
+    <tr>        
+        <th colspan="2" align="center">
+            class BitmapFactory
+        </th>
+    </tr>
+    <tr>
+    	<td>
+        	static Bitmap decodeResource(Resources res, int id)<br>
+            static Bitmap decodeResource(Resources res, int id, Options opts)
+        </td>
+    	<td>
+        	从资源文件中获取图片信息<br>
+            opts：BitmapFactory.Options 的一个实例
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	static Bitmap decodeFile(String pathName)<br>
+            static Bitmap decodeFile(String pathName, Options opts)
+        </td>
+    	<td>
+        	从指定路径文件中获取图片信息
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	static Bitmap decodeStream(InputStream is) 
+        </td>
+    	<td>
+        	从指定输入流中获取图片信息
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	static Bitmap decodeByteArray(byte[] data, int offset, int length)<br>
+            static Bitmap decodeByteArray(byte[] data, int offset, int length, Options opts)
+        </td>
+    	<td>
+        	从二进制数据中获取图片信息
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            class BitmapFactory.Options
+        </th>
+    </tr>
+    <tr>
+    	<td>
+        	Options()
+        </td>
+    	<td>
+        	构造函数
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	boolean inJustDecodeBounds
+        </td>
+    	<td>
+        	只扫描轮廓以获取图片宽高<br>返回的 Bitmap 实例将为 null
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	int inSampleSize
+        </td>
+    	<td>
+        	采样率，默认为 1<br>设为 x 时，每 x 个像素中保留 1 个像素<br>
+            最佳采样率可以通过原图尺寸与 ImageView 尺寸计算得到
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	Bitmap.Config inPreferredConfig
+        </td>
+    	<td>
+        	色深值<br>该属性为 Bitmap.Config 枚举类的一个实例
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	int outHeight<br>
+            int outWidth<br>
+            String outMimeType
+        </td>
+    	<td>
+        	获取图像的高度/宽度/MINE 类型
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	Bitmap.Config inPreferredConfig
+        </td>
+    	<td>
+        	设置色彩配置。该实例属于 Bitmap.Config 枚举类
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	Bitmap inBitmap
+        </td>
+    	<td>
+        	复用一个已存在的 Bitmap 实例，以节约内存开销
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	boolean inScaled
+        </td>
+    	<td>
+        	是否可缩放，默认为 true
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	int inDensity
+        </td>
+    	<td>
+        	像素密度
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            enum Bitmap.Config
+        </th>
+    </tr>
+    <tr>
+    	<td>
+        	ALPHA_8
+        </td>
+    	<td>
+        	每个像素占 1 字节，且仅储存透明度
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	RGB_565
+        </td>
+    	<td>
+        	每个像素占 2 字节，RGB（5/6/5bit）
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	ARGB_8888
+        </td>
+    	<td>
+        	默认项。每个像素占 4 字节，ARGB（8/8/8/8bit）
+        </td>
+    </tr>
+</table>
+<p>获取到 Bitmap 实例后，通过 ImageView 的 <code>setImageBitmap(birmap)</code> 方法即可显示图片。</p>
+<p>图片文件通常非常占用内存，因此，必须通过合适的压缩算法，以兼顾显示效果与内存优化。</p>
+<table>
+    <tr>        
+        <th colspan="2" align="center">
+            class Bitmap
+        </th>
+    </tr>
+    <tr>
+        <td>
+            static Bitmap createBitmap(Bitmap source, int x, <br>int y, int width, int height, Matrix m, boolean filter)
+        </td>
+        <td>
+            获取 Bitmap 实例。该方法有许多不同的重载<br>
+            在本重载中：<br>x/y：裁剪起始坐标<br>width/height：新图的宽高<br>m：一个矩阵，指出了要对新图进行的一系列变换
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            class Bitmap
+        </th>
+    </tr>
+    <tr>
+        <td>
+            static Bitmap createScaledBitmap(@NonNull Bitmap src, int dstWidth, int dstHeight, boolean filter)
+        </td>
+        <td>
+            获取一个缩放的 Bitmap 实例
+        </td>
+    </tr>
+    <tr>
+        <td>
+            boolean compress(CompressFormat format, int quality, OutputStream stream)
+        </td>
+        <td>
+            将图片以指定压缩方式转为输出流<br>
+            format：Bitmap.CompressFormat 枚举类的一个实例
+            quality：压缩质量，取值从 0-100
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bitmap copy(Config config, boolean isMutable)
+        </td>
+        <td>
+            以指定色彩模式创建一个副本
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bitmap extractAlpha()
+        </td>
+        <td>
+            创建一个仅有透明度的副本，其色彩配置为 ALPHA_8
+        </td>
+    </tr>
+    <tr>
+        <td>
+            void recycle()<br>
+            boolean isRecycled()
+        </td>
+        <td>
+            回收该 Bitmap 占用的内存空间
+        </td>
+    </tr>
+    <tr>
+        <td>
+            int getByteCount()
+        </td>
+        <td>
+            获取该图像的像素数量
+        </td>
+    </tr>
+    <tr>        
+        <th colspan="2" align="center">
+            enum Bitmap.CompressFormat
+        </th>
+    </tr>
+    <tr>
+        <td>
+            JPEG
+        </td>
+        <td>
+            一种有损压缩算法，quality 越小体积越小<br>不支持透明度，并将以黑色背景填充不透明度。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PNG
+        </td>
+        <td>
+            一种无损压缩算法，会忽略 quality 压缩质量设置，且支持透明度。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            WEBP_LOSSY
+        </td>
+        <td>
+            以 WEBP 算法进行有损压缩，quality 越小体积越小
+        </td>
+    </tr>
+    <tr>
+        <td>
+            WEBP_LOSSLESS
+        </td>
+        <td>
+            以 WEBP 算法进行无损压缩，quality 越大体积越小
+        </td>
+    </tr>
+</table>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android/" class="category-chain-item">Android</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Android/">#Android</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>&lt;Android&gt;3 数据存储</div>
+      <div>https://i-melody.github.io/2024/10/23/Android/3 数据存储/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Melody</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月23日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+              <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                <i class="iconfont icon-nd"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a target="_blank" href="https://hexo.io/zh-cn/" rel="nofollow noopener noopener"><span>Hexo</span></a> <a target="_blank" href="https://hexo.fluid-dev.com/"_blank" rel="nofollow noopener noopener"><span>Fluid</span></a> <i class="iconfont icon-music"></i> <a href="https://leetcode.cn/u/i-melody/" target="_blank" rel="nofollow noopener"><span>Melody 2022-02-19</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        纸箱被打开了 
+        <span id="busuanzi_value_site_pv"></span>
+         次 ★
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        箱庭中装着 
+        <span id="busuanzi_value_site_uv"></span>
+         颗星星
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

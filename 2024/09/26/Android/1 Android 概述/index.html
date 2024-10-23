@@ -25,11 +25,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_1.webp">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_2.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_3_seivice%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_3_ContentProvider.webp">
 <meta property="article:published_time" content="2024-09-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-16T11:05:07.152Z">
+<meta property="article:modified_time" content="2024-10-23T10:54:27.646Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="Android">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i-melody.github.io/img/Android_InputImage/1_1.webp">
   
@@ -228,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.9k 字
+          9.6k 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
         
-          17 分钟
+          27 分钟
         
       </span>
     
@@ -294,7 +296,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年10月16日 晚上
+                    本文最后更新于：2024年10月23日 晚上
                   
                 
               </p>
@@ -534,7 +536,7 @@ subgraph ac1[Activity 完整生存期]
     end
     4--&gt;2
     6-..-&gt;d-..-&gt;1
-    4-..-&gt;d-..-&gt;1
+    4-..-&gt;d-..-&gt;3
 end
 
 style ac1 fill:#999999ee,stroke:#000000,color:#ffffff
@@ -624,6 +626,196 @@ transction.replace(R.id.xxx, myFragment);							<span class="hljs-comment">// �
 transction.commit();												<span class="hljs-comment">// 提交该 Fragment 事务</span></code></pre></div>
 </li>
 </ul>
+<h2 id="1-2-应用程序-Application">1.2 应用程序 Application</h2>
+<p>Application 是用于保存全局变量的基本类，其生命周期与应用程序相等。</p>
+<p>Application 采用单例模式，这意味着同一应用程序的不同 Activity 都能获取相同的 Application。该特性使其可以为数据的共享、传递、缓存等提供便利。</p>
+<p>要获取 Application，只需调用如下方法</p>
+<table>
+    <tr>
+    	<td>final Application getApplication()</td>
+    	<td>获取 Application 实例</td>
+    </tr>
+</table>
+<p>在应用程序运行时，系统会自动创建一个 Application。也能通过修改 AndroidManifest.xml 文件以使用自定义的 Application 派生类。在其 application 标签内添加 name 属性，即可指定任意的 Application 派生类。</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">application</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;xxx&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activity...</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span></code></pre></div>
+<p>只需在自定义的 Application 中建立 HashMap，即可便捷地传递信息。</p>
+<p>Application 中有如下方法</p>
+<table>
+    <tr>
+    	<td>void onCreate()</td>
+    	<td>在 Application 创建时被调用<br>这一步的操作过多时会拖慢程序启动时间</td>
+    </tr>
+    <tr>
+    	<td>void onTerminate()</td>
+    	<td>在 Application 销毁时被调用<br>由于 Android 会尽量维持应用程序的运行，该方法有时不会被调用</td>
+    </tr>
+</table>
+<h2 id="1-3-服务-Service">1.3 服务 Service</h2>
+<p>Service 是 Android 四大组件之一。其可以在不依赖于用户界面的情况下运行，并且可以在应用程序被关闭后继续运行。多用于在后台执行长时间运行的操作或处理异步任务。</p>
+<p>Service 有两种启动方式：</p>
+<ul>
+<li>
+<p>startService</p>
+<p>通过该方法启动后，Service 将持续在后台运行。仅当外部调用  stopService 方法时才能停止服务</p>
+</li>
+<li>
+<p>bindService</p>
+<p>当调用者被销毁时，服务随之销毁。且调用者可调用服务的方法。</p>
+</li>
+</ul>
+<p>下面是 Service 的生命周期图，其指出了方法的调用时机。其中，onCreate 方法仅调用一次，而 onBind、onStartCommand 方法会依照 Service 的启动方法而调用。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/1_3_seivice%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt=""></p>
+<h2 id="1-4-广播接收器-BroadcastReceiver">1.4 广播接收器 BroadcastReceiver</h2>
+<p>BroadcastReceiver 是 Android 四大组件之一。为方便各应用程序间以及应用程序内部的通信，Android 引入了广播机制。各应用程序可自行注册广播接收器，以接收特定类型广播。</p>
+<p>Android 的广播分为两种：</p>
+<ul>
+<li>
+<p><strong>标准广播</strong></p>
+<p>所有广播接收器于同时接到广播。广播传递不可被截断</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Intent</span> <span class="hljs-variable">intent</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Intent</span>(<span class="hljs-string">&quot;testtest&quot;</span>);
+sendBroadcast(intent);</code></pre></div>
+</li>
+<li>
+<p><strong>有序广播</strong></p>
+<p>广播接收器以优先级顺序（优先级相同时按注册时间顺序）依次接收广播，先接收者可截断后续广播</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Intent</span> <span class="hljs-variable">intent</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Intent</span>(<span class="hljs-string">&quot;testtest&quot;</span>);
+sendOrderedBroadcast(intent, <span class="hljs-literal">null</span>);</code></pre></div>
+</li>
+</ul>
+<p>要接收广播，就要注册一个广播接收器。</p>
+<p>首先创建一个 BroadcastReceiver 的派生类，并实现其 onReceive 方法</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBR</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BroadcastReceiver</span> &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onReceive</span><span class="hljs-params">(Context context, Intent intent)</span> &#123;
+        <span class="hljs-keyword">if</span> (intent != <span class="hljs-literal">null</span> &amp;&amp; intent.getAction().equals(<span class="hljs-string">&quot;testtest&quot;</span>)) &#123;
+            Log.d(<span class="hljs-string">&quot;TESTTEST&quot;</span>, <span class="hljs-string">&quot;接收广播&quot;</span>);
+            abortBroadcast();					<span class="hljs-comment">// 截断有序广播</span>
+        &#125;
+    &#125;
+&#125;</code></pre></div>
+<p>之后，要注册该广播接收器才能接收广播。</p>
+<p>注册广播接收器的方法有两种：</p>
+<ul>
+<li>
+<p><strong>静态注册</strong></p>
+<p>在 AndroidManifest.xml 的如下位置添加如下语句</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">application...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activity...</span>/&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">receiver</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.xxxxxx&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:exported</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">intent_filter</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;testtest&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">intent_filter</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">receiver</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span></code></pre></div>
+<p>该方式在 Android 8.0 之后，还需在发送时指定接收器的完整类名</p>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-type">Intent</span> <span class="hljs-variable">intent</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Intent</span>(<span class="hljs-string">&quot;testtest&quot;</span>);
+
+<span class="hljs-type">ComponentName</span> <span class="hljs-variable">componentName</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComponentName</span>(<span class="hljs-built_in">this</span>, <span class="hljs-string">&quot;com.xxxx.xxxx.xxxx&quot;</span>);
+intent.setComponent(componentName);
+
+sendBroadcast(intent);</code></pre></div>
+</li>
+<li>
+<p><strong>动态注册</strong></p>
+<p>在主程序中动态注册广播接收器</p>
+<div class="code-wrapper"><pre><code class="hljs java">MyBR myBR;
+
+<span class="hljs-meta">@Override</span>
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> &#123;
+    ...
+
+    myBR = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyBR</span>();
+    <span class="hljs-type">IntentFilter</span> <span class="hljs-variable">itf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IntentFilter</span>();
+    itf.setPriority(<span class="hljs-number">1</span>);						<span class="hljs-comment">// 设置优先级，将影响有序广播接收</span>
+    itf.addAction(<span class="hljs-string">&quot;testtest&quot;</span>);
+    registerReceiver(myBR, itf);
+&#125;
+
+<span class="hljs-meta">@Override</span>
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onDestroy</span><span class="hljs-params">()</span> &#123;
+    ...
+        
+    unregisterReceiver(myBR);
+&#125;</code></pre></div>
+</li>
+</ul>
+<h2 id="1-5-内容提供者-ContentProvider">1.5 内容提供者 ContentProvider</h2>
+<p>ContentProvider 是 Android 四大组件之一，其可实现不同应用程序之间的数据共享</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/1_3_ContentProvider.webp" alt=""></p>
+<p>需事先在 AndroidManifest.xml 内注册以使用 ContentProvider</p>
+<div class="code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">application...</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activity...</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">provider</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:authorities</span>=<span class="hljs-string">&quot;com.xxx.xxx.Xxxxxx&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.Xxxxxx&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:enabled</span>=<span class="hljs-string">&quot;true&quot;</span></span>
+<span class="hljs-tag">        <span class="hljs-attr">android:exported</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span></code></pre></div>
+<p>之后，创建一个 ContentProvider 类的派生类，并实现其抽象方法</p>
+<table>
+    <tr>
+    	<td>boolean onCreate()</td>
+    	<td>初始化时被调用<br>返回 true 则加载成功，否则失败</td>
+    </tr>
+    <tr>
+    	<td>Cursor query(Uri uri, String[] strings, String s, String[] strings1, <br>String s1)</td>
+    	<td>11</td>
+    </tr>
+    <tr>
+    	<td>String getType(Uri uri)</td>
+    	<td>11</td>
+    </tr>
+    <tr>
+    	<td>Uri insert(Uri uri, ContentValues contentValues)</td>
+    	<td>Uri：需要操作哪张表<br>ContentValues：插入的值</td>
+    </tr>
+    <tr>
+    	<td>int delete(Uri uri, String s, String[] strings)</td>
+    	<td>11</td>
+    </tr>
+    <tr>
+    	<td>int update(Uri uri, ContentValues contentValues, String s, <br>String[] strings)</td>
+    	<td>11</td>
+    </tr>
+</table>
+<h3 id="1-5-1-通用资源标识符-URI">1.5.1 通用资源标识符 URI</h3>
+<p><a target="_blank" rel="noopener" href="http://www.faqs.org/rfcs/rfc2396.html"><strong>URI 通用资源标识符</strong></a>（Universal Resource Identifier，也称统一资源定位符），是描述物理或虚拟资源的唯一标识符。互联网领域的 URL 就是 URI 的子集。</p>
+<p>下面是 URI 的一些示例：</p>
+<div class="code-wrapper"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>search.bilibili.com/all?keyword=M.League
+file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/D:/</span>test.txt</code></pre></div>
+<p>URI 的基本结构如下：</p>
+<div class="code-wrapper"><pre><code class="hljs ruby">&lt;scheme&gt;<span class="hljs-symbol">:&lt;authority&gt;&lt;path&gt;<span class="hljs-string">?&lt;</span>query&gt;</span>#&lt;fragment&gt;</code></pre></div>
+<ul>
+<li>
+<p>scheme：前缀</p>
+<p>是以何种方式访问何种资源的概念。</p>
+<p>常见有：https、file 等</p>
+</li>
+<li>
+<p>authority：授权者（可选）</p>
+</li>
+<li>
+<p>path：路径（可选）</p>
+<p>通过单个斜杠连接的一个路径</p>
+</li>
+<li>
+<p>query：查询（可选）</p>
+<p>GET 请求时的参数部分</p>
+</li>
+<li>
+<p>fragment：片段（可选）</p>
+</li>
+</ul>
+<p>在 ContentProvider 中使用 URI 的语法如下</p>
+<div class="code-wrapper"><pre><code class="hljs awk">content:<span class="hljs-regexp">//</span>authority<span class="hljs-regexp">/path/i</span>d</code></pre></div>
+<p>其中 authority 是 AndroidManifest.xml 规定的内容，path 为指向表的名称，id 为行号</p>
 
               
             </div>
@@ -656,9 +848,9 @@ transction.commit();												<span class="hljs-comment">// 提交该 Fragment
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Android/">#Android</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Android/">#Android</a>
       
     </div>
   
