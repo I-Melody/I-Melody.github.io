@@ -24,7 +24,7 @@
 <meta property="og:description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T03:10:33.824Z">
+<meta property="article:modified_time" content="2025-04-06T15:36:49.562Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.6k 字
         
       </span>
     
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月27日 上午
+                    本文最后更新于：2025年4月6日 晚上
                   
                 
               </p>
@@ -343,7 +343,9 @@
 <li>
 <p><strong>虚拟</strong>：把一个物理上的实体变为若干逻辑上的对应物。</p>
 <p>物理实体是实际存在的。而逻辑上的对应物是用户感受到的。</p>
-<p>虚拟技术有两种：空分复用技术（如虚拟存储器技术）、时分复用技术（如虚拟处理器技术）</p>
+<p>虚拟技术有下面两种</p>
+<p>空分复用技术：多个程序或用户同时使用一个资源的不同部分，如虚拟存储器技术，同一硬盘被分为C、D、E等数个虚拟盘</p>
+<p>时分复用技术：微观上交替为各进程服务，如虚拟处理器技术，单核CPU并发执行不同任务</p>
 </li>
 <li>
 <p><strong>异步</strong>：多道程序环境下，允许多个程序并发。但进程的执行是以不可预知的速度推进的。</p>
@@ -405,12 +407,13 @@
 <p><strong>手工操作阶段</strong>（手工打印纸带等）：输入、输出的速度很慢</p>
 </li>
 <li>
-<p><strong>批处理阶段</strong>：出现了 单道批处理系统 和 多道批处理系统。</p>
+<p><strong>批处理阶段</strong>：相继出现了 单道批处理系统 和 多道批处理系统。</p>
 <p>单道批处理系统：引入了脱机输入输出技术。一定程度上缓解了人机速度矛盾。</p>
 <p>多道批处理系统：开始出现操作系统。能使程序并发执行，但不提供人机交互功能。</p>
 </li>
 <li>
-<p><strong>分时操作系统</strong>：提供了人机交互的功能，但不能优先处理紧急任务</p>
+<p><strong>分时操作系统</strong>：以时间片为单位轮流为各个用户或作业服务</p>
+<p>提供了人机交互的功能，但不能优先处理紧急任务</p>
 </li>
 <li>
 <p><strong>实时操作系统</strong>：分为 硬实时系统 和 软实时系统。能优先处理紧急任务</p>
