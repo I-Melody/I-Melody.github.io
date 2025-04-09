@@ -24,7 +24,7 @@
 <meta property="og:description" content="OS2 进程管理 程序 就是一个指令的序列。一个具有独立功能的程序独占处理器直到得到最终结果的过程称为程序的 顺序执行。顺序执行有 顺序性、封闭性 的特点。其执行结果有 确定性、可再现性 的特点。 为实现程序并发执行，引入了进程、进程实体的概念。 进程实体（进程映像）：由 PCB、程序段、数据段 这三部分构成。一般情况下，可以将进程实体称为进程。 进程：进程实体的运行过程，是系统进行资源分配和调度">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T03:11:40.989Z">
+<meta property="article:modified_time" content="2025-04-08T03:19:46.751Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -293,7 +293,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月27日 上午
+                    本文最后更新于：2025年4月8日 上午
                   
                 
               </p>
@@ -313,6 +313,13 @@
 <li><strong>独立性</strong>：进程是能独立运行、独立获得资源、独立接受调度的基本单位</li>
 <li><strong>异步性</strong>：各进程按各自独立的、不可预知的速度推进。操作系统要提供 “进程同步机制” 以解决异步问题</li>
 <li><strong>结构性</strong>：每个进程会配置一个 PCB。结构上看，进程由 PCB、程序段、数据段 组成</li>
+</ul>
+<p>操作系统对进程（线程）的管理包括以下几个方面：</p>
+<ul>
+<li><strong>进程调度</strong>：在多个等待处理器的进程中，按一定策略选择进程，使之占有处理器从而进入运行</li>
+<li><strong>进程同步</strong>：对系统中使用共享资源的多个进程进行资源控制与协调</li>
+<li><strong>进程控制</strong>：控制进程的创建、撤销、状态切换</li>
+<li><strong>进程安全</strong>：解决进程争夺资源导致的进程死锁，使系统安全顺利运行</li>
 </ul>
 <h2 id="OS2-1-进程的组成">OS2.1 进程的组成</h2>
 <p>进程（进程实体）的组成分为三部分：</p>
@@ -381,20 +388,20 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <h2 id="OS2-3-进程控制">OS2.3 进程控制</h2>
 <p><strong>进程控制</strong> 即实现进程状态的转换。进程控制是通过 <strong>原语</strong> 实现的。原语执行期间不允许中断，只能一气呵成。这种不能被中断的操作称为 <strong>原子操作</strong>。</p>
 <p>原语采用 <strong>开中断指令</strong> 和 <strong>关中断指令</strong> 实现其原子操作。先发出开中断指令，此时起该进程操作不会中断。之后执行原语代码。执行结束后，发出关中断指令，之后的操作才继续受到外部中断信号影响。</p>
-<p>开/关中断指令 的权限非常大，是只能在核心态下执行的特权指令</p>
+<p>开/关中断指令 的权限非常大，是只能在核心态下执行的特权指令。</p>
 <p>不论何种原语，其作用都能归为以下几类：</p>
 <ul>
-<li><strong><font color='#40DF40'>更新 PCB 信息</font></strong>（如修改进程状态标志、将运行环境保存到 PCB、从 PCB 恢复运行环境）</li>
-<li><strong><font color='#DF4040'>将 PCB 插入合适队列</font></strong></li>
-<li><strong><font color='#4040DF'>分配/回收资源</font></strong></li>
+<li><strong><font color='#40DF40'>更新 PCB 信息——①</font></strong>（如修改进程状态标志、将运行环境保存到 PCB、从 PCB 恢复运行环境）</li>
+<li><strong><font color='#DF4040'>将 PCB 插入合适队列——②</font></strong></li>
+<li><strong><font color='#4040DF'>分配/回收资源——③</font></strong></li>
 </ul>
-<h4 id="进程创建">#进程创建</h4>
+<h4 id="进程创建">进程创建</h4>
 <p>进程创建原语：</p>
 <ul>
-<li><font color='#40DF40'>先申请空白 PCB</font></li>
-<li><font color='#4040DF'>为新进程分配所需资源</font></li>
-<li><font color='#40DF40'>初始化 PCB</font></li>
-<li><font color='#DF4040'>最后将 PCB 插入就绪序列</font></li>
+<li><font color='#40DF40'>先申请空白 PCB——①</font></li>
+<li><font color='#4040DF'>为新进程分配所需资源——③</font></li>
+<li><font color='#40DF40'>初始化 PCB——①</font></li>
+<li><font color='#DF4040'>最后将 PCB 插入就绪序列——②</font></li>
 </ul>
 <p>引起进程创建的事件有：</p>
 <ul>
@@ -403,14 +410,14 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <li>提供服务：用户向操作系统提出请求时，新建一个进程以处理该请求</li>
 <li>应用请求：由用户进程主动创建一个子进程</li>
 </ul>
-<h4 id="进程终止">#进程终止</h4>
+<h4 id="进程终止">进程终止</h4>
 <p>进程终止原语：</p>
 <ul>
-<li><font color='#DF4040'>从 PCB 集合中找到终止进程的 PCB</font></li>
-<li><font color='#4040DF'>若进程正在运行，则立即剥夺 CPU，将 CPU 分配给其他进程</font></li>
-<li><font color='#DF4040'>终止该进程的所有子进程</font></li>
-<li><font color='#4040DF'>将该进程拥有的所有资源归还给父进程或操作系统</font></li>
-<li><font color='#40DF40'>删除 PCB</font></li>
+<li><font color='#DF4040'>从 PCB 集合中找到终止进程的 PCB——②</font></li>
+<li><font color='#4040DF'>若进程正在运行，则立即剥夺 CPU，将 CPU 分配给其他进程——③</font></li>
+<li><font color='#DF4040'>终止该进程的所有子进程——②</font></li>
+<li><font color='#4040DF'>将该进程拥有的所有资源归还给父进程或操作系统——③</font></li>
+<li><font color='#40DF40'>删除 PCB——①</font></li>
 </ul>
 <p>引起进程终止的事件：</p>
 <ul>
@@ -418,36 +425,36 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <li>进程异常结束</li>
 <li>外界干预</li>
 </ul>
-<h4 id="进程阻塞">#进程阻塞</h4>
+<h4 id="进程阻塞">进程阻塞</h4>
 <p>进程阻塞原语：</p>
 <ul>
-<li><font color='#DF4040'>找到要阻塞的进程对应的 PCB</font></li>
-<li><font color='#40DF40'>保护进程运行现场，将 PCB 状态设置为阻塞，暂时停止其运行</font></li>
-<li><font color='#DF4040'>最后，将 PCB 插入相应的阻塞事件的等待序列</font></li>
+<li><font color='#DF4040'>找到要阻塞的进程对应的 PCB——②</font></li>
+<li><font color='#40DF40'>保护进程运行现场，将 PCB 状态设置为阻塞，暂时停止其运行——①</font></li>
+<li><font color='#DF4040'>最后，将 PCB 插入相应的阻塞事件的等待序列——②</font></li>
 </ul>
 <p>引起进程阻塞的事件：</p>
 <ul>
 <li>需要等待系统分配某种资源</li>
 <li>需要等待相互合作的其他进程完成工作</li>
 </ul>
-<h4 id="进程唤醒">#进程唤醒</h4>
+<h4 id="进程唤醒">进程唤醒</h4>
 <p>唤醒进程原语：</p>
 <ul>
-<li><font color='#DF4040'>在事件等待队列中找到对应的 PCB</font></li>
-<li><font color='#DF4040'>将 PCB 从等待队列移除</font>，<font color='#40DF40'>状态设置为就绪</font></li>
-<li><font color='#DF4040'>将 PCB 插入就绪队列，等待被调度</font></li>
+<li><font color='#DF4040'>在事件等待队列中找到对应的 PCB——②</font></li>
+<li><font color='#DF4040'>将 PCB 从等待队列移除——②</font>，<font color='#40DF40'>状态设置为就绪——①</font></li>
+<li><font color='#DF4040'>将 PCB 插入就绪队列，等待被调度——②</font></li>
 </ul>
 <p>引起进程唤醒的事件：</p>
 <ul>
 <li>等待的事件发生</li>
 </ul>
-<h4 id="进程切换">#进程切换</h4>
+<h4 id="进程切换">进程切换</h4>
 <p>切换进程原语：</p>
 <ul>
-<li><font color='#40DF40'>将运行环境信息存入 PCB</font></li>
-<li><font color='#DF4040'>将 PCB 移入相应队列</font></li>
-<li><font color='#DF4040'>选择另一个进程执行</font>，<font color='#40DF40'>并更新其 PCB</font></li>
-<li><font color='#40DF40'>根据 PCB 恢复进程所需的运行环境</font></li>
+<li><font color='#40DF40'>将运行环境信息存入 PCB——①</font></li>
+<li><font color='#DF4040'>将 PCB 移入相应队列——②</font></li>
+<li><font color='#DF4040'>选择另一个进程执行——②</font>，<font color='#40DF40'>并更新其 PCB——①</font></li>
+<li><font color='#40DF40'>根据 PCB 恢复进程所需的运行环境——①</font></li>
 </ul>
 <p>引起切换进程的事件：</p>
 <ul>
@@ -566,7 +573,8 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <li>
 <p><strong>不能进行进程调度</strong>：在处理中断的过程中、进程在操作系统<font color='RED'>内核程序</font>临界区中、在原子操作中</p>
 <p>一段时间内只允许一个进程使用的资源，称为 <strong>临界资源</strong>。各进程必须互斥地访问临界资源。访问临界资源的代码就是 <strong>临界区</strong>。</p>
-<p>操作系统<font color='RED'>内核程序</font>临界区，访问的临界资源必须尽快释放，否则会影响操作系统内核的其他管理工作。因此，访问内核程序临界区时不能进行进程调度。但访问普通临界区时是可以进行进程调度的。</p>
+<p>操作系统<font color='RED'>内核程序</font>临界区，访问的临界资源必须尽快释放，否则会影响操作系统内核的其他管理工作。因此，访问内核程序临界区时不能进行进程调度。</p>
+<p>普通临界资源不影响操作系统内核的管理，且访问这类资源时可能涉及慢速设备（如打印机），若一直等待会导致CPU空闲。因此，访问普通临界区时是可以进行进程调度的。</p>
 </li>
 </ul>
 <p>有的操作系统不允许被动放弃处理机。由此，将进程调度方式分为：<strong>非剥夺调度方式</strong>（非抢占方式，不允许进程被动放弃处理机）、<strong>剥夺调度方式</strong>（抢占方式，允许进程被动放弃处理机）</p>
@@ -574,19 +582,19 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <p>下面是一些评价调度算法的指标：</p>
 <ul>
 <li>
-<p>CPU 利用率：CPU 忙碌时间占总时间的比例。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>利用率</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>忙碌的时间</mtext><mtext>总时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\text{利用率}=\dfrac{\text{忙碌的时间}}{\text{总时间}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">利用率</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">总时间</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">忙碌的时间</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>CPU 利用率：CPU 忙碌时间占总时间的比例。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>利用率</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>忙碌的时间</mtext><mtext>总时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">利用率=\dfrac{忙碌的时间}{总时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">利用率</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">忙碌的时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </li>
 <li>
-<p>系统吞吐量：单位时间内完成作业的数量。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>系统吞吐量</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>总共完成了多少作业</mtext><mtext>总共花费了多少时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\text{系统吞吐量}=\dfrac{\text{总共完成了多少作业}}{\text{总共花费了多少时间}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">系统吞吐量</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">总共花费了多少时间</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">总共完成了多少作业</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>系统吞吐量：单位时间内完成作业的数量。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>系统吞吐量</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>总共完成了多少作业</mtext><mtext>总共花费了多少时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">系统吞吐量=\dfrac{总共完成了多少作业}{总共花费了多少时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">系统吞吐量</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总共花费了多少时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">总共完成了多少作业</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </li>
 <li>
-<p>周转时间：从作业被提交给系统起，到作业被完成为止的时间。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>周转时间</mtext><mo>=</mo><mtext>完成时间</mtext><mo>−</mo><mtext>提交时间</mtext></mrow><annotation encoding="application/x-tex">\text{周转时间}=\text{完成时间}-\text{提交时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">周转时间</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord cjk_fallback">完成时间</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">提交时间</span></span></span></span></span></p>
+<p>周转时间：从作业被提交给系统起，到作业被完成为止的时间。即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>周转时间</mtext><mo>=</mo><mtext>完成时间</mtext><mo>−</mo><mtext>提交时间</mtext></mrow><annotation encoding="application/x-tex">周转时间=完成时间-提交时间</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">完成时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">提交时间</span></span></span></span></p>
 </li>
 <li>
-<p>平均周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>平均周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>周转时间之和</mtext><mtext>作业数</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\text{平均周转时间}=\dfrac{\text{周转时间之和}}{\text{作业数}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">平均周转时间</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">作业数</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">周转时间之和</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>平均周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>平均周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>周转时间之和</mtext><mtext>作业数</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">平均周转时间=\dfrac{周转时间之和}{作业数}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">平均周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业数</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">周转时间之和</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </li>
 <li>
-<p>带权周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>带权周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>作业周转时间</mtext><mtext>作业实际运行时间</mtext></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>作业完成时间</mtext><mo>−</mo><mtext>作业提交时间</mtext></mrow><mtext>作业实际运行时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\text{带权周转时间}=\dfrac{\text{作业周转时间}}{\text{作业实际运行时间}}=\dfrac{\text{作业完成时间}-\text{作业提交时间}}{\text{作业实际运行时间}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">带权周转时间</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">作业实际运行时间</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">作业周转时间</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">作业实际运行时间</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">作业完成时间</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">作业提交时间</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>带权周转时间：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>带权周转时间</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mtext>作业周转时间</mtext><mtext>作业实际运行时间</mtext></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>作业完成时间</mtext><mo>−</mo><mtext>作业提交时间</mtext></mrow><mtext>作业实际运行时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">带权周转时间=\dfrac{作业周转时间}{作业实际运行时间}=\dfrac{作业完成时间-作业提交时间}{作业实际运行时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">带权周转时间</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业实际运行时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业周转时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业实际运行时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">作业完成时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">作业提交时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </li>
 <li>
 <p>等待时间：进程/作业 处于等待处理机状态的时间之和。</p>
@@ -595,6 +603,9 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 </li>
 <li>
 <p>响应时间：用户从提出请求，到首次产生响应所用的时间。</p>
+</li>
+<li>
+<p>响应比：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>响应比</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>等待时间</mtext><mo>+</mo><mtext>要求服务时间</mtext></mrow><mtext>要求服务时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">响应比=\dfrac{等待时间+要求服务时间}{要求服务时间}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">响应比</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">要求服务时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">等待时间</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">要求服务时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </li>
 </ul>
 <p>早期计算机造价昂贵，早期的批处理系统更注重平均周转时间等指标。早期批处理系统主要有以下几种调度算法：</p>
@@ -616,7 +627,6 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <li>
 <p><strong>HRRM（高响应比优先）</strong></p>
 <p>在每次调度时计算各个 作业/进程 的响应比，选择响应比高的 作业/进程 为其服务。</p>
-<p>响应比的计算方法：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>响应比</mtext><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mtext>等待时间</mtext><mo>+</mo><mtext>要求服务时间</mtext></mrow><mtext>要求服务时间</mtext></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\text{响应比}=\dfrac{\text{等待时间}+\text{要求服务时间}}{\text{要求服务时间}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">响应比</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">要求服务时间</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">等待时间</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">要求服务时间</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <p>HRRM 算法是非抢占式算法。HRRM 算法避免了产生饥饿问题。</p>
 <p>HRRM 算法是上述两种算法的折中，综合考虑了等待时间和运行时间。</p>
 </li>
@@ -635,7 +645,7 @@ running--系统调用--&gt;blocked(阻塞态)</code></pre>
 <p>每个 作业/进程 拥有一个优先级，调度时选择优先级高的执行。</p>
 <p>优先级调度算法有抢占式、非抢占式版本。非抢占式只在进程主动放弃处理及时进行调度，而抢占式版本会额外在就绪队列变化时检测是否要发生抢占。</p>
 <p>根据优先级是否能动态改变，可以将优先级分为 <strong>静态优先级</strong> 和 <strong>动态优先级</strong>。通常，系统进程 优先级高于 用户进程；前台进程 优先级高于 后台进程。</p>
-<p>操作系统更偏好 <strong>I/O 型繁忙型进程</strong>。与 I/O 繁忙型进程相对的是 <strong>CPU 繁忙型进程</strong>。因为 I/O 设备与 CPU 能并行工作，I/O 繁忙型进程越优先，I/O 设备就能越早投入工作，资源利用率、系统吞吐量也能得到提升。</p>
+<p>操作系统更偏好 <strong>I/O 繁忙型进程</strong>。与 I/O 繁忙型进程相对的是 <strong>CPU 繁忙型进程</strong>。因为 I/O 设备与 CPU 能并行工作，I/O 繁忙型进程越优先，I/O 设备就能越早投入工作，资源利用率、系统吞吐量也能得到提升。</p>
 <p>优先级调度算法能区分紧急程度、重要程度，适用于实时操作系统。但若有源源不断的高优先级进程到来，可能导致饥饿。</p>
 </li>
 <li>

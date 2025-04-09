@@ -16,15 +16,15 @@
   <meta name="author" content="Melody">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
+    <meta name="description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理组织调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;操作系统&gt;OS1 概述">
 <meta property="og:url" content="https://i-melody.github.io/2022/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1%20%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Melody 的小纸箱">
-<meta property="og:description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
+<meta property="og:description" content="OS1 概述 操作系统（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理组织调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。 进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。 OS1.1 操作系统的作用 操作系统的作用：   管理资源：提供处理机管理、存储器管理、文件管理、设备管理的功能   给出用户和计算机间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-06T15:36:49.562Z">
+<meta property="article:modified_time" content="2025-04-07T15:10:14.214Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="基础课目">
 <meta property="article:tag" content="操作系统">
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2025年4月6日 晚上
+                    本文最后更新于：2025年4月7日 晚上
                   
                 
               </p>
@@ -299,7 +299,7 @@
             <div class="markdown-body">
               
               <h1>OS1 概述</h1>
-<p><strong>操作系统</strong>（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理阻止调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。</p>
+<p><strong>操作系统</strong>（OS，Operating System）是控制和管理整个计算机系统的硬件和软件资源。其负责合理组织调度计算机的工作和资源的分配，是计算机系统中最基本的系统软件。</p>
 <p>进程：一个程序的执行过程。执行进程时，将程序载入内存，才能被 CPU 处理。</p>
 <h2 id="OS1-1-操作系统的作用">OS1.1 操作系统的作用</h2>
 <p>操作系统的作用：</p>
@@ -339,6 +339,7 @@
 <p><strong>共享</strong>：系统中的资源可供内存中多个并发执行的进程共同使用。</p>
 <p>共享方式分为：互斥共享（同一时刻仅允许一个进程访问）、同时共享（同一时刻允许多个进程访问）</p>
 <p>上面的 “同一时刻” 是宏观上的。微观上，这些进程可能是交替对该资源进行访问的（分时共享）。</p>
+<p>并发性与共享性互相依赖，是操作系统最基本的两个特征。</p>
 </li>
 <li>
 <p><strong>虚拟</strong>：把一个物理上的实体变为若干逻辑上的对应物。</p>
@@ -494,7 +495,7 @@
 </ul>
 <h4 id="系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系">#系统调用、库函数、原语、陷入指令、访管指令、特权指令间的区别与联系</h4>
 <p><strong>特权指令</strong>：CPU 的执行状态分为目态和管态。只能在管态执行的指令称为特权指令，此外的指令称为非特权指令。</p>
-<p><strong>陷入指令</strong>：即访管指令，也称自陷指令、trap 指令。是非特权指令，且只能在目态下调用。执行陷入指令会引发中断，从而使程序由用户程序切换到操作系统，CPU 状态也从目态转变为管态。陷入指令是实现系统调用的重要手段。</p>
+<p><strong>陷入指令</strong>：即 <strong>访管指令</strong>，也称自陷指令、trap 指令。是非特权指令，且只能在目态下调用。执行陷入指令会引发中断，从而使程序由用户程序切换到操作系统，CPU 状态也从目态转变为管态。陷入指令是实现系统调用的重要手段。</p>
 <p><strong>系统调用</strong>：是操作系统提供的，用户与硬件间的接口。系统调用发生在目态，被调用程序运行在管态。系统调用的流程是，先执行陷入指令引发中断进入管态，之后在管态处理相应系统调用，最后返回。</p>
 <p><strong>库函数</strong>：是将函数封装入库，供用户使用的一种方式。库函数是语言或应用程序的一部分，可以运行在目态。库函数可能封装了部分系统调用，也可能不含系统调用。</p>
 <p><strong>原语</strong>：是若干条指令组成的程序段，在执行过程中不可被中断。原语是操作系统内核的一部分。对操作系统内核的各种功能调用通过执行原语操作来实现。原语和系统调用命令都是操作系统中的功能程序，有的系统调用是以原语的形式出现的（如创建进程），有的系统调用不是原语。</p>
