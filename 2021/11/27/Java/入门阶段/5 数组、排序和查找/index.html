@@ -24,7 +24,7 @@
 <meta property="og:description" content="5 数组、排序和查找  数组：可以存放多个同一类型的数据。数组也是一种数据，是引用类型。 即：数组就是一组数据。  5.1 一维数组  数组可以是多个相同类型数据的组合，实现对这些数据的统一管理。 数组中的元素可以是任何数据类型。包括基本类型和引用类型。 数组的下标从 0 开始。且必须在指定范围内使用，否则报错。 数组属于 引用类型，数组型数据是 对象（Object） 数组创建后，如果没有赋值，有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T03:13:51.448Z">
+<meta property="article:modified_time" content="2025-06-04T17:08:46.057Z">
 <meta property="article:author" content="Melody">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Java">
@@ -238,7 +238,7 @@
         
         
         
-          44 分钟
+          45 分钟
         
       </span>
     
@@ -293,7 +293,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月27日 上午
+                    本文最后更新于：2025年6月5日 凌晨
                   
                 
               </p>
@@ -624,10 +624,22 @@ many_doubles = <span class="hljs-keyword">new</span> <span class="hljs-title cla
 <h3 id="5-4-1-冒泡排序">5.4.1 冒泡排序</h3>
 <p>**冒泡排序：**通过对 <font color="#10ACAF">待排序序列</font> 从后向前遍历，依次比较相邻元素的值。若发现 <font color="#FF5A0F">逆序</font> 则交换。</p>
 <pre><code class=" mermaid">graph LR
-a(待排序序列)--&gt;b[遍历]--&gt;e((元素))--&gt;B(序列)
-e--比前一个元素小--&gt;c[交换]--&gt;B
-B--有未确定的值--&gt;b
-B--&gt;F(有序序列)</code></pre>
+R(待排序序列)
+F(有序序列)
+R--&gt;ss[...]--&gt;F
+ss--&gt;L(剩余元素)--非空--&gt;R
+L--为空--&gt;Fin[结束]
+
+	subgraph sb[将最大值置于队尾]
+	   ss
+	end</code></pre>
+<pre><code class=" mermaid">graph LR
+subgraph sub[将最大值置于队尾]
+	direction LR
+		a[遍历]--下一元素--&gt;e((元素))
+		e--比下一元素大--&gt;y[交换]--&gt;a
+		e--不比下一元素大--&gt;a
+	end</code></pre>
 <p>如此，各元素不断接近自己的位置。<font color="#FF5A0F">值较大的元素逐渐向后移动</font>，就像水下的气泡一样逐渐上浮。</p>
 <p>特别地：如果在某次排序中没有发生过任何交换，则此时是已完成排序，可提前结束排序过程。</p>
 <iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588760598&page=2&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
@@ -656,9 +668,9 @@ B--&gt;F(有序序列)</code></pre>
 <h3 id="5-4-2-选择排序">5.4.2 选择排序</h3>
 <p>**选择排序：**从 <font color="#10ACAF">待排序序列</font> 中，按指定规则选出某一元素，再依照规定交换位置后达到排序目的。</p>
 <pre><code class=" mermaid">graph LR
-A(待排序序列)--&gt;S[遍历查找]--&gt;e((最小元素))--&gt;D[与首位交换]--&gt;o
-o--为空--&gt;F(有序序列)
-o(剩余序列)--不为空--&gt;S</code></pre>
+A(待排序序列)--&gt;S[遍历查找最小值]--&gt;e((最小元素))--插入末尾--&gt;F(有序序列)
+S--&gt;R(剩余元素)--为空--&gt;Fin[结束]
+R--不为空--&gt;A</code></pre>
 <p>从 <font color="#10ACAF">待排序序列</font> 中找出 <font color="#6AAF0F">最小值</font>，与下标 0 位置元素 <font color="#FF5A0F">交换</font>。之后在剩余元素中找出 <font color="#6AAF0F">最小值</font>，与下标 1 元素 <font color="#FF5A0F">交换</font>。以此类推，直到完成。</p>
 <iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588763198&page=3&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了选择排序的工作原理</p>
@@ -684,7 +696,7 @@ o(剩余序列)--不为空--&gt;S</code></pre>
 <pre><code class=" mermaid">graph LR
 a(待排序序列)--首元素--&gt;O(有序表).-&gt;F(有序列表)
 a--其他元素--&gt;N(无序表)
-N--&gt;G((取出元素))--&gt;i[插入]--&gt;O
+N--&gt;G((元素))--&gt;i[插入]--&gt;O
 i-.无序表不为空.-&gt;N</code></pre>
 <p>将 <font color="#10ACAF">待排序序列</font> 的元素视为一个 <font color="#6AAF0F">有序表</font> 和一个 <font color="#FF5A0F">无序表</font>。起初， <font color="#6AAF0F">有序表</font> 中只有一个元素， <font color="#FF5A0F">无序表</font> 中有 n - 1 个元素。</p>
 <p>排序过程中每次从 <font color="#FF5A0F">无序表</font> 中取出第一个元素，把它依次与 <font color="#6AAF0F">有序表</font> 元素进行比较，确定其在 <font color="#6AAF0F">有序表</font> 的位置，将其插入 <font color="#6AAF0F">有序表</font> ，成为新的 <font color="#6AAF0F">有序表</font> 。</p>
@@ -715,10 +727,9 @@ i-.无序表不为空.-&gt;N</code></pre>
 A(待排序序列)--长度的一半--&gt;B((步长))
 B--&gt;D[分组]
 T--步长是 1--&gt;F(有序序列)
-D--&gt;d1((组1))--&gt;d11[插入排序]--&gt;T(序列)--&gt;t[步长减半]--&gt;B
-D--&gt;d2((组2))--&gt;d12[插入排序]--&gt;T(序列)
-D--&gt;d3((组3))--&gt;d13[插入排序]--&gt;T(序列)
-D--&gt;d4((...))--&gt;d141[插入排序]--&gt;T(序列)</code></pre>
+D--&gt;d1(组1)--&gt;d11[插入排序]--&gt;T(序列)--步长非1--&gt;t[步长减半]--&gt;B
+D--&gt;d2(组2)--&gt;d12[插入排序]--&gt;T(序列)
+D--&gt;d4(...)--&gt;d141[插入排序]--&gt;T(序列)</code></pre>
 <p><font color="#0000FF">希儿</font>排序也是一种插入排序，是简单插入排序的高效改进版。也称为：缩小增量排序。</p>
 <p><font color="#0000FF">希儿</font>排序是把 <font color="#10ACAF">待排序序列</font> 按下标的一定 <font color="#FF5A0F">步长</font> 进行 <font color="#6AAF0F">分组</font>，对每组使用 插入排序法。随着 <font color="#FF5A0F">步长</font> 逐渐减少，每组包含的 <font color="#6AAF0F">元素个数</font> 也越来越多。</p>
 <p>当 <font color="#FF5A0F">步长</font> 减至 1 时，整个 <font color="#10ACAF">待排序序列</font> 恰被分为 1 组，算法便中止。</p>
@@ -760,6 +771,7 @@ D--&gt;d4((...))--&gt;d141[插入排序]--&gt;T(序列)</code></pre>
 <p><font color="#0000FF">希儿</font>排序的增量元素不互质，极端情况下增量不起作用，于是最坏情况可能达到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
 <p>为解决该问题，提出了 <strong>Hibbard 增量序列</strong>。其增量的步长 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">D_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 改为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9324em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>。这样，保证了相邻两个元素互质。这种情况下，最坏情况达到了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mfrac><mn>3</mn><mn>2</mn></mfrac></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^{\frac 32})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.363em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <p>此外，还提出了 <strong>Sedgewick 增量序列</strong>。其步长 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">D_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>×</mo><msup><mn>4</mn><mi>i</mi></msup><mo>−</mo><mn>9</mn><mo>×</mo><msup><mn>2</mn><mi>i</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">9\times4^i-9\times2^i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.908em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.908em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>4</mn><mi>i</mi></msup><mo>−</mo><mn>3</mn><mo>×</mo><msup><mn>2</mn><mi>i</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">4^i-3\times2^i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.908em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.908em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>（上述两式结果的组合）。有猜想认为其平均时间复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>a</mi><mi>v</mi><mi>g</mi></mrow></msub><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mfrac><mn>7</mn><mn>6</mn></mfrac></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T_{avg}=O(n^{\frac 76})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">vg</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.363em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">6</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">7</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，而最坏情况为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mrow><mi>w</mi><mi>o</mi><mi>r</mi><mi>s</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mfrac><mn>4</mn><mn>3</mn></mfrac></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T_{worst}=O(n^{\frac 43})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span><span class="mord mathnormal mtight">ors</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.363em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>实际应用中，通常介于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mfrac><mn>1</mn><mn>3</mn></mfrac></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^{\frac13})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.363em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 到  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1484em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em;"><span style="top:-3.1473em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 之间。</p>
 <p class="note note-info">对随机数组 int[] array（array.length = 80000；array[i] ∊ [0, 10<sup>7</sup>)）进行<font color="#0000FF">希儿</font>排序。<br/>那个统计时间是：11 ms</p>
 <h3 id="5-4-5-快速排序">5.4.5 快速排序</h3>
 <p>**快速排序：**是对冒泡排序的一种改进。通过一趟排序，将 <font color="#10ACAF">待排序序列</font> <font color="#6AAF0F">分割</font> 成独立的两部分，其中一部分的所有数据都比另一部分小，再按此方法对这两部分数据 <font color="#FF5A0F">分别进行快速排序</font>。</p>
@@ -773,14 +785,14 @@ B--&gt;Bb(较大元素序列)--取出一个元素--&gt;bab[比较]--&gt;baba(较
 baaad--&gt;k6((元素))
 bab--&gt;babb(较大元素序列)--取出一个元素--&gt;baaae[...]--&gt;k7((元素))
 baaae--&gt;k8((元素))
-k1.-&gt;K(有序序列)
-k2.-&gt;K
-k3.-&gt;K
-k4.-&gt;K
-k5.-&gt;K
-k6.-&gt;K
-k7.-&gt;K
-k8.-&gt;K</code></pre>
+k1-.-&gt;K(有序序列)
+k2-.-&gt;K
+k3-.-&gt;K
+k4-.-&gt;K
+k5-.-&gt;K
+k6-.-&gt;K
+k7-.-&gt;K
+k8-.-&gt;K</code></pre>
 <p>整个排序过程可以 <font color="#FF5A0F">递归进行</font>，最终使整个数据变成有序序列。</p>
 <iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588764662&page=13&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
 <p>上面是 b 站大佬 <a target="_blank" rel="noopener" href="https://space.bilibili.com/418025703"><strong>说数人</strong></a> 制作的动画，演示了快速排序的工作原理</p>
@@ -823,15 +835,15 @@ k8.-&gt;K</code></pre>
 <h3 id="5-4-6-归并排序">5.4.6 归并排序</h3>
 <p>**归并排序：**利用归并的思想实现的排序方法。该算法采用经典的分治策略（将问题分解成几个小问题，然后分而治之）。</p>
 <pre><code class=" mermaid">graph TD
-A(待排序序列)--&gt;B[分解]
-B--&gt;b1((元素1))--&gt;ba[排序]--&gt;bb1((组1))--&gt;bba[合并]--&gt;bbb1((组1))--&gt;bbba[合并]--&gt;bbbb(有序序列)
-B--&gt;b2((元素2))--&gt;ba
-B--&gt;b3((元素3))--&gt;ba2[排序]--&gt;bb2((组2))--&gt;bba
-B--&gt;b4((元素4))--&gt;ba2
-B--&gt;b5((元素5))--&gt;ba3[排序]--&gt;bb3((组3))--&gt;bba2[合并]--&gt;bbb2((组2))--&gt;bbba
-B--&gt;b6((元素6))--&gt;ba3
-B--&gt;b7((元素7))--&gt;ba4[排序]--&gt;bb4((组4))--&gt;bba2
-B--&gt;b8((元素8))--&gt;ba4</code></pre>
+B(待排序序列)
+B--&gt;b1((元素))--&gt;ba[排序]--&gt;bb1(组)--&gt;bba[合并]--&gt;bbb1(组)--&gt;bbba[合并]--&gt;bbbb(有序序列)
+B--&gt;b2((元素))--&gt;ba
+B--&gt;b3((元素))--&gt;ba2[排序]--&gt;bb2(组)--&gt;bba
+B--&gt;b4((元素))--&gt;ba2
+B--&gt;b5((元素))--&gt;ba3[排序]--&gt;bb3(组)--&gt;bba2[合并]--&gt;bbb2(组)--&gt;bbba
+B--&gt;b6((元素))--&gt;ba3
+B--&gt;b7((元素))--&gt;ba4[排序]--&gt;bb4(组)--&gt;bba2
+B--&gt;b8((元素))--&gt;ba4</code></pre>
 <p>对 2 个元素进行比较、排序，是很容易的。对 2 个有序序列，将其合并为新的有序序列，也是容易的。</p>
 <p>因此，我们把 <font color="#10ACAF">待排序序列</font> 分成许多 <font color="#FF5A0F">组</font>，每组包含 2 个元素，并对每组进行排序。再逐渐 <font color="#6AAF0F">合并</font> 那些组，最终就能得到一个完整的有序序列。</p>
 <iframe src="//player.bilibili.com/player.html?aid=641228181&bvid=BV1CY4y1t7TZ&cid=588763441&page=4&autoplay=0" scrolling="no" width="400" height="300" > </iframe>
@@ -896,17 +908,12 @@ B--&gt;b8((元素8))--&gt;ba4</code></pre>
 <p class="note note-info">对随机数组 int[] array（array.length = 80000；array[i] ∊ [0, 10<sup>7</sup>)）进行归并排序。<br/>那个统计时间是：15 ms</p>
 <h3 id="5-4-7-基数排序">5.4.7 基数排序</h3>
 <p>**基数排序：**属于分配式排序（又称 “桶排序”。顾名思义，通过键值各个位的值，将 <font color="#10ACAF">待排序序列</font> 的元素分配至某些 <font color="#FF5A0F">桶</font> 中，达到排序的作用）。基数排序是经典的空间换时间的算法</p>
-<pre><code class=" mermaid">graph TD
+<pre><code class=" mermaid">graph LR
 
 A(待排序序列) --&gt; B&#123;第 k 轮&#125; --&gt; C[元素的第 k 位]
-C -.是 0--&gt; c0((桶0)).-&gt;D(新序列)
+C --是 0--&gt; c0((桶0)).-&gt;D(新序列)
 C --是 1--&gt; c1((桶1)).-&gt;D
-C --是 2--&gt; c2((桶2)).-&gt;D
-C --是 3--&gt; c3((桶3)).-&gt;D
-C --是 4--&gt; c4((桶4)).-&gt;D
-C --是 5--&gt; c5((桶5)).-&gt;D
-C --是 6--&gt; c6((桶6)).-&gt;D
-C --是 7--&gt; c7((桶7)).-&gt;D
+C --&gt; c3((...)).-&gt;D
 C --是 8--&gt; c8((桶8)).-&gt;D
 C --是 9--&gt; c9((桶9)).-&gt;D
 D --&gt; F[序列的最大值]--小于 10&lt;sup&gt;k&lt;/sup&gt;--&gt;E(有序序列)
@@ -959,24 +966,31 @@ F --大于等于 10&lt;sup&gt;k&lt;/sup&gt;--&gt; B</code></pre>
 <pre><code class=" mermaid">graph LR
 A(待排序序列)--&gt;B[...]
 
-subgraph ...
-B[整理]
+subgraph 维护堆
+B[...]
 end
 
-G --&gt; B
+G --非空--&gt; B
 B --&gt; C(堆)
-C --&gt; E&#123;唯一元素?&#125;
-E --是--&gt; F(有序序列)
-E --否--&gt; D((首尾交换))
-D --&gt; G(剩余元素)
-
-subgraph 整理 
-kk--&gt;b&#123;子节点更大&#125;
-kt--遍历结束--&gt;d(堆)
-k(当前序列)--&gt;kt[逆序遍历非叶节点]--继续遍历--&gt;kk((节点))
-b--否--&gt;kt
-b--是--&gt;c[与子节点交换]
-c--&gt;切换到子节点--&gt;kk
+C --&gt; E[取出堆顶元素] --&gt; e(元素) --&gt; O(有序序列)
+E --&gt; G(剩余元素) --为空--&gt; Fin[结束]</code></pre>
+<pre><code class=" mermaid">graph LR
+subgraph 调整节点 
+direction LR
+so((当前节点))--&gt;sa((非叶节点))--&gt;sb[与子节点比较]--不需交换--&gt;sf[结束]
+sb--交换--&gt;sc((子节点))--继续调整--&gt;sd[...]
+so--&gt;se((叶节点))--&gt;sf
+subgraph ppp[调整节点]
+sd
+end
+end
+subgraph 维护堆 
+direction LR
+s1(待维护序列)--&gt;s2[逆序遍历]--&gt;s3((非叶节点))--&gt;s4[...]--有剩余节点--&gt;s2
+s4--无剩余节点--&gt;s5[结束]
+subgraph pp[调整节点]
+s4
+end
 end</code></pre>
 <ol>
 <li>
