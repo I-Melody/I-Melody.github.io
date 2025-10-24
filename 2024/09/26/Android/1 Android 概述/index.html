@@ -25,12 +25,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_1.webp">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_2.webp">
+<meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_1_Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.webp">
 <meta property="og:image" content="https://i-melody.github.io/img/Android_InputImage/1_3_seivice%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
 <meta property="article:published_time" content="2024-09-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-25T22:25:17.506Z">
+<meta property="article:modified_time" content="2025-10-17T13:26:32.771Z">
 <meta property="article:author" content="Melody">
-<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i-melody.github.io/img/Android_InputImage/1_1.webp">
   
@@ -229,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.2k 字
+          8.6k 字
         
       </span>
     
@@ -240,7 +241,7 @@
         
         
         
-          26 分钟
+          25 分钟
         
       </span>
     
@@ -295,7 +296,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年10月26日 早上
+                    本文最后更新于：2025年10月17日 晚上
                   
                 
               </p>
@@ -511,43 +512,11 @@ setResult(RESULT_OK, res);</code></pre></div>
 <p>从 onResume 到 onPause 的过程是 Activity 的前台生存期</p>
 </li>
 <li>
-<p><strong>onRestart</strong>：重新可见</p>
+<p><strong>onRestart</strong>：重新可见。当且仅当调用过 onStop 后，在再次调用 onstart 前会调用 onRestart</p>
 </li>
 </ul>
-<pre><code class=" mermaid">graph LR
-1([onCreate])
-2([onDestroy])
-3([onStart])
-4([onStop])
-5([onResume])
-6([onPause])
-d&#123;&#123;进程被杀死&#125;&#125;
-subgraph ac1[Activity 完整生存期]
-	1--&gt;3
-    subgraph ac2[可见生存期]
-    	3--&gt;5
-        subgraph ac3[前台生存期]
-			5--&gt;6
-    		6-.onRestart..-&gt;5
-        end
-        6--&gt;4
-    	4-..-&gt;3
-    end
-    4--&gt;2
-    6-..-&gt;d-..-&gt;1
-    4-..-&gt;d-..-&gt;3
-end
-
-style ac1 fill:#999999ee,stroke:#000000,color:#ffffff
-style ac2 fill:#BBBBBBFF,stroke:#000000
-style ac3 fill:#EEEEEEff,stroke:#000000
-style 1 fill:#ffffffff
-style 2 fill:#ffffffff
-style 3 fill:#ffffffff
-style 4 fill:#ffffffff
-style 5 fill:#ffffffff
-style 6 fill:#ffffffff
-style d fill:#ffffffaa,stroke:#ffffff</code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" srcset="/img/loading.webp" lazyload data-original="/img/Android_InputImage/1_1_Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.webp" alt=""></p>
+<p><em>（1_1_Activity生命周期图）</em></p>
 <h3 id="1-1-3-Activity-的启动方式">1.1.3 Activity 的启动方式</h3>
 <p>Activity 的启动方式有以下四种：</p>
 <ul>
@@ -812,9 +781,9 @@ sendBroadcast(intent);</code></pre></div>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
-      
         <a href="/tags/Android/">#Android</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
       
     </div>
   
